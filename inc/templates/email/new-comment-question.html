@@ -1,0 +1,23 @@
+<div style="background: #f5f5f5; color: #333; font-size: 14px; line-height: 20px; font-family: Helvetica Neue, Helvetica, Arial, sans-serif;">
+    <div style="width: 600px; margin: 0 auto">
+        <div style="border-bottom: 1px solid #ddd; padding: 20px 0; text-align: center;">
+            {site_logo}
+        </div>
+        <div style="padding: 10px 0 40px;">
+            <p>Howdy {question_author},</p>
+            <table width="100%" cellspacing="0" cellpadding="0"> 
+                <tr> 
+                    <td width="80" valign="top"><div style="width: 60px; height: 60px; background: #ddd; text-align: center; word-wrap: break-word;">{comment_author_avatar}</div></td>
+                    <td valign="top">
+                        <p style="font-size: 14px; line-height: 20px; color: #333; font-family: Helvetica Neue, Helvetica, Arial, sans-serif;"><a style="text-decoration: none; color: #F7682C" href="{comment_author_link}">{comment_author}</a> has commented on your question at "<a href="{comment_link}" style="text-decoration: none; color: #F7682C">{question_title}</a>": <br />
+                        {comment_content}</p>
+                        <div style="padding: 10px 0 0"><a class="btn" href="{comment_link}" style="color: #fff; border-radius: 3px; text-decoration: none; background-color: #F7682C; padding: 10px 20px; font-size: 14px; font-family: Helvetica Neue, Helvetica, Arial, sans-serif;">View Comment →</a></div>
+                    </td> 
+                </tr>
+            </table>
+        </div>
+        <div style="border-top: 1px solid #ddd; padding: 20px 0; clear: both; text-align: center;">
+            <small style="font-size: 11px;">{site_name} - {site_description}</small>
+        </div>
+    </div>
+</div>

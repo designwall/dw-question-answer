@@ -1,0 +1,7 @@
+.mceItemTable, 
+.mceItemTable td, 
+.mceItemTable th, 
+.mceItemTable caption, 
+.mceItemVisualAid {
+    border: none;
+}

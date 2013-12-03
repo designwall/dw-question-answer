@@ -1,0 +1,44 @@
+.fixed .column-dwqa-answer{
+    width: 7em;
+    text-align: center;
+}
+
+#dwqa-answers.postbox .inside {
+    margin: 0;
+    padding: 0;
+}
+
+#dwqa-answers .dwqa-answer-list-table {
+    border:0 none;
+}
+
+#dwqa-answers .widefat td {
+    border-bottom: none;
+}
+.manage-column.column-title {
+    width: 35em;
+}
+.manage-column.column-comment{
+    width: 4em;
+}
+
+.column-comment .post-com-count{
+    display: inline-block;
+}
+
+.dwqa-notification-settings {
+    max-width: 800px;
+}
+
+.dwqa-question_page_dwqa-settings .dwqa-permission-settings td,
+.dwqa-question_page_dwqa-settings .dwqa-permission-settings th {
+    text-align: center;
+}
+
+.dwqa-question_page_dwqa-settings .dwqa-permission-settings tr.group td:first-child{
+    text-align: left;
+}
+
+.dwqa-question_page_dwqa-settings .dwqa-permission-settings tr.available td{
+    background-color: #fff;
+}

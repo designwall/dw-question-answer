@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>DW Question &amp; Answer</title>
+
+    <link href="assets/css/template.css" rel="stylesheet">
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body class="documentation" data-spy="scroll" data-target="#codex">
+
+    <nav class="navbar navbar-fixed-top" role="navigation" data-spy="affix" data-offset-top="50">
+      <div class="container">
+        <ul class="nav navbar-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li class="active"><a href="documentation.html">Documentation</a></li>
+          <li><a href="#">Support</a></li>
+          <li class="social">
+            <ul>
+              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+              <li><a href="#"><i class="fa fa-github"></i></a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <main id="main">
+      <section class="section jumbotron">
+        <div class="container">
+          <h1>Documentation</h1>
+        </div>
+      </section>
+      <section class="section guide">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3">
+              <div id="codex" class="well" data-spy="affix" data-offset-top="178">
+                <ul class="nav">
+                  <li class="active">
+                    <a href="#installation">Install / Upgrade</a>
+                    <ul>
+                      <li class="active"><a href="#automatic-installation">Automatic Installation</a></li>
+                      <li><a href="#manual-installation">Manual Installation</a></li>
+                      <li><a href="#uninstalling">Uninstalling</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#basic-config">Basic Config</a>
+                    <ul>
+                      <li><a href="#config-questions-list">Questions List</a></li>
+                      <li><a href="#config-ask-question">Ask Question</a></li>
+                      <li><a href="#config-time-frame">Time Frame</a></li>
+                      <li><a href="#config-permalinks">Permalinks</a></li>
+                      <li><a href="#config-emails">Email Templates</a></li>
+                      <li><a href="#config-permissions">Permissions</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#usage">Usage</a>
+                    <ul>
+                      <li><a href="#usage-ask-question">Ask Question</a></li>
+                      <li><a href="#usage-answer">Answer Question</a></li>
+                      <li><a href="#usage-comment">Comment</a></li>
+                      <li><a href="#usage-change-status">Change Status</a></li>
+
+                      <li><a href="#usage-filter">Filter Question</a></li>
+                      <li><a href="#usage-search">Search Question</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#tutorials">Tutorials</a>
+                    <ul>
+                      <li><a href="#tut-themes-integration">Themes Integration</a></li>
+                      <li><a href="#tut-translate-plugin">Translate Plugin</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#developer-api">Developer API</a>
+                    <ul>
+                      <li><a href="#api-classes">Classes</a></li>
+                      <li><a href="#api-functions">Functions</a></li>
+                      <li><a href="#api-actions">Actions</a></li>
+                      <li><a href="#api-filters">Filters</a></li>
+                    </ul>
+
+                  </li>
+                  <li><a href="#faq">Frequently Asked Questions</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-9">
+              <p class="lead">DW Question Answer is a WordPress Plugin which helps you build a Question & Answer system on your WordPress sites. The plugin is easy to install and set up. Let start building up your community with this WordPress question & answer system.</p>
+              <div class="page-header">
+                <h1 id="installation">Installation</h1>
+              </div>
+              <h3 id="automatic-installation">Automatic Installation</h3>
+              <p>To automatic install DW Question &amp; Answer plugin, you can using the built-in plugin installer:</p>
+              <ol>
+                <li>Login to your Administrator Panel.</li>
+                <li>Go to Plugins > Add New.</li>
+                <li>Under Search, type "DW Question &amp; Answer" in the name of the WordPress Plugin.</li>
+                <li>Click Install Now to install DW Question &amp; Answer plugin.</li>
+                <li>A popup window will ask you to confirm your wish to install the Plugin.</li>
+                <li>If successful, click Activate Plugin to activate it, or Return to Plugin Installer for further actions.</li>
+              </ol>
+
+              <p>For information on how to install DW Question &amp; Answer plugin manually, see our manual installation guide below.</p>
+
+              <h3 id="manual-installation">Manual Installation</h3>
+              <p>There are a few cases when manually installing DW Question &amp; Answer plugin is appropriate.</p>
+              <ul>
+                <li>If you wish to control the placement and process of installing DW Question &amp; Answer plugin.</li>
+                <li>If your server does not permit automatic installation of DW Question &amp; Answer plugin.</li>
+                <li>If you need to install a beta version of DW Question &amp; Answer plugin.</li>
+              </ul>
+
+              <p>To install DW Question &amp; Answer plugin manually:</p>
+
+              <ol>
+                <li>Download DW Question &amp; Answer plugin to your desktop.</li>
+                <li>Login to your Administrator Panel.</li>
+                <li>Go to Plugins > Add New.</li>
+                <li>Select Upload tab, browse the DW Question &amp; Answer plugin file.</li>
+                <li>Click Install now to start uploading the file.</li>
+                <li>If successful, click Activate Plugin to activate it, or Return to Plugin Installer for further actions.</li>
+              </ol>
+
+              <h3 id="uninstalling">Uninstalling</h3>
+              <p>To uninstall DW Question &amp; Answer plugin:</p>
+
+              <ol>
+                <li>Go to Plugins screen.</li>
+                <li>Find the Plugin you wish to deactivate and uninstall.</li>
+                <li>Under the DW Question &amp; Answer plugin, Click Deactivate.</li>
+                <li>The DW Question &amp; Answer plugin will initate the deactivation.</li>
+              </ol>
+              <div class="page-header">
+                <h1 id="basic-config">Basic Config</h1>
+              </div>
+              <h3 id="config-questions-list">Questions List</h3>
+              <img class="thumbnail" src="images/question-list-screenshot.png" width="600" alt="" />
+              <p>To set up a page display all questions on your website, please follow our instructions here:</p>
+              <ol>
+                <li>Login to your Administrator Panel.</li>
+                <li><p>Go to Pages > Add New.</p>
+                  <img class="thumbnail" src="images/add-new-question-page.png" alt="" />
+                </li>
+                <li><p>Go to Dashboard > DW Q&amp;A > Settings > General để chọn page mà bạn vừa tạo trở thành Questions List page.</p>
+                  <img class="thumbnail" src="images/question-list-page.png" alt="" />
+                </li>
+                <li><p>Go to Appearance > Menus để hiển thị Question List page ra menu.</p>
+                  <img class="thumbnail" src="images/add-question-page-to-menu.png" alt="" />
+                </li>
+              </ol>
+              <h3 id="config-ask-question">Ask Question</h3>
+              <img class="thumbnail" src="images/ask-question-screenshot.png" width="600" alt="" />
+              <p>To set up a page display all questions on your website, please follow our instructions here:</p>
+              <ol>
+                <li>Login to your Administrator Panel.</li>
+                <li><p>Go to Pages > Add New.</p>
+                  <img class="thumbnail" src="images/add-submit-question-page.png" alt="" />
+                </li>
+                <li><p>Go to Dashboard > DW Q&amp;A > Settings > General để chọn page mà bạn vừa tạo trở thành Ask Question page.</p>
+                  <img class="thumbnail" src="images/aks-question-page.png" alt="" />
+                </li>
+                <li><p>Go to Appearance > Menus để hiển thị Ask Question page ra menu.</p>
+                  <img class="thumbnail" src="images/add-page-to-menu.png" alt="" />
+                </li>
+              </ol>
+              <h3 id="config-time-frame">Time Frame</h3>
+              <img class="thumbnail" src="images/time-frame-setting.png" alt="" />
+              <h3 id="config-permalinks">Permalinks</h3>
+              <p>Set up permalinks for your Single Question, Question Category and Question Tag</p>
+              <p>Go to Dashboard > DW Q&amp;A > Settings > General.</p>
+              <p>See screenshot here:</p>
+              <img class="thumbnail" src="images/permark-link.png" alt="" />
+              <h3 id="config-emails">Email Templates</h3>
+                <p>There are 4 email templates you can customize the template:</p>
+                <p>To configure, log in to Dashboard > Questions > Settings > Notification</p>
+                <ul>
+                  <li><strong>New Question Notification:</strong> send out to Administrator regarding new questions posted</li>
+                  <li><strong>New Answer Notification:</strong> send out to Question’s author regarding new answer posted</li>
+                  <li><strong>New Comment to Question Notification:</strong> send out to Question’s author regarding new comment to question posted</li>
+                  <li><strong>New Comment to Answer Notification:</strong> send out to Question’s author regarding new comment to answer posted</li>
+                </ul>
+                <p>We already support a simple and clean style for email, simply Add your Logo and edit the content as you wish.</p>
+                <img class="thumbnail" src="images/notification-settings.png" alt="" />
+              <h3 id="config-permissions">Permissions</h3>
+              <img class="thumbnail" src="images/permission-setting.png" alt="" />
+              <div class="page-header">
+                <h1 id="usage">Usage</h1>
+              </div>
+              <h3 id="usage-ask-question">Ask Question</h3>
+              <h3 id="usage-answer">Answer Question</h3>
+              <h3 id="usage-comment">Comment</h3>
+              <h3 id="usage-change-status">Change Status</h3>
+              <h3 id="usage-filter">Filter Question</h3>
+              <h3 id="usage-search">Search Question</h3>
+              <div class="page-header">
+                <h1 id="tutorials">Tutorials</h1>
+              </div>
+              <h3 id="tut-themes-integration">Themes Integration</h3>
+              <p>The DW Question &amp; Answer plugin can work well on any WordPress site, however, in order to get the plugin fit well in the style, we will need to work on CSS a bit.</p>
+              <p><span class="label label-primary">Step 1</span> &nbsp;<strong>Create the Q&amp;A plugin’s template</strong></p>
+              <p>Go to your theme folder, and create a new folder, named it </strong>dwqa-templates</strong>.</p>
+              <p><img class="thumbnail" src="images/create-new-folder.png" alt="" /></p>
+              <p>Inside your new folder, create 3 files: </strong>content-start-wrapper.php, content-end-wrapper.php, and style.css.</strong></p>
+              <p><img class="thumbnail" src="images/3-files.png" alt="" /></p>
+              <p><span class="label label-primary">Step 2</span> &nbsp;<strong>Edit Content Wrapper files</strong></p>
+              <p>Open up the landing page file of your theme (normally it’s <strong>page.php</strong> file in <strong>themes/[theme-name]</strong> folder) in notepad or any code editor, you can see this as a content wrapper of the webpage.</p>
+              <pre>&lt;header <span style=' color: Blue;'>class</span>=<span style=' color: Maroon;'>"page-header"</span>&gt; 
+  &lt;h1 <span style=' color: Blue;'>class</span>=<span style=' color: Maroon;'>"page-title"</span>&gt;&lt;?php the_title(); ?&gt;&lt;/h1&gt; 
+&lt;/header&gt;         
+&lt;div <span style=' color: Blue;'>class</span>=<span style=' color: Maroon;'>"container-fluid"</span>&gt; 
+  &lt;div <span style=' color: Blue;'>class</span>=<span style=' color: Maroon;'>"entry-content"</span>&gt; 
+    &lt;?php the_content(); ?&gt; 
+    &lt;?php wp_link_pages( array( 'before' =&gt; '&lt;div <span style=' color: Blue;'>class</span>=<span style=' color: Maroon;'>"page-link"</span>&gt;&lt;span&gt;' . __( 'Pages:', 'dw-simplex' ) . '&lt;/span&gt;', 'after' =&gt; '&lt;/div&gt;' ) ); ?&gt; 
+  &lt;/div&gt; 
+&lt;/div&gt;</pre>
+              <p>Now, based on the content wrapper of the theme, let’s add some code to our </strong>content-start-wrapper.php</strong> file, for example here:</p>
+              <pre>&lt;?php <span style=' color: Blue;'>if</span>( is_page() ) { ?&gt; 
+&lt;header <span style=' color: Blue;'>class</span>=<span style=' color: Maroon;'>"page-header"</span>&gt; 
+    &lt;h1 <span style=' color: Blue;'>class</span>=<span style=' color: Maroon;'>"page-title"</span>&gt;&lt;?php _e( 'Question &amp; Answer', 'dw-simplex' ); ?&gt;&lt;/h1&gt; 
+&lt;/header&gt; 
+&lt;?php } ?&gt; 
+&lt;div <span style=' color: Blue;'>class</span>=<span style=' color: Maroon;'>"container-fluid"</span>&gt; 
+    &lt;div <span style=' color: Blue;'>class</span>=<span style=' color: Maroon;'>"entry-content"</span>&gt;</pre>
+              <div class="alert alert-info">Note: Where &quot;page-title&quot; is the page title you can edit for your Question page.</div>
+              <p><strong>content-end-wrapper.php</strong> file:</p>
+              <pre>   &lt;/div&gt;
+&lt;/div&gt;</pre>
+              <div class="alert alert-info">Note: The Q&amp;A content will be displayed in the DIV element &lt;div class=&quot;entry-content&quot;&gt;</div>
+              <p><span class="label label-primary">Step 3</span> &nbsp;<strong>Add custom style</strong></p>
+              <p>The DW Question &amp; Answer plugin includes three pages with unique class for each page as following:</p>
+              <ul>
+                <li>Question List Page (class: <strong>list-dwqa-question</strong>)</li>
+                <li>Question Single Page (class: <strong>single-dwqa-question</strong>)</li>
+                <li>Question Submit Page (class: <strong>submit-dwqa-question</strong>)</li>
+              </ul>
+              <p>At this stage, you will need to work on CSS in order to style the plugin to fit your website. In the <strong>style.css</strong> file created in <strong>dwqa-templates</strong> folder, add the style you want for the plugin using defined class above:</p>
+              <pre>/* In question list page */
+.list-dwqa-question .page-header {
+
+}
+
+/* Single question page */
+.single-dwqa-question .dwqa-container {
+
+}
+
+/* Submit question page */
+.submit-dwqa-question .dwqa-container {
+
+}</pre>
+              <p>Final step: you need to load the custom style by adding the following code to wp-content/themes/[theme_name]/functions.php:</p>
+              <pre>/* Load style for DW Q&amp;A plugin */
+if( !function_exists('dwqa_simplex_scripts') ){
+    function dwqa_simplex_scripts(){
+        wp_enqueue_style( 'dw-simplex-qa', get_stylesheet_directory_uri() . '/dwqa-templates/style.css' );
+    }
+    add_action( 'wp_enqueue_scripts', 'dwqa_hueman_scripts' );
+}</pre>
+              <p>Save and refresh your website to see the changes.</p>
+              <h3 id="tut-translate-plugin">Translate Plugin</h3>
+              <p>There are plenty number of Translation tools for WordPress which can help you to push up the process, you can take a look at <a title="WordPress Translation tools list" href="http://codex.wordpress.org/Translating_WordPress#Translation_Tools" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://codex.wordpress.org']);" target="_blank">WordPress translation Tools list</a>. In our case we decide to use <a title="Poedit WordPress translation tool" href="http://www.poedit.net/download.php" onclick="javascript:_gaq.push(['_trackEvent','outbound-article','http://www.poedit.net']);" target="_blank">Poedit</a>&nbsp;to edit <strong>.po</strong> file and generate <strong>.mo</strong> file</p>
+              <p><span class="label label-primary">Step 1</span> &nbsp;Download and install Poedit if you don’t have any translation tool yet.</p>
+              <p><span class="label label-primary">Step 2</span> &nbsp;Open Poedit, select <strong>File &gt; New catalog from POT file</strong> on the main menu then navigate to the DW Question &amp; Answer languages folder in the folder path <strong>/wp-content/plugins/dw-question-answer/languages/</strong> and choose the <strong>"default.po"</strong> file.</p>
+              <p>Now, you will see a list of all the language strings you can edit.</p>
+              <p>Click on strings you want to translate and edit.</p>
+              <p><img src="images/translation-poedit.png" alt="" /></p>
+              <p><span class="label label-primary">Step 3</span> &nbsp;Once done, go to <strong>File → Save as</strong> to save your translations in a <strong>.po file</strong> according to your language code.</p>
+              <div class="alert alert-info">Note: you need to add prefix <strong>"dwqa-"</strong> to your translation file name.</div>
+              <p>For example, the language code for French is <strong>fr_FR</strong>, so you would save the translated file as <strong>dwqa-fr_FR.po</strong>.<br>
+If you don’t know your language code, you can find a list of language codes at <a href="http://codex.wordpress.org/WordPress_in_Your_Language">WordPress in your Language</a>.</p>
+              <p><span class="label label-primary">Step 4</span> &nbsp;Set your Poedit to always compile a .mo file when saving changes by clicking <strong>File → Preferences</strong> and on the Editor tab check the <em>"Automatically compile .mo file" </em>:</p>
+              <p><img src="images/automatically-generate-mo.png" alt="" /></p>
+              <p>Then go to File → Save again to generate a .mo file.</p>
+              <p>Now, you have two separate files – a .po file and a .mo file as following:</p>
+              <p><img class="thumbnail" src="images/two-files.png" alt="" /></p>
+              <p><span class="label label-primary">Step 5</span> &nbsp;Make sure that your wp-config.php file matches your language files.</p>
+              <p>For example, your language is French, you need to set your language in wp-config.php file by finding the following code:</p>
+              <pre>define ('WPLANG', '');</pre>
+              <p>and add the language code into it:</p>
+              <pre>define ('WPLANG', 'fr_FR');</pre>
+              <p>Save your wp-config.php file, upload it to your WordPress installation, and you are ready to go.</p>
+              <div class="page-header">
+                <h1 id="developer-api">Developer API</h1>
+              </div>
+              <h3 id="api-classes">Classes</h3>
+              <h3 id="api-functions">Functions</h3>
+              <h3 id="api-actions">Actions</h3>
+              <h3 id="api-filters">Filters</h3>
+              <div class="page-header">
+                <h1 id="faq">Frequently Asked Questions</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="footer">
+      <div class="container">
+        <p>&copy; DesignWall 2013</p>
+      </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+  </body>
+</html>

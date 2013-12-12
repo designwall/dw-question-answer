@@ -6128,6 +6128,7 @@ td.visible-print {
   margin: 0 auto;
 }
 .carousel-control {
+  outline: none !important;
   background: none !important;
   opacity: 1;
   filter: alpha(opacity=100);
@@ -6167,6 +6168,9 @@ td.visible-print {
 .lead {
   color: #999999;
 }
+.navbar {
+  background: #2c303b;
+}
 .navbar .container > ul {
   display: block;
   width: 100%;
@@ -6183,9 +6187,6 @@ td.visible-print {
 .navbar .btn {
   padding: 4px 14px;
   margin: 10px 0 10px 20px;
-}
-.navbar.affix {
-  background: #333333;
 }
 .navbar.affix .container > ul {
   border-bottom: none;
@@ -6286,6 +6287,12 @@ td.visible-print {
 .features .jumbotron h1 {
   margin: 0 0 40px;
 }
+.features .jumbotron p {
+  margin: -20px 0 40px;
+  font-size: 36px;
+  color: #999999;
+  font-weight: 500;
+}
 .feature-item {
   border: 1px solid rgba(255, 255, 255, 0.1);
   width: 163px;
@@ -6365,7 +6372,7 @@ td.visible-print {
   border-bottom: none;
 }
 #quotes {
-  background: #333333;
+  background: #2c303b;
   color: #fff;
   border-bottom: none;
   position: relative;

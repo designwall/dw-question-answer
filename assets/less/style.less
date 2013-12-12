@@ -40,6 +40,7 @@
 }
 
 .carousel-control {
+  outline: none !important;
   background: none !important;
   .opacity(1);
   width: auto;
@@ -86,6 +87,8 @@
 }
 
 .navbar {
+  background: #2c303b;
+
   .container > ul {
     display: block;
     width: 100%;
@@ -105,10 +108,6 @@
   .btn {
     padding: 4px 14px;
     margin: 10px 0 10px 20px;
-  }
-
-  &.affix {
-    background: @gray-dark;
   }
 
   &.affix .container > ul {
@@ -225,6 +224,13 @@
     h1 {
       margin: 0 0 40px;
     }
+
+    p {
+      margin: -20px 0 40px;
+      font-size: 36px;
+      color: @gray-light;
+      font-weight: 500;
+    }
   }
 }
 
@@ -327,7 +333,7 @@
 }
 
 #quotes {
-  background: @gray-dark;
+  background: #2c303b;
   color: #fff;
   border-bottom: none;
   position: relative;

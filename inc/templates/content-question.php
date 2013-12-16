@@ -1,19 +1,5 @@
 <?php 
     $post_id = get_the_ID();
-    $cats = wp_get_post_terms( $post_id, 'dwqa-question_category' );
-    $cats_html = '';
-    if( ! empty($cats) ) {
-        $cats_html = '<span>';
-        $i = 0;
-        foreach ( $cats as $category ) {
-            $i ++;
-            $cats_html .= '<a href="'.get_term_link( $category ).'">' . $category->name . '</a>';
-            if( $i < count($cats) ) {
-                $cats_html .= ',&nbsp;';
-            }
-        }
-        $cats_html .= '</span>';
-    }
 ?>
     <article id="question-<?php echo $post_id; ?>" <?php post_class(); ?>>
 
@@ -41,10 +27,11 @@
                         $author_link = __('Anonymous','dwqa');
                     }
                     printf( 
-                        '%1$s  <span>%2$s</span>  %3$s', 
+                        '%1$s %1$s  <span>%2$s</span>  %3$s', 
+                        __('by','dwqa'),
                         $author_link,
                         get_the_date(), 
-                        $cats_html
+                        get_the_term_list( $post_id, 'dwqa-question_category', '<span>Theme: ', ', ', '</span>' )
                     );
                 ?>
             </div>

@@ -8,8 +8,7 @@ function dwqa_init_options(){
         'pages'     => array(
                 'submit-question'   =>  0,
                 'archive-question'     => 0
-            ),
-        'question-registration'     => false
+            )
         
     ) );
 
@@ -77,7 +76,6 @@ function dwqa_settings_display(){
                 submit_button( __('Save all changes','dwqa') );
                 echo '</div>';
             } elseif ( 'permission' == $active_tab ) {
-                echo '<h3>'.__('Group permission settings','dwqa'). '</h3>';
                 settings_fields( 'dwqa-permission-settings' );
                 dwqa_permission_display();
                 submit_button();
@@ -101,14 +99,6 @@ function dwqa_register_settings(){
         false, 
         null, 
         'dwqa-settings' 
-    );
-    
-    add_settings_field( 
-        'dwqa_options[pages][question-registration]', 
-        __('Login Restriction', 'dwqa'), 
-        'dwqa_question_registration_setting_display', 
-        'dwqa-settings', 
-        'dwqa-general-settings'
     );
 
     add_settings_field( 
@@ -536,26 +526,19 @@ function dwqa_permission_display(){
     global $dwqa_permission;
     $perms = $dwqa_permission->perms;
     ?>
+    <input type="hidden" id="reset-permission-nonce" name="reset-permission-nonce" value="<?php echo wp_create_nonce( '_dwqa_reset_permission' ); ?>">
+    <h3><?php _e('Question','dwqa') ?></h3>
     <table class="table widefat dwqa-permission-settings">
         <thead>
             <tr>
-                <th></th>
-                <th colspan="4"><?php _e('Question','dwqa') ?></th>
-                <th colspan="4"><?php _e('Answer','dwqa') ?></th>
+                <th width="20%"></th>
+                <th>Read</th>
+                <th>Post</th>
+                <!-- <th>Edit</th>
+                <th>Delete</th> -->
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th></th>
-                <th>Read</th>
-                <th>Post</th>
-                <th>Edit</th>
-                <th>Delete</th>
-                <th>Read</th>
-                <th>Post</th>
-                <th>Edit</th>
-                <th>Delete</th>
-            </tr>
             <?php  
                 $roles = get_editable_roles();
                 foreach ($dwqa_permission->defaults as $key => $role) {
@@ -565,31 +548,136 @@ function dwqa_permission_display(){
             ?>
             <tr class="group available">
                 <td><?php echo $roles[$key]['name'] ?></td>
-                <td><input type="checkbox" <?php checked( true, $perms[$key]['question']['read'] ); disabled( true, $perms[$key]['disabled']  ); ?> name="dwqa_permission[<?php echo $key ?>][question][read]" value="1"></td>
-                <td><input type="checkbox" <?php checked( true, $perms[$key]['question']['post'] ); disabled( true, $perms[$key]['disabled']  ); ?> name="dwqa_permission[<?php echo $key ?>][question][post]" value="1"></td>
-                <td><input type="checkbox" <?php checked( true, $perms[$key]['question']['edit'] ); disabled( true, $perms[$key]['disabled']  ); ?> name="dwqa_permission[<?php echo $key ?>][question][edit]" value="1"></td>
-                <td><input type="checkbox" <?php checked( true, $perms[$key]['question']['delete'] ); disabled( true, $perms[$key]['disabled']  ); ?> name="dwqa_permission[<?php echo $key ?>][question][delete]" value="1"></td>
-                <td><input type="checkbox" <?php checked( true, $perms[$key]['answer']['read'] ); disabled( true, $perms[$key]['disabled']  ); ?> name="dwqa_permission[<?php echo $key ?>][answer][read]" value="1"></td>
-                <td><input type="checkbox" <?php checked( true, $perms[$key]['answer']['post'] ); disabled( true, $perms[$key]['disabled']  ); ?> name="dwqa_permission[<?php echo $key ?>][answer][post]" value="1"></td>
-                <td><input type="checkbox" <?php checked( true, $perms[$key]['answer']['edit'] ); disabled( true, $perms[$key]['disabled']  ); ?> name="dwqa_permission[<?php echo $key ?>][answer][edit]" value="1"></td>
-                <td><input type="checkbox" <?php checked( true, $perms[$key]['answer']['delete'] ); disabled( true, $perms[$key]['disabled']  ); ?> name="dwqa_permission[<?php echo $key ?>][answer][delete]" value="1"></td>
+                <td><input type="checkbox" <?php checked( true, $perms[$key]['question']['read'] ); ?> name="dwqa_permission[<?php echo $key ?>][question][read]" value="1"></td>
+                <td><input type="checkbox" <?php checked( true, $perms[$key]['question']['post'] ); ?> name="dwqa_permission[<?php echo $key ?>][question][post]" value="1"></td>
+                <!-- <td><input type="checkbox" <?php checked( true, $perms[$key]['question']['edit'] ); ?> name="dwqa_permission[<?php echo $key ?>][question][edit]" value="1"></td>
+                <td><input type="checkbox" <?php checked( true, $perms[$key]['question']['delete'] ); ?> name="dwqa_permission[<?php echo $key ?>][question][delete]" value="1"></td> -->
+               
             </tr>
             <?php
                 }
             ?>
             <tr class="group available">
                 <td><?php _e('Anonymous','dwqa') ?></td>
-                <td><input type="checkbox" <?php checked( true, $perms['anonymous']['question']['read'] ); disabled( true, $perms['anonymous']['disabled']  ); ?> name="dwqa_permission[<?php echo 'anonymous' ?>][question][read]" value="1"></td>
-                <td><input type="checkbox" <?php checked( true, $perms['anonymous']['question']['post'] ); disabled( true, $perms['anonymous']['disabled']  ); ?> name="dwqa_permission[<?php echo 'anonymous' ?>][question][post]" value="1"></td>
-                <td><input type="checkbox" <?php checked( true, $perms['anonymous']['question']['edit'] ); disabled( true, $perms['anonymous']['disabled']  ); ?> name="dwqa_permission[<?php echo 'anonymous' ?>][question][edit]" value="1"></td>
-                <td><input type="checkbox" <?php checked( true, $perms['anonymous']['question']['delete'] ); disabled( true, $perms['anonymous']['disabled']  ); ?> name="dwqa_permission[<?php echo 'anonymous' ?>][question][delete]" value="1"></td>
-                <td><input type="checkbox" <?php checked( true, $perms['anonymous']['answer']['read'] ); disabled( true, $perms['anonymous']['disabled']  ); ?> name="dwqa_permission[<?php echo 'anonymous' ?>][answer][read]" value="1"></td>
-                <td><input type="checkbox" <?php checked( true, $perms['anonymous']['answer']['post'] ); disabled( true, $perms['anonymous']['disabled']  ); ?> name="dwqa_permission[<?php echo 'anonymous' ?>][answer][post]" value="1"></td>
-                <td><input type="checkbox" <?php checked( true, $perms['anonymous']['answer']['edit'] ); disabled( true, $perms['anonymous']['disabled']  ); ?> name="dwqa_permission[<?php echo 'anonymous' ?>][answer][edit]" value="1"></td>
-                <td><input type="checkbox" <?php checked( true, $perms['anonymous']['answer']['delete'] ); disabled( true, $perms['anonymous']['disabled']  ); ?> name="dwqa_permission[<?php echo $key ?>][answer][delete]" value="1"></td>
+                <td><input type="checkbox" <?php checked( true, $perms['anonymous']['question']['read'] ); ?> name="dwqa_permission[<?php echo 'anonymous' ?>][question][read]" value="1"></td>
+                <td><input disabled="disabled" type="checkbox" <?php checked( true, $perms['anonymous']['question']['post'] ); ?> name="dwqa_permission[<?php echo 'anonymous' ?>][question][post]" value="1"></td>
+                <!-- <td><input type="checkbox" <?php checked( true, $perms['anonymous']['question']['edit'] ); ?> disabled="disabled" name="dwqa_permission[<?php echo 'anonymous' ?>][question][edit]" value="1"></td>
+                <td><input type="checkbox" <?php checked( true, $perms['anonymous']['question']['delete'] ); ?> disabled="disabled"  name="dwqa_permission[<?php echo 'anonymous' ?>][question][delete]" value="1"></td> -->
             </tr>
         </tbody>
     </table>
+    <p class="reset-button-container align-right" style="text-align:right">
+        <button data-type="question" class="button reset-permission"><?php _e( 'Reset Default', 'dwqa' ); ?></button>
+    </p>
+    <h3><?php _e( 'Answer', 'dwqa' ); ?></h3>
+    <table class="table widefat dwqa-permission-settings">
+        <thead>
+            <tr>
+                <th width="20%"></th>
+                <th>Read</th>
+                <th>Post</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php  
+                $roles = get_editable_roles();
+                foreach ($dwqa_permission->defaults as $key => $role) {
+                    if( $key == 'anonymous' ) {
+                        continue;
+                    }
+            ?>
+            <tr class="group available">
+                <td><?php echo $roles[$key]['name'] ?></td>
+                <td><input type="checkbox" <?php checked( true, $perms[$key]['answer']['read'] ); ?> name="dwqa_permission[<?php echo $key ?>][answer][read]" value="1"></td>
+                <td><input type="checkbox" <?php checked( true, $perms[$key]['answer']['post'] ); ?> name="dwqa_permission[<?php echo $key ?>][answer][post]" value="1"></td>
+                <td><input type="checkbox" <?php checked( true, $perms[$key]['answer']['edit'] ); ?> name="dwqa_permission[<?php echo $key ?>][answer][edit]" value="1"></td>
+                <td><input type="checkbox" <?php checked( true, $perms[$key]['answer']['delete'] ); ?> name="dwqa_permission[<?php echo $key ?>][answer][delete]" value="1"></td>
+            </tr>
+            <?php
+                }
+            ?>
+            <tr class="group available">
+                <td><?php _e('Anonymous','dwqa') ?></td>
+                <td><input type="checkbox" <?php checked( true, $perms['anonymous']['answer']['read'] ); ?> name="dwqa_permission[<?php echo 'anonymous' ?>][answer][read]" value="1"></td>
+                <td><input type="checkbox" <?php checked( true, $perms['anonymous']['answer']['post'] ); ?> name="dwqa_permission[<?php echo 'anonymous' ?>][answer][post]" value="1"></td>
+                <td><input type="checkbox" <?php checked( true, $perms['anonymous']['answer']['edit'] ); ?> disabled="disabled"  name="dwqa_permission[<?php echo 'anonymous' ?>][answer][edit]" value="1"></td>
+                <td><input type="checkbox" <?php checked( true, $perms['anonymous']['answer']['delete'] ); ?> disabled="disabled"  name="dwqa_permission[<?php echo $key ?>][answer][delete]" value="1"></td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="reset-button-container align-right" style="text-align:right">
+        <button data-type="answer" class="button reset-permission"><?php _e( 'Reset Default', 'dwqa' ); ?></button>
+    </p>
+    <h3><?php _e('Comment','dwqa') ?></h3>
+    <table class="table widefat dwqa-permission-settings">
+        <thead>
+            <tr>
+                <th width="20%"></th>
+                <th>Read</th>
+                <th>Post</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php  
+                $roles = get_editable_roles();
+                foreach ($dwqa_permission->defaults as $key => $role) {
+                    if( $key == 'anonymous' ) {
+                        continue;
+                    }
+            ?>
+            <tr class="group available">
+                <td><?php echo $roles[$key]['name'] ?></td>
+                <td><input type="checkbox" <?php checked( true, $perms[$key]['comment']['read'] ); ?> name="dwqa_permission[<?php echo $key ?>][comment][read]" value="1"></td>
+                <td><input type="checkbox" <?php checked( true, $perms[$key]['comment']['post'] ); ?> name="dwqa_permission[<?php echo $key ?>][comment][post]" value="1"></td>
+                <td><input type="checkbox" <?php checked( true, $perms[$key]['comment']['edit'] ); ?> name="dwqa_permission[<?php echo $key ?>][comment][edit]" value="1"></td>
+                <td><input type="checkbox" <?php checked( true, $perms[$key]['comment']['delete'] ); ?> name="dwqa_permission[<?php echo $key ?>][comment][delete]" value="1"></td>
+            </tr>
+            <?php
+                }
+            ?>
+            <tr class="group available">
+                <td><?php _e('Anonymous','dwqa') ?></td>
+                <td><input type="checkbox" <?php checked( true, $perms['anonymous']['comment']['read'] ); ?> name="dwqa_permission[<?php echo 'anonymous' ?>][comment][read]" value="1"></td>
+                <td><input type="checkbox" <?php checked( true, $perms['anonymous']['comment']['post'] ); ?> name="dwqa_permission[<?php echo 'anonymous' ?>][comment][post]" value="1"></td>
+                <td><input type="checkbox" <?php checked( true, $perms['anonymous']['comment']['edit'] ); ?> disabled="disabled"  name="dwqa_permission[<?php echo 'anonymous' ?>][comment][edit]" value="1"></td>
+                <td><input type="checkbox" <?php checked( true, $perms['anonymous']['comment']['delete'] ); ?> disabled="disabled"  name="dwqa_permission[<?php echo $key ?>][comment][delete]" value="1"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p class="reset-button-container align-right" style="text-align:right">
+        <button data-type="comment" class="button reset-permission"><?php _e( 'Reset Default', 'dwqa' ); ?></button>
+    </p>
+    <script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $('.reset-permission').on('click',function(event){
+            event.preventDefault();
+            if( confirm("<?php _e('Reset all changed to default','dwqa'); ?>" ) ) {
+                var nonce = $('#reset-permission-nonce').val();
+                var type = $(this).data('type');
+
+                $.ajax({
+                    url: "<?php echo admin_url('admin-ajax.php') ?>",
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {
+                        action: 'dwqa-reset-permission-default',
+                        nonce: nonce,
+                        type: type
+                    }
+                })
+                .done(function() {
+                    window.location.href = window.location.href;
+                });
+                
+            }
+        });
+    });
+    </script>
     <?php
 }
 

@@ -55,7 +55,7 @@ get_header('dwqa'); ?>
 							<li class="<?php echo $selected == 'closed' ? 'active' : ''; ?> status-closed" data-type="closed">
 								<a href="#"><?php _e( 'Closed','dwqa' ); ?></a>
 							</li>
-							<?php if( current_user_can( 'edit_published_posts' ) ) : ?>
+							<?php if( dwqa_current_user_can( 'edit_question' ) ) : ?>
 							<li class="<?php echo $selected == 'overdue' ? 'active' : ''; ?> status-overdue" data-type="overdue"><a href="#"><?php _e('Overdue','dwqa') ?></a></li>
 							<li class="<?php echo $selected == 'pending-review' ? 'active' : ''; ?> status-pending-review" data-type="pending-review"><a href="#"><?php _e('Queue','dwqa') ?></a></li>
 	
@@ -117,14 +117,14 @@ get_header('dwqa'); ?>
 						?>
 					<?php } ?>
 					<ul class="order">
-						<li class="most-reads" data-type="views" >
-							<span><?php _e('View', 'dwqa') ?></span> <i class="sort icon-sort"></i>
+						<li class="most-reads <?php echo isset($_GET['orderby']) && $_GET['orderby'] == 'views' ? 'active' : ''; ?>"  data-type="views" >
+							<span><?php _e('View', 'dwqa') ?></span> <i class="sort icon-sort <?php echo isset($_GET['orderby']) && $_GET['orderby'] == 'views' ? 'icon-sort-up' : ''; ?>"></i>
 						</li>
-						<li class="most-answers" data-type="answers" >
-							<span href="#"><?php _e('Answer', 'dwqa') ?></span> <i class="sort icon-sort"></i>
+						<li class="most-answers <?php echo isset($_GET['orderby']) && $_GET['orderby'] == 'answers' ? 'active' : ''; ?>" data-type="answers" >
+							<span href="#"><?php _e('Answer', 'dwqa') ?></span> <i class="sort icon-sort <?php echo isset($_GET['orderby']) && $_GET['orderby'] == 'answers' ? 'icon-sort-up' : ''; ?>"></i>
 						</li>
-						<li class="most-votes" data-type="votes" >
-							<span><?php _e('Vote', 'dwqa') ?></span> <i class="sort icon-sort"></i>
+						<li class="most-votes <?php echo isset($_GET['orderby']) && $_GET['orderby'] == 'votes' ? 'active' : ''; ?>" data-type="votes" >
+							<span><?php _e('Vote', 'dwqa') ?></span> <i class="sort icon-sort <?php echo isset($_GET['orderby']) && $_GET['orderby'] == 'votes' ? 'icon-sort-up' : ''; ?>"></i>
 						</li>
 					</ul>
 				</div>
@@ -206,6 +206,9 @@ get_header('dwqa'); ?>
 			                	$end = $pages;
 			                }
 			            }
+			            if( $start > 1 ) {
+	                        echo '<li><a href="'.add_query_arg('paged',1,$link).'">1</a></li><li class="dot"><span>...</span></li>';
+	                    }
 						for ($i=$start; $i <= $end; $i++) { 
 							$current = $i == $paged ? 'class="active"' : '';
 							if( $i == 1 ) {
@@ -214,6 +217,10 @@ get_header('dwqa'); ?>
 								echo '<li '.$current.'><a href="'.add_query_arg('paged', $i, $link).'">'.$i.'</a></li>';
 							}
 						}
+
+			            if( $i - 1 < $pages ) {
+	                        echo '<li class="dot"><span>...</span></li><li><a href="'.add_query_arg('paged',$pages,$link).'">'.$pages.'</a></li>';
+	                    }
 						echo '<li class="next';
 						if( $paged == $pages ) {
 							echo ' hide';
@@ -232,6 +239,9 @@ get_header('dwqa'); ?>
 
 <?php else: ?>
 	<?php
+        if( ! dwqa_current_user_can('read_question') ) {
+            echo '<div class="alert">'.__('You do not have permission to view questions','dwqa').'</div>';
+        }
         echo '<p class="not-found">';
          _e('Sorry, but nothing matched your filter.', 'dwqa' );
          if( is_user_logged_in() ) {

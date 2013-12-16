@@ -3,7 +3,7 @@ Contributors: DesignWall
 Tags: question, answer, support, quora, stackoverflow
 Requires at least: 3.0.1
 Tested up to: 3.7.1
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -12,6 +12,8 @@ Your WordPress site will have a full-featured Question & Answer section like Sta
 == Description ==
 
 Developed by [DesignWall](http://www.designwall.com/?utm_source=readme&utm_medium=description_tab&utm_content=plugin_link&utm_campaign=dwqa_plugin), DW Question & Answer is a FREE [WordPress Plugin](http://www.designwall.com/wordpress/plugins/) in which builds up a Question & Answer system on your WordPress site.
+
+* [Github Project](https://github.com/designwall/DW-Question-Answer)
 
 Your WordPress site will have a full-featured Question & Answer section like Stack Overflow, Quora or Yahoo Answers. Your users can Submit question, Search and Filter questions by status, get answered from others. Users can comment and reply to a question or an answer, can vote and definitely can pick one best answer for their questions.
 
@@ -45,6 +47,22 @@ Here is the list of features of this plugin:
 5. Back-end settings
 
 == Changelog ==
+
+= 1.0.3=
+
+* Fixed: Missing attribute "class" when insert codes to <code> tag on Answer Editor
+* Fixed: Input's placeholder disappeared on IE 8,9 in submit question page
+* Fixed: Time is incorrect when add question/answer/comment
+* Fixed: duplicate answer after changing status of the question
+* Fixed: Line spacing between code lines becomes larger after editting
+* Fixed: Can not post comment on IE 8
+* Fixed: Time stamp is overlapped by avatar
+
+* Tweak: Auto create 2 pages: "Questions" & "Ask" when active plugin
+* Convert links when add new comment
+* Have a message to inform number of charaters for title box
+
+* New: Permission Settings - allow you to set permissions for default user roles: read, post, edit and delete either questions, answers or comments
 
 = 1.0.2 =
 

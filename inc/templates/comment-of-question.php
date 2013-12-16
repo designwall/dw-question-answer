@@ -36,11 +36,11 @@ if ( post_password_required() )
 
     <?php endif; // have_comments() ?>
     <?php if( ! dwqa_is_closed( get_the_ID() ) ) { ?>
-        <?php if( is_user_logged_in() ) { ?>
+        <?php if( dwqa_current_user_can( 'post_comment' ) ) { ?>
             <?php
                 global $current_user;
                 $args = array(
-                    'comment_field' => get_avatar( $current_user->ID, 32 ).'<textarea id="comment" name="comment" aria-required="true" placeholder="Write a reply..."></textarea>',
+                    'comment_field' => ((is_user_logged_in()) ? get_avatar( $current_user->ID, 32 ) : '') .'<textarea id="comment" name="comment" aria-required="true" placeholder="Write a reply..."></textarea>',
                     'comment_notes_before' => '',
                     'logged_in_as' => '',
                     'comment_notes_after' => '',

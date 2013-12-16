@@ -237,13 +237,18 @@ function dwqa_add_answer(){
             'post_title'     => $answer_title,
             'post_type'      => 'dwqa-answer'
         );
-        if( $_POST['submit-answer'] == __('Save draft','dwqa') ) {
+        if( $_POST['submit-answer'] == __( 'Save draft','dwqa' ) ) {
             $answers['post_status'] = 'draft';
         }
 
         switch ( $_POST['dwqa-action'] ) {
             case 'add-answer':
-                $answer_id = wp_insert_post( $answers, true );
+                if( dwqa_current_user_can('post_answer') ) {
+                    $answer_id = wp_insert_post( $answers, true );
+                } else {
+                    $answer_id =  new WP_Error('permission', __("You do not have permission to submit question.",'dwqa') );
+                }
+                
                 if( ! is_wp_error( $answer_id ) ) {
                     //Send email alert for author of question about this answer
                     $question_author = $question->post_author;
@@ -261,7 +266,7 @@ function dwqa_add_answer(){
                         }
                     }
                     do_action( 'dwqa_add_answer', $answer_id );
-                    wp_safe_redirect( get_permalink($question_id) );
+                    wp_redirect( get_permalink($question_id) );
                     return true;
                 } else {
                     $dwqa_current_error = $answer_id;
@@ -287,7 +292,8 @@ function dwqa_add_answer(){
     }
     $dwqa_current_error = $dwqa_add_answer_errors;
 }
-add_action( 'wp_head', 'dwqa_add_answer' );
+add_action( 'wp_ajax_dwqa-add-answer', 'dwqa_add_answer' );
+add_action( 'wp_ajax_nopriv_dwqa-add-answer', 'dwqa_add_answer' );
 
 /**
  * Change redirect link when comment for answer finished
@@ -462,7 +468,12 @@ function dwqa_submit_question(){
                     'dwqa-question_tag'         => explode(',', $tags )
                 )
             );  
-            $new_question = dwqa_insert_question( $postarr );
+
+            if( dwqa_current_user_can('post_question') ) {
+                $new_question = dwqa_insert_question( $postarr );
+            } else {
+                $new_question = new WP_Error('permission', __("You do not have permission to submit question.",'dwqa') );
+            }
 
             if( ! is_wp_error( $new_question ) ) {
                 exit( wp_safe_redirect( get_permalink( $new_question ) ) );
@@ -808,6 +819,7 @@ function dwqa_init_tinymce_editor( $args = array() ){
             'rows'          => 5,
             'wpautop'       => false
         ) ) );
+    
     wp_editor( $content, $id, array(
         'wpautop'       => $wpautop,
         'media_buttons' => false,
@@ -1074,6 +1086,13 @@ function dwqa_auto_convert_urls( $content ){
 }
 add_filter( 'the_content', 'dwqa_auto_convert_urls' );
 
+function dwqa_sanitizie_comment( $content ){
+    $content = str_replace( esc_html('<br>'), '<br>', esc_html( $content ) );
+    $content = dwqa_auto_convert_urls( $content );
+    return $content;
+}
+add_filter( 'get_comment_text', 'dwqa_sanitizie_comment' );
+
 function dwqa_vote_best_answer(){
     global $current_user;
     check_ajax_referer( '_dwqa_vote_best_answer', 'nonce' );
@@ -1208,5 +1227,54 @@ function dwqa_user_most_answer_last_month( $number = 10 ){
     $to = strtotime('last day of last month' );
     return dwqa_user_most_answer( $number, $from, $to);
 }
+
+function dwqa_get_questions_permalink(){
+    if( isset($_GET['params']) ) {
+        global $dwqa_options;
+        $params = explode( '&', $_GET['params'] );
+        $args = array();
+        foreach ($params as $p ) {
+            $arr = explode('=', $p);
+            $args[$arr[0]] = $arr[1];
+        }
+        if( !empty( $args ) ) {
+            $url = get_permalink( $dwqa_options['pages']['archive-question'] );
+            if( $url ) {
+                $url = add_query_arg( $args, $url);
+                wp_send_json_success( array( 'url' => $url ) );
+            } else {
+                wp_send_json_error( array(
+                    'error' => 'missing_questions_archive_page'
+                ) );
+            }
+        } else {
+            wp_send_json_error( array(
+                'error' => 'empty'
+            ) );
+        }
+    }
+    wp_send_json_error();
+}
+add_action( 'wp_ajax_dwqa-get-questions-permalink', 'dwqa_get_questions_permalink' );
+add_action( 'wp_ajax_nopriv_dwqa-get-questions-permalink', 'dwqa_get_questions_permalink' );
+
+function dwqa_reset_permission_default(){
+    global $dwqa_permission;
+    if( !isset($_POST['nonce']) || ! wp_verify_nonce( $_POST['nonce'], '_dwqa_reset_permission' ) ) {
+        wp_send_json_error( array(
+            'message'   => __('Are you cheating huh?')
+        ) );
+    }
+    if( isset($_POST['type']) ) {
+        $old = $dwqa_permission->perms;
+        foreach ($dwqa_permission->defaults as $role => $perms) {
+            $dwqa_permission->perms[$role][$_POST['type']] = $perms[$_POST['type']];
+        }
+        $dwqa_permission->reset_caps( $old, $dwqa_permission->perms );
+        wp_send_json_success();
+    }
+    wp_send_json_error();
+}
+add_action( 'wp_ajax_dwqa-reset-permission-default', 'dwqa_reset_permission_default' );
 
 ?>

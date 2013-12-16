@@ -43,7 +43,7 @@ if ( post_password_required() )
         $id = get_the_ID(); 
         $question = get_post_meta( $id, '_question', true );
     if( ! dwqa_is_closed($question) ) {
-        if( is_user_logged_in() ) {
+        if( dwqa_current_user_can( 'post_comment' ) ) {
             global $current_user;
 
             $args = array(
@@ -52,7 +52,7 @@ if ( post_password_required() )
                 'comment_notes_before' => '',
                 'logged_in_as' => '',
                 'comment_notes_after' => '',
-                'comment_field' => get_avatar( $current_user->ID, 32 ).'<textarea id="comment-'.$id.'" name="comment" aria-required="true" placeholder="Write a reply..."></textarea>',
+                'comment_field' => ((is_user_logged_in()) ? get_avatar( $current_user->ID, 32 ) : '') .'<textarea id="comment-'.$id.'" name="comment" aria-required="true" placeholder="Write a reply..."></textarea>',
             );
             comment_form($args); 
         }

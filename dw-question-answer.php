@@ -4,10 +4,11 @@
  *  Description: A WordPress plugin was make by DesignWall.com to build an Question Answer system for support, asking and comunitcate with your customer 
  *  Author: DesignWall
  *  Author URI: http://www.designwall.com
- *  Version: 1.0.2
+ *  Version: 1.0.3
  *  Text Domain: dwqa
  */
-
+global $script_version;
+$script_version = 1387162992;
 
 // Define constant for plugin info 
 if( !defined( 'DWQA_DIR' ) ) {
@@ -41,6 +42,7 @@ function dwqa_deactivate_hook(){
     global $dwqa_permission;
     wp_clear_scheduled_hook( 'dwqa_hourly_event' );
     $dwqa_permission->remove_permision_caps();
+    delete_option( 'dwqa_options' );
     flush_rewrite_rules();
 }
 register_deactivation_hook( __FILE__, 'dwqa_deactivate_hook' );
@@ -49,8 +51,44 @@ function dwqa_activate() {
     global $dwqa_permission;
     $dwqa_permission->prepare_permission_caps();
     flush_rewrite_rules();
+
+    //Auto create question page
+    $options = get_option( 'dwqa_options' );
+
+    $args = array(
+        'post_title' => __('DWQA Questions','dwqa'),
+        'post_type' => 'page',
+        'post_status' => 'publish',
+        'posts_per_page' => 1
+    );
+    $question_page = get_page_by_title( $args['post_title'] );
+    if( ! $question_page && ( !isset($options['pages']['archive-question']) || ! $options['pages']['archive-question'] ) ) {
+        $new_page = wp_insert_post( $args );
+        $options['pages']['archive-question'] = $new_page;
+    } else {
+        $options['pages']['archive-question'] = $question_page->ID;
+    }
+    $args = array(
+        'post_title' => __('DWQA Ask Question','dwqa'),
+        'post_type' => 'page',
+        'post_status' => 'publish',
+        'posts_per_page' => 1
+    );
+    $ask_page = get_page_by_title( $args['post_title'] );
+    if( ! $ask_page && ( !isset($options['pages']['submit-question']) || ! $options['pages']['archive-question'] ) ) {
+        $new_page = wp_insert_post( $args );
+        $options['pages']['submit-question'] = $new_page;
+    } else {
+        $options['pages']['submit-question'] = $ask_page->ID;
+    }
+    update_option( 'dwqa_options', $options );
 }
 register_activation_hook( __FILE__, 'dwqa_activate' );
+
+function dwqa_flush_rewrite(){
+    flush_rewrite_rules();
+}
+add_action('switch_theme', 'dwqa_flush_rewrite');
 
 /*** PLUGIN INIT */
 function dwqa_plugin_init(){
@@ -232,9 +270,9 @@ add_action( 'init', 'dwqa_plugin_init' );
  * @return void
  */     
 function dwqa_enqueue_scripts(){
-    global $dwqa_options;
+    global $dwqa_options, $script_version;
     wp_enqueue_script( 'jquery' );
-    $version = 1383808580;
+    $version = $script_version;
     $dwqa = array(
         'code_icon'    => DWQA_URI . 'assets/img/icon-code.png',
         'ajax_url'      => admin_url( 'admin-ajax.php' ),
@@ -242,6 +280,7 @@ function dwqa_enqueue_scripts(){
         'text_prev'     => __('Prev','dwqa'),
         'questions_archive_link'    => get_post_type_archive_link( 'dwqa-question' ),
         'error_missing_question_content'    =>  __( 'Please enter your question', 'dwqa' ),
+        'error_question_length' => __('Your question must be at least 2 characters in length', 'dwqa' ),
         'error_valid_email'    =>  __( 'Enter a valid email address', 'dwqa' ),
         'error_valid_user'    =>  __( 'Enter a question title', 'dwqa' ),
         'error_missing_answer_content'  => __('Please enter your answer','dwqa'),
@@ -376,7 +415,7 @@ function dwqa_human_time_diff( $from, $to = false, $format = false ){
 function dwqa_human_time_diff_for_date( $the_date, $d ){
     global $post;
     if( $post->post_type == 'dwqa-question' || $post->post_type == 'dwqa-answer' ) {
-        return dwqa_human_time_diff( strtotime($the_date), false, $d );
+        return dwqa_human_time_diff( strtotime( get_the_time('c') ), false, $d );
     }
     return $the_date;
 }
@@ -386,7 +425,7 @@ function dwqa_comment_human_time_diff_for_date( $the_date, $d ){
     global $comment;
     $parent_posttype = get_post_type( $comment->comment_post_ID );
     if( $parent_posttype == 'dwqa-question' || $parent_posttype == 'dwqa-answer' ) {
-        return dwqa_human_time_diff( strtotime($the_date), false, $d );
+        return dwqa_human_time_diff( strtotime($comment->comment_date), false, $d );
     }
     return $the_date;
 }
@@ -467,7 +506,7 @@ function array_insert(&$array,$element,$position=null) {
 }
 // ADD NEW COLUMN  
 function dwqa_columns_head($defaults) {  
-    if( $_GET['post_type'] == 'dwqa-answer' ) {
+    if( isset( $_GET['post_type'] ) && $_GET['post_type'] == 'dwqa-answer' ) {
         $defaults = array(
             'cb'            => '<input type="checkbox">',
             'info'          => __( 'Answer', 'dwqa' ),
@@ -651,7 +690,7 @@ function dwqa_related_question( $question_id = false ) {
     $related_questions = new WP_Query( $args );
     
     if( $related_questions->have_posts() ) {
-        echo '<h3>'.__('Related Question','dwqa').'</h3>';
+        echo '<h3>'.__('Related Questions','dwqa').'</h3>';
         echo '<ul>';
         while ( $related_questions->have_posts() ) { $related_questions->the_post();
             echo '<li><a href="'.get_permalink().'" class="question-title">'.get_the_title().'</a> '.__('asked by','dwqa').' ';

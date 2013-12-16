@@ -164,7 +164,7 @@ jQuery(function($){
     $('[id^=comment_form_]').on('submit',function(event){
         event.preventDefault();
         var t = $(this),
-            contentField = t.find('textarea[name="comment"]');
+            contentField = t.find('textarea[name="comment"]'),
             content = contentField.val().trim().replace(/\n/g,'<br>');
 
         if( content.length <= 2 ) {
@@ -323,8 +323,9 @@ jQuery(function($){
     //End comment edit
 
     //Delete comment 
-    $('#comments, .answers-list, .commentlist').delegate('.comment-delete-link','click',function(event){
+    $('.dwqa-container').delegate('.comment-delete-link','click',function(event){
         event.preventDefault();
+
         var t = $(this), comment_type = t.data('comment-type'),
             comment_count = $('.dwqa-'+comment_type+' .'+comment_type+'-comment .comment-count');
 

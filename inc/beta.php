@@ -31,16 +31,15 @@ function dwqa_reopen_question_have_new_comment($comment_ID){
     }
 
     if( $question ) {
-
         $question_status = get_post_meta( $question, '_dwqa_status', true );
-        if( ! user_can( $answer->post_author, 'edit_posts' ) ) {
+        if( ! user_can( $comment->user_id, 'edit_posts' ) ) {
             if( 'resolved' == $question_status ) {
                 update_post_meta( $question, '_dwqa_status', 're-open' );
             }
         }
     }
 }
-//add_action( 'wp_insert_comment', 'dwqa_reopen_question_have_new_comment' );
+add_action( 'wp_insert_comment', 'dwqa_reopen_question_have_new_comment' );
 
 //Auto close question when question was resolved longtime
 function dwqa_schedule_events() {

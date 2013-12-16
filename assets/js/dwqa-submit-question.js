@@ -1,4 +1,18 @@
 jQuery(function($){
+    $('[placeholder]').focus(function() {
+      var input = $(this);
+      if (input.val() == input.attr('placeholder')) {
+        input.val('');
+        input.removeClass('placeholder');
+      }
+    }).blur(function() {
+      var input = $(this);
+      if (input.val() == '' || input.val() == input.attr('placeholder')) {
+        input.addClass('placeholder');
+        input.val(input.attr('placeholder'));
+      }
+    }).blur();
+
     $('#dwqa-submit-question-form').on('submit',function(e){
         var t= $(this);
         var flag = true;
@@ -11,13 +25,20 @@ jQuery(function($){
                         placeholder: placeholder
                     });
                 }
+                if( $(this).next('.required') ) {
+                    $(this).next('.required').remove();
+                }
             });
         }
-
-        if( $('#question-title').val().length <= 3 ) {
+        
+        if( $('#question-title').val().length <= 3 || $('#question-title').val() == $('#question-title').attr('placeholder') ) {
             e.preventDefault();
             var placeholder = $('#question-title').attr('placeholder');
-            $('#question-title').addClass('required').attr('placeholder', dwqa.error_missing_question_content);
+            if( $('#question-title').val().length == 0 ) {
+                $('#question-title').addClass('required').attr('placeholder', dwqa.error_missing_question_content);
+            } else {
+                $('#question-title').addClass('required').after( '<span class="description required">* ' + dwqa.error_question_length + '</span>');
+            }
             returnDefault( $('#question-title'), placeholder );
             flag = false;
         }
@@ -33,14 +54,14 @@ jQuery(function($){
             username_signup.removeAttr('disabled');
             var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
             
-            if( ! regex.test( email_field.val() ) ) {
+            if( ! regex.test( email_field.val() ) || email_field.val() == email_field.attr('placeholder') ) {
                 email_field.closest('p').fadeIn('slow');
                 email_field.addClass('required');
                 returnDefault( email_field );
                 flag = false;
             }
 
-            if( username_signup.length > 0 && username_signup.val().length < 3 ) {
+            if( (username_signup.length > 0 && username_signup.val().length < 3) || username_signup.val() == username_signup.attr('placeholder') ) {
                 username_signup.addClass('required');
                 returnDefault( username_signup );
                 flag = false;
@@ -50,12 +71,12 @@ jQuery(function($){
             username_signup.attr('disabled', 'disabled');
             username.removeAttr('disabled');
             password.removeAttr('disabled');
-            if( username.length > 0 && username.val().length < 3 ) {
+            if( (username.length > 0 && username.val().length < 3) || username.val() == username.attr('placeholder') ) {
                 username.addClass('required');
                 returnDefault( username );
                 flag = false;
             }
-            if( password.val().length < 3 ) {
+            if( password.val().length < 3 || password.val() == password.attr('placeholder') ) {
                 password.addClass('required');
                 returnDefault( password );
                 flag = false;

@@ -23,7 +23,9 @@ jQuery(function($){
 
     var filter_bar = $('.filter-bar'),
         container = $('.questions-wrap'),
-        old_type = 'all' , type = 'all', order = 'DESC',
+        old_type = 'all' , 
+        type =  getURLParameter('orderby') ? getURLParameter('orderby') : 'all', 
+        order = 'DESC',
         pagenavi_box = filter_bar.find('#dwqa_filter_posts_per_page'),
         posts_per_page = 10,
         filter_plus = getURLParameter('status');
@@ -34,7 +36,7 @@ jQuery(function($){
         tag_select = $('.filter-bar #dwqa-filter-by-tags'),
         tags = getURLParameter('dwqa-tag'),
         paged = getURLParameter('paged'),
-        paged = paged ? paged : 1,
+        paged = paged ? paged : $('#dwqa-paged').val(),
         search_form =  $('.dwqa-search-form'),
         title = null, tags = 'null' ;
 
@@ -106,14 +108,21 @@ jQuery(function($){
         if( $paramString.substring(0,1) == '&' ) {
             $paramString = $paramString.substring(1, $paramString.length );
         } 
-        if( $paramString.length > 0 ){
-            $paramString = '?' + $paramString;
-            if (history.pushState)
-                window.history.pushState( null,document.title, $paramString );
-        } else {
-            if (history.pushState)
-                history.pushState("", document.title, $(location).attr('href').substring(0,  $(location).attr('href').indexOf("?") ) );
-        }
+        $.ajax({
+            url: dwqa.ajax_url,
+            type: 'GET',
+            dataType: 'json',
+            data: {
+                action: 'dwqa-get-questions-permalink',
+                params: $paramString
+            }
+        })
+        .done(function(resp) {
+            if( resp.success ) {
+                if (history.pushState)
+                    window.history.pushState( null,document.title, resp.data.url );
+            }
+        });
 
 
         $filter = $.ajax({
@@ -277,7 +286,7 @@ jQuery(function($){
         var t = $(this),
             pages = $('.questions-wrap .pagination ul').data('pages');
 
-        if( t.hasClass('hide') || t.hasClass('active') ) {
+        if( t.hasClass('hide') || t.hasClass('active') || t.hasClass('dot') ) {
             return false;
         }
         $(window).scrollTop( $('.questions-list').scrollTop() );
@@ -302,64 +311,6 @@ jQuery(function($){
 
         // Move active page navi to index
         current.removeClass('active');
-
-        if( pages > 5 ) {
-            var pagenavi = '<ul data-pages="'+pages+'">',
-            start = paged - 2, end = paged + 2;
-
-            if( end > pages ) {
-                end = pages; 
-                start = pages - 5;
-            }
-
-            if( start < 1 ) {
-                start = 1; end = 5;
-                if( end > pages ) {
-                    end = pages;
-                }
-            }
-            pagenavi += '<li class="prev';
-            if( paged == 1 ) {
-                pagenavi += ' hide';
-            }
-            pagenavi += '"><a href="javascript:void(0);">'+dwqa.text_prev+'</a></li>';
-            for( var i = start; i <= end ; i++ ) {
-                pagenavi += '<li';
-                if( i == paged ) {
-                    pagenavi += ' class="active"';
-                }
-                pagenavi += '><a href="'+dwqa.questions_archive_link+'?paged='+i+'">'+i+'</a></li>';
-            }
-            pagenavi += '<li class="next';
-            if( paged == pages ) {
-                pagenavi += ' hide';
-            }
-            pagenavi += '"><a href="javascript:void(0);">'+dwqa.text_next+'</a></li>';
-            pagenavi += '</ul>';
-            $('.questions-wrap .pagination').html( pagenavi );
-
-        } else {
-            $('.questions-wrap .pagination ul li').each(function(index){
-                if( $(this).text() == paged ) {
-                    $(this).addClass('active');
-                }
-
-                switch( paged ) {
-                    case 1:
-                        t.closest('ul').find('.next').removeClass('hide');
-                        t.closest('ul').find('.prev').addClass('hide');
-                        break;
-                    case pages:
-                        t.closest('ul').find('.next').addClass('hide');
-                        t.closest('ul').find('.prev').removeClass('hide');
-                        break;
-                    default: 
-                        t.closest('ul').find('.next').removeClass('hide');
-                        t.closest('ul').find('.prev').removeClass('hide');
-                        break;
-                }
-            });
-        }
         start_filter();
     });
 

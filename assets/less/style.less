@@ -128,6 +128,7 @@
 	.entry-header {
 		width: 100%;
 		margin-bottom: 10px;
+		background: transparent !important;
 		.box-sizing(border-box);
 
 		.entry-title {
@@ -137,6 +138,7 @@
 			line-height: 1.3 !important;
 			font-weight: 700;
 			font-family: @font-family-sans-serif;
+			text-transform: none!important;
 		}
 	}
 
@@ -150,6 +152,9 @@
 	.entry-meta {
 		color: @meta-color;
 		font-size: 12px;
+		background: transparent !important;
+		text-transform: none!important;
+		padding: 0!important;
 
 		> span:first-child {
 			margin-left: 0;
@@ -686,6 +691,48 @@
 		padding: 15px 19px 0!important;
 		margin-bottom: 20px!important;
 		position: relative;
+
+		.btn-follow {
+			float: right;
+			font-size: 13px;
+			margin-top: 2px;
+			z-index: 1;
+			position: relative;
+			text-transform: none;
+			height: 25px;
+			line-height: 25px;
+		}
+
+		.entry-meta {
+			border-bottom: 1px solid #eaeaea;
+			margin-bottom: 15px !important;
+			padding-left: 55px;
+			position: relative;
+
+			.avatar {
+				left: 0;
+			}
+
+			.entry-user {
+				float: left;
+
+				
+			}
+			.entry-share {
+				float: right;
+				margin-top: 13px;
+
+				ul {
+					list-style: none;
+					margin: 0;
+					padding: 0;
+
+					li {
+						display: inline;
+					}
+				}
+			}
+		}
 	}
 
 	.answer-flagged-content {
@@ -725,6 +772,11 @@
 			padding: 0;
 			margin: 0 0 10px 0;
 		}
+
+		.comment-meta {
+			display: inline;
+			float: none;
+		}
 	}
 
 	.select {
@@ -746,7 +798,7 @@
 	.avatar {
 		width: 32px;
 		height: 32px;
-		padding: 2px;
+		padding: 3px;
 		margin: 0 10px 0 0;
 		border: 1px solid @hentry-border;
 		position: absolute;
@@ -784,7 +836,7 @@
 	}
 
 	.entry-meta {
-		padding: 15px 15px 10px 70px;
+		padding: 15px 15px 10px 70px !important;
 		margin: 0 !important;
 		background: transparent;
 		border-bottom: 0;
@@ -1244,6 +1296,11 @@
 						color: @gray-darker;
 					}
 				}
+
+				span {
+					padding: 0 13px;
+					color: @gray-light;
+				}
 			}
 
 			>li:first-child>a, 
@@ -1559,13 +1616,19 @@
 			}
 		}
 
-		// .entry-vote-best {
-		// 	position: absolute;
-		// 	left: -25px;
-		// 	top: 95px;
-		// 	text-align: center;
-		// 	width: 23px;
-		// }
+		.user-role {
+			position: absolute;
+			top: 54px;
+			left: 15px;
+			background: transparent;
+			padding: 0 4px!important;
+			margin: 0!important;
+			text-transform: uppercase;
+			font-size: 11px;
+			color: #fff;
+			background: @user-role-color;
+			font-family: @font-family-sans-serif;
+		}
 	}
 
 	#add-answer {
@@ -1590,6 +1653,11 @@
 	}
 
 	.entry-footer {
+
+		.user-role {
+			color: @user-role-color;
+			text-transform: uppercase;
+		}
 
 		#respond {
 			padding: 5px 15px 0 15px;
@@ -1720,6 +1788,7 @@
 			margin-bottom: 10px;
 			font-size: 11px;
 			line-height: 20px;
+			width: 100%;
 
 			.sep {
 				display: none;
@@ -1930,18 +1999,6 @@
 
 			.entry-meta{
 				margin: 0 0 1.714285714rem;
-
-				.user-role {
-					position: absolute;
-					top: 55px;
-					left: 17px;
-					background: transparent;
-					padding: 0 !important;
-					margin: 0 !important;
-					text-transform: uppercase;
-					font-size: 11px;
-					color: @text-user-role;
-				}
 
 				.tag-label {
 					background: @bg-user-role;
@@ -2352,3 +2409,21 @@
 		}
 	}
 }
+
+// Fun classes
+[class*="dwqa-question"] {
+	.entry-content .edit-link a:before, 
+	.entry-meta .edit-link a:before,
+	.comment-edit-link:before {
+		content: "";
+	}
+	.comments-area {
+		padding: 0 !important;
+	}
+	.dw-question #loginform .login-submit input {
+		padding: 5px 6px;
+	}
+	.dw-question #loginform .login-password {
+		margin-left: 10px;
+	}
+} 

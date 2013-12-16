@@ -10,6 +10,7 @@ function dwqa_generate_template_for_plugin($template) {
     if( is_singular( 'dwqa-answer' ) ) {
         $question_id = get_post_meta( $post->ID, '_question', true );
         if( $question_id ) {
+            wp_safe_redirect( get_permalink( $question_id ) );
             query_posts( 'p='.$question_id.'&post_type=dwqa-question' );
             return dwqa_load_template( 'single', 'question', false );
         }
@@ -52,7 +53,6 @@ function dwqa_generate_template_for_comment_form( $comment_template ) {
     if (  is_single() && 'dwqa-answer' == get_post_type() ) {
         return dwqa_load_template( 'comment', 'of-answer', false );
     }
-
     return $comment_template;
 }
 
@@ -148,7 +148,12 @@ function dwqa_answers($question_id){
             ?>
         </div>
     
-    <?php }
+    <?php } else {
+
+        if( ! dwqa_current_user_can('read_answer') ) {
+            echo '<div class="alert">'.__('You do not have permission to view answers','dwqa').'</div>';
+        }
+    }
     
     wp_reset_query();
     //Create answer form
@@ -159,18 +164,19 @@ function dwqa_answers($question_id){
         return false;
     }
 
-    if(  is_user_logged_in() 
-        || ( ! is_user_logged_in() 
-            && ( ! isset( $dwqa_options['answer-registration'] ) 
-                            || ! (bool) $dwqa_options['answer-registration']) )  
-    ) {
+    if( dwqa_current_user_can('post_answer') ){
     ?>
     <div id="add-answer">
         <h3 class="dwqa-title"><?php _e('Answer this Question', 'dwqa' ); ?></h3>
-        <form action="" name="dwqa-answer-question-form" id="dwqa-answer-question-form" method="post">
-
-            <?php 
+        <form action="<?php echo admin_url( 'admin-ajax.php?action=dwqa-add-answer' ); ?>" name="dwqa-answer-question-form" id="dwqa-answer-question-form" method="post">
+            <?php  
+                function dwqa_paste_srtip_disable( $mceInit ){
+                    $mceInit['paste_strip_class_attributes'] = 'none';
+                    return $mceInit;
+                }
+                add_filter( 'tiny_mce_before_init', 'dwqa_paste_srtip_disable' );
                 $editor = array( 
+                    'wpautop'       => false,
                     'id'            => 'dwqa-answer-question-editor',
                     'textarea_name' => 'answer-content',
                     'rows'          => 2
@@ -188,16 +194,18 @@ function dwqa_answers($question_id){
         </form>
     </div>
     <?php
-    } else {
-        $register_link = wp_register( '', '', false );
-        ?>
-        <h3 class="dwqa-title"><?php _e('Please <a href="'.wp_login_url( get_post_permalink( $question_id ) ).'">Login</a> to Submit Question', 'dwqa' ); ?></h3>
+    } else { ?>
+        <?php if( is_user_logged_in() ) { ?>
+            <div class="alert"><?php _e('You do not have permission to submit answer.','dwqa') ?></div>
+        <?php } else { ?>
+        <h3 class="dwqa-title"><?php _e('Please <a href="'.wp_login_url( get_post_permalink( $question_id ) ).'">Login</a> to Submit Answer', 'dwqa' ); ?></h3>
         <div class="login-box">
-            <?php
-            wp_login_form();
-            ?>
+            <?php wp_login_form( array(
+                'redirect'  => get_post_permalink( $question_id )
+            ) ); ?>
         </div>
         <?php
+        }
     }
 }
 
@@ -233,12 +241,18 @@ function dwqa_question_comment_callback( $comment, $args, $depth ) {
 }
 
 function dwqa_load_template( $name, $extend = false, $include = true ){
+    $check = true;
     if( $extend ) {
         $name .= '-' . $extend;
     }
     $template = get_stylesheet_directory() . '/dwqa-templates/'.$name.'.php';
     if( ! file_exists($template) ) {
         $template = DWQA_DIR . 'inc/templates/'.$name.'.php';
+    }
+
+    $template = apply_filters( 'dwqa-load-template', $template, $name );
+    if( ! $template ) {
+        return false;
     }
     if( ! $include ) {
         return $template;
@@ -355,4 +369,93 @@ function dwqa_body_class($classes) {
 }
 add_filter('body_class', 'dwqa_body_class');
 
+function dwqa_submit_question_form(){
+    if( dwqa_current_user_can('post_question') ) {
+    ?>
+    <div id="submit-question" class="dw-question">    
+        <?php  
+            global $dwqa_options, $dwqa_current_error;
+
+            if( is_wp_error( $dwqa_current_error ) ) {
+                $error_messages = $dwqa_current_error->get_error_messages();
+                
+                if( !empty($error_messages) ) {
+                    echo '<div class="alert alert-error">';
+                    foreach ($error_messages as $message) {
+                        echo $message;
+                    }
+                    echo '</div>';
+                }
+            }
+        ?>
+        <form action="" name="dwqa-submit-question-form" id="dwqa-submit-question-form" method="post">
+
+            <div class="question-meta">
+                <div class="select-category">
+                    <label for="question-category"><?php _e('Question Category','dwqa') ?></label>
+                    <?php  
+                        wp_dropdown_categories( array( 
+                            'name'          => 'question-category',
+                            'id'            => 'question-category',
+                            'taxonomy'      => 'dwqa-question_category',
+                            'show_option_none' => __('Select question category','dwqa'),
+                            'hide_empty'    => 0,
+                            'quicktags'     => array( 'buttons' => 'strong,em,link,block,del,ins,img,ul,ol,li,code,spell,close' )
+                        ) );
+                    ?>
+                </div>   
+                <div class="input-tag">
+                    <label for="question-tag"><?php _e('Question Tags','dwqa') ?></label>
+                    <input type="text" name="question-tag" id="question-tag" placeholder="<?php _e('tag 1, tag 2,...','dwqa') ?>" />
+                </div>
+            </div>
+            <div class="input-title">
+                <label for="question-title"><?php _e('Your question','dwqa') ?> *</label>
+                <input type="text" name="question-title" id="question-title" placeholder="<?php _e('How to...','dwqa') ?>" autocomplete="off" data-nonce="<?php echo wp_create_nonce( '_dwqa_filter_nonce' ) ?>" />
+                <span class="dwqa-search-loading hide"></span>
+                <span class="dwqa-search-clear icon-remove hide"></span>
+            </div>  
+                
+            <div class="input-content">
+                <label for="question-content"><?php _e('Question details','dwqa') ?></label>
+                <?php dwqa_init_tinymce_editor( array( 'id' => 'dwqa-question-content-editor', 'textarea_name' => 'question-content' ) ); ?>
+            </div>
+            
+            <div class="checkbox-private">
+                <label for="private-message"><input type="checkbox" name="private-message" id="private-message" value="true"> <?php _e('Post this Question as Private.','dwqa') ?> <i class="icon-question-sign" title="<?php _e(' Only we and you can read the question. No one else can!', 'dwqa') ?>"></i></label>
+            </div>
+
+            <div class="question-signin">
+                <?php do_action( 'dwqa_submit_question_ui' ); ?>
+            </div>
+
+            <div class="form-submit">
+                <input type="submit" class="btn" value="<?php _e('Ask Question','dwqa') ?>" class="btn btn-submit-question" />
+            </div>  
+        </form>
+    </div>
+    <?php
+    }  else {
+        if( is_user_logged_in() ) {
+            echo '<div class="alert">' . __('You do not have permission to submit question.','dwqa') . '</div>';
+        } else { ?>
+            <p class="alert"><?php _e('Please Login to Submit Question', 'dwqa' ); ?></p>
+            <div class="login-box">
+                <?php 
+                    global $dwqa_options;
+                    $submit_question_link = get_permalink( $dwqa_options['pages']['submit-question'] );
+                    wp_login_form( array(
+                        'redirect'  => $submit_question_link
+                    ) ); 
+                ?>
+            </div>
+        <?php }
+    }
+}
+
+function dwqa_paged_query(){
+    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+    echo '<input type="hidden" name="dwqa-paged" id="dwqa-paged" value="'.$paged.'" >';
+}
+add_action( 'dwqa-prepare-archive-posts', 'dwqa_paged_query' );
 ?>

@@ -14,6 +14,7 @@
             <?php $post_id = get_the_ID();  ?>
             <div id="single-question" class="dw-question">
                 <article id="question-<?php the_ID(); ?>" <?php post_class(); ?>>
+
                     <header class="entry-header">
                         <h1 class="entry-title"><?php the_title(); ?></h1>
                     </header><!-- .entry-header -->
@@ -41,7 +42,7 @@
                                 $meta = 'open';
                             }
 
-                            if( current_user_can( 'edit_posts', $post_id ) || $current_user->ID == $question->post_author ) { 
+                            if( dwqa_current_user_can('edit_question') || $current_user->ID == $question->post_author ) { 
                         ?>
                         <span class="change-question-status select">
                             <span class="current-select"><?php _e('Change '.dwqa_question_get_status_name( $meta ).' to:') ?></span>

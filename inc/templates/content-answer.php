@@ -42,7 +42,7 @@
                         </a>
                     </span>
                     <?php global $current_user; ?>
-                    <?php if( current_user_can( 'edit_posts', $answer_id ) || $answer->post_author == $current_user->ID ) { ?>
+                    <?php if( dwqa_current_user_can('edit_answer') || $answer->post_author == $current_user->ID ) { ?>
                     <span class="answer-edit-link" onclick="_e(event,this,'dwqa_answer_edit')" data-answer-id="<?php echo $answer_id ?>" data-question-id="<?php echo $question_id ?>">
                         <i alt="f411" class="icon-pencil"></i>
                         <a class="post-edit-link" href="javascript:void(0)"><?php _e('Edit','dwqa') ?></a>
@@ -50,7 +50,7 @@
                     </span>    
                     <?php } ?>
 
-                    <?php if( current_user_can( 'delete_posts', $answer_id ) || $current_user->ID == $answer->post_author ) { ?>
+                    <?php if( dwqa_current_user_can('delete_answer') || $current_user->ID == $answer->post_author ) { ?>
                     <span class="answer-delete" data-answer-id="<?php echo $answer_id ?>" data-nonce="<?php echo wp_create_nonce( '_dwqa_action_remove_answer_nonce' ); ?>">
                         <i alt="f407" class="icon-trash"></i>
                         <a href="javascript:void(0)"><?php _e('Delete','dwqa') ?></a></span>

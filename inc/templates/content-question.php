@@ -27,7 +27,7 @@
                         $author_link = __('Anonymous','dwqa');
                     }
                     printf( 
-                        '%1$s %1$s  <span>%2$s</span>  %3$s', 
+                        '%1$s %2$s  <span>%3$s</span>  %4$s', 
                         __('by','dwqa'),
                         $author_link,
                         get_the_date(), 

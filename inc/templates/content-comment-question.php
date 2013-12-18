@@ -1,7 +1,7 @@
 <?php global $comment, $post; ?>
     <li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
         <span class="comment-content">
-            <?php echo str_replace( esc_html('<br>'), '<br>', esc_html( get_comment_text() ) ); ?>
+            <?php echo get_comment_text(); ?>
         </span><!-- .comment-content -->
         <span class="comment-meta">
             <?php $author = get_userdata( $comment->user_id ); ?>

@@ -151,7 +151,7 @@ function dwqa_plugin_init(){
         'capability_type' => 'post',
         'has_archive' => true, 
         'hierarchical' => true,
-        'menu_icon' =>  DWQA_URI . 'assets/img/icon-question.png',
+        'menu_icon' =>  '',
         'supports' => array( 'title', 'editor', 'comments', 'author', 'page-attributes' )
     ); 
     register_post_type( 'dwqa-question', $question_args );
@@ -182,7 +182,7 @@ function dwqa_plugin_init(){
         'capability_type' => 'post',
         'has_archive' => false, 
         'hierarchical' => true,
-        'menu_icon' =>  DWQA_URI . 'assets/img/icon-menu-question.png',
+        'menu_icon' =>  '',
         'supports' => array( 'title', 'editor', 'comments', 'custom-fields', 'author', 'page-attributes' )
     ); 
     register_post_type( 'dwqa-answer', $answer );

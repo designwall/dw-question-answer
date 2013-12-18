@@ -6,7 +6,6 @@
  */ 
 function dwqa_generate_template_for_plugin($template) {
     global $post, $dwqa_options;
-
     if( is_singular( 'dwqa-answer' ) ) {
         $question_id = get_post_meta( $post->ID, '_question', true );
         if( $question_id ) {
@@ -458,4 +457,16 @@ function dwqa_paged_query(){
     echo '<input type="hidden" name="dwqa-paged" id="dwqa-paged" value="'.$paged.'" >';
 }
 add_action( 'dwqa-prepare-archive-posts', 'dwqa_paged_query' );
+
+
+function add_guide_menu_icons_styles(){
+?>
+    <style>
+    #adminmenu .menu-icon-dwqa-question div.wp-menu-image:before {
+      content: "\f223";
+    }
+    </style>
+<?php
+}
+add_action( 'admin_head', 'add_guide_menu_icons_styles' );
 ?>

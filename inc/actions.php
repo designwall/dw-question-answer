@@ -283,6 +283,7 @@ function dwqa_add_answer(){
                 $answer_id = wp_update_post( $answer_update );
                 do_action( 'dwqa_update_answer', $answer_id );
                 if( $answer_id ) {
+                    wp_safe_redirect( get_permalink( $question_id ) );
                     return true;
                 }
                 break;
@@ -856,7 +857,7 @@ function dwqa_ajax_create_editor(){
 
     ob_start();
     ?>
-    <form action="" method="post">
+    <form action="<?php echo admin_url( 'admin-ajax.php?action=dwqa-add-answer' ); ?>" method="post">
         <?php wp_nonce_field( '_dwqa_add_new_answer' ); ?>
 
         <?php if( 'draft' == get_post_status( $answer_id ) && current_user_can( 'manage_options' ) ) { 
@@ -1088,7 +1089,8 @@ add_filter( 'the_content', 'dwqa_auto_convert_urls' );
 
 function dwqa_sanitizie_comment( $content ){
     $content = str_replace( esc_html('<br>'), '<br>', esc_html( $content ) );
-    $content = dwqa_auto_convert_urls( $content );
+    $content = make_clickable( $content );
+    $content = preg_replace('/(<a[^>]*)(>)/', '$1 target="_blank" $2', $content);
     return $content;
 }
 add_filter( 'get_comment_text', 'dwqa_sanitizie_comment' );

@@ -127,11 +127,14 @@ function dwqa_new_answer_nofity( $answer_id ){
     $message = str_replace( '{site_url}', site_url(), $message);
 
     $followers = get_post_meta( $question_id, '_dwqa_followers' );
+    $answer_email = get_the_author_meta( 'user_email', $answer->post_author );
     if( ! empty($followers) ) {
+
         foreach ( $followers as $follower ) {
             $follow_email = get_the_author_meta( 'user_email', $follower );
-            if( $follow_email && $follow_email != $email ) {
-                wp_mail( $follow_email, $subject, $message, $headers );
+            if( $follow_email && $follow_email != $email && $follow_email != $answer_email ) {
+                $follow_subject = __('You got new answer for your followed question','dwqa');
+                wp_mail( $follow_email, $follow_subject, $message, $headers );
             }
         }
     }
@@ -208,11 +211,16 @@ function dwqa_new_comment_notify( $comment_id, $comment ){
         $message = str_replace( '{site_url}', site_url(), $message);
         
         $followers = get_post_meta( $post_parent->ID, '_dwqa_followers' );
+        $comment_email = get_the_author_meta( 'user_email', $comment->user_id );
         if( ! empty($followers) ) {
             foreach ( $followers as $follower ) {
                 $follow_email = get_the_author_meta( 'user_email', $follower );
-                if( $follow_email && $follow_email != $post_parent_email ) {
-                    wp_mail( $follow_email, $subject, $message, $headers );
+                if( $follow_email && $follow_email != $post_parent_email && $follow_email != $comment_email ) {
+                    $follow_subject = sprintf('%s %s',
+                        __('You got new comment for your followed','dwqa'),
+                        ($parent == 'dwqa-question' ? __('question','dwqa') :  __('answer','dwqa'))
+                    );
+                    wp_mail( $follow_email, $follow_subject, $message, $headers );
                 }
             }
         }

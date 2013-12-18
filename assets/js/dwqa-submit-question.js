@@ -1,17 +1,19 @@
 jQuery(function($){
-    $('[placeholder]').focus(function() {
-      var input = $(this);
-      if (input.val() == input.attr('placeholder')) {
-        input.val('');
-        input.removeClass('placeholder');
-      }
-    }).blur(function() {
-      var input = $(this);
-      if (input.val() == '' || input.val() == input.attr('placeholder')) {
-        input.addClass('placeholder');
-        input.val(input.attr('placeholder'));
-      }
-    }).blur();
+    if( $.browser.msie == true && parseInt( $.browser.version ) < 10 ) {
+        $('[placeholder]').focus(function() {
+          var input = $(this);
+          if (input.val() == input.attr('placeholder')) {
+            input.val('');
+            input.removeClass('placeholder');
+          }
+        }).blur(function() {
+          var input = $(this);
+          if (input.val() == '' || input.val() == input.attr('placeholder')) {
+            input.addClass('placeholder');
+            input.val(input.attr('placeholder'));
+          }
+        }).blur();
+    }
 
     $('#dwqa-submit-question-form').on('submit',function(e){
         var t= $(this);
@@ -30,7 +32,9 @@ jQuery(function($){
                 }
             });
         }
-        
+        if( $('#question-tag').val() == $('#question-tag').attr('placeholder') ) {
+            $('#question-tag').val('');
+        }
         if( $('#question-title').val().length <= 3 || $('#question-title').val() == $('#question-title').attr('placeholder') ) {
             e.preventDefault();
             var placeholder = $('#question-title').attr('placeholder');
@@ -46,43 +50,49 @@ jQuery(function($){
         var username_signup = t.find('#user-name-signup');
         var password = t.find('#user-password');
         var username = t.find('#user-name');
+        if( $('#login-type').length > 0 ) {
+            if( $('#login-type').val() == 'sign-up' ) {
+                username.attr('disabled', 'disabled');
+                password.attr('disabled', 'disabled');
+                username_signup.removeAttr('disabled');
+                username_signup.removeAttr('disabled');
+                var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                
+                if( ! regex.test( email_field.val() ) || email_field.val() == email_field.attr('placeholder') ) {
+                    email_field.closest('p').fadeIn('slow');
+                    email_field.addClass('required');
+                    returnDefault( email_field );
+                    flag = false;
+                }
 
-        if( $('#login-type').val() == 'sign-up' ) {
-            username.attr('disabled', 'disabled');
-            password.attr('disabled', 'disabled');
-            username_signup.removeAttr('disabled');
-            username_signup.removeAttr('disabled');
-            var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-            
-            if( ! regex.test( email_field.val() ) || email_field.val() == email_field.attr('placeholder') ) {
-                email_field.closest('p').fadeIn('slow');
-                email_field.addClass('required');
-                returnDefault( email_field );
-                flag = false;
-            }
-
-            if( (username_signup.length > 0 && username_signup.val().length < 3) || username_signup.val() == username_signup.attr('placeholder') ) {
-                username_signup.addClass('required');
-                returnDefault( username_signup );
-                flag = false;
-            }
-        } else {
-            email_field.attr('disabled', 'disabled');
-            username_signup.attr('disabled', 'disabled');
-            username.removeAttr('disabled');
-            password.removeAttr('disabled');
-            if( (username.length > 0 && username.val().length < 3) || username.val() == username.attr('placeholder') ) {
-                username.addClass('required');
-                returnDefault( username );
-                flag = false;
-            }
-            if( password.val().length < 3 || password.val() == password.attr('placeholder') ) {
-                password.addClass('required');
-                returnDefault( password );
-                flag = false;
+                if( (username_signup.length > 0 && username_signup.val().length < 3) || username_signup.val() == username_signup.attr('placeholder') ) {
+                    username_signup.addClass('required');
+                    returnDefault( username_signup );
+                    flag = false;
+                }
+            } else {
+                email_field.attr('disabled', 'disabled');
+                username_signup.attr('disabled', 'disabled');
+                username.removeAttr('disabled');
+                password.removeAttr('disabled');
+                if( (username.length > 0 && username.val().length < 3) || username.val() == username.attr('placeholder') ) {
+                    username.addClass('required');
+                    returnDefault( username );
+                    flag = false;
+                }
+                if( password.val().length < 3 || password.val() == password.attr('placeholder') ) {
+                    password.addClass('required');
+                    returnDefault( password );
+                    flag = false;
+                }
             }
         }
-        if( ! flag ) { return false; }
+        if( ! flag ) { 
+            if( ! $('#question-tag').val() ) {
+                $('#question-tag').val( $('#question-tag').attr('placeholder') );
+            }
+            return false; 
+        }
 
     });
 

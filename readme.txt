@@ -2,8 +2,8 @@
 Contributors: DesignWall
 Tags: question, answer, support, quora, stackoverflow
 Requires at least: 3.0.1
-Tested up to: 3.7.1
-Stable tag: 1.0.3
+Tested up to: 3.8
+Stable tag: 1.0.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -48,7 +48,13 @@ Here is the list of features of this plugin:
 
 == Changelog ==
 
-= 1.0.3=
+= 1.0.4 =
+* Fixed: Can not publish Private question.
+* Fixed: Link format in question comment box does not display properly.
+* Fixed: Replace text "by by" under the question with " by -question author"
+* New: Use new vector-based icon for DW Q&A Menu 
+
+= 1.0.3 =
 
 * Fixed: Missing attribute "class" when insert codes to <code> tag on Answer Editor
 * Fixed: Input's placeholder disappeared on IE 8,9 in submit question page

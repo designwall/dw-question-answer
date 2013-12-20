@@ -9,7 +9,7 @@
 
     $post_class = '';
 ?>
-    <article id="answer-<?php the_ID(); ?>" <?php post_class($post_class); ?>>
+    <article id="answer-<?php the_ID(); ?>" <?php post_class('hentry'); ?>>
         <header>
             <div class="entry-meta">
                 <?php echo get_avatar( get_the_author_meta( 'ID' ), 32 ); ?>

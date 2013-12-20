@@ -1,7 +1,7 @@
 <?php 
     $post_id = get_the_ID();
 ?>
-    <article id="question-<?php echo $post_id; ?>" <?php post_class(); ?>>
+    <article id="question-<?php echo $post_id; ?>" <?php post_class('hentry'); ?>>
 
         <header class="entry-header">
             <?php if( current_user_can( 'edit_posts' ) ) { ?>
@@ -31,7 +31,7 @@
                         __('by','dwqa'),
                         $author_link,
                         get_the_date(), 
-                        get_the_term_list( $post_id, 'dwqa-question_category', '<span>Theme: ', ', ', '</span>' )
+                        get_the_term_list( $post_id, 'dwqa-question_category', '<span>Category: ', ', ', '</span>' )
                     );
                 ?>
             </div>

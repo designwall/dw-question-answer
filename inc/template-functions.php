@@ -459,7 +459,7 @@ function dwqa_paged_query(){
 add_action( 'dwqa-prepare-archive-posts', 'dwqa_paged_query' );
 
 
-function add_guide_menu_icons_styles(){
+function dwqa_add_guide_menu_icons_styles(){
 ?>
     <style>
     #adminmenu .menu-icon-dwqa-question div.wp-menu-image:before {
@@ -468,5 +468,5 @@ function add_guide_menu_icons_styles(){
     </style>
 <?php
 }
-add_action( 'admin_head', 'add_guide_menu_icons_styles' );
+add_action( 'admin_head', 'dwqa_add_guide_menu_icons_styles' );
 ?>

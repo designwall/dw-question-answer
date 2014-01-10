@@ -1,5 +1,9 @@
 <?php  
 function dwqa_new_question_notify( $question_id, $user_id ){
+    $enabled = get_option( 'dwqa_subscrible_enable_new_question_notification', 1);
+    if( !$enabled ) {
+        return false;
+    }
     $question = get_post( $question_id );
     if( ! $question ) {
         return false;
@@ -51,6 +55,10 @@ add_action( 'dwqa_add_question', 'dwqa_new_question_notify', 10, 2 );
 
 
 function dwqa_new_answer_nofity( $answer_id ){
+    $enabled = get_option( 'dwqa_subscrible_enable_new_answer_notification', 1);
+    if( !$enabled ) {
+        return false;
+    }
     $question_id = get_post_meta( $answer_id, '_question', true );
     $question = get_post( $question_id );
     $answer = get_post( $answer_id );
@@ -129,12 +137,17 @@ function dwqa_new_answer_nofity( $answer_id ){
     $followers = get_post_meta( $question_id, '_dwqa_followers' );
     $answer_email = get_the_author_meta( 'user_email', $answer->post_author );
     if( ! empty($followers) ) {
-
+        $question_link = get_permalink( $question->ID );
         foreach ( $followers as $follower ) {
             $follow_email = get_the_author_meta( 'user_email', $follower );
             if( $follow_email && $follow_email != $email && $follow_email != $answer_email ) {
                 $follow_subject = __('You got new answer for your followed question','dwqa');
-                wp_mail( $follow_email, $follow_subject, $message, $headers );
+
+                $message_to_follower = ' Hi {follower_name}, A new answer has been posted on your followed question at: {followed_question_link}';
+                $message_to_follower = str_replace( '{follower_name}', get_the_author_meta( 'display_name', $follower ), $message_to_follower);
+                $message_to_follower = str_replace( '{followed_question_link}', $question_link, $message_to_follower);
+                //Send email to follower
+                wp_mail( $follow_email, $follow_subject, $message_to_follower, $headers );
             }
         }
     }
@@ -150,6 +163,16 @@ add_action( 'dwqa_update_answer', 'dwqa_new_answer_nofity' );
 function dwqa_new_comment_notify( $comment_id, $comment ){
     $parent = get_post_type( $comment->comment_post_ID );
     if ( 1 == $comment->comment_approved && ( 'dwqa-question' == $parent || 'dwqa-answer' == $parent )  ) { 
+
+        if( $parent == 'dwqa-question' ) {
+            $enabled = get_option( 'dwqa_subscrible_enable_new_comment_question_notification', 1);        
+        } elseif( $parent == 'dwqa-answer' ) {
+            $enabled = get_option( 'dwqa_subscrible_enable_new_comment_answer_notification', 1);
+        }
+    
+        if( !$enabled ) {
+            return false;
+        }
 
         $post_parent = get_post( $comment->comment_post_ID );
 
@@ -213,6 +236,7 @@ function dwqa_new_comment_notify( $comment_id, $comment ){
         $followers = get_post_meta( $post_parent->ID, '_dwqa_followers' );
         $comment_email = get_the_author_meta( 'user_email', $comment->user_id );
         if( ! empty($followers) ) {
+            $comment_link = get_permalink( $question->ID ) . '#li-comment-' . $comment_id;
             foreach ( $followers as $follower ) {
                 $follow_email = get_the_author_meta( 'user_email', $follower );
                 if( $follow_email && $follow_email != $post_parent_email && $follow_email != $comment_email ) {
@@ -220,7 +244,12 @@ function dwqa_new_comment_notify( $comment_id, $comment ){
                         __('You got new comment for your followed','dwqa'),
                         ($parent == 'dwqa-question' ? __('question','dwqa') :  __('answer','dwqa'))
                     );
-                    wp_mail( $follow_email, $follow_subject, $message, $headers );
+
+                    $message_to_follower = ' Hi {follower_name}, A new comment has been posted on your followed question at: {followed_question_link}';
+                    $message_to_follower = str_replace( '{follower_name}', get_the_author_meta( 'display_name', $follower ), $message_to_follower);
+                    $message_to_follower = str_replace( '{followed_question_link}', $comment_link, $message_to_follower);
+
+                    wp_mail( $follow_email, $follow_subject, $message_to_follower, $headers );
                 }
             }
         }

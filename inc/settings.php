@@ -1,6 +1,5 @@
 <?php  
 
-
 //Create global variables for storing plugins settings
 function dwqa_init_options(){
     global $dwqa_options;
@@ -56,21 +55,25 @@ function dwqa_settings_display(){
                 settings_fields( 'dwqa-subscribe-settings' );
                 dwqa_subscrible_email_logo_display();
                 echo '<h3>'.__('New Question Notification','dwqa').'</h3>';
+                dwqa_subscrible_enable_new_question_notification();
                 dwqa_subscrible_new_question_email_subject_display();
                 dwqa_subscrible_new_question_email_display();
                 submit_button( __('Save all changes','dwqa') );
                 echo '<hr>';
                 echo '<h3>'.__('New Answer Notification','dwqa'). '</h3>';
+                dwqa_subscrible_enable_new_answer_notification();
                 dwqa_subscrible_new_answer_email_subject_display();
                 dwqa_subscrible_new_answer_email_display();
                 submit_button( __('Save all changes','dwqa') );
                 echo '<hr>';
                 echo '<h3>'.__('New Comment to Question Notification','dwqa'). '</h3>';
+                dwqa_subscrible_enable_new_comment_question_notification();
                 dwqa_subscrible_new_comment_question_email_subject_display();
                 dwqa_subscrible_new_comment_question_email_display();
                 submit_button( __('Save all changes','dwqa') );
                 echo '<hr>';
                 echo '<h3>'.__('New Comment to Answer Notification','dwqa'). '</h3>';
+                dwqa_subscrible_enable_new_comment_answer_notification();
                 dwqa_subscrible_new_comment_answer_email_subject_display();
                 dwqa_subscrible_new_comment_answer_email_display();
                 submit_button( __('Save all changes','dwqa') );
@@ -192,6 +195,13 @@ function dwqa_register_settings(){
 
     register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_email_logo');
 
+    add_settings_field( 
+        'dwqa_subscrible_enable_new_question_notification',
+        __('Enable notification for new Question','dwqa'),
+        'dwqa_subscrible_enable_new_question_notification', 'dwqa-email',
+        'dwqa-subscribe-settings' 
+    );
+    register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_enable_new_question_notification' );
 
     add_settings_field( 
         'dwqa_subscrible_new_question_email_subject',
@@ -210,7 +220,13 @@ function dwqa_register_settings(){
     register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_new_question_email_subject' );
 
 
-
+    add_settings_field( 
+        'dwqa_subscrible_enable_new_answer_notification',
+        __('Enable notification for new Answer','dwqa'),
+        'dwqa_subscrible_enable_new_answer_notification', 'dwqa-email',
+        'dwqa-subscribe-settings' 
+    );
+    register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_enable_new_answer_notification' );
     add_settings_field( 
         'dwqa_subscrible_new_answer_email_subject',
         __('New Answer Notification Subject','dwqa'),
@@ -228,7 +244,14 @@ function dwqa_register_settings(){
     register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_new_answer_email_subject' );
 
 
-
+    add_settings_field( 
+        'dwqa_subscrible_enable_new_comment_question_notification',
+        __('Enable notification for new comment of question','dwqa'),
+        'dwqa_subscrible_enable_new_comment_question_notification', 
+        'dwqa-email',
+        'dwqa-subscribe-settings' 
+    );
+    register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_enable_new_comment_question_notification' );
     add_settings_field( 
         'dwqa_subscrible_new_comment_question_email_subject',
         __('New Comment Question Notification Subject','dwqa'),
@@ -247,6 +270,14 @@ function dwqa_register_settings(){
     register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_new_comment_question_email' );
 
 
+    add_settings_field( 
+        'dwqa_subscrible_enable_new_comment_answer_notification',
+        __('Enable notification for new comment of Answer','dwqa'),
+        'dwqa_subscrible_enable_new_comment_answer_notification', 
+        'dwqa-email',
+        'dwqa-subscribe-settings' 
+    );
+    register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_enable_new_comment_answer_notification' );
     add_settings_field( 
         'dwqa_subscrible_new_comment_answer_email_subject',
         __('New Comment Answer Notification Subject','dwqa'),
@@ -389,6 +420,18 @@ function dwqa_subscrible_email_logo_display(){
     <?php
 }
 
+function dwqa_subscrible_enable_new_question_notification(){
+    echo '<p><label for="dwqa_subscrible_enable_new_question_notification"><input type="checkbox" value="1" '.checked( 1, get_option( 'dwqa_subscrible_enable_new_question_notification', 1), false ).' name="dwqa_subscrible_enable_new_question_notification" id="dwqa_subscrible_enable_new_question_notification" >'.__('Enable notification for new question','dwqa').'</label></p>';
+}
+function dwqa_subscrible_enable_new_answer_notification(){
+    echo '<p><label for="dwqa_subscrible_enable_new_answer_notification"><input type="checkbox" value="1" '.checked( 1, get_option( 'dwqa_subscrible_enable_new_answer_notification', 1 ), false ).' name="dwqa_subscrible_enable_new_answer_notification" id="dwqa_subscrible_enable_new_answer_notification" >'.__('Enable notification for new answer','dwqa').'</label></p>';
+}
+function dwqa_subscrible_enable_new_comment_question_notification(){
+    echo '<p><label for="dwqa_subscrible_enable_new_comment_question_notification"><input type="checkbox" '.checked( 1, get_option( 'dwqa_subscrible_enable_new_comment_question_notification', 1 ), false ).' value="1" name="dwqa_subscrible_enable_new_comment_question_notification" id="dwqa_subscrible_enable_new_comment_question_notification" >'.__('Enable notification for new comment of question','dwqa').'</label></p>';
+}
+function dwqa_subscrible_enable_new_comment_answer_notification(){
+    echo '<p><label for="dwqa_subscrible_enable_new_comment_answer_notification"><input type="checkbox" '.checked( 1, get_option( 'dwqa_subscrible_enable_new_comment_answer_notification', 1 , false ) ).' value="1" name="dwqa_subscrible_enable_new_comment_answer_notification" id="dwqa_subscrible_enable_new_comment_answer_notification" >'.__('Enable notification for new comment of answer','dwqa').'</label></p>';
+}
 function dwqa_subscrible_new_question_email_subject_display(){ 
     echo '<p><label for="dwqa_subscrible_new_question_email_subject">'.__('Email subject','dwqa').'<br><input type="text" id="dwqa_subscrible_new_question_email_subject" name="dwqa_subscrible_new_question_email_subject" value="'.get_option( 'dwqa_subscrible_new_question_email_subject' ).'" class="widefat" /></span></p>';
 }
@@ -560,7 +603,7 @@ function dwqa_permission_display(){
             <tr class="group available">
                 <td><?php _e('Anonymous','dwqa') ?></td>
                 <td><input type="checkbox" <?php checked( true, $perms['anonymous']['question']['read'] ); ?> name="dwqa_permission[<?php echo 'anonymous' ?>][question][read]" value="1"></td>
-                <td><input disabled="disabled" type="checkbox" <?php checked( true, $perms['anonymous']['question']['post'] ); ?> name="dwqa_permission[<?php echo 'anonymous' ?>][question][post]" value="1"></td>
+                <td><input type="checkbox" disabled="disabled" name="dwqa_permission[<?php echo 'anonymous' ?>][question][post]" value="1"></td>
                 <!-- <td><input type="checkbox" <?php checked( true, $perms['anonymous']['question']['edit'] ); ?> disabled="disabled" name="dwqa_permission[<?php echo 'anonymous' ?>][question][edit]" value="1"></td>
                 <td><input type="checkbox" <?php checked( true, $perms['anonymous']['question']['delete'] ); ?> disabled="disabled"  name="dwqa_permission[<?php echo 'anonymous' ?>][question][delete]" value="1"></td> -->
             </tr>
@@ -652,32 +695,6 @@ function dwqa_permission_display(){
     <p class="reset-button-container align-right" style="text-align:right">
         <button data-type="comment" class="button reset-permission"><?php _e( 'Reset Default', 'dwqa' ); ?></button>
     </p>
-    <script type="text/javascript">
-    jQuery(document).ready(function($) {
-        $('.reset-permission').on('click',function(event){
-            event.preventDefault();
-            if( confirm("<?php _e('Reset all changed to default','dwqa'); ?>" ) ) {
-                var nonce = $('#reset-permission-nonce').val();
-                var type = $(this).data('type');
-
-                $.ajax({
-                    url: "<?php echo admin_url('admin-ajax.php') ?>",
-                    type: 'POST',
-                    dataType: 'json',
-                    data: {
-                        action: 'dwqa-reset-permission-default',
-                        nonce: nonce,
-                        type: type
-                    }
-                })
-                .done(function() {
-                    window.location.href = window.location.href;
-                });
-                
-            }
-        });
-    });
-    </script>
     <?php
 }
 

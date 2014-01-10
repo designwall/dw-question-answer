@@ -24,7 +24,7 @@ function dwqa_question_print_status( $question_id, $echo = true ){
     }
 
     if( $echo ) {
-        echo '<span class="entry-status status-'.$status.'">'.strtoupper($status).'</span>';    
+        echo '<span class="dwqa-status status-'.$status.'">'.strtoupper($status).'</span>';    
     }
     return '<span class="entry-status status-'.$status.'">'.strtoupper($status).'</span>';
 }
@@ -279,5 +279,39 @@ function dwqa_question_get_status_name( $status, $context = 'dwqa' ){
     }
     return $message;
 }   
+
+
+function dwqa_update_privacy(){
+    if( ! isset($_POST['nonce']) ) {
+        wp_send_json_error( array( 'message' => __('Are you cheating huh?','dwqa' ) ) );
+    }
+    check_ajax_referer( '_dwqa_update_privacy_nonce', 'nonce' );
+
+    if( ! isset($_POST['post']) ) {
+        wp_send_json_error( array( 'message' => __('Misisng post ID','dwqa' ) ) );
+    }
+
+    $status = 'publish';
+    if( isset($_POST['status']) && in_array( $_POST['status'], array( 'draft' , 'publish' , 'pending', 'future' , 'private' ) ) ) {
+        $update = wp_update_post( array(
+            'ID'    => (int) $_POST['post'],
+            'post_status'   => $_POST['status']
+        ) );
+        if( $update ) {
+            wp_send_json_success( array( 
+                'ID'    => $update
+            ) );
+        } else {
+            wp_send_json_error(  array(
+                'message'   => __('Post is not exists','dwqa')
+            ) );
+        }
+    } else {
+        wp_send_json_error( array(
+            'message'   => __('Invalid post status','dwqa')
+        ) );
+    }
+}
+add_action( 'wp_ajax_dwqa-update-privacy', 'dwqa_update_privacy' );
 
 ?>

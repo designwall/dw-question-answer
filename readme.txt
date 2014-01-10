@@ -3,7 +3,7 @@ Contributors: DesignWall
 Tags: question, answer, support, quora, stackoverflow
 Requires at least: 3.0.1
 Tested up to: 3.8
-Stable tag: 1.0.4
+Stable tag: 1.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -47,6 +47,34 @@ Here is the list of features of this plugin:
 5. Back-end settings
 
 == Changelog ==
+
+= 1.1 =
+* Fixed: Don't automatically pick the best answer which has the most votes ( at least 3 votes)
+* Fixed: Only admin and author's question can read the best answer
+* Fixed: Can still add answer comment for closed questions
+* Fixed: Display number of answers incorrectly
+* Fixed: Link format in comment box displays incorrectly after editing
+* Fixed: After following the question, will change the tooltip to "Unfollow this question"
+* Fixed: Draft answers publish automatically when change status of the draft answers
+* Fixed: Missing avatar of anonymous after posting comment
+* Fixed: Subscriber can change private/public questions of other people
+* Fixed: Anonymous can follow the question
+* Fixed: Private question owners can not read their own private answers
+* Fixed: Answers disappear after answer author changes status from public to private
+* Fixed: Permalinks don't displays properly as in back-end settings
+* Fixed: Ordered by bulleted list and numbered list don't display properly after posting answers
+* Fixed: Still show "Edit/delete" icon on question comment after disabling "edit" comment
+* Fixed: Tags filtering displays the results incorrectly
+* Fixed: Anonymous can not post comments after enabling  anonymous to post the comments
+* Fixed: Permalinks don't work properly after refreshing
+* Tweak: Missing "flag" function at front-end after disabling "edit"/"delete" answer in back-end
+* Tweak: Not highlight "questions" page on the menu when viewing a single question
+* New: Filter Questions which have new comments
+* New: New user interface
+* New: Add option to enable/disable notification email in back-end
+* New: Add registering form
+* New: Follow/Unfollow questions
+* New: Switch question/answer between Private and Public
 
 = 1.0.4 =
 * Fixed: Can not publish Private question.

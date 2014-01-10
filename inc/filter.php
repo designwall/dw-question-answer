@@ -356,11 +356,15 @@ class DWQA_Filter {
             ) ) ;
         }
 
+        $status = 'publish';
+        if( is_user_logged_in() && ( dwqa_current_user_can('edit_question') || dwqa_current_user_can('edit_answer') ) ) {
+            $status = array( 'publish', 'private' );
+        }
 
         $query = new WP_Query( array(
             'post_type' => 'dwqa-question',
             'posts_per_page'    => 6,
-            'post_status'   => 'publish',
+            'post_status'   => $status,
             's'         => $_POST['title']
         ) );
         if( $query->have_posts() ) {

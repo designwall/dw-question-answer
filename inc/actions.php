@@ -72,7 +72,13 @@ function dwqa_action_vote(){
             // Update vote point
             dwqa_update_vote_count( $post_id );
 
-            wp_send_json_success();
+            $point = dwqa_vote_count( $post_id );
+            if( $point > 0 ) {
+                $point = '+' . $point;
+            }
+            wp_send_json_success( array(
+                'vote'  => $point
+            ) );
 
         } else {
             $result['error_code'] = 'voted';
@@ -201,6 +207,7 @@ function dwqa_add_answer(){
         wp_delete_post( $draft );
         return false;
     }
+
     if( empty( $_POST['answer-content'] ) ||  empty( $_POST['question'] ) ) {
         if( empty($_POST['answer-content']) ) {
             $dwqa_add_answer_errors->add('answer_question','answer content is empty' );
@@ -239,6 +246,8 @@ function dwqa_add_answer(){
         );
         if( $_POST['submit-answer'] == __( 'Save draft','dwqa' ) ) {
             $answers['post_status'] = 'draft';
+        } else if( isset($_POST['privacy']) && 'private' == $_POST['privacy'] ) {
+            $answers['post_status'] = 'private';
         }
 
         switch ( $_POST['dwqa-action'] ) {
@@ -278,7 +287,7 @@ function dwqa_add_answer(){
                     'post_content'   => $answ_content
                 );
                 if( isset($_POST['dwqa-action-draft']) && $_POST['dwqa-action-draft'] && strtolower( $_POST['submit-answer'] ) == 'publish' ) {
-                    $answer_update['post_status'] = 'publish';
+                    $answer_update['post_status'] = isset($_POST['privacy']) && 'private' == $_POST['privacy'] ? 'private' : 'publish';
                 }
                 $answer_id = wp_update_post( $answer_update );
                 do_action( 'dwqa_update_answer', $answer_id );
@@ -405,6 +414,9 @@ function dwqa_submit_question(){
                     ), false );
 
                     if( ! is_wp_error( $user ) ) {
+                        global $current_user;
+                        $current_user = $user;
+                        get_currentuserinfo();
                         $user_id = $user->data->ID;
                     } else {
                         $dwqa_current_error = $user;
@@ -434,6 +446,9 @@ function dwqa_submit_question(){
                             'user_password' => $password
                         ), false );
                         if( ! is_wp_error($user) ) {
+                            global $current_user;
+                            $current_user = $user;
+                            get_currentuserinfo();
                             $user_id = $user->data->ID;
                         } else {
                             $dwqa_current_error = $user;
@@ -870,26 +885,45 @@ function dwqa_ajax_create_editor(){
         <?php 
             $answer = get_post( $answer_id );
             dwqa_init_tinymce_editor( array(
-                'content'       => wpautop(  htmlentities($answer->post_content, ENT_COMPAT | ENT_HTML5, get_option( 'blog_charset' ) ) ), 
+                'content'       => htmlentities($answer->post_content, ENT_COMPAT | ENT_HTML5, get_option( 'blog_charset' ) ), 
                 'textarea_name' => 'answer-content',
                 'wpautop'       => false
             ) ); 
         ?>
-        <p>
-            <input type="submit" name="submit-answer" class="btn btn-small" value="<?php _e('Update','dwqa') ?>">
-            <a type="button" class="answer-edit-cancel btn btn-small btn-link" ><?php _e('Cancel','dwqa') ?></a>
+        <p class="dwqa-answer-form-btn">
+            <input type="submit" name="submit-answer" class="dwqa-btn dwqa-btn-default" value="<?php _e('Update','dwqa') ?>">
+            <a type="button" class="answer-edit-cancel dwqa-btn dwqa-btn-link" ><?php _e('Cancel','dwqa') ?></a>
             <?php if( 'draft' == get_post_status( $answer_id ) && current_user_can( 'manage_options' ) ) { 
             ?>
             <input type="submit" name="submit-answer" class="btn btn-primary btn-small" value="<?php _e('Publish','dwqa') ?>">
             <?php } ?>
         </p>
+        <div class="dwqa-privacy">
+            <input type="hidden" name="privacy" value="publish">
+            <span class="dwqa-current-privacy"><i class="fa fa-globe"></i> <?php _e('Public','dwqa') ?></span>
+            <span class="dwqa-change-privacy">
+                <div class="dwqa-btn-group">
+                    <button class="dropdown-toggle" type="button"><i class="fa fa-caret-down"></i></button>
+                    <div class="dwqa-dropdown-menu">
+                        <div class="dwqa-dropdown-caret">
+                            <span class="dwqa-caret-outer"></span>
+                            <span class="dwqa-caret-inner"></span>
+                        </div>
+                        <ul role="menu">
+                            <li data-privacy="publish" class="current" title="<?php _e('Everyone can see','dwqa'); ?>"><a href="#"><i class="fa fa-globe"></i> <?php _e('Public','dwqa'); ?></a></li>
+                            <li data-privacy="private" <?php _e('Only Author and Administrator can see','dwqa'); ?>><a href="#"><i class="fa fa-lock"></i> <?php _e('Private','dwqa') ?></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </span>
+        </div>
     </form>
     <?php
     $editor = ob_get_contents();
     ob_end_clean();
     wp_send_json_success( array(
-            'editor'    => $editor
-        ) );
+        'editor'    => $editor
+    ) );
 }
 add_action( 'wp_ajax_dwqa-editor-init', 'dwqa_ajax_create_editor' ); 
 
@@ -905,28 +939,44 @@ add_filter( 'comment_id_fields', 'dwqa_comment_form_id_fields_filter', 10, 3 );
 
 
 function dwqa_comment_action_add(){
-    if( ! is_user_logged_in() ) {
-        wp_send_json_error();
-    }
     global $current_user;
-
-    $comment_id = wp_insert_comment( array(
-            'comment_post_ID'   => $_POST['comment_post_ID'],
-            'comment_content'   => $_POST['content'],
-            'comment_parent'    => $_POST['comment_parent'],
-            'user_id'           => $current_user->ID
+    if( ! dwqa_current_user_can('post_comment') ) {
+        wp_send_json_error( array(
+            'message'   => __( 'You can\'t post comment','dwqa' )
         ) );
+    }
+    $args = array(
+        'comment_post_ID'   => $_POST['comment_post_ID'],
+        'comment_content'   => $_POST['content'],
+        'comment_parent'    => $_POST['comment_parent']
+    );
+    if( is_user_logged_in() ) {
+        $args['user_id'] =  $current_user->ID;
+    } else {
+        if( !isset($_POST['email']) || !$_POST['email'] ) {
+            wp_send_json_error( array(
+                'message'   => __('Missing email infomation','dwqa')
+            ) );
+        }
+        if( !isset($_POST['name']) || !$_POST['name'] ) {
+            wp_send_json_error( array(
+                'message'   => __('Missing name infomation','dwqa')
+            ) );
+        }
+        $args['comment_author'] = isset($_POST['name']) ? $_POST['name'] : 'anonymous';
+        $args['comment_author_email'] = $_POST['email'];
+        $args['comment_author_url'] = isset($_POST['url']) ? $_POST['url'] : '';
+        $args['user_id']    = -1;
+    }
+
+    $comment_id = wp_insert_comment( $args );   
     do_action( 'dwqa_add_comment', $comment_id );
     global $comment;
     $comment = get_comment( $comment_id );
     ob_start();
     $args = array('walker' => null, 'max_depth' => '', 'style' => 'ol', 'callback' => null, 'end-callback' => null, 'type' => 'all',
         'page' => '', 'per_page' => '', 'avatar_size' => 32, 'reverse_top_level' => null, 'reverse_children' => '');
-    if( 'dwqa-question' == get_post_type( $_POST['comment_post_ID'] ) ) {
-        dwqa_question_comment_callback( $comment, $args, 0 );
-    } else {
-        dwqa_answer_comment_callback( $comment, $args, 0 );
-    }
+    dwqa_question_comment_callback( $comment, $args, 0 );
     echo '</li>';
     $comment_html = ob_get_contents();
     ob_end_clean();
@@ -935,6 +985,20 @@ function dwqa_comment_action_add(){
         ) );
 }
 add_action( 'wp_ajax_dwqa-comment-action-add', 'dwqa_comment_action_add' );
+add_action( 'wp_ajax_nopriv_dwqa-comment-action-add', 'dwqa_comment_action_add' );
+
+
+function dwqa_is_the_best_answer( $answer_id, $question_id = false ) {
+    if( ! $question_id ) {
+        $question_id = get_the_ID();
+    }
+
+    $best_answer = dwqa_get_the_best_answer( $question_id );
+    if( $best_answer && $best_answer == $answer_id ) {
+        return true;
+    }
+    return false;
+}
 
 function dwqa_get_the_best_answer( $question_id = false ){
     if( ! $question_id ) {
@@ -945,9 +1009,11 @@ function dwqa_get_the_best_answer( $question_id = false ){
     }
 
     $user_vote = get_post_meta( $question_id, '_dwqa_best_answer', true );
-    if( $user_vote ) {
+
+    if( $user_vote && get_post($user_vote) ) {
         return $user_vote;
     }
+
     global $wpdb;
 
     $query = "SELECT `post_id` FROM `{$wpdb->prefix}postmeta` LEFT JOIN `{$wpdb->prefix}posts` 
@@ -1162,6 +1228,8 @@ function dwqa_prepare_archive_posts(){
         if( is_tax('dwqa-question_tag') ) {
             $query['dwqa-question_tag'] = get_query_var('dwqa-question_tag');
         } 
+        $paged = get_query_var( 'paged' );
+        $query['paged'] = $paged ? $paged : 1; 
         query_posts( $query );
     }
 }
@@ -1241,6 +1309,36 @@ function dwqa_get_questions_permalink(){
         }
         if( !empty( $args ) ) {
             $url = get_permalink( $dwqa_options['pages']['archive-question'] );
+            $url = $url ? $url : get_post_type_archive_link( 'dwqa-question' );
+            
+
+            $question_tag_rewrite = get_option( 'dwqa-question-tag-rewrite', 'question-tag' );
+            $question_tag_rewrite = $question_tag_rewrite ? $question_tag_rewrite : 'question-tag';
+            if( isset($args[$question_tag_rewrite]) ) {
+                if( isset($args['dwqa-question_tag']) ) {
+                    unset($args['dwqa-question_tag']);
+                }
+            }
+
+            $question_category_rewrite = get_option( 'dwqa-question-category-rewrite', 'question-category' );
+            $question_category_rewrite = $question_category_rewrite ? $question_category_rewrite : 'question-category';
+
+            if( isset($args[$question_category_rewrite]) ) {
+                if( isset($args['dwqa-question_category']) ) {
+                    unset($args['dwqa-question_category']);
+                }
+                $term = get_term( $args[$question_category_rewrite], 'dwqa-question_category' );
+                unset($args[$question_category_rewrite]);
+                $url = get_term_link( $term, 'dwqa-question_category' );
+            } else {
+                if( isset($args[$question_tag_rewrite]) ) {
+                    $term = get_term( $args[$question_tag_rewrite], 'dwqa-question_tag' );
+                    unset($args[$question_tag_rewrite]);
+                    $url = get_term_link( $term, 'dwqa-question_tag' );
+                }
+            }
+
+
             if( $url ) {
                 $url = add_query_arg( $args, $url);
                 wp_send_json_success( array( 'url' => $url ) );
@@ -1278,5 +1376,62 @@ function dwqa_reset_permission_default(){
     wp_send_json_error();
 }
 add_action( 'wp_ajax_dwqa-reset-permission-default', 'dwqa_reset_permission_default' );
+
+function dwqa_get_comments(){
+    if( isset($_GET['post']) ) {
+        $comments = get_comments( array(
+            'post_id' => $_GET['post'],
+            'status' => 'approve'
+        ) );
+        
+        wp_list_comments( array( 
+            'style' => 'ol',
+            'callback'  => 'dwqa_question_comment_callback'
+        ), $comments ); 
+    }
+    exit(0);
+}
+add_action( 'wp_ajax_dwqa-get-comments', 'dwqa_get_comments' );
+add_action( 'wp_ajax_nopriv_dwqa-get-comments', 'dwqa_get_comments' );
+
+function dwqa_is_followed( $post_id, $user = false ){
+    if( !$user ) {
+        $user = wp_get_current_user();
+    }
+
+    if( in_array( $user->ID, get_post_meta( $post_id, '_dwqa_followers', false ) ) ) {
+        return true;
+    }
+    return false;
+}
+function dwqa_follow_question(){
+    check_ajax_referer( '_dwqa_follow_question', 'nonce' );
+    if( ! isset($_POST['post']) ) {
+        wp_send_json_error( array(
+            'message'   => __('Invalid Post','dwqa')
+        ) );
+    }
+    $question = get_post( $_POST['post'] );
+    if( is_user_logged_in() ) {
+        global $current_user;
+        if( ! dwqa_is_followed( $question->ID )  ) {
+            add_post_meta( $question->ID, '_dwqa_followers', $current_user->ID );
+            wp_send_json_success( array(
+                'code' => 'followed'
+            ) );
+        } else {
+            delete_post_meta( $question->ID, '_dwqa_followers', $current_user->ID );
+            wp_send_json_success( array(
+                'code' => 'unfollowed'
+            ) );
+        }
+    } else {
+        wp_send_json_error( array(
+            'code' => 'not-logged-in'
+        ) );
+    }
+
+}
+add_action( 'wp_ajax_dwqa-follow-question', 'dwqa_follow_question' );
 
 ?>

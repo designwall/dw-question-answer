@@ -9,7 +9,7 @@ switch( $template ) {
         echo '<div id="primary"><div role="main">';
         break;
     case 'twentytwelve' :
-        echo '<div id="primary"><div role="main">';
+        echo '<div id="primary" class="site-content"><div role="main">';
         break;
     case 'twentythirteen' :
         echo '<div id="primary" class="site-content"><div role="main" class="entry-content twentythirteen">';

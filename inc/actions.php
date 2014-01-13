@@ -1153,13 +1153,16 @@ function dwqa_auto_convert_urls( $content ){
 }
 add_filter( 'the_content', 'dwqa_auto_convert_urls' );
 
-function dwqa_sanitizie_comment( $content ){
-    $content = str_replace( esc_html('<br>'), '<br>', esc_html( $content ) );
-    $content = make_clickable( $content );
-    $content = preg_replace('/(<a[^>]*)(>)/', '$1 target="_blank" $2', $content);
+function dwqa_sanitizie_comment( $content, $comment ){
+    $post_type = get_post_type( $comment->comment_post_ID );
+    if( $post_type == 'dwqa-question' || $post_type == 'dwqa-answer' ) {
+        $content = str_replace( esc_html('<br>'), '<br>', esc_html( $content ) );
+        $content = make_clickable( $content );
+        $content = preg_replace('/(<a[^>]*)(>)/', '$1 target="_blank" $2', $content);
+    }
     return $content;
 }
-add_filter( 'get_comment_text', 'dwqa_sanitizie_comment' );
+add_filter( 'get_comment_text', 'dwqa_sanitizie_comment', 10, 2 );
 
 function dwqa_vote_best_answer(){
     global $current_user;

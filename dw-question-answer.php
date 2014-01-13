@@ -37,6 +37,7 @@ include_once DWQA_DIR  . 'inc/beta.php';
 include_once DWQA_DIR  . 'inc/shortcodes.php';
 include_once DWQA_DIR  . 'inc/status.php';
 include_once DWQA_DIR  . 'inc/roles.php';
+include_once DWQA_DIR  . 'inc/widgets.php';
 global $dwqa_permission;
 $dwqa_permission = new DWQA_Permission();
 
@@ -588,7 +589,7 @@ function dwqa_has_sidebar_template(){
     return;
 }
 
-function dwqa_related_question( $question_id = false ) {
+function dwqa_related_question( $question_id = false, $number = 5 ) {
     if( ! $question_id ) {
         $question_id = get_the_ID();
     }
@@ -609,7 +610,7 @@ function dwqa_related_question( $question_id = false ) {
     $args = array(
         'orderby'       => 'rand',
         'post__not_in'  => array($question_id),
-        'showposts'     => 5,
+        'showposts'     => $number,
         'ignore_sticky_posts' => 1,
         'post_type'     => 'dwqa-question'
     );
@@ -635,7 +636,6 @@ function dwqa_related_question( $question_id = false ) {
     $related_questions = new WP_Query( $args );
     
     if( $related_questions->have_posts() ) {
-        echo '<h3>'.__('Related Questions','dwqa').'</h3>';
         echo '<ul>';
         while ( $related_questions->have_posts() ) { $related_questions->the_post();
             echo '<li><a href="'.get_permalink().'" class="question-title">'.get_the_title().'</a> '.__('asked by','dwqa').' ';

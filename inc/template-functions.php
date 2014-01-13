@@ -270,7 +270,7 @@ function dwqa_submit_question_form(){
                 <label for="question-title"><?php _e('Your question','dwqa') ?> *</label>
                 <input type="text" name="question-title" id="question-title" placeholder="<?php _e('How to...','dwqa') ?>" autocomplete="off" data-nonce="<?php echo wp_create_nonce( '_dwqa_filter_nonce' ) ?>" />
                 <span class="dwqa-search-loading hide"></span>
-                <span class="dwqa-search-clear icon-remove hide"></span>
+                <span class="dwqa-search-clear fa fa-times hide"></span>
             </div>  
                 
             <div class="input-content">

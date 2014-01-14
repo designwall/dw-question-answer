@@ -288,7 +288,7 @@ jQuery(function($) {
         var t = $(this),
             pages = $('.dwqa-list-question .pagination ul').data('pages');
 
-        if (t.hasClass('hide') || t.hasClass('active') || t.hasClass('dot')) {
+        if (t.hasClass('dwqa-hide') || t.hasClass('active') || t.hasClass('dot')) {
             return false;
         }
         $(window).scrollTop($('.questions-list').scrollTop());

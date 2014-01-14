@@ -163,7 +163,7 @@ jQuery(function($){
         if( loginType.val() == 'sign-up' ) {
             loginType.val('sign-in');
             $('#dwqa-submit-question-form .question-register').fadeOut('slow');
-            $('#dwqa-submit-question-form .question-login').fadeIn('slow').removeClass('hide');
+            $('#dwqa-submit-question-form .question-login').fadeIn('slow').removeClass('dwqa-hide');
         } else {
             loginType.val('sign-up');
             $('#dwqa-submit-question-form .question-register').fadeIn('slow');

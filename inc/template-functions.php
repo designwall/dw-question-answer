@@ -166,7 +166,7 @@ function dwqa_require_field_submit_question(){
         <div class="login-switch"><?php _e('Already a member?','dwqa') ?> <a class="credential-form-toggle" href="<?php echo wp_login_url(); ?>"><?php _e('Log In','dwqa') ?></a></div>
     </div>
 
-    <div class="question-login clearfix hide">
+    <div class="question-login clearfix dwqa-hide">
         <label for="user-name"><?php _e('Login to submit your question','dwqa') ?></label>
         <div class="login-username login-input">
             <input type="text" size="20" value="" class="input" placeholder="Type your username" id="user-name" name="user-name">
@@ -189,7 +189,7 @@ function dwqa_require_field_submit_answer( $question_id ){
     <input type="hidden" name="dwqa-action" value="add-answer" />
     <?php if( ! is_user_logged_in() ) { ?>
     <label for="answer_notify"><input type="checkbox" name="answer_notify" /> Notify me when have new comment to my answer</label>
-    <div class="dwqa-answer-signin hide">
+    <div class="dwqa-answer-signin dwqa-hide">
         <input type="text" name="user-email" id="user-email" placeholder="<?php _e('Type your email','dwqa') ?>">
     </div>
     <?php } ?>
@@ -269,8 +269,8 @@ function dwqa_submit_question_form(){
             <div class="input-title">
                 <label for="question-title"><?php _e('Your question','dwqa') ?> *</label>
                 <input type="text" name="question-title" id="question-title" placeholder="<?php _e('How to...','dwqa') ?>" autocomplete="off" data-nonce="<?php echo wp_create_nonce( '_dwqa_filter_nonce' ) ?>" />
-                <span class="dwqa-search-loading hide"></span>
-                <span class="dwqa-search-clear fa fa-times hide"></span>
+                <span class="dwqa-search-loading dwqa-hide"></span>
+                <span class="dwqa-search-clear fa fa-times dwqa-hide"></span>
             </div>  
                 
             <div class="input-content">
@@ -578,7 +578,7 @@ function dwqa_comment_form( $args = array(), $post_id = null ) {
                         echo apply_filters( 'comment_form_field_comment', $args['comment_field'] );
                         ?>
                         <?php echo $args['comment_notes_after']; ?>
-                        <p class="dwqa-form-submit hide">
+                        <p class="dwqa-form-submit dwqa-hide">
                             <input name="submit" type="submit" id="<?php echo esc_attr( $args['id_submit'] ); ?>" value="<?php echo esc_attr( $args['label_submit'] ); ?>" class="dwqa-btn dwqa-btn-primary" />
                             <?php comment_id_fields( $post_id ); ?>
                         </p>

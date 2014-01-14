@@ -18,8 +18,8 @@ get_header('dwqa'); ?>
 	    	<form action="" class="dwqa-search-form">
 	     		<input class="dwqa-search-input" placeholder="<?php _e('Search','dwqa') ?>">
 	            <span class="dwqa-search-submit fa fa-search show"></span>
-	            <span class="dwqa-search-loading hide"></span>
-	            <span class="dwqa-search-clear fa fa-times hide"></span>
+	            <span class="dwqa-search-loading dwqa-hide"></span>
+	            <span class="dwqa-search-clear fa fa-times dwqa-hide"></span>
           	</form>
 	   	</div>
 		<div class="filter-bar">
@@ -191,7 +191,7 @@ get_header('dwqa'); ?>
 						$i = 0;
 						echo '<li class="prev';
 						if( $i == 0 ) {
-							echo ' hide';
+							echo ' dwqa-hide';
 						}
 						echo '"><a href="javascript:void()">'.__('Prev', 'dwqa').'</a></li>';
 						$link = get_post_type_archive_link( 'dwqa-question' );
@@ -227,7 +227,7 @@ get_header('dwqa'); ?>
 	                    }
 						echo '<li class="next';
 						if( $paged == $pages ) {
-							echo ' hide';
+							echo ' dwqa-hide';
 						}
 						echo '"><a href="javascript:void()">'.__('Next', 'dwqa') .'</a></li>';
 

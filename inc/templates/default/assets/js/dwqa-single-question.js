@@ -602,13 +602,13 @@ jQuery(function($) {
 
                             answer_container.find('.dwqa-content').prepend('<p class="answer-flagged-alert alert"><i class="fa fa-flag"></i>' + dwqa.flag.flag_alert + ' <strong class="answer-flagged-show ">' + dwqa.flag.flagged_show + '</strong></p>')
                             answer_container.addClass('answer-flagged-content');
-                            answer_container.find('.dwqa-content .dwqa-content-inner').addClass('hide');
+                            answer_container.find('.dwqa-content .dwqa-content-inner').addClass('dwqa-hide');
                             t.find('a').html('<i class="fa fa-flag"></i>' + dwqa.flag.label_revert);
                         } else {
                             answer_container.removeClass('answer-flagged-content');
                             answer_container.find('.answer-flagged-alert').remove();
                             answer_container.removeClass('answer-flagged-content');
-                            answer_container.find('.dwqa-content .dwqa-content-inner').removeClass('hide');
+                            answer_container.find('.dwqa-content .dwqa-content-inner').removeClass('dwqa-hide');
                             t.find('a').html('<i class="fa fa-flag"></i>' + dwqa.flag.label);
                         }
                     }
@@ -620,7 +620,7 @@ jQuery(function($) {
     answers.delegate('.answer-flagged-alert', 'click', function(event) {
         event.preventDefault();
         var answerContent = $(this).closest('.dwqa-content').find('.dwqa-content-inner');
-        answerContent.toggleClass('hide');
+        answerContent.toggleClass('dwqa-hide');
         if (answerContent.is(':visible')) {
             $(this).find('.answer-flagged-show').text(dwqa.flag.flagged_hide);
         } else {
@@ -671,9 +671,9 @@ jQuery(function($) {
 
     $('[name="answer_notify"]').click(function() {
         if ($(this).is(':checked')) {
-            $(".dwqa-answer-signin").removeClass('hide');
+            $(".dwqa-answer-signin").removeClass('dwqa-hide');
         } else {
-            $('.dwqa-answer-signin').addClass('hide');
+            $('.dwqa-answer-signin').addClass('dwqa-hide');
         }
 
     });

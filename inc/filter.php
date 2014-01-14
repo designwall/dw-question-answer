@@ -61,7 +61,7 @@ class DWQA_Filter {
                     $link = get_post_type_archive_link( 'dwqa-question' );
                 ob_start();
                     echo '<ul data-pages="'.$pages_number.'" >';
-                    echo '<li class="prev' .( $this->filter['paged'] == 1 ? ' hide' : '' ).'"><a href="javascript:void(0);">Prev</a></li>';
+                    echo '<li class="prev' .( $this->filter['paged'] == 1 ? ' dwqa-hide' : '' ).'"><a href="javascript:void(0);">Prev</a></li>';
                     
                     if( $start_page > 1 ) {
                         echo '<li><a href="'.add_query_arg('paged',1,$link).'">1</a></li><li class="dot"><span>...</span></li>';
@@ -80,7 +80,7 @@ class DWQA_Filter {
                     if( $i - 1 < $pages_number ) {
                         echo '<li class="dot"><span>...</span></li><li><a href="'.add_query_arg('paged',$pages_number,$link).'"> '.$pages_number.'</a></li>';
                     }
-                    echo '<li class="next'.( $this->filter['paged'] == $pages_number ? ' hide' : '' ).'"><a href="javascript:void(0);">'.__('Next','dwqa').'</a></li>';
+                    echo '<li class="next'.( $this->filter['paged'] == $pages_number ? ' dwqa-hide' : '' ).'"><a href="javascript:void(0);">'.__('Next','dwqa').'</a></li>';
 
                     
                     echo '</ul>';

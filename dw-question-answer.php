@@ -560,7 +560,7 @@ function dwqa_answer_count( $question_id ){
 
 function dwqa_content_start_wrapper(){
     dwqa_load_template( 'content', 'start-wrapper' );
-    echo '<div class="dwqa-container">';
+    echo '<div class="dwqa-container" >';
 }
 add_action( 'dwqa_before_page', 'dwqa_content_start_wrapper' );
 

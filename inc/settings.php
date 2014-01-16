@@ -54,30 +54,62 @@ function dwqa_settings_display(){
                 echo '<div class="dwqa-notification-settings">';
                 settings_fields( 'dwqa-subscribe-settings' );
                 dwqa_subscrible_email_logo_display();
-                echo '<h3>'.__('New Question Notification','dwqa').'</h3>';
+                echo '<h3>'.__('Email Template','dwqa') . '</h3>';
+                echo '<div class="dwqa-mail-templates">';
+                echo '<div class="progress-bar"><div class="progress-bar-inner"></div></div>';
+                echo '<ul class="nav-tabs">';
+
+                echo '<li class="active"><a href="#new-question">'.__('New Question', 'dwqa').'</a></li>';
+                echo '<li><a href="#new-answer">'.__('New Answer', 'dwqa').'</a></li>';
+                echo '<li><a href="#new-comment-question">'.__('New Comment to Question', 'dwqa').'</a></li>';
+                echo '<li><a href="#new-comment-answer">'.__('New Comment to Answer', 'dwqa').'</a></li>';
+
+                echo '</ul>'; // Create default email template
+
+                echo '<div class="tab-content">'; 
+
+                echo '<div id="new-question" class="tab-pane active">';
+                echo '<h3>'.__('New Question Notification','dwqa') . '</h3>';
+
                 dwqa_subscrible_enable_new_question_notification();
                 dwqa_subscrible_new_question_email_subject_display();
                 dwqa_subscrible_new_question_email_display();
                 submit_button( __('Save all changes','dwqa') );
                 echo '<hr>';
+                echo '</div>'; //End tab for New Question Notification
+
+                echo '<div id="new-answer" class="tab-pane">';
                 echo '<h3>'.__('New Answer Notification','dwqa'). '</h3>';
                 dwqa_subscrible_enable_new_answer_notification();
                 dwqa_subscrible_new_answer_email_subject_display();
                 dwqa_subscrible_new_answer_email_display();
                 submit_button( __('Save all changes','dwqa') );
                 echo '<hr>';
+                echo '</div>';//End tab for New Answer Notification
+
+                echo '<div id="new-comment-question" class="tab-pane">';
                 echo '<h3>'.__('New Comment to Question Notification','dwqa'). '</h3>';
                 dwqa_subscrible_enable_new_comment_question_notification();
                 dwqa_subscrible_new_comment_question_email_subject_display();
                 dwqa_subscrible_new_comment_question_email_display();
                 submit_button( __('Save all changes','dwqa') );
                 echo '<hr>';
+                echo '</div>'; //End tab for New Comment to Question Notification
+
+
+                echo '<div id="new-comment-answer" class="tab-pane">';
                 echo '<h3>'.__('New Comment to Answer Notification','dwqa'). '</h3>';
                 dwqa_subscrible_enable_new_comment_answer_notification();
                 dwqa_subscrible_new_comment_answer_email_subject_display();
                 dwqa_subscrible_new_comment_answer_email_display();
                 submit_button( __('Save all changes','dwqa') );
-                echo '</div>';
+                echo '</div>'; //End tab for New Comment to Answer Notification
+
+                echo '</div>'; //End wrap mail template settings
+
+                echo '</div>'; //End wrap tab content
+
+                echo '</div>'; //The End
             } elseif ( 'permission' == $active_tab ) {
                 settings_fields( 'dwqa-permission-settings' );
                 dwqa_permission_display();
@@ -381,7 +413,7 @@ function dwqa_email_template_settings_display(){
 function dwqa_subscrible_email_logo_display(){
     ?>
     <div class="uploader">
-        <p><?php _e('Email logo','dwqa') ?></p>
+        <h3><?php _e('Email logo','dwqa') ?></h3>
         <p><input type="text" name="dwqa_subscrible_email_logo" id="dwqa_subscrible_email_logo" class="regular-text" value="<?php echo  get_option( 'dwqa_subscrible_email_logo' ); ?>" />&nbsp;<input type="button" class="button" name="dwqa_subscrible_email_logo_button" id="dwqa_subscrible_email_logo_button" value="<?php _e('Upload','dwqa') ?>" /><span class="description">&nbsp;<?php _e('Upload or choose a logo to be displayed at the top of the email','dwqa') ?></span></p>
     </div>
     <script type="text/javascript">

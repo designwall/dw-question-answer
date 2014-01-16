@@ -35,4 +35,22 @@ jQuery(document).ready(function($) {
 
         }
     });
+
+    $('.dwqa-notification-settings .nav-tabs li').click(function(event){
+        event.preventDefault();
+        var tab = $(this).find('a:first').attr('href');
+        $('.dwqa-notification-settings .nav-tabs li').removeClass('active');
+        $('.dwqa-notification-settings .tab-content .tab-pane').removeClass('active');
+        $(tab).addClass('active');
+        $(this).addClass('active');
+        $('.dwqa-mail-templates .progress-bar .progress-bar-inner').stop().css('width',0).animate(
+            { width: '70%' },
+            600,
+            function(){
+                $(this).css('width', '100%').fadeOut(200, function() {
+                    $(this).css({ width: '0%' }).show();
+                });;
+            }
+        );
+    });
 });

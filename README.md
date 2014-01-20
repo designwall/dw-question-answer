@@ -1,15 +1,17 @@
-=== DW Question & Answer ===
-Contributors: DesignWall
-Tags: question, answer, support, quora, stackoverflow
-Requires at least: 3.0.1
-Tested up to: 3.8
-Stable tag: 1.1
-License: GPLv3
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
+DW Question & Answer
+====================
+ - Contributors: DesignWall
+ - Tags: question, answer, support, quora, stackoverflow
+ - Requires at least: 3.0.1
+ - Tested up to: 3.8
+ - Stable tag: 1.1
+ - License: GPLv3
+ - License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 Your WordPress site will have a full-featured Question & Answer section like Stack Overflow, Quora or Yahoo Answers
 
-== Description ==
+Description
+-----------
 
 Developed by [DesignWall](http://www.designwall.com/?utm_source=readme&utm_medium=description_tab&utm_content=plugin_link&utm_campaign=dwqa_plugin), DW Question & Answer is a FREE [WordPress Plugin](http://www.designwall.com/wordpress/plugins/) in which builds up a Question & Answer system on your WordPress site.
 
@@ -17,7 +19,8 @@ Developed by [DesignWall](http://www.designwall.com/?utm_source=readme&utm_mediu
 
 Your WordPress site will have a full-featured Question & Answer section like Stack Overflow, Quora or Yahoo Answers. Your users can Submit question, Search and Filter questions by status, get answered from others. Users can comment and reply to a question or an answer, can vote and definitely can pick one best answer for their questions.
 
-Here is the list of features of this plugin:
+Features
+--------
 
 * Submit Question
 * Order Question by Category, Tags
@@ -32,13 +35,15 @@ Here is the list of features of this plugin:
 
 [youtube http://www.youtube.com/watch?v=usS9ug0pI7A]
 
-== Installation ==
+Installation
+------------
 
 1. Upload `dw-question-answer` to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Log In to your WordPress Dashboard and go to menu `Dashboard > DW Q&A > Settings` then choose pages where to put submit question form and list questions page.
 
-== Screenshots ==
+Screenshots
+-----------
 
 1. Front-end appearance
 2. Ask question page
@@ -46,7 +51,8 @@ Here is the list of features of this plugin:
 4. Search page with Instant search function
 5. Back-end settings
 
-== Changelog ==
+Changelog
+---------
 
 = 1.1 =
 * Fixed: Don't automatically pick the best answer which has the most votes ( at least 3 votes)
@@ -83,7 +89,6 @@ Here is the list of features of this plugin:
 * New: Use new vector-based icon for DW Q&A Menu 
 
 = 1.0.3 =
-
 * Fixed: Missing attribute "class" when insert codes to <code> tag on Answer Editor
 * Fixed: Input's placeholder disappeared on IE 8,9 in submit question page
 * Fixed: Time is incorrect when add question/answer/comment
@@ -91,15 +96,12 @@ Here is the list of features of this plugin:
 * Fixed: Line spacing between code lines becomes larger after editting
 * Fixed: Can not post comment on IE 8
 * Fixed: Time stamp is overlapped by avatar
-
 * Tweak: Auto create 2 pages: "Questions" & "Ask" when active plugin
 * Convert links when add new comment
 * Have a message to inform number of charaters for title box
-
 * New: Permission Settings - allow you to set permissions for default user roles: read, post, edit and delete either questions, answers or comments
 
 = 1.0.2 =
-
 * Tweak: When user add a new comment/answer, status of question is changed to "open".
 * Fixed: Do not press "enter" key to post new comment.
 * Fixed: The answer cloned automatically after changing question status.
@@ -113,7 +115,5 @@ Here is the list of features of this plugin:
 * Fixed: Questions don't appear on IE9.
 * New: Ready to translate into your native language. 
 
-
 = 1.0 =
-
 * The first version of DW Question & Answer

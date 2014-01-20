@@ -98,54 +98,7 @@
     }
 
     if( dwqa_current_user_can('post_answer') ){
-    ?>
-    <div id="dwqa-add-answers" class="dwqa-answer-form">
-        <h3 class="dwqa-headline"><?php _e('Answer this Question', 'dwqa' ); ?></h3>
-        <form action="<?php echo admin_url( 'admin-ajax.php?action=dwqa-add-answer' ); ?>" name="dwqa-answer-question-form" id="dwqa-answer-question-form" method="post">
-            <?php  
-                function dwqa_paste_srtip_disable( $mceInit ){
-                    $mceInit['paste_strip_class_attributes'] = 'none';
-                    return $mceInit;
-                }
-                add_filter( 'tiny_mce_before_init', 'dwqa_paste_srtip_disable' );
-                $editor = array( 
-                    'wpautop'       => false,
-                    'id'            => 'dwqa-answer-question-editor',
-                    'textarea_name' => 'answer-content',
-                    'rows'          => 2
-                );
-            ?>
-            <?php dwqa_init_tinymce_editor( $editor ); ?>
-            <?php do_action( 'dwqa_submit_answer_ui', $question_id ); ?>
-            <div class="form-buttons">
-                <input type="submit" name="submit-answer" id="submit-answer" value="<?php _e('Add answer','dwqa'); ?>" class="dwqa-btn dwqa-btn-primary" />
-
-                <?php if( current_user_can( 'manage_options' ) ) { ?>
-                <input type="submit" name="submit-answer" id="save-draft-answer" value="<?php _e('Save draft','dwqa'); ?>" class="dwqa-btn dwqa-btn-default" />
-                <?php } ?>
-            </div>
-            <div class="dwqa-privacy">
-                <input type="hidden" name="privacy" value="publish">
-                <span class="dwqa-current-privacy"><i class="fa fa-globe"></i> <?php _e('Public','dwqa') ?></span>
-                <span class="dwqa-change-privacy">
-                    <div class="dwqa-btn-group">
-                        <button class="dropdown-toggle" type="button"><i class="fa fa-caret-down"></i></button>
-                        <div class="dwqa-dropdown-menu">
-                            <div class="dwqa-dropdown-caret">
-                                <span class="dwqa-caret-outer"></span>
-                                <span class="dwqa-caret-inner"></span>
-                            </div>
-                            <ul role="menu">
-                                <li data-privacy="publish" class="current" title="<?php _e('Everyone can see','dwqa'); ?>"><a href="#"><i class="fa fa-globe"></i> <?php _e('Public','dwqa'); ?></a></li>
-                                <li data-privacy="private" title="<?php _e('Only Author and Administrator can see','dwqa'); ?>"><a href="#"><i class="fa fa-lock"></i> <?php _e('Private','dwqa') ?></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </span>
-            </div>
-        </form>
-    </div>
-    <?php
+        dwqa_submit_answer_form();
     } else { ?>
         <?php if( is_user_logged_in() ) { ?>
             <div class="alert"><?php _e('You do not have permission to submit answer.','dwqa') ?></div>

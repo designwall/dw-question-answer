@@ -194,13 +194,15 @@ function dwqa_vote_count( $post_id = false, $echo = false ){
  * @return [type] [description]
  */
 function dwqa_add_answer(){
-    global $post_submit_filter, $dwqa_current_error, $dwqa_options;
+    global $post_submit_filter, $dwqa_options;
     if( ! isset($_POST['dwqa-action']) || ! isset( $_POST['submit-answer'] ) ) {
         return false;
     }
     $dwqa_add_answer_errors = new WP_Error();
     if( ! isset($_POST['_wpnonce']) || ! wp_verify_nonce( $_POST['_wpnonce'], '_dwqa_add_new_answer' ) ) {
         $dwqa_add_answer_errors->add( 'answer_question', '"Helllo", Are you cheating huh?.' );
+        //wp_safe_redirect( get_permalink( $question_id ) );
+        //return false;
     }
     if( $_POST['submit-answer'] == __('Delete draft','dwqa') ) {
         $draft = $_POST['answer-id'];
@@ -252,34 +254,41 @@ function dwqa_add_answer(){
 
         switch ( $_POST['dwqa-action'] ) {
             case 'add-answer':
-                if( dwqa_current_user_can('post_answer') ) {
-                    $answer_id = wp_insert_post( $answers, true );
+                $valid_captcha = dwqa_valid_captcha('single-question');
+
+                if( $valid_captcha ) {
+                    if( dwqa_current_user_can('post_answer') ) {
+                        $answer_id = wp_insert_post( $answers, true );
+                    } else {
+                        $answer_id =  new WP_Error('permission', __("You do not have permission to submit question.",'dwqa') );
+                    }
+                    
+                    if( ! is_wp_error( $answer_id ) ) {
+                        //Send email alert for author of question about this answer
+                        $question_author = $question->post_author;
+                        if( isset($_POST['submit-answer-and-resolve']) ) {
+                            if( $answers['post_status'] != 'draft' ) {
+                                update_post_meta( $question_id, '_dwqa_status', 'resolved' );
+                            }
+                            update_post_meta( $question_id, '_dwqa_resolved_time', time() );
+                        }
+                        update_post_meta( $answer_id, '_question', $question_id  );
+                        if( $is_anonymous ) {
+                            update_post_meta( $answer_id, '_dwqa_is_anonymous', true );
+                            if( isset($post_author_email) && is_email( $post_author_email ) ){
+                                update_post_meta( $answer_id, '_dwqa_anonymous_email', $post_author_email );
+                            }
+                        }
+                        do_action( 'dwqa_add_answer', $answer_id );
+                        wp_redirect( get_permalink($question_id) );
+                        return true;
+                    } else {
+                        $dwqa_add_answer_errors = $answer_id;
+                    }
                 } else {
-                    $answer_id =  new WP_Error('permission', __("You do not have permission to submit question.",'dwqa') );
+                    $dwqa_add_answer_errors->add('in_valid_captcha', __('Captcha is not correct','dwqa') );
                 }
                 
-                if( ! is_wp_error( $answer_id ) ) {
-                    //Send email alert for author of question about this answer
-                    $question_author = $question->post_author;
-                    if( isset($_POST['submit-answer-and-resolve']) ) {
-                        if( $answers['post_status'] != 'draft' ) {
-                            update_post_meta( $question_id, '_dwqa_status', 'resolved' );
-                        }
-                        update_post_meta( $question_id, '_dwqa_resolved_time', time() );
-                    }
-                    update_post_meta( $answer_id, '_question', $question_id  );
-                    if( $is_anonymous ) {
-                        update_post_meta( $answer_id, '_dwqa_is_anonymous', true );
-                        if( isset($post_author_email) && is_email( $post_author_email ) ){
-                            update_post_meta( $answer_id, '_dwqa_anonymous_email', $post_author_email );
-                        }
-                    }
-                    do_action( 'dwqa_add_answer', $answer_id );
-                    wp_redirect( get_permalink($question_id) );
-                    return true;
-                } else {
-                    $dwqa_current_error = $answer_id;
-                }
                 break;
             case 'update-answer':
                 $answer_update = array(
@@ -300,7 +309,13 @@ function dwqa_add_answer(){
         }
 
     }
-    $dwqa_current_error = $dwqa_add_answer_errors;
+    $url =  get_permalink( $question_id );
+    $error_messages = $dwqa_add_answer_errors->get_error_messages();
+    foreach ($error_messages as $value ) {
+        $url = add_query_arg( 'errors', urlencode( $value ), $url );
+    }
+
+    wp_safe_redirect( $url );
 }
 add_action( 'wp_ajax_dwqa-add-answer', 'dwqa_add_answer' );
 add_action( 'wp_ajax_nopriv_dwqa-add-answer', 'dwqa_add_answer' );
@@ -374,78 +389,47 @@ add_action( 'wp_ajax_dwqa-action-remove-answer', 'dwqa_remove_answer' );
 function dwqa_submit_question(){
     global $post_submit_filter, $dwqa_options;
 
-    if( isset($_POST['dwqa-action']) && 'dwqa-submit-question' == $_POST['dwqa-action'] )
-    {
+    if( isset($_POST['dwqa-action']) && 'dwqa-submit-question' == $_POST['dwqa-action'] ) {
         global $dwqa_current_error;
+        $valid_captcha = dwqa_valid_captcha('question');
 
         $dwqa_submit_question_errors = new WP_Error();
         if( isset($_POST['_wpnonce']) && wp_verify_nonce( $_POST['_wpnonce'], 'dwqa-submit-question-nonce-#!' ) ) {
-            if( empty($_POST['question-title']) ) {
+            if( $valid_captcha ) {
+                if( empty($_POST['question-title']) ) {
 
-                $dwqa_submit_question_errors->add( 'submit_question', 'You must enter a valid question title' );
-                return false;
-            }
+                    $dwqa_submit_question_errors->add( 'submit_question', 'You must enter a valid question title' );
+                    return false;
+                }
 
-            $title = esc_html( $_POST['question-title'] );
+                $title = esc_html( $_POST['question-title'] );
 
-            $category = isset($_POST['question-category']) ? 
-                        (int) $_POST['question-category'] : 0;
-            if( ! term_exists( $category, 'dwqa-question_category' ) ){
-                $category = 0;
-            }
+                $category = isset($_POST['question-category']) ? 
+                            (int) $_POST['question-category'] : 0;
+                if( ! term_exists( $category, 'dwqa-question_category' ) ){
+                    $category = 0;
+                }
 
-            $tags = isset($_POST['question-tag']) ? 
-                        esc_html( $_POST['question-tag'] ): '';
+                $tags = isset($_POST['question-tag']) ? 
+                            esc_html( $_POST['question-tag'] ): '';
 
-            $content = isset($_POST['question-content']) ? 
-                        $_POST['question-content'] : '';
-            $content = wp_kses( dwqa_pre_content_filter( $content ), $post_submit_filter );
-            
-            $user_id = 0;
-            $is_anonymous = false;
-            if( is_user_logged_in() ){
-                $user_id = get_current_user_id();
-            } else {
-                //$post_author_email = $_POST['user-email'];
-                if( isset($_POST['login-type']) && $_POST['login-type'] == 'sign-in' ) {
-                    $user = wp_signon( array(
-                        'user_login'    => $_POST['user-name'],
-                        'user_password' => $_POST['user-password']
-                    ), false );
-
-                    if( ! is_wp_error( $user ) ) {
-                        global $current_user;
-                        $current_user = $user;
-                        get_currentuserinfo();
-                        $user_id = $user->data->ID;
-                    } else {
-                        $dwqa_current_error = $user;
-                        return false;
-                    }
+                $content = isset($_POST['question-content']) ? 
+                            $_POST['question-content'] : '';
+                $content = wp_kses( dwqa_pre_content_filter( $content ), $post_submit_filter );
+                
+                $user_id = 0;
+                $is_anonymous = false;
+                if( is_user_logged_in() ){
+                    $user_id = get_current_user_id();
                 } else {
-                    //Create new user 
-                    $users_can_register = get_option( 'users_can_register' );
-                    if( isset($_POST['user-email']) && isset($_POST['user-name-signup']) 
-                            && $users_can_register && ! email_exists( $_POST['user-email'] ) 
-                                && ! username_exists( $_POST['user-name-signup'] ) ) {
-
-                        if( isset($_POST['password-signup']) ) {
-                            $password = $_POST['password-signup'];
-                        } else {
-                            $password = wp_generate_password( 12, false );
-                        }
-
-                        $user_id = wp_create_user( $_POST['user-name-signup'], $password, $_POST['user-email'] );
-                        if( is_wp_error( $user_id ) ) {
-                            $dwqa_current_error = $user_id;
-                            return false;
-                        }
-                        wp_new_user_notification( $user_id, $password );
+                    //$post_author_email = $_POST['user-email'];
+                    if( isset($_POST['login-type']) && $_POST['login-type'] == 'sign-in' ) {
                         $user = wp_signon( array(
-                            'user_login'    => $_POST['user-name-signup'],
-                            'user_password' => $password
+                            'user_login'    => $_POST['user-name'],
+                            'user_password' => $_POST['user-password']
                         ), false );
-                        if( ! is_wp_error($user) ) {
+
+                        if( ! is_wp_error( $user ) ) {
                             global $current_user;
                             $current_user = $user;
                             get_currentuserinfo();
@@ -455,56 +439,90 @@ function dwqa_submit_question(){
                             return false;
                         }
                     } else {
-                        $message = '';
-                        if( ! $users_can_register ) {
-                            $message .= __('User Registration was disabled.','dwqa').'<br>';
+                        //Create new user 
+                        $users_can_register = get_option( 'users_can_register' );
+                        if( isset($_POST['user-email']) && isset($_POST['user-name-signup']) 
+                                && $users_can_register && ! email_exists( $_POST['user-email'] ) 
+                                    && ! username_exists( $_POST['user-name-signup'] ) ) {
+
+                            if( isset($_POST['password-signup']) ) {
+                                $password = $_POST['password-signup'];
+                            } else {
+                                $password = wp_generate_password( 12, false );
+                            }
+
+                            $user_id = wp_create_user( $_POST['user-name-signup'], $password, $_POST['user-email'] );
+                            if( is_wp_error( $user_id ) ) {
+                                $dwqa_current_error = $user_id;
+                                return false;
+                            }
+                            wp_new_user_notification( $user_id, $password );
+                            $user = wp_signon( array(
+                                'user_login'    => $_POST['user-name-signup'],
+                                'user_password' => $password
+                            ), false );
+                            if( ! is_wp_error($user) ) {
+                                global $current_user;
+                                $current_user = $user;
+                                get_currentuserinfo();
+                                $user_id = $user->data->ID;
+                            } else {
+                                $dwqa_current_error = $user;
+                                return false;
+                            }
+                        } else {
+                            $message = '';
+                            if( ! $users_can_register ) {
+                                $message .= __('User Registration was disabled.','dwqa').'<br>';
+                            }
+                            if( email_exists( $_POST['user-email'] ) ) {
+                                $message .= __('This email is already registered, please choose another one.','dwqa').'<br>';
+                            }
+                            if( username_exists( $_POST['user-name'] ) ) {
+                                $message .= __('This username is already registered. Please choose another one.','dwqa').'<br>';
+                            }
+                            $dwqa_current_error = new WP_Error( 'submit_question', $message );
+                            return false;
                         }
-                        if( email_exists( $_POST['user-email'] ) ) {
-                            $message .= __('This email is already registered, please choose another one.','dwqa').'<br>';
-                        }
-                        if( username_exists( $_POST['user-name'] ) ) {
-                            $message .= __('This username is already registered. Please choose another one.','dwqa').'<br>';
-                        }
-                        $dwqa_current_error = new WP_Error( 'submit_question', $message );
-                        return false;
                     }
                 }
-            }
 
-            $post_status = ( isset($_POST['private-message']) && $_POST['private-message'] ) ? 'private' : 'publish';
-            $postarr = array(
-                'comment_status' => 'open',
-                'post_author'    => $user_id,
-                'post_content'   => $content,
-                'post_status'    => $post_status,
-                'post_title'     => $title,
-                'post_type'      => 'dwqa-question',
-                'tax_input'      => array(
-                    'dwqa-question_category'    => array( $category ),
-                    'dwqa-question_tag'         => explode(',', $tags )
-                )
-            );  
+                $post_status = ( isset($_POST['private-message']) && $_POST['private-message'] ) ? 'private' : 'publish';
+                $postarr = array(
+                    'comment_status' => 'open',
+                    'post_author'    => $user_id,
+                    'post_content'   => $content,
+                    'post_status'    => $post_status,
+                    'post_title'     => $title,
+                    'post_type'      => 'dwqa-question',
+                    'tax_input'      => array(
+                        'dwqa-question_category'    => array( $category ),
+                        'dwqa-question_tag'         => explode(',', $tags )
+                    )
+                );  
 
-            if( dwqa_current_user_can('post_question') ) {
-                $new_question = dwqa_insert_question( $postarr );
+                if( dwqa_current_user_can('post_question') ) {
+                    $new_question = dwqa_insert_question( $postarr );
+                } else {
+                    $new_question = new WP_Error('permission', __("You do not have permission to submit question.",'dwqa') );
+                }
+
+                if( ! is_wp_error( $new_question ) ) {
+                    exit( wp_safe_redirect( get_permalink( $new_question ) ) );
+                } else {
+                    $dwqa_current_error = $new_question;
+                }   
             } else {
-                $new_question = new WP_Error('permission', __("You do not have permission to submit question.",'dwqa') );
-            }
-
-            if( ! is_wp_error( $new_question ) ) {
-                exit( wp_safe_redirect( get_permalink( $new_question ) ) );
-            } else {
-                $dwqa_current_error = $new_question;
+                $dwqa_submit_question_errors->add( 'submit_question', __('YCaptcha is not correct','dwqa') );
             }
         }else{
-            $dwqa_submit_question_errors->add( 'submit_question', '"Helllo", Are you cheating huh?.' );
+            $dwqa_submit_question_errors->add( 'submit_question', __('"Helllo", Are you cheating huh?.','dwqa') );
         }
         $dwqa_current_error = $dwqa_submit_question_errors;
 
     }
 }
 add_action( 'init','dwqa_submit_question', 11 );
-
 
 function dwqa_insert_question( $args ){
 
@@ -1436,5 +1454,67 @@ function dwqa_follow_question(){
 
 }
 add_action( 'wp_ajax_dwqa-follow-question', 'dwqa_follow_question' );
+
+
+// CAPTCHA
+function dwqa_valid_captcha( $type ){
+    if( 'question' == $type && ! dwqa_is_captcha_enable_in_submit_question() ) {
+        return false;
+    }
+
+    if( 'single-question' == $type && ! dwqa_is_captcha_enable_in_single_question() ) {
+        return false;
+    }
+
+    if( dwqa_is_captcha_enable() ) {
+
+        global  $dwqa_general_settings;
+        $private_key = isset($dwqa_general_settings['captcha-google-private-key']) ?  $dwqa_general_settings['captcha-google-private-key'] : '';
+
+        $resp = recaptcha_check_answer (
+            $private_key,
+            $_SERVER["REMOTE_ADDR"],
+            $_POST["recaptcha_challenge_field"],
+            $_POST["recaptcha_response_field"]
+        );
+        if( $resp->is_valid ) {
+            return true;
+        }
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function dwqa_is_captcha_enable(){
+    global $dwqa_general_settings;
+    $public_key = isset($dwqa_general_settings['captcha-google-public-key']) ?  $dwqa_general_settings['captcha-google-public-key'] : '';
+    $private_key = isset($dwqa_general_settings['captcha-google-private-key']) ?  $dwqa_general_settings['captcha-google-private-key'] : '';
+
+    if( !$public_key || !$private_key ) {
+        return false;
+    }
+    return true;
+}
+
+function dwqa_is_captcha_enable_in_submit_question(){
+    global $dwqa_general_settings;
+    $captcha_in_question = isset($dwqa_general_settings['captcha-in-question']) ? $dwqa_general_settings['captcha-in-question'] : false;
+    
+    if( $captcha_in_question && dwqa_is_captcha_enable() ){
+        return true;
+    }
+    return false;
+}
+
+function dwqa_is_captcha_enable_in_single_question(){
+    global $dwqa_general_settings;
+    $captcha_in_single_question = isset($dwqa_general_settings['captcha-in-single-question']) ? $dwqa_general_settings['captcha-in-single-question'] : false;
+    if( $captcha_in_single_question && dwqa_is_captcha_enable() ) {
+        return true;
+    } 
+    return false;
+}
+
 
 ?>

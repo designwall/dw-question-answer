@@ -205,6 +205,48 @@ function dwqa_register_settings(){
         'dwqa-time-settings'
     );
 
+    //Captcha Setting
+
+    add_settings_section( 
+        'dwqa-captcha-settings', 
+        __('Captcha settings','dwqa'), 
+        null, 
+        'dwqa-settings' 
+    );
+
+    add_settings_field( 
+        'dwqa_options[captcha-in-question]', 
+        __('Captcha in Submit Question Page', 'dwqa'), 
+        'dwqa_captcha_in_question_display', 
+        'dwqa-settings', 
+        'dwqa-captcha-settings'
+    );
+
+    add_settings_field( 
+        'dwqa_options[captcha-in-single-question]', 
+        __('Captcha in Single Question Page', 'dwqa'), 
+        'dwqa_captcha_in_single_question_display', 
+        'dwqa-settings', 
+        'dwqa-captcha-settings'
+    );
+
+    add_settings_field( 
+        'dwqa_options[captcha-google-public-key]', 
+        __('Google Captcha Public Key', 'dwqa'), 
+        'dwqa_captcha_google_pubic_key_display', 
+        'dwqa-settings', 
+        'dwqa-captcha-settings'
+    );
+
+    add_settings_field( 
+        'dwqa_options[captcha-google-private-key]', 
+        __('Google Captcha Private Key', 'dwqa'), 
+        'dwqa_captcha_google_private_key_display', 
+        'dwqa-settings', 
+        'dwqa-captcha-settings'
+    );
+
+
     //Permalink
     add_settings_section( 
         'dwqa-permalink-settings', 
@@ -822,6 +864,31 @@ function dwqa_permission_display(){
         <button data-type="comment" class="button reset-permission"><?php _e( 'Reset Default', 'dwqa' ); ?></button>
     </p>
     <?php
+}
+
+//Captcha
+function dwqa_captcha_in_question_display() {
+    global $dwqa_general_settings;
+
+    echo '<p><input type="checkbox" name="dwqa_options[captcha-in-question]"  id="dwqa_options_captcha_in_question" value="1" '.checked( 1, (isset($dwqa_general_settings['captcha-in-question']) ? $dwqa_general_settings['captcha-in-question'] : false) , false ) .'><span class="description">'.__('Enable/Disable captcha on submit question page','dwqa').'</span></p>';
+}
+
+function dwqa_captcha_in_single_question_display() {
+    global $dwqa_general_settings;
+    
+    echo '<p><input type="checkbox" name="dwqa_options[captcha-in-single-question]"  id="dwqa_options_captcha_in_question" value="1" '.checked( 1, (isset($dwqa_general_settings['captcha-in-single-question']) ? $dwqa_general_settings['captcha-in-single-question'] : false) , false ) .'><span class="description">'.__('Enable/Disable captcha on single question page','dwqa').'</span></p>';
+}
+
+function dwqa_captcha_google_pubic_key_display() {
+    global $dwqa_general_settings;
+    $public_key = isset($dwqa_general_settings['captcha-google-public-key']) ?  $dwqa_general_settings['captcha-google-public-key'] : '';
+    echo '<p><input type="text" name="dwqa_options[captcha-google-public-key]" value="'.$public_key.'" class="regular-text"></p>';
+}
+
+function dwqa_captcha_google_private_key_display() {
+    global $dwqa_general_settings;
+    $private_key = isset($dwqa_general_settings['captcha-google-private-key']) ?  $dwqa_general_settings['captcha-google-private-key'] : '';
+    echo '<p><input type="text" name="dwqa_options[captcha-google-private-key]" value="'.$private_key.'" class="regular-text"></p>';
 }
 
 ?>

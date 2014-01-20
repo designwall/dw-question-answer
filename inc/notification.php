@@ -134,23 +134,47 @@ function dwqa_new_answer_nofity( $answer_id ){
     $message = str_replace( '{site_description}', get_bloginfo( 'description' ), $message );
     $message = str_replace( '{site_url}', site_url(), $message);
 
-    $followers = get_post_meta( $question_id, '_dwqa_followers' );
-    $answer_email = get_the_author_meta( 'user_email', $answer->post_author );
-    if( ! empty($followers) ) {
-        $question_link = get_permalink( $question->ID );
-        foreach ( $followers as $follower ) {
-            $follow_email = get_the_author_meta( 'user_email', $follower );
-            if( $follow_email && $follow_email != $email && $follow_email != $answer_email ) {
-                $follow_subject = __('You got new answer for your followed question','dwqa');
+    $enable_notify = get_option( 'dwqa_subscrible_enable_new_answer_followers_notification' );
+    if( $enable_notify ) {
+        $followers = get_post_meta( $question_id, '_dwqa_followers' );
+        $answer_email = get_the_author_meta( 'user_email', $answer->post_author );
+        if( ! empty($followers) ) {
+            $question_link = get_permalink( $question->ID );
 
-                $message_to_follower = ' Hi {follower_name}, A new answer has been posted on your followed question at: {followed_question_link}';
-                $message_to_follower = str_replace( '{follower_name}', get_the_author_meta( 'display_name', $follower ), $message_to_follower);
-                $message_to_follower = str_replace( '{followed_question_link}', $question_link, $message_to_follower);
-                //Send email to follower
-                wp_mail( $follow_email, $follow_subject, $message_to_follower, $headers );
+            $follow_subject = get_option( 'dwqa_subscrible_new_answer_followers_email_subject' );
+            if( ! $subject ) {
+                $follow_subject = __('You got new answer for your followed question','dwqa');
+            }
+            $follow_subject = str_replace('{site_name}', get_bloginfo( 'name' ), $follow_subject);
+            $follow_subject = str_replace( '{question_title}', $question->post_title, $follow_subject);
+            $follow_subject = str_replace( '{question_id}', $question->ID, $follow_subject);
+            $follow_subject = str_replace( '{username}', $display_name, $follow_subject);
+            $follow_subject = str_replace( '{answer_author}', $answer_author, $follow_subject);
+
+            $message_to_follower = dwqa_get_mail_template( 'dwqa_subscrible_new_answer_followers_email', 'new-answer-followers' );
+
+            
+            $message_to_follower = str_replace( '{answer_avatar}', $avatar, $message_to_follower);
+            $message_to_follower = str_replace( '{answer_author}', $answer_author, $message_to_follower);
+            $message_to_follower = str_replace( '{question_link}', get_permalink( $question->ID ), $message_to_follower);
+            $message_to_follower = str_replace( '{question_title}', $question->post_title, $message_to_follower);
+            $message_to_follower = str_replace( '{answer_content}', $answer->post_content, $message_to_follower);
+            $message_to_follower = str_replace( '{site_logo}', $logo, $message_to_follower);
+            $message_to_follower = str_replace( '{site_name}', get_bloginfo( 'name' ), $message_to_follower);
+            $message_to_follower = str_replace( '{site_description}', get_bloginfo( 'description' ), $message_to_follower );
+            $message_to_follower = str_replace( '{site_url}', site_url(), $message_to_follower);
+
+            foreach ( $followers as $follower ) {
+                $follow_email = get_the_author_meta( 'user_email', $follower );
+                if( $follow_email && $follow_email != $email && $follow_email != $answer_email ) {
+                    //Send email to follower
+                    $message_to_follower = str_replace( '{follower}', get_the_author_meta( 'display_name', $follower ), $message_to_follower );
+                    wp_mail( $follow_email, $follow_subject, $message_to_follower, $headers );
+                }
             }
         }
-    }
+    } // Send email to followers
+
     if( $question->post_author != $answer->post_author ) {
         wp_mail( $email, $subject, $message, $headers );
     }
@@ -232,27 +256,58 @@ function dwqa_new_comment_notify( $comment_id, $comment ){
         $message = str_replace( '{site_name}', get_bloginfo( 'name' ), $message);
         $message = str_replace( '{site_description}', get_bloginfo( 'description' ), $message );
         $message = str_replace( '{site_url}', site_url(), $message);
-        
-        $followers = get_post_meta( $post_parent->ID, '_dwqa_followers' );
-        $comment_email = get_the_author_meta( 'user_email', $comment->user_id );
-        if( ! empty($followers) ) {
+        if( $parent == 'dwqa-question' ) {
+            $enable_notify = get_option( 'dwqa_subscrible_enable_new_comment_question_followers_notification' );
+        } else {
+            $enable_notify = get_option( 'dwqa_subscrible_enable_new_comment_answer_followers_notification' );
+        }
+        if( $enable_notify ) {
+            //Follower email task
+            $followers = get_post_meta( $post_parent->ID, '_dwqa_followers' );
+            $comment_email = get_the_author_meta( 'user_email', $comment->user_id );
+
+            if( $parent == 'dwqa-question' ) {
+                $message_to_follower = dwqa_get_mail_template( 'dwqa_subscrible_new_comment_question_followers_email', 'new-comment-question' );    
+                $follow_subject = get_option( 'dwqa_subscrible_new_comment_question_followers_email_subject',__('[{site_name}] You have a new comment for question {question_title} ', 'dwqa')  );
+                $message_to_follower = str_replace( '{question_author}', get_the_author_meta( 'display_name', $post_parent->post_author ), $message_to_follower);
+                $question = $post_parent;
+            } else {
+                $message_to_follower = dwqa_get_mail_template( 'dwqa_subscrible_new_comment_answer_followers_email', 'new-comment-answer' );
+                $follow_subject = get_option( 'dwqa_subscrible_new_comment_answer_followers_email_subject',__('[{site_name}] You have a new comment for answer', 'dwqa')  );
+                $message_to_follower = str_replace( '{answer_author}', get_the_author_meta( 'display_name', $post_parent->post_author ), $message_to_follower);
+            }
+            $follow_subject = str_replace( '{site_name}', get_bloginfo( 'name' ), $follow_subject);
+            $follow_subject = str_replace( '{question_title}', $question->post_title, $follow_subject);
+            $follow_subject = str_replace( '{question_id}', $question->ID, $follow_subject);
+            $follow_subject = str_replace( '{username}',get_the_author_meta( 'display_name', $comment->user_id ), $follow_subject);
+
+            $follow_subject = str_replace('{comment_author}', get_the_author_meta( 'display_name', $comment->user_id ), $follow_subject );
+            $message_to_follower = str_replace( '{site_logo}', $logo, $message_to_follower);
+            $message_to_follower = str_replace( '{question_link}', get_permalink( $question->ID ), $message_to_follower);
             $comment_link = get_permalink( $question->ID ) . '#li-comment-' . $comment_id;
-            foreach ( $followers as $follower ) {
-                $follow_email = get_the_author_meta( 'user_email', $follower );
-                if( $follow_email && $follow_email != $post_parent_email && $follow_email != $comment_email ) {
-                    $follow_subject = sprintf('%s %s',
-                        __('You got new comment for your followed','dwqa'),
-                        ($parent == 'dwqa-question' ? __('question','dwqa') :  __('answer','dwqa'))
-                    );
+            $message_to_follower = str_replace( '{comment_link}', $comment_link, $message_to_follower);
+            $message_to_follower = str_replace( '{question_title}', $question->post_title, $message_to_follower);
+            $message_to_follower = str_replace( '{comment_author_avatar}', get_avatar( $comment->user_id, '60'), $message_to_follower);
+            $message_to_follower = str_replace( '{comment_author_link}', get_author_posts_url( $comment->user_id ), $message_to_follower);
+            $message_to_follower = str_replace('{comment_author}', get_the_author_meta( 'display_name', $comment->user_id ), $message_to_follower );
+            $message_to_follower = str_replace( '{comment_content}', $comment->comment_content, $message_to_follower);
+            $message_to_follower = str_replace( '{site_name}', get_bloginfo( 'name' ), $message_to_follower);
+            $message_to_follower = str_replace( '{site_description}', get_bloginfo( 'description' ), $message_to_follower );
+            $message_to_follower = str_replace( '{site_url}', site_url(), $message_to_follower);
 
-                    $message_to_follower = ' Hi {follower_name}, A new comment has been posted on your followed question at: {followed_question_link}';
-                    $message_to_follower = str_replace( '{follower_name}', get_the_author_meta( 'display_name', $follower ), $message_to_follower);
-                    $message_to_follower = str_replace( '{followed_question_link}', $comment_link, $message_to_follower);
+            if( ! empty($followers) ) {
+                foreach ( $followers as $follower ) {
+                    $follow_email = get_the_author_meta( 'user_email', $follower );
+                    if( $follow_email && $follow_email != $post_parent_email && $follow_email != $comment_email ) {
 
-                    wp_mail( $follow_email, $follow_subject, $message_to_follower, $headers );
+                        $message_to_follower = str_replace( '{follower}', get_the_author_meta( 'display_name', $follower ), $message_to_follower );
+                        wp_mail( $follow_email, $follow_subject, $message_to_follower, $headers );
+                    }
                 }
             }
         }
+
+
         if( $post_parent->post_author != $comment->user_id ) {
             wp_mail( $post_parent_email, $subject, $message, $headers );
         }

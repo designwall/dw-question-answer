@@ -1,11 +1,11 @@
 === DW Question & Answer ===
-Contributors: DesignWall
-Tags: question, answer, support, quora, stackoverflow
-Requires at least: 3.0.1
-Tested up to: 3.8
-Stable tag: 1.1
-License: GPLv3
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
+ - Contributors: DesignWall
+ - Tags: question, answer, support, quora, stackoverflow
+ - Requires at least: 3.0.1
+ - Tested up to: 3.8
+ - Stable tag: 1.1
+ - License: GPLv3
+ - License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 Your WordPress site will have a full-featured Question & Answer section like Stack Overflow, Quora or Yahoo Answers
 
@@ -91,11 +91,9 @@ Here is the list of features of this plugin:
 * Fixed: Line spacing between code lines becomes larger after editting
 * Fixed: Can not post comment on IE 8
 * Fixed: Time stamp is overlapped by avatar
-
 * Tweak: Auto create 2 pages: "Questions" & "Ask" when active plugin
 * Convert links when add new comment
 * Have a message to inform number of charaters for title box
-
 * New: Permission Settings - allow you to set permissions for default user roles: read, post, edit and delete either questions, answers or comments
 
 = 1.0.2 =

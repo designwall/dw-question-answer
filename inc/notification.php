@@ -62,7 +62,7 @@ function dwqa_new_answer_nofity( $answer_id ){
     $question_id = get_post_meta( $answer_id, '_question', true );
     $question = get_post( $question_id );
     $answer = get_post( $answer_id );
-    if( $answer->post_status != 'publish' ) {
+    if( $answer->post_status != 'publish' && $answer->post_status != 'private' ) {
         return false;
     }
     //Send email alert for author of question about this answer
@@ -75,7 +75,7 @@ function dwqa_new_answer_nofity( $answer_id ){
         // if user is not the author of question/answer, add user to followers list
         if( $question->post_author != $answer->post_author ) {
 
-            if(  ! in_array( $answer->post_author, get_post_meta( $question_id, '_dwqa_followers', false ) ) ) {
+            if(  ! dwqa_is_followed( $question_id, $answer->post_author ) ) {
                 add_post_meta( $question_id, '_dwqa_followers', $answer->post_author );
             }
         }

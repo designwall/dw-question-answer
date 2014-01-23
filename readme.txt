@@ -1,9 +1,9 @@
 === DW Question & Answer ===
-Contributors: DesignWall
+Contributors: designwall
 Tags: question, answer, support, quora, stackoverflow
 Requires at least: 3.0.1
 Tested up to: 3.8
-Stable tag: 1.1
+Stable tag: 1.1.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -47,6 +47,16 @@ Here is the list of features of this plugin:
 5. Back-end settings
 
 == Changelog ==
+
+= 1.1.1 =
+* Fixed: Questions are not followed automatically if answer authors post private answers
+* Fixed: Followers do not receive the email notification when there is a new comment to question
+* Fixed: Admin does not receive the email notification when there is a private question
+* Fixed: Question Author does not receive the email notification when there is a private answer.
+* Fixed: Question author does not receive the email notification when there is an anonymous post
+* New: Add Captcha System.
+* New: Add 3 email notifications: New Answer to followed question, New Comment to Question (followers), New Comment to Answer (followers)
+* Tweak: Sidebar is back with supported widgets.
 
 = 1.1 =
 * Fixed: Don't automatically pick the best answer which has the most votes ( at least 3 votes)

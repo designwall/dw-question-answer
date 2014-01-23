@@ -11,7 +11,9 @@
     setup_postdata( $answer );
 
     $post_class = 'dwqa-answer';
+    
 ?>
+
     <article id="answer-<?php echo $answer_id; ?>" <?php post_class(); ?>>
         <header class="dwqa-header">
             <div class="dwqa-meta">

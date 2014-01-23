@@ -320,7 +320,7 @@ function dwqa_register_settings(){
     // New Comment for Question to Followers Email Notify
     register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_new_comment_question_followers_email_subject' );
     register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_new_comment_question_followers_email' );
-    register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_enable_new_comment_question_followers_notification' );
+    register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_enable_new_comment_question_followers_notify' );
 
     // New Comment for Answer Email Notify
     register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_new_comment_answer_email_subject' );
@@ -606,7 +606,7 @@ function dwqa_subscrible_new_comment_question_email_display(){
 // New Comment - Question - Email Content
 
 function dwqa_subscrible_enable_new_comment_question_followers_notification(){
-    echo '<p><label for="dwqa_subscrible_enable_new_comment_question_followers_notification"><input type="checkbox" '.checked( 1, get_option( 'dwqa_subscrible_enable_new_comment_question_followers_notification', 1 ), false ).' value="1" name="dwqa_subscrible_enable_new_comment_question_followers_notification" id="dwqa_subscrible_enable_new_comment_question_followers_notification" >'.__('Enable notification for new comment of question','dwqa').'</label></p>';
+    echo '<p><label for="dwqa_subscrible_enable_new_comment_question_followers_notify"><input type="checkbox" '.checked( 1, get_option( 'dwqa_subscrible_enable_new_comment_question_followers_notify', 1 ), false ).' value="1" name="dwqa_subscrible_enable_new_comment_question_followers_notify" id="dwqa_subscrible_enable_new_comment_question_followers_notify" >'.__('Enable notification for new comment of question','dwqa').'</label></p>';
 }
 // New Comment - Question - Follow - Enable Notification
 

@@ -25,7 +25,6 @@ function dwqa_new_question_notify( $question_id, $user_id ){
     if( ! $message ) {
         return false;
     }
-
     // Replacement
     // receiver
     $admin_email = get_bloginfo( 'admin_email' );
@@ -46,7 +45,6 @@ function dwqa_new_question_notify( $question_id, $user_id ){
     $message = str_replace( '{site_name}', get_bloginfo( 'name' ), $message );
     $message = str_replace( '{site_description}', get_bloginfo( 'description' ), $message );
     $message = str_replace( '{site_url}', site_url(), $message );
-
 
     // start send out email
     wp_mail( $admin_email, $subject, $message, $headers );
@@ -187,7 +185,6 @@ add_action( 'dwqa_update_answer', 'dwqa_new_answer_nofity' );
 function dwqa_new_comment_notify( $comment_id, $comment ){
     $parent = get_post_type( $comment->comment_post_ID );
     if ( 1 == $comment->comment_approved && ( 'dwqa-question' == $parent || 'dwqa-answer' == $parent )  ) { 
-
         if( $parent == 'dwqa-question' ) {
             $enabled = get_option( 'dwqa_subscrible_enable_new_comment_question_notification', 1);        
         } elseif( $parent == 'dwqa-answer' ) {
@@ -257,10 +254,11 @@ function dwqa_new_comment_notify( $comment_id, $comment ){
         $message = str_replace( '{site_description}', get_bloginfo( 'description' ), $message );
         $message = str_replace( '{site_url}', site_url(), $message);
         if( $parent == 'dwqa-question' ) {
-            $enable_notify = get_option( 'dwqa_subscrible_enable_new_comment_question_followers_notification' );
+            $enable_notify = get_option( 'dwqa_subscrible_enable_new_comment_question_followers_notify' );
         } else {
             $enable_notify = get_option( 'dwqa_subscrible_enable_new_comment_answer_followers_notification' );
         }
+        
         if( $enable_notify ) {
             //Follower email task
             $followers = get_post_meta( $post_parent->ID, '_dwqa_followers' );

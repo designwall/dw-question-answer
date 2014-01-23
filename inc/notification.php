@@ -163,10 +163,13 @@ function dwqa_new_answer_nofity( $answer_id ){
             $message_to_follower = str_replace( '{site_url}', site_url(), $message_to_follower);
 
             foreach ( $followers as $follower ) {
-                $follow_email = get_the_author_meta( 'user_email', $follower );
+                $follower = (int) $follower;
+                $user_data = get_userdata( $follower );
+                $follow_email = $user_data->user_email;
+                $follower_name = $user_data->display_name;
                 if( $follow_email && $follow_email != $email && $follow_email != $answer_email ) {
                     //Send email to follower
-                    $message_to_follower = str_replace( '{follower}', get_the_author_meta( 'display_name', $follower ), $message_to_follower );
+                    $message_to_follower = str_replace( '{follower}', $follower_name, $message_to_follower );
                     wp_mail( $follow_email, $follow_subject, $message_to_follower, $headers );
                 }
             }
@@ -179,8 +182,6 @@ function dwqa_new_answer_nofity( $answer_id ){
 }
 add_action( 'dwqa_add_answer', 'dwqa_new_answer_nofity' );
 add_action( 'dwqa_update_answer', 'dwqa_new_answer_nofity' );
-
-
 
 function dwqa_new_comment_notify( $comment_id, $comment ){
     $parent = get_post_type( $comment->comment_post_ID );
@@ -295,10 +296,14 @@ function dwqa_new_comment_notify( $comment_id, $comment ){
 
             if( ! empty($followers) ) {
                 foreach ( $followers as $follower ) {
-                    $follow_email = get_the_author_meta( 'user_email', $follower );
+                    $follower = (int) $follower;
+                    $user_data = get_userdata( $follower );
+                    $follow_email = $user_data->user_email;
+                    $follower_name = $user_data->display_name;
+
                     if( $follow_email && $follow_email != $post_parent_email && $follow_email != $comment_email ) {
 
-                        $message_to_follower = str_replace( '{follower}', get_the_author_meta( 'display_name', $follower ), $message_to_follower );
+                        $message_to_follower = str_replace( '{follower}', $follower_name, $message_to_follower );
                         wp_mail( $follow_email, $follow_subject, $message_to_follower, $headers );
                     }
                 }

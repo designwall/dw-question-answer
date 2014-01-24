@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DW Question Answer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-22 08:38+0700\n"
-"PO-Revision-Date: 2014-01-22 08:39+0700\n"
+"POT-Creation-Date: 2014-01-24 11:52+0700\n"
+"PO-Revision-Date: 2014-01-24 11:52+0700\n"
 "Last-Translator: rambu <vn.nqhung@gmail.com>\n"
 "Language-Team: DesignWall <webmaster@designwall.com>\n"
 "Language: English\n"
@@ -121,7 +121,7 @@ msgid "No Answers found in Trash"
 msgstr ""
 
 #: ../dw-question-answer.php:176
-#: ../dw-question-answer.php:453
+#: ../dw-question-answer.php:454
 #: ../inc/shortcodes.php:122
 #: ../inc/settings.php:783
 msgid "Answer"
@@ -260,39 +260,40 @@ msgstr ""
 msgid "Closed"
 msgstr ""
 
-#: ../dw-question-answer.php:327
+#: ../dw-question-answer.php:328
 #, php-format
 msgid "%s second"
 msgid_plural "%s seconds"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../dw-question-answer.php:336
+#: ../dw-question-answer.php:337
 #, php-format
 msgid "about %s min"
 msgid_plural "%s mins"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../dw-question-answer.php:342
+#: ../dw-question-answer.php:343
 #, php-format
 msgid "about %s hour"
 msgid_plural "%s hours"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../dw-question-answer.php:348
+#: ../dw-question-answer.php:349
 #, php-format
 msgid "%s day"
 msgid_plural "%s days"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../dw-question-answer.php:352
-msgid "ago"
+#: ../dw-question-answer.php:353
+#, php-format
+msgid "%1$s ago"
 msgstr ""
 
-#: ../dw-question-answer.php:405
+#: ../dw-question-answer.php:406
 #: ../inc/shortcodes.php:226
 #: ../inc/shortcodes.php:271
 #: ../inc/shortcodes.php:308
@@ -301,7 +302,7 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-#: ../dw-question-answer.php:406
+#: ../dw-question-answer.php:407
 #: ../inc/shortcodes.php:190
 #: ../inc/shortcodes.php:272
 #: ../inc/shortcodes.php:309
@@ -309,35 +310,35 @@ msgstr ""
 msgid "Prev"
 msgstr ""
 
-#: ../dw-question-answer.php:408
+#: ../dw-question-answer.php:409
 #: ../inc/shortcodes.php:274
 #: ../inc/shortcodes.php:311
 #: ../inc/template-functions.php:449
 msgid "Please enter your question"
 msgstr ""
 
-#: ../dw-question-answer.php:409
+#: ../dw-question-answer.php:410
 #: ../inc/shortcodes.php:277
 #: ../inc/shortcodes.php:314
 #: ../inc/template-functions.php:453
 msgid "Please enter your answer"
 msgstr ""
 
-#: ../dw-question-answer.php:410
+#: ../dw-question-answer.php:411
 #: ../inc/shortcodes.php:278
 #: ../inc/shortcodes.php:315
 #: ../inc/template-functions.php:454
 msgid "Please enter your comment content"
 msgstr ""
 
-#: ../dw-question-answer.php:411
+#: ../dw-question-answer.php:412
 #: ../inc/shortcodes.php:279
 #: ../inc/shortcodes.php:316
 #: ../inc/template-functions.php:455
 msgid "Comment must have more than 2 characters"
 msgstr ""
 
-#: ../dw-question-answer.php:412
+#: ../dw-question-answer.php:413
 #: ../inc/shortcodes.php:280
 #: ../inc/shortcodes.php:317
 #: ../inc/template-functions.php:458
@@ -345,14 +346,14 @@ msgstr ""
 msgid "Update"
 msgstr ""
 
-#: ../dw-question-answer.php:413
+#: ../dw-question-answer.php:414
 #: ../inc/shortcodes.php:281
 #: ../inc/shortcodes.php:318
 #: ../inc/template-functions.php:459
 msgid "Edit"
 msgstr ""
 
-#: ../dw-question-answer.php:414
+#: ../dw-question-answer.php:415
 #: ../inc/shortcodes.php:282
 #: ../inc/shortcodes.php:319
 #: ../inc/template-functions.php:460
@@ -360,95 +361,95 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: ../dw-question-answer.php:415
+#: ../dw-question-answer.php:416
 #: ../inc/shortcodes.php:283
 #: ../inc/shortcodes.php:320
 #: ../inc/template-functions.php:461
 msgid "Do you want to delete this comment?"
 msgstr ""
 
-#: ../dw-question-answer.php:416
+#: ../dw-question-answer.php:417
 #: ../inc/shortcodes.php:284
 #: ../inc/shortcodes.php:321
 #: ../inc/template-functions.php:462
 msgid "Do you want to delete this answer?"
 msgstr ""
 
-#: ../dw-question-answer.php:418
+#: ../dw-question-answer.php:419
 #: ../inc/shortcodes.php:286
 #: ../inc/shortcodes.php:323
 msgid "Flag"
 msgstr ""
 
-#: ../dw-question-answer.php:419
+#: ../dw-question-answer.php:420
 #: ../inc/shortcodes.php:287
 #: ../inc/shortcodes.php:324
 msgid "Unflag"
 msgstr ""
 
-#: ../dw-question-answer.php:420
+#: ../dw-question-answer.php:421
 msgid "This answer will be hide when flag it. Are you sure?"
 msgstr ""
 
-#: ../dw-question-answer.php:421
+#: ../dw-question-answer.php:422
 #: ../inc/shortcodes.php:289
 #: ../inc/shortcodes.php:326
 #: ../inc/template-functions.php:469
 msgid "This answer was flagged as spam. Do you want to show it"
 msgstr ""
 
-#: ../dw-question-answer.php:422
+#: ../dw-question-answer.php:423
 #: ../inc/shortcodes.php:291
 #: ../inc/shortcodes.php:328
 #: ../inc/template-functions.php:471
 msgid "hide"
 msgstr ""
 
-#: ../dw-question-answer.php:423
+#: ../dw-question-answer.php:424
 #: ../inc/shortcodes.php:292
 #: ../inc/shortcodes.php:329
 #: ../inc/template-functions.php:472
 msgid "show"
 msgstr ""
 
-#: ../dw-question-answer.php:454
+#: ../dw-question-answer.php:455
 #: ../inc/class-answers-list-table.php:77
 msgid "Author"
 msgstr ""
 
-#: ../dw-question-answer.php:456
+#: ../dw-question-answer.php:457
 msgid "In Response To"
 msgstr ""
 
-#: ../dw-question-answer.php:460
+#: ../dw-question-answer.php:461
 msgid "Info"
 msgstr ""
 
-#: ../dw-question-answer.php:477
+#: ../dw-question-answer.php:478
 msgid "Submitted"
 msgstr ""
 
-#: ../dw-question-answer.php:478
+#: ../dw-question-answer.php:479
 msgid "on"
 msgstr ""
 
-#: ../dw-question-answer.php:505
+#: ../dw-question-answer.php:506
 msgid "Reset all changed to default"
 msgstr ""
 
-#: ../dw-question-answer.php:519
+#: ../dw-question-answer.php:520
 msgid "answered"
 msgstr ""
 
-#: ../dw-question-answer.php:520
+#: ../dw-question-answer.php:521
 msgid "voted"
 msgstr ""
 
-#: ../dw-question-answer.php:521
+#: ../dw-question-answer.php:522
 msgid "views"
 msgstr ""
 
-#: ../dw-question-answer.php:642
+#: ../dw-question-answer.php:643
 msgid "asked by"
 msgstr ""
 
@@ -1178,8 +1179,8 @@ msgstr ""
 #: ../inc/settings.php:772
 #: ../inc/settings.php:813
 #: ../inc/settings.php:854
+#: ../inc/notification.php:108
 #: ../inc/notification.php:110
-#: ../inc/notification.php:112
 msgid "Anonymous"
 msgstr ""
 
@@ -1205,21 +1206,21 @@ msgstr ""
 msgid "A new question was posted on {site_name}"
 msgstr ""
 
-#: ../inc/notification.php:88
+#: ../inc/notification.php:86
 msgid "A new answer for \"{question_title}\" was posted on {site_name}"
 msgstr ""
 
-#: ../inc/notification.php:146
+#: ../inc/notification.php:144
 msgid "You got new answer for your followed question"
 msgstr ""
 
-#: ../inc/notification.php:226
-#: ../inc/notification.php:271
+#: ../inc/notification.php:224
+#: ../inc/notification.php:270
 msgid "[{site_name}] You have a new comment for question {question_title} "
 msgstr ""
 
-#: ../inc/notification.php:231
-#: ../inc/notification.php:276
+#: ../inc/notification.php:229
+#: ../inc/notification.php:275
 msgid "[{site_name}] You have a new comment for answer"
 msgstr ""
 
@@ -1295,43 +1296,43 @@ msgstr ""
 msgid "Search query are empty"
 msgstr ""
 
-#: ../inc/templates/default/content-answer.php:19
+#: ../inc/templates/default/content-answer.php:21
 #: ../inc/templates/default/single-question.php:22
 msgid "Vote Up"
 msgstr ""
 
-#: ../inc/templates/default/content-answer.php:29
+#: ../inc/templates/default/content-answer.php:31
 #: ../inc/templates/default/single-question.php:24
 msgid "Vote Down"
 msgstr ""
 
-#: ../inc/templates/default/content-answer.php:35
+#: ../inc/templates/default/content-answer.php:37
 msgid "This is the best answer"
 msgstr ""
 
-#: ../inc/templates/default/content-answer.php:46
+#: ../inc/templates/default/content-answer.php:48
 #: ../inc/templates/default/content-comment.php:12
 msgid "Staff"
 msgstr ""
 
-#: ../inc/templates/default/content-answer.php:54
+#: ../inc/templates/default/content-answer.php:56
 msgid "Link to answer"
 msgstr ""
 
-#: ../inc/templates/default/content-answer.php:80
+#: ../inc/templates/default/content-answer.php:82
 msgid "Draft"
 msgstr ""
 
-#: ../inc/templates/default/content-answer.php:98
+#: ../inc/templates/default/content-answer.php:100
 #: ../inc/templates/default/content-comment.php:51
 msgid "Delete"
 msgstr ""
 
-#: ../inc/templates/default/content-answer.php:113
+#: ../inc/templates/default/content-answer.php:115
 msgid "This answer was flagged as spam."
 msgstr ""
 
-#: ../inc/templates/default/content-answer.php:123
+#: ../inc/templates/default/content-answer.php:125
 msgid "The answer link"
 msgstr ""
 
@@ -1341,6 +1342,10 @@ msgstr ""
 
 #: ../inc/templates/default/comments.php:13
 msgid "of"
+msgstr ""
+
+#: ../inc/templates/default/comments.php:30
+msgid "Write a reply..."
 msgstr ""
 
 #: ../inc/templates/default/content-comment.php:10

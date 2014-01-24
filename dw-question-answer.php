@@ -312,6 +312,7 @@ function dwqa_question_status_save($post_id){
 }
 add_action( 'save_post', 'dwqa_question_status_save' );
 
+
 function dwqa_human_time_diff( $from, $to = false, $format = false ){
     if( ! $format ) {
         $format = get_option('date_format');
@@ -349,7 +350,7 @@ function dwqa_human_time_diff( $from, $to = false, $format = false ){
     } else {
         return date( $format, $from );
     }
-    return $since . ' ' . __('ago','dwqa');
+    return sprintf( __('%1$s ago', 'dwqa' ), $since );
 }
 
 

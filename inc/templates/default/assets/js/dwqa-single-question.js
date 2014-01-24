@@ -160,9 +160,9 @@ jQuery(function($) {
                 name = t.find('[name="author"]').val();
                 if (name.length <= 0) {
                     if (t.parent().find('.name-error').length > 0) {
-                        t.parent().find('.name-error').text('Please add your name').fadeIn();
+                        t.parent().find('.name-error').text( dwqa.error_valid_name ).fadeIn();
                     } else {
-                        t.before('<div class="alert alert-error name-error">' + 'Please add your name' + '</div>');
+                        t.before('<div class="alert alert-error name-error">' + dwqa.error_valid_name + '</div>');
                     }
                 } else {
                     t.parent().find('.name-error').remove();
@@ -175,9 +175,9 @@ jQuery(function($) {
 
                 if (email.length <= 0 || !regex.test(email)) {
                     if (t.parent().find('.email-error').length > 0) {
-                        t.parent().find('.email-error').text('Please enter a valid email').fadeIn();
+                        t.parent().find('.email-error').text(dwqa.error_valid_email).fadeIn();
                     } else {
-                        t.before('<div class="alert alert-error email-error">' + 'Please enter a valid email' + '</div>');
+                        t.before('<div class="alert alert-error email-error">' + dwqa.error_valid_email + '</div>');
                     }
                     email = '';
                 } else {

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DW Question Answer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-24 11:52+0700\n"
-"PO-Revision-Date: 2014-01-24 11:52+0700\n"
+"POT-Creation-Date: 2014-01-24 13:56+0700\n"
+"PO-Revision-Date: 2014-01-24 13:56+0700\n"
 "Last-Translator: rambu <vn.nqhung@gmail.com>\n"
 "Language-Team: DesignWall <webmaster@designwall.com>\n"
 "Language: English\n"
@@ -320,28 +320,28 @@ msgstr ""
 #: ../dw-question-answer.php:410
 #: ../inc/shortcodes.php:277
 #: ../inc/shortcodes.php:314
-#: ../inc/template-functions.php:453
+#: ../inc/template-functions.php:454
 msgid "Please enter your answer"
 msgstr ""
 
 #: ../dw-question-answer.php:411
 #: ../inc/shortcodes.php:278
 #: ../inc/shortcodes.php:315
-#: ../inc/template-functions.php:454
+#: ../inc/template-functions.php:455
 msgid "Please enter your comment content"
 msgstr ""
 
 #: ../dw-question-answer.php:412
 #: ../inc/shortcodes.php:279
 #: ../inc/shortcodes.php:316
-#: ../inc/template-functions.php:455
+#: ../inc/template-functions.php:456
 msgid "Comment must have more than 2 characters"
 msgstr ""
 
 #: ../dw-question-answer.php:413
 #: ../inc/shortcodes.php:280
 #: ../inc/shortcodes.php:317
-#: ../inc/template-functions.php:458
+#: ../inc/template-functions.php:459
 #: ../inc/actions.php:912
 msgid "Update"
 msgstr ""
@@ -349,14 +349,14 @@ msgstr ""
 #: ../dw-question-answer.php:414
 #: ../inc/shortcodes.php:281
 #: ../inc/shortcodes.php:318
-#: ../inc/template-functions.php:459
+#: ../inc/template-functions.php:460
 msgid "Edit"
 msgstr ""
 
 #: ../dw-question-answer.php:415
 #: ../inc/shortcodes.php:282
 #: ../inc/shortcodes.php:319
-#: ../inc/template-functions.php:460
+#: ../inc/template-functions.php:461
 #: ../inc/actions.php:913
 msgid "Cancel"
 msgstr ""
@@ -364,14 +364,14 @@ msgstr ""
 #: ../dw-question-answer.php:416
 #: ../inc/shortcodes.php:283
 #: ../inc/shortcodes.php:320
-#: ../inc/template-functions.php:461
+#: ../inc/template-functions.php:462
 msgid "Do you want to delete this comment?"
 msgstr ""
 
 #: ../dw-question-answer.php:417
 #: ../inc/shortcodes.php:284
 #: ../inc/shortcodes.php:321
-#: ../inc/template-functions.php:462
+#: ../inc/template-functions.php:463
 msgid "Do you want to delete this answer?"
 msgstr ""
 
@@ -394,21 +394,21 @@ msgstr ""
 #: ../dw-question-answer.php:422
 #: ../inc/shortcodes.php:289
 #: ../inc/shortcodes.php:326
-#: ../inc/template-functions.php:469
+#: ../inc/template-functions.php:470
 msgid "This answer was flagged as spam. Do you want to show it"
 msgstr ""
 
 #: ../dw-question-answer.php:423
 #: ../inc/shortcodes.php:291
 #: ../inc/shortcodes.php:328
-#: ../inc/template-functions.php:471
+#: ../inc/template-functions.php:472
 msgid "hide"
 msgstr ""
 
 #: ../dw-question-answer.php:424
 #: ../inc/shortcodes.php:292
 #: ../inc/shortcodes.php:329
-#: ../inc/template-functions.php:472
+#: ../inc/template-functions.php:473
 msgid "show"
 msgstr ""
 
@@ -583,13 +583,13 @@ msgstr ""
 
 #: ../inc/shortcodes.php:288
 #: ../inc/shortcodes.php:325
-#: ../inc/template-functions.php:468
+#: ../inc/template-functions.php:469
 msgid "This answer will be marked as spam and hidden. Do you want to flag it?"
 msgstr ""
 
 #: ../inc/shortcodes.php:290
 #: ../inc/shortcodes.php:327
-#: ../inc/template-functions.php:470
+#: ../inc/template-functions.php:471
 msgid "This answer was flagged as spam"
 msgstr ""
 
@@ -722,93 +722,97 @@ msgstr ""
 msgid "Your question must be at least 2 characters in length"
 msgstr ""
 
-#: ../inc/template-functions.php:456
-msgid "Not found! Try another keyword."
+#: ../inc/template-functions.php:453
+msgid "Please add your name"
 msgstr ""
 
 #: ../inc/template-functions.php:457
+msgid "Not found! Try another keyword."
+msgstr ""
+
+#: ../inc/template-functions.php:458
 msgid "Or press <strong>ENTER</strong> to get more questions"
 msgstr ""
 
-#: ../inc/template-functions.php:463
+#: ../inc/template-functions.php:464
 msgid "Do you want to update this answer"
 msgstr ""
 
-#: ../inc/template-functions.php:464
+#: ../inc/template-functions.php:465
 msgid "Do you want to report this answer"
 msgstr ""
 
-#: ../inc/template-functions.php:466
+#: ../inc/template-functions.php:467
 msgid "Report"
 msgstr ""
 
-#: ../inc/template-functions.php:467
+#: ../inc/template-functions.php:468
 msgid "Undo"
 msgstr ""
 
-#: ../inc/template-functions.php:474
+#: ../inc/template-functions.php:475
 msgid "Follow This Question"
 msgstr ""
 
-#: ../inc/template-functions.php:475
+#: ../inc/template-functions.php:476
 msgid "Unfollow This Question"
 msgstr ""
 
-#: ../inc/template-functions.php:524
+#: ../inc/template-functions.php:525
 msgid "Name"
 msgstr ""
 
-#: ../inc/template-functions.php:526
+#: ../inc/template-functions.php:527
 msgid "Email"
 msgstr ""
 
-#: ../inc/template-functions.php:528
+#: ../inc/template-functions.php:529
 msgid "Website"
 msgstr ""
 
-#: ../inc/template-functions.php:532
+#: ../inc/template-functions.php:533
 #, php-format
 msgid "Required fields are marked %s"
 msgstr ""
 
-#: ../inc/template-functions.php:544
+#: ../inc/template-functions.php:545
 msgctxt "noun"
 msgid "Comment"
 msgstr ""
 
-#: ../inc/template-functions.php:545
+#: ../inc/template-functions.php:546
 #, php-format
 msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
 msgstr ""
 
-#: ../inc/template-functions.php:546
+#: ../inc/template-functions.php:547
 #, php-format
 msgid "Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of this account\">Log out?</a>"
 msgstr ""
 
-#: ../inc/template-functions.php:547
+#: ../inc/template-functions.php:548
 msgid "Your email address will not be published."
 msgstr ""
 
-#: ../inc/template-functions.php:548
+#: ../inc/template-functions.php:549
 #, php-format
 msgid "You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags and attributes: %s"
 msgstr ""
 
-#: ../inc/template-functions.php:551
+#: ../inc/template-functions.php:552
 msgid "Leave a Reply"
 msgstr ""
 
-#: ../inc/template-functions.php:552
+#: ../inc/template-functions.php:553
 #, php-format
 msgid "Leave a Reply to %s"
 msgstr ""
 
-#: ../inc/template-functions.php:553
+#: ../inc/template-functions.php:554
 msgid "Cancel reply"
 msgstr ""
 
-#: ../inc/template-functions.php:554
+#: ../inc/template-functions.php:555
 msgid "Post Comment"
 msgstr ""
 
@@ -1377,19 +1381,11 @@ msgid "You do not have permission to submit answer."
 msgstr ""
 
 #: ../inc/templates/default/answers.php:109
-msgid "Please login"
+msgid "Please login or"
 msgstr ""
 
-#: ../inc/templates/default/answers.php:110
-msgid "or"
-msgstr ""
-
-#: ../inc/templates/default/answers.php:113
-msgid "to"
-msgstr ""
-
-#: ../inc/templates/default/answers.php:114
-msgid "Submit Answer"
+#: ../inc/templates/default/answers.php:112
+msgid "to Submit Answer"
 msgstr ""
 
 #: ../inc/templates/default/single-question.php:51

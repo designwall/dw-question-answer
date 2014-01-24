@@ -450,6 +450,7 @@ function dwqa_enqueue_scripts(){
         'error_question_length' => __('Your question must be at least 2 characters in length', 'dwqa' ),
         'error_valid_email'    =>  __( 'Enter a valid email address', 'dwqa' ),
         'error_valid_user'    =>  __( 'Enter a question title', 'dwqa' ),
+        'error_valid_name'    =>  __( 'Please add your name', 'dwqa' ),
         'error_missing_answer_content'  => __('Please enter your answer','dwqa'),
         'error_missing_comment_content' =>  __('Please enter your comment content','dwqa'),
         'error_not_enought_length'      => __('Comment must have more than 2 characters','dwqa'),

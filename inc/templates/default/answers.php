@@ -105,13 +105,11 @@
         <?php } else { ?>
         <h3 class="dwqa-title">
             <?php 
-                printf('%1$s %2$s <a href="%3$s" title="%4$s">%4$s</a> %5$s %6$s',
-                    __('Please login','dwqa'),
-                    __('or','dwqa'),
+                printf('%1$s <a href="%2$s" title="%3$s">%3$s</a> %4$s',
+                    __('Please login or','dwqa')
                     site_url( 'wp-login.php?action=register' ),
                     __('Register','dwqa'),
-                    __('to','dwqa'),
-                    __('Submit Answer','dwqa')
+                    __('to Submit Answer','dwqa')
                 );
             ?>
         </h3>

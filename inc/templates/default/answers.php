@@ -106,7 +106,7 @@
         <h3 class="dwqa-title">
             <?php 
                 printf('%1$s <a href="%2$s" title="%3$s">%3$s</a> %4$s',
-                    __('Please login or','dwqa')
+                    __('Please login or','dwqa'),
                     site_url( 'wp-login.php?action=register' ),
                     __('Register','dwqa'),
                     __('to Submit Answer','dwqa')

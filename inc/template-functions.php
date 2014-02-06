@@ -701,7 +701,7 @@ function dwqa_comment_form( $args = array(), $post_id = null ) {
 
 function dwqa_display_sticky_questions(){
     $sticky_questions = get_option( 'dwqa_sticky_questions' );
-    if( $sticky_questions ) {
+    if( !empty($sticky_questions) ) {
             $query = array(
                 'post_type' => 'dwqa-question',
                 'post__in' => $sticky_questions
@@ -723,7 +723,7 @@ function dwqa_is_sticky($question_id = false){
     if(  ! $question_id ) {
         $question_id = get_the_ID();
     }
-    $sticky_questions = get_option( 'dwqa_sticky_questions' );
+    $sticky_questions = get_option( 'dwqa_sticky_questions', array() );
     if( in_array( $question_id, $sticky_questions) ) {
         return true;
     }

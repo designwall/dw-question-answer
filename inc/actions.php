@@ -1251,6 +1251,11 @@ function dwqa_prepare_archive_posts(){
         } 
         $paged = get_query_var( 'paged' );
         $query['paged'] = $paged ? $paged : 1; 
+        $sticky_questions = get_option( 'dwqa_sticky_questions' );
+
+        if( $sticky_questions ) {
+            $query['post__not_in'] = $sticky_questions;
+        }
         query_posts( $query );
     }
 }

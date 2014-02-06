@@ -1,7 +1,7 @@
 <?php 
     $post_id = get_the_ID();
 ?>
-    <article id="question-<?php echo $post_id ?>" class="dwqa-question">
+    <article id="question-<?php echo $post_id ?>" class="dwqa-question <?php echo dwqa_is_sticky($post_id) ? 'dwqa-sticky-question' : ''; ?>">
         <header class="dwqa-header">
             <?php if( current_user_can( 'edit_posts' ) ) { ?>
                 <?php if( dwqa_is_pending( $post_id ) ) { ?>

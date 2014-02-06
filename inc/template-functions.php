@@ -699,4 +699,35 @@ function dwqa_comment_form( $args = array(), $post_id = null ) {
         endif;
 }
 
+function dwqa_display_sticky_questions(){
+    $sticky_questions = get_option( 'dwqa_sticky_questions' );
+    if( $sticky_questions ) {
+            $query = array(
+                'post_type' => 'dwqa-question',
+                'post__in' => $sticky_questions
+            );
+            query_posts( $query );
+    ?>
+    <div class="questions-list sticky-questions">
+        <?php while ( have_posts() ) : the_post(); ?>
+            <?php dwqa_load_template( 'content', 'question' ); ?>
+        <?php endwhile; ?>
+    </div>
+    <?php   
+        wp_reset_query();
+    }
+}
+add_action( 'dwqa-before-question-list', 'dwqa_display_sticky_questions' );
+
+function dwqa_is_sticky($question_id = false){
+    if(  ! $question_id ) {
+        $question_id = get_the_ID();
+    }
+    $sticky_questions = get_option( 'dwqa_sticky_questions' );
+    if( in_array( $question_id, $sticky_questions) ) {
+        return true;
+    }
+    return false;
+}
+
 ?>

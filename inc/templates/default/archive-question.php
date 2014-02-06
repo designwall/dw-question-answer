@@ -10,8 +10,6 @@ get_header('dwqa'); ?>
 <?php do_action( 'dwqa_before_page' ) ?>
 
 <div id="archive-question" class="dw-question">
-<?php  do_action('dwqa-prepare-archive-posts');?>
-<?php if ( have_posts() ) : ?>
 	<div class="dwqa-list-question">
 		<div class="loading"></div>
 		<div class="dwqa-search">
@@ -133,6 +131,11 @@ get_header('dwqa'); ?>
 				</ul>
 			</div>
 		</div>
+		
+		<?php do_action( 'dwqa-before-question-list' ); ?>
+
+		<?php  do_action('dwqa-prepare-archive-posts');?>
+		<?php if ( have_posts() ) : ?>
 		<div class="questions-list">
 		<?php while ( have_posts() ) : the_post(); ?>
 			<?php dwqa_load_template( 'content', 'question' ); ?>
@@ -239,38 +242,37 @@ get_header('dwqa'); ?>
 			<a href="<?php echo $submit_question_link ?>" class="dwqa-btn dwqa-btn-success"><?php _e('Ask a question','dwqa') ?></a>
 			<?php } ?>
 		</div>
+		<?php else: ?>
+			<?php
+		        if( ! dwqa_current_user_can('read_question') ) {
+		            echo '<div class="alert">'.__('You do not have permission to view questions','dwqa').'</div>';
+		        }
+		        echo '<p class="not-found">';
+		         _e('Sorry, but nothing matched your filter.', 'dwqa' );
+		         if( is_user_logged_in() ) {
+		            global $dwqa_options;
+		            if( isset($dwqa_options['pages']['submit-question']) ) {
+		                
+		                $submit_link = get_permalink( $dwqa_options['pages']['submit-question'] );
+		                if( $submit_link ) {
+		                    _e('You can ask question <a href="'.$submit_link.'">here</a>', 'dwqa' );
+		                }
+		            }
+		         } else {
+		            _e('Please <a href="'.wp_login_url( get_post_type_archive_link( 'dwqa-question' ) ).'">Login</a>', 'dwqa' );
+
+		            $register_link = wp_register('', '',false);
+		            if( ! empty($register_link) && $register_link  ) {
+		                echo __(' or','dwqa').' '.$register_link;
+		            }
+		            _e(' to submit question.','dwqa');
+		            wp_login_form();
+		         }
+
+		        echo  '</p>';
+			?>
+		<?php endif; ?>
 	</div>
-
-<?php else: ?>
-	<?php
-        if( ! dwqa_current_user_can('read_question') ) {
-            echo '<div class="alert">'.__('You do not have permission to view questions','dwqa').'</div>';
-        }
-        echo '<p class="not-found">';
-         _e('Sorry, but nothing matched your filter.', 'dwqa' );
-         if( is_user_logged_in() ) {
-            global $dwqa_options;
-            if( isset($dwqa_options['pages']['submit-question']) ) {
-                
-                $submit_link = get_permalink( $dwqa_options['pages']['submit-question'] );
-                if( $submit_link ) {
-                    _e('You can ask question <a href="'.$submit_link.'">here</a>', 'dwqa' );
-                }
-            }
-         } else {
-            _e('Please <a href="'.wp_login_url( get_post_type_archive_link( 'dwqa-question' ) ).'">Login</a>', 'dwqa' );
-
-            $register_link = wp_register('', '',false);
-            if( ! empty($register_link) && $register_link  ) {
-                echo __(' or','dwqa').' '.$register_link;
-            }
-            _e(' to submit question.','dwqa');
-            wp_login_form();
-         }
-
-        echo  '</p>';
-	?>
-<?php endif; ?>
 
 </div>
 <?php do_action( 'dwqa_after_page' ) ?>

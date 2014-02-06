@@ -270,48 +270,6 @@ function dwqa_plugin_init(){
 add_action( 'init', 'dwqa_plugin_init' );
 
 
-/**
- * Add metabox for question status meta data
- * @return void
- */
-function dwqa_add_status_metabox(){
-    add_meta_box( 'dwqa-post-status', 'Status', 'dwqa_question_status_box_html', 'dwqa-question', 'side', 'high' );
-}
-add_action( 'admin_init', 'dwqa_add_status_metabox' );
-
-/**
- * Generate html for metabox of question status meta data
- * @param  object $post Post Object
- * @return void       
- */
-function dwqa_question_status_box_html($post){
-        $meta = get_post_meta( $post->ID, '_dwqa_status', true );
-        $meta = $meta ? $meta : 'open';
-    ?>
-    <p>
-        <label for="dwqa-question-status">
-            <?php _e('Status','dwqa') ?><br>&nbsp;
-            <select name="dwqa-question-status" id="dwqa-question-status" class="widefat">
-                <option <?php selected( $meta, 'open' ); ?> value="open"><?php _e('Open','dwqa') ?></option>
-                <option <?php selected( $meta, 'pending' ); ?> value="pending"><?php _e('Pending','dwqa') ?></option>
-                <option <?php selected( $meta, 'resolved' ); ?> value="resolved"><?php _e('Resolved','dwqa') ?></option>
-                <option <?php selected( $meta, 're-open' ); ?> value="re-open"><?php _e('Re-Open','dwqa') ?></option>
-                <option <?php selected( $meta, 'closed' ); ?> value="closed"><?php _e('Closed','dwqa') ?></option>
-            </select>
-        </label>
-    </p>    
-    <?php
-}
-
-function dwqa_question_status_save($post_id){
-    if( ! wp_is_post_revision( $post_id ) ) {
-        if( isset($_POST['dwqa-question-status']) ) {
-            update_post_meta( $post_id, '_dwqa_status', $_POST['dwqa-question-status'] );
-        }
-    }
-}
-add_action( 'save_post', 'dwqa_question_status_save' );
-
 
 function dwqa_human_time_diff( $from, $to = false, $format = false ){
     if( ! $format ) {

@@ -70,20 +70,22 @@ function dwqa_question_status_save($post_id){
         if( isset($_POST['dwqa-question-status']) ) {
             update_post_meta( $post_id, '_dwqa_status', $_POST['dwqa-question-status'] );
         }
+        if( ! defined('DOING_AJAX') || ! DOING_AJAX ) {
 
-        $sticky_questions = get_option( 'dwqa_sticky_questions', array() );
-        if( isset($_POST['dwqa-question-sticky']) && $_POST['dwqa-question-sticky'] ) {
-	        if( ! in_array( $post_id, $sticky_questions) ) {
-	        	$sticky_questions[] = $post_id;
-	        	update_option( 'dwqa_sticky_questions', $sticky_questions );
-	        }
-        } else {
-			if( in_array( $post_id, $sticky_questions) ) {
-				if( ($key = array_search($post_id, $sticky_questions) ) !== false) {
-				    unset($sticky_questions[$key]);
-				}
-	        	update_option( 'dwqa_sticky_questions', $sticky_questions );
-	        }
+            $sticky_questions = get_option( 'dwqa_sticky_questions', array() );
+            if( isset($_POST['dwqa-question-sticky']) && $_POST['dwqa-question-sticky'] ) {
+                if( ! in_array( $post_id, $sticky_questions) ) {
+                    $sticky_questions[] = $post_id;
+                    update_option( 'dwqa_sticky_questions', $sticky_questions );
+                }
+            } else {
+                if( in_array( $post_id, $sticky_questions) ) {
+                    if( ($key = array_search($post_id, $sticky_questions) ) !== false) {
+                        unset($sticky_questions[$key]);
+                    }
+                    update_option( 'dwqa_sticky_questions', $sticky_questions );
+                }
+            }
         }
     }
 }

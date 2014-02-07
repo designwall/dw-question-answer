@@ -708,7 +708,7 @@ function dwqa_display_sticky_questions(){
             );
             query_posts( $query );
     ?>
-    <div class="questions-list sticky-questions">
+    <div class="sticky-questions">
         <?php while ( have_posts() ) : the_post(); ?>
             <?php dwqa_load_template( 'content', 'question' ); ?>
         <?php endwhile; ?>

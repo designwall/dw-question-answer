@@ -86,7 +86,7 @@ class dwqa_Popular_Question_Widget extends WP_Widget {
         echo $after_title;
 
         $args = array(
-            'numberposts'       => $instance['number'],
+            'posts_per_page'       => $instance['number'],
             'order'             => 'DESC',
             'orderby'           => 'meta_value_num',
             'meta_key'           => '_dwqa_views',

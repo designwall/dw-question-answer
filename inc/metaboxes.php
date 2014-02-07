@@ -71,7 +71,7 @@ function dwqa_question_status_save($post_id){
             update_post_meta( $post_id, '_dwqa_status', $_POST['dwqa-question-status'] );
         }
 
-        $sticky_questions = get_option( 'dwqa_sticky_questions' );
+        $sticky_questions = get_option( 'dwqa_sticky_questions', array() );
         if( isset($_POST['dwqa-question-sticky']) && $_POST['dwqa-question-sticky'] ) {
 	        if( ! in_array( $post_id, $sticky_questions) ) {
 	        	$sticky_questions[] = $post_id;

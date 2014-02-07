@@ -146,11 +146,13 @@ class DWQA_Filter {
         if( is_user_logged_in() ) {
             $status = 'publish,private';
         }
+        $sticky_questions = get_option( 'dwqa_sticky_questions', array() );
         $args = array(
             'numberposts'       => $number,
             'offset'            => $offset,
             'post_type'         => 'dwqa-question',
-            'suppress_filters'  => false
+            'suppress_filters'  => false,
+            'post__not_in'      => $sticky_questions
         );
         $args['order'] = ( $this->filter['order'] && $this->filter['order'] != 'ASC' ? 'DESC' : 'ASC' );
 

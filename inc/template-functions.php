@@ -704,7 +704,8 @@ function dwqa_display_sticky_questions(){
     if( !empty($sticky_questions) ) {
             $query = array(
                 'post_type' => 'dwqa-question',
-                'post__in' => $sticky_questions
+                'post__in' => $sticky_questions,
+                'posts_per_page' => -1
             );
             query_posts( $query );
     ?>
@@ -729,5 +730,15 @@ function dwqa_is_sticky($question_id = false){
     }
     return false;
 }
+
+
+function dwqa_question_states( $states, $post ){
+
+    if( dwqa_is_sticky( $post->ID ) && 'dwqa-question' == get_post_type( $post->ID ) ) {
+        $states[] = __('Sticky Question','dwqa');
+    }
+    return $states;
+}
+add_filter( 'display_post_states', 'dwqa_question_states', 10, 2 );
 
 ?>

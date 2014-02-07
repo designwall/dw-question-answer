@@ -1516,5 +1516,4 @@ function dwqa_is_captcha_enable_in_single_question(){
     return false;
 }
 
-
 ?>

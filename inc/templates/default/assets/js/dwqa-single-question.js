@@ -299,7 +299,7 @@ jQuery(function($) {
             comment_content = comment_container.find('.dwqa-comment-content .dwqa-comment-content-inner'),
             status = t.data('edit'),
             edit_content;
-
+            console.log( comment_content );
         if (typeof status == 'undefined' || !status) {
             t.data('edit', 1);
             edit_content = $('<div class="comment-edit-container"><textarea cols="50" rows="1" aria-required="true" class="comment-edit-field" data-current-content="' + escape(comment_content.html()) + '" data-comment-id="' + t.data('comment-id') + '" >' + comment_content.html().trim().replace(/\<br\>/g, "\n").replace(/(<([^>]+)>)/ig, "") + '</textarea><button class="dwqa-btn dwqa-btn-default dwqa-btn-update-comment-submit">' + dwqa.comment_edit_submit_button + '</button>' + t[0].outerHTML + '</div>');
@@ -327,7 +327,7 @@ jQuery(function($) {
             return false;
         }
         var comment_id = comment_container.find('.comment-edit-field').data('comment-id');
-        comment_container.find('.dwqa-comment-content').html(replaceURLWithHTMLLinks(htmlForTextWithEmbeddedNewlines(edit_content)));
+        comment_container.find('.dwqa-comment-content .dwqa-comment-content-inner').html(replaceURLWithHTMLLinks(htmlForTextWithEmbeddedNewlines(edit_content)));
         edit_link.data('edit', 0);
         //edit_link.text( dwqa.comment_edit_link );
         edit_link.css('display', 'inline-block');

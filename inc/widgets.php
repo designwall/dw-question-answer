@@ -79,7 +79,7 @@ class dwqa_Popular_Question_Widget extends WP_Widget {
             'title' => '',
             'number' => 5
         ) );
-        $post_type = get_post_type();
+        
         echo $before_widget;
         echo $before_title;
         echo $instance['title'];

@@ -338,5 +338,42 @@ if( ! function_exists('dwqa_submit_question_form') ) {
 }
 
 
+function dwqa_shortcode_popular_questions( $atts ){
+
+    extract( shortcode_atts( array(
+        'number' => 5,
+        'title' => __('Popular Questions','dwqa')
+    ), $atts ) );
+
+    $args = array(
+        'posts_per_page'       => $number,
+        'order'             => 'DESC',
+        'orderby'           => 'meta_value_num',
+        'meta_key'           => '_dwqa_views',
+        'post_type'         => 'dwqa-question',
+        'suppress_filters'  => false
+    );
+    $questions = new WP_Query( $args );
+    $html = '';
+
+    if( $title ) {
+        $html .= '<h3>';
+        $html .= $title;
+        $html .= '</h3>';
+    }
+    if( $questions->have_posts() ) {
+        $html .= '<div class="dwqa-popular-questions">';
+        $html .= '<ul>';
+        while ( $questions->have_posts() ) { $questions->the_post();
+            $html .= '<li><a href="'.get_permalink( get_the_ID() ).'" title="'.__('Link to','dwqa').' '.get_the_title().'">'.get_the_title().'</a></li>';
+        }   
+        $html .= '</ul>';
+        $html .= '</div>';
+    }
+    wp_reset_query();
+    wp_reset_postdata();
+    return $html;
+}
+add_shortcode( 'dwqa-popular-questions', 'dwqa_shortcode_popular_questions' );
 
 ?>

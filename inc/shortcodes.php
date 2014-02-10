@@ -376,4 +376,44 @@ function dwqa_shortcode_popular_questions( $atts ){
 }
 add_shortcode( 'dwqa-popular-questions', 'dwqa_shortcode_popular_questions' );
 
+
+function dwqa_shortcode_latest_answers( $atts ){
+
+    extract( shortcode_atts( array(
+        'number' => 5,
+        'title' => __('Latest Answers','dwqa')
+    ), $atts ) );
+
+    $args = array(
+        'posts_per_page'       => $number,
+        'post_type'         => 'dwqa-answer',
+        'suppress_filters'  => false
+    );
+    $questions = new WP_Query( $args );
+    $html = '';
+
+    if( $title ) {
+        $html .= '<h3>';
+        $html .= $title;
+        $html .= '</h3>';
+    }
+    if( $questions->have_posts() ) {
+        $html .= '<div class="dwqa-latest-answers">';
+        $html .= '<ul>';
+        while ( $questions->have_posts() ) { $questions->the_post();
+            $answer_id = get_the_ID();
+            $question_id = get_post_meta( $answer_id, '_question', true );
+            if( $question_id ) {
+                $html .= '<li>'.__('Answer at','dwqa').' <a href="'.get_permalink( $question_id ).'#answer-'.$answer_id.'" title="'.__('Link to','dwqa').' '.get_the_title( $question_id ).'">'.get_the_title( $question_id ).'</a></li>';
+            }
+        }   
+        $html .= '</ul>';
+        $html .= '</div>';
+    }
+    wp_reset_query();
+    wp_reset_postdata();
+    return $html;
+}
+add_shortcode( 'dwqa-latest-answers', 'dwqa_shortcode_latest_answers' );
+
 ?>

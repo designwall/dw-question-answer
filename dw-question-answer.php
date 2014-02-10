@@ -219,7 +219,8 @@ function dwqa_plugin_init(){
                 'slug'          => $question_category_rewrite,
                 'with_front'    => false
             )
-        ) );
+        ) 
+    );
 
     // Question Tags
     $question_tag_labels = array(

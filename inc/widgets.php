@@ -84,7 +84,7 @@ class dwqa_Popular_Question_Widget extends WP_Widget {
         echo $before_title;
         echo $instance['title'];
         echo $after_title;
-
+        
         $args = array(
             'posts_per_page'       => $instance['number'],
             'order'             => 'DESC',

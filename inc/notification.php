@@ -131,15 +131,18 @@ function dwqa_new_answer_nofity( $answer_id ){
     $message = str_replace( '{site_description}', get_bloginfo( 'description' ), $message );
     $message = str_replace( '{site_url}', site_url(), $message);
 
-    $enable_notify = get_option( 'dwqa_subscrible_enable_new_answer_followers_notification' );
+    $enable_notify = get_option( 'dwqa_subscrible_enable_new_answer_followers_notification', true );
+    
     if( $enable_notify ) {
         $followers = get_post_meta( $question_id, '_dwqa_followers' );
+
+
         $answer_email = get_the_author_meta( 'user_email', $answer->post_author );
         if( ! empty($followers) ) {
             $question_link = get_permalink( $question->ID );
 
             $follow_subject = get_option( 'dwqa_subscrible_new_answer_followers_email_subject' );
-            if( ! $subject ) {
+            if( ! $follow_subject ) {
                 $follow_subject = __('You got new answer for your followed question','dwqa');
             }
             $follow_subject = str_replace('{site_name}', get_bloginfo( 'name' ), $follow_subject);
@@ -254,9 +257,9 @@ function dwqa_new_comment_notify( $comment_id, $comment ){
         $message = str_replace( '{site_description}', get_bloginfo( 'description' ), $message );
         $message = str_replace( '{site_url}', site_url(), $message);
         if( $parent == 'dwqa-question' ) {
-            $enable_notify = get_option( 'dwqa_subscrible_enable_new_comment_question_followers_notify' );
+            $enable_notify = get_option( 'dwqa_subscrible_enable_new_comment_question_followers_notify', true );
         } else {
-            $enable_notify = get_option( 'dwqa_subscrible_enable_new_comment_answer_followers_notification' );
+            $enable_notify = get_option( 'dwqa_subscrible_enable_new_comment_answer_followers_notification', true );
         }
         
         if( $enable_notify ) {

@@ -1420,12 +1420,13 @@ function dwqa_get_comments(){
 add_action( 'wp_ajax_dwqa-get-comments', 'dwqa_get_comments' );
 add_action( 'wp_ajax_nopriv_dwqa-get-comments', 'dwqa_get_comments' );
 
-function dwqa_is_followed( $post_id, $user = false ){
+function dwqa_is_followed( $post_id, $user_id = false ){
     if( !$user ) {
         $user = wp_get_current_user();
+        $user_id = $user->ID;
     }
 
-    if( in_array( $user->ID, get_post_meta( $post_id, '_dwqa_followers', false ) ) ) {
+    if( in_array( $user_id, get_post_meta( $post_id, '_dwqa_followers', false ) ) ) {
         return true;
     }
     return false;

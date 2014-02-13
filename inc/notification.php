@@ -72,7 +72,6 @@ function dwqa_new_answer_nofity( $answer_id ){
     } else {
         // if user is not the author of question/answer, add user to followers list
         if( $question->post_author != $answer->post_author ) {
-
             if(  ! dwqa_is_followed( $question_id, $answer->post_author ) ) {
                 add_post_meta( $question_id, '_dwqa_followers', $answer->post_author );
             }
@@ -208,7 +207,7 @@ function dwqa_new_comment_notify( $comment_id, $comment ){
             // if user is not the author of question/answer, add user to followers list
             if( $post_parent->post_author != $comment->user_id ) {
 
-                if(  ! in_array( $comment->user_id, get_post_meta( $post_parent->ID, '_dwqa_followers', false ) ) ) {
+                if(  ! dwqa_is_followed( $post_parent->ID, $comment->user_id ) ) {
                     add_post_meta( $post_parent->ID, '_dwqa_followers', $comment->user_id );
                 }
             }

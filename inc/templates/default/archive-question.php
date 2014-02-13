@@ -22,7 +22,6 @@ get_header('dwqa'); ?>
 	   	</div>
 		<div class="filter-bar">
 			<?php wp_nonce_field( '_dwqa_filter_nonce', '_filter_wpnonce', false ); ?>
-			<input type="hidden" id="dwqa_filter_posts_per_page" name="posts_per_page" value="<?php echo get_query_var( 'posts_per_page' ); ?>">
 			<?php  
 				global $dwqa_options;
 				$submit_question_link = get_permalink( $dwqa_options['pages']['submit-question'] );
@@ -137,6 +136,7 @@ get_header('dwqa'); ?>
 		<?php  do_action('dwqa-prepare-archive-posts');?>
 		<?php if ( have_posts() ) : ?>
 		<div class="questions-list">
+		<input type="hidden" id="dwqa_filter_posts_per_page" name="posts_per_page" value="<?php echo get_query_var( 'posts_per_page' ); ?>">
 		<?php while ( have_posts() ) : the_post(); ?>
 			<?php dwqa_load_template( 'content', 'question' ); ?>
 		<?php endwhile; ?>

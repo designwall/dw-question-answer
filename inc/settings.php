@@ -175,6 +175,14 @@ function dwqa_register_settings(){
     );
 
     add_settings_field( 
+        'dwqa_options[posts-per-page]', 
+        __('Archive page show at most','dwqa'), 
+        'dwqa_posts_per_page_display', 
+        'dwqa-settings', 
+        'dwqa-general-settings' 
+    );
+
+    add_settings_field( 
         'dwqa_options[pages][submit-question]', 
         __('Ask Question Page', 'dwqa'), 
         'dwqa_submit_question_page_display', 
@@ -891,4 +899,9 @@ function dwqa_captcha_google_private_key_display() {
     echo '<p><input type="text" name="dwqa_options[captcha-google-private-key]" value="'.$private_key.'" class="regular-text"></p>';
 }
 
+function dwqa_posts_per_page_display(){
+    global $dwqa_general_settings;
+    $posts_per_page = isset($dwqa_general_settings['posts-per-page']) ?  $dwqa_general_settings['posts-per-page'] : 5;
+    echo '<p><input type="text" name="dwqa_options[posts-per-page]" class="small-text" value="'.$posts_per_page.'" > <span class="description">'.__('questions','dwqa').'</span></p>';
+}
 ?>

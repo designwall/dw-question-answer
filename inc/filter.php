@@ -148,7 +148,7 @@ class DWQA_Filter {
         }
         $sticky_questions = get_option( 'dwqa_sticky_questions', array() );
         $args = array(
-            'numberposts'       => $number,
+            'posts_per_page'       => $number,
             'offset'            => $offset,
             'post_type'         => 'dwqa-question',
             'suppress_filters'  => false,

@@ -1164,7 +1164,6 @@ function dwqa_auto_convert_urls( $content ){
     global $post;
     if( is_single() && ( 'dwqa-question' == $post->post_type || 'dwqa-answer' == $post->post_type) ) {
         $content = make_clickable( $content );
-
         $content = preg_replace('/(<a[^>]*)(>)/', '$1 target="_blank" $2', $content);
     }
     return $content;
@@ -1235,13 +1234,15 @@ function dwqa_vote_best_answer_button(){
 
 
 function dwqa_prepare_archive_posts(){
-    global $wp_query;
+    global $wp_query,$dwqa_general_settings;
+    
     //Change main query to get dwqa-question posts for what was not a page, single post or archive page of dwqa-question post stype
     
     if( $wp_query->query_vars['post_type'] != 'dwqa-question' ) {
+        $posts_per_page = isset($dwqa_general_settings['posts-per-page']) ?  $dwqa_general_settings['posts-per-page'] : 5;
         $query = array(
             'post_type' => 'dwqa-question',
-            'posts_per_page' => $wp_query->query_vars['posts_per_page']
+            'posts_per_page' => $posts_per_page
         );
         if( is_tax('dwqa-question_category') ) {
             $query['dwqa-question_category'] = get_query_var('dwqa-question_category');

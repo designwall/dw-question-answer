@@ -624,7 +624,7 @@
 		.author,
 		.dwqa-category-title,
 		.dwqa-status-title {
-			font-weight: 600;
+			font-weight: bold;
 			color: @gray;
 		}
 		.author a {
@@ -757,6 +757,11 @@
 				margin-bottom: 20px;
 
 				.dwqa-content-inner {
+					br {
+						display: block;
+						margin-bottom: 10px;
+						content: "";
+					}
 					ul,ol {
 						list-style-type: disc;
 						padding: 0;

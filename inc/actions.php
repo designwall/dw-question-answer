@@ -1518,4 +1518,44 @@ function dwqa_is_captcha_enable_in_single_question(){
     return false;
 }
 
+
+
+?>
+
+<?php 
+/**
+ * Just test
+ */
+function dwqa_admin_posts_filter_restrict_manage_posts(){
+    $type = 'post';
+    if (isset($_GET['post_type'])) {
+        $type = $_GET['post_type'];
+    }
+
+    //only add filter to post type you want
+    if ('dwqa-question' == $type){
+        ?>
+        <label for="dwqa-filter-sticky-questions" style="line-height: 32px"><input type="checkbox" name="dwqa-filter-sticky-questions" id="dwqa-filter-sticky-questions" value="1" <?php checked( true, (isset($_GET['dwqa-filter-sticky-questions']) && $_GET['dwqa-filter-sticky-questions']) ? true : false, true ); ?>> <span class="description"><?php _e('Sticky Questions','dwqa') ?></span></label>
+        <?php
+    }
+}
+add_action( 'restrict_manage_posts', 'dwqa_admin_posts_filter_restrict_manage_posts' );
+
+add_filter( 'parse_query', 'dwqa_posts_filter' );
+function dwqa_posts_filter( $query ){
+    global $pagenow;
+    $type = 'post';
+    if (isset($_GET['post_type'])) {
+        $type = $_GET['post_type'];
+    }
+    if ( 'dwqa-question' == $type && is_admin() && $pagenow=='edit.php' && isset($_GET['dwqa-filter-sticky-questions']) && $_GET['dwqa-filter-sticky-questions'] ) {
+
+        $sticky_questions = get_option( 'dwqa_sticky_questions' );
+
+        if( $sticky_questions ) {
+            $query->query_vars['post__in'] = $sticky_questions;
+        }
+    }
+    return $query;
+}
 ?>

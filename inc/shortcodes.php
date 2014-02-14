@@ -381,4 +381,36 @@ function dwqa_shortcode_latest_answers( $atts ){
 }
 add_shortcode( 'dwqa-latest-answers', 'dwqa_shortcode_latest_answers' );
 
+
+function dwqa_question_followers( $atts ){
+    extract( shortcode_atts( array(
+        'id'    => false,
+        'before_title'  => '<h3 class="small-title">',
+        'after_title'   => '</h3>'
+    ), $atts ) );
+    if( ! $id ) {
+        global $post;
+        $id = $post->ID;
+    }
+    $followers = dwqa_get_following_user($id);
+    $question = get_post( $id );
+    $followers[] = $question->post_author;
+    if( !empty($followers) ) :
+        echo '<div class="question-followers">';
+        echo $before_title;
+        echo count($followers) . ' ' . __('people are following this question.', 'dwqa'); 
+        echo $after_title;
+
+        foreach ($followers as $follower) :
+            $user_info = get_userdata($follower);
+            if( $user_info ) :
+             echo '<a href="'.home_url().'/profile/'.$user_info->user_nicename . '" title="'.$user_info->display_name.'">'.get_avatar( $follower, 32 ).'</a>&nbsp;';
+            endif;
+        endforeach;
+        echo '</div>';
+    endif;
+}
+add_shortcode( 'dwqa-question-followers', 'dwqa_question_followers' ); 
+
+
 ?>

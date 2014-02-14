@@ -7,10 +7,6 @@
  *  Version: 1.1.1
  *  Text Domain: dwqa
  */
-global $script_version, $dwqa_template;
-
-$dwqa_template = 'default';
-$script_version = 1389254729;
 
 // Define constant for plugin info 
 if( !defined( 'DWQA_DIR' ) ) {
@@ -267,6 +263,50 @@ function dwqa_plugin_init(){
     if( $flag == true ){
         flush_rewrite_rules();
     }
+
+    global $script_version, $dwqa_template, $dwqa_sript_vars;
+
+    $dwqa_template = 'default';
+    $script_version = 1389254729;
+    $dwqa_sript_vars = array(
+        'is_logged_in'  => is_user_logged_in(),
+        'code_icon'    => DWQA_URI . 'assets/img/icon-code.png',
+        'ajax_url'      => admin_url( 'admin-ajax.php' ),
+        'text_next'     => __('Next','dwqa'),
+        'text_prev'     => __('Prev','dwqa'),
+        'questions_archive_link'    => get_post_type_archive_link( 'dwqa-question' ),
+        'error_missing_question_content'    =>  __( 'Please enter your question', 'dwqa' ),
+        'error_question_length' => __('Your question must be at least 2 characters in length', 'dwqa' ),
+        'error_valid_email'    =>  __( 'Enter a valid email address', 'dwqa' ),
+        'error_valid_user'    =>  __( 'Enter a question title', 'dwqa' ),
+        'error_valid_name'    =>  __( 'Please add your name', 'dwqa' ),
+        'error_missing_answer_content'  => __('Please enter your answer','dwqa'),
+        'error_missing_comment_content' =>  __('Please enter your comment content','dwqa'),
+        'error_not_enought_length'      => __('Comment must have more than 2 characters','dwqa'),
+        'search_not_found_message'  => __('Not found! Try another keyword.','dwqa'),
+        'search_enter_get_more'  => __('Or press <strong>ENTER</strong> to get more questions','dwqa'),
+        'comment_edit_submit_button'    =>  __( 'Update', 'dwqa' ),
+        'comment_edit_link'    =>  __( 'Edit', 'dwqa' ),
+        'comment_edit_cancel_link'    =>  __( 'Cancel', 'dwqa' ),
+        'comment_delete_confirm'        => __('Do you want to delete this comment?', 'dwqa' ),
+        'answer_delete_confirm'     =>  __('Do you want to delete this answer?', 'dwqa' ),
+        'answer_update_privacy_confirm' => __('Do you want to update this answer', 'dwqa' ), 
+        'report_answer_confirm' => __('Do you want to report this answer','dwqa'),
+        'flag'      => array(
+            'label'         =>  __('Report','dwqa'),
+            'label_revert'  =>  __('Undo','dwqa'),
+            'text'          =>  __('This answer will be marked as spam and hidden. Do you want to flag it?', 'dwqa' ),
+            'revert'        =>  __('This answer was flagged as spam. Do you want to show it','dwqa'),
+            'flag_alert'         => __('This answer was flagged as spam','dwqa'),
+            'flagged_hide'  =>  __('hide','dwqa'),
+            'flagged_show'  =>  __('show','dwqa')
+        ),
+        'follow_tooltip'    => __('Follow This Question','dwqa'),
+        'unfollow_tooltip'  => __('Unfollow This Question','dwqa'),
+        'question_category_rewrite' => $question_category_rewrite,
+        'question_tag_rewrite'      => $question_tag_rewrite
+          
+    );
 }
 add_action( 'init', 'dwqa_plugin_init' );
 

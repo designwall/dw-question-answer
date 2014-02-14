@@ -429,7 +429,7 @@ function dwqa_load_template( $name, $extend = false, $include = true ){
  * @return void
  */     
 function dwqa_enqueue_scripts(){
-    global $dwqa_options, $script_version, $dwqa_template;
+    global $dwqa_options, $script_version, $dwqa_template, $dwqa_sript_vars;
 
     $question_category_rewrite = get_option( 'dwqa-question-category-rewrite', 'question-category' );
     $question_category_rewrite = $question_category_rewrite ? $question_category_rewrite : 'question-category';
@@ -439,45 +439,7 @@ function dwqa_enqueue_scripts(){
     $assets_folder = DWQA_URI . 'inc/templates/' . $dwqa_template . '/assets/';
     wp_enqueue_script( 'jquery' );
     $version = $script_version;
-    $dwqa = array(
-        'is_logged_in'  => is_user_logged_in(),
-        'code_icon'    => DWQA_URI . 'assets/img/icon-code.png',
-        'ajax_url'      => admin_url( 'admin-ajax.php' ),
-        'text_next'     => __('Next','dwqa'),
-        'text_prev'     => __('Prev','dwqa'),
-        'questions_archive_link'    => get_post_type_archive_link( 'dwqa-question' ),
-        'error_missing_question_content'    =>  __( 'Please enter your question', 'dwqa' ),
-        'error_question_length' => __('Your question must be at least 2 characters in length', 'dwqa' ),
-        'error_valid_email'    =>  __( 'Enter a valid email address', 'dwqa' ),
-        'error_valid_user'    =>  __( 'Enter a question title', 'dwqa' ),
-        'error_valid_name'    =>  __( 'Please add your name', 'dwqa' ),
-        'error_missing_answer_content'  => __('Please enter your answer','dwqa'),
-        'error_missing_comment_content' =>  __('Please enter your comment content','dwqa'),
-        'error_not_enought_length'      => __('Comment must have more than 2 characters','dwqa'),
-        'search_not_found_message'  => __('Not found! Try another keyword.','dwqa'),
-        'search_enter_get_more'  => __('Or press <strong>ENTER</strong> to get more questions','dwqa'),
-        'comment_edit_submit_button'    =>  __( 'Update', 'dwqa' ),
-        'comment_edit_link'    =>  __( 'Edit', 'dwqa' ),
-        'comment_edit_cancel_link'    =>  __( 'Cancel', 'dwqa' ),
-        'comment_delete_confirm'        => __('Do you want to delete this comment?', 'dwqa' ),
-        'answer_delete_confirm'     =>  __('Do you want to delete this answer?', 'dwqa' ),
-        'answer_update_privacy_confirm' => __('Do you want to update this answer', 'dwqa' ), 
-        'report_answer_confirm' => __('Do you want to report this answer','dwqa'),
-        'flag'      => array(
-            'label'         =>  __('Report','dwqa'),
-            'label_revert'  =>  __('Undo','dwqa'),
-            'text'          =>  __('This answer will be marked as spam and hidden. Do you want to flag it?', 'dwqa' ),
-            'revert'        =>  __('This answer was flagged as spam. Do you want to show it','dwqa'),
-            'flag_alert'         => __('This answer was flagged as spam','dwqa'),
-            'flagged_hide'  =>  __('hide','dwqa'),
-            'flagged_show'  =>  __('show','dwqa')
-        ),
-        'follow_tooltip'    => __('Follow This Question','dwqa'),
-        'unfollow_tooltip'  => __('Unfollow This Question','dwqa'),
-        'question_category_rewrite' => $question_category_rewrite,
-        'question_tag_rewrite'      => $question_tag_rewrite
-          
-    );
+    
 
     // Enqueue style
     wp_enqueue_style( 'dwqa-style', $assets_folder . 'css/style.css', array(), $version );
@@ -485,7 +447,7 @@ function dwqa_enqueue_scripts(){
     if( is_single() && 'dwqa-question' == get_post_type() ) {
         // js
         wp_enqueue_script( 'dwqa-single-question', $assets_folder . 'js/dwqa-single-question.js', array('jquery' ), $version, true );
-        wp_localize_script( 'dwqa-single-question', 'dwqa', $dwqa );
+        wp_localize_script( 'dwqa-single-question', 'dwqa', $dwqa_sript_vars );
 
         
     }
@@ -493,13 +455,13 @@ function dwqa_enqueue_scripts(){
 
     if( (is_archive() && 'dwqa-question' == get_post_type()) || ( isset( $dwqa_options['pages']['archive-question'] ) && is_page( $dwqa_options['pages']['archive-question'] ) ) ) {
         wp_enqueue_script( 'dwqa-questions-list', $assets_folder . 'js/dwqa-questions-list.js', array( 'jquery' ), $version, true );
-        wp_localize_script( 'dwqa-questions-list', 'dwqa', $dwqa );
+        wp_localize_script( 'dwqa-questions-list', 'dwqa', $dwqa_sript_vars );
     }
 
     if( isset($dwqa_options['pages']['submit-question']) 
         && is_page( $dwqa_options['pages']['submit-question'] ) ) {
         wp_enqueue_script( 'dwqa-submit-question', $assets_folder . 'js/dwqa-submit-question.js', array( 'jquery' ), $version, true );
-        wp_localize_script( 'dwqa-submit-question', 'dwqa', $dwqa );
+        wp_localize_script( 'dwqa-submit-question', 'dwqa', $dwqa_sript_vars );
     }
 }
 add_action( 'wp_enqueue_scripts', 'dwqa_enqueue_scripts' );

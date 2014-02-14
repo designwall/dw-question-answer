@@ -32,9 +32,12 @@
                 </span>
                 <?php 
                     if( get_post_status( get_the_ID() ) == 'publish' ) {
+                        $is_the_best = dwqa_is_the_best_answer($answer_id,$question_id);
                         $data =  is_user_logged_in() && ( $current_user->ID == $question->post_author || current_user_can( 'edit_posts' ) ) ? 'data-answer="'.get_the_ID().'" data-nonce="'.wp_create_nonce( '_dwqa_vote_best_answer' ).'" data-ajax="true"' : 'data-ajax="false"';
+                        if( $is_the_best || $data != 'data-ajax="false"' ) {
                 ?>
-                <span class="dwqa-best-answer <?php echo dwqa_is_the_best_answer($answer_id,$question_id) ? 'active' : ''; ?>" title="<?php _e('This is the best answer','dwqa') ?>" <?php echo $data ?>><i class="fa fa-check-circle"></i></span>
+                <span class="dwqa-best-answer <?php echo $is_the_best ? 'active' : ''; ?>" title="<?php _e('This is the best answer','dwqa') ?>" <?php echo $data ?>><i class="fa fa-check-circle"></i></span>
+                    <?php } ?>
                 <?php } ?>
 
             </div>

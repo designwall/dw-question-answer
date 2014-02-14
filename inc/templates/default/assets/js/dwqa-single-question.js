@@ -650,7 +650,7 @@ jQuery(function($) {
                     });
             }
         } else {
-            $('.dwqa-best-answer').removeClass('active');
+            $('.dwqa-best-answer').addClass('active');
             $.ajax({
                 url: dwqa.ajax_url,
                 type: 'POST',

@@ -303,6 +303,8 @@ function dwqa_plugin_init(){
         ),
         'follow_tooltip'    => __('Follow This Question','dwqa'),
         'unfollow_tooltip'  => __('Unfollow This Question','dwqa'),
+        'stick_tooltip'    => __('Stick This Question on Frontpage','dwqa'),
+        'unstick_tooltip'  => __('Untick This Question on Frontpage','dwqa'),
         'question_category_rewrite' => $question_category_rewrite,
         'question_tag_rewrite'      => $question_tag_rewrite
           

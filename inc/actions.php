@@ -581,6 +581,7 @@ function dwqa_question_answers_count( $question_id = null){
     $answers = new WP_Query($args);
     return $answers->post_count;
 }
+
 /**
  * Init or increase views count for single question 
  * @return void 
@@ -1519,13 +1520,6 @@ function dwqa_is_captcha_enable_in_single_question(){
 }
 
 
-
-?>
-
-<?php 
-/**
- * Just test
- */
 function dwqa_admin_posts_filter_restrict_manage_posts(){
     $type = 'post';
     if (isset($_GET['post_type'])) {
@@ -1541,7 +1535,7 @@ function dwqa_admin_posts_filter_restrict_manage_posts(){
 }
 add_action( 'restrict_manage_posts', 'dwqa_admin_posts_filter_restrict_manage_posts' );
 
-add_filter( 'parse_query', 'dwqa_posts_filter' );
+
 function dwqa_posts_filter( $query ){
     global $pagenow;
     $type = 'post';
@@ -1558,4 +1552,6 @@ function dwqa_posts_filter( $query ){
     }
     return $query;
 }
+add_filter( 'parse_query', 'dwqa_posts_filter' );
+
 ?>

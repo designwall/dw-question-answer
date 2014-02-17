@@ -738,6 +738,7 @@ jQuery(function($) {
                     });
                 }
             });
+        return false;
 
     });
 
@@ -761,7 +762,7 @@ jQuery(function($) {
                 post: t.data('post')
             }
         });
-
+        return false;
     });
 
     $('.dwqa-container').delegate('.dwqa-stick-question', 'click', function(event) {
@@ -784,7 +785,7 @@ jQuery(function($) {
                 post: t.data('post')
             }
         });
-
+        return false;
     });
 
     // Dropdown Toggle
@@ -800,6 +801,7 @@ jQuery(function($) {
             $(this).removeClass('open');
         });
         parent.toggleClass('open');
+        return false;
     });
 
     //Document On Click ===========================================================================

@@ -1493,7 +1493,7 @@ function dwqa_stick_question(){
             ) );
         } else {
             foreach ($sticky_questions as $key => $q) {
-                if( $q == $question_id ) {
+                if( $q == $question->ID ) {
                     unset($sticky_questions[$key]);
                 }
             }

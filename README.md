@@ -1,6 +1,6 @@
 DW Question & Answer
 ====================
- - Contributors: DesignWall
+ - Contributors: DesignWall, Farid-Gh
  - Tags: question, answer, support, quora, stackoverflow
  - Requires at least: 3.0.1
  - Tested up to: 3.8
@@ -61,6 +61,7 @@ Changelog
 * New : Shortcode For Question List
 * New : Shortcode For Ask Question Form
 * New : Questions per page Settings
+* New : Languagge: Russian supported
 * Fix : Duplicate in follow function
 * Fix : The visible of the best answer in question single page
 * Update: THESIS theme Compatible

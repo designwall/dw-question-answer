@@ -278,6 +278,9 @@
 			.dwqa-sticky-question:hover {
 				background-color: rgb(255,255,224);
 			}
+			.fa-bookmark {
+				color: #f00;
+			}
 		}
 		// Question
 		.dwqa-question {
@@ -702,7 +705,8 @@
 		}
 
 		// Watch
-		.dwqa-favourite {
+		.dwqa-favourite,
+		.dwqa-stick-question {
 			height: auto;
 			left: -46px;
 			top: 90px;
@@ -726,6 +730,17 @@
 			&.active {
 				i {
 					color: #EEDB00;
+				}
+			}
+		}
+		.dwqa-stick-question {
+			top: 125px;
+			left: -43px;
+
+			&:hover,
+			&.active {
+				i {
+					color: #f00;
 				}
 			}
 		}

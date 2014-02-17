@@ -1433,7 +1433,7 @@ add_action( 'wp_ajax_dwqa-get-comments', 'dwqa_get_comments' );
 add_action( 'wp_ajax_nopriv_dwqa-get-comments', 'dwqa_get_comments' );
 
 function dwqa_is_followed( $post_id, $user_id = false ){
-    if( !$user ) {
+    if( !$user_id ) {
         $user = wp_get_current_user();
         $user_id = $user->ID;
     }
@@ -1472,6 +1472,44 @@ function dwqa_follow_question(){
 
 }
 add_action( 'wp_ajax_dwqa-follow-question', 'dwqa_follow_question' );
+
+function dwqa_follow_question(){
+    check_ajax_referer( '_dwqa_stick_question', 'nonce' );
+    if( ! isset($_POST['post']) ) {
+        wp_send_json_error( array(
+            'message'   => __('Invalid Post','dwqa')
+        ) );
+    }
+    $question = get_post( $_POST['post'] );
+    if( is_user_logged_in() ) {
+        global $current_user;
+        $sticky_questions = get_option( 'dwqa_sticky_questions', array() );
+        
+        if( ! dwqa_is_sticky( $question->ID )  ) {
+            $sticky_questions[] =  $question->ID;
+            update_option( 'dwqa_sticky_questions', $sticky_questions );
+            wp_send_json_success( array(
+                'code' => 'stickied'
+            ) );
+        } else {
+            foreach ($sticky_questions as $key => $q) {
+                if( $q == $question_id ) {
+                    unset($sticky_questions[$key]);
+                }
+            }
+            update_option( 'dwqa_sticky_questions', $sticky_questions );
+            wp_send_json_success( array(
+                'code' => 'Unstick'
+            ) );
+        }
+    } else {
+        wp_send_json_error( array(
+            'code' => 'not-logged-in'
+        ) );
+    }
+
+}
+add_action( 'wp_ajax_dwqa-stick-question', 'dwqa_follow_question' );
 
 
 // CAPTCHA

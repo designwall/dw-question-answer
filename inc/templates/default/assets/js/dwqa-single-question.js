@@ -764,6 +764,29 @@ jQuery(function($) {
 
     });
 
+    $('.dwqa-container').delegate('.dwqa-stick-question', 'click', function(event) {
+        event.preventDefault();
+        var t = $(this);
+        t.toggleClass('active');
+        if (t.hasClass('active')) {
+            t.attr('title', dwqa.unstick_tooltip);
+        } else {
+            t.attr('title', dwqa.stick_tooltip);
+        }
+
+        $.ajax({
+            url: dwqa.ajax_url,
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                action: 'dwqa-stick-question',
+                nonce: t.data('nonce'),
+                post: t.data('post')
+            }
+        });
+
+    });
+
     // Dropdown Toggle
     $('.dwqa-container').delegate('.dropdown-toggle', 'click', function(event) {
         event.preventDefault();

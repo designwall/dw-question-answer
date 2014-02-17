@@ -662,7 +662,7 @@ function dwqa_comment_form( $args = array(), $post_id = null ) {
 }
 
 function dwqa_display_sticky_questions(){
-    $sticky_questions = get_option( 'dwqa_sticky_questions' );
+    $sticky_questions = get_option( 'dwqa_sticky_questions', array() );
     if( !empty($sticky_questions) ) {
             $query = array(
                 'post_type' => 'dwqa-question',

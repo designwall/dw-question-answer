@@ -277,6 +277,8 @@ get_header('dwqa'); ?>
 		        echo  '</p>';
 			?>
 		<?php endif; ?>
+
+		<?php do_action( 'dwqa-after-archive-posts' ); ?>
 	</div>
 
 </div>

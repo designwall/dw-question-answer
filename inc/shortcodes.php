@@ -127,6 +127,11 @@ if( ! function_exists('dwqa_archive_question') ) {
                                     <span><?php _e('Vote', 'dwqa') ?></span> <i class="fa fa-sort <?php echo isset($_GET['orderby']) && $_GET['orderby'] == 'votes' ? 'fa-sort-up' : ''; ?>"></i>
                                 </li>
                             </ul>
+                            <?php  
+                                global $dwqa_general_settings;
+                                $posts_per_page = isset($dwqa_general_settings['posts-per-page']) ?  $dwqa_general_settings['posts-per-page'] : get_query_var( 'posts_per_page' );
+                            ?>
+                            <input type="hidden" id="dwqa_filter_posts_per_page" name="posts_per_page" value="<?php echo $posts_per_page; ?>">
                         </div>
                     </div>
                     
@@ -135,7 +140,6 @@ if( ! function_exists('dwqa_archive_question') ) {
                     <?php  do_action('dwqa-prepare-archive-posts');?>
                     <?php if ( have_posts() ) : ?>
                     <div class="questions-list">
-                    <input type="hidden" id="dwqa_filter_posts_per_page" name="posts_per_page" value="<?php echo get_query_var( 'posts_per_page' ); ?>">
                     <?php while ( have_posts() ) : the_post(); ?>
                         <?php dwqa_load_template( 'content', 'question' ); ?>
                     <?php endwhile; ?>
@@ -183,9 +187,7 @@ if( ! function_exists('dwqa_archive_question') ) {
                         $pages = ceil( $number_questions / $number );
                         
                         if( $pages > 1 ) {
-
                     ?>
-                    
                         <div class="pagination">
                             <ul data-pages="<?php echo $pages; ?>" >
                                 <?php  
@@ -271,6 +273,7 @@ if( ! function_exists('dwqa_archive_question') ) {
                             echo  '</p>';
                         ?>
                     <?php endif; ?>
+                    <?php do_action( 'dwqa-after-archive-posts' ); ?>
                 </div>
             </div>
         </div>

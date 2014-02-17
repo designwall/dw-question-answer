@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DW Question Answer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-14 09:14+0700\n"
-"PO-Revision-Date: 2014-02-14 09:14+0700\n"
+"POT-Creation-Date: 2014-02-17 17:32+0700\n"
+"PO-Revision-Date: 2014-02-17 17:32+0700\n"
 "Last-Translator: DesignWall <webmaster@designwall.com>\n"
 "Language-Team: DesignWall <webmaster@designwall.com>\n"
 "Language: en\n"
@@ -16,215 +16,347 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../dw-question-answer.php:63
+#: ../dw-question-answer.php:59
 msgid "DWQA Questions"
 msgstr ""
 
-#: ../dw-question-answer.php:76
+#: ../dw-question-answer.php:72
 msgid "DWQA Ask Question"
 msgstr ""
 
-#: ../dw-question-answer.php:130
+#: ../dw-question-answer.php:126
 msgctxt "post type general name"
 msgid "Question"
 msgstr ""
 
-#: ../dw-question-answer.php:131
+#: ../dw-question-answer.php:127
 msgctxt "post type singular name"
 msgid "Question"
 msgstr ""
 
-#: ../dw-question-answer.php:132 ../dw-question-answer.php:166
+#: ../dw-question-answer.php:128 ../dw-question-answer.php:162
 msgctxt "theme"
 msgid "Add New"
 msgstr ""
 
-#: ../dw-question-answer.php:133
+#: ../dw-question-answer.php:129
 msgid "Add New Question"
 msgstr ""
 
-#: ../dw-question-answer.php:134
+#: ../dw-question-answer.php:130
 msgid "Edit Question"
 msgstr ""
 
-#: ../dw-question-answer.php:135 ../inc/settings.php:62
+#: ../dw-question-answer.php:131 ../inc/settings.php:62
 msgid "New Question"
 msgstr ""
 
-#: ../dw-question-answer.php:136
+#: ../dw-question-answer.php:132
 msgid "All Questions"
 msgstr ""
 
-#: ../dw-question-answer.php:137
+#: ../dw-question-answer.php:133
 msgid "View Question"
 msgstr ""
 
-#: ../dw-question-answer.php:138
+#: ../dw-question-answer.php:134
 msgid "Search Question"
 msgstr ""
 
-#: ../dw-question-answer.php:139
+#: ../dw-question-answer.php:135
 msgid "No questions found"
 msgstr ""
 
-#: ../dw-question-answer.php:140
+#: ../dw-question-answer.php:136
 msgid "No questions found in Trash"
 msgstr ""
 
-#: ../dw-question-answer.php:142
+#: ../dw-question-answer.php:138
 msgid "DW Q&A"
 msgstr ""
 
-#: ../dw-question-answer.php:164
+#: ../dw-question-answer.php:160
 msgctxt "post type general name"
 msgid "Answer"
 msgstr ""
 
-#: ../dw-question-answer.php:165
+#: ../dw-question-answer.php:161
 msgctxt "post type singular name"
 msgid "Answer"
 msgstr ""
 
-#: ../dw-question-answer.php:167
+#: ../dw-question-answer.php:163
 msgid "Add new answer"
 msgstr ""
 
-#: ../dw-question-answer.php:168
+#: ../dw-question-answer.php:164
 msgid "Edit answer"
 msgstr ""
 
-#: ../dw-question-answer.php:169 ../inc/settings.php:63
+#: ../dw-question-answer.php:165 ../inc/settings.php:63
 msgid "New Answer"
 msgstr ""
 
-#: ../dw-question-answer.php:170
+#: ../dw-question-answer.php:166
 msgid "All Answers"
 msgstr ""
 
-#: ../dw-question-answer.php:171
+#: ../dw-question-answer.php:167
 msgid "View Answer"
 msgstr ""
 
-#: ../dw-question-answer.php:172
+#: ../dw-question-answer.php:168
 msgid "Search Answer"
 msgstr ""
 
-#: ../dw-question-answer.php:173
+#: ../dw-question-answer.php:169
 msgid "No Answers found"
 msgstr ""
 
-#: ../dw-question-answer.php:174
+#: ../dw-question-answer.php:170
 msgid "No Answers found in Trash"
 msgstr ""
 
-#: ../dw-question-answer.php:176 ../dw-question-answer.php:413
-#: ../inc/settings.php:791 ../inc/shortcodes.php:122
+#: ../dw-question-answer.php:172 ../dw-question-answer.php:455
+#: ../inc/settings.php:791 ../inc/shortcodes.php:124
 #: ../inc/templates/default/archive-question.php:125
 #: ../thesis/dwqa/box.php:172
 msgid "Answer"
 msgstr ""
 
-#: ../dw-question-answer.php:198
+#: ../dw-question-answer.php:194
 msgctxt "taxonomy general name"
 msgid "Categories"
 msgstr ""
 
-#: ../dw-question-answer.php:199
+#: ../dw-question-answer.php:195
 msgctxt "taxonomy singular name"
 msgid "Category"
 msgstr ""
 
-#: ../dw-question-answer.php:200
+#: ../dw-question-answer.php:196
 msgid "Search Categories"
 msgstr ""
 
-#: ../dw-question-answer.php:201
+#: ../dw-question-answer.php:197
 msgid "All Categories"
 msgstr ""
 
-#: ../dw-question-answer.php:202
+#: ../dw-question-answer.php:198
 msgid "Parent Category"
 msgstr ""
 
-#: ../dw-question-answer.php:203
+#: ../dw-question-answer.php:199
 msgid "Parent Category:"
 msgstr ""
 
-#: ../dw-question-answer.php:204
+#: ../dw-question-answer.php:200
 msgid "Edit Category"
 msgstr ""
 
-#: ../dw-question-answer.php:205
+#: ../dw-question-answer.php:201
 msgid "Update Category"
 msgstr ""
 
-#: ../dw-question-answer.php:206
+#: ../dw-question-answer.php:202
 msgid "Add New Category"
 msgstr ""
 
-#: ../dw-question-answer.php:207
+#: ../dw-question-answer.php:203
 msgid "New Category Name"
 msgstr ""
 
-#: ../dw-question-answer.php:208
+#: ../dw-question-answer.php:204
 msgid "Question Categories"
 msgstr ""
 
-#: ../dw-question-answer.php:227
+#: ../dw-question-answer.php:223
 msgctxt "taxonomy general name"
 msgid "Tags"
 msgstr ""
 
-#: ../dw-question-answer.php:228
+#: ../dw-question-answer.php:224
 msgctxt "taxonomy singular name"
 msgid "Tag"
 msgstr ""
 
-#: ../dw-question-answer.php:229
+#: ../dw-question-answer.php:225
 msgid "Search Tags"
 msgstr ""
 
-#: ../dw-question-answer.php:230
+#: ../dw-question-answer.php:226
 msgid "Popular Tags"
 msgstr ""
 
-#: ../dw-question-answer.php:231
+#: ../dw-question-answer.php:227
 msgid "All Tags"
 msgstr ""
 
-#: ../dw-question-answer.php:234
+#: ../dw-question-answer.php:230
 msgid "Edit Tag"
 msgstr ""
 
-#: ../dw-question-answer.php:235
+#: ../dw-question-answer.php:231
 msgid "Update Tag"
 msgstr ""
 
-#: ../dw-question-answer.php:236
+#: ../dw-question-answer.php:232
 msgid "Add New Tag"
 msgstr ""
 
-#: ../dw-question-answer.php:237
+#: ../dw-question-answer.php:233
 msgid "New Tag Name"
 msgstr ""
 
-#: ../dw-question-answer.php:238
+#: ../dw-question-answer.php:234
 msgid "Separate tags with commas"
 msgstr ""
 
-#: ../dw-question-answer.php:239
+#: ../dw-question-answer.php:235
 msgid "Add or remove tags"
 msgstr ""
 
-#: ../dw-question-answer.php:240
+#: ../dw-question-answer.php:236
 msgid "Choose from the most used tags"
 msgstr ""
 
-#: ../dw-question-answer.php:241 ../inc/template-functions.php:265
+#: ../dw-question-answer.php:237 ../inc/template-functions.php:265
 msgid "Question Tags"
 msgstr ""
 
+#: ../dw-question-answer.php:275 ../dw-question-answer.php:407
+#: ../inc/filter.php:83 ../inc/shortcodes.php:236
+#: ../inc/templates/default/archive-question.php:240
+#: ../thesis/dwqa/box.php:282
+msgid "Next"
+msgstr ""
+
+#: ../dw-question-answer.php:276 ../dw-question-answer.php:408
+#: ../inc/shortcodes.php:200 ../inc/templates/default/archive-question.php:204
+#: ../thesis/dwqa/box.php:246
+msgid "Prev"
+msgstr ""
+
+#: ../dw-question-answer.php:278 ../dw-question-answer.php:410
+msgid "Please enter your question"
+msgstr ""
+
+#: ../dw-question-answer.php:279
+msgid "Your question must be at least 2 characters in length"
+msgstr ""
+
+#: ../dw-question-answer.php:280
+msgid "Enter a valid email address"
+msgstr ""
+
+#: ../dw-question-answer.php:281
+msgid "Enter a question title"
+msgstr ""
+
+#: ../dw-question-answer.php:282
+msgid "Please add your name"
+msgstr ""
+
+#: ../dw-question-answer.php:283 ../dw-question-answer.php:411
+msgid "Please enter your answer"
+msgstr ""
+
+#: ../dw-question-answer.php:284 ../dw-question-answer.php:412
+msgid "Please enter your comment content"
+msgstr ""
+
+#: ../dw-question-answer.php:285 ../dw-question-answer.php:413
+msgid "Comment must have more than 2 characters"
+msgstr ""
+
+#: ../dw-question-answer.php:286
+msgid "Not found! Try another keyword."
+msgstr ""
+
 #: ../dw-question-answer.php:287
+msgid "Or press <strong>ENTER</strong> to get more questions"
+msgstr ""
+
+#: ../dw-question-answer.php:288 ../dw-question-answer.php:414
+#: ../inc/actions.php:913
+msgid "Update"
+msgstr ""
+
+#: ../dw-question-answer.php:289 ../dw-question-answer.php:415
+#: ../inc/templates/default/content-answer.php:100
+#: ../inc/templates/default/content-comment.php:48
+msgid "Edit"
+msgstr ""
+
+#: ../dw-question-answer.php:290 ../dw-question-answer.php:416
+#: ../inc/actions.php:914
+msgid "Cancel"
+msgstr ""
+
+#: ../dw-question-answer.php:291 ../dw-question-answer.php:417
+msgid "Do you want to delete this comment?"
+msgstr ""
+
+#: ../dw-question-answer.php:292 ../dw-question-answer.php:418
+msgid "Do you want to delete this answer?"
+msgstr ""
+
+#: ../dw-question-answer.php:293
+msgid "Do you want to update this answer"
+msgstr ""
+
+#: ../dw-question-answer.php:294
+msgid "Do you want to report this answer"
+msgstr ""
+
+#: ../dw-question-answer.php:296
+#: ../inc/templates/default/content-answer.php:105
+msgid "Report"
+msgstr ""
+
+#: ../dw-question-answer.php:297
+msgid "Undo"
+msgstr ""
+
+#: ../dw-question-answer.php:298
+msgid "This answer will be marked as spam and hidden. Do you want to flag it?"
+msgstr ""
+
+#: ../dw-question-answer.php:299 ../dw-question-answer.php:423
+msgid "This answer was flagged as spam. Do you want to show it"
+msgstr ""
+
+#: ../dw-question-answer.php:300
+msgid "This answer was flagged as spam"
+msgstr ""
+
+#: ../dw-question-answer.php:301 ../dw-question-answer.php:424
+msgid "hide"
+msgstr ""
+
+#: ../dw-question-answer.php:302 ../dw-question-answer.php:425
+msgid "show"
+msgstr ""
+
+#: ../dw-question-answer.php:304
+#: ../inc/templates/default/single-question.php:28 ../thesis/dwqa/box.php:344
+msgid "Follow This Question"
+msgstr ""
+
+#: ../dw-question-answer.php:305
+#: ../inc/templates/default/single-question.php:28 ../thesis/dwqa/box.php:344
+msgid "Unfollow This Question"
+msgstr ""
+
+#: ../dw-question-answer.php:306
+msgid "Stick This Question on Frontpage"
+msgstr ""
+
+#: ../dw-question-answer.php:307
+msgid "Untick This Question on Frontpage"
+msgstr ""
+
+#: ../dw-question-answer.php:329
 #, php-format
 msgid "%s second"
 msgid_plural "%s seconds"
@@ -232,163 +364,82 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: min=minute
-#: ../dw-question-answer.php:296
+#: ../dw-question-answer.php:338
 #, php-format
 msgid "about %s min"
 msgid_plural "%s mins"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../dw-question-answer.php:302
+#: ../dw-question-answer.php:344
 #, php-format
 msgid "about %s hour"
 msgid_plural "%s hours"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../dw-question-answer.php:308
+#: ../dw-question-answer.php:350
 #, php-format
 msgid "%s day"
 msgid_plural "%s days"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../dw-question-answer.php:312
+#: ../dw-question-answer.php:354
 #, php-format
 msgid "%1$s ago"
 msgstr ""
 
-#: ../dw-question-answer.php:365 ../inc/filter.php:83
-#: ../inc/shortcodes.php:226 ../inc/shortcodes.php:271
-#: ../inc/shortcodes.php:308 ../inc/template-functions.php:446
-#: ../inc/templates/default/archive-question.php:235
-#: ../thesis/dwqa/box.php:282
-msgid "Next"
-msgstr ""
-
-#: ../dw-question-answer.php:366 ../inc/shortcodes.php:190
-#: ../inc/shortcodes.php:272 ../inc/shortcodes.php:309
-#: ../inc/template-functions.php:447
-#: ../inc/templates/default/archive-question.php:199
-#: ../thesis/dwqa/box.php:246
-msgid "Prev"
-msgstr ""
-
-#: ../dw-question-answer.php:368 ../inc/shortcodes.php:274
-#: ../inc/shortcodes.php:311 ../inc/template-functions.php:449
-msgid "Please enter your question"
-msgstr ""
-
-#: ../dw-question-answer.php:369 ../inc/shortcodes.php:277
-#: ../inc/shortcodes.php:314 ../inc/template-functions.php:454
-msgid "Please enter your answer"
-msgstr ""
-
-#: ../dw-question-answer.php:370 ../inc/shortcodes.php:278
-#: ../inc/shortcodes.php:315 ../inc/template-functions.php:455
-msgid "Please enter your comment content"
-msgstr ""
-
-#: ../dw-question-answer.php:371 ../inc/shortcodes.php:279
-#: ../inc/shortcodes.php:316 ../inc/template-functions.php:456
-msgid "Comment must have more than 2 characters"
-msgstr ""
-
-#: ../dw-question-answer.php:372 ../inc/actions.php:912
-#: ../inc/shortcodes.php:280 ../inc/shortcodes.php:317
-#: ../inc/template-functions.php:459
-msgid "Update"
-msgstr ""
-
-#: ../dw-question-answer.php:373 ../inc/shortcodes.php:281
-#: ../inc/shortcodes.php:318 ../inc/template-functions.php:460
-#: ../inc/templates/default/content-answer.php:100
-#: ../inc/templates/default/content-comment.php:48
-msgid "Edit"
-msgstr ""
-
-#: ../dw-question-answer.php:374 ../inc/actions.php:913
-#: ../inc/shortcodes.php:282 ../inc/shortcodes.php:319
-#: ../inc/template-functions.php:461
-msgid "Cancel"
-msgstr ""
-
-#: ../dw-question-answer.php:375 ../inc/shortcodes.php:283
-#: ../inc/shortcodes.php:320 ../inc/template-functions.php:462
-msgid "Do you want to delete this comment?"
-msgstr ""
-
-#: ../dw-question-answer.php:376 ../inc/shortcodes.php:284
-#: ../inc/shortcodes.php:321 ../inc/template-functions.php:463
-msgid "Do you want to delete this answer?"
-msgstr ""
-
-#: ../dw-question-answer.php:378 ../inc/shortcodes.php:286
-#: ../inc/shortcodes.php:323
+#: ../dw-question-answer.php:420
 msgid "Flag"
 msgstr ""
 
-#: ../dw-question-answer.php:379 ../inc/shortcodes.php:287
-#: ../inc/shortcodes.php:324
+#: ../dw-question-answer.php:421
 msgid "Unflag"
 msgstr ""
 
-#: ../dw-question-answer.php:380
+#: ../dw-question-answer.php:422
 msgid "This answer will be hide when flag it. Are you sure?"
 msgstr ""
 
-#: ../dw-question-answer.php:381 ../inc/shortcodes.php:289
-#: ../inc/shortcodes.php:326 ../inc/template-functions.php:470
-msgid "This answer was flagged as spam. Do you want to show it"
-msgstr ""
-
-#: ../dw-question-answer.php:382 ../inc/shortcodes.php:291
-#: ../inc/shortcodes.php:328 ../inc/template-functions.php:472
-msgid "hide"
-msgstr ""
-
-#: ../dw-question-answer.php:383 ../inc/shortcodes.php:292
-#: ../inc/shortcodes.php:329 ../inc/template-functions.php:473
-msgid "show"
-msgstr ""
-
-#: ../dw-question-answer.php:414 ../inc/class-answers-list-table.php:77
+#: ../dw-question-answer.php:456 ../inc/class-answers-list-table.php:77
 msgid "Author"
 msgstr ""
 
-#: ../dw-question-answer.php:416
+#: ../dw-question-answer.php:458
 msgid "In Response To"
 msgstr ""
 
-#: ../dw-question-answer.php:420
+#: ../dw-question-answer.php:462
 msgid "Info"
 msgstr ""
 
-#: ../dw-question-answer.php:437
+#: ../dw-question-answer.php:479
 msgid "Submitted"
 msgstr ""
 
-#: ../dw-question-answer.php:438
+#: ../dw-question-answer.php:480
 msgid "on"
 msgstr ""
 
-#: ../dw-question-answer.php:465
+#: ../dw-question-answer.php:507
 msgid "Reset all changed to default"
 msgstr ""
 
-#: ../dw-question-answer.php:479
+#: ../dw-question-answer.php:521
 msgid "answered"
 msgstr ""
 
-#: ../dw-question-answer.php:480
+#: ../dw-question-answer.php:522
 msgid "voted"
 msgstr ""
 
-#: ../dw-question-answer.php:481
+#: ../dw-question-answer.php:523
 msgid "views"
 msgstr ""
 
-#: ../dw-question-answer.php:602
+#: ../dw-question-answer.php:644 ../inc/shortcodes.php:336
+#: ../inc/widgets.php:101
 msgid "asked by"
 msgstr ""
 
@@ -424,8 +475,8 @@ msgstr ""
 msgid "Captcha is not correct"
 msgstr ""
 
-#: ../inc/actions.php:374 ../inc/actions.php:724 ../inc/actions.php:749
-#: ../inc/actions.php:767 ../inc/actions.php:1392 ../inc/filter.php:349
+#: ../inc/actions.php:374 ../inc/actions.php:725 ../inc/actions.php:750
+#: ../inc/actions.php:768 ../inc/actions.php:1399 ../inc/filter.php:349
 #: ../inc/status.php:286
 msgid "Are you cheating huh?"
 msgstr ""
@@ -454,74 +505,74 @@ msgstr ""
 msgid "\"Helllo\", Are you cheating huh?."
 msgstr ""
 
-#: ../inc/actions.php:729
+#: ../inc/actions.php:730
 msgid "Comment content must not be empty."
 msgstr ""
 
-#: ../inc/actions.php:754
+#: ../inc/actions.php:755
 msgid "Comment ID must be show."
 msgstr ""
 
-#: ../inc/actions.php:770
+#: ../inc/actions.php:771
 msgid "Missing id of answer"
 msgstr ""
 
-#: ../inc/actions.php:916
+#: ../inc/actions.php:917
 msgid "Publish"
 msgstr ""
 
-#: ../inc/actions.php:921 ../inc/actions.php:931
+#: ../inc/actions.php:922 ../inc/actions.php:932
 #: ../inc/template-functions.php:361 ../inc/template-functions.php:371
 #: ../inc/templates/default/content-answer.php:64
 #: ../inc/templates/default/content-answer.php:76
-#: ../inc/templates/default/single-question.php:71
-#: ../inc/templates/default/single-question.php:82 ../thesis/dwqa/box.php:387
+#: ../inc/templates/default/single-question.php:74
+#: ../inc/templates/default/single-question.php:85 ../thesis/dwqa/box.php:387
 #: ../thesis/dwqa/box.php:398
 msgid "Public"
 msgstr ""
 
-#: ../inc/actions.php:931 ../inc/template-functions.php:371
+#: ../inc/actions.php:932 ../inc/template-functions.php:371
 #: ../inc/templates/default/content-answer.php:76
-#: ../inc/templates/default/single-question.php:82 ../thesis/dwqa/box.php:398
+#: ../inc/templates/default/single-question.php:85 ../thesis/dwqa/box.php:398
 msgid "Everyone can see"
 msgstr ""
 
-#: ../inc/actions.php:932 ../inc/template-functions.php:372
+#: ../inc/actions.php:933 ../inc/template-functions.php:372
 #: ../inc/templates/default/content-answer.php:77
-#: ../inc/templates/default/single-question.php:83 ../thesis/dwqa/box.php:399
+#: ../inc/templates/default/single-question.php:86 ../thesis/dwqa/box.php:399
 msgid "Only Author and Administrator can see"
 msgstr ""
 
-#: ../inc/actions.php:932 ../inc/template-functions.php:372
+#: ../inc/actions.php:933 ../inc/template-functions.php:372
 #: ../inc/templates/default/content-answer.php:64
 #: ../inc/templates/default/content-answer.php:77
-#: ../inc/templates/default/single-question.php:71
-#: ../inc/templates/default/single-question.php:83 ../thesis/dwqa/box.php:387
+#: ../inc/templates/default/single-question.php:74
+#: ../inc/templates/default/single-question.php:86 ../thesis/dwqa/box.php:387
 #: ../thesis/dwqa/box.php:399
 msgid "Private"
 msgstr ""
 
-#: ../inc/actions.php:963
+#: ../inc/actions.php:964
 msgid "You can't post comment"
 msgstr ""
 
-#: ../inc/actions.php:976
+#: ../inc/actions.php:977
 msgid "Missing email infomation"
 msgstr ""
 
-#: ../inc/actions.php:981
+#: ../inc/actions.php:982
 msgid "Missing name infomation"
 msgstr ""
 
-#: ../inc/actions.php:1226
+#: ../inc/actions.php:1227
 msgid "Choose as best answer"
 msgstr ""
 
-#: ../inc/actions.php:1439
+#: ../inc/actions.php:1446 ../inc/actions.php:1476
 msgid "Invalid Post"
 msgstr ""
 
-#: ../inc/actions.php:1538
+#: ../inc/actions.php:1576
 msgid "Sticky Questions"
 msgstr ""
 
@@ -607,7 +658,8 @@ msgstr ""
 msgid "DesignWall Homepage"
 msgstr ""
 
-#: ../inc/filter.php:101 ../inc/templates/default/archive-question.php:248
+#: ../inc/filter.php:101 ../inc/shortcodes.php:249
+#: ../inc/templates/default/archive-question.php:253
 #: ../thesis/dwqa/box.php:295
 msgid "You do not have permission to view questions"
 msgstr ""
@@ -616,26 +668,26 @@ msgstr ""
 msgid "Sorry, but nothing matched your filter. "
 msgstr ""
 
-#: ../inc/filter.php:110 ../inc/shortcodes.php:247
-#: ../inc/templates/default/archive-question.php:258
+#: ../inc/filter.php:110 ../inc/shortcodes.php:259
+#: ../inc/templates/default/archive-question.php:263
 #: ../thesis/dwqa/box.php:305
 msgid "You can ask question <a href=\""
 msgstr ""
 
-#: ../inc/filter.php:114 ../inc/shortcodes.php:251
-#: ../inc/templates/default/archive-question.php:262
+#: ../inc/filter.php:114 ../inc/shortcodes.php:263
+#: ../inc/templates/default/archive-question.php:267
 #: ../thesis/dwqa/box.php:309
 msgid "Please <a href=\""
 msgstr ""
 
-#: ../inc/filter.php:118 ../inc/shortcodes.php:255
-#: ../inc/templates/default/archive-question.php:266
+#: ../inc/filter.php:118 ../inc/shortcodes.php:267
+#: ../inc/templates/default/archive-question.php:271
 #: ../thesis/dwqa/box.php:313
 msgid " or"
 msgstr ""
 
-#: ../inc/filter.php:120 ../inc/shortcodes.php:257
-#: ../inc/templates/default/archive-question.php:268
+#: ../inc/filter.php:120 ../inc/shortcodes.php:269
+#: ../inc/templates/default/archive-question.php:273
 #: ../thesis/dwqa/box.php:315
 msgid " to submit question."
 msgstr ""
@@ -652,37 +704,37 @@ msgstr ""
 msgid "Question Meta Data"
 msgstr ""
 
-#: ../inc/metaboxes.php:44 ../inc/templates/default/single-question.php:109
+#: ../inc/metaboxes.php:44 ../inc/templates/default/single-question.php:112
 #: ../thesis/dwqa/box.php:425
 msgid "Status"
 msgstr ""
 
-#: ../inc/metaboxes.php:46 ../inc/shortcodes.php:45 ../inc/status.php:277
+#: ../inc/metaboxes.php:46 ../inc/shortcodes.php:43 ../inc/status.php:277
 #: ../inc/templates/default/archive-question.php:44 ../thesis/dwqa/box.php:91
 msgid "Open"
 msgstr ""
 
 #: ../inc/metaboxes.php:47 ../inc/status.php:264
 #: ../inc/templates/default/content-question.php:8
-#: ../inc/templates/default/single-question.php:137 ../thesis/dwqa/box.php:453
+#: ../inc/templates/default/single-question.php:140 ../thesis/dwqa/box.php:453
 msgid "Pending"
 msgstr ""
 
-#: ../inc/metaboxes.php:48 ../inc/shortcodes.php:51 ../inc/status.php:261
+#: ../inc/metaboxes.php:48 ../inc/shortcodes.php:49 ../inc/status.php:261
 #: ../inc/templates/default/archive-question.php:50
-#: ../inc/templates/default/single-question.php:142 ../thesis/dwqa/box.php:97
+#: ../inc/templates/default/single-question.php:145 ../thesis/dwqa/box.php:97
 #: ../thesis/dwqa/box.php:458
 msgid "Resolved"
 msgstr ""
 
 #: ../inc/metaboxes.php:49 ../inc/status.php:267
-#: ../inc/templates/default/single-question.php:127 ../thesis/dwqa/box.php:443
+#: ../inc/templates/default/single-question.php:130 ../thesis/dwqa/box.php:443
 msgid "Re-Open"
 msgstr ""
 
-#: ../inc/metaboxes.php:50 ../inc/shortcodes.php:54 ../inc/status.php:270
+#: ../inc/metaboxes.php:50 ../inc/shortcodes.php:52 ../inc/status.php:270
 #: ../inc/templates/default/archive-question.php:53
-#: ../inc/templates/default/single-question.php:132 ../thesis/dwqa/box.php:100
+#: ../inc/templates/default/single-question.php:135 ../thesis/dwqa/box.php:100
 #: ../thesis/dwqa/box.php:448
 msgid "Closed"
 msgstr ""
@@ -707,7 +759,7 @@ msgstr ""
 #: ../inc/settings.php:780 ../inc/settings.php:821 ../inc/settings.php:862
 #: ../inc/templates/default/content-answer.php:54
 #: ../inc/templates/default/content-comment.php:15
-#: ../inc/templates/default/content-question.php:24
+#: ../inc/templates/default/content-question.php:25
 msgid "Anonymous"
 msgstr ""
 
@@ -988,111 +1040,94 @@ msgstr ""
 msgid "questions"
 msgstr ""
 
-#: ../inc/shortcodes.php:17 ../inc/templates/default/archive-question.php:17
+#: ../inc/shortcodes.php:16 ../inc/templates/default/archive-question.php:17
 #: ../thesis/dwqa/box.php:64
 msgid "Search"
 msgstr ""
 
-#: ../inc/shortcodes.php:31 ../inc/shortcodes.php:233
+#: ../inc/shortcodes.php:29 ../inc/shortcodes.php:243
 #: ../inc/templates/default/archive-question.php:30
-#: ../inc/templates/default/archive-question.php:242 ../thesis/dwqa/box.php:77
+#: ../inc/templates/default/archive-question.php:247 ../thesis/dwqa/box.php:77
 #: ../thesis/dwqa/box.php:289
 msgid "Ask a question"
 msgstr ""
 
-#: ../inc/shortcodes.php:39 ../inc/templates/default/archive-question.php:38
+#: ../inc/shortcodes.php:37 ../inc/templates/default/archive-question.php:38
 #: ../thesis/dwqa/box.php:85
 msgid "Status:"
 msgstr ""
 
-#: ../inc/shortcodes.php:41 ../inc/shortcodes.php:89
+#: ../inc/shortcodes.php:39 ../inc/shortcodes.php:87
 #: ../inc/templates/default/archive-question.php:40
 #: ../inc/templates/default/archive-question.php:88 ../thesis/dwqa/box.php:87
 #: ../thesis/dwqa/box.php:135
 msgid "All"
 msgstr ""
 
-#: ../inc/shortcodes.php:45 ../inc/templates/default/archive-question.php:44
+#: ../inc/shortcodes.php:43 ../inc/templates/default/archive-question.php:44
 #: ../thesis/dwqa/box.php:91
 msgid "Need Answer"
 msgstr ""
 
-#: ../inc/shortcodes.php:48 ../inc/templates/default/archive-question.php:47
+#: ../inc/shortcodes.php:46 ../inc/templates/default/archive-question.php:47
 #: ../thesis/dwqa/box.php:94
 msgid "Answered"
 msgstr ""
 
-#: ../inc/shortcodes.php:57 ../inc/templates/default/archive-question.php:56
+#: ../inc/shortcodes.php:55 ../inc/templates/default/archive-question.php:56
 #: ../thesis/dwqa/box.php:103
 msgid "Overdue"
 msgstr ""
 
-#: ../inc/shortcodes.php:58 ../inc/templates/default/archive-question.php:57
+#: ../inc/shortcodes.php:56 ../inc/templates/default/archive-question.php:57
 #: ../thesis/dwqa/box.php:104
 msgid "Queue"
 msgstr ""
 
-#: ../inc/shortcodes.php:79 ../inc/templates/default/archive-question.php:78
+#: ../inc/shortcodes.php:77 ../inc/templates/default/archive-question.php:78
 #: ../thesis/dwqa/box.php:125
 msgid "Select a category"
 msgstr ""
 
-#: ../inc/shortcodes.php:90 ../inc/templates/default/archive-question.php:89
+#: ../inc/shortcodes.php:88 ../inc/templates/default/archive-question.php:89
 #: ../thesis/dwqa/box.php:136
 msgid "Empty"
 msgstr ""
 
-#: ../inc/shortcodes.php:119 ../inc/templates/default/archive-question.php:122
+#: ../inc/shortcodes.php:121 ../inc/templates/default/archive-question.php:122
 #: ../thesis/dwqa/box.php:169
 msgid "View"
 msgstr ""
 
-#: ../inc/shortcodes.php:125 ../inc/templates/default/archive-question.php:128
+#: ../inc/shortcodes.php:127 ../inc/templates/default/archive-question.php:128
 #: ../thesis/dwqa/box.php:175
 msgid "Vote"
 msgstr ""
 
-#: ../inc/shortcodes.php:240 ../inc/templates/default/archive-question.php:251
+#: ../inc/shortcodes.php:252 ../inc/templates/default/archive-question.php:256
 #: ../thesis/dwqa/box.php:298
 msgid "Sorry, but nothing matched your filter."
 msgstr ""
 
-#: ../inc/shortcodes.php:275 ../inc/shortcodes.php:312
-#: ../inc/template-functions.php:451
-msgid "Enter a valid email address"
-msgstr ""
-
-#: ../inc/shortcodes.php:276 ../inc/shortcodes.php:313
-#: ../inc/template-functions.php:452
-msgid "Enter a question title"
-msgstr ""
-
-#: ../inc/shortcodes.php:288 ../inc/shortcodes.php:325
-#: ../inc/template-functions.php:469
-msgid "This answer will be marked as spam and hidden. Do you want to flag it?"
-msgstr ""
-
-#: ../inc/shortcodes.php:290 ../inc/shortcodes.php:327
-#: ../inc/template-functions.php:471
-msgid "This answer was flagged as spam"
-msgstr ""
-
-#: ../inc/shortcodes.php:345
+#: ../inc/shortcodes.php:313 ../inc/widgets.php:79
 msgid "Popular Questions"
 msgstr ""
 
-#: ../inc/shortcodes.php:368 ../inc/shortcodes.php:407
-#: ../inc/templates/default/single-question.php:60 ../inc/widgets.php:101
+#: ../inc/shortcodes.php:352
+msgid "Latest Answers"
+msgstr ""
+
+#: ../inc/shortcodes.php:375
+msgid "Answer at"
+msgstr ""
+
+#: ../inc/shortcodes.php:375 ../inc/templates/default/single-question.php:63
 #: ../thesis/dwqa/box.php:376
 msgid "Link to"
 msgstr ""
 
-#: ../inc/shortcodes.php:384
-msgid "Latest Answers"
-msgstr ""
-
-#: ../inc/shortcodes.php:407
-msgid "Answer at"
+#: ../inc/shortcodes.php:404
+msgid "people are following this question."
 msgstr ""
 
 #: ../inc/status.php:273
@@ -1188,118 +1223,75 @@ msgstr ""
 msgid "Add answer"
 msgstr ""
 
-#: ../inc/template-functions.php:450
-msgid "Your question must be at least 2 characters in length"
-msgstr ""
-
-#: ../inc/template-functions.php:453
-msgid "Please add your name"
-msgstr ""
-
-#: ../inc/template-functions.php:457
-msgid "Not found! Try another keyword."
-msgstr ""
-
-#: ../inc/template-functions.php:458
-msgid "Or press <strong>ENTER</strong> to get more questions"
-msgstr ""
-
-#: ../inc/template-functions.php:464
-msgid "Do you want to update this answer"
-msgstr ""
-
-#: ../inc/template-functions.php:465
-msgid "Do you want to report this answer"
-msgstr ""
-
-#: ../inc/template-functions.php:467
-#: ../inc/templates/default/content-answer.php:105
-msgid "Report"
-msgstr ""
-
-#: ../inc/template-functions.php:468
-msgid "Undo"
-msgstr ""
-
-#: ../inc/template-functions.php:475
-#: ../inc/templates/default/single-question.php:28 ../thesis/dwqa/box.php:344
-msgid "Follow This Question"
-msgstr ""
-
-#: ../inc/template-functions.php:476
-#: ../inc/templates/default/single-question.php:28 ../thesis/dwqa/box.php:344
-msgid "Unfollow This Question"
-msgstr ""
-
-#: ../inc/template-functions.php:525
+#: ../inc/template-functions.php:487
 msgid "Name"
 msgstr ""
 
-#: ../inc/template-functions.php:527
+#: ../inc/template-functions.php:489
 msgid "Email"
 msgstr ""
 
-#: ../inc/template-functions.php:529
+#: ../inc/template-functions.php:491
 msgid "Website"
 msgstr ""
 
-#: ../inc/template-functions.php:533
+#: ../inc/template-functions.php:495
 #, php-format
 msgid "Required fields are marked %s"
 msgstr ""
 
-#: ../inc/template-functions.php:545
+#: ../inc/template-functions.php:507
 msgctxt "noun"
 msgid "Comment"
 msgstr ""
 
-#: ../inc/template-functions.php:546
+#: ../inc/template-functions.php:508
 #, php-format
 msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
 msgstr ""
 
-#: ../inc/template-functions.php:547
+#: ../inc/template-functions.php:509
 #, php-format
 msgid ""
 "Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of "
 "this account\">Log out?</a>"
 msgstr ""
 
-#: ../inc/template-functions.php:548
+#: ../inc/template-functions.php:510
 msgid "Your email address will not be published."
 msgstr ""
 
-#: ../inc/template-functions.php:549
+#: ../inc/template-functions.php:511
 #, php-format
 msgid ""
 "You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
 "and attributes: %s"
 msgstr ""
 
-#: ../inc/template-functions.php:552
+#: ../inc/template-functions.php:514
 msgid "Leave a Reply"
 msgstr ""
 
-#: ../inc/template-functions.php:553
+#: ../inc/template-functions.php:515
 #, php-format
 msgid "Leave a Reply to %s"
 msgstr ""
 
-#: ../inc/template-functions.php:554
+#: ../inc/template-functions.php:516
 msgid "Cancel reply"
 msgstr ""
 
-#: ../inc/template-functions.php:555
+#: ../inc/template-functions.php:517
 msgid "Post Comment"
 msgstr ""
 
-#: ../inc/template-functions.php:738
+#: ../inc/template-functions.php:700
 msgid "Sticky Question"
 msgstr ""
 
 #: ../inc/templates/default/answers.php:45
-#: ../inc/templates/default/content-question.php:54
-#: ../inc/templates/default/content-question.php:57
+#: ../inc/templates/default/content-question.php:55
+#: ../inc/templates/default/content-question.php:58
 msgid "answer"
 msgid_plural "answers"
 msgstr[0] ""
@@ -1385,47 +1377,55 @@ msgstr ""
 msgid "Link to comment"
 msgstr ""
 
-#: ../inc/templates/default/content-question.php:11
+#: ../inc/templates/default/content-question.php:12
 #, php-format
 msgid "Permalink to %s"
 msgstr ""
 
-#: ../inc/templates/default/content-question.php:20
+#: ../inc/templates/default/content-question.php:21
 #, php-format
 msgid "Posts by %s"
 msgstr ""
 
-#: ../inc/templates/default/content-question.php:26
+#: ../inc/templates/default/content-question.php:27
 msgid "by"
 msgstr ""
 
-#: ../inc/templates/default/content-question.php:40
-#: ../inc/templates/default/content-question.php:43
+#: ../inc/templates/default/content-question.php:41
+#: ../inc/templates/default/content-question.php:44
 msgid "view"
 msgid_plural "views"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../inc/templates/default/content-question.php:68
-#: ../inc/templates/default/content-question.php:71
+#: ../inc/templates/default/content-question.php:69
+#: ../inc/templates/default/content-question.php:72
 msgid "vote"
 msgid_plural "votes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../inc/templates/default/single-question.php:51 ../thesis/dwqa/box.php:367
+#: ../inc/templates/default/single-question.php:33
+msgid "Stick this Question to the front page"
+msgstr ""
+
+#: ../inc/templates/default/single-question.php:33
+msgid "Unstick this Question to the front page"
+msgstr ""
+
+#: ../inc/templates/default/single-question.php:54 ../thesis/dwqa/box.php:367
 msgid "Posts by"
 msgstr ""
 
-#: ../inc/templates/default/single-question.php:62 ../thesis/dwqa/box.php:378
+#: ../inc/templates/default/single-question.php:65 ../thesis/dwqa/box.php:378
 msgid "asked"
 msgstr ""
 
-#: ../inc/templates/default/single-question.php:97 ../thesis/dwqa/box.php:413
+#: ../inc/templates/default/single-question.php:100 ../thesis/dwqa/box.php:413
 msgid "Category"
 msgstr ""
 
-#: ../inc/templates/default/single-question.php:98 ../thesis/dwqa/box.php:414
+#: ../inc/templates/default/single-question.php:101 ../thesis/dwqa/box.php:414
 msgid "All questions from"
 msgstr ""
 

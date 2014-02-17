@@ -3,7 +3,7 @@ Contributors: designwall
 Tags: question, answer, support, quora, stackoverflow
 Requires at least: 3.0.1
 Tested up to: 3.8
-Stable tag: 1.1.1
+Stable tag: 1.2.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -47,6 +47,17 @@ Here is the list of features of this plugin:
 5. Back-end settings
 
 == Changelog ==
+
+= 1.2.0 =
+* New : Sticky Questions
+* New : Shortcode For Popular Questions
+* New : Shortcode For Popular Latest Answers
+* New : Shortcode For Question List
+* New : Shortcode For Ask Question Form
+* New : Questions per page Settings
+* Fix : Duplicate in follow function
+* Fix : The visible of the best answer in question single page
+* Update: THESIS theme Compatible
 
 = 1.1.1 =
 * Fixed: Questions are not followed automatically if answer authors post private answers

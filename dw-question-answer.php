@@ -4,7 +4,7 @@
  *  Description: A WordPress plugin was make by DesignWall.com to build an Question Answer system for support, asking and comunitcate with your customer 
  *  Author: DesignWall
  *  Author URI: http://www.designwall.com
- *  Version: 1.1.1
+ *  Version: 1.2.0
  *  Text Domain: dwqa
  */
 
@@ -267,7 +267,7 @@ function dwqa_plugin_init(){
     global $script_version, $dwqa_template, $dwqa_sript_vars;
 
     $dwqa_template = 'default';
-    $script_version = 1389254729;
+    $script_version = 1392633101;
     $dwqa_sript_vars = array(
         'is_logged_in'  => is_user_logged_in(),
         'code_icon'    => DWQA_URI . 'assets/img/icon-code.png',

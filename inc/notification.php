@@ -171,8 +171,8 @@ function dwqa_new_answer_nofity( $answer_id ){
                 $follower_name = $user_data->display_name;
                 if( $follow_email && $follow_email != $email && $follow_email != $answer_email ) {
                     //Send email to follower
-                    $message_to_follower = str_replace( '{follower}', $follower_name, $message_to_follower );
-                    wp_mail( $follow_email, $follow_subject, $message_to_follower, $headers );
+                    $message_to_each_follower = str_replace( '{follower}', $follower_name, $message_to_follower );
+                    wp_mail( $follow_email, $follow_subject, $message_to_each_follower, $headers );
                 }
             }
         }
@@ -305,8 +305,8 @@ function dwqa_new_comment_notify( $comment_id, $comment ){
 
                     if( $follow_email && $follow_email != $post_parent_email && $follow_email != $comment_email ) {
 
-                        $message_to_follower = str_replace( '{follower}', $follower_name, $message_to_follower );
-                        wp_mail( $follow_email, $follow_subject, $message_to_follower, $headers );
+                        $message_to_each_follower = str_replace( '{follower}', $follower_name, $message_to_follower );
+                        wp_mail( $follow_email, $follow_subject, $message_to_each_follower, $headers );
                     }
                 }
             }

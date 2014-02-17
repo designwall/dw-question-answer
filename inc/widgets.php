@@ -76,7 +76,7 @@ class dwqa_Popular_Question_Widget extends WP_Widget {
     function widget( $args, $instance ) {
         extract( $args, EXTR_SKIP );
         $instance = wp_parse_args( $instance, array( 
-            'title' => '',
+            'title' => __('Popular Questions','dwqa'),
             'number' => 5
         ) );
         
@@ -98,7 +98,7 @@ class dwqa_Popular_Question_Widget extends WP_Widget {
             echo '<div class="dwqa-popular-questions">';
             echo '<ul>';
             while ( $questions->have_posts() ) { $questions->the_post();
-                echo '<li><a href="'.get_permalink( get_the_ID() ).'" title="'.__('Link to','dwqa').' '.get_the_title().'">'.get_the_title().'</a></li>';
+                echo '<li><a href="'.get_permalink().'" class="question-title">'.get_the_title().'</a> '.__('asked by','dwqa').' ' . get_the_author_link() . '</li>';
             }   
             echo '</ul>';
             echo '</div>';

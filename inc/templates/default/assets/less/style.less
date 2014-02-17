@@ -1382,46 +1382,34 @@
 //
 // Sidebar widget
 // --------------------------------------------------
-.dwqa-widget {
-	h3 {
-		color: @gray-light;
-		font-size: @font-size-small;
-		line-height: 1;
-		margin: 0 0 15px;
-		letter-spacing: 1px;
-		font-weight: bold;
-		text-transform: uppercase;
-	}
-	ul {
-		margin: 15px 0 0;
-		padding: 0;
-		border-bottom: 1px solid @hentry-border;
-		list-style: none;
-	}
-	li {
-		border-top: 1px solid @hentry-border;
-		padding: 9px 0 9px 30px;
-		margin: 0;
-		font-size: @font-size-small;;
-	}
-	li:before {
-		font-family: 'FontAwesome';
-		font-size: 8px;
-		color: @gray-light;
-		float: left;
-		margin: 0 10px 0 0;
-		content: "\f059";
-		font-size: @font-size-base;
-		margin-left: -29px;
-	}
-	.dwqa-question-title {
-		display: block;
-		font-size: @font-size-base;
-		font-weight: 600;
-	}
-	a {
-		text-decoration: none;
-	}
+.dwqa-related-question,
+.dwqa-popular-question {
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li:first-child {
+    padding-top: 0;
+  }
+  li:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  li {
+    padding: 10px 0;
+    border-bottom: 1px solid @hentry-border;
+    font-size: 11px;
+  }
+
+  .question-title {
+    font-weight: bold;
+    font-size: 14px;
+    display: block;
+  }
 }
 
 

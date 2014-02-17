@@ -284,7 +284,7 @@ if( ! function_exists('dwqa_archive_question') ) {
         wp_localize_script( 'dwqa-questions-list', 'dwqa', $dwqa_sript_vars );
         return $html;
     }
-    add_shortcode( 'dwqa_list_questions', 'dwqa_archive_question' );
+    add_shortcode( 'dwqa-list-questions', 'dwqa_archive_question' );
 }
 
 if( ! function_exists('dwqa_submit_question_form_shortcode') ) {
@@ -302,7 +302,7 @@ if( ! function_exists('dwqa_submit_question_form_shortcode') ) {
         wp_localize_script( 'dwqa-submit-question', 'dwqa', $dwqa_sript_vars );
         return $html;
     }
-    add_shortcode( 'dwqa_submit_question_form', 'dwqa_submit_question_form_shortcode' );
+    add_shortcode( 'dwqa-submit-question-form', 'dwqa_submit_question_form_shortcode' );
 }
 
 

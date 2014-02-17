@@ -1473,7 +1473,7 @@ function dwqa_follow_question(){
 }
 add_action( 'wp_ajax_dwqa-follow-question', 'dwqa_follow_question' );
 
-function dwqa_follow_question(){
+function dwqa_stick_question(){
     check_ajax_referer( '_dwqa_stick_question', 'nonce' );
     if( ! isset($_POST['post']) ) {
         wp_send_json_error( array(
@@ -1509,7 +1509,7 @@ function dwqa_follow_question(){
     }
 
 }
-add_action( 'wp_ajax_dwqa-stick-question', 'dwqa_follow_question' );
+add_action( 'wp_ajax_dwqa-stick-question', 'dwqa_stick_question' );
 
 
 // CAPTCHA

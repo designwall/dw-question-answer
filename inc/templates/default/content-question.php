@@ -7,8 +7,8 @@
                 <?php if( dwqa_is_pending( $post_id ) ) { ?>
                 <span class="dwqa-label"><?php _e('Pending','dwqa') ?></span>
                 <?php } ?>
-            <?php } ?>
-            <a class="dwqa-title" href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'dwqa' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
+            <?php } ?><?php if( dwqa_is_sticky($post_id) ) echo '<i class="fa fa-bookmark"></i>'; ?>
+            <a class="dwqa-title" href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'dwqa' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"> <?php the_title(); ?></a>
             <div class="dwqa-meta">
                 <?php dwqa_question_print_status($post_id); ?>               
                 <?php

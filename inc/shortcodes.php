@@ -333,7 +333,7 @@ function dwqa_shortcode_popular_questions( $atts ){
         $html .= '<div class="dwqa-popular-questions">';
         $html .= '<ul>';
         while ( $questions->have_posts() ) { $questions->the_post();
-            $html .= '<li><a href="'.get_permalink( get_the_ID() ).'" title="'.__('Link to','dwqa').' '.get_the_title().'">'.get_the_title().'</a></li>';
+            $html.= '<li><a href="'.get_permalink().'" class="question-title">'.get_the_title().'</a> '.__('asked by','dwqa').' ' . get_the_author_link() . '</li>';
         }   
         $html .= '</ul>';
         $html .= '</div>';

@@ -6,6 +6,7 @@ function _e(event, obj, fn) {
     jQuery(obj)[fn](event);
 }
 
+
 jQuery(function($) {
     var answers = $('#answers'),
         answer_editor = $('#add-answer');

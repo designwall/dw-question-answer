@@ -1331,9 +1331,13 @@ function dwqa_get_questions_permalink(){
         global $dwqa_options;
         $params = explode( '&', $_GET['params'] );
         $args = array();
-        foreach ($params as $p ) {
-            $arr = explode('=', $p);
-            $args[$arr[0]] = $arr[1];
+        if( !empty( $params ) ) {
+            foreach ($params as $p ) {
+                if( $p ) {
+                    $arr = explode('=', $p);
+                    $args[$arr[0]] = $arr[1];
+                }
+            }
         }
         if( !empty( $args ) ) {
             $url = get_permalink( $dwqa_options['pages']['archive-question'] );

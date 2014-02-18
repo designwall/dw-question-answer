@@ -971,6 +971,7 @@ function dwqa_comment_action_add(){
     );
     if( is_user_logged_in() ) {
         $args['user_id'] =  $current_user->ID;
+        $args['comment_author'] = $current_user->display_name;
     } else {
         if( !isset($_POST['email']) || !$_POST['email'] ) {
             wp_send_json_error( array(

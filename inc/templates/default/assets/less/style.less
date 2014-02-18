@@ -766,7 +766,8 @@
 			float: right;
 			margin: 0 0 10px 0;
 			@media(max-width: @screen-phone) {
-				margin-top: 40px;
+				float: none;
+				text-align: right;
 			}
 		}
 
@@ -1796,5 +1797,10 @@
 		border: 1px solid @main-border !important;
 		border-color: @border-color !important;
 		.box-shadow(0 1px 0 @gray-shadow);
+	}
+	@media(max-width: @screen-phone) {
+		.wp_themeSkin tr.mceFirst td.mceToolbar {
+			display: none;
+		}
 	}
 }

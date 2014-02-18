@@ -560,8 +560,11 @@
 			border-top: 1px solid @gray-border;
 			position: relative;
 
-			.dwqa-category {
-				@media (max-width: @screen-phone) {
+			@media (max-width: @screen-phone) {
+				.dwqa-privacy {
+					margin: 0 0 10px 0 !important;
+				}
+				.dwqa-category {
 					display: block !important;
 				}
 			}
@@ -1116,6 +1119,17 @@
 				float: right;
 				z-index: 1;
 				position: relative;
+
+				@media(max-width: @screen-phone) {
+					float: none;
+					margin-bottom: 10px;
+				}
+			}
+
+			@media(max-width: @screen-phone) {
+				.dwqa-privacy {
+					margin-left: 25px;
+				}
 			}
 		}
 

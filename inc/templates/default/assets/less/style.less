@@ -1346,7 +1346,7 @@
 			text-align: center;
 			color: @entry-title;
 			border: none;
-			background: transparent;
+			background-color: transparent;
 			&:hover {
 				color: @status-replied;
 			}
@@ -1474,107 +1474,6 @@
 		background: #fff;
 	}
 	.box-sizing(border-box);
-	.dwqa-hide {display: none;}
-	// Search
-	.dwqa-search {
-		margin-bottom: 20px;
-	}
-	.dwqa-search-form {
-		width: 100%;
-		text-align: left;
-		position: relative;
-		height: 100%;
-		background: @main-bg;
-		.dwqa-search-input {
-			padding: 12px 6px 12px 18px;
-			box-shadow: 0 0 8px rgba(0,0,0,.05) inset;
-			font-size: 20px;
-			height: 55px;
-			width: 100%;
-			color: @entry-title;
-			border: 1px solid @gray-default;
-			outline: 0;
-			margin: 0;
-			.box-sizing(border-box);
-		}
-		.dwqa-search-submit, 
-		.dwqa-search-clear,
-		.dwqa-search-loading {
-			position: absolute;
-			right: 6px;
-			top: 0;
-			width: 40px;
-			line-height: 55px;
-			padding: 0px;
-			text-align: center;
-			color: @entry-title;
-			border: none;
-			background: transparent;
-			&:hover {
-				color: @status-replied;
-			}
-		}
-		.dwqa-search-submit {
-			cursor: default;
-		}
-		.dwqa-search-clear {
-			cursor: pointer;
-		}
-		.dwqa-search-loading {
-			background: url('../img/facebook-loading.gif') no-repeat center;
-			height: 100%;
-		}
-	}
-	.questions-list {
-		border: 1px solid @main-border;
-		border-top: none;
-
-		&.search-result {
-			border-top: 1px solid @main-border;
-		}
-	}
-	.search-results-suggest {
-		position: absolute;
-		width: 100%;
-		z-index: 2;
-		.box-sizing(border-box);
-		#gradient .vertical(#fff; rgba(255,255,255,0); 0%; 100%);
-		ul {
-			list-style: none;
-			margin: 0 5px;
-			padding: 0;
-			background-color: #fff;
-			border-left: 1px solid @gray-default;
-			border-right: 1px solid @gray-default;
-			border-bottom: 1px solid @gray-default;
-		}
-		li {
-			border-bottom: 1px solid @main-border;
-			background-color: @sugest-bgcolor;
-			margin: 0;
-			&:hover {
-				background: @sugest-color;
-			}
-			a {
-				color: @gray;
-				display: block;
-				padding: 10px 15px;
-				strong {
-					color: #000;
-				}
-			}
-			&.no-link {
-				background: transparent;
-			}
-		}
-		li:last-child {
-			border-bottom: none;
-		}
-		span {
-			padding: 10px 20px 350px 20px;
-			display: block;
-		}
-	}
 	// Label
 	.dwqa-label {
 		background: @gray;
@@ -1816,5 +1715,111 @@
 		.wp_themeSkin tr.mceFirst td.mceToolbar {
 			display: none;
 		}
+	}
+}
+
+
+//
+// Search form
+// --------------------------------------------------
+.dwqa-hide {display: none;}
+.dwqa-search {
+	margin-bottom: 20px;
+
+	.dwqa-search-form {
+		width: 100%;
+		text-align: left;
+		position: relative;
+		height: 100%;
+		background: @main-bg;
+		.dwqa-search-input {
+			padding: 12px 6px 12px 18px;
+			box-shadow: 0 0 8px rgba(0,0,0,.05) inset;
+			font-size: 20px;
+			height: 55px;
+			width: 100%;
+			color: @entry-title;
+			border: 1px solid @gray-default;
+			outline: 0;
+			margin: 0;
+			.box-sizing(border-box);
+		}
+		.dwqa-search-submit, 
+		.dwqa-search-clear,
+		.dwqa-search-loading {
+			position: absolute;
+			right: 6px;
+			top: 0;
+			width: 40px;
+			line-height: 55px;
+			padding: 0px;
+			text-align: center;
+			color: @entry-title;
+			border: none;
+			background-color: transparent;
+			&:hover {
+				color: @status-replied;
+			}
+		}
+		.dwqa-search-submit {
+			cursor: default;
+		}
+		.dwqa-search-clear {
+			cursor: pointer;
+		}
+		.dwqa-search-loading {
+			background: url('../img/facebook-loading.gif') no-repeat center;
+			height: 100%;
+		}
+		.search-results-suggest {
+			position: absolute;
+			width: 100%;
+			z-index: 2;
+			.box-sizing(border-box);
+			#gradient .vertical(#fff; rgba(255,255,255,0); 0%; 100%);
+			ul {
+				list-style: none;
+				margin: 0 5px;
+				padding: 0;
+				background-color: #fff;
+				border-left: 1px solid @gray-default;
+				border-right: 1px solid @gray-default;
+				border-bottom: 1px solid @gray-default;
+			}
+			li {
+				border-bottom: 1px solid @main-border;
+				background-color: @sugest-bgcolor;
+				margin: 0;
+				&:hover {
+					background: @sugest-color;
+				}
+				a {
+					color: @gray;
+					display: block;
+					padding: 10px 15px;
+					strong {
+						color: #000;
+					}
+				}
+				&.no-link {
+					background: transparent;
+				}
+			}
+			li:last-child {
+				border-bottom: none;
+			}
+			span {
+				padding: 10px 20px 350px 20px;
+				display: block;
+			}
+		}
+	}
+}
+.questions-list {
+	border: 1px solid @main-border;
+	border-top: none;
+
+	&.search-result {
+		border-top: 1px solid @main-border;
 	}
 }

@@ -11,24 +11,10 @@ get_header('dwqa'); ?>
 
 <div id="archive-question" class="dw-question">
 	<div class="dwqa-list-question">
-		<div class="loading"></div>
-		<div class="dwqa-search">
-	    	<form action="" class="dwqa-search-form">
-	     		<input class="dwqa-search-input" placeholder="<?php _e('Search','dwqa') ?>">
-	            <span class="dwqa-search-submit fa fa-search show"></span>
-	            <span class="dwqa-search-loading dwqa-hide"></span>
-	            <span class="dwqa-search-clear fa fa-times dwqa-hide"></span>
-          	</form>
-	   	</div>
+		<?php dwqa_load_template('search', 'question'); ?>
 		<div class="filter-bar">
 			<?php wp_nonce_field( '_dwqa_filter_nonce', '_filter_wpnonce', false ); ?>
-			<?php  
-				global $dwqa_options;
-				$submit_question_link = get_permalink( $dwqa_options['pages']['submit-question'] );
-			?>
-			<?php if( $dwqa_options['pages']['submit-question'] && $submit_question_link ) { ?>
-			<a href="<?php echo $submit_question_link ?>" class="dwqa-btn dwqa-btn-success"><?php _e('Ask a question','dwqa') ?></a>
-			<?php } ?>
+			<?php dwqa_get_ask_question_link(); ?>
 			<div class="filter">
 				<li class="status">
 					<?php  
@@ -61,41 +47,41 @@ get_header('dwqa'); ?>
 				</li>
 			</div>
 			<div class="filter sort-by">
-					<div class="filter-by-category select">
-						<?php 
-							$selected = false;
-							$taxonomy = get_query_var( 'taxonomy' );
-							if( $taxonomy && 'dwqa-question_category' == $taxonomy ) {
-								$term_name = get_query_var( $taxonomy );
-								$term = get_term_by( 'slug', $term, $taxonomy );
-								$selected = $term->term_id;
-							} else {
+				<div class="filter-by-category select">
+					<?php 
+						$selected = false;
+						$taxonomy = get_query_var( 'taxonomy' );
+						if( $taxonomy && 'dwqa-question_category' == $taxonomy ) {
+							$term_name = get_query_var( $taxonomy );
+							$term = get_term_by( 'slug', $term, $taxonomy );
+							$selected = $term->term_id;
+						} else {
 
-							    $question_category_rewrite = get_option( 'dwqa-question-category-rewrite', 'question-category' );
-							    $question_category_rewrite = $question_category_rewrite ? $question_category_rewrite : 'question-category';
-								$selected =  isset($_GET[$question_category_rewrite]) ? $_GET[$question_category_rewrite] : 'all'; 
-							}
-							$selected_label = __('Select a category','dwqa');
-							if( $selected  && $selected != 'all' ) {
-								$selected_term = get_term_by( 'id', $selected, 'dwqa-question_category' );
-								$selected_label = $selected_term->name;
-							}
-						?>
-						<span class="current-select"><?php echo $selected_label; ?></span>
-						<ul id="dwqa-filter-by-category" class="category-list" data-selected="<?php echo $selected; ?>">
-						<?php  
-							wp_list_categories( array(
-								'show_option_all'	=>	__('All','dwqa'),
-								'show_option_none'  => __('Empty','dwqa'),
-								'taxonomy'			=> 'dwqa-question_category',
-								'hide_empty'        => 0,
-								'show_count'		=> 0,
-								'title_li'			=> '',
-								'walker'			=> new Walker_Category_DWQA
-							) );
-						?>	
-						</ul>
-					</div>
+						    $question_category_rewrite = get_option( 'dwqa-question-category-rewrite', 'question-category' );
+						    $question_category_rewrite = $question_category_rewrite ? $question_category_rewrite : 'question-category';
+							$selected =  isset($_GET[$question_category_rewrite]) ? $_GET[$question_category_rewrite] : 'all'; 
+						}
+						$selected_label = __('Select a category','dwqa');
+						if( $selected  && $selected != 'all' ) {
+							$selected_term = get_term_by( 'id', $selected, 'dwqa-question_category' );
+							$selected_label = $selected_term->name;
+						}
+					?>
+					<span class="current-select"><?php echo $selected_label; ?></span>
+					<ul id="dwqa-filter-by-category" class="category-list" data-selected="<?php echo $selected; ?>">
+					<?php  
+						wp_list_categories( array(
+							'show_option_all'	=>	__('All','dwqa'),
+							'show_option_none'  => __('Empty','dwqa'),
+							'taxonomy'			=> 'dwqa-question_category',
+							'hide_empty'        => 0,
+							'show_count'		=> 0,
+							'title_li'			=> '',
+							'walker'			=> new Walker_Category_DWQA
+						) );
+					?>	
+					</ul>
+				</div>
 				<?php 
 					$tag_field = '';
 					if( $taxonomy == 'dwqa-question_tag' ) {
@@ -141,141 +127,19 @@ get_header('dwqa'); ?>
 
 		<?php  do_action('dwqa-prepare-archive-posts');?>
 		<?php if ( have_posts() ) : ?>
+		<div class="loading"></div>
 		<div class="questions-list">
 		<?php while ( have_posts() ) : the_post(); ?>
 			<?php dwqa_load_template( 'content', 'question' ); ?>
 		<?php endwhile; ?>
 		</div>
 		<div class="archive-question-footer">
-		<?php 
-			if( $taxonomy == 'dwqa-question_category' ) { 
-				$args = array(
-					'post_type' => 'dwqa-question',
-					'posts_per_page'	=>	-1,
-					'tax_query' => array(
-						array(
-							'taxonomy' => $taxonomy,
-							'field' => 'slug',
-							'terms' => $term_name
-						)
-					)
-				);
-				$query = new WP_Query( $args );
-				$total = $query->post_count;
-			} else if( 'dwqa-question_tag' == $taxonomy ) {
+			<?php dwqa_load_template( 'navigation', 'archive' ); ?>
 
-				$args = array(
-					'post_type' => 'dwqa-question',
-					'posts_per_page'	=>	-1,
-					'tax_query' => array(
-						array(
-							'taxonomy' => $taxonomy,
-							'field' => 'slug',
-							'terms' => $term_name
-						)
-					)
-				);
-				$query = new WP_Query( $args );
-				$total = $query->post_count;
-			} else {
-				$total = wp_count_posts( 'dwqa-question' );
-				$total = $total->publish;
-			}
-
-			$number_questions = $total;
-
-			$number = get_query_var( 'posts_per_page' );
-
-			$pages = ceil( $number_questions / $number );
-			
-			if( $pages > 1 ) {
-
-		?>
-		
-			<div class="pagination">
-				<ul data-pages="<?php echo $pages; ?>" >
-					<?php  
-						$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-						$i = 0;
-						echo '<li class="prev';
-						if( $i == 0 ) {
-							echo ' dwqa-hide';
-						}
-						echo '"><a href="javascript:void()">'.__('Prev', 'dwqa').'</a></li>';
-						$link = get_post_type_archive_link( 'dwqa-question' );
-						$start = $paged - 2;
-						$end = $paged + 2;
-
-			            if( $end > $pages ) {
-			                $end = $pages;
-			                $start = $pages -  5;
-			            }
-
-			            if( $start < 1 ) {
-			                $start = 1;
-			                $end = 5;
-			                if( $end > $pages ) {
-			                	$end = $pages;
-			                }
-			            }
-			            if( $start > 1 ) {
-	                        echo '<li><a href="'.add_query_arg('paged',1,$link).'">1</a></li><li class="dot"><span>...</span></li>';
-	                    }
-						for ($i=$start; $i <= $end; $i++) { 
-							$current = $i == $paged ? 'class="active"' : '';
-							if( $i == 1 ) {
-								echo '<li '.$current.'><a href="'.$link.'">'.$i.'</a></li>';
-							}else{
-								echo '<li '.$current.'><a href="'.add_query_arg('paged', $i, $link).'">'.$i.'</a></li>';
-							}
-						}
-
-			            if( $i - 1 < $pages ) {
-	                        echo '<li class="dot"><span>...</span></li><li><a href="'.add_query_arg('paged',$pages,$link).'">'.$pages.'</a></li>';
-	                    }
-						echo '<li class="next';
-						if( $paged == $pages ) {
-							echo ' dwqa-hide';
-						}
-						echo '"><a href="javascript:void()">'.__('Next', 'dwqa') .'</a></li>';
-
-					?>
-				</ul>
-			</div>
-			<?php } ?>
-			<?php if( $dwqa_options['pages']['submit-question'] && $submit_question_link ) { ?>
-			<a href="<?php echo $submit_question_link ?>" class="dwqa-btn dwqa-btn-success"><?php _e('Ask a question','dwqa') ?></a>
-			<?php } ?>
+			<?php dwqa_get_ask_question_link(); ?>
 		</div>
 		<?php else: ?>
-			<?php
-		        if( ! dwqa_current_user_can('read_question') ) {
-		            echo '<div class="alert">'.__('You do not have permission to view questions','dwqa').'</div>';
-		        }
-		        echo '<p class="not-found">';
-		         _e('Sorry, but nothing matched your filter.', 'dwqa' );
-		         if( is_user_logged_in() ) {
-		            global $dwqa_options;
-		            if( isset($dwqa_options['pages']['submit-question']) ) {
-		                
-		                $submit_link = get_permalink( $dwqa_options['pages']['submit-question'] );
-		                if( $submit_link ) {
-		                    _e('You can ask question <a href="'.$submit_link.'">here</a>', 'dwqa' );
-		                }
-		            }
-		         } else {
-		            _e('Please <a href="'.wp_login_url( get_post_type_archive_link( 'dwqa-question' ) ).'">Login</a>', 'dwqa' );
-
-		            $register_link = wp_register('', '',false);
-		            if( ! empty($register_link) && $register_link  ) {
-		                echo __(' or','dwqa').' '.$register_link;
-		            }
-		            _e(' to submit question.','dwqa');
-		            wp_login_form();
-		         }
-
-		        echo  '</p>';
-			?>
+			<?php dwqa_load_template( 'archive', 'question-notfound'); ?>
 		<?php endif; ?>
 
 		<?php do_action( 'dwqa-after-archive-posts' ); ?>

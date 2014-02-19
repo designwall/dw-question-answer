@@ -1535,11 +1535,13 @@
 		&.status-new:before {
 			content: "\f128";
 			color: @status-new;
+			font-size: 18px;
 		}
 		&.status-open:before, 
 		&.status-re-open:before {
 			content: "\f128";
 			color: @status-open;
+			font-size: 18px;
 		}
 		&.status-answered:before {
 			content: "\f112";
@@ -1562,6 +1564,9 @@
 		}
 		&.status-overdue {
 			border: 1px solid @status-overdue !important;
+			&:before {
+				color: @status-overdue;
+			}
 		}
 		&.status-new  { 
 			border: 1px solid @status-new; 

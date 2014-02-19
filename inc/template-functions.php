@@ -307,6 +307,11 @@ function dwqa_submit_question_form(){
     <?php
 }
 
+function dwqa_paste_srtip_disable( $mceInit ){
+    $mceInit['paste_strip_class_attributes'] = 'none';
+    return $mceInit;
+}
+
 function dwqa_submit_answer_form(){
     ?>
     <div id="dwqa-add-answers" class="dwqa-answer-form">
@@ -320,10 +325,6 @@ function dwqa_submit_answer_form(){
         ?>
         <form action="<?php echo admin_url( 'admin-ajax.php?action=dwqa-add-answer' ); ?>" name="dwqa-answer-question-form" id="dwqa-answer-question-form" method="post">
             <?php  
-                function dwqa_paste_srtip_disable( $mceInit ){
-                    $mceInit['paste_strip_class_attributes'] = 'none';
-                    return $mceInit;
-                }
                 add_filter( 'tiny_mce_before_init', 'dwqa_paste_srtip_disable' );
                 $editor = array( 
                     'wpautop'       => false,

@@ -1506,12 +1506,13 @@
 	}
 	// Status
 	.dwqa-status {
-		background: #000;
+		background: transparent;
 		font: 0/0 a;
 		margin: 0 5px 0 0;
 		width: 30px;
 		height: 30px;
 		line-height: 30px;
+		border-radius: 50%;
 		display: inline-block;
 		text-align: center;
 		border: none;
@@ -1532,48 +1533,54 @@
 			line-height: 30px;
 		}
 		&.status-new:before {
-			content: "\f059";
+			content: "\f128";
+			color: @status-new;
 		}
 		&.status-open:before, 
 		&.status-re-open:before {
-			content: "\f059";
+			content: "\f128";
+			color: @status-open;
 		}
 		&.status-answered:before {
 			content: "\f112";
+			color: @status-replied;
 		}
 		&.status-resolved:before {
 			content: "\f00c" !important;
+			color: @status-resolved;
 		}
 		&.status-closed:before {
 			content: "\f023";
+			color: @status-closed;
 		}
 		.staff-answered {
-			background: @status-replied !important;
+			border: 1px solid @status-replied !important;
 			&:before {
 				content: "\f112";
+				color: @status-replied;
 			}
 		}
 		&.status-overdue {
-			background: @status-overdue !important;
+			border: 1px solid @status-overdue !important;
 		}
 		&.status-new  { 
-			background: @status-new; 
+			border: 1px solid @status-new; 
 		}
 		&.status-open,
 		&.status-re-open { 
-			background: @status-open; 
+			border: 1px solid @status-open; 
 		}
 		&.status-answered { 
-			background: @status-replied; 
+			border: 1px solid @status-replied; 
 		}
 		&.status-resolved { 
-			background: @status-resolved !important; 
+			border: 1px solid @status-resolved !important; 
 		}
 		&.status-closed { 
-			background: @status-closed !important; 
+			border: 1px solid @status-closed !important; 
 		}
 		&.status-pending { 
-			background: @status-pending;
+			border: 1px solid @status-pending;
 		}
 	}
 	// Alert

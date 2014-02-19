@@ -34,6 +34,7 @@ include_once DWQA_DIR  . 'inc/shortcodes.php';
 include_once DWQA_DIR  . 'inc/status.php';
 include_once DWQA_DIR  . 'inc/roles.php';
 include_once DWQA_DIR  . 'inc/widgets.php';
+include_once DWQA_DIR  . 'inc/ajaxs.php';
 require_once DWQA_DIR  . 'inc/lib/recaptcha-php/recaptchalib.php';
 global $dwqa_permission;
 $dwqa_permission = new DWQA_Permission();

@@ -56,6 +56,7 @@
                     setup_postdata( $post );
                     dwqa_load_template( 'content', 'answer' );
                 }
+                global $position; $position = 1;
                 while ( $answers->have_posts() ) { $answers->the_post();
                     $answer = get_post( get_the_ID() );
                     if( $best_answer_id && $best_answer_id == get_the_ID() ) {
@@ -68,7 +69,9 @@
                     } else {
                         dwqa_load_template( 'content', 'answer' );
                     }
+                    $position++;
                 } 
+                unset($position);
                 //Drafts
                 if( current_user_can( 'edit_posts' ) ) {
                     global $post;

@@ -1,5 +1,5 @@
 <?php global $comment, $post, $current_user; ?>
-    <li id="li-comment-<?php comment_ID(); ?>" <?php comment_class('dwqa-comment'); ?>> 
+    <li id="comment-<?php comment_ID(); ?>" <?php comment_class('dwqa-comment'); ?>> 
         <div class="dwqa-comment-author">
             <?php 
                 if( $comment->user_id ) {

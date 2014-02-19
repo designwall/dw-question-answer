@@ -3,7 +3,7 @@
  *  Template for display content of single answer 
  *  @since  DW Question Answer 1.0
  */
-    global $current_user, $post;
+    global $current_user, $post, $position;
     $answer_id = get_the_ID(); 
     $question_id = get_post_meta( $answer_id, '_question', true );
     $question = get_post( $question_id );
@@ -11,7 +11,6 @@
     setup_postdata( $answer );
 
     $post_class = 'dwqa-answer';
-    
 ?>
 
     <article id="answer-<?php echo $answer_id; ?>" <?php post_class(); ?>>
@@ -125,7 +124,7 @@
             </div>
 
             <span class="dwqa-anchor">
-                <a title="<?php _e('The answer link','dwqa') ?>" href="<?php echo  get_permalink( $question_id ) . '#answer-' . $answer_id; ?>">#answer-<?php echo $answer_id; ?></a>
+                <a title="<?php _e('The answer link','dwqa') ?>" href="<?php echo  get_permalink( $question_id ) . '#answer-' . $answer_id; ?>">#<?php echo $position; ?></a>
             </span>
         </div>
         <?php if( ! dwqa_is_closed( $question_id ) ) { ?>

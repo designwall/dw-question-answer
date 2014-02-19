@@ -524,6 +524,7 @@ function dwqa_submit_question(){
 }
 add_action( 'init','dwqa_submit_question', 11 );
 
+
 function dwqa_insert_question( $args ){
 
     $user_id = get_current_user_id();
@@ -1166,11 +1167,24 @@ function dwqa_auto_convert_urls( $content ){
     global $post;
     if( is_single() && ( 'dwqa-question' == $post->post_type || 'dwqa-answer' == $post->post_type) ) {
         $content = make_clickable( $content );
-        $content = preg_replace('/(<a[^>]*)(>)/', '$1 target="_blank" $2', $content);
+        $content = preg_replace('/(<a[^>]*)(>)/', '$1 target="_blank" rel="nofollow" $2', $content);
+        $content = preg_replace_callback('/<a[^>]*>]+/', 'dwqa_auto_nofollow_callback', $content);
     }
     return $content;
 }
 add_filter( 'the_content', 'dwqa_auto_convert_urls' );
+
+function dwqa_auto_nofollow_callback($matches) {
+    $link = $matches[0];
+    $site_link = get_bloginfo('url');
+ 
+    if (strpos($link, 'rel') === false) {
+        $link = preg_replace("%(href=S(?!$site_link))%i", 'rel="nofollow" $1', $link);
+    } elseif (preg_match("%href=S(?!$site_link)%i", $link)) {
+        $link = preg_replace('/rel=S(?!nofollow)S*/i', 'rel="nofollow"', $link);
+    }
+    return $link;
+}
 
 function dwqa_sanitizie_comment( $content, $comment ){
     $post_type = get_post_type( $comment->comment_post_ID );
@@ -1521,7 +1535,9 @@ function dwqa_valid_captcha( $type ){
     
     global  $dwqa_general_settings;
     $private_key = isset($dwqa_general_settings['captcha-google-private-key']) ?  $dwqa_general_settings['captcha-google-private-key'] : '';
-
+    if( ! isset($_POST["recaptcha_challenge_field"]) || ! isset($_POST['recaptcha_response_field'] ) ) {
+        return false;
+    }
     $resp = recaptcha_check_answer (
         $private_key,
         $_SERVER["REMOTE_ADDR"],

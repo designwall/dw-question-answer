@@ -14,10 +14,15 @@ jQuery(function($){
           }
         }).blur();
     }
-
+    var submitAjax = false;
     $('#dwqa-submit-question-form').on('submit',function(e){
         var t= $(this);
         var flag = true;
+
+        // if( submitAjax ) {
+        //     return false;
+        // }
+        // submitAjax = true;
 
         var returnDefault = function( el, placeholder ){
             el.on('focus',function(){
@@ -93,7 +98,48 @@ jQuery(function($){
             }
             return false; 
         }
+        //Submit Question by Ajax
+        // $.ajax({
+        //     url: dwqa.ajax_url,
+        //     type: 'POST',
+        //     dataType: 'json',
+        //     data: {
+        //         action: 'dwqa-submit-question-ajax',
+        //         '_wpnonce': $('#_wpnonce').val(),
+        //         'question-title' : $('#question-title').val(),
+        //         'question-category' : $('#question-category').val(),
+        //         'question-tag' : $('#question-tag').val(),
+        //         'question-content' : tinyMCE.activeEditor.getContent(),
+        //         'recaptcha_challenge_field' : $('[name="recaptcha_challenge_field"]').val(),
+        //         'recaptcha_response_field' : $('[name="recaptcha_response_field"]').val(),
+        //         'user-email' : $('[name="user-email"]').val(),
+        //         'user-name-signup' : $('[name="user-name-signup"]').val(),
+        //         'user-name' : $('[name="user-name"]').val(),
+        //         'user-password' : $('[name="user-password"]').val(),
+        //         'password-signup' : $('[name="password-signup"]').val(),
+        //         'private-message' : ($('[name="private-message"]').is(':checked') ? 1 : 0 ),
+        //         'login-type' : $("#login-type").val(),
+        //         '_wp_http_referer' : $('[name="_wp_http_referer"]').val()
+        //     }
+        // })
+        // .done(function(resp) {
+        //     if( resp.success ) {
 
+        //     } else {
+        //         console.log( resp.data.message );
+        //     }
+        // })
+        // .always(function() {
+        //     //Reset post form
+        //     $('#question-title, #question-tag, [name="password-signup"], [name="user-name"], [name="user-name-signup"], [name="user-email"]').val('');
+        //     $('[name="private-message"]').attr('checked', false);
+        //     $('#question-category').val(-1);
+        //     tinyMCE.activeEditor.setContent('');
+        //     submitAjax = false;
+
+        // });
+        
+        // return false;
     });
 
     $('#dwqa-submit-question-form').on('input','#user-email',function(event){

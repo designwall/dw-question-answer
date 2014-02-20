@@ -1,5 +1,4 @@
 <?php  
-
 function dwqa_submit_question_ajax(){
     global $dwqa_current_error, $post_submit_filter;
     $valid_captcha = dwqa_valid_captcha('question');
@@ -130,11 +129,20 @@ function dwqa_submit_question_ajax(){
 
             if( ! is_wp_error( $new_question ) ) {
                 //exit( wp_safe_redirect( get_permalink( $new_question ) ) );
+                global $post;
+                $post = get_post($new_question);
+                setup_postdata( $post );
+                ob_start();
+                $html = dwqa_load_template( 'question', 'submit-success' );
+                $html = ob_get_contents();
+                ob_end_clean();
                 $url = get_permalink($new_question);
                 wp_send_json_success( array(
                     'message'   => __('Welldone, you question "<a href="'.$url.'">'.get_the_title($new_question).'</a>" succesfully posted to "'.get_bloginfo('title' ).'"','dwqa'),
-                    'url'		=> $url
+                    'url'		=> $url,
+                    'html'      => $html
                 ) );
+                wp_reset_postdata();
             } else {
                 wp_send_json_error( array(
                     'message'   => $new_question->get_error_message()

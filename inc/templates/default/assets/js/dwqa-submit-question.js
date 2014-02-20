@@ -19,11 +19,14 @@ jQuery(function($){
         var t= $(this);
         var flag = true;
 
-        // if( submitAjax ) {
-        //     return false;
-        // }
-        // submitAjax = true;
+        if( submitAjax ) {
+            return false;
+        }
+        submitAjax = true;
 
+        if( $('#archive-question').length>0 ) {
+            $('#archive-question').fadeOut(200).remove();
+        }
         var returnDefault = function( el, placeholder ){
             el.on('focus',function(){
                 $(this).removeClass('required');
@@ -98,48 +101,62 @@ jQuery(function($){
             }
             return false; 
         }
+
+        $('#question-title, #question-tag, [name="password-signup"], [name="user-name"], [name="user-name-signup"], [name="user-email"], [name="private-message"],#question-category, [name="question-content"]').attr('disabled','disabled');
+        $('#dwqa-submit-question-form').addClass('loading');
+
         //Submit Question by Ajax
-        // $.ajax({
-        //     url: dwqa.ajax_url,
-        //     type: 'POST',
-        //     dataType: 'json',
-        //     data: {
-        //         action: 'dwqa-submit-question-ajax',
-        //         '_wpnonce': $('#_wpnonce').val(),
-        //         'question-title' : $('#question-title').val(),
-        //         'question-category' : $('#question-category').val(),
-        //         'question-tag' : $('#question-tag').val(),
-        //         'question-content' : tinyMCE.activeEditor.getContent(),
-        //         'recaptcha_challenge_field' : $('[name="recaptcha_challenge_field"]').val(),
-        //         'recaptcha_response_field' : $('[name="recaptcha_response_field"]').val(),
-        //         'user-email' : $('[name="user-email"]').val(),
-        //         'user-name-signup' : $('[name="user-name-signup"]').val(),
-        //         'user-name' : $('[name="user-name"]').val(),
-        //         'user-password' : $('[name="user-password"]').val(),
-        //         'password-signup' : $('[name="password-signup"]').val(),
-        //         'private-message' : ($('[name="private-message"]').is(':checked') ? 1 : 0 ),
-        //         'login-type' : $("#login-type").val(),
-        //         '_wp_http_referer' : $('[name="_wp_http_referer"]').val()
-        //     }
-        // })
-        // .done(function(resp) {
-        //     if( resp.success ) {
+        $.ajax({
+            url: dwqa.ajax_url,
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                action: 'dwqa-submit-question-ajax',
+                '_wpnonce': $('#_wpnonce').val(),
+                'question-title' : $('#question-title').val(),
+                'question-category' : $('#question-category').val(),
+                'question-tag' : $('#question-tag').val(),
+                'question-content' : tinyMCE.activeEditor.getContent(),
+                'recaptcha_challenge_field' : $('[name="recaptcha_challenge_field"]').val(),
+                'recaptcha_response_field' : $('[name="recaptcha_response_field"]').val(),
+                'user-email' : $('[name="user-email"]').val(),
+                'user-name-signup' : $('[name="user-name-signup"]').val(),
+                'user-name' : $('[name="user-name"]').val(),
+                'user-password' : $('[name="user-password"]').val(),
+                'password-signup' : $('[name="password-signup"]').val(),
+                'private-message' : ($('[name="private-message"]').is(':checked') ? 1 : 0 ),
+                'login-type' : $("#login-type").val(),
+                '_wp_http_referer' : $('[name="_wp_http_referer"]').val()
+            }
+        })
+        .done(function(resp) {
+            if( resp.success ) {
+                if( $('#archive-question').length>0 ) {
+                    $('#archive-question').remove();
+                }
+                $('.question-form-fields').fadeOut('slow',function(){
+                    $(resp.data.html).hide().insertAfter($('#submit-question')).fadeIn('fast');
+                });
+                
+            } else {
+                console.log( resp.data.message );
+            }
+            submitAjax = false;
+        })
+        .always(function() {
+            //Reset post form
+            $('#question-title, #question-tag, [name="password-signup"], [name="user-name"], [name="user-name-signup"], [name="user-email"]').val('');
+            $('[name="private-message"]').attr('checked', false);
+            $('#question-category').val(-1);
+            tinyMCE.activeEditor.setContent('');
 
-        //     } else {
-        //         console.log( resp.data.message );
-        //     }
-        // })
-        // .always(function() {
-        //     //Reset post form
-        //     $('#question-title, #question-tag, [name="password-signup"], [name="user-name"], [name="user-name-signup"], [name="user-email"]').val('');
-        //     $('[name="private-message"]').attr('checked', false);
-        //     $('#question-category').val(-1);
-        //     tinyMCE.activeEditor.setContent('');
-        //     submitAjax = false;
+            $('#question-title, #question-tag, [name="password-signup"], [name="user-name"], [name="user-name-signup"], [name="user-email"], [name="private-message"],#question-category, [name="question-content"]').removeAttr('disabled');
+            submitAjax = false;
+            $('#dwqa-submit-question-form').removeClass('loading');
 
-        // });
+        });
         
-        // return false;
+        return false;
     });
 
     $('#dwqa-submit-question-form').on('input','#user-email',function(event){

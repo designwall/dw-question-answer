@@ -410,6 +410,7 @@ class DWQA_Filter {
     }
 
 }
+global $dwqa_filter;
 $dwqa_filter = new DWQA_Filter();
 
 

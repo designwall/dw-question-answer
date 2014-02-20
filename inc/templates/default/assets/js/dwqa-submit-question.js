@@ -15,6 +15,18 @@ jQuery(function($){
         }).blur();
     }
     var submitAjax = false;
+
+    $('.btn-submit-question').on('click',function(event){
+        var $label = $(this).val();
+        if( 'Ask Question' != $label ) {
+            if( $('#archive-question').length>0 ) {
+                $('#archive-question').fadeOut(200).remove();
+            }
+            $('.question-form-fields').fadeIn('slow');
+            $(this).val('Ask Question');
+            return false;
+        } 
+    });
     $('#dwqa-submit-question-form').on('submit',function(e){
         var t= $(this);
         var flag = true;
@@ -103,8 +115,8 @@ jQuery(function($){
         }
 
         $('#question-title, #question-tag, [name="password-signup"], [name="user-name"], [name="user-name-signup"], [name="user-email"], [name="private-message"],#question-category, [name="question-content"]').attr('disabled','disabled');
-        $('#dwqa-submit-question-form').addClass('loading');
-
+        $('.dwqa-submit-question').addClass('loading');
+        $('.search-results-suggest').remove();
         //Submit Question by Ajax
         $.ajax({
             url: dwqa.ajax_url,
@@ -134,25 +146,26 @@ jQuery(function($){
                 if( $('#archive-question').length>0 ) {
                     $('#archive-question').remove();
                 }
-                $('.question-form-fields').fadeOut('slow',function(){
-                    $(resp.data.html).hide().insertAfter($('#submit-question')).fadeIn('fast');
-                });
+                $('.question-form-fields').hide();
+                $(resp.data.html).hide().insertAfter($('#submit-question')).fadeIn('fast');
+                $('.btn-submit-question').val('Ask More Question');
                 
             } else {
                 console.log( resp.data.message );
             }
             submitAjax = false;
+            $('.dwqa-submit-question').removeClass('loading');
         })
         .always(function() {
             //Reset post form
-            $('#question-title, #question-tag, [name="password-signup"], [name="user-name"], [name="user-name-signup"], [name="user-email"]').val('');
+            $('#question-title, [name="password-signup"], [name="user-name"], [name="user-name-signup"], [name="user-email"]').val('');
             $('[name="private-message"]').attr('checked', false);
             $('#question-category').val(-1);
+            $('#question-tag').val('Other');
             tinyMCE.activeEditor.setContent('');
 
             $('#question-title, #question-tag, [name="password-signup"], [name="user-name"], [name="user-name-signup"], [name="user-email"], [name="private-message"],#question-category, [name="question-content"]').removeAttr('disabled');
             submitAjax = false;
-            $('#dwqa-submit-question-form').removeClass('loading');
 
         });
         
@@ -174,6 +187,9 @@ jQuery(function($){
         } 
         var t = $(this);
         timeout = setTimeout( function(){
+            if( submitAjax ) {
+                return false;
+            }
             if( t.val().length > 2 ) {
                 
                 t.parent().find('.dwqa-search-loading').show();

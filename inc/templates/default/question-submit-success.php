@@ -7,7 +7,7 @@
 ?>
 <div id="archive-question" class="dw-question">
 	<div class="message-success alert alert-success">
-		<p>Welldone, you question “<a href="<?php echo get_permalink( $new_question ); ?>"><?php echo get_the_title( $new_question ); ?></a>” succesfully posted  <?php if( isset($tags[0]) ) { echo '<a href="'.get_term_link( $tags[0] ).'" >'.$tags[0]->name.'</a>'; } ?></p>  
+		<p>Welldone, your question “<a href="<?php echo get_permalink( $new_question ); ?>"><?php echo get_the_title( $new_question ); ?></a>” succesfully posted  <?php if( isset($tags[0]) ) { echo '<a href="'.get_term_link( $tags[0] ).'" >'.$tags[0]->name.'</a>'; } ?></p>  
 	</div>
 	<div class="dwqa-list-question suggest-question">
 		<?php 

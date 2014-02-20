@@ -150,7 +150,10 @@ jQuery(function($){
                     $('.list-open-question').remove();
                 }
                 $('.question-form-fields').hide();
-                $(resp.data.html).hide().insertBefore($('#submit-question')).fadeIn('slow');
+                $(resp.data.html).insertBefore($('#submit-question'));
+                setTimeout(function(){
+                    $('.list-open-question').addClass('dwqa-fadein');
+                },100)
                 $('.btn-submit-question').val('Ask More Question');
                 $('#_wpnonce').val(resp.data.nonce);
                 $('.question-signin').hide().find('#login-type').remove();

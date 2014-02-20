@@ -32,7 +32,7 @@
 			$latest_query = new WP_Query( $args );
 			if( $latest_query->have_posts() ) :
 		?>
-		<h3><?php echo 'Latest '.($latest_query->found_posts > 5 ? 5 : $latest_query->found_posts).' open questions awaiting for your answers'; ?></h3>
+		<h3><?php echo 'Latest '.($latest_query->found_posts > 10 ? 10 : $latest_query->found_posts).' open questions awaiting for your answers'; ?></h3>
 		<ul class="dwqa-latest-questions">
 			<?php
 				while( $latest_query->have_posts() ) : $latest_query->the_post();
@@ -49,7 +49,7 @@
 			     </div>
 			    </li>
 			<?php
-					if( $i == 5 ) break;
+					if( $i == 10 ) break;
 				endwhile;
 			?>
 		</ul>
@@ -64,7 +64,7 @@
 					    'post_type' => 'dwqa-question',
 					    'orderby' => 'date',
 					    'order' => 'DESC',
-				   	    'posts_per_page' => 5,
+				   	    'posts_per_page' => 10,
 					    'post__not_in' => $latest,
 				   		'suppress_filters' => false,
 					    'meta_query' => array(

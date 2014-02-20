@@ -19,25 +19,25 @@ jQuery(function($){
     $('.btn-submit-question').on('click',function(event){
         var $label = $(this).val();
         if( 'Ask Question' != $label ) {
-            if( $('#archive-question').length>0 ) {
-                $('#archive-question').fadeOut(200).remove();
+            if( $('.list-open-question').length>0 ) {
+                $('.list-open-question').fadeOut(200).remove();
             }
             $('.question-form-fields').fadeIn('slow');
             $(this).val('Ask Question');
+            submitAjax = false;
             return false;
         } 
     });
     $('#dwqa-submit-question-form').on('submit',function(e){
         var t= $(this);
         var flag = true;
-
+        console.log( submitAjax );
         if( submitAjax ) {
             return false;
         }
-        submitAjax = true;
 
-        if( $('#archive-question').length>0 ) {
-            $('#archive-question').fadeOut(200).remove();
+        if( $('.list-open-question').length>0 ) {
+            $('.list-open-question').fadeOut(200).remove();
         }
         var returnDefault = function( el, placeholder ){
             el.on('focus',function(){
@@ -111,6 +111,7 @@ jQuery(function($){
             if( ! $('#question-tag').val() ) {
                 $('#question-tag').val( $('#question-tag').attr('placeholder') );
             }
+            console.log( 'test' );
             return false; 
         }
 
@@ -118,6 +119,8 @@ jQuery(function($){
         $('.dwqa-submit-question').addClass('loading');
         $('.search-results-suggest').remove();
         //Submit Question by Ajax
+        
+        submitAjax = true;
         $.ajax({
             url: dwqa.ajax_url,
             type: 'POST',
@@ -143,13 +146,14 @@ jQuery(function($){
         })
         .done(function(resp) {
             if( resp.success ) {
-                if( $('#archive-question').length>0 ) {
-                    $('#archive-question').remove();
+                if( $('.list-open-question').length>0 ) {
+                    $('.list-open-question').remove();
                 }
                 $('.question-form-fields').hide();
-                $(resp.data.html).hide().insertAfter($('#submit-question')).fadeIn('fast');
+                $(resp.data.html).hide().insertBefore($('#submit-question')).fadeIn('slow');
                 $('.btn-submit-question').val('Ask More Question');
-                
+                $('#_wpnonce').val(resp.data.nonce);
+                $('.question-signin').hide().find('#login-type').remove();
             } else {
                 console.log( resp.data.message );
             }

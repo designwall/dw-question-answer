@@ -2,10 +2,13 @@
 function dwqa_submit_question_ajax(){
     global $dwqa_current_error, $post_submit_filter;
     $valid_captcha = dwqa_valid_captcha('question');
+    // /var_dump(is_user_logged_in());
     if( ! check_ajax_referer( 'dwqa-submit-question-nonce-#!', '_wpnonce', false ) ) {
-    	wp_send_json_error( array(
-            'message'   => __('"Helllo", Are you cheating huh?.','dwqa')
-    	) );
+        if( ! is_user_logged_in() ) {
+            wp_send_json_error( array(
+                'message'   => __('"Helllo", Are you cheating huh?.','dwqa')
+            ) );
+        }
     }
     if( isset($_POST['_wpnonce']) && wp_verify_nonce( $_POST['_wpnonce'], 'dwqa-submit-question-nonce-#!' ) ) {
         if( $valid_captcha ) {
@@ -140,7 +143,8 @@ function dwqa_submit_question_ajax(){
                 wp_send_json_success( array(
                     'message'   => __('Welldone, you question "<a href="'.$url.'">'.get_the_title($new_question).'</a>" succesfully posted to "'.get_bloginfo('title' ).'"','dwqa'),
                     'url'		=> $url,
-                    'html'      => $html
+                    'html'      => $html,
+                    'nonce'     => wp_create_nonce( 'dwqa-submit-question-nonce-#!' )
                 ) );
                 wp_reset_postdata();
             } else {

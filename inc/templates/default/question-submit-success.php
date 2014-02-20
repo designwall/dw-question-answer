@@ -6,8 +6,16 @@
 	//add_filter( 'posts_where', array($temp_filter, 'posts_where')  );
 ?>
 <div class="dw-question list-open-question">
-	<div class="message-success alert alert-success">
-		Welldone, your question “<a href="<?php echo get_permalink( $new_question ); ?>"><?php echo get_the_title( $new_question ); ?></a>” succesfully posted  <?php if( isset($tags[0]) ) { echo '<a href="'.get_term_link( $tags[0] ).'" >'.$tags[0]->name.'</a>'; } ?>
+	<div class="alert alert-success">
+		Awesome, your question “<a href="<?php echo get_permalink( $new_question ); ?>"><?php echo get_the_title( $new_question ); ?></a>” has been succesfully posted to <?php if( isset($tags[0]) ) { echo '<a href="'.get_term_link( $tags[0] ).'" >'.$tags[0]->name.'</a>'; } ?>
+	</div>
+	<div class="alert alert-well alignleft">
+		<p>At DesignWall, we value Knowledge Sharing, Learn by Doing and Respect not only about DW products in specific, but also <a href="http://www.google.com/url?q=http%3A%2F%2Fwww.designwall.com%2Fquestion%2Fanything-wordpress-and-the-free-lifetime-membership-at-designwall%2F&sa=D&sntz=1&usg=AFQjCNHfCpoQ2tbooEhPEX8aaEuXpozNAw">Anything Wordpress</a>. Your question will soon be answered by either us - DW team or by other members in the community.</p>
+		<p>At the moment, we only have 2 team members who will be dedicated to get all your questions answered, and we are currently overwhelmed with the number of questions submitting daily.</p>
+		<p>We believe you CAN also contribute by sharing your knowledge and helping others. Below are a few people that you can really help out.</p>
+	</div>
+	<div class="alert alert-classic">
+		Thank you for lending us an extra hand, we would like to give you <span>5</span> <strong>$tones</strong> for every answer you’ve provided.
 	</div>
 	<div class="row-fluid">
 		<div class="span6">

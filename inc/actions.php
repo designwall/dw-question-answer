@@ -298,8 +298,10 @@ function dwqa_add_answer(){
                 if( isset($_POST['dwqa-action-draft']) && $_POST['dwqa-action-draft'] && strtolower( $_POST['submit-answer'] ) == 'publish' ) {
                     $answer_update['post_status'] = isset($_POST['privacy']) && 'private' == $_POST['privacy'] ? 'private' : 'publish';
                 }
+                $old_post = get_post( $_POST['answer-id'] );
                 $answer_id = wp_update_post( $answer_update );
-                do_action( 'dwqa_update_answer', $answer_id );
+                $new_post = get_post( $answer_id );
+                do_action( 'dwqa_update_answer', $answer_id, $old_post, $new_post );
                 if( $answer_id ) {
                     wp_safe_redirect( get_permalink( $question_id ) );
                     return true;

@@ -1,0 +1,101 @@
+.dwqa-question-stand-alone {
+  border-color: rgb(238, 238, 238) rgb(221, 221, 221) rgb(187, 187, 187);
+  border-width: 1px;
+  border-style: solid;
+  box-shadow: rgba(0, 0, 0, 0.14902) 0px 1px 3px;
+  padding: 15px 20px 0 !important;
+  margin-bottom: 30px;
+  position: relative;
+  word-wrap: break-word;
+  border-radius: 3px;
+}
+.dwqa-question-stand-alone .dwqa-title {
+  font-size: 24px;
+  line-height: 1.3;
+  margin-top: 5px;
+}
+.dwqa-question-stand-alone .dwqa-tags {
+  margin-bottom: 20px;
+}
+.dwqa-question-stand-alone .dwqa-tags .dwqa-tag {
+  background: #f3f3f3;
+  padding: 2px 10px;
+  margin-right: 5px;
+  display: inline-block;
+}
+.dwqa-question-stand-alone .dwqa-tags .dwqa-tag:hover {
+  background: #e5e5e5;
+}
+.dwqa-question-stand-alone .dwqa-tags .dwqa-tag a {
+  color: #555;
+}
+.dwqa-question-stand-alone .dwqa-footer {
+  margin: 15px -20px 0 -20px;
+  padding: 20px 0;
+  background: transparent;
+  border-bottom: 0;
+  border-top: 1px solid #eee;
+  position: relative;
+}
+.dwqa-question-stand-alone .dwqa-footer-links {
+  margin: 0 -20px 0 -20px;
+  padding: 10px 20px;
+  background: transparent;
+  border-bottom: 0;
+  border-top: 1px solid #eee;
+  position: relative;
+  overflow: hidden;
+}
+.dwqa-question-stand-alone .dwqa-footer-links a {
+  color: #999;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+.dwqa-question-stand-alone .dwqa-footer-links a:hover {
+  color: #555;
+}
+.dwqa-question-stand-alone .dwqa-footer-links .dwqa-links {
+  display: block;
+  float: left;
+  margin: 0;
+}
+.dwqa-question-stand-alone .dwqa-footer-links .dwqa-actions {
+  display: block;
+  float: right;
+  margin: 0;
+}
+.dwqa-question-stand-alone .dwqa-footer .dwqa-category {
+  border-left: 1px solid #e5e5e5;
+  display: inline-block;
+  vertical-align: top;
+  padding: 0 10px;
+}
+.dwqa-question-stand-alone .dwqa-footer .dwqa-date,
+.dwqa-question-stand-alone .dwqa-footer .dwqa-category-name {
+  color: #999;
+  display: block;
+  text-transform: capitalize;
+}
+.dwqa-question-stand-alone .dwqa-footer .dwqa-date a {
+  color: #999;
+}
+.dwqa-question-stand-alone .dwqa-footer .author a,
+.dwqa-question-stand-alone .dwqa-footer .dwqa-category-title {
+  color: #555;
+  font-weight: bold;
+}
+.dwqa-question-stand-alone .dwqa-author {
+  position: relative;
+  padding: 0 15px 0 70px;
+  display: inline-block;
+}
+.dwqa-question-stand-alone .dwqa-author .avatar {
+  width: 32px;
+  height: 32px;
+  padding: 3px;
+  margin: 0 10px 0 0;
+  border: 1px solid #e5e5e5;
+  position: absolute;
+  top: 0;
+  left: 20px;
+}

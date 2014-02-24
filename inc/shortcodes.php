@@ -415,5 +415,25 @@ function dwqa_question_followers( $atts ){
 }
 add_shortcode( 'dwqa-question-followers', 'dwqa_question_followers' ); 
 
+function dwqa_question_embed( $atts ){
+    extract( shortcode_atts( array(
+        'id'    => false
+    ), $atts ) );
+
+    if( ! $id ) {
+        return false;
+    }
+    global $post;
+    $post = get_post( $id );
+    setup_postdata( $post );
+    ob_start();
+    dwqa_load_template( 'embed', 'question' );
+    $html = ob_get_contents();
+    ob_end_clean();
+    wp_reset_postdata();
+    return $html;
+}
+add_shortcode( 'dwqa_question', 'dwqa_question_embed' );
+
 
 ?>

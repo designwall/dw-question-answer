@@ -160,7 +160,7 @@ jQuery(function($) {
                 name = t.find('[name="author"]').val();
                 if (name.length <= 0) {
                     if (t.parent().find('.name-error').length > 0) {
-                        t.parent().find('.name-error').text( dwqa.error_valid_name ).fadeIn();
+                        t.parent().find('.name-error').text(dwqa.error_valid_name).fadeIn();
                     } else {
                         t.before('<div class="alert alert-error name-error">' + dwqa.error_valid_name + '</div>');
                     }
@@ -299,7 +299,6 @@ jQuery(function($) {
             comment_content = comment_container.find('.dwqa-comment-content .dwqa-comment-content-inner'),
             status = t.data('edit'),
             edit_content;
-            console.log( comment_content );
         if (typeof status == 'undefined' || !status) {
             t.data('edit', 1);
             edit_content = $('<div class="comment-edit-container"><textarea cols="50" rows="1" aria-required="true" class="comment-edit-field" data-current-content="' + escape(comment_content.html()) + '" data-comment-id="' + t.data('comment-id') + '" >' + comment_content.html().trim().replace(/\<br\>/g, "\n").replace(/(<([^>]+)>)/ig, "") + '</textarea><button class="dwqa-btn dwqa-btn-default dwqa-btn-update-comment-submit">' + dwqa.comment_edit_submit_button + '</button>' + t[0].outerHTML + '</div>');
@@ -816,5 +815,24 @@ jQuery(function($) {
                 $(this).parent().removeClass('open');
             });
         }
+    });
+
+    //Highlight comment
+    $(window).load(function() {
+        if (document.location.hash.length > 0) {
+            var hash = document.location.hash;
+            if (hash.indexOf('#') >= 0) {
+                setTimeout(function() {
+                    $(hash).animate({
+                        backgroundColor: '#ffffe0'
+                    }, 1300, function() {
+                        $(this).animate({
+                            backgroundColor: 'transparent'
+                        }, 300)
+                    });
+                }, 100);
+            }
+        }
+
     });
 });

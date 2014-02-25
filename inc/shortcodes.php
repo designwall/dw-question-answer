@@ -428,21 +428,16 @@ function dwqa_question_embed_shortcode( $atts, $content = "" ){
     }
     global $post;
     if( 'dwqa-question' == get_post_type( $id ) && $id != $post->ID ) {
-        $query = new WP_Query(array(
-            'post__in' => array($id),
-            'post_type' => 'dwqa-question',
-            'posts_per_page' => 1,
-            'post_status' => 'publish'
-        ));
+        $post = get_post( $id );
         $embed_code = '';
-        if( $query->have_posts() ) {
+        if( ! is_wp_error( $post ) ) {
+            setup_postdata( $post );
             ob_start();
-            while ( $query->have_posts() ) { $query->the_post();
-                dwqa_load_template( 'embed', 'question' );
-            }
+            dwqa_load_template( 'embed', 'question' );
             $embed_code = ob_get_contents();
             ob_end_clean();
         }
+        wp_reset_postdata();
         return $embed_code;
     }
 }

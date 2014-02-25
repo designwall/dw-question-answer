@@ -1,8 +1,10 @@
-<?php global $post; ?>
+<?php 
+	global $post; 
+?>
 <div class="dwqa-question-stand-alone">
 	<article id="question-<?php echo $post->ID ?>" <?php post_class( 'dwqa-question' ); ?>>
 	    <header class="dwqa-header">
-	        <h1 class="dwqa-title"><a href="<?php get_permalink(); ?>"><?php the_title(); ?></a></h1>
+	        <h1 class="dwqa-title"><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h1>
 	    </header>
 	    <div class="dwqa-content">
 	    	<div class="dwqa-content-inner dim">
@@ -12,7 +14,7 @@
 			<div class="dwqa-read-more"><?php _e('-- More --','dwqa') ?></div>
 	    </div>
 		
-	    <?php  
+	    <?php 
 	        $tags = get_the_term_list( $post->ID, 'dwqa-question_tag', '<span class="dwqa-tag">', '</span><span class="dwqa-tag">', '</span>' );
 	        if( ! empty($tags) ) :
 	    ?>

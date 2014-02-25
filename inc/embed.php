@@ -2,15 +2,16 @@
 
 function dwqa_embed_question( $content ){
 	global $dwqa_start_loop, $post;
-    wp_reset_query();
-	if( 'dwqa-question' == get_post_type( $post->ID ) ) {
+
+	if( 'dwqa-question' ==  $post->post_type ) {
 		return $content;
 	}
 	if( $dwqa_start_loop ) {
 		return $content;
 	}
 	$dwqa_start_loop = true;
-	$content = preg_replace_callback('#\bhttps?://[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|/))#', 'dwqa_make_embed_code', $content);
+
+	$content = preg_replace_callback('#(?<=[\s>])(\()?([\w]+?://(?:[\w\\x80-\\xff\#$%&~/=?@\[\](+-]|[.,;:](?![\s<]|(\))?([\s]|$))|(?(1)\)(?![\s<.,;:]|$)|\)))+)#is', 'dwqa_make_embed_code', $content);
 
 	$dwqa_start_loop = false;
 	return $content;

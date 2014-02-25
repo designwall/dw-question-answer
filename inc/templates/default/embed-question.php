@@ -5,14 +5,19 @@
 	        <h1 class="dwqa-title"><a href="<?php get_permalink(); ?>"><?php the_title(); ?></a></h1>
 	    </header>
 	    <div class="dwqa-content">
-	        <?php the_content(); ?>
+	    	<div class="dwqa-content-inner dim">
+	        	<?php the_content(); ?>
+	        	<div class="show-more-end"></div>
+	    	</div>
+			<div class="dwqa-read-more"><?php _e('-- More --','dwqa') ?></div>
 	    </div>
+		
 	    <?php  
 	        $tags = get_the_term_list( $post->ID, 'dwqa-question_tag', '<span class="dwqa-tag">', '</span><span class="dwqa-tag">', '</span>' );
 	        if( ! empty($tags) ) :
 	    ?>
 	    <div class="dwqa-tags"><?php echo $tags; ?></div>
-	    <?php endif; ?>  <!-- Question Tags -->
+		<?php endif; ?>  <!-- Question Tags -->
 
 	    <footer class="dwqa-footer">
 	        <div class="dwqa-author"><?php echo get_avatar( $post->post_author, 32, false ); ?><span class="author"><?php  

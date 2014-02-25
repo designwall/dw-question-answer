@@ -2,6 +2,7 @@
 
 function dwqa_embed_question( $content ){
 	global $dwqa_start_loop, $post;
+    wp_reset_query();
 	if( 'dwqa-question' == get_post_type( $post->ID ) ) {
 		return $content;
 	}

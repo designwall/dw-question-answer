@@ -7,7 +7,8 @@
   margin-bottom: 30px;
   position: relative;
   word-wrap: break-word;
-  border-radius: 3px;
+  border-radius: 5px;
+  background: #fff;
 }
 .dwqa-question-stand-alone .dwqa-title {
   font-size: 24px;
@@ -32,7 +33,7 @@
 .dwqa-question-stand-alone .dwqa-footer {
   margin: 15px -20px 0 -20px;
   padding: 20px 0;
-  background: transparent;
+  background: #fff;
   border-bottom: 0;
   border-top: 1px solid #eee;
   position: relative;
@@ -40,7 +41,7 @@
 .dwqa-question-stand-alone .dwqa-footer-links {
   margin: 0 -20px 0 -20px;
   padding: 10px 20px;
-  background: transparent;
+  background: inherit;
   border-bottom: 0;
   border-top: 1px solid #eee;
   position: relative;
@@ -98,4 +99,53 @@
   position: absolute;
   top: 0;
   left: 20px;
+}
+.dwqa-question-stand-alone .dwqa-content {
+  position: relative;
+}
+.dwqa-question-stand-alone .dwqa-content .dwqa-content-inner {
+  position: relative;
+  max-height: 9999px;
+  -webkit-transition: max-height 0.8s;
+  -moz-transition: max-height 0.8s;
+  transition: max-height 0.8s;
+}
+.dwqa-question-stand-alone .dwqa-content .dwqa-content-inner.dim {
+  max-height: 200px;
+  overflow: hidden;
+}
+
+.dwqa-question-stand-alone .dwqa-content .dwqa-content-inner .show-more-end {
+  text-align: center;
+  cursor: pointer;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  z-index: 100;
+  background-color: rgba(255,255,255,0.4);
+  background-image: -moz-linear-gradient(top,rgba(255,255,255,0),#fff);
+  background-image: -webkit-gradient(linear,0 0,0 100%,from(rgba(255,255,255,0)),to(#fff));
+  background-image: -webkit-linear-gradient(top,rgba(255,255,255,0),#fff);
+  background-image: -o-linear-gradient(top,rgba(255,255,255,0),#fff);
+  background-image: linear-gradient(to bottom,rgba(255,255,255,0),#fff);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00fffff');
+}
+.dwqa-question-stand-alone .dwqa-content .dwqa-content-inner.dim .show-more-end {
+  display: block;
+}
+.dwqa-question-stand-alone .dwqa-content .dwqa-content-inner .show-more-end {
+  display: none;
+}
+
+.dwqa-question-stand-alone .dwqa-content .dwqa-read-more {
+  text-align: center;
+  cursor: pointer;
+  bottom: 0.5em;
+  z-index: 101;
+  width: 100%;
+  font-weight: bold;
 }

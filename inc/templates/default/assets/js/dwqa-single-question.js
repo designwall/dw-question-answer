@@ -828,32 +828,13 @@ jQuery(function($) {
             });
         }
     });
-
-    $.fn.animateHighlight = function(highlightColor, duration) {
-        var highlightBg = highlightColor || "#FF0000";
-        var animateMs = duration || 1000;
-        var originalBg = this.css("background-color");
-
-        if (!originalBg || originalBg == highlightBg)
-            originalBg = "#FFFFFF"; // default to white
-
-        jQuery(this)
-            .css("backgroundColor", highlightBg)
-            .animate({
-                backgroundColor: originalBg
-            }, animateMs, null, function() {
-                jQuery(this).css("backgroundColor", originalBg);
-            });
-    };
-
     //Highlight comment
-    $(window).load(function() {
+    $(document).ready(function() {
         if (document.location.hash.length > 0) {
             var hash = document.location.hash;
             if (hash.indexOf('#') >= 0) {
                 $(hash).effect('highlight', 3000);
             }
         }
-
     });
 });

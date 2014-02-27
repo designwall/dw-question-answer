@@ -829,12 +829,40 @@ jQuery(function($) {
         }
     });
     //Highlight comment
-    $(document).ready(function() {
+    var doHighlight = function(speed) {
         if (document.location.hash.length > 0) {
             var hash = document.location.hash;
             if (hash.indexOf('#') >= 0) {
-                $(hash).effect('highlight', 3000);
+                $(hash).effect('highlight', speed);
             }
+        }
+    }
+    $(document).ready(function() {
+        doHighlight(2000);
+    });
+
+    var vis = (function() {
+        var stateKey, eventKey, keys = {
+                hidden: "visibilitychange",
+                webkitHidden: "webkitvisibilitychange",
+                mozHidden: "mozvisibilitychange",
+                msHidden: "msvisibilitychange"
+            };
+        for (stateKey in keys) {
+            if (stateKey in document) {
+                eventKey = keys[stateKey];
+                break;
+            }
+        }
+        return function(c) {
+            if (c) document.addEventListener(eventKey, c);
+            return !document[stateKey];
+        }
+    })();
+
+    vis(function() {
+        if (vis()) {
+            doHighlight(1500);
         }
     });
 });

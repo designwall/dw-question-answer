@@ -152,6 +152,20 @@
                             <?php endif; ?> <!-- Change Question Status -->
                         </div>
                     </footer>
+                    <footer class="dwqa-footer-share">
+                       <span class="dwqa-sharing">
+                            <strong><?php _e('Share this') ?>:</strong>
+                            <ul>
+                                <li><a href="#" class="dwqa-share-facebook " title="<?php _e('Share on Facebook') ?>"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#" class="dwqa-share-google-plus" title="<?php _e('Share on Google+') ?>"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="#" class="dwqa-share-twitter" title="<?php _e('Share on Twitter') ?>"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#" class="dwqa-share-linkedin" title="<?php _e('Share on LinkedIn') ?>"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="#" class="dwqa-share-pinterest" title="<?php _e('Share on Pinterest') ?>"><i class="fa fa-pinterest"></i></a></li>
+                                <li><a href="#" class="dwqa-share-tumblr" title="<?php _e('Share on Tumblr') ?>"><i class="fa fa-tumblr"></i></a></li>
+                                <li><a href="#" class="dwqa-share-link" title="<?php _e('Share Link') ?> (Comming soon)"><i class="fa fa-link"></i></a></li>
+                            </ul>
+                        </span>
+                    </footer>
                     <div class="dwqa-comments">
                         <?php comments_template(); ?>
                     </div>

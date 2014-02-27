@@ -3,6 +3,8 @@
  * DW Question Answer Embed code for question
  * @since  1.2.1
  */
+global $start_loop;
+$start_loop = false;
 class DWQA_Embed {
     private $parent_post;
     private $depth;
@@ -18,17 +20,16 @@ class DWQA_Embed {
 
 
     public function filter_content( $content ){
-        global $dwqa_start_loop, $post;
+        global $post, $start_loop;
         $this->parent_post = $post;
-        if( $this->depth > 0 ) {
+        if( $start_loop ) {
             return $content;
         }
-        $this->depth++;
+        $start_loop = true;
 
         $content = preg_replace_callback('#(?<=[\s>])(\()?([\w]+?://(?:[\w\\x80-\\xff\#$%&~/=?@\[\](+-]|[.,;:](?![\s<]|(\))?([\s]|$))|(?(1)\)(?![\s<.,;:]|$)|\)))+)#is', array($this,'make_embed_code'), $content);
 
         $this->parent_post = false;
-        $this->depth = 0;
         return $content;
     } 
 

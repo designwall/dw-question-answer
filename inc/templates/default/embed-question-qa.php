@@ -1,5 +1,5 @@
 <div class="dwqa-question-embed">
-	<div class="dwqa-embed-avatar"><?php  global $post; echo get_avatar( $post->post_author, 150 ); ?></div>
+	<div class="dwqa-embed-avatar"><?php  global $post; echo get_avatar( $post->post_author, 100 ); ?></div>
 	<div class="dwqa-embed-content">
 		<div class="dwqa-embed-title"><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></div>
 		<div class="dwqa-embed-summary"><?php

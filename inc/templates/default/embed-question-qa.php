@@ -18,6 +18,7 @@
 	.dwqa-embed-avatar {
 		float: none;
 		text-align: center;
+		margin: 10px 0 0 0;
 	}
 }
 .dwqa-embed-content {
@@ -51,6 +52,12 @@
 	bottom: 0;
 	left: 165px;
 	position: absolute;
+}
+@media(max-width: 480px) {
+	.dwqa-embed-links {
+		left: 0;
+		position: relative;
+	}
 }
 .dwqa-embed-links a {
 	color: #ababab !important;

@@ -554,7 +554,7 @@
 
 		// Footer meta
 		.dwqa-footer {
-			margin: 15px -20px 0 -20px;
+			margin: 0 -20px 0 -20px;
 			padding: 20px 0;
 			background: transparent;
 			border-bottom: 0;
@@ -677,6 +677,8 @@
 				font-size: 12px;
 				position: relative;
 				line-height: 0;
+				border-bottom: 1px solid @gray-border;
+				margin-bottom: -1px;
 				strong {
 					padding: 0 20px;
 					color: @gray;
@@ -697,7 +699,8 @@
 					float: left;
 					border-right: solid 1px @gray-border;
 
-					&:hover {
+					&:hover,
+					.dwqa-active {
 						background-color: @main-bg;
 					}
 				}
@@ -732,8 +735,15 @@
 					color: #adabab;
 				}
 			}
-
-			
+			#dwqa-embed-code {
+				height: 70px;
+				margin: 20px;
+				padding: 2px;
+				width: 94%;
+				resize: vertical;
+				clear: both;
+				float: none;
+			}
 		}
 
 		// Toolbox

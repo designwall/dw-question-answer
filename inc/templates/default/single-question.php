@@ -43,7 +43,40 @@
                     ?>
                     <div class="dwqa-tags"><?php echo $tags; ?></div>
                     <?php endif; ?>  <!-- Question Tags -->
+                    <!-- Sharing buttons -->
+                    <footer class="dwqa-footer-share">
+                       <span class="dwqa-sharing">
+                            <strong><?php _e('Share this') ?>:</strong>
+                            <ul>
+                                <?php 
+                                    $permalink = rawurlencode(get_permalink()); 
+                                    $title = rawurlencode(get_the_title());
+                                ?>
+                                <li><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $permalink; ?>" class="dwqa-share-facebook " title="<?php _e('Share on Facebook') ?>"><i class="fa fa-facebook"></i></a></li>
+                                <li><a target="_blank" href="https://plus.google.com/share?url=<?php echo $permalink; ?>" class="dwqa-share-google-plus" title="<?php _e('Share on Google+') ?>"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a target="_blank" href="https://twitter.com/intent/tweet?original_referer=<?php echo $permalink ?>&amp;text=<?php echo $title; ?>&amp;url=<?php echo $permalink; ?>" class="dwqa-share-twitter" title="<?php _e('Share on Twitter') ?>"><i class="fa fa-twitter"></i></a></li>
+                                <li><a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo $permalink ?>&amp;title=<?php echo $title; ?>&amp;source=<?php echo $permalink ?>" class="dwqa-share-linkedin" title="<?php _e('Share on LinkedIn') ?>"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a target="_blank" href="http://www.tumblr.com/share?v=3&amp;u=<?php echo $permalink ?>&amp;t=<?php echo $title ?>" class="dwqa-share-tumblr" title="<?php _e('Share on Tumblr') ?>"><i class="fa fa-tumblr"></i></a></li>
+                                <li class="dwqa-embed-share"><a href="#" class="dwqa-share-link" title="<?php _e('Embed Code') ?>"><i class="fa fa-code"></i></a></li>
+                            </ul>
+                        </span>
+                        <textarea class="dwqa-hide" name="dwqa-embed-code" id="dwqa-embed-code"><iframe width="560" height="315" src="<?php echo add_query_arg( 'dwqa-embed', 'true', get_permalink() ); ?>" frameborder="0" allowfullscreen></iframe></textarea>
+                    </footer>
+                    <script type="text/javascript">
+                    jQuery(document).ready(function($) {
+                        $('.dwqa-footer-share ul li').on('click',function(event){
+                            event.preventDefault();
+                            if( $(this).is(".dwqa-embed-share") ) {
 
+                                $(this).find('a').hide().end().find('#dwqa-embed-code').removeClass('dwqa-hide');
+                                return false;
+                            }
+                            var url = $(this).find('a').attr('href');
+                            window.open(url,"","width=650,height=280");
+                        });
+                    });
+                    </script>
+                    <!-- Question footer -->
                     <footer class="dwqa-footer">
                         <div class="dwqa-author">
                             <?php echo get_avatar( $post->post_author, 32, false ); ?>
@@ -151,20 +184,6 @@
                             </span>
                             <?php endif; ?> <!-- Change Question Status -->
                         </div>
-                    </footer>
-                    <footer class="dwqa-footer-share">
-                       <span class="dwqa-sharing">
-                            <strong><?php _e('Share this') ?>:</strong>
-                            <ul>
-                                <li><a href="#" class="dwqa-share-facebook " title="<?php _e('Share on Facebook') ?>"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#" class="dwqa-share-google-plus" title="<?php _e('Share on Google+') ?>"><i class="fa fa-google-plus"></i></a></li>
-                                <li><a href="#" class="dwqa-share-twitter" title="<?php _e('Share on Twitter') ?>"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#" class="dwqa-share-linkedin" title="<?php _e('Share on LinkedIn') ?>"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#" class="dwqa-share-pinterest" title="<?php _e('Share on Pinterest') ?>"><i class="fa fa-pinterest"></i></a></li>
-                                <li><a href="#" class="dwqa-share-tumblr" title="<?php _e('Share on Tumblr') ?>"><i class="fa fa-tumblr"></i></a></li>
-                                <li><a href="#" class="dwqa-share-link" title="<?php _e('Share Link') ?> (Comming soon)"><i class="fa fa-link"></i></a></li>
-                            </ul>
-                        </span>
                     </footer>
                     <div class="dwqa-comments">
                         <?php comments_template(); ?>

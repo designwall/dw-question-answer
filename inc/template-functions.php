@@ -16,6 +16,9 @@ function dwqa_generate_template_for_plugin($template) {
     } 
 
     if( is_singular( 'dwqa-question' ) ) {
+        if( isset($_REQUEST['dwqa-embed']) && $_REQUEST['dwqa-embed'] ) {
+            return dwqa_load_template( 'single', 'question-embed', false );
+        }
         return dwqa_load_template( 'single', 'question', false );
     }
     return $template;

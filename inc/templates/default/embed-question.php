@@ -43,7 +43,7 @@
 	                $cat = $categories[0]
 	        ?>
 	        <div class="dwqa-category"><span class="dwqa-category-title"><?php _e('Category','dwqa') ?></span><a class="dwqa-category-name" href="<?php echo get_term_link( $cat );  ?>" title="<?php _e('All questions from','dwqa') ?> <?php echo $cat->name ?>"><?php echo $cat->name ?></a></div><?php endif; ?> <!-- Question Categories -->
-	        <div class="dwqa-answer-btn"><a href="#" class="dwqa-btn">Answer Now</a></div>
+	        <div class="dwqa-answer-btn"><a href="<?php echo get_permalink(); ?>" class="dwqa-btn"><?php _e('Answer Now','dwqa') ?></a></div>
 	    </footer>
 	    <footer class="dwqa-footer-links">
 	    	<div class="dwqa-links">

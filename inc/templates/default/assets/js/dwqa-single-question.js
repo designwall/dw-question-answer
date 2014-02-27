@@ -859,10 +859,11 @@ jQuery(function($) {
             return !document[stateKey];
         }
     })();
-
+    var switchTab = 0;
     vis(function() {
-        if (vis()) {
+        if (vis() && switchTab < 2) {
             doHighlight(1500);
+            switchTab++;
         }
     });
 });

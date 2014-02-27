@@ -21,7 +21,7 @@ class DWQA_Embed {
         $this->depth++;
 
         $content = preg_replace_callback('#(?<=[\s>])(\()?([\w]+?://(?:[\w\\x80-\\xff\#$%&~/=?@\[\](+-]|[.,;:](?![\s<]|(\))?([\s]|$))|(?(1)\)(?![\s<.,;:]|$)|\)))+)#is', array($this,'make_embed_code'), $content);
-        
+
         $this->parent_post = false;
         $this->depth = 0;
         return $content;
@@ -41,7 +41,7 @@ class DWQA_Embed {
                 $embed_code = '';
                 $template = 'question';
                 $parent_post_type = get_post_type( $this->parent_post->ID );
-                if( 'dwqa-question' == $parent_post_type ) {
+                if( 'dwqa-question' == $parent_post_type || 'dwqa-answer' == $parent_post_type ) {
                     $template = 'question-qa';
                 }
                 ob_start();

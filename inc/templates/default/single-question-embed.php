@@ -18,7 +18,9 @@
 </head>
 
 <body <?php body_class(); ?>>
+	<?php global $post; setup_postdata( $post ); ?>
 	<?php dwqa_load_template('embed','question'); ?>
+	<?php wp_reset_postdata(); ?>
 	<?php wp_footer(); ?>
 </body>
 </html>

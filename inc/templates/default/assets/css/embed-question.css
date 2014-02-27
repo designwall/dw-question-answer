@@ -189,7 +189,7 @@
   border: 1px solid;
   border-color: #e9e9e9 #e2e2e2 #d1d1d1;
   -webkit-box-shadow: 0 1px 3px -1px rgba(0, 0, 0, .15);
-  min-height: 150px;
+  min-height: 100px;
   margin: 5px 0;
   position: relative;
 }
@@ -209,7 +209,7 @@
   font-size: 12px;
   padding: 10px 12px 0;
   position: relative;
-  min-height: 135px;
+  min-height: 85px;
 }
 .dwqa-embed-title {
   font-size: 18px;
@@ -232,15 +232,8 @@
   overflow: hidden;
 }
 .dwqa-embed-links {
-  bottom: 0;
-  left: 165px;
-  position: absolute;
-}
-@media(max-width: 480px) {
-  .dwqa-embed-links {
-    left: 0;
-    position: relative;
-  }
+  margin-top: 5px;
+  position: relative;
 }
 .dwqa-embed-links a {
   color: #ababab !important;

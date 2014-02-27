@@ -10,7 +10,12 @@ class DWQA_Embed {
     public function __construct(){
         $this->depth = 0;
         add_filter( 'the_content', array($this, 'filter_content'), 11 );
+
+        if( isset($_REQUEST['dwqa-embed']) && $_REQUEST['dwqa-embed'] ) {
+            add_filter( 'show_admin_bar', '__return_false' );
+        }
     }
+
 
     public function filter_content( $content ){
         global $dwqa_start_loop, $post;

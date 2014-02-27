@@ -269,7 +269,7 @@ function dwqa_plugin_init(){
     global $script_version, $dwqa_template, $dwqa_sript_vars;
 
     $dwqa_template = 'default';
-    $script_version = 1392633101;
+    $script_version = 1393477491;
     $dwqa_sript_vars = array(
         'is_logged_in'  => is_user_logged_in(),
         'code_icon'    => DWQA_URI . 'assets/img/icon-code.png',

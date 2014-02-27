@@ -7,6 +7,7 @@ function _e(event, obj, fn) {
 }
 
 
+
 jQuery(function($) {
 
     var answers = $('#dwqa-answers'),
@@ -262,6 +263,15 @@ jQuery(function($) {
     var originHeight, current_form;
     $('[id^=comment_form_]').delegate('textarea', 'focus', function(event) {
         var t = $(this);
+
+        //Collapse all comment form
+        if (current_form && t.get(0) != current_form.get(0)) {
+            $('[id^=comment_form_]').each(function(index, el) {
+                var comment_form = $(this);
+                comment_form.find('.dwqa-form-submit').hide();
+                comment_form.find('textarea').height(comment_form.find('textarea').css('line-height').replace('px', ''));
+            });
+        }
         current_form = t.closest('.dwqa-comment-form');
         var lineHeight = parseInt(t.css('line-height').replace('px', '')),
             thisPadding = parseInt(t.css('padding-top').replace('px', '')),
@@ -806,8 +816,10 @@ jQuery(function($) {
     //Document On Click ===========================================================================
     $(document).click(function(e) {
         if (!$(e.target).is('.dwqa-comment-form, .dwqa-comment-form *') && current_form && current_form.length > 0) {
-            current_form.find('.dwqa-form-submit').hide();
-            current_form.find('textarea').height(current_form.find('textarea').css('line-height').replace('px', ''));
+            if (current_form.find('textarea').val().length <= 0) {
+                current_form.find('.dwqa-form-submit').hide();
+                current_form.find('textarea').height(current_form.find('textarea').css('line-height').replace('px', ''));
+            }
         }
 
         if (!$(e.target).is('.dwqa-container .dropdown-toggle,.dwqa-container .dropdown-toggle *')) {
@@ -817,20 +829,29 @@ jQuery(function($) {
         }
     });
 
+    $.fn.animateHighlight = function(highlightColor, duration) {
+        var highlightBg = highlightColor || "#FF0000";
+        var animateMs = duration || 1000;
+        var originalBg = this.css("background-color");
+
+        if (!originalBg || originalBg == highlightBg)
+            originalBg = "#FFFFFF"; // default to white
+
+        jQuery(this)
+            .css("backgroundColor", highlightBg)
+            .animate({
+                backgroundColor: originalBg
+            }, animateMs, null, function() {
+                jQuery(this).css("backgroundColor", originalBg);
+            });
+    };
+
     //Highlight comment
     $(window).load(function() {
         if (document.location.hash.length > 0) {
             var hash = document.location.hash;
             if (hash.indexOf('#') >= 0) {
-                setTimeout(function() {
-                    $(hash).animate({
-                        backgroundColor: '#ffffe0'
-                    }, 1300, function() {
-                        $(this).animate({
-                            backgroundColor: 'transparent'
-                        }, 300)
-                    });
-                }, 100);
+                $(hash).effect('highlight', 3000);
             }
         }
 

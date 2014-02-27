@@ -443,7 +443,11 @@ function dwqa_enqueue_scripts(){
     $question_tag_rewrite = $question_tag_rewrite ? $question_tag_rewrite : 'question-tag';
 
     $assets_folder = DWQA_URI . 'inc/templates/' . $dwqa_template . '/assets/';
-    wp_enqueue_script( 'jquery' );
+    wp_enqueue_script( 'jquery' );   
+    if( is_singular( 'dwqa-question' ) ) {
+        wp_enqueue_script( 'jquery-effects-core' );
+        wp_enqueue_script( 'jquery-effects-highlight' );
+    }
     $version = $script_version;
     
 

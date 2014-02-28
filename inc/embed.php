@@ -12,7 +12,7 @@ class DWQA_Embed {
     public function __construct(){
         $this->depth = 0;
         add_filter( 'the_content', array($this, 'filter_content'), 11 );
-
+        add_action( 'wp_head', array($this,'insert_meta_tag') );
         if( isset($_REQUEST['dwqa-embed']) && $_REQUEST['dwqa-embed'] ) {
             add_filter( 'show_admin_bar', '__return_false' );
         }
@@ -59,6 +59,24 @@ class DWQA_Embed {
             }
         }
         return $matches[0];
+    }
+
+    public function insert_meta_tag() {
+        if( is_singular( 'dwqa-question' ) ) {
+            global $post;
+            $avatar = $this->get_avatar_url(get_avatar($post->post_author, 200, false));
+            if( $avatar ) {
+                echo '<meta content="'.$avatar.'" property="og:image">';
+            }
+        }
+    }
+
+    public function get_avatar_url($get_avatar){
+        preg_match('/src="([^"]*)"/i', $get_avatar, $matches);
+        if( isset($matches[1]) ) {
+            return $matches[1];
+        }
+        return false;
     }
 }
 $GLOBALS['dwqa_embed'] = new DWQA_Embed();

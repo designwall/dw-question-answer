@@ -43,6 +43,7 @@
                     ?>
                     <div class="dwqa-tags"><?php echo $tags; ?></div>
                     <?php endif; ?>  <!-- Question Tags -->
+                    <?php if( get_post_status() == 'public' ) :?>
                     <!-- Sharing buttons -->
                     <footer class="dwqa-footer-share">
                        <span class="dwqa-sharing">
@@ -54,7 +55,7 @@
                                 ?>
                                 <li><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $permalink; ?>" class="dwqa-share-facebook " title="<?php _e('Share on Facebook') ?>"><i class="fa fa-facebook"></i></a></li>
                                 <li><a target="_blank" href="https://plus.google.com/share?url=<?php echo $permalink; ?>" class="dwqa-share-google-plus" title="<?php _e('Share on Google+') ?>"><i class="fa fa-google-plus"></i></a></li>
-                                <li><a target="_blank" href="https://twitter.com/intent/tweet?original_referer=<?php echo $permalink ?>&amp;text=<?php echo $title; ?>&amp;url=<?php echo $permalink; ?>" class="dwqa-share-twitter" title="<?php _e('Share on Twitter') ?>"><i class="fa fa-twitter"></i></a></li>
+                                <li class="dwqa-twitter-share"><a target="_blank" href="https://twitter.com/intent/tweet?original_referer=<?php echo $permalink ?>&amp;text=<?php echo $title; ?>&amp;url=<?php echo $permalink; ?>" class="dwqa-share-twitter" title="<?php _e('Share on Twitter') ?>"><i class="fa fa-twitter"></i></a></li>
                                 <li><a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo $permalink ?>&amp;title=<?php echo $title; ?>&amp;source=<?php echo $permalink ?>" class="dwqa-share-linkedin" title="<?php _e('Share on LinkedIn') ?>"><i class="fa fa-linkedin"></i></a></li>
                                 <li><a target="_blank" href="http://www.tumblr.com/share?v=3&amp;u=<?php echo $permalink ?>&amp;t=<?php echo $title ?>" class="dwqa-share-tumblr" title="<?php _e('Share on Tumblr') ?>"><i class="fa fa-tumblr"></i></a></li>
                                 <li class="dwqa-embed-share"><a href="#" class="dwqa-share-link" title="<?php _e('Embed Code') ?>"><i class="fa fa-code"></i></a></li>
@@ -71,11 +72,14 @@
                                 $('#dwqa-embed-code').toggleClass('dwqa-hide');
                                 return false;
                             }
-                            var url = $(this).find('a').attr('href');
-                            window.open(url,"","width=650,height=280");
+                            if( !$(this).is('.dwqa-twitter-share') ) {
+                                var url = $(this).find('a').attr('href');
+                                window.open(url,"","width=650,height=280");
+                            }
                         });
                     });
                     </script>
+                    <?php endif; ?>
                     <!-- Question footer -->
                     <footer class="dwqa-footer">
                         <div class="dwqa-author">

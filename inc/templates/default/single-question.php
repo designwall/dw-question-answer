@@ -64,6 +64,7 @@
                         <div class="dwqa-embed-get-code dwqa-hide">
                             <textarea name="dwqa-embed-code" id="dwqa-embed-code"><iframe width="560" height="520" src="<?php echo add_query_arg( 'dwqa-embed', 'true', get_permalink() ); ?>" frameborder="0"></iframe></textarea>
                             <div class="dwqa-embed-setting">
+                                <p>Copy and paste this code into your website.</p>
                                 <span class="dwqa-embed-label"><?php _e('Preview:','dwqa') ?></span>
                                 <div class="dwqa-embed-size">
                                     <span class="dwqa-embed-label"><?php _e('Size (px):','dwqa') ?></span> 

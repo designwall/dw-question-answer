@@ -197,6 +197,9 @@
   margin: 0 0 20px 0;
   overflow: hidden;
 }
+.dwqa-embed-setting p {
+  margin: 0 0 10px 0;
+}
 .dwqa-embed-label {
   font-weight: bold;
 }

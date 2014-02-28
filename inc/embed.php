@@ -28,7 +28,7 @@ class DWQA_Embed {
         $start_loop = true;
 
         $content = preg_replace_callback('#(?<=[\s>])(\()?([\w]+?://(?:[\w\\x80-\\xff\#$%&~/=?@\[\](+-]|[.,;:](?![\s<]|(\))?([\s]|$))|(?(1)\)(?![\s<.,;:]|$)|\)))+)#is', array($this,'make_embed_code'), $content);
-
+        $start_loop = false;
         $this->parent_post = false;
         return $content;
     } 

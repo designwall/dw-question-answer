@@ -67,8 +67,8 @@
                         $('.dwqa-footer-share ul li').on('click',function(event){
                             event.preventDefault();
                             if( $(this).is(".dwqa-embed-share") ) {
-
-                                $(this).find('a').hide().end().find('#dwqa-embed-code').removeClass('dwqa-hide');
+                                $(this).find('a').toggleClass('dwqa-active');
+                                $('#dwqa-embed-code').toggleClass('dwqa-hide');
                                 return false;
                             }
                             var url = $(this).find('a').attr('href');

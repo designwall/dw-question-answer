@@ -63,7 +63,7 @@
                         </span>
                         <div class="dwqa-embed-get-code dwqa-hide">
                             <p><textarea name="dwqa-embed-code" id="dwqa-embed-code"><iframe width="560" height="520" src="<?php echo add_query_arg( 'dwqa-embed', 'true', get_permalink() ); ?>" frameborder="0"></iframe></textarea></p>
-                            <p><strong><?php _e('Custom size:','dwqa') ?></strong> <input type="text" name="dwqa-iframe-custom-width" id="dwqa-iframe-custom-width" value="">x<input type="text" name="dwqa-iframe-custom-height" id="dwqa-iframe-custom-height" value=""></p>
+                            <p><strong><?php _e('Custom size:','dwqa') ?></strong> <input type="text" name="dwqa-iframe-custom-width" id="dwqa-iframe-custom-width" value="508">x<input type="text" name="dwqa-iframe-custom-height" id="dwqa-iframe-custom-height" value="520"></p>
                             <p><strong><?php _e('How it look','dwqa'); ?></strong></p>
                             <iframe id="dwqa-iframe-preview" width="508" height="520" src="<?php echo add_query_arg( 'dwqa-embed', 'true', get_permalink() ); ?>" frameborder="0"></iframe>
                         </div>
@@ -84,10 +84,23 @@
                         });
                         $('#dwqa-iframe-custom-width, #dwqa-iframe-custom-height').on('change keyup',function(event){
                             var ifr = $('#dwqa-iframe-preview').clone();
+                            var w = parseInt($('#dwqa-iframe-custom-width').val()), h = parseInt($('#dwqa-iframe-custom-height').val());
+                            if( isNaN(w) || isNaN(h) ) {
+                                w = 0; h = 0;
+                                $('#dwqa-iframe-custom-width').val(w);
+                                $('#dwqa-iframe-custom-height').val(h);
+                            }
                             ifr.attr({
-                                width: $('#dwqa-iframe-custom-width').val(),
-                                height: $('#dwqa-iframe-custom-height').val()
+                                width: w,
+                                height: h
                             }).removeAttr('style').removeAttr('id');
+                            $('#dwqa-iframe-preview').css({
+                                width: w + 'px',
+                                height: h + 'px'
+                            }).attr({
+                                width: w,
+                                height: h
+                            });;
                             $('#dwqa-embed-code').val( ifr.get(0).outerHTML );
                         });
                     });

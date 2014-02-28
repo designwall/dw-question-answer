@@ -16,6 +16,10 @@ class DWQA_Embed {
         if( isset($_REQUEST['dwqa-embed']) && $_REQUEST['dwqa-embed'] ) {
             add_filter( 'show_admin_bar', '__return_false' );
         }
+
+        if( isset($_REQUEST['dwqa-embed']) && $_REQUEST['dwqa-embed'] ){
+            remove_filter( 'wp_footer', 'dwpb',100 );
+        }
     }
 
 

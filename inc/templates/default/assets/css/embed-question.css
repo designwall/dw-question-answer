@@ -181,7 +181,7 @@
 }
 
 /**
- * Another type
+ * Embed question
  */
 .dwqa-question-embed {
   clear: both;
@@ -192,6 +192,35 @@
   min-height: 150px;
   margin: 5px 0;
   position: relative;
+}
+.dwqa-embed-setting {
+  margin: 0 0 20px 0;
+  overflow: hidden;
+}
+.dwqa-embed-label {
+  font-weight: bold;
+}
+.dwqa-embed-size {
+  float: right;
+}
+.dwqa-embed-size small {
+  color: #999;
+  margin: 0 2px;
+}
+input[id*="dwqa-iframe-custom-"] {
+  border-color: #ccc !important;
+  padding: 3px !important;
+  font-size: 11px !important;
+  width: 60px !important;
+  height: 22px !important;
+  border-radius: 2px !important;
+  margin: 0 !important;
+}
+#dwqa-iframe-preview {
+  clear: both;
+}
+#dwqa-iframe-preview body {
+  padding: 0;
 }
 .dwqa-embed-avatar {
   float: left;

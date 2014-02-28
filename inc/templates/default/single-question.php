@@ -62,9 +62,14 @@
                             </ul>
                         </span>
                         <div class="dwqa-embed-get-code dwqa-hide">
-                            <p><textarea name="dwqa-embed-code" id="dwqa-embed-code"><iframe width="560" height="520" src="<?php echo add_query_arg( 'dwqa-embed', 'true', get_permalink() ); ?>" frameborder="0"></iframe></textarea></p>
-                            <p><strong><?php _e('Custom size:','dwqa') ?></strong> <input type="text" name="dwqa-iframe-custom-width" id="dwqa-iframe-custom-width" value="508">x<input type="text" name="dwqa-iframe-custom-height" id="dwqa-iframe-custom-height" value="520"></p>
-                            <p><strong><?php _e('How it look','dwqa'); ?></strong></p>
+                            <textarea name="dwqa-embed-code" id="dwqa-embed-code"><iframe width="560" height="520" src="<?php echo add_query_arg( 'dwqa-embed', 'true', get_permalink() ); ?>" frameborder="0"></iframe></textarea>
+                            <div class="dwqa-embed-setting">
+                                <span class="dwqa-embed-label"><?php _e('Preview:','dwqa') ?></span>
+                                <div class="dwqa-embed-size">
+                                    <span class="dwqa-embed-label"><?php _e('Size (px):','dwqa') ?></span> 
+                                    <input type="text" name="dwqa-iframe-custom-width" id="dwqa-iframe-custom-width" value=""><small>x</small><input type="text" name="dwqa-iframe-custom-height" id="dwqa-iframe-custom-height" value="">
+                                </div>
+                            </div>
                             <iframe id="dwqa-iframe-preview" width="508" height="520" src="<?php echo add_query_arg( 'dwqa-embed', 'true', get_permalink() ); ?>" frameborder="0"></iframe>
                         </div>
                     </footer>

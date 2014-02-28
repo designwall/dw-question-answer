@@ -43,7 +43,7 @@
                     ?>
                     <div class="dwqa-tags"><?php echo $tags; ?></div>
                     <?php endif; ?>  <!-- Question Tags -->
-                    <?php if( get_post_status() == 'public' ) :?>
+                    <?php if( get_post_status() == 'publish' ) :?>
                     <!-- Sharing buttons -->
                     <footer class="dwqa-footer-share">
                        <span class="dwqa-sharing">
@@ -61,7 +61,12 @@
                                 <li class="dwqa-embed-share"><a href="#" class="dwqa-share-link" title="<?php _e('Embed Code') ?>"><i class="fa fa-code"></i></a></li>
                             </ul>
                         </span>
-                        <textarea class="dwqa-hide" name="dwqa-embed-code" id="dwqa-embed-code"><iframe width="560" height="315" src="<?php echo add_query_arg( 'dwqa-embed', 'true', get_permalink() ); ?>" frameborder="0" allowfullscreen></iframe></textarea>
+                        <div class="dwqa-embed-get-code dwqa-hide">
+                            <p><textarea name="dwqa-embed-code" id="dwqa-embed-code"><iframe width="560" height="520" src="<?php echo add_query_arg( 'dwqa-embed', 'true', get_permalink() ); ?>" frameborder="0"></iframe></textarea></p>
+                            <p><strong><?php _e('Custom size:','dwqa') ?></strong> <input type="text" name="dwqa-iframe-custom-width" id="dwqa-iframe-custom-width" value="">x<input type="text" name="dwqa-iframe-custom-height" id="dwqa-iframe-custom-height" value=""></p>
+                            <p><strong><?php _e('How it look','dwqa'); ?></strong></p>
+                            <iframe id="dwqa-iframe-preview" width="508" height="520" src="<?php echo add_query_arg( 'dwqa-embed', 'true', get_permalink() ); ?>" frameborder="0"></iframe>
+                        </div>
                     </footer>
                     <script type="text/javascript">
                     jQuery(document).ready(function($) {
@@ -69,13 +74,21 @@
                             event.preventDefault();
                             if( $(this).is(".dwqa-embed-share") ) {
                                 $(this).find('a').toggleClass('dwqa-active');
-                                $('#dwqa-embed-code').toggleClass('dwqa-hide');
+                                $('.dwqa-embed-get-code').toggleClass('dwqa-hide');
                                 return false;
                             }
                             if( !$(this).is('.dwqa-twitter-share') ) {
                                 var url = $(this).find('a').attr('href');
                                 window.open(url,"","width=650,height=280");
                             }
+                        });
+                        $('#dwqa-iframe-custom-width, #dwqa-iframe-custom-height').on('change keyup',function(event){
+                            var ifr = $('#dwqa-iframe-preview').clone();
+                            ifr.attr({
+                                width: $('#dwqa-iframe-custom-width').val(),
+                                height: $('#dwqa-iframe-custom-height').val()
+                            }).removeAttr('style').removeAttr('id');
+                            $('#dwqa-embed-code').val( ifr.get(0).outerHTML );
                         });
                     });
                     </script>

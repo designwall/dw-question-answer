@@ -62,13 +62,13 @@
                             </ul>
                         </span>
                         <div class="dwqa-embed-get-code dwqa-hide">
+                            <p><?php _e('Copy and paste this code into your website.','dwqa') ?></p>
                             <textarea name="dwqa-embed-code" id="dwqa-embed-code"><iframe width="560" height="520" src="<?php echo add_query_arg( 'dwqa-embed', 'true', get_permalink() ); ?>" frameborder="0"></iframe></textarea>
                             <div class="dwqa-embed-setting">
-                                <p>Copy and paste this code into your website.</p>
                                 <span class="dwqa-embed-label"><?php _e('Preview:','dwqa') ?></span>
                                 <div class="dwqa-embed-size">
                                     <span class="dwqa-embed-label"><?php _e('Size (px):','dwqa') ?></span> 
-                                    <input type="text" name="dwqa-iframe-custom-width" id="dwqa-iframe-custom-width" value=""><small>x</small><input type="text" name="dwqa-iframe-custom-height" id="dwqa-iframe-custom-height" value="">
+                                    <input type="text" name="dwqa-iframe-custom-width" id="dwqa-iframe-custom-width" value="560"><small>x</small><input type="text" name="dwqa-iframe-custom-height" id="dwqa-iframe-custom-height" value="520">
                                 </div>
                             </div>
                             <iframe id="dwqa-iframe-preview" width="508" height="520" src="<?php echo add_query_arg( 'dwqa-embed', 'true', get_permalink() ); ?>" frameborder="0"></iframe>
@@ -89,25 +89,29 @@
                             }
                         });
                         $('#dwqa-iframe-custom-width, #dwqa-iframe-custom-height').on('change keyup',function(event){
-                            var ifr = $('#dwqa-iframe-preview').clone();
-                            var w = parseInt($('#dwqa-iframe-custom-width').val()), h = parseInt($('#dwqa-iframe-custom-height').val());
-                            if( isNaN(w) || isNaN(h) ) {
-                                w = 0; h = 0;
-                                $('#dwqa-iframe-custom-width').val(w);
-                                $('#dwqa-iframe-custom-height').val(h);
+                            if( $(this).val().length > 0 ) {
+                                var ifr = $('#dwqa-iframe-preview').clone();
+                                var w = $('#dwqa-iframe-custom-width').val(), h = $('#dwqa-iframe-custom-height').val();
+                                w = parseInt(w);
+                                h = parseInt(h);
+                                if( isNaN(w) || isNaN(h) ) {
+                                    w = 0; h = 0;
+                                    $('#dwqa-iframe-custom-width').val(w);
+                                    $('#dwqa-iframe-custom-height').val(h);
+                                }
+                                ifr.attr({
+                                    width: w,
+                                    height: h
+                                }).removeAttr('style').removeAttr('id');
+                                $('#dwqa-iframe-preview').css({
+                                    width: w + 'px',
+                                    height: h + 'px'
+                                }).attr({
+                                    width: w,
+                                    height: h
+                                });
+                                $('#dwqa-embed-code').val( ifr.get(0).outerHTML );
                             }
-                            ifr.attr({
-                                width: w,
-                                height: h
-                            }).removeAttr('style').removeAttr('id');
-                            $('#dwqa-iframe-preview').css({
-                                width: w + 'px',
-                                height: h + 'px'
-                            }).attr({
-                                width: w,
-                                height: h
-                            });;
-                            $('#dwqa-embed-code').val( ifr.get(0).outerHTML );
                         });
                     });
                     </script>

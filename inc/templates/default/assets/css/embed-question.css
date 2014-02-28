@@ -241,14 +241,12 @@ input[id*="dwqa-iframe-custom-"] {
   font-size: 12px;
   padding: 10px 12px 0;
   position: relative;
-  min-height: 85px;
 }
 .dwqa-embed-title {
   font-size: 18px;
-  font-weight: 500;
+  font-weight: bold;
   line-height: 22px;
-  margin-bottom: 8px;
-  overflow: hidden;
+  margin: 5px 0 0;
   word-wrap: break-word;
 }
 .dwqa-embed-title a {
@@ -259,9 +257,9 @@ input[id*="dwqa-iframe-custom-"] {
   border-bottom: 1px dotted #b3b3b3 !important;
 }
 .dwqa-embed-summary {
-  line-height: 16px;
   margin-top: 0;
-  overflow: hidden;
+  padding: 0 12px;
+  clear: both;
 }
 .dwqa-embed-links {
   margin-top: 5px;

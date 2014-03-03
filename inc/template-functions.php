@@ -284,10 +284,11 @@ function dwqa_submit_question_form(){
                     <?php dwqa_init_tinymce_editor( array( 'id' => 'dwqa-question-content-editor', 'textarea_name' => 'question-content' ) ); ?>
                 </div>
                 
+                <?php if( isset($dwqa_options['enable-private-question']) && $dwqa_options['enable-private-question'] ) : ?>
                 <div class="checkbox-private">
                     <label for="private-message"><input type="checkbox" name="private-message" id="private-message" value="true"> <?php _e('Post this Question as Private.','dwqa') ?> <i class="fa fa-question-circle" title="<?php _e('Only you as Author and Admin can see the question', 'dwqa') ?>"></i></label>
                 </div>
-                    
+                <?php endif; ?>
                 <div class="question-signin">
                     <?php do_action( 'dwqa_submit_question_ui' ); ?>
                 </div>

@@ -1,5 +1,11 @@
 <?php  
 function dwqa_new_question_notify( $question_id, $user_id ){
+    // receivers
+    $admin_email = get_option( 'dwqa_subscrible_sendto_address' );
+    if( ! $admin_email ) {
+        $admin_email = get_bloginfo( 'admin_address' );
+    }
+
     $enabled = get_option( 'dwqa_subscrible_enable_new_question_notification', 1);
     if( !$enabled ) {
         return false;
@@ -20,14 +26,22 @@ function dwqa_new_question_notify( $question_id, $user_id ){
     // To send HTML mail, the Content-type header must be set
     $headers  = 'MIME-Version: 1.0' . "\r\n";
     $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
+    //Cc email
+    $cc_address = get_option( 'dwqa_subscrible_cc_address' );
+    if( $cc_address ) {
+        $headers .= 'Cc: ' . $cc_address . "\r\n";
+    }
+    //Bcc email
+    $bcc_address = get_option( 'dwqa_subscrible_bcc_address' );
+    if( $bcc_address ) {
+        $headers .= 'Bcc: ' . $bcc_address . "\r\n";
+    }
 
     $message = dwqa_get_mail_template( 'dwqa_subscrible_new_question_email', 'new-question' );
     if( ! $message ) {
         return false;
     }
     // Replacement
-    // receiver
-    $admin_email = get_bloginfo( 'admin_email' );
     $admin = get_user_by( 'email', $admin_email );
     $message = str_replace( '{admin}', get_the_author_meta( 'display_name', $admin->ID ), $message);
     //sender

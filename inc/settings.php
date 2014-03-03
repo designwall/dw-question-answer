@@ -1,365 +1,5 @@
 <?php  
 
-//Create global variables for storing plugins settings
-function dwqa_init_options(){
-    global $dwqa_options;
-    $dwqa_options = wp_parse_args( get_option( 'dwqa_options' ), array( 
-        'pages'     => array(
-                'submit-question'   =>  0,
-                'archive-question'     => 0
-            )
-        
-    ) );
-
-}
-add_action( 'init', 'dwqa_init_options' );
-
-// Create admin menus for backend
-function dwqa_admin_menu(){
-    global $dwqa_setting_page;
-    $dwqa_setting_page = add_submenu_page( 
-        'edit.php?post_type=dwqa-question', 
-        __('Plugin Settings','dwqa'), 
-        __('Settings','dwqa'), 
-        'manage_options', 
-        'dwqa-settings', 
-        'dwqa_settings_display' 
-    );
-}   
-add_action( 'admin_menu', 'dwqa_admin_menu' );
-
-// Display settings form of DW Q&A
-function dwqa_settings_display(){
-    global $dwqa_options;
-    ?>
-    <div class="wrap">
-        <h2><?php _e('DWQA Settings', 'dwqa') ?></h2>
-        <?php settings_errors(); ?>  
-
-        <?php if( isset( $_GET[ 'tab' ] ) ) {  
-            $active_tab = $_GET[ 'tab' ];  
-        } else {  
-            $active_tab = 'general';  
-        } // end if/else ?>  
-        
-        <h2 class="nav-tab-wrapper">  
-            <a href="?post_type=dwqa-question&amp;page=dwqa-settings&amp;tab=general" class="nav-tab <?php echo $active_tab == 'general' ? 'nav-tab-active' : ''; ?>"><?php _e('General','dwqa'); ?></a> 
-            <a href="?post_type=dwqa-question&amp;page=dwqa-settings&amp;tab=email" class="nav-tab <?php echo $active_tab == 'email' ? 'nav-tab-active' : ''; ?>"><?php _e('Notification','dwqa'); ?></a> 
-            <a href="?post_type=dwqa-question&amp;page=dwqa-settings&amp;tab=permission" class="nav-tab <?php echo $active_tab == 'permission' ? 'nav-tab-active' : ''; ?>"><?php _e('Permission','dwqa'); ?></a> 
-        </h2>  
-          
-        <form method="post" action="options.php">  
-        <?php  
-            if( 'email' == $active_tab ) {
-                echo '<div class="dwqa-notification-settings">';
-                settings_fields( 'dwqa-subscribe-settings' );
-                dwqa_subscrible_email_logo_display();
-                echo '<h3>'.__('Email Template','dwqa') . '</h3>';
-                echo '<div class="dwqa-mail-templates">';
-                echo '<div class="progress-bar"><div class="progress-bar-inner"></div></div>';
-                echo '<ul class="nav-tabs">';
-
-                echo '<li class="active"><a href="#new-question">'.__('New Question', 'dwqa').'</a></li>';
-                echo '<li><a href="#new-answer">'.__('New Answer', 'dwqa').'</a></li>';
-                echo '<li><a href="#new-comment-question">'.__('New Comment to Question', 'dwqa').'</a></li>';
-                echo '<li><a href="#new-comment-answer">'.__('New Comment to Answer', 'dwqa').'</a></li>';
-                echo '<li><a href="#new-answer-followers">'.__('New Answer (to Followers)', 'dwqa').'</a></li>';
-                echo '<li><a href="#new-comment-question-followers">'.__('New Comment to Question (to Followers)', 'dwqa').'</a></li>';
-                echo '<li><a href="#new-comment-answer-followers">'.__('New Comment to Answer (to Followers)', 'dwqa').'</a></li>';
-
-                echo '</ul>'; // Create default email template
-
-                echo '<div class="tab-content">'; 
-
-                echo '<div id="new-question" class="tab-pane active">';
-                echo '<h3>'.__('New Question Notification','dwqa') . '</h3>';
-
-                dwqa_subscrible_enable_new_question_notification();
-                dwqa_subscrible_new_question_email_subject_display();
-                dwqa_subscrible_new_question_email_display();
-                submit_button( __('Save all changes','dwqa') );
-                echo '<hr>';
-                echo '</div>'; //End tab for New Question Notification
-
-                echo '<div id="new-answer" class="tab-pane">';
-                echo '<h3>'.__('New Answer Notification','dwqa'). '</h3>';
-                dwqa_subscrible_enable_new_answer_notification();
-                dwqa_subscrible_new_answer_email_subject_display();
-                dwqa_subscrible_new_answer_email_display();
-                submit_button( __('Save all changes','dwqa') );
-                echo '<hr>';
-                echo '</div>';//End tab for New Answer Notification
-
-                echo '<div id="new-answer-followers" class="tab-pane">';
-                echo '<h3>'.__('New Answer Notification ( To Followers )','dwqa'). '</h3>';
-                dwqa_subscrible_enable_new_answer_followers_notification();
-                dwqa_subscrible_new_answer_followers_email_subject_display();
-                dwqa_subscrible_new_answer_followers_email_display();
-                submit_button( __('Save all changes','dwqa') );
-                echo '<hr>';
-                echo '</div>';//End tab for New Answer Notification To Followers
-
-                echo '<div id="new-comment-question" class="tab-pane">';
-                echo '<h3>'.__('New Comment to Question Notification','dwqa'). '</h3>';
-                dwqa_subscrible_enable_new_comment_question_notification();
-                dwqa_subscrible_new_comment_question_email_subject_display();
-                dwqa_subscrible_new_comment_question_email_display();
-                submit_button( __('Save all changes','dwqa') );
-                echo '<hr>';
-                echo '</div>'; //End tab for New Comment to Question Notification
-
-
-                echo '<div id="new-comment-answer" class="tab-pane">';
-                echo '<h3>'.__('New Comment to Answer Notification','dwqa'). '</h3>';
-                dwqa_subscrible_enable_new_comment_answer_notification();
-                dwqa_subscrible_new_comment_answer_email_subject_display();
-                dwqa_subscrible_new_comment_answer_email_display();
-                submit_button( __('Save all changes','dwqa') );
-                echo '</div>'; //End tab for New Comment to Answer Notification
-
-                echo '<div id="new-comment-question-followers" class="tab-pane">';
-                echo '<h3>'.__('New Comment to Question Notification (to Followers)','dwqa'). '</h3>';
-                dwqa_subscrible_enable_new_comment_question_followers_notification();
-                dwqa_subscrible_new_comment_question_followers_email_subject_display();
-                dwqa_subscrible_new_comment_question_followers_email_display();
-                submit_button( __('Save all changes','dwqa') );
-                echo '<hr>';
-                echo '</div>'; //End tab for New Comment to Question Notification
-
-
-                echo '<div id="new-comment-answer-followers" class="tab-pane">';
-                echo '<h3>'.__('New Comment to Answer Notification (to Followers)','dwqa'). '</h3>';
-                dwqa_subscrible_enable_new_comment_answer_followers_notification();
-                dwqa_subscrible_new_comment_answer_followers_email_subject_display();
-                dwqa_subscrible_new_comment_answer_followers_email_display();
-                submit_button( __('Save all changes','dwqa') );
-                echo '</div>'; //End tab for New Comment to Answer Notification
-
-                echo '</div>'; //End wrap mail template settings
-
-                echo '</div>'; //End wrap tab content
-
-                echo '</div>'; //The End
-            } elseif ( 'permission' == $active_tab ) {
-                settings_fields( 'dwqa-permission-settings' );
-                dwqa_permission_display();
-                submit_button();
-            } else {
-                settings_fields( 'dwqa-settings' );
-                do_settings_sections( 'dwqa-settings' );
-                submit_button();
-            }
-        ?>
-        </form>  
-    </div>
-    <?php
-}
-
-function dwqa_register_settings(){
-    global  $dwqa_general_settings;
-
-    //Register Setting Sections
-    add_settings_section( 
-        'dwqa-general-settings', 
-        false, 
-        null, 
-        'dwqa-settings' 
-    );
-
-    add_settings_field( 
-        'dwqa_options[pages][archive-question]', 
-        __('Question List Page', 'dwqa'), 
-        'dwqa_pages_settings_display', 
-        'dwqa-settings', 
-        'dwqa-general-settings'
-    );
-
-    add_settings_field( 
-        'dwqa_options[posts-per-page]', 
-        __('Archive page show at most','dwqa'), 
-        'dwqa_posts_per_page_display', 
-        'dwqa-settings', 
-        'dwqa-general-settings' 
-    );
-
-    add_settings_field( 
-        'dwqa_options[pages][submit-question]', 
-        __('Ask Question Page', 'dwqa'), 
-        'dwqa_submit_question_page_display', 
-        'dwqa-settings', 
-        'dwqa-general-settings'
-    );
-    //Time setting
-    add_settings_section( 
-        'dwqa-time-settings', 
-        __('Time settings','dwqa'), 
-        null, 
-        'dwqa-settings' 
-    );
-
-    add_settings_field( 
-        'dwqa_options[question-new-time-frame]', 
-        __('New Question Time Frame', 'dwqa'), 
-        'dwqa_question_new_time_frame_display', 
-        'dwqa-settings', 
-        'dwqa-time-settings'
-    );
-
-    add_settings_field( 
-        'dwqa_options[question-overdue-time-frame]', 
-        __('Question Overdue - Time Frame', 'dwqa'), 
-        'dwqa_question_overdue_time_frame_display', 
-        'dwqa-settings', 
-        'dwqa-time-settings'
-    );
-
-    //Captcha Setting
-
-    add_settings_section( 
-        'dwqa-captcha-settings', 
-        __('Captcha settings','dwqa'), 
-        null, 
-        'dwqa-settings' 
-    );
-
-    add_settings_field( 
-        'dwqa_options[captcha-in-question]', 
-        __('Captcha in Submit Question Page', 'dwqa'), 
-        'dwqa_captcha_in_question_display', 
-        'dwqa-settings', 
-        'dwqa-captcha-settings'
-    );
-
-    add_settings_field( 
-        'dwqa_options[captcha-in-single-question]', 
-        __('Captcha in Single Question Page', 'dwqa'), 
-        'dwqa_captcha_in_single_question_display', 
-        'dwqa-settings', 
-        'dwqa-captcha-settings'
-    );
-
-    add_settings_field( 
-        'dwqa_options[captcha-google-public-key]', 
-        __('Google Captcha Public Key', 'dwqa'), 
-        'dwqa_captcha_google_pubic_key_display', 
-        'dwqa-settings', 
-        'dwqa-captcha-settings'
-    );
-
-    add_settings_field( 
-        'dwqa_options[captcha-google-private-key]', 
-        __('Google Captcha Private Key', 'dwqa'), 
-        'dwqa_captcha_google_private_key_display', 
-        'dwqa-settings', 
-        'dwqa-captcha-settings'
-    );
-
-
-    //Permalink
-    add_settings_section( 
-        'dwqa-permalink-settings', 
-        __('Permalink Settings','dwqa'), 
-        create_function('', '_e(\'Custom permalinks for single questions, categories, tags.\',\'dwqa\'); '), 
-        'dwqa-settings' 
-    );
-
-    add_settings_field( 
-        'dwqa_options[question-rewrite]', 
-        __('Single Question', 'dwqa'), 
-        'dwqa_question_rewrite_display', 
-        'dwqa-settings', 
-        'dwqa-permalink-settings'
-    );
-
-    add_settings_field( 
-        'dwqa_options[question-category-rewrite]', 
-        __('Single Category', 'dwqa'), 
-        'dwqa_question_category_rewrite_display', 
-        'dwqa-settings', 
-        'dwqa-permalink-settings'
-    );
-
-    add_settings_field( 
-        'dwqa_options[question-tag-rewrite]', 
-        __('Single Tag', 'dwqa'), 
-        'dwqa_question_tag_rewrite_display', 
-        'dwqa-settings', 
-        'dwqa-permalink-settings'
-    );
-
-    register_setting( 'dwqa-settings', 'dwqa_options');
-
-
-    add_settings_section( 
-        'dwqa-subscribe-settings', 
-        false,
-        false,
-        'dwqa-email' 
-    );
-
-    add_settings_field( 
-        'dwqa_subscrible_email_logo', 
-        __('Email Logo', 'dwqa'), 
-        'dwqa_subscrible_email_logo_display', 
-        'dwqa-email', 
-        'dwqa-subscribe-settings'
-    );
-    register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_email_logo');
-
-    //New Question Email Notify
-    register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_new_question_email' );
-    register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_new_question_email_subject' );
-    register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_enable_new_question_notification' );
-
-    // New Answer Email Notify
-    register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_new_answer_email' );
-    register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_new_answer_email_subject' );
-    register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_enable_new_answer_notification' );
-    // New Answer to Followers Email Notify
-    register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_new_answer_followers_email' );
-    register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_new_answer_followers_email_subject' );
-    register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_enable_new_answer_followers_notification' );
-
-    // New Comment for Question Notify
-    register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_new_comment_question_email_subject' );
-    register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_new_comment_question_email' );
-    register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_enable_new_comment_question_notification' );
-
-    // New Comment for Question to Followers Email Notify
-    register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_new_comment_question_followers_email_subject' );
-    register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_new_comment_question_followers_email' );
-    register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_enable_new_comment_question_followers_notify' );
-
-    // New Comment for Answer Email Notify
-    register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_new_comment_answer_email_subject' );
-    register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_new_comment_answer_email' );
-    register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_enable_new_comment_answer_notification' );
-
-    // New Comment for Answer to Followers Email Notify
-    register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_new_comment_answer_followers_email_subject' );
-    register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_new_comment_answer_followers_email' );
-    register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_enable_new_comment_answer_followers_notification' );
-
-
-    add_settings_section( 
-        'dwqa-permission-settings', 
-        __('Group Permission','dwqa'),
-        false,
-        'dwqa-permission' 
-    );
-
-    add_settings_field( 
-        'dwqa_permission', 
-        __('Group Permission','dwqa'), 
-        'dwqa_permission_display', 
-        'dwqa-permission', 
-        'dwqa-permission-settings' 
-    );
-
-    register_setting( 'dwqa-permission-settings', 'dwqa_permission' );
-
-}
-add_action( 'admin_init', 'dwqa_register_settings' );
 
 // Callback for dwqa-general-settings Option
 function dwqa_question_registration_setting_display(){
@@ -427,7 +67,6 @@ function dwqa_email_template_settings_display(){
 function dwqa_subscrible_email_logo_display(){
     ?>
     <div class="uploader">
-        <h3><?php _e('Email logo','dwqa') ?></h3>
         <p><input type="text" name="dwqa_subscrible_email_logo" id="dwqa_subscrible_email_logo" class="regular-text" value="<?php echo  get_option( 'dwqa_subscrible_email_logo' ); ?>" />&nbsp;<input type="button" class="button" name="dwqa_subscrible_email_logo_button" id="dwqa_subscrible_email_logo_button" value="<?php _e('Upload','dwqa') ?>" /><span class="description">&nbsp;<?php _e('Upload or choose a logo to be displayed at the top of the email','dwqa') ?></span></p>
     </div>
     <script type="text/javascript">
@@ -904,4 +543,424 @@ function dwqa_posts_per_page_display(){
     $posts_per_page = isset($dwqa_general_settings['posts-per-page']) ?  $dwqa_general_settings['posts-per-page'] : 5;
     echo '<p><input type="text" name="dwqa_options[posts-per-page]" class="small-text" value="'.$posts_per_page.'" > <span class="description">'.__('questions','dwqa').'</span></p>';
 }
+
+function dwqa_enable_private_question_display() {
+    global $dwqa_general_settings;
+    
+    echo '<p><label for="dwqa_options_enable_private_question"><input type="checkbox" name="dwqa_options[enable-private-question]"  id="dwqa_options_enable_private_question" value="1" '.checked( 1, (isset($dwqa_general_settings['enable-private-question']) ? $dwqa_general_settings['enable-private-question'] : false) , false ) .'><span class="description">'.__('Allow members to post private question','dwqa').'</span></label></p>';
+}
+
+function dwqa_subscrible_send_to_display(){
+
+}
+
+
+class DWQA_Settings {
+    public function __construct(){
+
+        add_action( 'admin_menu', array($this, 'admin_menu') );
+        add_action( 'init', array( $this, 'init_options' ) );
+        add_action( 'admin_init', array( $this, 'register_settings' ) );
+    }
+    // Create admin menus for backend
+    public function admin_menu(){
+        global $dwqa_setting_page;
+        $dwqa_setting_page = add_submenu_page( 'edit.php?post_type=dwqa-question', __('Plugin Settings','dwqa'), __('Settings','dwqa'), 'manage_options', 'dwqa-settings', array( $this, 'settings_display' )  );
+    }   
+
+    public function init_options(){
+        global $dwqa_options;
+        $dwqa_options = wp_parse_args( get_option( 'dwqa_options' ), array( 
+            'pages'     => array(
+                    'submit-question'   => 0,
+                    'archive-question'  => 0
+                )
+        ) );
+    }
+
+    public function register_settings(){
+        global  $dwqa_general_settings;
+
+        //Register Setting Sections
+        add_settings_section( 
+            'dwqa-general-settings', 
+            false, 
+            null, 
+            'dwqa-settings' 
+        );
+
+        add_settings_field( 
+            'dwqa_options[pages][archive-question]', 
+            __('Question List Page', 'dwqa'), 
+            'dwqa_pages_settings_display', 
+            'dwqa-settings', 
+            'dwqa-general-settings'
+        );
+
+        add_settings_field( 
+            'dwqa_options[posts-per-page]', 
+            __('Archive page show at most','dwqa'), 
+            'dwqa_posts_per_page_display', 
+            'dwqa-settings', 
+            'dwqa-general-settings' 
+        );
+
+        add_settings_field( 
+            'dwqa_options[pages][submit-question]', 
+            __('Ask Question Page', 'dwqa'), 
+            'dwqa_submit_question_page_display', 
+            'dwqa-settings', 
+            'dwqa-general-settings'
+        );
+        add_settings_field( 
+            'dwqa_options[enable-private-question]', 
+            __('Private Question', 'dwqa'), 
+            'dwqa_enable_private_question_display', 
+            'dwqa-settings', 
+            'dwqa-general-settings'
+        );
+        //Time setting
+        add_settings_section( 
+            'dwqa-time-settings', 
+            __('Time settings','dwqa'), 
+            null, 
+            'dwqa-settings' 
+        );
+
+        add_settings_field( 
+            'dwqa_options[question-new-time-frame]', 
+            __('New Question Time Frame', 'dwqa'), 
+            'dwqa_question_new_time_frame_display', 
+            'dwqa-settings', 
+            'dwqa-time-settings'
+        );
+
+        add_settings_field( 
+            'dwqa_options[question-overdue-time-frame]', 
+            __('Question Overdue - Time Frame', 'dwqa'), 
+            'dwqa_question_overdue_time_frame_display', 
+            'dwqa-settings', 
+            'dwqa-time-settings'
+        );
+
+        //Captcha Setting
+
+        add_settings_section( 
+            'dwqa-captcha-settings', 
+            __('Captcha settings','dwqa'), 
+            null, 
+            'dwqa-settings' 
+        );
+
+        add_settings_field( 
+            'dwqa_options[captcha-in-question]', 
+            __('Captcha in Submit Question Page', 'dwqa'), 
+            'dwqa_captcha_in_question_display', 
+            'dwqa-settings', 
+            'dwqa-captcha-settings'
+        );
+
+        add_settings_field( 
+            'dwqa_options[captcha-in-single-question]', 
+            __('Captcha in Single Question Page', 'dwqa'), 
+            'dwqa_captcha_in_single_question_display', 
+            'dwqa-settings', 
+            'dwqa-captcha-settings'
+        );
+
+        add_settings_field( 
+            'dwqa_options[captcha-google-public-key]', 
+            __('Google Captcha Public Key', 'dwqa'), 
+            'dwqa_captcha_google_pubic_key_display', 
+            'dwqa-settings', 
+            'dwqa-captcha-settings'
+        );
+
+        add_settings_field( 
+            'dwqa_options[captcha-google-private-key]', 
+            __('Google Captcha Private Key', 'dwqa'), 
+            'dwqa_captcha_google_private_key_display', 
+            'dwqa-settings', 
+            'dwqa-captcha-settings'
+        );
+
+
+        //Permalink
+        add_settings_section( 
+            'dwqa-permalink-settings', 
+            __('Permalink Settings','dwqa'), 
+            create_function('', '_e(\'Custom permalinks for single questions, categories, tags.\',\'dwqa\'); '), 
+            'dwqa-settings' 
+        );
+
+        add_settings_field( 
+            'dwqa_options[question-rewrite]', 
+            __('Single Question', 'dwqa'), 
+            'dwqa_question_rewrite_display', 
+            'dwqa-settings', 
+            'dwqa-permalink-settings'
+        );
+
+        add_settings_field( 
+            'dwqa_options[question-category-rewrite]', 
+            __('Single Category', 'dwqa'), 
+            'dwqa_question_category_rewrite_display', 
+            'dwqa-settings', 
+            'dwqa-permalink-settings'
+        );
+
+        add_settings_field( 
+            'dwqa_options[question-tag-rewrite]', 
+            __('Single Tag', 'dwqa'), 
+            'dwqa_question_tag_rewrite_display', 
+            'dwqa-settings', 
+            'dwqa-permalink-settings'
+        );
+
+        register_setting( 'dwqa-settings', 'dwqa_options');
+
+
+        add_settings_section( 
+            'dwqa-subscribe-settings', 
+            false,
+            false,
+            'dwqa-email' 
+        );
+
+        // Send to address setting
+        add_settings_field( 
+            'dwqa_subscrible_sendto_address', 
+            __('Send to', 'dwqa'), 
+            array( $this, 'email_sendto_address_display' ), 
+            'dwqa-email', 
+            'dwqa-subscribe-settings'
+        );
+        register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_sendto_address');
+
+        // Cc address setting
+        add_settings_field( 
+            'dwqa_subscrible_cc_address', 
+            __('Cc', 'dwqa'), 
+            array( $this, 'email_cc_address_display' ), 
+            'dwqa-email', 
+            'dwqa-subscribe-settings'
+        );
+        register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_cc_address');
+
+        // Bcc address setting
+        add_settings_field( 
+            'dwqa_subscrible_bcc_address', 
+            __('Bcc', 'dwqa'), 
+            array( $this, 'email_bcc_address_display' ), 
+            'dwqa-email', 
+            'dwqa-subscribe-settings'
+        );
+        register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_bcc_address');
+
+        // Logo setting in for email template
+        add_settings_field( 
+            'dwqa_subscrible_email_logo', 
+            __('Email Logo', 'dwqa'), 
+            'dwqa_subscrible_email_logo_display', 
+            'dwqa-email', 
+            'dwqa-subscribe-settings'
+        );
+        register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_email_logo');
+
+        //New Question Email Notify
+        register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_new_question_email' );
+        register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_new_question_email_subject' );
+        register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_enable_new_question_notification' );
+
+        // New Answer Email Notify
+        register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_new_answer_email' );
+        register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_new_answer_email_subject' );
+        register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_enable_new_answer_notification' );
+        // New Answer to Followers Email Notify
+        register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_new_answer_followers_email' );
+        register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_new_answer_followers_email_subject' );
+        register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_enable_new_answer_followers_notification' );
+
+        // New Comment for Question Notify
+        register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_new_comment_question_email_subject' );
+        register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_new_comment_question_email' );
+        register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_enable_new_comment_question_notification' );
+
+        // New Comment for Question to Followers Email Notify
+        register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_new_comment_question_followers_email_subject' );
+        register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_new_comment_question_followers_email' );
+        register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_enable_new_comment_question_followers_notify' );
+
+        // New Comment for Answer Email Notify
+        register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_new_comment_answer_email_subject' );
+        register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_new_comment_answer_email' );
+        register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_enable_new_comment_answer_notification' );
+
+        // New Comment for Answer to Followers Email Notify
+        register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_new_comment_answer_followers_email_subject' );
+        register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_new_comment_answer_followers_email' );
+        register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_enable_new_comment_answer_followers_notification' );
+
+
+        add_settings_section( 
+            'dwqa-permission-settings', 
+            __('Group Permission','dwqa'),
+            false,
+            'dwqa-permission' 
+        );
+
+        add_settings_field( 
+            'dwqa_permission', 
+            __('Group Permission','dwqa'), 
+            'dwqa_permission_display', 
+            'dwqa-permission', 
+            'dwqa-permission-settings' 
+        );
+
+        register_setting( 'dwqa-permission-settings', 'dwqa_permission' );    
+    }
+
+    public function settings_display(){
+        global $dwqa_options;
+    ?>
+        <div class="wrap">
+            <h2><?php _e('DWQA Settings', 'dwqa') ?></h2>
+            <?php settings_errors(); ?>  
+
+            <?php $active_tab = isset( $_GET[ 'tab' ] ) ? $_GET['tab'] : 'general'; ?>  
+            <h2 class="nav-tab-wrapper">  
+                <a href="?post_type=dwqa-question&amp;page=dwqa-settings&amp;tab=general" class="nav-tab <?php echo $active_tab == 'general' ? 'nav-tab-active' : ''; ?>"><?php _e('General','dwqa'); ?></a> 
+                <a href="?post_type=dwqa-question&amp;page=dwqa-settings&amp;tab=email" class="nav-tab <?php echo $active_tab == 'email' ? 'nav-tab-active' : ''; ?>"><?php _e('Notification','dwqa'); ?></a> 
+                <a href="?post_type=dwqa-question&amp;page=dwqa-settings&amp;tab=permission" class="nav-tab <?php echo $active_tab == 'permission' ? 'nav-tab-active' : ''; ?>"><?php _e('Permission','dwqa'); ?></a> 
+            </h2>  
+              
+            <form method="post" action="options.php">  
+            <?php  
+                if( 'email' == $active_tab ) {
+                    echo '<div class="dwqa-notification-settings">';
+
+                    settings_fields( 'dwqa-subscribe-settings' );
+                    do_settings_sections( 'dwqa-email' );
+
+                    echo '<h3>'.__('Email Template','dwqa') . '</h3>';
+                    echo '<div class="dwqa-mail-templates">';
+                    echo '<div class="progress-bar"><div class="progress-bar-inner"></div></div>';
+                    echo '<ul class="nav-tabs">';
+
+                    echo '<li class="active"><a href="#new-question">'.__('New Question', 'dwqa').'</a></li>';
+                    echo '<li><a href="#new-answer">'.__('New Answer', 'dwqa').'</a></li>';
+                    echo '<li><a href="#new-comment-question">'.__('New Comment to Question', 'dwqa').'</a></li>';
+                    echo '<li><a href="#new-comment-answer">'.__('New Comment to Answer', 'dwqa').'</a></li>';
+                    echo '<li><a href="#new-answer-followers">'.__('New Answer (to Followers)', 'dwqa').'</a></li>';
+                    echo '<li><a href="#new-comment-question-followers">'.__('New Comment to Question (to Followers)', 'dwqa').'</a></li>';
+                    echo '<li><a href="#new-comment-answer-followers">'.__('New Comment to Answer (to Followers)', 'dwqa').'</a></li>';
+
+                    echo '</ul>'; // Create default email template
+
+                    echo '<div class="tab-content">'; 
+
+                    echo '<div id="new-question" class="tab-pane active">';
+                    echo '<h3>'.__('New Question Notification','dwqa') . '</h3>';
+
+                    dwqa_subscrible_enable_new_question_notification();
+                    dwqa_subscrible_new_question_email_subject_display();
+                    dwqa_subscrible_new_question_email_display();
+                    submit_button( __('Save all changes','dwqa') );
+                    echo '<hr>';
+                    echo '</div>'; //End tab for New Question Notification
+
+                    echo '<div id="new-answer" class="tab-pane">';
+                    echo '<h3>'.__('New Answer Notification','dwqa'). '</h3>';
+                    dwqa_subscrible_enable_new_answer_notification();
+                    dwqa_subscrible_new_answer_email_subject_display();
+                    dwqa_subscrible_new_answer_email_display();
+                    submit_button( __('Save all changes','dwqa') );
+                    echo '<hr>';
+                    echo '</div>';//End tab for New Answer Notification
+
+                    echo '<div id="new-answer-followers" class="tab-pane">';
+                    echo '<h3>'.__('New Answer Notification ( To Followers )','dwqa'). '</h3>';
+                    dwqa_subscrible_enable_new_answer_followers_notification();
+                    dwqa_subscrible_new_answer_followers_email_subject_display();
+                    dwqa_subscrible_new_answer_followers_email_display();
+                    submit_button( __('Save all changes','dwqa') );
+                    echo '<hr>';
+                    echo '</div>';//End tab for New Answer Notification To Followers
+
+                    echo '<div id="new-comment-question" class="tab-pane">';
+                    echo '<h3>'.__('New Comment to Question Notification','dwqa'). '</h3>';
+                    dwqa_subscrible_enable_new_comment_question_notification();
+                    dwqa_subscrible_new_comment_question_email_subject_display();
+                    dwqa_subscrible_new_comment_question_email_display();
+                    submit_button( __('Save all changes','dwqa') );
+                    echo '<hr>';
+                    echo '</div>'; //End tab for New Comment to Question Notification
+
+
+                    echo '<div id="new-comment-answer" class="tab-pane">';
+                    echo '<h3>'.__('New Comment to Answer Notification','dwqa'). '</h3>';
+                    dwqa_subscrible_enable_new_comment_answer_notification();
+                    dwqa_subscrible_new_comment_answer_email_subject_display();
+                    dwqa_subscrible_new_comment_answer_email_display();
+                    submit_button( __('Save all changes','dwqa') );
+                    echo '</div>'; //End tab for New Comment to Answer Notification
+
+                    echo '<div id="new-comment-question-followers" class="tab-pane">';
+                    echo '<h3>'.__('New Comment to Question Notification (to Followers)','dwqa'). '</h3>';
+                    dwqa_subscrible_enable_new_comment_question_followers_notification();
+                    dwqa_subscrible_new_comment_question_followers_email_subject_display();
+                    dwqa_subscrible_new_comment_question_followers_email_display();
+                    submit_button( __('Save all changes','dwqa') );
+                    echo '<hr>';
+                    echo '</div>'; //End tab for New Comment to Question Notification
+
+
+                    echo '<div id="new-comment-answer-followers" class="tab-pane">';
+                    echo '<h3>'.__('New Comment to Answer Notification (to Followers)','dwqa'). '</h3>';
+                    dwqa_subscrible_enable_new_comment_answer_followers_notification();
+                    dwqa_subscrible_new_comment_answer_followers_email_subject_display();
+                    dwqa_subscrible_new_comment_answer_followers_email_display();
+                    submit_button( __('Save all changes','dwqa') );
+                    echo '</div>'; //End tab for New Comment to Answer Notification
+
+                    echo '</div>'; //End wrap mail template settings
+
+                    echo '</div>'; //End wrap tab content
+
+                    echo '</div>'; //The End
+                } elseif ( 'permission' == $active_tab ) {
+                    settings_fields( 'dwqa-permission-settings' );
+                    dwqa_permission_display();
+                    submit_button();
+                } else {
+                    settings_fields( 'dwqa-settings' );
+                    do_settings_sections( 'dwqa-settings' );
+                    submit_button();
+                }
+            ?>
+            </form>  
+        </div>
+    <?php
+    }
+
+    public function email_sendto_address_display(){
+        $this->input_text_field( 'dwqa_subscrible_sendto_address' );
+    }
+
+    public function email_cc_address_display(){
+        $this->input_text_field( 'dwqa_subscrible_cc_address' );
+    }
+
+    public function email_bcc_address_display(){
+        $this->input_text_field( 'dwqa_subscrible_bcc_address' );
+    }
+
+
+    public function input_text_field( $option, $label = false, $description = false, $class = false ){
+        echo '<p><label for="'.$option.'"><input type="text" id="'.$option.'" name="'.$option.'" value="'.get_option( $option ).'" class="widefat" /</label></p>';
+    }
+}
+$GLOBAL['dwqa-settings'] = new DWQA_Settings();
+
+
 ?>

@@ -992,8 +992,8 @@ function dwqa_comment_action_add(){
         $args['user_id']    = -1;
     }
 
-    $comment_id = wp_insert_comment( $args );   
-    do_action( 'dwqa_add_comment', $comment_id );
+    $comment_id = wp_insert_comment( $args );  
+
     global $comment;
     $comment = get_comment( $comment_id );
     ob_start();
@@ -1003,6 +1003,9 @@ function dwqa_comment_action_add(){
     echo '</li>';
     $comment_html = ob_get_contents();
     ob_end_clean();
+
+    do_action( 'dwqa_add_comment', $comment_id, $comment_html, $_POST['clientId'] );
+    
     wp_send_json_success( array(
             'html'   => $comment_html
         ) );

@@ -272,6 +272,7 @@ function dwqa_plugin_init(){
     $script_version = 1393484052;
     $dwqa_sript_vars = array(
         'is_logged_in'  => is_user_logged_in(),
+        'plugin_dir_url' => DWQA_URI,
         'code_icon'    => DWQA_URI . 'assets/img/icon-code.png',
         'ajax_url'      => admin_url( 'admin-ajax.php' ),
         'text_next'     => __('Next','dwqa'),

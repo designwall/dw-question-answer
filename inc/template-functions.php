@@ -462,10 +462,11 @@ function dwqa_enqueue_scripts(){
     // Enqueue for single question page
     if( is_single() && 'dwqa-question' == get_post_type() ) {
         // js
-        wp_enqueue_script( 'dwqa-single-question', $assets_folder . 'js/dwqa-single-question.js', array('jquery' ), $version, true );
-        wp_localize_script( 'dwqa-single-question', 'dwqa', $dwqa_sript_vars );
-
-        
+        wp_enqueue_script( 'buzz', DWQA_URI . 'assets/js/buzz.min.js', array('jquery'), '1.1.0', true );
+        wp_enqueue_script( 'dwqa-single-question', $assets_folder . 'js/dwqa-single-question.js', array('jquery', 'buzz' ), $version, true );
+        $single_script_vars = $dwqa_sript_vars;
+        $single_script_vars['question_id'] = get_the_ID();
+        wp_localize_script( 'dwqa-single-question', 'dwqa', $single_script_vars );
     }
 
 

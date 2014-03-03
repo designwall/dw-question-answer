@@ -6,12 +6,20 @@ function _e(event, obj, fn) {
     jQuery(obj)[fn](event);
 }
 
-
+//Make client id
+function randomString(length, chars) {
+    var result = '';
+    for (var i = length; i > 0; --i) result += chars[Math.round(Math.random() * (chars.length - 1))];
+    return result;
+}
+var clientId = randomString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
 
 jQuery(function($) {
 
     var answers = $('#dwqa-answers'),
         answer_editor = $('#dwqa-add-answers');
+
+
 
     function replaceURLWithHTMLLinks(text) {
         var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
@@ -145,6 +153,22 @@ jQuery(function($) {
 
     // Comment ====================================================================================
     var onSubmitComment = false;
+
+    function append_comment(html, submitForm) {
+        var commentList = submitForm.parent().find('.dwqa-comment-list'),
+            contentField = submitForm.find('textarea[name="comment"]');
+        var comment = $(html);
+        if (commentList.length > 0) {
+            commentList.append(comment);
+            comment.closest('article').effect('highlight', 2000);
+        } else {
+            var commentList = $('<ol class="dwqa-comment-list">' + html + '</ol>');
+            submitForm.before(commentList);
+            commentList.closest('article').effect('highlight', 2000);
+        }
+        contentField.val('');
+    }
+
     $('[id^=comment_form_]').on('submit', function(event) {
         event.preventDefault();
 
@@ -213,6 +237,7 @@ jQuery(function($) {
             onSubmitComment = true;
             var loading = $('<span class="loading"></span>');
             $(this).find('[name="submit"]').after(loading);
+            t.find('textarea').attr('disable', 'disable');
             loading.css('display', 'inline-block').parent().css('position', 'relative');
             $.ajax({
                 url: dwqa.ajax_url,
@@ -226,22 +251,17 @@ jQuery(function($) {
                     comment_parent: t.find('[name="comment_parent"]').val(),
                     name: name,
                     email: email,
-                    url: url
+                    url: url,
+                    clientId: clientId
                 },
                 complete: function() {
                     onSubmitComment = false;
+                    t.find('textarea').removeAttr('disable');
                 },
                 success: function(data, textStatus, xhr) {
-                    var submitForm = t.closest('.dwqa-comment-form'),
-                        commentList = submitForm.parent().find('.dwqa-comment-list');
-
-                    if (commentList.length > 0) {
-                        commentList.append(data.data.html);
-                    } else {
-                        var commentList = '<ol class="dwqa-comment-list">' + data.data.html + '</ol>';
-                        submitForm.before(commentList);
-                    }
-                    contentField.val('');
+                    var html = data.data.html,
+                        submitForm = t.closest('.dwqa-comment-form');
+                    append_comment(html, submitForm);
                     loading.remove();
                 },
             });
@@ -864,6 +884,65 @@ jQuery(function($) {
         if (vis() && switchTab < 2) {
             doHighlight(1500);
             switchTab++;
+        }
+    });
+
+
+    //Comment real time, websocket
+    var chatSound = new buzz.sound(dwqa.plugin_dir_url + 'assets/sound/sounds-812-droplet.mp3');
+
+    function open_websocket(channel_id) {
+        if (window.websocket_opened === true) {
+            return false;
+        }
+
+        var ws = new WebSocket("ws://ec2-54-224-117-255.compute-1.amazonaws.com:8001/?channel_id=" + channel_id);
+
+        ws.onopen = function() {
+            window.websocket_opened = true;
+        };
+
+        ws.onmessage = function(event) {
+            var data = JSON.parse(event.data);
+            if (data.type == 'add_new_comment') {
+                //Get comment template when receive message and append it to comemnt list
+                if (data.clientId == clientId) {
+                    return false;
+                }
+                $.ajax({
+                    url: dwqa.ajax_url,
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {
+                        action: 'dwqa-get-comment-template',
+                        comment_id: data.new_comment_id
+                    }
+                })
+                    .done(function(resp) {
+                        var submitForm = $(resp.data.form_id).closest('.dwqa-comment-form');
+                        append_comment(resp.data.html, submitForm);
+                        chatSound.play();
+                    })
+                    .always(function() {
+                        //Complete
+                    });
+
+            }
+        };
+
+        ws.onclose = function() {
+            window.websocket_opened = false;
+            //try to reconnect in 5 seconds
+            setTimeout(function() {
+                open_websocket();
+            }, 5000);
+
+        };
+    }
+
+    $(document).on('ready', function() {
+        if (dwqa.question_id) {
+            open_websocket(dwqa.question_id);
         }
     });
 });

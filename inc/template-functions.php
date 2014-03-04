@@ -16,9 +16,6 @@ function dwqa_generate_template_for_plugin($template) {
     } 
 
     if( is_singular( 'dwqa-question' ) ) {
-        if( isset($_REQUEST['dwqa-embed']) && $_REQUEST['dwqa-embed'] ) {
-            return dwqa_load_template( 'single', 'question-embed', false );
-        }
         return dwqa_load_template( 'single', 'question', false );
     }
     return $template;
@@ -457,8 +454,6 @@ function dwqa_enqueue_scripts(){
 
     // Enqueue style
     wp_enqueue_style( 'dwqa-style', $assets_folder . 'css/style.css', array(), $version );
-    wp_enqueue_style( 'dwqa-embed-question', $assets_folder . 'css/embed-question.css', array(), $version );
-    wp_enqueue_script( 'dwqa-embed-question', $assets_folder . 'js/dwqa-embed-code.js', array('jquery' ), $version, true );
     // Enqueue for single question page
     if( is_single() && 'dwqa-question' == get_post_type() ) {
         // js

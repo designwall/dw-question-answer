@@ -415,33 +415,5 @@ function dwqa_question_followers( $atts ){
 }
 add_shortcode( 'dwqa-question-followers', 'dwqa_question_followers' ); 
 
-function dwqa_question_embed_shortcode( $atts, $content = "" ){
-    extract( shortcode_atts( array(
-        'id'    => false
-    ), $atts ) );
-
-    if( $content ) {
-        $id = url_to_postid( $content );
-    }
-    if( ! $id ) {
-        return false;   
-    }
-    global $post;
-    if( 'dwqa-question' == get_post_type( $id ) && $id != $post->ID ) {
-        $post = get_post( $id );
-        $embed_code = '';
-        if( ! is_wp_error( $post ) ) {
-            setup_postdata( $post );
-            ob_start();
-            dwqa_load_template( 'embed', 'question' );
-            $embed_code = ob_get_contents();
-            ob_end_clean();
-        }
-        wp_reset_postdata();
-        return $embed_code;
-    }
-}
-add_shortcode( 'dwqa_question', 'dwqa_question_embed_shortcode' );
-
 
 ?>

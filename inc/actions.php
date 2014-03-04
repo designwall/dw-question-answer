@@ -1004,7 +1004,7 @@ function dwqa_comment_action_add(){
     $comment_html = ob_get_contents();
     ob_end_clean();
 
-    do_action( 'dwqa_add_comment', $comment_id, $comment_html, $_POST['clientId'] );
+    do_action( 'dwqa_add_comment', $comment_id, $_POST['clientId'] );
     
     wp_send_json_success( array(
             'html'   => $comment_html

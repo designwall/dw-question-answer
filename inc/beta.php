@@ -75,10 +75,10 @@ add_action('dwqa_hourly_event', 'dwqa_do_this_hourly');
 
 //Chat 
 function dwqa_post_comment_action(){
-    if( ! isset($_POST['question_id']) ) {
+    if( ! isset($_REQUEST['question_id']) ) {
         wp_send_json_error();
     }
-    $channel_id = $_POST['question_id'];
+    $channel_id = $_REQUEST['question_id'];
     $respond = wp_remote_post( 'http://ec2-54-224-117-255.compute-1.amazonaws.com:8000/', array(
         'body' => array( 
             'channel_id' => $channel_id, 
@@ -91,50 +91,6 @@ function dwqa_post_comment_action(){
 add_action( 'wp_ajax_nopriv_dwqa-post-comment-action', 'dwqa_post_comment_action' );
 add_action( 'wp_ajax_dwqa-post-comment-action', 'dwqa_post_comment_action' );
 
-function dwqa_post_comment_realtime( $comment_id, $comment_html, $clientId ){
-    $comment = get_comment( $comment_id );
-    $post_parent = get_post( $comment->comment_post_ID );
 
-    if( 'dwqa-question' == $post_parent->post_type ) {
-        $question_id = $post_parent->ID;
-    } elseif( 'dwqa-answer' == $post_parent->post_type ) {
-        $question_id = get_post_meta( $post_parent->ID, '_question', true );
-    } else {
-        wp_send_json_error( array(
-            'message'   => __('This post is not a question','dwqa')
-        ) );
-    }
-    $channel_id = $question_id;
-    $respond = wp_remote_post( 'http://ec2-54-224-117-255.compute-1.amazonaws.com:8000/', array(
-        'body' => array( 
-            'channel_id' => $channel_id, 
-            'message' => '{"type":"add_new_comment","new_comment_id": "'.$comment_id.'","clientId":"'.$clientId.'"}' 
-        )
-    ) );
-}
-add_action( 'dwqa_add_comment', 'dwqa_post_comment_realtime', 10, 3 );
-
-function dwqa_get_comment_template(){
-    if( ! isset($_POST['comment_id']) ) {
-        wp_send_json_error( array(
-            'message' => __('Have no data of comment id','dwqa')
-        ) );
-    }
-    global $comment;
-    $comment = get_comment( $_POST['comment_id'] );
-    ob_start();
-    $args = array('walker' => null, 'max_depth' => '', 'style' => 'ol', 'callback' => null, 'end-callback' => null, 'type' => 'all',
-        'page' => '', 'per_page' => '', 'avatar_size' => 32, 'reverse_top_level' => null, 'reverse_children' => '');
-    dwqa_question_comment_callback( $comment, $args, 0 );
-    echo '</li>';
-    $comment_html = ob_get_contents();
-    ob_end_clean();
-    wp_send_json_success( array(
-        'html' => $comment_html,
-        'form_id' => '#comment_form_' . $comment->comment_post_ID
-    ) );
-}
-add_action( 'wp_ajax_dwqa-get-comment-template','dwqa_get_comment_template' );
-add_action( 'wp_ajax_nopriv_dwqa-get-comment-template','dwqa_get_comment_template' );
 
 ?>

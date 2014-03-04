@@ -171,7 +171,6 @@ jQuery(function($) {
 
     $('[id^=comment_form_]').on('submit', function(event) {
         event.preventDefault();
-
         var t = $(this),
             contentField = t.find('textarea[name="comment"]'),
             content = contentField.val().trim().replace(/\n/g, '<br>');
@@ -884,65 +883,6 @@ jQuery(function($) {
         if (vis() && switchTab < 2) {
             doHighlight(1500);
             switchTab++;
-        }
-    });
-
-
-    //Comment real time, websocket
-    var chatSound = new buzz.sound(dwqa.plugin_dir_url + 'assets/sound/sounds-812-droplet.mp3');
-
-    function open_websocket(channel_id) {
-        if (window.websocket_opened === true) {
-            return false;
-        }
-
-        var ws = new WebSocket("ws://ec2-54-224-117-255.compute-1.amazonaws.com:8001/?channel_id=" + channel_id);
-
-        ws.onopen = function() {
-            window.websocket_opened = true;
-        };
-
-        ws.onmessage = function(event) {
-            var data = JSON.parse(event.data);
-            if (data.type == 'add_new_comment') {
-                //Get comment template when receive message and append it to comemnt list
-                if (data.clientId == clientId) {
-                    return false;
-                }
-                $.ajax({
-                    url: dwqa.ajax_url,
-                    type: 'POST',
-                    dataType: 'json',
-                    data: {
-                        action: 'dwqa-get-comment-template',
-                        comment_id: data.new_comment_id
-                    }
-                })
-                    .done(function(resp) {
-                        var submitForm = $(resp.data.form_id).closest('.dwqa-comment-form');
-                        append_comment(resp.data.html, submitForm);
-                        chatSound.play();
-                    })
-                    .always(function() {
-                        //Complete
-                    });
-
-            }
-        };
-
-        ws.onclose = function() {
-            window.websocket_opened = false;
-            //try to reconnect in 5 seconds
-            setTimeout(function() {
-                open_websocket();
-            }, 5000);
-
-        };
-    }
-
-    $(document).on('ready', function() {
-        if (dwqa.question_id) {
-            open_websocket(dwqa.question_id);
         }
     });
 });

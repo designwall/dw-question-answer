@@ -373,7 +373,7 @@ add_action( 'comment_form', 'dwqa_wp_comment_form_unfiltered_html_nonce' );
  */
 function dwqa_remove_answer(){
     if( ! isset($_POST['wpnonce']) || ! wp_verify_nonce( $_POST['wpnonce'], '_dwqa_action_remove_answer_nonce' ) ) {
-        wp_send_json_error( array( 'message' => __('Are you cheating huh?','dwqa' ) ) );
+        wp_send_json_error( array( 'message' => __( 'Are you cheating huh?','dwqa' ) ) );
     }
     if( ! isset($_POST['answer_id']) ) {
         wp_send_json_error( array( 'message' => __('Missing answer ID','dwqa') ) );
@@ -515,10 +515,10 @@ function dwqa_submit_question(){
                     $dwqa_current_error = $new_question;
                 }   
             } else {
-                $dwqa_submit_question_errors->add( 'submit_question', __('YCaptcha is not correct','dwqa') );
+                $dwqa_submit_question_errors->add( 'submit_question', __('Captcha is not correct','dwqa') );
             }
         }else{
-            $dwqa_submit_question_errors->add( 'submit_question', __('"Helllo", Are you cheating huh?.','dwqa') );
+            $dwqa_submit_question_errors->add( 'submit_question', __('Are you cheating huh?','dwqa') );
         }
         $dwqa_current_error = $dwqa_submit_question_errors;
 

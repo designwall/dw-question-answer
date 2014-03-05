@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DW Question Answer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-05 11:59+0700\n"
-"PO-Revision-Date: 2014-03-05 11:59+0700\n"
+"POT-Creation-Date: 2014-03-05 15:11+0700\n"
+"PO-Revision-Date: 2014-03-05 15:11+0700\n"
 "Last-Translator: DesignWall <webmaster@designwall.com>\n"
 "Language-Team: DesignWall <webmaster@designwall.com>\n"
 "Language: en\n"
@@ -524,29 +524,29 @@ msgstr "منتشر کردن"
 #: ../inc/template-functions.php:368 ../inc/template-functions.php:378
 #: ../inc/templates/default/content-answer.php:63
 #: ../inc/templates/default/content-answer.php:75
-#: ../inc/templates/default/single-question.php:147
-#: ../inc/templates/default/single-question.php:158 ../thesis/dwqa/box.php:387
+#: ../inc/templates/default/single-question.php:95
+#: ../inc/templates/default/single-question.php:106 ../thesis/dwqa/box.php:387
 #: ../thesis/dwqa/box.php:398
 msgid "Public"
 msgstr "عمومی"
 
 #: ../inc/actions.php:935 ../inc/template-functions.php:378
 #: ../inc/templates/default/content-answer.php:75
-#: ../inc/templates/default/single-question.php:158 ../thesis/dwqa/box.php:398
+#: ../inc/templates/default/single-question.php:106 ../thesis/dwqa/box.php:398
 msgid "Everyone can see"
 msgstr "هرکس میتواند ببیند"
 
 #: ../inc/actions.php:936 ../inc/template-functions.php:379
 #: ../inc/templates/default/content-answer.php:76
-#: ../inc/templates/default/single-question.php:159 ../thesis/dwqa/box.php:399
+#: ../inc/templates/default/single-question.php:107 ../thesis/dwqa/box.php:399
 msgid "Only Author and Administrator can see"
 msgstr "فقط نویسنده و مدیریت میتوانند ببینند"
 
 #: ../inc/actions.php:936 ../inc/template-functions.php:379
 #: ../inc/templates/default/content-answer.php:63
 #: ../inc/templates/default/content-answer.php:76
-#: ../inc/templates/default/single-question.php:147
-#: ../inc/templates/default/single-question.php:159 ../thesis/dwqa/box.php:387
+#: ../inc/templates/default/single-question.php:95
+#: ../inc/templates/default/single-question.php:107 ../thesis/dwqa/box.php:387
 #: ../thesis/dwqa/box.php:399
 msgid "Private"
 msgstr "خصوصی"
@@ -701,7 +701,7 @@ msgstr "پاسخ ها"
 msgid "Question Meta Data"
 msgstr "جزئیات سؤال"
 
-#: ../inc/metaboxes.php:44 ../inc/templates/default/single-question.php:185
+#: ../inc/metaboxes.php:44 ../inc/templates/default/single-question.php:133
 #: ../thesis/dwqa/box.php:425
 msgid "Status"
 msgstr "وضعیت ها"
@@ -713,25 +713,25 @@ msgstr "باز"
 
 #: ../inc/metaboxes.php:47 ../inc/status.php:264
 #: ../inc/templates/default/content-question.php:8
-#: ../inc/templates/default/single-question.php:213 ../thesis/dwqa/box.php:453
+#: ../inc/templates/default/single-question.php:161 ../thesis/dwqa/box.php:453
 msgid "Pending"
 msgstr "درحال ارسال"
 
 #: ../inc/metaboxes.php:48 ../inc/shortcodes.php:49 ../inc/status.php:261
 #: ../inc/templates/default/archive-question.php:36
-#: ../inc/templates/default/single-question.php:218 ../thesis/dwqa/box.php:97
+#: ../inc/templates/default/single-question.php:166 ../thesis/dwqa/box.php:97
 #: ../thesis/dwqa/box.php:458
 msgid "Resolved"
 msgstr "حل شده"
 
 #: ../inc/metaboxes.php:49 ../inc/status.php:267
-#: ../inc/templates/default/single-question.php:203 ../thesis/dwqa/box.php:443
+#: ../inc/templates/default/single-question.php:151 ../thesis/dwqa/box.php:443
 msgid "Re-Open"
 msgstr "دوباره باز شده"
 
 #: ../inc/metaboxes.php:50 ../inc/shortcodes.php:52 ../inc/status.php:270
 #: ../inc/templates/default/archive-question.php:39
-#: ../inc/templates/default/single-question.php:208 ../thesis/dwqa/box.php:100
+#: ../inc/templates/default/single-question.php:156 ../thesis/dwqa/box.php:100
 #: ../thesis/dwqa/box.php:448
 msgid "Closed"
 msgstr "بسته شده"
@@ -744,15 +744,15 @@ msgstr ""
 msgid "Sticky question on top of archive page."
 msgstr ""
 
-#: ../inc/notification.php:19
+#: ../inc/notification.php:20
 msgid "A new question was posted on {site_name}"
 msgstr "یک سؤال جدید در {site_name} پست شده است"
 
-#: ../inc/notification.php:98
+#: ../inc/notification.php:122
 msgid "A new answer for \"{question_title}\" was posted on {site_name}"
 msgstr "یک پاسخ جدید برای \"{question_title}\" در  {site_name} پست شده است"
 
-#: ../inc/notification.php:120 ../inc/notification.php:122
+#: ../inc/notification.php:144 ../inc/notification.php:146
 #: ../inc/settings.php:419 ../inc/settings.php:460 ../inc/settings.php:501
 #: ../inc/templates/default/content-answer.php:53
 #: ../inc/templates/default/content-comment.php:15
@@ -760,15 +760,15 @@ msgstr "یک پاسخ جدید برای \"{question_title}\" در  {site_name} �
 msgid "Anonymous"
 msgstr "هرکس"
 
-#: ../inc/notification.php:159
+#: ../inc/notification.php:183
 msgid "You got new answer for your followed question"
 msgstr "شما یک پاسخ جدید برای سؤالی که دنبال کردید،دریافت نموده اید."
 
-#: ../inc/notification.php:239 ../inc/notification.php:285
+#: ../inc/notification.php:263 ../inc/notification.php:309
 msgid "[{site_name}] You have a new comment for question {question_title} "
 msgstr "[{site_name}] شما یک نظر جدید برای سؤال دارید .{question_title} "
 
-#: ../inc/notification.php:244 ../inc/notification.php:290
+#: ../inc/notification.php:268 ../inc/notification.php:314
 msgid "[{site_name}] You have a new comment for answer"
 msgstr "[{site_name}] شما یک نظر جدید برای پاسخ دارید"
 
@@ -1139,7 +1139,7 @@ msgstr "پاسخ جدید"
 msgid "Answer at"
 msgstr "پاسخ"
 
-#: ../inc/shortcodes.php:375 ../inc/templates/default/single-question.php:136
+#: ../inc/shortcodes.php:375 ../inc/templates/default/single-question.php:84
 #: ../thesis/dwqa/box.php:376
 msgid "Link to"
 msgstr "لینک به"
@@ -1472,36 +1472,19 @@ msgstr ""
 msgid "Share on Tumblr"
 msgstr ""
 
-#: ../inc/templates/default/single-question.php:61
-msgid "Embed Code"
-msgstr ""
-
-#: ../inc/templates/default/single-question.php:65
-msgid "Copy and paste this code into your website."
-msgstr ""
-
-#: ../inc/templates/default/single-question.php:68
-#, fuzzy
-msgid "Preview:"
-msgstr "قبلی"
-
-#: ../inc/templates/default/single-question.php:70
-msgid "Size (px):"
-msgstr ""
-
-#: ../inc/templates/default/single-question.php:127 ../thesis/dwqa/box.php:367
+#: ../inc/templates/default/single-question.php:75 ../thesis/dwqa/box.php:367
 msgid "Posts by"
 msgstr "پست ها توسط"
 
-#: ../inc/templates/default/single-question.php:138 ../thesis/dwqa/box.php:378
+#: ../inc/templates/default/single-question.php:86 ../thesis/dwqa/box.php:378
 msgid "asked"
 msgstr "پرسیده شده"
 
-#: ../inc/templates/default/single-question.php:173 ../thesis/dwqa/box.php:413
+#: ../inc/templates/default/single-question.php:121 ../thesis/dwqa/box.php:413
 msgid "Category"
 msgstr "دسته"
 
-#: ../inc/templates/default/single-question.php:174 ../thesis/dwqa/box.php:414
+#: ../inc/templates/default/single-question.php:122 ../thesis/dwqa/box.php:414
 msgid "All questions from"
 msgstr "تمام سؤالات از "
 
@@ -1549,6 +1532,10 @@ msgid ""
 "By default,The container is not have gutter. You can set padding width to "
 "make a gutter. You make it by update setting here."
 msgstr ""
+
+#, fuzzy
+#~ msgid "Preview:"
+#~ msgstr "قبلی"
 
 #~ msgid "ago"
 #~ msgstr "قبل"

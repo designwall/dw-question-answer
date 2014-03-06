@@ -43,27 +43,9 @@
                     ?>
                     <div class="dwqa-tags"><?php echo $tags; ?></div>
                     <?php endif; ?>  <!-- Question Tags -->
-                    <?php if( get_post_status() == 'publish' ) :?>
-                    <!-- Sharing buttons -->
-                    <footer class="dwqa-footer-share">
-                       <span class="dwqa-sharing">
-                            <strong><?php _e('Share this') ?>:</strong>
-                            <ul>
-                                <?php 
-                                    $permalink = rawurlencode(get_permalink()); 
-                                    $title = rawurlencode(get_the_title());
-                                ?>
-                                <li><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $permalink; ?>" class="dwqa-share-facebook " title="<?php _e('Share on Facebook','dwqa') ?>"><i class="fa fa-facebook"></i></a></li>
-                                <li><a target="_blank" href="https://plus.google.com/share?url=<?php echo $permalink; ?>" class="dwqa-share-google-plus" title="<?php _e('Share on Google+','dwqa') ?>"><i class="fa fa-google-plus"></i></a></li>
-                                <li class="dwqa-twitter-share"><a target="_blank" href="https://twitter.com/intent/tweet?original_referer=<?php echo $permalink ?>&amp;text=<?php echo $title; ?>&amp;url=<?php echo $permalink; ?>" class="dwqa-share-twitter" title="<?php _e('Share on Twitter','dwqa') ?>"><i class="fa fa-twitter"></i></a></li>
-                                <li><a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo $permalink ?>&amp;title=<?php echo $title; ?>&amp;source=<?php echo $permalink ?>" class="dwqa-share-linkedin" title="<?php _e('Share on LinkedIn','dwqa') ?>"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a target="_blank" href="http://www.tumblr.com/share?v=3&amp;u=<?php echo $permalink ?>&amp;t=<?php echo $title ?>" class="dwqa-share-tumblr" title="<?php _e('Share on Tumblr','dwqa') ?>"><i class="fa fa-tumblr"></i></a></li>
-                                <?php do_action( 'dwqa-list-sharer' ); ?>
-                            </ul>
-                        </span>
-                        
-                    </footer>
-                    <?php endif; ?>
+
+                    <?php do_action( 'dwqa-question-content-footer' ); ?>
+                    
                     <!-- Question footer -->
                     <footer class="dwqa-footer">
                         <div class="dwqa-author">

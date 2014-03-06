@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DW Question Answer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-06 23:21+0100\n"
-"PO-Revision-Date: 2014-03-07 00:22+0100\n"
+"POT-Creation-Date: 2014-03-07 00:38+0100\n"
+"PO-Revision-Date: 2014-03-07 00:39+0100\n"
 "Last-Translator: Marcus Scheunemann <marcus@algo.rith.ms>\n"
 "Language-Team: Marcus Scheunemann <marcus@algo.rith.ms>\n"
 "Language: en\n"
@@ -981,11 +981,12 @@ msgid "New"
 msgstr "Neu"
 
 #: ../inc/status.php:291
-msgid "Misisng post ID"
+#, fuzzy
+msgid "Missing post ID"
 msgstr "Fehlende Beitrags-ID"
 
 #: ../inc/status.php:306
-msgid "Post is not exists"
+msgid "Post does not exist"
 msgstr ""
 
 #: ../inc/status.php:311
@@ -1002,9 +1003,9 @@ msgstr "Eine neue Antwort auf \"{question_title}\" wurde auf {site_name} gegeben
 
 #: ../inc/notification.php:121
 #: ../inc/notification.php:123
-#: ../inc/settings.php:419
-#: ../inc/settings.php:460
-#: ../inc/settings.php:501
+#: ../inc/settings.php:418
+#: ../inc/settings.php:459
+#: ../inc/settings.php:500
 #: ../inc/templates/default/content-question.php:25
 #: ../inc/templates/default/content-comment.php:15
 msgid "Anonymous"
@@ -1016,7 +1017,8 @@ msgstr "Du hast eine neue Antwort auf deine beobachtete Frage erhalten"
 
 #: ../inc/notification.php:240
 #: ../inc/notification.php:286
-msgid "[{site_name}] You have a new comment for question {question_title} "
+#, fuzzy
+msgid "[{site_name}] You have a new comment for question {question_title}"
 msgstr "[{site_name}] Du hast ein neues Kommentar auf die Frage {question_title}"
 
 #: ../inc/notification.php:245
@@ -1057,257 +1059,259 @@ msgid "Select Submit Question Page"
 msgstr "Wähle eine Stelle-Frage-Seite"
 
 #: ../inc/settings.php:53
-msgid "A page where users can submit questions.\n"
+#, fuzzy
+msgid "A page where users can submit questions."
 msgstr "Eine Seite wo Benutzer Fragen stellen können."
 
-#: ../inc/settings.php:70
+#: ../inc/settings.php:69
 msgid "Upload"
 msgstr "Hochladen"
 
-#: ../inc/settings.php:70
+#: ../inc/settings.php:69
 msgid "Upload or choose a logo to be displayed at the top of the email"
 msgstr "Hochladen oder wählen eines Logos, dass oben in der E-Mail angezeigt wird"
 
-#: ../inc/settings.php:109
+#: ../inc/settings.php:108
 msgid "Enable notification for new question"
 msgstr "Schalte Benachrichtigungen für neue Fragen ein"
 
-#: ../inc/settings.php:114
-#: ../inc/settings.php:150
-#: ../inc/settings.php:187
-#: ../inc/settings.php:224
-#: ../inc/settings.php:261
-#: ../inc/settings.php:298
-#: ../inc/settings.php:335
+#: ../inc/settings.php:113
+#: ../inc/settings.php:149
+#: ../inc/settings.php:186
+#: ../inc/settings.php:223
+#: ../inc/settings.php:260
+#: ../inc/settings.php:297
+#: ../inc/settings.php:334
 msgid "Email subject"
 msgstr "E-Mail-Betreff"
 
-#: ../inc/settings.php:119
-#: ../inc/settings.php:155
-#: ../inc/settings.php:192
-#: ../inc/settings.php:229
-#: ../inc/settings.php:266
-#: ../inc/settings.php:303
-#: ../inc/settings.php:340
+#: ../inc/settings.php:118
+#: ../inc/settings.php:154
+#: ../inc/settings.php:191
+#: ../inc/settings.php:228
+#: ../inc/settings.php:265
+#: ../inc/settings.php:302
+#: ../inc/settings.php:339
 msgid "Email Content"
 msgstr "E-Mail-Inhalt"
 
-#: ../inc/settings.php:145
+#: ../inc/settings.php:144
 msgid "Enable notification for new answer"
 msgstr "Schalte Benachrichtigungen für neue Antworten ein"
 
-#: ../inc/settings.php:182
+#: ../inc/settings.php:181
 msgid "Enable notification for new answer (to Followers)"
 msgstr "Schalte Benachrichtigungen für neue Antworten (für Beobachter) ein"
 
-#: ../inc/settings.php:219
-#: ../inc/settings.php:256
+#: ../inc/settings.php:218
+#: ../inc/settings.php:255
 msgid "Enable notification for new comment of question"
 msgstr "Schalte Benachrichtigungen für neue Kommentare auf Fragen ein"
 
-#: ../inc/settings.php:293
-#: ../inc/settings.php:330
+#: ../inc/settings.php:292
+#: ../inc/settings.php:329
 msgid "Enable notification for new comment of answer"
 msgstr "Schalte Benachrichtigungen für neue Kommentare auf Antworten ein"
 
-#: ../inc/settings.php:388
+#: ../inc/settings.php:387
 msgid "Question"
 msgstr "Fragen"
 
-#: ../inc/settings.php:428
-#: ../inc/settings.php:469
-#: ../inc/settings.php:511
+#: ../inc/settings.php:427
+#: ../inc/settings.php:468
+#: ../inc/settings.php:510
 msgid "Reset Default"
 msgstr "Zurücksetzen"
 
-#: ../inc/settings.php:471
+#: ../inc/settings.php:470
 msgid "Comment"
 msgstr "Kommentar"
 
-#: ../inc/settings.php:520
+#: ../inc/settings.php:519
 msgid "Enable/Disable captcha on submit question page"
 msgstr "Einschalten/Ausschalten von Captchas auf der Frage-Stellen-Seite"
 
-#: ../inc/settings.php:526
+#: ../inc/settings.php:525
 msgid "Enable/Disable captcha on single question page"
 msgstr "Einschalten/Ausschalten von Captchas auf der Einzel-Frage-Seite"
 
-#: ../inc/settings.php:544
+#: ../inc/settings.php:543
 msgid "questions"
 msgstr "Fragen"
 
-#: ../inc/settings.php:550
+#: ../inc/settings.php:549
 msgid "Allow members to post private question"
 msgstr "Erlaube es Benutzern private Fragen zu stellen"
 
-#: ../inc/settings.php:568
+#: ../inc/settings.php:567
 msgid "Plugin Settings"
 msgstr "Plugin-Einstellungen"
 
-#: ../inc/settings.php:568
+#: ../inc/settings.php:567
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: ../inc/settings.php:594
+#: ../inc/settings.php:593
 msgid "Question List Page"
 msgstr "Fragen-Auflistung-Seite"
 
-#: ../inc/settings.php:602
+#: ../inc/settings.php:601
 msgid "Archive page show at most"
 msgstr ""
 
-#: ../inc/settings.php:610
+#: ../inc/settings.php:609
 msgid "Ask Question Page"
 msgstr "Frage-Stellen-Seite"
 
-#: ../inc/settings.php:617
+#: ../inc/settings.php:616
 msgid "Private Question"
 msgstr "Private Frage"
 
-#: ../inc/settings.php:625
+#: ../inc/settings.php:624
 msgid "Time settings"
 msgstr "zeiteinstellungen"
 
-#: ../inc/settings.php:632
+#: ../inc/settings.php:631
 msgid "New Question Time Frame"
 msgstr "Neue-Frage-Zeitspanne"
 
-#: ../inc/settings.php:640
+#: ../inc/settings.php:639
 msgid "Question Overdue - Time Frame"
 msgstr "Frage-Überfällig-Zeitspanne"
 
-#: ../inc/settings.php:650
+#: ../inc/settings.php:649
 msgid "Captcha settings"
 msgstr "Captcha-Einstellungen"
 
-#: ../inc/settings.php:657
+#: ../inc/settings.php:656
 msgid "Captcha in Submit Question Page"
 msgstr "Captcha in Frage-Stellen-Seite"
 
-#: ../inc/settings.php:665
+#: ../inc/settings.php:664
 msgid "Captcha in Single Question Page"
 msgstr "Captcha in Einzel-Frage-Seite"
 
-#: ../inc/settings.php:673
+#: ../inc/settings.php:672
 msgid "Google Captcha Public Key"
 msgstr ""
 
-#: ../inc/settings.php:681
+#: ../inc/settings.php:680
 msgid "Google Captcha Private Key"
 msgstr ""
 
-#: ../inc/settings.php:691
+#: ../inc/settings.php:690
 msgid "Permalink Settings"
 msgstr "Permalink-Einstellungen"
 
-#: ../inc/settings.php:698
+#: ../inc/settings.php:697
 msgid "Single Question"
 msgstr "Einzelne Frage"
 
-#: ../inc/settings.php:706
+#: ../inc/settings.php:705
 msgid "Single Category"
 msgstr "Einzelne Kategorie"
 
-#: ../inc/settings.php:714
+#: ../inc/settings.php:713
 msgid "Single Tag"
 msgstr "Einzelne Stichwort"
 
-#: ../inc/settings.php:733
+#: ../inc/settings.php:732
 msgid "Send to"
 msgstr "Sende an"
 
-#: ../inc/settings.php:743
+#: ../inc/settings.php:742
 msgid "Cc"
 msgstr ""
 
-#: ../inc/settings.php:753
+#: ../inc/settings.php:752
 msgid "Bcc"
 msgstr ""
 
-#: ../inc/settings.php:763
+#: ../inc/settings.php:762
 msgid "Email Logo"
 msgstr "E-Mail-Logo"
 
-#: ../inc/settings.php:807
-#: ../inc/settings.php:814
+#: ../inc/settings.php:806
+#: ../inc/settings.php:813
 msgid "Group Permission"
 msgstr "Gruppen-Genehmigung"
 
-#: ../inc/settings.php:827
+#: ../inc/settings.php:826
 msgid "DWQA Settings"
 msgstr "DWQA-Einstellungen"
 
-#: ../inc/settings.php:832
+#: ../inc/settings.php:831
 msgid "General"
 msgstr "Allgemein"
 
-#: ../inc/settings.php:833
+#: ../inc/settings.php:832
 msgid "Notification"
 msgstr "Benachrichtigung"
 
-#: ../inc/settings.php:834
+#: ../inc/settings.php:833
 msgid "Permission"
 msgstr "Genehmigung"
 
-#: ../inc/settings.php:845
+#: ../inc/settings.php:844
 msgid "Email Template"
 msgstr "E-Mail-Template"
 
-#: ../inc/settings.php:852
+#: ../inc/settings.php:851
 msgid "New Comment to Question"
 msgstr "Neues Kommentar auf eine Frage"
 
-#: ../inc/settings.php:853
+#: ../inc/settings.php:852
 msgid "New Comment to Answer"
 msgstr "Neues Kommentar auf eine Antwort"
 
-#: ../inc/settings.php:854
+#: ../inc/settings.php:853
 msgid "New Answer (to Followers)"
 msgstr "Neue Antwort (für Beobachter)"
 
-#: ../inc/settings.php:855
+#: ../inc/settings.php:854
 msgid "New Comment to Question (to Followers)"
 msgstr "Neues Kommentar auf eine Frage (für Beobachter)"
 
-#: ../inc/settings.php:856
+#: ../inc/settings.php:855
 msgid "New Comment to Answer (to Followers)"
 msgstr "Neues Kommentar auf eine Antwort (für Beobachter)"
 
-#: ../inc/settings.php:863
+#: ../inc/settings.php:862
 msgid "New Question Notification"
 msgstr "Neues-Kommentar-Benachrichtigung"
 
-#: ../inc/settings.php:868
-#: ../inc/settings.php:877
-#: ../inc/settings.php:886
-#: ../inc/settings.php:895
-#: ../inc/settings.php:905
-#: ../inc/settings.php:913
-#: ../inc/settings.php:923
+#: ../inc/settings.php:867
+#: ../inc/settings.php:876
+#: ../inc/settings.php:885
+#: ../inc/settings.php:894
+#: ../inc/settings.php:904
+#: ../inc/settings.php:912
+#: ../inc/settings.php:922
 msgid "Save all changes"
 msgstr "Alle Änderungen speichern"
 
-#: ../inc/settings.php:873
+#: ../inc/settings.php:872
 msgid "New Answer Notification"
 msgstr "Neue-Antwort-Benachrichtigung"
 
-#: ../inc/settings.php:882
-msgid "New Answer Notification ( To Followers )"
+#: ../inc/settings.php:881
+#, fuzzy
+msgid "New Answer Notification (to Followers)"
 msgstr "Neue-Antwort-Benachrichtigung (für Beobachter)"
 
-#: ../inc/settings.php:891
+#: ../inc/settings.php:890
 msgid "New Comment to Question Notification"
 msgstr "Benachrichtigung bzgl. neuem Kommentar auf eine Frage"
 
-#: ../inc/settings.php:901
+#: ../inc/settings.php:900
 msgid "New Comment to Answer Notification"
 msgstr "Benachrichtigung bzgl. neuem Kommentar auf eine Antwort"
 
-#: ../inc/settings.php:909
+#: ../inc/settings.php:908
 msgid "New Comment to Question Notification (to Followers)"
 msgstr "Benachrichtigung bzgl. neuem Kommentar auf eine Frage (für Beobachter)"
 
-#: ../inc/settings.php:919
+#: ../inc/settings.php:918
 msgid "New Comment to Answer Notification (to Followers)"
 msgstr "Benachrichtigung bzgl. neuem Kommentar auf eine Antwort (für Beobachter)"
 

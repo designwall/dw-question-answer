@@ -73,24 +73,5 @@ function dwqa_do_this_hourly() {
 }
 add_action('dwqa_hourly_event', 'dwqa_do_this_hourly');
 
-//Chat 
-function dwqa_post_comment_action(){
-    if( ! isset($_REQUEST['question_id']) ) {
-        wp_send_json_error();
-    }
-    $channel_id = $_REQUEST['question_id'];
-    $respond = wp_remote_post( 'http://ec2-54-224-117-255.compute-1.amazonaws.com:8000/', array(
-        'body' => array( 
-            'channel_id' => $channel_id, 
-            'message' => '{"hello": "world"}' 
-        )
-    ) );
-    print_r($respond);
-    exit(0);
-}
-add_action( 'wp_ajax_nopriv_dwqa-post-comment-action', 'dwqa_post_comment_action' );
-add_action( 'wp_ajax_dwqa-post-comment-action', 'dwqa_post_comment_action' );
-
-
 
 ?>

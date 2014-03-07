@@ -2,14 +2,18 @@ jQuery(document).ready(function($) {
     $('.dwqa-reset-email-template').on('click', function(event) {
         event.preventDefault();
         var template = $(this).data('template');
-        var editor = $(this).closest('td').find('.wp-editor-area').attr('id');
-        tinymce.execCommand('mceFocus', false, editor);
+        var editor = $(this).closest('.tab-pane').find('.wp-editor-area').attr('id');
+        tinyMCE.execCommand('mceFocus', false, editor);
         $.ajax({
             url: dwqa.template_folder + template,
             type: 'GET',
             dataType: 'html'
         }).done(function(html) {
-            tinyMCE.activeEditor.setContent(html);
+            if ($('#' + editor).closest('.wp-editor-wrap').hasClass('tmce-active')) {
+                tinyMCE.get(editor).setContent(html);
+            } else {
+                $('#' + editor).val(html);
+            }
         });
 
     });
@@ -38,19 +42,19 @@ jQuery(document).ready(function($) {
 
 
     var refererField = $('[name="_wp_http_referer"]');
-    var updateHashInUrl = function(){
+    var updateHashInUrl = function() {
         var url = refererField.val();
-        if( location.hash.length > 0 ) {
+        if (location.hash.length > 0) {
 
-            if( url.match(/#(\S*)/) ) {
-                refererField.val( url.replace(/#(\S*)/g, location.hash) );
+            if (url.match(/#(\S*)/)) {
+                refererField.val(url.replace(/#(\S*)/g, location.hash));
             } else {
-                refererField.val( url + location.hash );
+                refererField.val(url + location.hash);
             }
         }
     }
 
-    $('.dwqa-notification-settings .nav-tabs li').click(function(event){
+    $('.dwqa-notification-settings .nav-tabs li').click(function(event) {
         event.preventDefault();
         var tab = $(this).find('a:first').attr('href');
         window.location.hash = tab;
@@ -59,12 +63,15 @@ jQuery(document).ready(function($) {
         $(tab).addClass('active');
         $(this).addClass('active');
         updateHashInUrl();
-        $('.dwqa-mail-templates .progress-bar .progress-bar-inner').stop().css('width',0).animate(
-            { width: '70%' },
+        $('.dwqa-mail-templates .progress-bar .progress-bar-inner').stop().css('width', 0).animate({
+                width: '70%'
+            },
             600,
-            function(){
+            function() {
                 $(this).css('width', '100%').fadeOut(200, function() {
-                    $(this).css({ width: '0%' }).show();
+                    $(this).css({
+                        width: '0%'
+                    }).show();
                 });;
             }
         );
@@ -72,12 +79,12 @@ jQuery(document).ready(function($) {
 
     $(document).ready(function($) {
         updateHashInUrl();
-        if( $('.dwqa-notification-settings').length > 0 && location.hash.length > 0 ) {
+        if ($('.dwqa-notification-settings').length > 0 && location.hash.length > 0) {
             var tab = window.location.hash;
             $('.dwqa-notification-settings .nav-tabs li').removeClass('active');
             $('.dwqa-notification-settings .tab-content .tab-pane').removeClass('active');
-            $('.dwqa-notification-settings .nav-tabs li a[href="'+tab+'"]').parent().addClass('active');
-            $('.dwqa-notification-settings .tab-content '+tab+'.tab-pane').addClass('active');
+            $('.dwqa-notification-settings .nav-tabs li a[href="' + tab + '"]').parent().addClass('active');
+            $('.dwqa-notification-settings .tab-content ' + tab + '.tab-pane').addClass('active');
         }
     });
 });

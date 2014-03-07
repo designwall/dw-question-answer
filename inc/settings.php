@@ -197,7 +197,7 @@ function dwqa_subscrible_new_answer_followers_email_display(){
             'content_css' => DWQA_URI . 'assets/css/email-template-editor.css'
         ) 
     ) );
-    echo '<p><input data-template="new-answer.html" type="button" class="button dwqa-reset-email-template" value="Reset Template"></p>';
+    echo '<p><input data-template="new-answer-followers.html" type="button" class="button dwqa-reset-email-template" value="Reset Template"></p>';
     echo '<div class="description">
         Enter the email that is sent to Administrator when have new answer on your site. HTML is accepted. Available template settings:<br>
         <strong>{site_logo}</strong> - Your site logo <br />
@@ -227,14 +227,14 @@ function dwqa_subscrible_new_comment_question_email_subject_display(){
 
 function dwqa_subscrible_new_comment_question_email_display(){
     echo '<label for="dwqa_subscrible_new_comment_question_email">'.__('Email Content','dwqa').'<br>';
-    $content = dwqa_get_mail_template( 'dwqa_subscrible_new_comment_question_email', 'new-comment-question-followers' );
+    $content = dwqa_get_mail_template( 'dwqa_subscrible_new_comment_question_email', 'new-comment-question' );
     wp_editor( $content, 'dwqa_subscrible_new_comment_question_email', array(
         'wpautop'   => false,
         'tinymce' => array( 
             'content_css' => DWQA_URI . 'assets/css/email-template-editor.css'
         ) 
     ) );
-    echo '<p><input data-template="new-comment-question.html" type="button" class="button dwqa-reset-email-template" value="Reset Template"></p>';
+    echo '<p><input data-editor="dwqa_subscrible_new_comment_question_email" data-template="new-comment-question.html" type="button" class="button dwqa-reset-email-template" value="Reset Template"></p>';
     echo '<div class="description">
         Enter the email that is sent to Administrator when have new answer on your site. HTML is accepted. Available template settings:<br>
         <strong>{site_logo}</strong> - Your site logo <br />
@@ -271,7 +271,7 @@ function dwqa_subscrible_new_comment_question_followers_email_display(){
             'content_css' => DWQA_URI . 'assets/css/email-template-editor.css'
         ) 
     ) );
-    echo '<p><input data-template="new-comment-question.html" type="button" class="button dwqa-reset-email-template" value="Reset Template"></p>';
+    echo '<p><input data-template="new-comment-question-followers.html" type="button" class="button dwqa-reset-email-template" value="Reset Template"></p>';
     echo '<div class="description">
         Enter the email that is sent to Administrator when have new answer on your site. HTML is accepted. Available template settings:<br>
         <strong>{site_logo}</strong> - Your site logo <br />
@@ -345,7 +345,7 @@ function dwqa_subscrible_new_comment_answer_followers_email_display(){
             'content_css' => DWQA_URI . 'assets/css/email-template-editor.css'
         ) 
     ) );
-    echo '<p><input data-template="new-comment-answer.html" type="button" class="button dwqa-reset-email-template" value="Reset Template"></p>';
+    echo '<p><input data-template="new-comment-answer-followers.html" type="button" class="button dwqa-reset-email-template" value="Reset Template"></p>';
     echo '<div class="description">
         Enter the email that is sent to Administrator when have new answer on your site. HTML is accepted. Available template settings:<br>
         <strong>{site_logo}</strong> - Your site logo <br />

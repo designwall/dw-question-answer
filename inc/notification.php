@@ -261,7 +261,7 @@ function dwqa_new_comment_notify( $comment_id, $comment ){
         $subject = str_replace('{comment_author}', get_the_author_meta( 'display_name', $comment->user_id ), $subject );
         $message = str_replace( '{site_logo}', $logo, $message);
         $message = str_replace( '{question_link}', get_permalink( $question->ID ), $message);
-        $message = str_replace( '{comment_link}', get_permalink( $question->ID ) . '#li-comment-' . $comment_id, $message);
+        $message = str_replace( '{comment_link}', get_permalink( $question->ID ) . '#comment-' . $comment_id, $message);
         $message = str_replace( '{question_title}', $question->post_title, $message);
         $message = str_replace( '{comment_author_avatar}', get_avatar( $comment->user_id, '60'), $message);
         $message = str_replace( '{comment_author_link}', get_author_posts_url( $comment->user_id ), $message);
@@ -299,7 +299,7 @@ function dwqa_new_comment_notify( $comment_id, $comment ){
             $follow_subject = str_replace('{comment_author}', get_the_author_meta( 'display_name', $comment->user_id ), $follow_subject );
             $message_to_follower = str_replace( '{site_logo}', $logo, $message_to_follower);
             $message_to_follower = str_replace( '{question_link}', get_permalink( $question->ID ), $message_to_follower);
-            $comment_link = get_permalink( $question->ID ) . '#li-comment-' . $comment_id;
+            $comment_link = get_permalink( $question->ID ) . '#comment-' . $comment_id;
             $message_to_follower = str_replace( '{comment_link}', $comment_link, $message_to_follower);
             $message_to_follower = str_replace( '{question_title}', $question->post_title, $message_to_follower);
             $message_to_follower = str_replace( '{comment_author_avatar}', get_avatar( $comment->user_id, '60'), $message_to_follower);

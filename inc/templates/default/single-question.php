@@ -30,7 +30,7 @@
                             </span>
                             <?php endif; ?>
                             <?php if( dwqa_current_user_can( 'edit_question' ) ) : ?>
-                            <span  data-post="<?php echo $post_id; ?>" data-nonce="<?php echo wp_create_nonce( '_dwqa_stick_question' ); ?>" class="dwqa-stick-question <?php echo dwqa_is_sticky($post_id) ? 'active' : ''; ?>" title="<?php echo dwqa_is_sticky($post_id) ? __('Stick this Question to the front page','dwqa') : __('Unstick this Question to the front page','dwqa'); ?>"><i class="fa fa-bookmark"></i></span>
+                            <span  data-post="<?php echo $post_id; ?>" data-nonce="<?php echo wp_create_nonce( '_dwqa_stick_question' ); ?>" class="dwqa-stick-question <?php echo dwqa_is_sticky($post_id) ? 'active' : ''; ?>" title="<?php echo dwqa_is_sticky($post_id) ? __('Unstick this Question to the front page','dwqa') :  __('Stick this Question to the front page','dwqa'); ?>"><i class="fa fa-bookmark"></i></span>
                             <?php endif; ?>
                         </div>
                     </header>

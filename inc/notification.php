@@ -1,8 +1,8 @@
 <?php  
 function dwqa_new_question_notify( $question_id, $user_id ){
     // receivers
-    $admin_email = get_option( 'dwqa_subscrible_sendto_address' );
-    if( ! $admin_email ) {
+    $admin_email = explode( ',',  get_option( 'dwqa_subscrible_sendto_address' ) );
+    if( empty( $admin_email ) ) {
         $admin_email = get_bloginfo( 'admin_address' );
     }
 
@@ -29,12 +29,12 @@ function dwqa_new_question_notify( $question_id, $user_id ){
     //Cc email
     $cc_address = get_option( 'dwqa_subscrible_cc_address' );
     if( $cc_address ) {
-        $headers .= 'Cc: ' . $cc_address . "\r\n";
+        $headers .= "Cc: " . $cc_address . "\r\n";
     }
     //Bcc email
     $bcc_address = get_option( 'dwqa_subscrible_bcc_address' );
     if( $bcc_address ) {
-        $headers .= 'Bcc: ' . $bcc_address . "\r\n";
+        $headers .= "Bcc: " . $bcc_address . "\r\n";
     }
 
     $message = dwqa_get_mail_template( 'dwqa_subscrible_new_question_email', 'new-question' );
@@ -72,6 +72,14 @@ function dwqa_new_answer_nofity( $answer_id ){
     if( !$enabled ) {
         return false;
     }
+
+    //Admin email
+    $admin_email = explode( ',',  get_option( 'dwqa_subscrible_sendto_address' ) );
+    if( empty( $admin_email ) ) {
+        $admin_email = get_bloginfo( 'admin_address' );
+    }
+    $enable_send_copy = get_option( 'dwqa_subscrible_send_copy_to_admin' );
+
     $question_id = get_post_meta( $answer_id, '_question', true );
     $question = get_post( $question_id );
     $answer = get_post( $answer_id );
@@ -189,6 +197,9 @@ function dwqa_new_answer_nofity( $answer_id ){
                     //Send email to follower
                     $message_to_each_follower = str_replace( '{follower}', $follower_name, $message_to_follower );
                     wp_mail( $follow_email, $follow_subject, $message_to_each_follower, $headers );
+                    if( $enable_send_copy ) {
+                        wp_mail( $admin_email, $follow_subject, $message_to_each_follower, $headers );
+                    }
                 }
             }
         }
@@ -196,6 +207,9 @@ function dwqa_new_answer_nofity( $answer_id ){
 
     if( $question->post_author != $answer->post_author ) {
         wp_mail( $email, $subject, $message, $headers );
+        if( $enable_send_copy ) {
+            wp_mail( $admin_email, $subject, $message, $headers );
+        }
     }
 }
 add_action( 'dwqa_add_answer', 'dwqa_new_answer_nofity' );
@@ -203,6 +217,14 @@ add_action( 'dwqa_update_answer', 'dwqa_new_answer_nofity' );
 
 function dwqa_new_comment_notify( $comment_id, $comment ){
     $parent = get_post_type( $comment->comment_post_ID );
+
+    //Admin email
+    $admin_email = explode( ',',  get_option( 'dwqa_subscrible_sendto_address' ) );
+    if( empty( $admin_email ) ) {
+        $admin_email = get_bloginfo( 'admin_address' );
+    }
+    $enable_send_copy = get_option( 'dwqa_subscrible_send_copy_to_admin' );
+
     if ( 1 == $comment->comment_approved && ( 'dwqa-question' == $parent || 'dwqa-answer' == $parent )  ) { 
         if( $parent == 'dwqa-question' ) {
             $enabled = get_option( 'dwqa_subscrible_enable_new_comment_question_notification', 1);        
@@ -323,6 +345,9 @@ function dwqa_new_comment_notify( $comment_id, $comment ){
 
                         $message_to_each_follower = str_replace( '{follower}', $follower_name, $message_to_follower );
                         wp_mail( $follow_email, $follow_subject, $message_to_each_follower, $headers );
+                        if( $enable_send_copy ) {
+                            wp_mail( $admin_email, $follow_subject, $message_to_each_follower, $headers );
+                        }
                     }
                 }
             }
@@ -331,6 +356,9 @@ function dwqa_new_comment_notify( $comment_id, $comment ){
 
         if( $post_parent->post_author != $comment->user_id ) {
             wp_mail( $post_parent_email, $subject, $message, $headers );
+            if( $enable_send_copy ) {
+                wp_mail( $admin_email, $subject, $message, $headers );
+            }
         }
 
     }

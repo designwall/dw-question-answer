@@ -737,6 +737,16 @@ class DWQA_Settings {
         );
         register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_sendto_address');
 
+        // Send copy
+        add_settings_field( 
+            'dwqa_subscrible_send_copy_to_admin', 
+            false, 
+            array( $this, 'email_send_copy_to_admin' ), 
+            'dwqa-email', 
+            'dwqa-subscribe-settings'
+        );
+        register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_send_copy_to_admin');
+
         // Cc address setting
         add_settings_field( 
             'dwqa_subscrible_cc_address', 
@@ -955,9 +965,23 @@ class DWQA_Settings {
         $this->input_text_field( 'dwqa_subscrible_bcc_address' );
     }
 
+    public function email_send_copy_to_admin(){
+        $this->input_checkbox_field( 
+            'dwqa_subscrible_send_copy_to_admin',
+            __('Send A Copy Of Every Email To Admin','dwqa')
+        );
+    }
 
     public function input_text_field( $option, $label = false, $description = false, $class = false ){
         echo '<p><label for="'.$option.'"><input type="text" id="'.$option.'" name="'.$option.'" value="'.get_option( $option ).'" class="widefat" /</label></p>';
+    }
+
+    public function input_checkbox_field( $option, $description = false ){
+        echo '</p><label for="'.$option.'"><input id="'.$option.'" name="'.$option.'" type="checkbox" '.checked( true, (bool) get_option( $option ), false ).' value="true">';
+        if( $description ) {
+            echo '<span class="description">'.$description.'</span>';
+        }
+        echo '</label></p>';
     }
 }
 $GLOBAL['dwqa-settings'] = new DWQA_Settings();

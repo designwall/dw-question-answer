@@ -861,13 +861,12 @@ class DWQA_Settings {
                     echo '<h3>'.__('Email setup','dwqa').'</h3>';
                     settings_fields( 'dwqa-subscribe-settings' );
 
-                    do_settings_sections( 'dwqa-email' );
-                    echo '<h3>'.__('Email Template','dwqa') . '</h3>';
-
                     echo '<table class="form-table"><tr>';
                     echo '<th scope="row">'.__('Email Logo','dwqa').'</th><td>';
                     dwqa_subscrible_email_logo_display();
                     echo '</td></tr></table>';
+
+                    do_settings_sections( 'dwqa-email' );
 
                     echo '<div class="dwqa-mail-templates">';
                     echo '<div class="progress-bar"><div class="progress-bar-inner"></div></div>';

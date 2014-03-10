@@ -727,33 +727,33 @@ class DWQA_Settings {
         );
 
         // Send to address setting
-        add_settings_field( 
-            'dwqa_subscrible_sendto_address', 
-            __('Admin Email', 'dwqa'), 
-            array( $this, 'email_sendto_address_display' ), 
-            'dwqa-email', 
-            'dwqa-subscribe-settings'
-        );
+        // add_settings_field( 
+        //     'dwqa_subscrible_sendto_address', 
+        //     __('Admin Email', 'dwqa'), 
+        //     array( $this, 'email_sendto_address_display' ), 
+        //     'dwqa-email', 
+        //     'dwqa-subscribe-settings'
+        // );
         register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_sendto_address');
 
         // Cc address setting
-        add_settings_field( 
-            'dwqa_subscrible_cc_address', 
-            __('Cc', 'dwqa'), 
-            array( $this, 'email_cc_address_display' ), 
-            'dwqa-email', 
-            'dwqa-subscribe-settings'
-        );
+        // add_settings_field( 
+        //     'dwqa_subscrible_cc_address', 
+        //     __('Cc', 'dwqa'), 
+        //     array( $this, 'email_cc_address_display' ), 
+        //     'dwqa-email', 
+        //     'dwqa-subscribe-settings'
+        // );
         register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_cc_address');
 
         // Bcc address setting
-        add_settings_field( 
-            'dwqa_subscrible_bcc_address', 
-            __('Bcc', 'dwqa'), 
-            array( $this, 'email_bcc_address_display' ), 
-            'dwqa-email', 
-            'dwqa-subscribe-settings'
-        );
+        // add_settings_field( 
+        //     'dwqa_subscrible_bcc_address', 
+        //     __('Bcc', 'dwqa'), 
+        //     array( $this, 'email_bcc_address_display' ), 
+        //     'dwqa-email', 
+        //     'dwqa-subscribe-settings'
+        // );
         register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_bcc_address');
 
         // Bcc address setting
@@ -887,7 +887,9 @@ class DWQA_Settings {
 
                     echo '<div id="new-question" class="tab-pane active">';
                     echo '<h3>'.__('New Question Notification','dwqa') . '</h3>';
-
+                    $this->email_sendto_address_display();
+                    $this->email_cc_address_display();
+                    $this->email_bcc_address_display();
                     dwqa_subscrible_enable_new_question_notification();
                     dwqa_subscrible_new_question_email_subject_display();
                     dwqa_subscrible_new_question_email_display();
@@ -970,14 +972,17 @@ class DWQA_Settings {
     }
 
     public function email_sendto_address_display(){
+        echo '<p>'.__('Send to', 'dwqa').'</p>';
         $this->input_text_field( 'dwqa_subscrible_sendto_address' );
     }
 
     public function email_cc_address_display(){
+        echo '<p>'.__('Cc', 'dwqa').'</p>';
         $this->input_text_field( 'dwqa_subscrible_cc_address' );
     }
 
     public function email_bcc_address_display(){
+        echo '<p>'.__('Bcc', 'dwqa').'</p>';
         $this->input_text_field( 'dwqa_subscrible_bcc_address' );
     }
 

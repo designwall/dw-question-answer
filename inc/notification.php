@@ -89,7 +89,7 @@ function dwqa_new_answer_nofity( $answer_id ){
     }
 
     //Admin email
-    $admin_email = dwqa_get_admin_email();
+    $admin_email = get_bloginfo( 'admin_email' );;
     $enable_send_copy = get_option( 'dwqa_subscrible_send_copy_to_admin' );
 
     $question_id = get_post_meta( $answer_id, '_question', true );
@@ -237,7 +237,7 @@ function dwqa_new_comment_notify( $comment_id, $comment ){
     $parent = get_post_type( $comment->comment_post_ID );
 
     //Admin email
-    $admin_email = dwqa_get_admin_email();
+    $admin_email = get_bloginfo( 'admin_email' );
     $enable_send_copy = get_option( 'dwqa_subscrible_send_copy_to_admin' );
 
     if ( 1 == $comment->comment_approved && ( 'dwqa-question' == $parent || 'dwqa-answer' == $parent )  ) { 
@@ -384,7 +384,5 @@ function dwqa_new_comment_notify( $comment_id, $comment ){
     }
 }
 add_action( 'wp_insert_comment', 'dwqa_new_comment_notify',10,2 );
-
-
 
 ?>

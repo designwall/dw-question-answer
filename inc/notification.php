@@ -55,8 +55,11 @@ function dwqa_new_question_notify( $question_id, $user_id ){
         return false;
     }
     // Replacement
-    $admin = get_user_by( 'email', $admin_email );
-    $message = str_replace( '{admin}', get_the_author_meta( 'display_name', $admin->ID ), $message);
+    
+    $admin = get_user_by( 'email', $admin_email[0] );
+    if( $admin ) {
+        $message = str_replace( '{admin}', get_the_author_meta( 'display_name', $admin->ID ), $message);
+    }
     //sender
     $message = str_replace( '{user_avatar}', get_avatar( $user_id, '60'), $message);
     $message = str_replace( '{user_link}', get_author_posts_url( $user_id ), $message);

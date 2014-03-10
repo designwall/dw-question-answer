@@ -200,7 +200,7 @@ function dwqa_new_answer_nofity( $answer_id ){
                     //Send email to follower
                     $message_to_each_follower = str_replace( '{follower}', $follower_name, $message_to_follower );
                     wp_mail( $follow_email, $follow_subject, $message_to_each_follower, $headers );
-                    if( $enable_send_copy ) {
+                    if( $enable_send_copy && $follow_email != $admin_email ) {
                         wp_mail( $admin_email, $follow_subject, $message_to_each_follower, $headers );
                     }
                 }
@@ -210,7 +210,7 @@ function dwqa_new_answer_nofity( $answer_id ){
 
     if( $question->post_author != $answer->post_author ) {
         wp_mail( $email, $subject, $message, $headers );
-        if( $enable_send_copy ) {
+        if( $enable_send_copy && $email != $admin_email ) {
             wp_mail( $admin_email, $subject, $message, $headers );
         }
     }
@@ -345,7 +345,7 @@ function dwqa_new_comment_notify( $comment_id, $comment ){
 
                         $message_to_each_follower = str_replace( '{follower}', $follower_name, $message_to_follower );
                         wp_mail( $follow_email, $follow_subject, $message_to_each_follower, $headers );
-                        if( $enable_send_copy ) {
+                        if( $enable_send_copy && $follow_email != $admin_email ) {
                             wp_mail( $admin_email, $follow_subject, $message_to_each_follower, $headers );
                         }
                     }
@@ -356,7 +356,7 @@ function dwqa_new_comment_notify( $comment_id, $comment ){
 
         if( $post_parent->post_author != $comment->user_id ) {
             wp_mail( $post_parent_email, $subject, $message, $headers );
-            if( $enable_send_copy ) {
+            if( $enable_send_copy && $admin_email != $post_parent_email ) {
                 wp_mail( $admin_email, $subject, $message, $headers );
             }
         }

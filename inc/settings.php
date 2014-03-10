@@ -729,7 +729,7 @@ class DWQA_Settings {
         // Send to address setting
         add_settings_field( 
             'dwqa_subscrible_sendto_address', 
-            __('Send to', 'dwqa'), 
+            __('Admin Email', 'dwqa'), 
             array( $this, 'email_sendto_address_display' ), 
             'dwqa-email', 
             'dwqa-subscribe-settings'
@@ -756,6 +756,16 @@ class DWQA_Settings {
         );
         register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_bcc_address');
 
+        // Bcc address setting
+        add_settings_field( 
+            'dwqa_subscrible_from_address', 
+            __('From Email', 'dwqa'), 
+            array( $this, 'email_from_address_display' ), 
+            'dwqa-email', 
+            'dwqa-subscribe-settings'
+        );
+        register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_from_address');
+
         // Send copy
         add_settings_field( 
             'dwqa_subscrible_send_copy_to_admin', 
@@ -765,7 +775,7 @@ class DWQA_Settings {
             'dwqa-subscribe-settings'
         );
         register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_send_copy_to_admin');
-        
+
         // Logo setting in for email template
         // add_settings_field( 
         //     'dwqa_subscrible_email_logo', 
@@ -960,7 +970,7 @@ class DWQA_Settings {
     }
 
     public function email_sendto_address_display(){
-        $this->input_text_field( 'dwqa_subscrible_sendto_address' );
+        $this->input_text_field( 'dwqa_subscrible_sendto_address', false, __('This email address was use ') );
     }
 
     public function email_cc_address_display(){
@@ -969,6 +979,10 @@ class DWQA_Settings {
 
     public function email_bcc_address_display(){
         $this->input_text_field( 'dwqa_subscrible_bcc_address' );
+    }
+
+    public function email_from_address_display(){
+        $this->input_text_field( 'dwqa_subscrible_from_address' );
     }
 
     public function email_send_copy_to_admin(){

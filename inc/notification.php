@@ -33,6 +33,12 @@ function dwqa_new_question_notify( $question_id, $user_id ){
     // To send HTML mail, the Content-type header must be set
     $headers  = 'MIME-Version: 1.0' . "\r\n";
     $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
+    //From email 
+    $from_email = get_option( 'dwqa_subscrible_from_address' );
+    if( $from_email ) {
+        $headers = "From: " . $from_email . "\r\n";
+    }
+
     //Cc email
     $cc_address = get_option( 'dwqa_subscrible_cc_address' );
     if( $cc_address ) {
@@ -43,7 +49,7 @@ function dwqa_new_question_notify( $question_id, $user_id ){
     if( $bcc_address ) {
         $headers .= "Bcc: " . $bcc_address . "\r\n";
     }
-
+    
     $message = dwqa_get_mail_template( 'dwqa_subscrible_new_question_email', 'new-question' );
     if( ! $message ) {
         return false;
@@ -117,7 +123,13 @@ function dwqa_new_answer_nofity( $answer_id ){
     // To send HTML mail, the Content-type header must be set
     $headers  = 'MIME-Version: 1.0' . "\r\n";
     $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
-    
+
+    //From email 
+    $from_email = get_option( 'dwqa_subscrible_from_address' );
+    if( $from_email ) {
+        $headers = "From: " . $from_email . "\r\n";
+    }
+
     $message = dwqa_get_mail_template( 'dwqa_subscrible_new_answer_email', 'new-answer' );
     if( ! $message ) {
         return false;
@@ -258,7 +270,12 @@ function dwqa_new_comment_notify( $comment_id, $comment ){
         // To send HTML mail, the Content-type header must be set
         $headers  = 'MIME-Version: 1.0' . "\r\n";
         $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
-
+        //From email 
+        $from_email = get_option( 'dwqa_subscrible_from_address' );
+        if( $from_email ) {
+            $headers = "From: " . $from_email . "\r\n";
+        }
+        
         if( $parent == 'dwqa-question' ) {
             $message = dwqa_get_mail_template( 'dwqa_subscrible_new_comment_question_email', 'new-comment-question' );    
             $subject = get_option( 'dwqa_subscrible_new_comment_question_email_subject',__('[{site_name}] You have a new comment for question {question_title}', 'dwqa')  );

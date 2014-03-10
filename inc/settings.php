@@ -50,8 +50,7 @@ function dwqa_submit_question_page_display(){
                 'selected'          => $submit_question_page
             ) );
         ?>
-        <span class="description"><?php _e('A page where users can submit questions.
-','dwqa') ?></span>
+        <span class="description"><?php _e('A page where users can submit questions.','dwqa') ?></span>
     </p>
     <?php
 }
@@ -889,7 +888,7 @@ class DWQA_Settings {
                     echo '</div>';//End tab for New Answer Notification
 
                     echo '<div id="new-answer-followers" class="tab-pane">';
-                    echo '<h3>'.__('New Answer Notification ( To Followers )','dwqa'). '</h3>';
+                    echo '<h3>'.__('New Answer Notification (to Followers)','dwqa'). '</h3>';
                     dwqa_subscrible_enable_new_answer_followers_notification();
                     dwqa_subscrible_new_answer_followers_email_subject_display();
                     dwqa_subscrible_new_answer_followers_email_display();

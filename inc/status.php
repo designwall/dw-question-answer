@@ -288,7 +288,7 @@ function dwqa_update_privacy(){
     check_ajax_referer( '_dwqa_update_privacy_nonce', 'nonce' );
 
     if( ! isset($_POST['post']) ) {
-        wp_send_json_error( array( 'message' => __('Misisng post ID','dwqa' ) ) );
+        wp_send_json_error( array( 'message' => __('Missing post ID','dwqa' ) ) );
     }
 
     $status = 'publish';
@@ -303,7 +303,7 @@ function dwqa_update_privacy(){
             ) );
         } else {
             wp_send_json_error(  array(
-                'message'   => __('Post is not exists','dwqa')
+                'message'   => __('Post does not exist','dwqa')
             ) );
         }
     } else {

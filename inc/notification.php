@@ -261,7 +261,7 @@ function dwqa_new_comment_notify( $comment_id, $comment ){
 
         if( $parent == 'dwqa-question' ) {
             $message = dwqa_get_mail_template( 'dwqa_subscrible_new_comment_question_email', 'new-comment-question' );    
-            $subject = get_option( 'dwqa_subscrible_new_comment_question_email_subject',__('[{site_name}] You have a new comment for question {question_title} ', 'dwqa')  );
+            $subject = get_option( 'dwqa_subscrible_new_comment_question_email_subject',__('[{site_name}] You have a new comment for question {question_title}', 'dwqa')  );
             $message = str_replace( '{question_author}', get_the_author_meta( 'display_name', $post_parent->post_author ), $message);
             $question = $post_parent;
         } else {
@@ -307,7 +307,7 @@ function dwqa_new_comment_notify( $comment_id, $comment ){
 
             if( $parent == 'dwqa-question' ) {
                 $message_to_follower = dwqa_get_mail_template( 'dwqa_subscrible_new_comment_question_followers_email', 'new-comment-question' );    
-                $follow_subject = get_option( 'dwqa_subscrible_new_comment_question_followers_email_subject',__('[{site_name}] You have a new comment for question {question_title} ', 'dwqa')  );
+                $follow_subject = get_option( 'dwqa_subscrible_new_comment_question_followers_email_subject',__('[{site_name}] You have a new comment for question {question_title}', 'dwqa')  );
                 $message_to_follower = str_replace( '{question_author}', get_the_author_meta( 'display_name', $post_parent->post_author ), $message_to_follower);
                 $question = $post_parent;
             } else {

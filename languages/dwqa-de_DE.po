@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DW Question Answer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-10 10:00+0700\n"
-"PO-Revision-Date: 2014-03-10 10:00+0700\n"
+"POT-Creation-Date: 2014-03-10 11:57+0700\n"
+"PO-Revision-Date: 2014-03-10 11:57+0700\n"
 "Last-Translator: DesignWall <webmaster@designwall.com>\n"
 "Language-Team: Marcus Scheunemann <marcus@algo.rith.ms>\n"
 "Language: en\n"
@@ -47,7 +47,7 @@ msgstr "Frage Hinzufügen"
 msgid "Edit Question"
 msgstr "Frage bearbeiten"
 
-#: ../dw-question-answer.php:134 ../inc/settings.php:859
+#: ../dw-question-answer.php:134 ../inc/settings.php:866
 msgid "New Question"
 msgstr "Neue Frage"
 
@@ -93,7 +93,7 @@ msgstr "Antwort hinzufügen"
 msgid "Edit answer"
 msgstr "Antwort bearbeiten"
 
-#: ../dw-question-answer.php:168 ../inc/settings.php:860
+#: ../dw-question-answer.php:168 ../inc/settings.php:867
 msgid "New Answer"
 msgstr "Neue Antwort"
 
@@ -118,7 +118,7 @@ msgid "No Answers found in Trash"
 msgstr "Keine Antworten im Papierkorb gefunden"
 
 #: ../dw-question-answer.php:175 ../dw-question-answer.php:459
-#: ../inc/settings.php:429 ../inc/shortcodes.php:124
+#: ../inc/settings.php:429 ../inc/shortcodes.php:145
 #: ../inc/templates/default/archive-question.php:111
 #: ../thesis/dwqa/box.php:172
 msgid "Answer"
@@ -225,14 +225,14 @@ msgid "Question Tags"
 msgstr "Fragen Stichworte"
 
 #: ../dw-question-answer.php:279 ../dw-question-answer.php:411
-#: ../inc/filter.php:83 ../inc/shortcodes.php:236
+#: ../inc/filter.php:83 ../inc/shortcodes.php:257
 #: ../inc/templates/default/navigation-archive.php:92
 #: ../thesis/dwqa/box.php:282
 msgid "Next"
 msgstr "Nächste"
 
 #: ../dw-question-answer.php:280 ../dw-question-answer.php:412
-#: ../inc/shortcodes.php:200
+#: ../inc/shortcodes.php:221
 #: ../inc/templates/default/navigation-archive.php:56
 #: ../thesis/dwqa/box.php:246
 msgid "Prev"
@@ -442,7 +442,7 @@ msgstr "bewertet"
 msgid "views"
 msgstr "gesehen"
 
-#: ../dw-question-answer.php:648 ../inc/shortcodes.php:336
+#: ../dw-question-answer.php:648 ../inc/shortcodes.php:351
 #: ../inc/widgets.php:101
 msgid "asked by"
 msgstr "gefragt von"
@@ -463,7 +463,7 @@ msgstr "Du hast dafür abgestimmt"
 msgid "Delete draft"
 msgstr "Entwurf löschen"
 
-#: ../inc/actions.php:236 ../inc/import-tool-for-nex.php:136
+#: ../inc/actions.php:236
 msgid "Answer for "
 msgstr "Antwort für"
 
@@ -651,7 +651,7 @@ msgstr ""
 msgid "DesignWall Wordpress Plugins"
 msgstr ""
 
-#: ../inc/filter.php:101 ../inc/shortcodes.php:249
+#: ../inc/filter.php:101 ../inc/shortcodes.php:270
 #: ../inc/templates/default/archive-question-notfound.php:4
 #: ../thesis/dwqa/box.php:295
 msgid "You do not have permission to view questions"
@@ -661,21 +661,21 @@ msgstr "Du hast keine Erlaubnis um Fragen zu sehen"
 msgid "Sorry, but nothing matched your filter. "
 msgstr "Entschuldige, aber nichts passte zu deinen Filterkriterien."
 
-#: ../inc/filter.php:110 ../inc/shortcodes.php:259 ../thesis/dwqa/box.php:305
+#: ../inc/filter.php:110 ../inc/shortcodes.php:280 ../thesis/dwqa/box.php:305
 msgid "You can ask question <a href=\""
 msgstr "Du kannst eine Frage stelen <a href=\""
 
-#: ../inc/filter.php:114 ../inc/shortcodes.php:263 ../thesis/dwqa/box.php:309
+#: ../inc/filter.php:114 ../inc/shortcodes.php:284 ../thesis/dwqa/box.php:309
 msgid "Please <a href=\""
 msgstr "Bitte <a href=\""
 
-#: ../inc/filter.php:118 ../inc/shortcodes.php:267
+#: ../inc/filter.php:118 ../inc/shortcodes.php:288
 #: ../inc/templates/default/archive-question-notfound.php:17
 #: ../thesis/dwqa/box.php:313
 msgid " or"
 msgstr "oder"
 
-#: ../inc/filter.php:120 ../inc/shortcodes.php:269
+#: ../inc/filter.php:120 ../inc/shortcodes.php:290
 #: ../inc/templates/default/archive-question-notfound.php:18
 #: ../thesis/dwqa/box.php:315
 msgid " to submit question."
@@ -698,7 +698,7 @@ msgstr "Frage-Meta-Daten"
 msgid "Status"
 msgstr ""
 
-#: ../inc/metaboxes.php:46 ../inc/shortcodes.php:43 ../inc/status.php:277
+#: ../inc/metaboxes.php:46 ../inc/shortcodes.php:64 ../inc/status.php:277
 #: ../inc/templates/default/archive-question.php:30 ../thesis/dwqa/box.php:91
 msgid "Open"
 msgstr "Offen"
@@ -709,7 +709,7 @@ msgstr "Offen"
 msgid "Pending"
 msgstr "Wartend"
 
-#: ../inc/metaboxes.php:48 ../inc/shortcodes.php:49 ../inc/status.php:261
+#: ../inc/metaboxes.php:48 ../inc/shortcodes.php:70 ../inc/status.php:261
 #: ../inc/templates/default/archive-question.php:36
 #: ../inc/templates/default/single-question.php:148 ../thesis/dwqa/box.php:97
 #: ../thesis/dwqa/box.php:458
@@ -721,7 +721,7 @@ msgstr "Gelöst"
 msgid "Re-Open"
 msgstr "Erneut geöffnet"
 
-#: ../inc/metaboxes.php:50 ../inc/shortcodes.php:52 ../inc/status.php:270
+#: ../inc/metaboxes.php:50 ../inc/shortcodes.php:73 ../inc/status.php:270
 #: ../inc/templates/default/archive-question.php:39
 #: ../inc/templates/default/single-question.php:138 ../thesis/dwqa/box.php:100
 #: ../thesis/dwqa/box.php:448
@@ -773,14 +773,14 @@ msgid "How to use DW Question Answer"
 msgstr "Wieso sollte man DW Question & Answer nutzen?"
 
 #: ../inc/pointer-helper.php:58
-msgid "Documents, Support From DesignWall"
+msgid "Documents, Support From DesignWall (help)"
 msgstr ""
 
-#: ../inc/pointer-helper.php:69
+#: ../inc/pointer-helper.php:67
 msgid "Config your support channel"
 msgstr ""
 
-#: ../inc/pointer-helper.php:70
+#: ../inc/pointer-helper.php:68
 msgid "Change comment setting, and create submit question page."
 msgstr "Ändere Kommentareinstelkungen und erstelle eine Frage-Seite"
 
@@ -973,17 +973,13 @@ msgstr "Einzelne Stichwort"
 msgid "Send to"
 msgstr "Sende an"
 
-#: ../inc/settings.php:752
+#: ../inc/settings.php:742
 msgid "Cc"
 msgstr ""
 
-#: ../inc/settings.php:762
+#: ../inc/settings.php:752
 msgid "Bcc"
 msgstr ""
-
-#: ../inc/settings.php:772
-msgid "Email Logo"
-msgstr "E-Mail-Logo"
 
 #: ../inc/settings.php:816 ../inc/settings.php:823
 msgid "Group Permission"
@@ -1005,157 +1001,165 @@ msgstr "Benachrichtigung"
 msgid "Permission"
 msgstr "Genehmigung"
 
-#: ../inc/settings.php:854
+#: ../inc/settings.php:851
+msgid "Admin emails"
+msgstr ""
+
+#: ../inc/settings.php:855
 msgid "Email Template"
 msgstr "E-Mail-Template"
 
-#: ../inc/settings.php:861
+#: ../inc/settings.php:858
+msgid "Email Logo"
+msgstr "E-Mail-Logo"
+
+#: ../inc/settings.php:868
 msgid "New Comment to Question"
 msgstr "Neues Kommentar auf eine Frage"
 
-#: ../inc/settings.php:862
+#: ../inc/settings.php:869
 msgid "New Comment to Answer"
 msgstr "Neues Kommentar auf eine Antwort"
 
-#: ../inc/settings.php:863
+#: ../inc/settings.php:870
 msgid "New Answer (to Followers)"
 msgstr "Neue Antwort (für Beobachter)"
 
-#: ../inc/settings.php:864
+#: ../inc/settings.php:871
 msgid "New Comment to Question (to Followers)"
 msgstr "Neues Kommentar auf eine Frage (für Beobachter)"
 
-#: ../inc/settings.php:865
+#: ../inc/settings.php:872
 msgid "New Comment to Answer (to Followers)"
 msgstr "Neues Kommentar auf eine Antwort (für Beobachter)"
 
-#: ../inc/settings.php:872
+#: ../inc/settings.php:879
 msgid "New Question Notification"
 msgstr "Neues-Kommentar-Benachrichtigung"
 
-#: ../inc/settings.php:877 ../inc/settings.php:886 ../inc/settings.php:895
-#: ../inc/settings.php:904 ../inc/settings.php:914 ../inc/settings.php:922
-#: ../inc/settings.php:932
+#: ../inc/settings.php:884 ../inc/settings.php:893 ../inc/settings.php:902
+#: ../inc/settings.php:911 ../inc/settings.php:921 ../inc/settings.php:929
+#: ../inc/settings.php:939
 msgid "Save all changes"
 msgstr "Alle Änderungen speichern"
 
-#: ../inc/settings.php:882
+#: ../inc/settings.php:889
 msgid "New Answer Notification"
 msgstr "Neue-Antwort-Benachrichtigung"
 
-#: ../inc/settings.php:891
+#: ../inc/settings.php:898
 #, fuzzy
 msgid "New Answer Notification (to Followers)"
 msgstr "Neue-Antwort-Benachrichtigung (für Beobachter)"
 
-#: ../inc/settings.php:900
+#: ../inc/settings.php:907
 msgid "New Comment to Question Notification"
 msgstr "Benachrichtigung bzgl. neuem Kommentar auf eine Frage"
 
-#: ../inc/settings.php:910
+#: ../inc/settings.php:917
 msgid "New Comment to Answer Notification"
 msgstr "Benachrichtigung bzgl. neuem Kommentar auf eine Antwort"
 
-#: ../inc/settings.php:918
+#: ../inc/settings.php:925
 msgid "New Comment to Question Notification (to Followers)"
 msgstr "Benachrichtigung bzgl. neuem Kommentar auf eine Frage (für Beobachter)"
 
-#: ../inc/settings.php:928
+#: ../inc/settings.php:935
 msgid "New Comment to Answer Notification (to Followers)"
 msgstr ""
 "Benachrichtigung bzgl. neuem Kommentar auf eine Antwort (für Beobachter)"
 
-#: ../inc/settings.php:970
+#: ../inc/settings.php:977
 msgid "Send A Copy Of Every Email To Admin"
 msgstr ""
 
-#: ../inc/shortcodes.php:16 ../inc/templates/default/search-question.php:4
+#: ../inc/shortcodes.php:37 ../inc/templates/default/search-question.php:4
 #: ../thesis/dwqa/box.php:64
 msgid "Search"
 msgstr "Suche"
 
-#: ../inc/shortcodes.php:29 ../inc/shortcodes.php:243
+#: ../inc/shortcodes.php:50 ../inc/shortcodes.php:264
 #: ../inc/template-functions.php:722 ../thesis/dwqa/box.php:77
 #: ../thesis/dwqa/box.php:289
 msgid "Ask a question"
 msgstr "Stell' eine Frage"
 
-#: ../inc/shortcodes.php:37 ../inc/templates/default/archive-question.php:24
+#: ../inc/shortcodes.php:58 ../inc/templates/default/archive-question.php:24
 #: ../thesis/dwqa/box.php:85
 msgid "Status:"
 msgstr ""
 
-#: ../inc/shortcodes.php:39 ../inc/shortcodes.php:87
+#: ../inc/shortcodes.php:60 ../inc/shortcodes.php:108
 #: ../inc/templates/default/archive-question.php:26
 #: ../inc/templates/default/archive-question.php:74 ../thesis/dwqa/box.php:87
 #: ../thesis/dwqa/box.php:135
 msgid "All"
 msgstr "Alle"
 
-#: ../inc/shortcodes.php:43 ../inc/templates/default/archive-question.php:30
+#: ../inc/shortcodes.php:64 ../inc/templates/default/archive-question.php:30
 #: ../thesis/dwqa/box.php:91
 msgid "Need Answer"
 msgstr "Benötigt Antwort"
 
-#: ../inc/shortcodes.php:46 ../inc/templates/default/archive-question.php:33
+#: ../inc/shortcodes.php:67 ../inc/templates/default/archive-question.php:33
 #: ../thesis/dwqa/box.php:94
 msgid "Answered"
 msgstr "Beantwortet"
 
-#: ../inc/shortcodes.php:55 ../inc/templates/default/archive-question.php:42
+#: ../inc/shortcodes.php:76 ../inc/templates/default/archive-question.php:42
 #: ../thesis/dwqa/box.php:103
 msgid "Overdue"
 msgstr "Abgelaufen"
 
-#: ../inc/shortcodes.php:56 ../inc/templates/default/archive-question.php:43
+#: ../inc/shortcodes.php:77 ../inc/templates/default/archive-question.php:43
 #: ../thesis/dwqa/box.php:104
 msgid "Queue"
 msgstr "Schlange"
 
-#: ../inc/shortcodes.php:77 ../inc/templates/default/archive-question.php:64
+#: ../inc/shortcodes.php:98 ../inc/templates/default/archive-question.php:64
 #: ../thesis/dwqa/box.php:125
 msgid "Select a category"
 msgstr "Wähle eine Kategorie"
 
-#: ../inc/shortcodes.php:88 ../inc/templates/default/archive-question.php:75
+#: ../inc/shortcodes.php:109 ../inc/templates/default/archive-question.php:75
 #: ../thesis/dwqa/box.php:136
 msgid "Empty"
 msgstr "Leer"
 
-#: ../inc/shortcodes.php:121 ../inc/templates/default/archive-question.php:108
+#: ../inc/shortcodes.php:142 ../inc/templates/default/archive-question.php:108
 #: ../thesis/dwqa/box.php:169
 msgid "View"
 msgstr "Ansicht"
 
-#: ../inc/shortcodes.php:127 ../inc/templates/default/archive-question.php:114
+#: ../inc/shortcodes.php:148 ../inc/templates/default/archive-question.php:114
 #: ../thesis/dwqa/box.php:175
 msgid "Vote"
 msgstr "Abstimmen"
 
-#: ../inc/shortcodes.php:252
+#: ../inc/shortcodes.php:273
 #: ../inc/templates/default/archive-question-notfound.php:7
 #: ../thesis/dwqa/box.php:298
 msgid "Sorry, but nothing matched your filter."
 msgstr "Entschuldige, aber nichts entspricht deinen Filterkriterien."
 
-#: ../inc/shortcodes.php:313 ../inc/widgets.php:79
+#: ../inc/shortcodes.php:328 ../inc/widgets.php:79
 msgid "Popular Questions"
 msgstr "Beliebte Fragen"
 
-#: ../inc/shortcodes.php:352
+#: ../inc/shortcodes.php:365
 msgid "Latest Answers"
 msgstr "Letzte Antworten"
 
-#: ../inc/shortcodes.php:375
+#: ../inc/shortcodes.php:388
 msgid "Answer at"
 msgstr "Antwort auf"
 
-#: ../inc/shortcodes.php:375 ../inc/templates/default/single-question.php:66
+#: ../inc/shortcodes.php:388 ../inc/templates/default/single-question.php:66
 #: ../thesis/dwqa/box.php:376
 msgid "Link to"
 msgstr "Link zu"
 
-#: ../inc/shortcodes.php:404
+#: ../inc/shortcodes.php:415
 msgid "people are following this question."
 msgstr "Benutzer beobachten diese Frage."
 

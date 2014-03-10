@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DW Question Answer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-05 15:11+0700\n"
-"PO-Revision-Date: 2014-03-05 15:11+0700\n"
+"POT-Creation-Date: 2014-03-10 11:57+0700\n"
+"PO-Revision-Date: 2014-03-10 11:57+0700\n"
 "Last-Translator: DesignWall <webmaster@designwall.com>\n"
 "Language-Team: DesignWall <webmaster@designwall.com>\n"
 "Language: en\n"
@@ -16,354 +16,354 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../dw-question-answer.php:60
+#: ../dw-question-answer.php:62
 msgid "DWQA Questions"
 msgstr "پرسش های DWQA"
 
-#: ../dw-question-answer.php:73
+#: ../dw-question-answer.php:75
 msgid "DWQA Ask Question"
 msgstr "پرسش سؤال DWQA"
 
-#: ../dw-question-answer.php:127
+#: ../dw-question-answer.php:129
 msgctxt "post type general name"
 msgid "Question"
 msgstr "سؤال"
 
-#: ../dw-question-answer.php:128
+#: ../dw-question-answer.php:130
 msgctxt "post type singular name"
 msgid "Question"
 msgstr "سؤال"
 
-#: ../dw-question-answer.php:129 ../dw-question-answer.php:163
+#: ../dw-question-answer.php:131 ../dw-question-answer.php:165
 msgctxt "theme"
 msgid "Add New"
 msgstr "اضافه کردن"
 
-#: ../dw-question-answer.php:130
+#: ../dw-question-answer.php:132
 msgid "Add New Question"
 msgstr "افزودن سؤال جدید"
 
-#: ../dw-question-answer.php:131
+#: ../dw-question-answer.php:133
 msgid "Edit Question"
 msgstr "ویرایش سؤال"
 
-#: ../dw-question-answer.php:132 ../inc/settings.php:850
+#: ../dw-question-answer.php:134 ../inc/settings.php:866
 msgid "New Question"
 msgstr "سؤال جدید"
 
-#: ../dw-question-answer.php:133
+#: ../dw-question-answer.php:135
 msgid "All Questions"
 msgstr "تمام سؤالات"
 
-#: ../dw-question-answer.php:134
+#: ../dw-question-answer.php:136
 msgid "View Question"
 msgstr "دیدن سؤال"
 
-#: ../dw-question-answer.php:135
+#: ../dw-question-answer.php:137
 msgid "Search Question"
 msgstr "جست و جوی سؤال"
 
-#: ../dw-question-answer.php:136
+#: ../dw-question-answer.php:138
 msgid "No questions found"
 msgstr "هیچ سؤالی یافت نشد"
 
-#: ../dw-question-answer.php:137
+#: ../dw-question-answer.php:139
 msgid "No questions found in Trash"
 msgstr "هیچ سؤالی در سطل زباله یافت نشد"
 
-#: ../dw-question-answer.php:139
+#: ../dw-question-answer.php:141
 msgid "DW Q&A"
 msgstr "پرسش و پاسخ"
 
-#: ../dw-question-answer.php:161
+#: ../dw-question-answer.php:163
 msgctxt "post type general name"
 msgid "Answer"
 msgstr "پاسخ"
 
-#: ../dw-question-answer.php:162
+#: ../dw-question-answer.php:164
 msgctxt "post type singular name"
 msgid "Answer"
 msgstr "پاسخ"
 
-#: ../dw-question-answer.php:164
+#: ../dw-question-answer.php:166
 msgid "Add new answer"
 msgstr "افزودن پاسخ جدید"
 
-#: ../dw-question-answer.php:165
+#: ../dw-question-answer.php:167
 msgid "Edit answer"
 msgstr "ویرایش پاسخ"
 
-#: ../dw-question-answer.php:166 ../inc/settings.php:851
+#: ../dw-question-answer.php:168 ../inc/settings.php:867
 msgid "New Answer"
 msgstr "پاسخ جدید"
 
-#: ../dw-question-answer.php:167
+#: ../dw-question-answer.php:169
 msgid "All Answers"
 msgstr "تمام پاسخها"
 
-#: ../dw-question-answer.php:168
+#: ../dw-question-answer.php:170
 msgid "View Answer"
 msgstr "دیدن پاسخ"
 
-#: ../dw-question-answer.php:169
+#: ../dw-question-answer.php:171
 msgid "Search Answer"
 msgstr "جست و جوی پاسخ"
 
-#: ../dw-question-answer.php:170
+#: ../dw-question-answer.php:172
 msgid "No Answers found"
 msgstr "هیچ پاسخی یافت نشد"
 
-#: ../dw-question-answer.php:171
+#: ../dw-question-answer.php:173
 msgid "No Answers found in Trash"
 msgstr "هیچ پاسخی در سطل زباله یافت نشد"
 
-#: ../dw-question-answer.php:173 ../dw-question-answer.php:457
-#: ../inc/settings.php:430 ../inc/shortcodes.php:124
+#: ../dw-question-answer.php:175 ../dw-question-answer.php:459
+#: ../inc/settings.php:429 ../inc/shortcodes.php:145
 #: ../inc/templates/default/archive-question.php:111
 #: ../thesis/dwqa/box.php:172
 msgid "Answer"
 msgstr "پاسخ"
 
-#: ../dw-question-answer.php:195
+#: ../dw-question-answer.php:197
 msgctxt "taxonomy general name"
 msgid "Categories"
 msgstr "دسته ها"
 
-#: ../dw-question-answer.php:196
+#: ../dw-question-answer.php:198
 msgctxt "taxonomy singular name"
 msgid "Category"
 msgstr "دسته"
 
-#: ../dw-question-answer.php:197
+#: ../dw-question-answer.php:199
 msgid "Search Categories"
 msgstr "جست و جو در دسته ها"
 
-#: ../dw-question-answer.php:198
+#: ../dw-question-answer.php:200
 msgid "All Categories"
 msgstr "تمام دسته ها"
 
-#: ../dw-question-answer.php:199
+#: ../dw-question-answer.php:201
 msgid "Parent Category"
 msgstr "دسته ی مادر"
 
-#: ../dw-question-answer.php:200
+#: ../dw-question-answer.php:202
 msgid "Parent Category:"
 msgstr "دسته ی مادر :"
 
-#: ../dw-question-answer.php:201
+#: ../dw-question-answer.php:203
 msgid "Edit Category"
 msgstr "ویرایش دسته "
 
-#: ../dw-question-answer.php:202
+#: ../dw-question-answer.php:204
 msgid "Update Category"
 msgstr "به روزرسانی دسته"
 
-#: ../dw-question-answer.php:203
+#: ../dw-question-answer.php:205
 msgid "Add New Category"
 msgstr "افزودن دسته حدید"
 
-#: ../dw-question-answer.php:204
+#: ../dw-question-answer.php:206
 msgid "New Category Name"
 msgstr "نام دسته حدید"
 
-#: ../dw-question-answer.php:205
+#: ../dw-question-answer.php:207
 msgid "Question Categories"
 msgstr "دسته سؤالات"
 
-#: ../dw-question-answer.php:224
+#: ../dw-question-answer.php:226
 msgctxt "taxonomy general name"
 msgid "Tags"
 msgstr "برچسب ها"
 
-#: ../dw-question-answer.php:225
+#: ../dw-question-answer.php:227
 msgctxt "taxonomy singular name"
 msgid "Tag"
 msgstr "برچسب"
 
-#: ../dw-question-answer.php:226
+#: ../dw-question-answer.php:228
 msgid "Search Tags"
 msgstr "جست و جو در برچسب ها"
 
-#: ../dw-question-answer.php:227
+#: ../dw-question-answer.php:229
 msgid "Popular Tags"
 msgstr "برچسب های محبوب"
 
-#: ../dw-question-answer.php:228
+#: ../dw-question-answer.php:230
 msgid "All Tags"
 msgstr "تمام برچسب ها"
 
-#: ../dw-question-answer.php:231
+#: ../dw-question-answer.php:233
 msgid "Edit Tag"
 msgstr "ویرایش برچسب"
 
-#: ../dw-question-answer.php:232
+#: ../dw-question-answer.php:234
 msgid "Update Tag"
 msgstr "به روزرسانی برچسب"
 
-#: ../dw-question-answer.php:233
+#: ../dw-question-answer.php:235
 msgid "Add New Tag"
 msgstr "افزودن برچسب جدید"
 
-#: ../dw-question-answer.php:234
+#: ../dw-question-answer.php:236
 msgid "New Tag Name"
 msgstr "نام برچسب جدید"
 
-#: ../dw-question-answer.php:235
+#: ../dw-question-answer.php:237
 msgid "Separate tags with commas"
 msgstr "برچسب ها را با کاما جدا کنید"
 
-#: ../dw-question-answer.php:236
+#: ../dw-question-answer.php:238
 msgid "Add or remove tags"
 msgstr "افزودن یا حذف برچسب ها"
 
-#: ../dw-question-answer.php:237
+#: ../dw-question-answer.php:239
 msgid "Choose from the most used tags"
 msgstr "از بین برچسب های استفاده شده انتخاب کنید"
 
-#: ../dw-question-answer.php:238 ../inc/template-functions.php:266
+#: ../dw-question-answer.php:240 ../inc/template-functions.php:266
 msgid "Question Tags"
 msgstr "برچسب های مربوط به سؤال"
 
-#: ../dw-question-answer.php:277 ../dw-question-answer.php:409
-#: ../inc/filter.php:83 ../inc/shortcodes.php:236
+#: ../dw-question-answer.php:279 ../dw-question-answer.php:411
+#: ../inc/filter.php:83 ../inc/shortcodes.php:257
 #: ../inc/templates/default/navigation-archive.php:92
 #: ../thesis/dwqa/box.php:282
 msgid "Next"
 msgstr "بعدی"
 
-#: ../dw-question-answer.php:278 ../dw-question-answer.php:410
-#: ../inc/shortcodes.php:200
+#: ../dw-question-answer.php:280 ../dw-question-answer.php:412
+#: ../inc/shortcodes.php:221
 #: ../inc/templates/default/navigation-archive.php:56
 #: ../thesis/dwqa/box.php:246
 msgid "Prev"
 msgstr "قبلی"
 
-#: ../dw-question-answer.php:280 ../dw-question-answer.php:412
+#: ../dw-question-answer.php:282 ../dw-question-answer.php:414
 msgid "Please enter your question"
 msgstr "لطفا سؤال خود را وارد نمایید"
 
-#: ../dw-question-answer.php:281
+#: ../dw-question-answer.php:283
 msgid "Your question must be at least 2 characters in length"
 msgstr "سؤال شما باید حداقل 2 کارکتر طول داشته باشد"
 
-#: ../dw-question-answer.php:282
+#: ../dw-question-answer.php:284
 msgid "Enter a valid email address"
 msgstr "ایمیل معتبر وارد کنید"
 
-#: ../dw-question-answer.php:283
+#: ../dw-question-answer.php:285
 msgid "Enter a question title"
 msgstr "عنوان سؤال را وارد کنید"
 
-#: ../dw-question-answer.php:284
+#: ../dw-question-answer.php:286
 #, fuzzy
 msgid "Please add your name"
 msgstr "لطفا پاسخ خود را وارد نمایید"
 
-#: ../dw-question-answer.php:285 ../dw-question-answer.php:413
+#: ../dw-question-answer.php:287 ../dw-question-answer.php:415
 msgid "Please enter your answer"
 msgstr "لطفا پاسخ خود را وارد نمایید"
 
-#: ../dw-question-answer.php:286 ../dw-question-answer.php:414
+#: ../dw-question-answer.php:288 ../dw-question-answer.php:416
 msgid "Please enter your comment content"
 msgstr "لطفا محتوای نظر خود را وارد کنید"
 
-#: ../dw-question-answer.php:287 ../dw-question-answer.php:415
+#: ../dw-question-answer.php:289 ../dw-question-answer.php:417
 msgid "Comment must have more than 2 characters"
 msgstr "نظر باید بیش از 2 کارکتر باشد"
 
-#: ../dw-question-answer.php:288
+#: ../dw-question-answer.php:290
 msgid "Not found! Try another keyword."
 msgstr "پیدا نشد ! یک کلمه ی کلیدی دیگر امتحان کنید"
 
-#: ../dw-question-answer.php:289
+#: ../dw-question-answer.php:291
 msgid "Or press <strong>ENTER</strong> to get more questions"
 msgstr "یا <strong>ورود</strong> را فشار دهید تا سؤالات بیشتر بیابید"
 
-#: ../dw-question-answer.php:290 ../dw-question-answer.php:416
+#: ../dw-question-answer.php:292 ../dw-question-answer.php:418
 #: ../inc/actions.php:916
 msgid "Update"
 msgstr "به روزرسانی"
 
-#: ../dw-question-answer.php:291 ../dw-question-answer.php:417
+#: ../dw-question-answer.php:293 ../dw-question-answer.php:419
 #: ../inc/templates/default/content-answer.php:99
 #: ../inc/templates/default/content-comment.php:48
 msgid "Edit"
 msgstr "ویرایش"
 
-#: ../dw-question-answer.php:292 ../dw-question-answer.php:418
+#: ../dw-question-answer.php:294 ../dw-question-answer.php:420
 #: ../inc/actions.php:917
 msgid "Cancel"
 msgstr "منصرف شدن"
 
-#: ../dw-question-answer.php:293 ../dw-question-answer.php:419
+#: ../dw-question-answer.php:295 ../dw-question-answer.php:421
 msgid "Do you want to delete this comment?"
 msgstr "آیا می خواهید این نظر را پاک کنید ؟"
 
-#: ../dw-question-answer.php:294 ../dw-question-answer.php:420
+#: ../dw-question-answer.php:296 ../dw-question-answer.php:422
 msgid "Do you want to delete this answer?"
 msgstr "آیا می خواهید این پاسخ را پاک کنید ؟"
 
-#: ../dw-question-answer.php:295
+#: ../dw-question-answer.php:297
 msgid "Do you want to update this answer"
 msgstr "آیا می خواهید این پاسخ را به روز کنید"
 
-#: ../dw-question-answer.php:296
+#: ../dw-question-answer.php:298
 msgid "Do you want to report this answer"
 msgstr "آیا می خواهید این پاسخ را گزارش دهید"
 
-#: ../dw-question-answer.php:298
+#: ../dw-question-answer.php:300
 #: ../inc/templates/default/content-answer.php:104
 msgid "Report"
 msgstr "گزارش"
 
-#: ../dw-question-answer.php:299
+#: ../dw-question-answer.php:301
 msgid "Undo"
 msgstr "برگرداندن"
 
-#: ../dw-question-answer.php:300
+#: ../dw-question-answer.php:302
 msgid "This answer will be marked as spam and hidden. Do you want to flag it?"
 msgstr ""
 "این پاسخ به عنوان اسپم نشان دار و مخفی خواهد شد . آیا می خواهید نشان دار "
 "شود ؟"
 
-#: ../dw-question-answer.php:301 ../dw-question-answer.php:425
+#: ../dw-question-answer.php:303 ../dw-question-answer.php:427
 msgid "This answer was flagged as spam. Do you want to show it"
 msgstr ""
 "این پاسخ به عنوان اسپم نشان دار شده است . آیا می خواهید آن را نشان دهید "
 
-#: ../dw-question-answer.php:302
+#: ../dw-question-answer.php:304
 msgid "This answer was flagged as spam"
 msgstr "این پاسخ به عنوان اسپم نشان دار شده بود"
 
-#: ../dw-question-answer.php:303 ../dw-question-answer.php:426
+#: ../dw-question-answer.php:305 ../dw-question-answer.php:428
 msgid "hide"
 msgstr "مخفی کردن"
 
-#: ../dw-question-answer.php:304 ../dw-question-answer.php:427
+#: ../dw-question-answer.php:306 ../dw-question-answer.php:429
 msgid "show"
 msgstr "نشان دادن"
 
-#: ../dw-question-answer.php:306
+#: ../dw-question-answer.php:308
 #: ../inc/templates/default/single-question.php:28 ../thesis/dwqa/box.php:344
 msgid "Follow This Question"
 msgstr "دنبال کردن این سؤال"
 
-#: ../dw-question-answer.php:307
+#: ../dw-question-answer.php:309
 #: ../inc/templates/default/single-question.php:28 ../thesis/dwqa/box.php:344
 msgid "Unfollow This Question"
 msgstr "دنبال نکردن این سؤال"
 
-#: ../dw-question-answer.php:308
+#: ../dw-question-answer.php:310
 #, fuzzy
 msgid "Stick This Question on Frontpage"
 msgstr "ارسال این سؤال به صورت خصوصی."
 
-#: ../dw-question-answer.php:309
+#: ../dw-question-answer.php:311
 #, fuzzy
 msgid "Untick This Question on Frontpage"
 msgstr "ارسال این سؤال به صورت خصوصی."
 
-#: ../dw-question-answer.php:331
+#: ../dw-question-answer.php:333
 #, php-format
 msgid "%s second"
 msgid_plural "%s seconds"
@@ -371,81 +371,81 @@ msgstr[0] "ثانیه%s"
 msgstr[1] "ثانیه%s"
 
 #. translators: min=minute
-#: ../dw-question-answer.php:340
+#: ../dw-question-answer.php:342
 #, php-format
 msgid "about %s min"
 msgid_plural "%s mins"
 msgstr[0] "حدود %s دقیقه"
 msgstr[1] "حدود %s دقیقه"
 
-#: ../dw-question-answer.php:346
+#: ../dw-question-answer.php:348
 #, php-format
 msgid "about %s hour"
 msgid_plural "%s hours"
 msgstr[0] "حدود %s روز"
 msgstr[1] "حدود %s روز"
 
-#: ../dw-question-answer.php:352
+#: ../dw-question-answer.php:354
 #, php-format
 msgid "%s day"
 msgid_plural "%s days"
 msgstr[0] "روز%s"
 msgstr[1] "روز%s"
 
-#: ../dw-question-answer.php:356
+#: ../dw-question-answer.php:358
 #, php-format
 msgid "%1$s ago"
 msgstr ""
 
-#: ../dw-question-answer.php:422
+#: ../dw-question-answer.php:424
 msgid "Flag"
 msgstr "نشان کردن"
 
-#: ../dw-question-answer.php:423
+#: ../dw-question-answer.php:425
 msgid "Unflag"
 msgstr "بی نشان کردن"
 
-#: ../dw-question-answer.php:424
+#: ../dw-question-answer.php:426
 msgid "This answer will be hide when flag it. Are you sure?"
 msgstr "اگر نشان دار شود این پاسخ مخفی می شود . آیا مطمئن هستید ؟"
 
-#: ../dw-question-answer.php:458 ../inc/class-answers-list-table.php:77
+#: ../dw-question-answer.php:460 ../inc/class-answers-list-table.php:77
 msgid "Author"
 msgstr "نویسنده"
 
-#: ../dw-question-answer.php:460
+#: ../dw-question-answer.php:462
 msgid "In Response To"
 msgstr "در پاسخ به"
 
-#: ../dw-question-answer.php:464
+#: ../dw-question-answer.php:466
 msgid "Info"
 msgstr "اطلاعات"
 
-#: ../dw-question-answer.php:481
+#: ../dw-question-answer.php:483
 msgid "Submitted"
 msgstr "ثبت شده"
 
-#: ../dw-question-answer.php:482
+#: ../dw-question-answer.php:484
 msgid "on"
 msgstr "روی"
 
-#: ../dw-question-answer.php:509
+#: ../dw-question-answer.php:511
 msgid "Reset all changed to default"
 msgstr "برگرداندن تنظیمات به حالت اولیه"
 
-#: ../dw-question-answer.php:523
+#: ../dw-question-answer.php:525
 msgid "answered"
 msgstr "پاسخ داده شده"
 
-#: ../dw-question-answer.php:524
+#: ../dw-question-answer.php:526
 msgid "voted"
 msgstr "رای داده شده"
 
-#: ../dw-question-answer.php:525
+#: ../dw-question-answer.php:527
 msgid "views"
 msgstr "بازدید"
 
-#: ../dw-question-answer.php:646 ../inc/shortcodes.php:336
+#: ../dw-question-answer.php:648 ../inc/shortcodes.php:351
 #: ../inc/widgets.php:101
 msgid "asked by"
 msgstr "پرسیده شده توسط"
@@ -466,7 +466,7 @@ msgstr "شما برای این نظر داده اید"
 msgid "Delete draft"
 msgstr "پاک کردن پیش نویس"
 
-#: ../inc/actions.php:236 ../inc/import-tool-for-nex.php:136
+#: ../inc/actions.php:236
 msgid "Answer for "
 msgstr "پاسخ برای"
 
@@ -524,29 +524,29 @@ msgstr "منتشر کردن"
 #: ../inc/template-functions.php:368 ../inc/template-functions.php:378
 #: ../inc/templates/default/content-answer.php:63
 #: ../inc/templates/default/content-answer.php:75
-#: ../inc/templates/default/single-question.php:95
-#: ../inc/templates/default/single-question.php:106 ../thesis/dwqa/box.php:387
+#: ../inc/templates/default/single-question.php:77
+#: ../inc/templates/default/single-question.php:88 ../thesis/dwqa/box.php:387
 #: ../thesis/dwqa/box.php:398
 msgid "Public"
 msgstr "عمومی"
 
 #: ../inc/actions.php:935 ../inc/template-functions.php:378
 #: ../inc/templates/default/content-answer.php:75
-#: ../inc/templates/default/single-question.php:106 ../thesis/dwqa/box.php:398
+#: ../inc/templates/default/single-question.php:88 ../thesis/dwqa/box.php:398
 msgid "Everyone can see"
 msgstr "هرکس میتواند ببیند"
 
 #: ../inc/actions.php:936 ../inc/template-functions.php:379
 #: ../inc/templates/default/content-answer.php:76
-#: ../inc/templates/default/single-question.php:107 ../thesis/dwqa/box.php:399
+#: ../inc/templates/default/single-question.php:89 ../thesis/dwqa/box.php:399
 msgid "Only Author and Administrator can see"
 msgstr "فقط نویسنده و مدیریت میتوانند ببینند"
 
 #: ../inc/actions.php:936 ../inc/template-functions.php:379
 #: ../inc/templates/default/content-answer.php:63
 #: ../inc/templates/default/content-answer.php:76
-#: ../inc/templates/default/single-question.php:95
-#: ../inc/templates/default/single-question.php:107 ../thesis/dwqa/box.php:387
+#: ../inc/templates/default/single-question.php:77
+#: ../inc/templates/default/single-question.php:89 ../thesis/dwqa/box.php:387
 #: ../thesis/dwqa/box.php:399
 msgid "Private"
 msgstr "خصوصی"
@@ -584,7 +584,7 @@ msgstr "جزئیات"
 msgid "Answered on "
 msgstr "پاسخ داده شده در"
 
-#: ../inc/class-answers-list-table.php:108
+#: ../inc/class-answers-list-table.php:108 ../inc/contextual-helper.php:202
 msgid "Read more"
 msgstr "خواندن بیشتر"
 
@@ -598,67 +598,64 @@ msgstr ""
 msgid "Feed for all posts filed under %s"
 msgstr ""
 
-#: ../inc/contextual-helper.php:49
+#: ../inc/contextual-helper.php:48
 msgid "Overview"
 msgstr "دورنما"
 
+#: ../inc/contextual-helper.php:49
+#, fuzzy
+msgid "DW Question Answer Plugin"
+msgstr "پرسش های DWQA"
+
 #: ../inc/contextual-helper.php:50
-msgid "Why use DW Question & Answer"
+msgid ""
+"DW Question Answer is a WordPress Plugin which helps you build a Question & "
+"Answer system on your WordPress sites. The plugin is easy to install and set "
+"up. Let start building up your community with this WordPress question & "
+"answer system."
 msgstr ""
 
-#: ../inc/contextual-helper.php:51
-msgid "You need a support channel inside wordpress page?"
-msgstr ""
+#: ../inc/contextual-helper.php:53
+#, fuzzy
+msgid "Setup Question List Page"
+msgstr "برگه ی لیست سؤالات"
 
-#: ../inc/contextual-helper.php:54
-msgid "Create Submit Question Page"
-msgstr "یک صفحه ثبت سؤال درست کنید"
-
-#: ../inc/contextual-helper.php:55
-msgid "How to create submit question page?"
-msgstr ""
-
-#: ../inc/contextual-helper.php:56
-msgid "Go to <strong>Dashboard -> Question -> Settings</strong>"
-msgstr ""
-
-#: ../inc/contextual-helper.php:59
-msgid "Available Settings"
-msgstr ""
-
-#: ../inc/contextual-helper.php:60
-msgid "Go to config your support channel"
-msgstr ""
+#: ../inc/contextual-helper.php:57
+#, fuzzy
+msgid "Setup Ask Question Page"
+msgstr "برگه ی پرسش سؤال"
 
 #: ../inc/contextual-helper.php:61
-msgid "Go to ...?"
+msgid "Shortcode"
 msgstr ""
 
-#: ../inc/contextual-helper.php:64
-msgid "DesignWall Team"
+#: ../inc/contextual-helper.php:65
+msgid "Style integration"
 msgstr ""
 
-#: ../inc/contextual-helper.php:120
+#: ../inc/contextual-helper.php:223
 msgid "For more information:"
 msgstr ""
 
-#: ../inc/contextual-helper.php:121
-msgid "Documentations"
-msgstr ""
+#: ../inc/contextual-helper.php:224
+#, fuzzy
+msgid "DW Question Answer Guide"
+msgstr "پرسش های DWQA"
 
-#: ../inc/contextual-helper.php:122
-msgid "Support"
-msgstr ""
+#: ../inc/contextual-helper.php:225
+#, fuzzy
+msgid "Community"
+msgstr "نظر"
 
-#: ../inc/contextual-helper.php:123
+#: ../inc/contextual-helper.php:226
 msgid "DesignWall Wordpress Themes"
 msgstr ""
 
-#: ../inc/contextual-helper.php:124
-msgid "DesignWall Homepage"
+#: ../inc/contextual-helper.php:227
+msgid "DesignWall Wordpress Plugins"
 msgstr ""
 
-#: ../inc/filter.php:101 ../inc/shortcodes.php:249
+#: ../inc/filter.php:101 ../inc/shortcodes.php:270
 #: ../inc/templates/default/archive-question-notfound.php:4
 #: ../thesis/dwqa/box.php:295
 msgid "You do not have permission to view questions"
@@ -668,21 +665,21 @@ msgstr ""
 msgid "Sorry, but nothing matched your filter. "
 msgstr ""
 
-#: ../inc/filter.php:110 ../inc/shortcodes.php:259 ../thesis/dwqa/box.php:305
+#: ../inc/filter.php:110 ../inc/shortcodes.php:280 ../thesis/dwqa/box.php:305
 msgid "You can ask question <a href=\""
 msgstr ""
 
-#: ../inc/filter.php:114 ../inc/shortcodes.php:263 ../thesis/dwqa/box.php:309
+#: ../inc/filter.php:114 ../inc/shortcodes.php:284 ../thesis/dwqa/box.php:309
 msgid "Please <a href=\""
 msgstr ""
 
-#: ../inc/filter.php:118 ../inc/shortcodes.php:267
+#: ../inc/filter.php:118 ../inc/shortcodes.php:288
 #: ../inc/templates/default/archive-question-notfound.php:17
 #: ../thesis/dwqa/box.php:313
 msgid " or"
 msgstr "یا"
 
-#: ../inc/filter.php:120 ../inc/shortcodes.php:269
+#: ../inc/filter.php:120 ../inc/shortcodes.php:290
 #: ../inc/templates/default/archive-question-notfound.php:18
 #: ../thesis/dwqa/box.php:315
 msgid " to submit question."
@@ -701,37 +698,37 @@ msgstr "پاسخ ها"
 msgid "Question Meta Data"
 msgstr "جزئیات سؤال"
 
-#: ../inc/metaboxes.php:44 ../inc/templates/default/single-question.php:133
+#: ../inc/metaboxes.php:44 ../inc/templates/default/single-question.php:115
 #: ../thesis/dwqa/box.php:425
 msgid "Status"
 msgstr "وضعیت ها"
 
-#: ../inc/metaboxes.php:46 ../inc/shortcodes.php:43 ../inc/status.php:277
+#: ../inc/metaboxes.php:46 ../inc/shortcodes.php:64 ../inc/status.php:277
 #: ../inc/templates/default/archive-question.php:30 ../thesis/dwqa/box.php:91
 msgid "Open"
 msgstr "باز"
 
 #: ../inc/metaboxes.php:47 ../inc/status.php:264
 #: ../inc/templates/default/content-question.php:8
-#: ../inc/templates/default/single-question.php:161 ../thesis/dwqa/box.php:453
+#: ../inc/templates/default/single-question.php:143 ../thesis/dwqa/box.php:453
 msgid "Pending"
 msgstr "درحال ارسال"
 
-#: ../inc/metaboxes.php:48 ../inc/shortcodes.php:49 ../inc/status.php:261
+#: ../inc/metaboxes.php:48 ../inc/shortcodes.php:70 ../inc/status.php:261
 #: ../inc/templates/default/archive-question.php:36
-#: ../inc/templates/default/single-question.php:166 ../thesis/dwqa/box.php:97
+#: ../inc/templates/default/single-question.php:148 ../thesis/dwqa/box.php:97
 #: ../thesis/dwqa/box.php:458
 msgid "Resolved"
 msgstr "حل شده"
 
 #: ../inc/metaboxes.php:49 ../inc/status.php:267
-#: ../inc/templates/default/single-question.php:151 ../thesis/dwqa/box.php:443
+#: ../inc/templates/default/single-question.php:133 ../thesis/dwqa/box.php:443
 msgid "Re-Open"
 msgstr "دوباره باز شده"
 
-#: ../inc/metaboxes.php:50 ../inc/shortcodes.php:52 ../inc/status.php:270
+#: ../inc/metaboxes.php:50 ../inc/shortcodes.php:73 ../inc/status.php:270
 #: ../inc/templates/default/archive-question.php:39
-#: ../inc/templates/default/single-question.php:156 ../thesis/dwqa/box.php:100
+#: ../inc/templates/default/single-question.php:138 ../thesis/dwqa/box.php:100
 #: ../thesis/dwqa/box.php:448
 msgid "Closed"
 msgstr "بسته شده"
@@ -744,39 +741,49 @@ msgstr ""
 msgid "Sticky question on top of archive page."
 msgstr ""
 
-#: ../inc/notification.php:20
+#: ../inc/notification.php:27
 msgid "A new question was posted on {site_name}"
 msgstr "یک سؤال جدید در {site_name} پست شده است"
 
-#: ../inc/notification.php:122
+#: ../inc/notification.php:111
 msgid "A new answer for \"{question_title}\" was posted on {site_name}"
 msgstr "یک پاسخ جدید برای \"{question_title}\" در  {site_name} پست شده است"
 
-#: ../inc/notification.php:144 ../inc/notification.php:146
-#: ../inc/settings.php:419 ../inc/settings.php:460 ../inc/settings.php:501
+#: ../inc/notification.php:133 ../inc/notification.php:135
+#: ../inc/settings.php:418 ../inc/settings.php:459 ../inc/settings.php:500
 #: ../inc/templates/default/content-answer.php:53
 #: ../inc/templates/default/content-comment.php:15
 #: ../inc/templates/default/content-question.php:25
 msgid "Anonymous"
 msgstr "هرکس"
 
-#: ../inc/notification.php:183
+#: ../inc/notification.php:173
 msgid "You got new answer for your followed question"
 msgstr "شما یک پاسخ جدید برای سؤالی که دنبال کردید،دریافت نموده اید."
 
-#: ../inc/notification.php:263 ../inc/notification.php:309
-msgid "[{site_name}] You have a new comment for question {question_title} "
+#: ../inc/notification.php:264 ../inc/notification.php:310
+#, fuzzy
+msgid "[{site_name}] You have a new comment for question {question_title}"
 msgstr "[{site_name}] شما یک نظر جدید برای سؤال دارید .{question_title} "
 
-#: ../inc/notification.php:268 ../inc/notification.php:314
+#: ../inc/notification.php:269 ../inc/notification.php:315
 msgid "[{site_name}] You have a new comment for answer"
 msgstr "[{site_name}] شما یک نظر جدید برای پاسخ دارید"
 
-#: ../inc/pointer-helper.php:57 ../inc/pointer-helper.php:67
+#: ../inc/pointer-helper.php:57
+#, fuzzy
+msgid "How to use DW Question Answer"
+msgstr "انتخاب به عنوان بهترین پاسخ"
+
+#: ../inc/pointer-helper.php:58
+msgid "Documents, Support From DesignWall (help)"
+msgstr ""
+
+#: ../inc/pointer-helper.php:67
 msgid "Config your support channel"
 msgstr ""
 
-#: ../inc/pointer-helper.php:58 ../inc/pointer-helper.php:68
+#: ../inc/pointer-helper.php:68
 msgid "Change comment setting, and create submit question page."
 msgstr "تنظیمات نظر را عوض کنید و صفحه ی ثبت سؤال بسازید "
 
@@ -816,335 +823,345 @@ msgid "Select Submit Question Page"
 msgstr "صفحه ی ثبت سؤال را انتخاب کنید"
 
 #: ../inc/settings.php:53
-msgid "A page where users can submit questions.\n"
+#, fuzzy
+msgid "A page where users can submit questions."
 msgstr "صفحه ای که کاربران می توانند سؤالات خود را ثبت کنند .\n"
 
-#: ../inc/settings.php:70
+#: ../inc/settings.php:69
 msgid "Upload"
 msgstr "بارگذاری"
 
-#: ../inc/settings.php:70
+#: ../inc/settings.php:69
 msgid "Upload or choose a logo to be displayed at the top of the email"
 msgstr "انتخاب/آپلود کنید لوگویی که در بالای ایمیل نمایش داده میشود"
 
-#: ../inc/settings.php:109
+#: ../inc/settings.php:108
 msgid "Enable notification for new question"
 msgstr "فعال کردن هشدار برای سؤال جدید"
 
-#: ../inc/settings.php:114 ../inc/settings.php:150 ../inc/settings.php:187
-#: ../inc/settings.php:224 ../inc/settings.php:261 ../inc/settings.php:298
-#: ../inc/settings.php:335
+#: ../inc/settings.php:113 ../inc/settings.php:149 ../inc/settings.php:186
+#: ../inc/settings.php:223 ../inc/settings.php:260 ../inc/settings.php:297
+#: ../inc/settings.php:334
 msgid "Email subject"
 msgstr "موضوع ایمیل"
 
-#: ../inc/settings.php:119 ../inc/settings.php:155 ../inc/settings.php:192
-#: ../inc/settings.php:229 ../inc/settings.php:266 ../inc/settings.php:303
-#: ../inc/settings.php:340
+#: ../inc/settings.php:118 ../inc/settings.php:154 ../inc/settings.php:191
+#: ../inc/settings.php:228 ../inc/settings.php:265 ../inc/settings.php:302
+#: ../inc/settings.php:339
 msgid "Email Content"
 msgstr "محتوای ایمیل"
 
-#: ../inc/settings.php:145
+#: ../inc/settings.php:144
 msgid "Enable notification for new answer"
 msgstr "فعال کردن هشدار برای پاسخ جدید"
 
-#: ../inc/settings.php:182
+#: ../inc/settings.php:181
 msgid "Enable notification for new answer (to Followers)"
 msgstr "فعال کردن هشدار برای پاسخ جدید(به دنبال کنندگان)"
 
-#: ../inc/settings.php:219 ../inc/settings.php:256
+#: ../inc/settings.php:218 ../inc/settings.php:255
 msgid "Enable notification for new comment of question"
 msgstr "فعال کردن هشدار برای نظر جدید به سؤال"
 
-#: ../inc/settings.php:293 ../inc/settings.php:330
+#: ../inc/settings.php:292 ../inc/settings.php:329
 msgid "Enable notification for new comment of answer"
 msgstr "فعال کردن هشدار برای نظر جدید به جواب"
 
-#: ../inc/settings.php:388
+#: ../inc/settings.php:387
 msgid "Question"
 msgstr "سؤال"
 
-#: ../inc/settings.php:428 ../inc/settings.php:469 ../inc/settings.php:511
+#: ../inc/settings.php:427 ../inc/settings.php:468 ../inc/settings.php:510
 msgid "Reset Default"
 msgstr "بازگرداندان به حالت اولیه"
 
-#: ../inc/settings.php:471
+#: ../inc/settings.php:470
 msgid "Comment"
 msgstr "نظر"
 
-#: ../inc/settings.php:520
+#: ../inc/settings.php:519
 msgid "Enable/Disable captcha on submit question page"
 msgstr "فعال/غیر فعال کردن کپچا در صفحه ی ثبت سؤال"
 
-#: ../inc/settings.php:526
+#: ../inc/settings.php:525
 msgid "Enable/Disable captcha on single question page"
 msgstr "فعال/غیر فعال کردن کپچا در صفحه ی سؤال جدا"
 
-#: ../inc/settings.php:544
+#: ../inc/settings.php:543
 #, fuzzy
 msgid "questions"
 msgstr "سؤال"
 
-#: ../inc/settings.php:550
+#: ../inc/settings.php:549
 msgid "Allow members to post private question"
 msgstr ""
 
-#: ../inc/settings.php:568
+#: ../inc/settings.php:567
 msgid "Plugin Settings"
 msgstr "تنظیمات"
 
-#: ../inc/settings.php:568
+#: ../inc/settings.php:567
 msgid "Settings"
 msgstr "تنظیمات"
 
-#: ../inc/settings.php:594
+#: ../inc/settings.php:593
 msgid "Question List Page"
 msgstr "برگه ی لیست سؤالات"
 
-#: ../inc/settings.php:602
+#: ../inc/settings.php:601
 msgid "Archive page show at most"
 msgstr ""
 
-#: ../inc/settings.php:610
+#: ../inc/settings.php:609
 msgid "Ask Question Page"
 msgstr "برگه ی پرسش سؤال"
 
-#: ../inc/settings.php:617
+#: ../inc/settings.php:616
 #, fuzzy
 msgid "Private Question"
 msgstr "ویرایش سؤال"
 
-#: ../inc/settings.php:625
+#: ../inc/settings.php:624
 msgid "Time settings"
 msgstr "تنظیمات ساعت"
 
-#: ../inc/settings.php:632
+#: ../inc/settings.php:631
 msgid "New Question Time Frame"
 msgstr "قالب زمانی سؤال جدید"
 
-#: ../inc/settings.php:640
+#: ../inc/settings.php:639
 msgid "Question Overdue - Time Frame"
 msgstr "قالب زمانی سؤالی که از زمان پرسیدنش گذشته است"
 
-#: ../inc/settings.php:650
+#: ../inc/settings.php:649
 msgid "Captcha settings"
 msgstr "تنظیمات کپچا"
 
-#: ../inc/settings.php:657
+#: ../inc/settings.php:656
 msgid "Captcha in Submit Question Page"
 msgstr "کد کپچا در صفحه ی ثبت سؤالات "
 
-#: ../inc/settings.php:665
+#: ../inc/settings.php:664
 msgid "Captcha in Single Question Page"
 msgstr "کپچا در صفحه ی سؤال جدا"
 
-#: ../inc/settings.php:673
+#: ../inc/settings.php:672
 msgid "Google Captcha Public Key"
 msgstr "Google Captcha Public Key"
 
-#: ../inc/settings.php:681
+#: ../inc/settings.php:680
 msgid "Google Captcha Private Key"
 msgstr "Google Captcha Private Key"
 
-#: ../inc/settings.php:691
+#: ../inc/settings.php:690
 msgid "Permalink Settings"
 msgstr "تنظیمات پیوند یکتا"
 
-#: ../inc/settings.php:698
+#: ../inc/settings.php:697
 msgid "Single Question"
 msgstr "سؤال تنها"
 
-#: ../inc/settings.php:706
+#: ../inc/settings.php:705
 msgid "Single Category"
 msgstr "دسته ی تنها"
 
-#: ../inc/settings.php:714
+#: ../inc/settings.php:713
 msgid "Single Tag"
 msgstr "برچسب تنها"
 
-#: ../inc/settings.php:733
+#: ../inc/settings.php:732
 msgid "Send to"
 msgstr ""
 
-#: ../inc/settings.php:743
+#: ../inc/settings.php:742
 msgid "Cc"
 msgstr ""
 
-#: ../inc/settings.php:753
+#: ../inc/settings.php:752
 msgid "Bcc"
 msgstr ""
 
-#: ../inc/settings.php:763
-msgid "Email Logo"
-msgstr "لوگوی ایمیل"
-
-#: ../inc/settings.php:807 ../inc/settings.php:814
+#: ../inc/settings.php:816 ../inc/settings.php:823
 msgid "Group Permission"
 msgstr "اجازه گروه"
 
-#: ../inc/settings.php:827
+#: ../inc/settings.php:836
 msgid "DWQA Settings"
 msgstr "تنظیمات بخش پرسش و پاسخ"
 
-#: ../inc/settings.php:832
+#: ../inc/settings.php:841
 msgid "General"
 msgstr "کلی"
 
-#: ../inc/settings.php:833
+#: ../inc/settings.php:842
 msgid "Notification"
 msgstr "هشدارها"
 
-#: ../inc/settings.php:834
+#: ../inc/settings.php:843
 msgid "Permission"
 msgstr "دسترسی ها"
 
-#: ../inc/settings.php:845
+#: ../inc/settings.php:851
+msgid "Admin emails"
+msgstr ""
+
+#: ../inc/settings.php:855
 msgid "Email Template"
 msgstr "قالب ایمیل"
 
-#: ../inc/settings.php:852
+#: ../inc/settings.php:858
+msgid "Email Logo"
+msgstr "لوگوی ایمیل"
+
+#: ../inc/settings.php:868
 msgid "New Comment to Question"
 msgstr "نظر جدید برای سؤال"
 
-#: ../inc/settings.php:853
+#: ../inc/settings.php:869
 msgid "New Comment to Answer"
 msgstr "نظر جدید برای پاسخ"
 
-#: ../inc/settings.php:854
+#: ../inc/settings.php:870
 msgid "New Answer (to Followers)"
 msgstr "پاسخ جدید (به دنبال کنندگان)"
 
-#: ../inc/settings.php:855
+#: ../inc/settings.php:871
 msgid "New Comment to Question (to Followers)"
 msgstr "نظر جدید به سؤال (به دنبال کنندگان)"
 
-#: ../inc/settings.php:856
+#: ../inc/settings.php:872
 msgid "New Comment to Answer (to Followers)"
 msgstr "نظر جدید به پاسخ (به دنبال کنندگان)"
 
-#: ../inc/settings.php:863
+#: ../inc/settings.php:879
 msgid "New Question Notification"
 msgstr "هشدار سؤال جدید"
 
-#: ../inc/settings.php:868 ../inc/settings.php:877 ../inc/settings.php:886
-#: ../inc/settings.php:895 ../inc/settings.php:905 ../inc/settings.php:913
-#: ../inc/settings.php:923
+#: ../inc/settings.php:884 ../inc/settings.php:893 ../inc/settings.php:902
+#: ../inc/settings.php:911 ../inc/settings.php:921 ../inc/settings.php:929
+#: ../inc/settings.php:939
 msgid "Save all changes"
 msgstr "ذخیره تمام تغییرات"
 
-#: ../inc/settings.php:873
+#: ../inc/settings.php:889
 msgid "New Answer Notification"
 msgstr "هشدار برای پاسخ جدید"
 
-#: ../inc/settings.php:882
-msgid "New Answer Notification ( To Followers )"
+#: ../inc/settings.php:898
+#, fuzzy
+msgid "New Answer Notification (to Followers)"
 msgstr "هشدار پاسخ جدید(به دنبال کنندگان)"
 
-#: ../inc/settings.php:891
+#: ../inc/settings.php:907
 msgid "New Comment to Question Notification"
 msgstr "نظر جدید برای سؤال"
 
-#: ../inc/settings.php:901
+#: ../inc/settings.php:917
 msgid "New Comment to Answer Notification"
 msgstr "نظر جدید به پاسخ "
 
-#: ../inc/settings.php:909
+#: ../inc/settings.php:925
 msgid "New Comment to Question Notification (to Followers)"
 msgstr "نظر جدید به سؤال(به دنبال کنندگان)"
 
-#: ../inc/settings.php:919
+#: ../inc/settings.php:935
 msgid "New Comment to Answer Notification (to Followers)"
 msgstr "نظر جدید به پاسخ(به دنبال کنندگان)"
 
-#: ../inc/shortcodes.php:16 ../inc/templates/default/search-question.php:4
+#: ../inc/settings.php:977
+msgid "Send A Copy Of Every Email To Admin"
+msgstr ""
+
+#: ../inc/shortcodes.php:37 ../inc/templates/default/search-question.php:4
 #: ../thesis/dwqa/box.php:64
 msgid "Search"
 msgstr "جست و جو"
 
-#: ../inc/shortcodes.php:29 ../inc/shortcodes.php:243
+#: ../inc/shortcodes.php:50 ../inc/shortcodes.php:264
 #: ../inc/template-functions.php:722 ../thesis/dwqa/box.php:77
 #: ../thesis/dwqa/box.php:289
 msgid "Ask a question"
 msgstr "پرسیدن یک سؤال"
 
-#: ../inc/shortcodes.php:37 ../inc/templates/default/archive-question.php:24
+#: ../inc/shortcodes.php:58 ../inc/templates/default/archive-question.php:24
 #: ../thesis/dwqa/box.php:85
 msgid "Status:"
 msgstr "وضعیت :"
 
-#: ../inc/shortcodes.php:39 ../inc/shortcodes.php:87
+#: ../inc/shortcodes.php:60 ../inc/shortcodes.php:108
 #: ../inc/templates/default/archive-question.php:26
 #: ../inc/templates/default/archive-question.php:74 ../thesis/dwqa/box.php:87
 #: ../thesis/dwqa/box.php:135
 msgid "All"
 msgstr "همه"
 
-#: ../inc/shortcodes.php:43 ../inc/templates/default/archive-question.php:30
+#: ../inc/shortcodes.php:64 ../inc/templates/default/archive-question.php:30
 #: ../thesis/dwqa/box.php:91
 msgid "Need Answer"
 msgstr "نیازمند پاسخ"
 
-#: ../inc/shortcodes.php:46 ../inc/templates/default/archive-question.php:33
+#: ../inc/shortcodes.php:67 ../inc/templates/default/archive-question.php:33
 #: ../thesis/dwqa/box.php:94
 msgid "Answered"
 msgstr "پاسخ داده شده"
 
-#: ../inc/shortcodes.php:55 ../inc/templates/default/archive-question.php:42
+#: ../inc/shortcodes.php:76 ../inc/templates/default/archive-question.php:42
 #: ../thesis/dwqa/box.php:103
 msgid "Overdue"
 msgstr "سر رسیده"
 
-#: ../inc/shortcodes.php:56 ../inc/templates/default/archive-question.php:43
+#: ../inc/shortcodes.php:77 ../inc/templates/default/archive-question.php:43
 #: ../thesis/dwqa/box.php:104
 msgid "Queue"
 msgstr "در صف"
 
-#: ../inc/shortcodes.php:77 ../inc/templates/default/archive-question.php:64
+#: ../inc/shortcodes.php:98 ../inc/templates/default/archive-question.php:64
 #: ../thesis/dwqa/box.php:125
 msgid "Select a category"
 msgstr "یک دسته را انتخاب کنید"
 
-#: ../inc/shortcodes.php:88 ../inc/templates/default/archive-question.php:75
+#: ../inc/shortcodes.php:109 ../inc/templates/default/archive-question.php:75
 #: ../thesis/dwqa/box.php:136
 msgid "Empty"
 msgstr "خالی"
 
-#: ../inc/shortcodes.php:121 ../inc/templates/default/archive-question.php:108
+#: ../inc/shortcodes.php:142 ../inc/templates/default/archive-question.php:108
 #: ../thesis/dwqa/box.php:169
 msgid "View"
 msgstr "بازدید"
 
-#: ../inc/shortcodes.php:127 ../inc/templates/default/archive-question.php:114
+#: ../inc/shortcodes.php:148 ../inc/templates/default/archive-question.php:114
 #: ../thesis/dwqa/box.php:175
 msgid "Vote"
 msgstr "امتیاز"
 
-#: ../inc/shortcodes.php:252
+#: ../inc/shortcodes.php:273
 #: ../inc/templates/default/archive-question-notfound.php:7
 #: ../thesis/dwqa/box.php:298
 msgid "Sorry, but nothing matched your filter."
 msgstr ""
 
-#: ../inc/shortcodes.php:313 ../inc/widgets.php:79
+#: ../inc/shortcodes.php:328 ../inc/widgets.php:79
 #, fuzzy
 msgid "Popular Questions"
 msgstr "سؤالات محبوب"
 
-#: ../inc/shortcodes.php:352
+#: ../inc/shortcodes.php:365
 #, fuzzy
 msgid "Latest Answers"
 msgstr "پاسخ جدید"
 
-#: ../inc/shortcodes.php:375
+#: ../inc/shortcodes.php:388
 #, fuzzy
 msgid "Answer at"
 msgstr "پاسخ"
 
-#: ../inc/shortcodes.php:375 ../inc/templates/default/single-question.php:84
+#: ../inc/shortcodes.php:388 ../inc/templates/default/single-question.php:66
 #: ../thesis/dwqa/box.php:376
 msgid "Link to"
 msgstr "لینک به"
 
-#: ../inc/shortcodes.php:404
+#: ../inc/shortcodes.php:415
 #, fuzzy
 msgid "people are following this question."
 msgstr "دنبال نکردن این سؤال"
@@ -1154,11 +1171,13 @@ msgid "New"
 msgstr "جدید"
 
 #: ../inc/status.php:291
-msgid "Misisng post ID"
+#, fuzzy
+msgid "Missing post ID"
 msgstr "ای دی پست گم شده"
 
 #: ../inc/status.php:306
-msgid "Post is not exists"
+#, fuzzy
+msgid "Post does not exist"
 msgstr "پست وجود ندارد"
 
 #: ../inc/status.php:311
@@ -1440,51 +1459,27 @@ msgstr[0] "امتیاز"
 msgstr[1] "امتیازها"
 
 #: ../inc/templates/default/single-question.php:33
-msgid "Stick this Question to the front page"
-msgstr ""
-
-#: ../inc/templates/default/single-question.php:33
 #, fuzzy
 msgid "Unstick this Question to the front page"
 msgstr "ارسال این سؤال به صورت خصوصی."
 
-#: ../inc/templates/default/single-question.php:50
-msgid "Share this"
+#: ../inc/templates/default/single-question.php:33
+msgid "Stick this Question to the front page"
 msgstr ""
 
-#: ../inc/templates/default/single-question.php:56
-msgid "Share on Facebook"
-msgstr ""
-
-#: ../inc/templates/default/single-question.php:57
-msgid "Share on Google+"
-msgstr ""
-
-#: ../inc/templates/default/single-question.php:58
-msgid "Share on Twitter"
-msgstr ""
-
-#: ../inc/templates/default/single-question.php:59
-msgid "Share on LinkedIn"
-msgstr ""
-
-#: ../inc/templates/default/single-question.php:60
-msgid "Share on Tumblr"
-msgstr ""
-
-#: ../inc/templates/default/single-question.php:75 ../thesis/dwqa/box.php:367
+#: ../inc/templates/default/single-question.php:57 ../thesis/dwqa/box.php:367
 msgid "Posts by"
 msgstr "پست ها توسط"
 
-#: ../inc/templates/default/single-question.php:86 ../thesis/dwqa/box.php:378
+#: ../inc/templates/default/single-question.php:68 ../thesis/dwqa/box.php:378
 msgid "asked"
 msgstr "پرسیده شده"
 
-#: ../inc/templates/default/single-question.php:121 ../thesis/dwqa/box.php:413
+#: ../inc/templates/default/single-question.php:103 ../thesis/dwqa/box.php:413
 msgid "Category"
 msgstr "دسته"
 
-#: ../inc/templates/default/single-question.php:122 ../thesis/dwqa/box.php:414
+#: ../inc/templates/default/single-question.php:104 ../thesis/dwqa/box.php:414
 msgid "All questions from"
 msgstr "تمام سؤالات از "
 
@@ -1532,6 +1527,9 @@ msgid ""
 "By default,The container is not have gutter. You can set padding width to "
 "make a gutter. You make it by update setting here."
 msgstr ""
+
+#~ msgid "Create Submit Question Page"
+#~ msgstr "یک صفحه ثبت سؤال درست کنید"
 
 #, fuzzy
 #~ msgid "Preview:"

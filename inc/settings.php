@@ -736,16 +736,6 @@ class DWQA_Settings {
         );
         register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_sendto_address');
 
-        // Send copy
-        add_settings_field( 
-            'dwqa_subscrible_send_copy_to_admin', 
-            false, 
-            array( $this, 'email_send_copy_to_admin' ), 
-            'dwqa-email', 
-            'dwqa-subscribe-settings'
-        );
-        register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_send_copy_to_admin');
-
         // Cc address setting
         add_settings_field( 
             'dwqa_subscrible_cc_address', 
@@ -766,14 +756,24 @@ class DWQA_Settings {
         );
         register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_bcc_address');
 
-        // Logo setting in for email template
+        // Send copy
         add_settings_field( 
-            'dwqa_subscrible_email_logo', 
-            __('Email Logo', 'dwqa'), 
-            'dwqa_subscrible_email_logo_display', 
+            'dwqa_subscrible_send_copy_to_admin', 
+            false, 
+            array( $this, 'email_send_copy_to_admin' ), 
             'dwqa-email', 
             'dwqa-subscribe-settings'
         );
+        register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_send_copy_to_admin');
+        
+        // Logo setting in for email template
+        // add_settings_field( 
+        //     'dwqa_subscrible_email_logo', 
+        //     __('Email Logo', 'dwqa'), 
+        //     'dwqa_subscrible_email_logo_display', 
+        //     'dwqa-email', 
+        //     'dwqa-subscribe-settings'
+        // );
         register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_email_logo');
 
         //New Question Email Notify
@@ -848,10 +848,17 @@ class DWQA_Settings {
                 if( 'email' == $active_tab ) {
                     echo '<div class="dwqa-notification-settings">';
 
+                    echo '<h3>'.__('Admin emails','dwqa').'</h3>';
                     settings_fields( 'dwqa-subscribe-settings' );
-                    do_settings_sections( 'dwqa-email' );
 
+                    do_settings_sections( 'dwqa-email' );
                     echo '<h3>'.__('Email Template','dwqa') . '</h3>';
+
+                    echo '<table class="form-table"><tr>';
+                    echo '<th scope="row">'.__('Email Logo','dwqa').'</th><td>';
+                    dwqa_subscrible_email_logo_display();
+                    echo '</td></tr></table>';
+
                     echo '<div class="dwqa-mail-templates">';
                     echo '<div class="progress-bar"><div class="progress-bar-inner"></div></div>';
                     echo '<ul class="nav-tabs">';

@@ -1,9 +1,32 @@
 <?php  
 /**
- * 
+ *  DW Question Answer Shortcode
  */
-if( ! function_exists('dwqa_archive_question') ) {
-    function dwqa_archive_question(){
+
+
+class DWQA_Shortcode {
+    private $shortcodes = array(
+        'dwqa-list-questions',
+        'dwqa-submit-question-form', 
+        'dwqa-popular-questions',
+        'dwqa-latest-answers',
+        'dwqa-question-followers'
+    );
+
+    public function __construct(){
+        if( ! defined( 'DWQA_DIR' ) ) {
+            return false;
+        }
+        
+        add_shortcode( 'dwqa-list-questions', array( $this, 'archive_question') );
+        add_shortcode( 'dwqa-submit-question-form', array( $this, 'submit_question_form_shortcode') );
+        add_shortcode( 'dwqa-popular-questions', array( $this, 'shortcode_popular_questions' ) );
+        add_shortcode( 'dwqa-latest-answers', array( $this, 'shortcode_latest_answers' ) );
+        add_shortcode( 'dwqa-question-followers', array( $this, 'question_followers' ) );
+        add_filter( 'the_content', array( $this, 'post_content_remove_shortcodes' ), 0 );
+    }
+
+    public function archive_question(){
         global $script_version, $dwqa_sript_vars;
         ob_start();
         ?>
@@ -284,11 +307,8 @@ if( ! function_exists('dwqa_archive_question') ) {
         wp_localize_script( 'dwqa-questions-list', 'dwqa', $dwqa_sript_vars );
         return $html;
     }
-    add_shortcode( 'dwqa-list-questions', 'dwqa_archive_question' );
-}
 
-if( ! function_exists('dwqa_submit_question_form_shortcode') ) {
-    function dwqa_submit_question_form_shortcode(){
+    public function submit_question_form_shortcode(){
         global $dwqa_sript_vars, $script_version;
         ob_start();
 
@@ -302,118 +322,122 @@ if( ! function_exists('dwqa_submit_question_form_shortcode') ) {
         wp_localize_script( 'dwqa-submit-question', 'dwqa', $dwqa_sript_vars );
         return $html;
     }
-    add_shortcode( 'dwqa-submit-question-form', 'dwqa_submit_question_form_shortcode' );
+
+    public function shortcode_popular_questions( $atts ){
+
+        extract( shortcode_atts( array(
+            'number' => 5,
+            'title' => __('Popular Questions','dwqa')
+        ), $atts ) );
+
+        $args = array(
+            'posts_per_page'       => $number,
+            'order'             => 'DESC',
+            'orderby'           => 'meta_value_num',
+            'meta_key'           => '_dwqa_views',
+            'post_type'         => 'dwqa-question',
+            'suppress_filters'  => false
+        );
+        $questions = new WP_Query( $args );
+        $html = '';
+
+        if( $title ) {
+            $html .= '<h3>';
+            $html .= $title;
+            $html .= '</h3>';
+        }
+        if( $questions->have_posts() ) {
+            $html .= '<div class="dwqa-popular-questions">';
+            $html .= '<ul>';
+            while ( $questions->have_posts() ) { $questions->the_post();
+                $html.= '<li><a href="'.get_permalink().'" class="question-title">'.get_the_title().'</a> '.__('asked by','dwqa').' ' . get_the_author_link() . '</li>';
+            }   
+            $html .= '</ul>';
+            $html .= '</div>';
+        }
+        wp_reset_query();
+        wp_reset_postdata();
+        return $html;
+    }
+
+    public function shortcode_latest_answers( $atts ){
+
+        extract( shortcode_atts( array(
+            'number' => 5,
+            'title' => __('Latest Answers','dwqa')
+        ), $atts ) );
+
+        $args = array(
+            'posts_per_page'       => $number,
+            'post_type'         => 'dwqa-answer',
+            'suppress_filters'  => false
+        );
+        $questions = new WP_Query( $args );
+        $html = '';
+
+        if( $title ) {
+            $html .= '<h3>';
+            $html .= $title;
+            $html .= '</h3>';
+        }
+        if( $questions->have_posts() ) {
+            $html .= '<div class="dwqa-latest-answers">';
+            $html .= '<ul>';
+            while ( $questions->have_posts() ) { $questions->the_post();
+                $answer_id = get_the_ID();
+                $question_id = get_post_meta( $answer_id, '_question', true );
+                if( $question_id ) {
+                    $html .= '<li>'.__('Answer at','dwqa').' <a href="'.get_permalink( $question_id ).'#answer-'.$answer_id.'" title="'.__('Link to','dwqa').' '.get_the_title( $question_id ).'">'.get_the_title( $question_id ).'</a></li>';
+                }
+            }   
+            $html .= '</ul>';
+            $html .= '</div>';
+        }
+        wp_reset_query();
+        wp_reset_postdata();
+        return $html;
+    }
+
+    function question_followers( $atts ){
+        extract( shortcode_atts( array(
+            'id'    => false,
+            'before_title'  => '<h3 class="small-title">',
+            'after_title'   => '</h3>'
+        ), $atts ) );
+        if( ! $id ) {
+            global $post;
+            $id = $post->ID;
+        }
+        $followers = dwqa_get_following_user($id);
+        $question = get_post( $id );
+        $followers[] = $question->post_author;
+        if( !empty($followers) ) :
+            echo '<div class="question-followers">';
+            echo $before_title;
+            echo count($followers) . ' ' . __('people are following this question.', 'dwqa'); 
+            echo $after_title;
+
+            foreach ($followers as $follower) :
+                $user_info = get_userdata($follower);
+                if( $user_info ) :
+                 echo '<a href="'.home_url().'/profile/'.$user_info->user_nicename . '" title="'.$user_info->display_name.'">'.get_avatar( $follower, 32 ).'</a>&nbsp;';
+                endif;
+            endforeach;
+            echo '</div>';
+        endif;
+    }
+   
+    function post_content_remove_shortcodes( $content ) {
+        if( is_singular('dwqa-question' ) || is_singular( 'dwqa-answer' ) ) {
+            /* Loop through the shortcodes and remove them. */
+            foreach ( $this->shortcodes as $shortcode_tag )
+                remove_shortcode( $shortcode_tag );
+        }
+        /* Return the post content. */
+        return $content;
+    }
 }
 
-
-function dwqa_shortcode_popular_questions( $atts ){
-
-    extract( shortcode_atts( array(
-        'number' => 5,
-        'title' => __('Popular Questions','dwqa')
-    ), $atts ) );
-
-    $args = array(
-        'posts_per_page'       => $number,
-        'order'             => 'DESC',
-        'orderby'           => 'meta_value_num',
-        'meta_key'           => '_dwqa_views',
-        'post_type'         => 'dwqa-question',
-        'suppress_filters'  => false
-    );
-    $questions = new WP_Query( $args );
-    $html = '';
-
-    if( $title ) {
-        $html .= '<h3>';
-        $html .= $title;
-        $html .= '</h3>';
-    }
-    if( $questions->have_posts() ) {
-        $html .= '<div class="dwqa-popular-questions">';
-        $html .= '<ul>';
-        while ( $questions->have_posts() ) { $questions->the_post();
-            $html.= '<li><a href="'.get_permalink().'" class="question-title">'.get_the_title().'</a> '.__('asked by','dwqa').' ' . get_the_author_link() . '</li>';
-        }   
-        $html .= '</ul>';
-        $html .= '</div>';
-    }
-    wp_reset_query();
-    wp_reset_postdata();
-    return $html;
-}
-add_shortcode( 'dwqa-popular-questions', 'dwqa_shortcode_popular_questions' );
-
-
-function dwqa_shortcode_latest_answers( $atts ){
-
-    extract( shortcode_atts( array(
-        'number' => 5,
-        'title' => __('Latest Answers','dwqa')
-    ), $atts ) );
-
-    $args = array(
-        'posts_per_page'       => $number,
-        'post_type'         => 'dwqa-answer',
-        'suppress_filters'  => false
-    );
-    $questions = new WP_Query( $args );
-    $html = '';
-
-    if( $title ) {
-        $html .= '<h3>';
-        $html .= $title;
-        $html .= '</h3>';
-    }
-    if( $questions->have_posts() ) {
-        $html .= '<div class="dwqa-latest-answers">';
-        $html .= '<ul>';
-        while ( $questions->have_posts() ) { $questions->the_post();
-            $answer_id = get_the_ID();
-            $question_id = get_post_meta( $answer_id, '_question', true );
-            if( $question_id ) {
-                $html .= '<li>'.__('Answer at','dwqa').' <a href="'.get_permalink( $question_id ).'#answer-'.$answer_id.'" title="'.__('Link to','dwqa').' '.get_the_title( $question_id ).'">'.get_the_title( $question_id ).'</a></li>';
-            }
-        }   
-        $html .= '</ul>';
-        $html .= '</div>';
-    }
-    wp_reset_query();
-    wp_reset_postdata();
-    return $html;
-}
-add_shortcode( 'dwqa-latest-answers', 'dwqa_shortcode_latest_answers' );
-
-
-function dwqa_question_followers( $atts ){
-    extract( shortcode_atts( array(
-        'id'    => false,
-        'before_title'  => '<h3 class="small-title">',
-        'after_title'   => '</h3>'
-    ), $atts ) );
-    if( ! $id ) {
-        global $post;
-        $id = $post->ID;
-    }
-    $followers = dwqa_get_following_user($id);
-    $question = get_post( $id );
-    $followers[] = $question->post_author;
-    if( !empty($followers) ) :
-        echo '<div class="question-followers">';
-        echo $before_title;
-        echo count($followers) . ' ' . __('people are following this question.', 'dwqa'); 
-        echo $after_title;
-
-        foreach ($followers as $follower) :
-            $user_info = get_userdata($follower);
-            if( $user_info ) :
-             echo '<a href="'.home_url().'/profile/'.$user_info->user_nicename . '" title="'.$user_info->display_name.'">'.get_avatar( $follower, 32 ).'</a>&nbsp;';
-            endif;
-        endforeach;
-        echo '</div>';
-    endif;
-}
-add_shortcode( 'dwqa-question-followers', 'dwqa_question_followers' ); 
-
+$GLOBALS['dwqa_shortcode'] = new DWQA_Shortcode();
 
 ?>

@@ -4,7 +4,7 @@ DW Question & Answer
  - Tags: question, answer, support, quora, stackoverflow
  - Requires at least: 3.0.1
  - Tested up to: 3.8
- - Stable tag: 1.2.0
+ - Stable tag: 1.2.1
  - License: GPLv3
  - License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -56,7 +56,7 @@ Changelog
 
 = 1.2.1 =
 * New : Re-design question status icons
-* New : Supported german languages
+* New : German Language Supported
 * New : Add setting to enable / disable private question
 * New : Add email settings for admin email notification (edit/ change emails to receive notification)
 * New : Setting:  Send A Copy Of Every Email To Admin
@@ -70,7 +70,7 @@ Changelog
 * New : Shortcode For Question List
 * New : Shortcode For Ask Question Form
 * New : Questions per page Settings
-* New : Language: Russian supported
+* New : Language: Persian Language Supported
 * Fix : Duplicate in follow function
 * Fix : The visible of the best answer in question single page
 * Update: THESIS theme Compatible

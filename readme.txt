@@ -50,7 +50,7 @@ Here is the list of features of this plugin:
 
 = 1.2.1 =
 * New : Re-design question status icons
-* New : Supported german languages
+* New : German language supported
 * New : Add setting to enable / disable private question
 * New : Add email settings for admin email notification (edit/ change emails to receive notification)
 * New : Setting:  Send A Copy Of Every Email To Admin
@@ -64,7 +64,7 @@ Here is the list of features of this plugin:
 * New : Shortcode For Question List
 * New : Shortcode For Ask Question Form
 * New : Questions per page Settings
-* New : Language: Russian supported
+* New : Language: Persian Language supported
 * Fix : Duplicate in follow function
 * Fix : The visible of the best answer in question single page
 * Update: THESIS theme Compatible

@@ -24,8 +24,8 @@ function dwqa_pointer_load( $hook_suffix ) {
     foreach ( $pointers as $pointer_id => $pointer ) {
  
         // Sanity check
-        // if ( in_array( $pointer_id, $dismissed ) || empty( $pointer )  || empty( $pointer_id ) || empty( $pointer['target'] ) || empty( $pointer['options'] ) )
-        //     continue;
+        if ( in_array( $pointer_id, $dismissed ) || empty( $pointer )  || empty( $pointer_id ) || empty( $pointer['target'] ) || empty( $pointer['options'] ) )
+            continue;
         
         $pointer['pointer_id'] = $pointer_id;
  
@@ -55,11 +55,9 @@ function dwqa_register_pointer_testing( $p ) {
         'options' => array(
             'content' => sprintf( '<h3> %s </h3> <p> %s </p>',
                 __( 'How to use DW Question Answer' ,'dwqa'),
-                __( 'Documents, Support From DesignWall','dwqa')
+                __( 'Documents, Support From DesignWall (help)','dwqa')
             ),
-            'position' => array( 
-                'bottom' => '0px'
-            )
+            'position' => array( 'edge' => 'top', 'align' => 'right' )
         )
     );
     $p['settings'] = array(

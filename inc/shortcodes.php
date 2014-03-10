@@ -2,8 +2,6 @@
 /**
  *  DW Question Answer Shortcode
  */
-
-
 class DWQA_Shortcode {
     private $shortcodes = array(
         'dwqa-list-questions',

@@ -858,7 +858,7 @@ class DWQA_Settings {
                 if( 'email' == $active_tab ) {
                     echo '<div class="dwqa-notification-settings">';
 
-                    echo '<h3>'.__('Admin emails','dwqa').'</h3>';
+                    echo '<h3>'.__('Email setup','dwqa').'</h3>';
                     settings_fields( 'dwqa-subscribe-settings' );
 
                     do_settings_sections( 'dwqa-email' );
@@ -970,7 +970,7 @@ class DWQA_Settings {
     }
 
     public function email_sendto_address_display(){
-        $this->input_text_field( 'dwqa_subscrible_sendto_address', false, __('This email address was use ') );
+        $this->input_text_field( 'dwqa_subscrible_sendto_address' );
     }
 
     public function email_cc_address_display(){
@@ -982,7 +982,7 @@ class DWQA_Settings {
     }
 
     public function email_from_address_display(){
-        $this->input_text_field( 'dwqa_subscrible_from_address' );
+        $this->input_text_field( 'dwqa_subscrible_from_address', false, __('This address will be used as the sender of the outgoing emails.','dwqa') );
     }
 
     public function email_send_copy_to_admin(){
@@ -993,7 +993,11 @@ class DWQA_Settings {
     }
 
     public function input_text_field( $option, $label = false, $description = false, $class = false ){
-        echo '<p><label for="'.$option.'"><input type="text" id="'.$option.'" name="'.$option.'" value="'.get_option( $option ).'" class="widefat" /</label></p>';
+        echo '<p><label for="'.$option.'"><input type="text" id="'.$option.'" name="'.$option.'" value="'.get_option( $option ).'" class="widefat" / ';
+        if( $description ) {
+            echo '<span class="description">'.$description.'</span>';
+        }
+        echo '</label></p>';
     }
 
     public function input_checkbox_field( $option, $description = false ){

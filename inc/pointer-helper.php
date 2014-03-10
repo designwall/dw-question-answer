@@ -61,13 +61,13 @@ function dwqa_register_pointer_testing( $p ) {
         )
     );
     $p['settings'] = array(
-        'target' => '#adminmenu [href="edit.php?post_type=dwqa-question&page=dwqa-settings"]',
+        'target' => '#adminmenu a[href="edit.php?post_type=dwqa-question&page=dwqa-settings"]',
         'options' => array(
             'content' => sprintf( '<h3> %s </h3> <p> %s </p>',
                 __( 'Config your support channel' ,'dwqa'),
                 __( 'Change comment setting, and create submit question page.','dwqa')
             ),
-            'position' => array( 'edge' => 'left', 'align' => 'top' )
+            'position' => array( 'edge' => 'left', 'align' => 'middle' )
         )
     );
     return $p;

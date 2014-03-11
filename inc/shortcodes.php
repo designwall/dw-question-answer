@@ -426,9 +426,12 @@ class DWQA_Shortcode {
     }
    
     function post_content_remove_shortcodes( $content ) {
+        $shortcodes = array(
+            'dwqa-list-questions',
+            'dwqa-submit-question-form'
+        );
         if( is_singular('dwqa-question' ) || is_singular( 'dwqa-answer' ) ) {
-            /* Loop through the shortcodes and remove them. */
-            foreach ( $this->shortcodes as $shortcode_tag )
+            foreach ( $shortcodes as $shortcode_tag ) 
                 remove_shortcode( $shortcode_tag );
         }
         /* Return the post content. */

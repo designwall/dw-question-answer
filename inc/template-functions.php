@@ -730,4 +730,5 @@ function dwqa_get_ask_question_link( $echo = true, $label = false, $class = fals
     }
 }
 
+
 ?>

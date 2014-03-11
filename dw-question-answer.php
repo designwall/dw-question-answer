@@ -270,11 +270,11 @@ function dwqa_plugin_init(){
     global $script_version, $dwqa_template, $dwqa_sript_vars;
 
     $dwqa_template = 'default';
-    $script_version = 1393484052;
+    $script_version = 1394531735;
     $dwqa_sript_vars = array(
         'is_logged_in'  => is_user_logged_in(),
         'plugin_dir_url' => DWQA_URI,
-        'code_icon'    => DWQA_URI . 'assets/img/icon-code.png',
+        'code_icon'    => DWQA_URI . 'inc/templates/'.$dwqa_template.'/assets/img/icon-code.png',
         'ajax_url'      => admin_url( 'admin-ajax.php' ),
         'text_next'     => __('Next','dwqa'),
         'text_prev'     => __('Prev','dwqa'),
@@ -310,7 +310,8 @@ function dwqa_plugin_init(){
         'stick_tooltip'    => __('Stick This Question on Frontpage','dwqa'),
         'unstick_tooltip'  => __('Untick This Question on Frontpage','dwqa'),
         'question_category_rewrite' => $question_category_rewrite,
-        'question_tag_rewrite'      => $question_tag_rewrite
+        'question_tag_rewrite'      => $question_tag_rewrite,
+        'delete_question_confirm' => __('Do you want to delete this question?','dwqa')
           
     );
 }

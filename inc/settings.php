@@ -389,10 +389,10 @@ function dwqa_permission_display(){
         <thead>
             <tr>
                 <th width="20%"></th>
-                <th>Read</th>
-                <th>Post</th>
-                <!-- <th>Edit</th>
-                <th>Delete</th> -->
+                <th><?php _e('Read','dwqa') ?></th>
+                <th><?php _e('Post','dwqa') ?></th>
+                <!-- <th><?php _e('Edit','dwqa') ?></th>
+                <th><?php _e('Delete','dwqa') ?></th> -->
             </tr>
         </thead>
         <tbody>

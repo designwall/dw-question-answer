@@ -398,7 +398,7 @@ function dwqa_add_guide_menu_icons_styles(){
 ?>
     <style>
     #adminmenu .menu-icon-dwqa-question div.wp-menu-image:before {
-      content: "\f223";
+      content: "\f468";
     }
     </style>
 <?php

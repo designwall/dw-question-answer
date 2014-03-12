@@ -932,8 +932,8 @@ function dwqa_ajax_create_update_answer_editor(){
                             <span class="dwqa-caret-inner"></span>
                         </div>
                         <ul role="menu">
-                            <li data-privacy="publish" class="current" title="<?php _e('Everyone can see','dwqa'); ?>"><a href="#"><i class="fa fa-globe"></i> <?php _e('Public','dwqa'); ?></a></li>
-                            <li data-privacy="private" <?php _e('Only Author and Administrator can see','dwqa'); ?>><a href="#"><i class="fa fa-lock"></i> <?php _e('Private','dwqa') ?></a></li>
+                            <li data-privacy="publish" <?php if( $answer->post_status == 'publish' ) { echo 'class="current"'; } ?> title="<?php _e('Everyone can see','dwqa'); ?>"><a href="#"><i class="fa fa-globe"></i> <?php _e('Public','dwqa'); ?></a></li>
+                            <li data-privacy="private"  <?php if( $answer->post_status == 'private' ) { echo 'class="current"'; } ?>  title="<?php _e('Only Author and Administrator can see','dwqa'); ?>" ><a href="#"><i class="fa fa-lock"></i> <?php _e('Private','dwqa') ?></a></li>
                         </ul>
                     </div>
                 </div>
@@ -965,9 +965,6 @@ function dwqa_update_question(){
             'ID'    => $question_id,
             'post_content'   => $question_content
         );
-        if( isset($_POST['dwqa-action-draft']) && $_POST['dwqa-action-draft'] && strtolower( $_POST['submit-answer'] ) == 'publish' ) {
-            $question_update['post_status'] = isset($_POST['privacy']) && 'private' == $_POST['privacy'] ? 'private' : 'publish';
-        }
         $old_post = get_post( $question_id );
         $question_id = wp_update_post( $question_update );
         $new_post = get_post( $question_id );
@@ -1016,25 +1013,6 @@ function dwqa_ajax_create_update_question_editor(){
             <input type="submit" name="submit-question" class="btn btn-primary btn-small" value="<?php _e('Publish','dwqa') ?>">
             <?php } ?>
         </p>
-        <div class="dwqa-privacy">
-            <input type="hidden" name="privacy" value="publish">
-            <span class="dwqa-current-privacy"><i class="fa fa-globe"></i> <?php _e('Public','dwqa') ?></span>
-            <span class="dwqa-change-privacy">
-                <div class="dwqa-btn-group">
-                    <button class="dropdown-toggle" type="button"><i class="fa fa-caret-down"></i></button>
-                    <div class="dwqa-dropdown-menu">
-                        <div class="dwqa-dropdown-caret">
-                            <span class="dwqa-caret-outer"></span>
-                            <span class="dwqa-caret-inner"></span>
-                        </div>
-                        <ul role="menu">
-                            <li data-privacy="publish" class="current" title="<?php _e('Everyone can see','dwqa'); ?>"><a href="#"><i class="fa fa-globe"></i> <?php _e('Public','dwqa'); ?></a></li>
-                            <li data-privacy="private" <?php _e('Only Author and Administrator can see','dwqa'); ?>><a href="#"><i class="fa fa-lock"></i> <?php _e('Private','dwqa') ?></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </span>
-        </div>
     </form>
     <?php
     $editor = ob_get_contents();

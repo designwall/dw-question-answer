@@ -391,8 +391,8 @@ function dwqa_permission_display(){
                 <th width="20%"></th>
                 <th><?php _e('Read','dwqa') ?></th>
                 <th><?php _e('Post','dwqa') ?></th>
-                <!-- <th><?php _e('Edit','dwqa') ?></th>
-                <th><?php _e('Delete','dwqa') ?></th> -->
+                <th><?php _e('Edit','dwqa') ?></th>
+                <th><?php _e('Delete','dwqa') ?></th>
             </tr>
         </thead>
         <tbody>
@@ -407,8 +407,8 @@ function dwqa_permission_display(){
                 <td><?php echo $roles[$key]['name'] ?></td>
                 <td><input type="checkbox" <?php checked( true, $perms[$key]['question']['read'] ); ?> name="dwqa_permission[<?php echo $key ?>][question][read]" value="1"></td>
                 <td><input type="checkbox" <?php checked( true, $perms[$key]['question']['post'] ); ?> name="dwqa_permission[<?php echo $key ?>][question][post]" value="1"></td>
-                <!-- <td><input type="checkbox" <?php checked( true, $perms[$key]['question']['edit'] ); ?> name="dwqa_permission[<?php echo $key ?>][question][edit]" value="1"></td>
-                <td><input type="checkbox" <?php checked( true, $perms[$key]['question']['delete'] ); ?> name="dwqa_permission[<?php echo $key ?>][question][delete]" value="1"></td> -->
+                <td><input type="checkbox" <?php checked( true, $perms[$key]['question']['edit'] ); ?> name="dwqa_permission[<?php echo $key ?>][question][edit]" value="1"></td>
+                <td><input type="checkbox" <?php checked( true, $perms[$key]['question']['delete'] ); ?> name="dwqa_permission[<?php echo $key ?>][question][delete]" value="1"></td>
                
             </tr>
             <?php
@@ -418,8 +418,8 @@ function dwqa_permission_display(){
                 <td><?php _e('Anonymous','dwqa') ?></td>
                 <td><input type="checkbox" <?php checked( true, $perms['anonymous']['question']['read'] ); ?> name="dwqa_permission[<?php echo 'anonymous' ?>][question][read]" value="1"></td>
                 <td><input type="checkbox" disabled="disabled" name="dwqa_permission[<?php echo 'anonymous' ?>][question][post]" value="1"></td>
-                <!-- <td><input type="checkbox" <?php checked( true, $perms['anonymous']['question']['edit'] ); ?> disabled="disabled" name="dwqa_permission[<?php echo 'anonymous' ?>][question][edit]" value="1"></td>
-                <td><input type="checkbox" <?php checked( true, $perms['anonymous']['question']['delete'] ); ?> disabled="disabled"  name="dwqa_permission[<?php echo 'anonymous' ?>][question][delete]" value="1"></td> -->
+                <td><input type="checkbox" <?php checked( true, $perms['anonymous']['question']['edit'] ); ?> disabled="disabled" name="dwqa_permission[<?php echo 'anonymous' ?>][question][edit]" value="1"></td>
+                <td><input type="checkbox" <?php checked( true, $perms['anonymous']['question']['delete'] ); ?> disabled="disabled"  name="dwqa_permission[<?php echo 'anonymous' ?>][question][delete]" value="1"></td>
             </tr>
         </tbody>
     </table>

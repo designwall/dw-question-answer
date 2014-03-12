@@ -1,6 +1,7 @@
 <?php 
 	
 	$taxonomy = get_query_var( 'taxonomy' );
+	$term_name = get_query_var( $taxonomy );
 	if( $taxonomy == 'dwqa-question_category' ) { 
 		$args = array(
 			'post_type' => 'dwqa-question',

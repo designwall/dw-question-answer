@@ -321,6 +321,7 @@ function dwqa_add_answer(){
 add_action( 'wp_ajax_dwqa-add-answer', 'dwqa_add_answer' );
 add_action( 'wp_ajax_nopriv_dwqa-add-answer', 'dwqa_add_answer' );
 
+
 /**
  * Change redirect link when comment for answer finished
  * @param  string $location Old redirect link
@@ -948,6 +949,38 @@ function dwqa_ajax_create_update_answer_editor(){
 }
 add_action( 'wp_ajax_dwqa-editor-update-answer-init', 'dwqa_ajax_create_update_answer_editor' ); 
 
+function dwqa_update_question(){
+    if( ! isset($_POST['_wpnonce']) 
+        || ! wp_verify_nonce( $_POST['_wpnonce'], '_dwqa_update_question' ) ) {
+        wp_send_json_error( array(
+            'message'   => __('Hello, Are you cheating huh?','dwqa')
+        ) );
+    }
+    if( isset($_POST['dwqa-action']) && $_POST['dwqa-action'] == 'update-question' ) {
+        //Start update question
+        $question_id = $_POST['question'];
+        $question_content = dwqa_pre_content_filter( $_POST['dwqa-question-content'] );
+        $question_content = wp_kses(  $question_content, $post_submit_filter );
+        $question_update = array(
+            'ID'    => $question_id,
+            'post_content'   => $question_content
+        );
+        if( isset($_POST['dwqa-action-draft']) && $_POST['dwqa-action-draft'] && strtolower( $_POST['submit-answer'] ) == 'publish' ) {
+            $question_update['post_status'] = isset($_POST['privacy']) && 'private' == $_POST['privacy'] ? 'private' : 'publish';
+        }
+        $old_post = get_post( $question_id );
+        $question_id = wp_update_post( $question_update );
+        $new_post = get_post( $question_id );
+        do_action( 'dwqa_update_question', $question_id, $old_post, $new_post );
+        if( $question_id ) {
+            wp_safe_redirect( get_permalink( $question_id ) );
+            return true;
+        }
+        break;
+    }
+}
+add_action( 'wp_ajax_dwqa-update-question', 'dwqa_update_question' );
+
 function dwqa_ajax_create_update_question_editor(){
 
     if( ! isset($_POST['question']) ){
@@ -975,9 +1008,9 @@ function dwqa_ajax_create_update_question_editor(){
                 'wpautop'       => false
             ) ); 
         ?>
-        <p class="dwqa-answer-form-btn">
+        <p class="dwqa-question-form-btn">
             <input type="submit" name="submit-question" class="dwqa-btn dwqa-btn-default" value="<?php _e('Update','dwqa') ?>">
-            <a type="button" class="answer-edit-cancel dwqa-btn dwqa-btn-link" ><?php _e('Cancel','dwqa') ?></a>
+            <a type="button" class="question-edit-cancel dwqa-btn dwqa-btn-link" ><?php _e('Cancel','dwqa') ?></a>
             <?php if( 'draft' == get_post_status( $question ) && current_user_can( 'manage_options' ) ) { 
             ?>
             <input type="submit" name="submit-question" class="btn btn-primary btn-small" value="<?php _e('Publish','dwqa') ?>">

@@ -816,7 +816,7 @@ jQuery(function($) {
                 dataType: 'json',
                 data: {
                     'action': 'dwqa-delete-question',
-                    'question': t.data('post'),
+                    'question': t.closest('.dwqa-actions').data('post'),
                     'nonce': t.data('nonce')
                 }
             })
@@ -870,7 +870,7 @@ jQuery(function($) {
             dataType: 'json',
             data: {
                 action: 'dwqa-editor-update-question-init',
-                question: t.data('post'),
+                question: t.closest('.dwqa-actions').data('post'),
                 nonce: t.data('nonce')
             }
         })
@@ -893,13 +893,18 @@ jQuery(function($) {
                     editor.slideDown();
                     t.data('on-editor', true);
 
+                    //Question : Cancel Edit
+                    editor.find('.question-edit-cancel').bind('click', function(event) {
+                        event.preventDefault();
+                        editor.fadeIn();
+                        remove_question_editor();
+                    });
                     //question.find('.dwqa-content').html(resp.data.editor);
                 }
             });
 
         return false;
     });
-
     // Question : Change Status ===================================================================
     $('.dwqa-change-status ul li').click(function(event) {
         event.preventDefault();

@@ -28,7 +28,6 @@ $post_submit_filter     = array(
                             'li'            => array(),
                             'ol'            => array(),
                             'pre'            => array()
-                            
                         );
 /**
  * AJAX: vote for a question/answer

@@ -1,5 +1,5 @@
 === DW Question & Answer ===
-Contributors: designwall, Farid-Gh, scheunemann
+Contributors: designwall, Farid-Gh, scheunemann, gciprian
 Tags: question, answer, support, quora, stackoverflow
 Requires at least: 3.0.1
 Tested up to: 3.8

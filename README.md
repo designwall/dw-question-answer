@@ -60,6 +60,12 @@ Changelog
 * New: Add permission settings for Edit/Delete question in back-end.
 * Fix:  Just add Insert Code button in the editor area inside the DWQA's Pages
 
+= 1.2.2 =
+* Fix: Recover shortcodes
+   		'dwqa-popular-questions',
+        'dwqa-latest-answers',
+        'dwqa-question-followers'
+
 = 1.2.1 =
 * New : Re-design question status icons
 * New : German Language Supported

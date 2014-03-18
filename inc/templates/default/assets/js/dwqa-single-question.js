@@ -504,7 +504,8 @@ jQuery(function($) {
 
                 settings.elements = id;
                 settings.body_class = id + ' post-type-dwqa-answer';
-                settings.editor_selector = id;
+                settings.editor_selector = id; // deprecated in TinyMCE 4.x
+                settings.selector = '#' + id;
                 //init tinymce
                 tinymce.init(settings);
                 editor.slideDown();
@@ -889,7 +890,8 @@ jQuery(function($) {
 
                     settings.elements = id;
                     settings.body_class = id + ' post-type-dwqa-question';
-                    settings.editor_selector = id;
+                    settings.editor_selector = id; // deprecated in TinyMCE 4.x
+                    settings.selector = '#' + id;
                     //init tinymce
                     tinymce.init(settings);
                     editor.slideDown();

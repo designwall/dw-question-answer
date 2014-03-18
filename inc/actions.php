@@ -959,7 +959,6 @@ function dwqa_update_question(){
         //Start update question
         $question_id = $_POST['question'];
         $question_content = dwqa_pre_content_filter( $_POST['dwqa-question-content'] );
-        $question_content = wp_kses(  $question_content, $post_submit_filter );
         $question_update = array(
             'ID'    => $question_id,
             'post_content'   => $question_content

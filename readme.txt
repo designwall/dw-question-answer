@@ -1,9 +1,9 @@
 === DW Question & Answer ===
-Contributors: designwall, Farid-Gh, scheunemann, gciprian
+Contributors: designwall, Farid-Gh, scheunemann, gciprian, Ahmet Kolcu
 Tags: question, answer, support, quora, stackoverflow
 Requires at least: 3.0.1
 Tested up to: 3.8
-Stable tag: 1.2.2
+Stable tag: 1.2.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -48,6 +48,16 @@ Here is the list of features of this plugin:
 
 == Changelog ==
 
+= 1.2.3 = 
+* Turkish Languages supported
+* Add Edit/Delete Question In Front-end
+* Open role setting for edit/delete question
+
+= 1.2.2 =
+* Fix: Recover shortcodes
+   		'dwqa-popular-questions',
+        'dwqa-latest-answers',
+        'dwqa-question-followers'
 = 1.2.1 =
 * New : Re-design question status icons
 * New : German language supported

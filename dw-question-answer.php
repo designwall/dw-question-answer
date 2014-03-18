@@ -397,7 +397,11 @@ function dwqa_register_custom_button($buttons) {
 } 
 
 function dwqa_add_custom_tinymce_plugin($plugin_array) {
-    $plugin_array['dwqaCodeEmbed'] = DWQA_URI . 'assets/js/code-edit-button.js';
+    global $dwqa_options;
+    if( is_singular('dwqa-question') || ($dwqa_options['pages']['submit-question'] && is_page( $dwqa_options['pages']['submit-question'] ) )
+    ){
+        $plugin_array['dwqaCodeEmbed'] = DWQA_URI . 'assets/js/code-edit-button.js';
+    }
     return $plugin_array;
 }
 

@@ -843,10 +843,10 @@ jQuery(function($) {
             if (!current_answer_editor) {
                 return false;
             }
-            console.log(current_answer_editor.find('.dwqa-content'));
             current_answer_editor.find('.dwqa-content').html(unescape($('#dwqa-custom-content-editor').data('current-content')));
             t.data('on-editor', '');
             current_answer_editor = null;
+            question.find('.dwqa-title').html(question.find('.dwqa-title').data('old'));
         }
 
         if (t.data('on-editor')) {
@@ -879,6 +879,8 @@ jQuery(function($) {
                     var editor = $(unescape(resp.data.editor)),
                         id = 'dwqa-custom-content-editor';
                     editor.hide();
+
+                    question.find('.dwqa-title').data('old', question.find('.dwqa-title').text()).html('');
                     question_content.html(editor);
                     $('#' + id).data('current-content', escape(old_content));
 

@@ -964,6 +964,9 @@ function dwqa_update_question(){
             'ID'    => $question_id,
             'post_content'   => $question_content
         );
+        if( isset($_POST['dwqa-question-title']) && $_POST['dwqa-question-title'] ) {
+            $question_update['post_title'] = $_POST['dwqa-question-title'];
+        }
         $old_post = get_post( $question_id );
         $question_id = wp_update_post( $question_update );
         $new_post = get_post( $question_id );
@@ -996,10 +999,11 @@ function dwqa_ajax_create_update_question_editor(){
         <?php } ?> 
         <input type="hidden" name="dwqa-action" value="update-question" >
         <input type="hidden" name="question" value="<?php echo $question; ?>">
+        <?php $question = get_post( $question ); ?>
+        <input type="text" style="width:100%" name="dwqa-question-title" id="dwqa-question-title" value="<?php echo $question->post_title; ?>">
         <?php 
-            $question = get_post( $question );
             dwqa_init_tinymce_editor( array(
-                'content'       => htmlentities($question->post_content, ENT_COMPAT | ENT_HTML5, get_option( 'blog_charset' ) ), 
+                'content'       => htmlentities( $question->post_content, ENT_COMPAT | ENT_HTML5, get_option( 'blog_charset' ) ), 
                 'textarea_name' => 'dwqa-question-content',
                 'wpautop'       => false
             ) ); 

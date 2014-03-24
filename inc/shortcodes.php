@@ -330,7 +330,6 @@ class DWQA_Shortcode {
     }
 
     public function shortcode_popular_questions( $atts ){
-
         extract( shortcode_atts( array(
             'number' => 5,
             'title' => __('Popular Questions','dwqa')

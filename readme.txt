@@ -51,7 +51,7 @@ Here is the list of features of this plugin:
 = 1.2.4 =
 * New:  Spanish Languages supported
 * New:  Russian Languages supported
-* New:  France Languages supported
+* New:  French Languages supported
 * Update: Editor Update for Wordpress 3.9
 * Fix: Email header was lost when have from field
 

@@ -1,9 +1,9 @@
 === DW Question & Answer ===
-Contributors: designwall, Farid-Gh, scheunemann, gciprian, Ahmet Kolcu
+Contributors: designwall, Farid-Gh, scheunemann, gciprian, Ahmet Kolcu, Astrotenko Roman, David Robles
 Tags: question, answer, support, quora, stackoverflow
 Requires at least: 3.0.1
 Tested up to: 3.8
-Stable tag: 1.2.3
+Stable tag: 1.2.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -47,6 +47,13 @@ Here is the list of features of this plugin:
 5. Back-end settings
 
 == Changelog ==
+
+= 1.2.4 =
+* New:  Spanish Languages supported
+* New:  Russian Languages supported
+* New:  France Languages supported
+* Update: Editor Update for Wordpress 3.9
+* Fix: Email header was lost when have from field
 
 = 1.2.3 =
 * New:  Turkish Languages supported

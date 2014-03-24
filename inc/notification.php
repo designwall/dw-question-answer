@@ -36,7 +36,7 @@ function dwqa_new_question_notify( $question_id, $user_id ){
     //From email 
     $from_email = get_option( 'dwqa_subscrible_from_address' );
     if( $from_email ) {
-        $headers = "From: " . $from_email . "\r\n";
+        $headers .= "From: " . $from_email . "\r\n";
     }
 
     //Cc email
@@ -130,7 +130,7 @@ function dwqa_new_answer_nofity( $answer_id ){
     //From email 
     $from_email = get_option( 'dwqa_subscrible_from_address' );
     if( $from_email ) {
-        $headers = "From: " . $from_email . "\r\n";
+        $headers .= "From: " . $from_email . "\r\n";
     }
 
     $message = dwqa_get_mail_template( 'dwqa_subscrible_new_answer_email', 'new-answer' );

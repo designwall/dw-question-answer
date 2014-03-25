@@ -594,9 +594,6 @@
 			.dwqa-current-status {
 				position: relative;
 
-				// .dwqa-change-status {
-				// 	display: none; // active on hover question
-				// }
 				.dwqa-btn-group {
 					position: absolute;
 					right: -5px;
@@ -692,7 +689,6 @@
 				strong {
 					padding: 0 20px;
 					color: @gray;
-
 					@media(max-width: @screen-phone) {
 						display: none;
 					}
@@ -721,31 +717,13 @@
 					text-align: center;
 					padding: 7px 0;
 					display: inline-block;
+					@media(max-width: @screen-phone) {
+						width: 40px;
+					}
 				}
 				i {
 					font-size: 14px;
 					color: @gray-light;
-				}
-				.dwqa-share-facebook i {
-					//color: #4971b6;
-				}
-				.dwqa-share-twitter i {
-					//color: #0fa9ec;
-				}
-				.dwqa-share-google-plus i {
-					//color: #eb3d00;
-				}
-				.dwqa-share-pinterest i {
-					//color: #FF0084;
-				}
-				.dwqa-share-tumblr i {
-					//color: #529ecc;
-				}
-				.dwqa-share-linkedin i {
-					//color: #3399CC;
-				}
-				.dwqa-share-link i {
-					//color: #adabab;
 				}
 			}
 			#dwqa-embed-code {
@@ -758,6 +736,11 @@
 				float: none;
 				line-height: 1.3;
 			}
+			#dwqa-iframe-preview {
+				@media(max-width: @screen-phone) {
+					width: 100%!important;
+				}
+			}
 		}
 
 		// Toolbox
@@ -766,14 +749,8 @@
 			position: absolute;
 			right: 10px;
 			top: 10px;
-
-			display: none; // active when hover
+			display: none;
 		}
-		// .dwqa-footer:hover {
-		// 	.dwqa-change-status {
-		// 		display: block;
-		// 	}
-		// }
 		.dwqa-question:hover,
 		.dwqa-answer:hover {
 			.dwqa-actions {

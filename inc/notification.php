@@ -209,16 +209,19 @@ function dwqa_new_answer_nofity( $answer_id ){
             foreach ( $followers as $follower ) {
                 $follower = (int) $follower;
                 $user_data = get_userdata( $follower );
-                $follow_email = $user_data->user_email;
-                $follower_name = $user_data->display_name;
-                if( $follow_email && $follow_email != $email && $follow_email != $answer_email ) {
-                    //Send email to follower
-                    $message_to_each_follower = str_replace( '{follower}', $follower_name, $message_to_follower );
-                    wp_mail( $follow_email, $follow_subject, $message_to_each_follower, $headers );
-                    if( $enable_send_copy && $follow_email != $admin_email ) {
-                        wp_mail( $admin_email, $follow_subject, $message_to_each_follower, $headers );
+                if ($user_data) {
+                    $follow_email = $user_data->user_email;
+                    $follower_name = $user_data->display_name;
+                    if( $follow_email && $follow_email != $email && $follow_email != $answer_email ) {
+                        //Send email to follower
+                        $message_to_each_follower = str_replace( '{follower}', $follower_name, $message_to_follower );
+                        wp_mail( $follow_email, $follow_subject, $message_to_each_follower, $headers );
+                        if( $enable_send_copy && $follow_email != $admin_email ) {
+                            wp_mail( $admin_email, $follow_subject, $message_to_each_follower, $headers );
+                        }
                     }
                 }
+
             }
         }
     } // Send email to followers
@@ -358,15 +361,17 @@ function dwqa_new_comment_notify( $comment_id, $comment ){
                 foreach ( $followers as $follower ) {
                     $follower = (int) $follower;
                     $user_data = get_userdata( $follower );
-                    $follow_email = $user_data->user_email;
-                    $follower_name = $user_data->display_name;
+                    if ($user_data) {
+                        $follow_email = $user_data->user_email;
+                        $follower_name = $user_data->display_name;
 
-                    if( $follow_email && $follow_email != $post_parent_email && $follow_email != $comment_email ) {
+                        if( $follow_email && $follow_email != $post_parent_email && $follow_email != $comment_email ) {
 
-                        $message_to_each_follower = str_replace( '{follower}', $follower_name, $message_to_follower );
-                        wp_mail( $follow_email, $follow_subject, $message_to_each_follower, $headers );
-                        if( $enable_send_copy && $follow_email != $admin_email ) {
-                            wp_mail( $admin_email, $follow_subject, $message_to_each_follower, $headers );
+                            $message_to_each_follower = str_replace( '{follower}', $follower_name, $message_to_follower );
+                            wp_mail( $follow_email, $follow_subject, $message_to_each_follower, $headers );
+                            if( $enable_send_copy && $follow_email != $admin_email ) {
+                                wp_mail( $admin_email, $follow_subject, $message_to_each_follower, $headers );
+                            }
                         }
                     }
                 }

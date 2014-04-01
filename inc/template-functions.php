@@ -169,10 +169,10 @@ function dwqa_require_field_submit_question(){
     <div class="question-login clearfix dwqa-hide">
         <label for="user-name"><?php _e('Login to submit your question','dwqa') ?></label>
         <div class="login-username login-input">
-            <input type="text" size="20" value="" class="input" placeholder="Type your username" id="user-name" name="user-name">
+            <input type="text" size="20" value="" class="input" placeholder="<?php _e('Type your username','dwqa') ?>" id="user-name" name="user-name">
         </div>
         <div class="login-password login-input">
-            <input type="password" size="20" value="" class="input" placeholder="Type your password" id="user-password" name="user-password">
+            <input type="password" size="20" value="" class="input" placeholder="<?php _e('Type your password','dwqa') ?>" id="user-password" name="user-password">
         </div>
         <div class="login-switch"><?php _e('Not yet a member?','dwqa') ?> <a class="credential-form-toggle" href="javascript:void(0);" title="<?php _e('Register','dwqa') ?>"><?php _e('Register','dwqa') ?></a></div>
     </div>

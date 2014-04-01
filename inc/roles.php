@@ -187,6 +187,9 @@ class DWQA_Permission {
             if( $role_name == 'anonymous' ) { continue; }
             
             $role = get_role( $role_name );
+            if( !$role ) {
+                continue;
+            }
             foreach ($perms['question'] as $key => $val) {
                 if( isset($value[$role_name]['question'][$key]) && $value[$role_name]['question'][$key]  ) {
                     $role->add_cap( 'dwqa_can_' . $key . '_question' );

@@ -1,6 +1,6 @@
 DW Question & Answer
 ====================
- - Contributors: DesignWall, Farid-Gh, scheunemann, Ahmet Kolcu, Astrotenko Roman, David Robles
+ - Contributors: designwall, Farid-Gh, scheunemann, gciprian, Ahmet Kolcu, Astrotenko Roman, David Robles, Nidhal Naji
  - Tags: question, answer, support, quora, stackoverflow
  - Requires at least: 3.0.1
  - Tested up to: 3.8

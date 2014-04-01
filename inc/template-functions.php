@@ -706,7 +706,6 @@ function dwqa_is_sticky($question_id = false){
 
 
 function dwqa_question_states( $states, $post ){
-
     if( dwqa_is_sticky( $post->ID ) && 'dwqa-question' == get_post_type( $post->ID ) ) {
         $states[] = __('Sticky Question','dwqa');
     }

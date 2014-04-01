@@ -107,12 +107,19 @@ class DWQA_Filter {
                 if( isset($dwqa_options['pages']['submit-question']) ) {
                     $submit_link = get_permalink( $dwqa_options['pages']['submit-question'] );
                     if( $submit_link ) {
-                        _e('You can ask question <a href="'.$submit_link.'">here</a>', 'dwqa' );
+                        printf('%s <a href="">%s</a>',
+                            __('You can ask question','dwqa'),
+                            $submit_link,
+                            __('here','dwqa')
+                        );
                     }
                 }
              } else {
-                _e('Please <a href="'.wp_login_url( get_post_type_archive_link( 'dwqa-question' ) ).'">Login</a>', 'dwqa' );
-
+                printf('%s <a href="%s">%s</a>',
+                    __('Please','dwqa'),
+                    wp_login_url( get_post_type_archive_link( 'dwqa-question' ) ),
+                    __('Login','dwqa')
+                );
                 $register_link = wp_register('', '',false);
                 if( ! empty($register_link) && $register_link  ) {
                     echo __(' or','dwqa').' '.$register_link;

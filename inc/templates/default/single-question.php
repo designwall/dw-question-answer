@@ -43,6 +43,29 @@
                     ?>
                     <div class="dwqa-tags"><?php echo $tags; ?></div>
                     <?php endif; ?>  <!-- Question Tags -->
+                    
+                    <?php if( is_user_logged_in() ) : ?>
+                    <div class="dwqa-actions" data-post="<?php echo $post_id ?>" >
+                        <span class="loading"></span>
+                        <div class="dwqa-btn-group">
+                            <button type="button" class="dropdown-toggle"><i class="fa fa-chevron-down"></i> </button>
+                            <div class="dwqa-dropdown-menu">
+                                <div class="dwqa-dropdown-caret">
+                                    <span class="dwqa-caret-outer"></span>
+                                    <span class="dwqa-caret-inner"></span>
+                                </div>
+                                <ul role="menu">
+                                    <?php if( dwqa_current_user_can('edit_question') || $current_user->ID == $post->post_author ) :?>
+                                    <li class="dwqa-edit-question" data-nonce="<?php echo wp_create_nonce( '_dwqa_edit_question' ); ?>"><a href="<?php echo get_edit_post_link( $post_id ); ?>"><i class="fa fa-pencil"></i> <?php _e('Edit','dwqa') ?></a></li>
+                                    <?php endif; ?>
+                                    <?php if( dwqa_current_user_can('delete_question') || $current_user->ID == $post->post_author ) : ?>
+                                    <li class="dwqa-delete-question" data-nonce="<?php echo wp_create_nonce( '_dwqa_delete_question' ); ?>"><a href="<?php echo get_edit_post_link( $post_id ); ?>"><i class="fa fa-trash-o"></i> <?php _e('Delete','dwqa'); ?></a></li>
+                                    <?php endif; ?>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <?php endif; ?>
 
                     <?php do_action( 'dwqa-question-content-footer' ); ?>
                     

@@ -1,7 +1,7 @@
 <?php  
 
 function dwqa_current_user_can( $perm ){
-    global $dwqa_permission;
+    global $dwqa_permission, $current_user;
     if( is_user_logged_in() ) {
         if( current_user_can( 'dwqa_can_' . $perm ) ) {
             return true;

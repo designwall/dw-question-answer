@@ -2,10 +2,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DW Question Answer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-17 10:15+0700\n"
-"PO-Revision-Date: 2014-03-17 10:15+0700\n"
+"POT-Creation-Date: 2014-03-27 08:44+0700\n"
+"PO-Revision-Date: 2014-03-27 08:44+0700\n"
 "Last-Translator: DesignWall <webmaster@designwall.com>\n"
-"Language-Team: Marcus Scheunemann <marcus@algo.rith.ms>\n"
+"Language-Team: DesignWall <webmaster@designwall.com>\n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,510 +18,506 @@ msgstr ""
 
 #: ../dw-question-answer.php:62
 msgid "DWQA Questions"
-msgstr ""
+msgstr "问答中心"
 
 #: ../dw-question-answer.php:75
 msgid "DWQA Ask Question"
-msgstr ""
+msgstr "提出问题"
 
 #: ../dw-question-answer.php:129
 msgctxt "post type general name"
 msgid "Question"
-msgstr "Frage"
+msgstr "问答中心"
 
 #: ../dw-question-answer.php:130
 msgctxt "post type singular name"
 msgid "Question"
-msgstr "Frage"
+msgstr "问答中心"
 
 #: ../dw-question-answer.php:131 ../dw-question-answer.php:165
 msgctxt "theme"
 msgid "Add New"
-msgstr "Hinzufügen"
+msgstr "添加问题"
 
 #: ../dw-question-answer.php:132
 msgid "Add New Question"
-msgstr "Frage Hinzufügen"
+msgstr "添加新问题"
 
 #: ../dw-question-answer.php:133
 msgid "Edit Question"
-msgstr "Frage bearbeiten"
+msgstr "编辑问题"
 
 #: ../dw-question-answer.php:134 ../inc/settings.php:875
 msgid "New Question"
-msgstr "Neue Frage"
+msgstr "最新问题"
 
 #: ../dw-question-answer.php:135
 msgid "All Questions"
-msgstr "Alle Fragen"
+msgstr "所有问题"
 
 #: ../dw-question-answer.php:136
 msgid "View Question"
-msgstr "Fragen ansehen"
+msgstr "查看问题"
 
 #: ../dw-question-answer.php:137
 msgid "Search Question"
-msgstr "Fragen durchsuchen"
+msgstr "搜索问题"
 
 #: ../dw-question-answer.php:138
 msgid "No questions found"
-msgstr "Keine Fragen gefunden"
+msgstr "还没有发现问题"
 
 #: ../dw-question-answer.php:139
 msgid "No questions found in Trash"
-msgstr "Keine Fragen im Papierkorb gefunden"
+msgstr "没有找到结果"
 
 #: ../dw-question-answer.php:141
 msgid "DW Q&A"
-msgstr ""
+msgstr "问答中心"
 
 #: ../dw-question-answer.php:163
 msgctxt "post type general name"
 msgid "Answer"
-msgstr "Antwort"
+msgstr "答案"
 
 #: ../dw-question-answer.php:164
 msgctxt "post type singular name"
 msgid "Answer"
-msgstr "Antwort"
+msgstr "答案"
 
 #: ../dw-question-answer.php:166
 msgid "Add new answer"
-msgstr "Antwort hinzufügen"
+msgstr "添加新答案"
 
 #: ../dw-question-answer.php:167
 msgid "Edit answer"
-msgstr "Antwort bearbeiten"
+msgstr "编辑答案"
 
 #: ../dw-question-answer.php:168 ../inc/settings.php:876
 msgid "New Answer"
-msgstr "Neue Antwort"
+msgstr "新答案"
 
 #: ../dw-question-answer.php:169
 msgid "All Answers"
-msgstr "Alle Antworten"
+msgstr "所有答案"
 
 #: ../dw-question-answer.php:170
 msgid "View Answer"
-msgstr "Antworten ansehen"
+msgstr "查看答案"
 
 #: ../dw-question-answer.php:171
 msgid "Search Answer"
-msgstr "Antworten durchsuchen"
+msgstr "搜索答案"
 
 #: ../dw-question-answer.php:172
 msgid "No Answers found"
-msgstr "Keine Antworten gefunden"
+msgstr "没有找到答案"
 
 #: ../dw-question-answer.php:173
 msgid "No Answers found in Trash"
-msgstr "Keine Antworten im Papierkorb gefunden"
+msgstr "没有在回收站中找到答案"
 
-#: ../dw-question-answer.php:175 ../dw-question-answer.php:460
-#: ../inc/settings.php:429 ../inc/shortcodes.php:145
+#: ../dw-question-answer.php:175 ../dw-question-answer.php:464
+#: ../inc/settings.php:429 ../inc/shortcodes.php:164
 #: ../inc/templates/default/archive-question.php:111
 #: ../thesis/dwqa/box.php:172
 msgid "Answer"
-msgstr "Antwort"
+msgstr "答案"
 
 #: ../dw-question-answer.php:197
 msgctxt "taxonomy general name"
 msgid "Categories"
-msgstr "Kategorien"
+msgstr "分类"
 
 #: ../dw-question-answer.php:198
 msgctxt "taxonomy singular name"
 msgid "Category"
-msgstr "Kategorie"
+msgstr "分类"
 
 #: ../dw-question-answer.php:199
 msgid "Search Categories"
-msgstr "Kategorien durchsuchen"
+msgstr "搜索分类"
 
 #: ../dw-question-answer.php:200
 msgid "All Categories"
-msgstr "Allle Kategorien"
+msgstr "所有分类"
 
 #: ../dw-question-answer.php:201
 msgid "Parent Category"
-msgstr "Übergeordnete Kategorie"
+msgstr "顶级分类"
 
 #: ../dw-question-answer.php:202
 msgid "Parent Category:"
-msgstr "Übergeordnete Kategorie:"
+msgstr "顶级分类："
 
 #: ../dw-question-answer.php:203
 msgid "Edit Category"
-msgstr "Kategorie bearbeiten"
+msgstr "编辑分类"
 
 #: ../dw-question-answer.php:204
 msgid "Update Category"
-msgstr "Kategorie aktualisieren"
+msgstr "更新分类"
 
 #: ../dw-question-answer.php:205
 msgid "Add New Category"
-msgstr "Neue Kategorie hinzufügen"
+msgstr "添加新分类"
 
 #: ../dw-question-answer.php:206
 msgid "New Category Name"
-msgstr "Neuer Kategeorie-Name"
+msgstr "新分类名字"
 
 #: ../dw-question-answer.php:207
 msgid "Question Categories"
-msgstr "Fragen-Kategorie"
+msgstr "问题分类"
 
 #: ../dw-question-answer.php:226
 msgctxt "taxonomy general name"
 msgid "Tags"
-msgstr "Stichworte"
+msgstr "标签"
 
 #: ../dw-question-answer.php:227
 msgctxt "taxonomy singular name"
 msgid "Tag"
-msgstr "Stichwort"
+msgstr "标签"
 
 #: ../dw-question-answer.php:228
 msgid "Search Tags"
-msgstr "Stichworte durchsuchen"
+msgstr "搜索标签"
 
 #: ../dw-question-answer.php:229
 msgid "Popular Tags"
-msgstr "Häufige Stichworte"
+msgstr "热门标签"
 
 #: ../dw-question-answer.php:230
 msgid "All Tags"
-msgstr "Alle Stichworte"
+msgstr "搜索标签"
 
 #: ../dw-question-answer.php:233
 msgid "Edit Tag"
-msgstr "Stichwort bearbeiten"
+msgstr "编辑标签"
 
 #: ../dw-question-answer.php:234
 msgid "Update Tag"
-msgstr "Stichwort aktualisieren"
+msgstr "更新标签"
 
 #: ../dw-question-answer.php:235
 msgid "Add New Tag"
-msgstr "Neues Stichwort hinzufügen"
+msgstr "添加新标签"
 
 #: ../dw-question-answer.php:236
 msgid "New Tag Name"
-msgstr "Neuer Stichwort-Name"
+msgstr "新标签名字"
 
 #: ../dw-question-answer.php:237
 msgid "Separate tags with commas"
-msgstr "Trenne Stichworte mit Kommas"
+msgstr "用逗号隔开"
 
 #: ../dw-question-answer.php:238
 msgid "Add or remove tags"
-msgstr "Stichworte löschen oder hinzufügen"
+msgstr "添加或者移除标签"
 
 #: ../dw-question-answer.php:239
 msgid "Choose from the most used tags"
-msgstr "Wähle von den meist genutzten Stichworten"
+msgstr "选择最多使用的标签"
 
 #: ../dw-question-answer.php:240 ../inc/template-functions.php:266
 msgid "Question Tags"
-msgstr "Fragen Stichworte"
+msgstr "问题标签"
 
-#: ../dw-question-answer.php:279 ../dw-question-answer.php:412
-#: ../inc/filter.php:83 ../inc/shortcodes.php:257
+#: ../dw-question-answer.php:279 ../dw-question-answer.php:416
+#: ../inc/filter.php:83 ../inc/shortcodes.php:276
 #: ../inc/templates/default/navigation-archive.php:93
 #: ../thesis/dwqa/box.php:282
 msgid "Next"
-msgstr "Nächste"
+msgstr "下一个"
 
-#: ../dw-question-answer.php:280 ../dw-question-answer.php:413
-#: ../inc/shortcodes.php:221
+#: ../dw-question-answer.php:280 ../dw-question-answer.php:417
+#: ../inc/shortcodes.php:240
 #: ../inc/templates/default/navigation-archive.php:57
 #: ../thesis/dwqa/box.php:246
 msgid "Prev"
-msgstr "Vorherige"
+msgstr "上一个"
 
-#: ../dw-question-answer.php:282 ../dw-question-answer.php:415
+#: ../dw-question-answer.php:282 ../dw-question-answer.php:419
 msgid "Please enter your question"
-msgstr "Bitte gib deine Frage ein"
+msgstr "请输入你的问题"
 
 #: ../dw-question-answer.php:283
 msgid "Your question must be at least 2 characters in length"
-msgstr "Deine Frage muss mindestens zwei Zeichen lang sein"
+msgstr "你的问题至少需要两个字符"
 
 #: ../dw-question-answer.php:284
 msgid "Enter a valid email address"
-msgstr "Gib eine gültige E-Mail-Adresse an"
+msgstr "输入正确的E-mail地址"
 
 #: ../dw-question-answer.php:285
 msgid "Enter a question title"
-msgstr "Gib einen Frage-Titel an"
+msgstr "输入一个问题的标题"
 
 #: ../dw-question-answer.php:286
 msgid "Please add your name"
-msgstr "Bitte gib deinen Namen an"
+msgstr "请添加你的名字"
 
-#: ../dw-question-answer.php:287 ../dw-question-answer.php:416
+#: ../dw-question-answer.php:287 ../dw-question-answer.php:420
 msgid "Please enter your answer"
-msgstr "Bitte gib deine Antwort an"
+msgstr "请输入你的问题"
 
-#: ../dw-question-answer.php:288 ../dw-question-answer.php:417
+#: ../dw-question-answer.php:288 ../dw-question-answer.php:421
 msgid "Please enter your comment content"
-msgstr "Bitte füge deinen Kommentarinhalt ein"
+msgstr "请输入你的评论内容"
 
-#: ../dw-question-answer.php:289 ../dw-question-answer.php:418
+#: ../dw-question-answer.php:289 ../dw-question-answer.php:422
 msgid "Comment must have more than 2 characters"
-msgstr "Ein Kommentar muss mehr als 2 Zeichen haben"
+msgstr "评论至少要大于2个字符"
 
 #: ../dw-question-answer.php:290
 msgid "Not found! Try another keyword."
-msgstr "Nichts gefunden! Versuche ein anderes Schlüsselwort"
+msgstr "没发现！试用另一个关键字"
 
 #: ../dw-question-answer.php:291
 msgid "Or press <strong>ENTER</strong> to get more questions"
-msgstr "Oder drücke <strong>ENTER</strong> to get more questions"
+msgstr "或者按下<strong>ENTER</strong>来获取更多问题"
 
-#: ../dw-question-answer.php:292 ../dw-question-answer.php:419
-#: ../inc/actions.php:915 ../inc/actions.php:1008
+#: ../dw-question-answer.php:292 ../dw-question-answer.php:423
+#: ../inc/actions.php:915 ../inc/actions.php:1011
 msgid "Update"
-msgstr "Aktualisieren"
+msgstr "更新"
 
-#: ../dw-question-answer.php:293 ../dw-question-answer.php:420
+#: ../dw-question-answer.php:293 ../dw-question-answer.php:424
 #: ../inc/settings.php:394 ../inc/templates/default/content-answer.php:99
 #: ../inc/templates/default/content-comment.php:48
 #: ../inc/templates/default/single-question.php:59
 msgid "Edit"
-msgstr "Bearbeiten"
+msgstr "编辑"
 
-#: ../dw-question-answer.php:294 ../dw-question-answer.php:421
-#: ../inc/actions.php:916 ../inc/actions.php:1009
+#: ../dw-question-answer.php:294 ../dw-question-answer.php:425
+#: ../inc/actions.php:916 ../inc/actions.php:1012
 msgid "Cancel"
-msgstr "Abbrechen"
+msgstr "取消"
 
-#: ../dw-question-answer.php:295 ../dw-question-answer.php:422
+#: ../dw-question-answer.php:295 ../dw-question-answer.php:426
 msgid "Do you want to delete this comment?"
-msgstr "Möchtest du das Kommentar löschen?"
+msgstr "你想删除这条评论吗？"
 
-#: ../dw-question-answer.php:296 ../dw-question-answer.php:423
+#: ../dw-question-answer.php:296 ../dw-question-answer.php:427
 msgid "Do you want to delete this answer?"
-msgstr "Möchtest du diese Antwort löschen?"
+msgstr "你想删除这个答案吗？"
 
 #: ../dw-question-answer.php:297
 msgid "Do you want to update this answer"
-msgstr "Möchtest du diese Antwort aktualisieren?"
+msgstr "你想更新这个答案吗？"
 
 #: ../dw-question-answer.php:298
 msgid "Do you want to report this answer"
-msgstr "Möchtest du diese Antwort melden?"
+msgstr "你想报告这个答案吗？"
 
 #: ../dw-question-answer.php:300
 #: ../inc/templates/default/content-answer.php:104
 msgid "Report"
-msgstr "Melden"
+msgstr "报告"
 
 #: ../dw-question-answer.php:301
 msgid "Undo"
-msgstr "Rückgängig"
+msgstr "撤销"
 
 #: ../dw-question-answer.php:302
 msgid "This answer will be marked as spam and hidden. Do you want to flag it?"
-msgstr ""
-"Diese Antwort wird als SPAM gekennzeichnet und versteckt. Möchtest du sie "
-"markieren?"
+msgstr "这个答案将会标记为垃圾信息并且隐藏。你要这样子做吗？"
 
-#: ../dw-question-answer.php:303 ../dw-question-answer.php:428
+#: ../dw-question-answer.php:303 ../dw-question-answer.php:432
 msgid "This answer was flagged as spam. Do you want to show it"
-msgstr "Die Antwort wurde als SPAM gekennzeichnet. Möchtest du sie anzeigen"
+msgstr "这个答案已经被标记为垃圾信息，你想要显示出来吗？"
 
 #: ../dw-question-answer.php:304
 msgid "This answer was flagged as spam"
-msgstr "Diese Antwort wurde als SPAM gekennzeichnet"
+msgstr "这个答案已经被标记为垃圾信息"
 
-#: ../dw-question-answer.php:305 ../dw-question-answer.php:429
+#: ../dw-question-answer.php:305 ../dw-question-answer.php:433
 msgid "hide"
-msgstr "verstecke"
+msgstr "隐藏"
 
-#: ../dw-question-answer.php:306 ../dw-question-answer.php:430
+#: ../dw-question-answer.php:306 ../dw-question-answer.php:434
 msgid "show"
-msgstr "zeige"
+msgstr "显示"
 
 #: ../dw-question-answer.php:308
 #: ../inc/templates/default/single-question.php:28 ../thesis/dwqa/box.php:344
 msgid "Follow This Question"
-msgstr "Diese Frage abonnieren"
+msgstr "关注这个问题"
 
 #: ../dw-question-answer.php:309
 #: ../inc/templates/default/single-question.php:28 ../thesis/dwqa/box.php:344
 msgid "Unfollow This Question"
-msgstr "Abonnierung dieser frage zurücknehmen"
+msgstr "不关注这个问题"
 
 #: ../dw-question-answer.php:310
 msgid "Stick This Question on Frontpage"
-msgstr "Diese Frage an die Startseite heften"
+msgstr "置顶这个问题"
 
 #: ../dw-question-answer.php:311
 msgid "Untick This Question on Frontpage"
-msgstr "Diese Frage von der Startseite abheften"
+msgstr "不置顶这个问题"
 
 #: ../dw-question-answer.php:314
-#, fuzzy
 msgid "Do you want to delete this question?"
-msgstr "Möchtest du das Kommentar löschen?"
+msgstr "你想要删除这个问题吗？"
 
 #: ../dw-question-answer.php:334
 #, php-format
 msgid "%s second"
 msgid_plural "%s seconds"
-msgstr[0] "%s Sekunde"
-msgstr[1] "%s Sekunden"
+msgstr[0] "%s 秒"
+msgstr[1] "%s 秒"
 
 #. translators: min=minute
 #: ../dw-question-answer.php:343
 #, php-format
 msgid "about %s min"
 msgid_plural "%s mins"
-msgstr[0] "über %s Minute"
-msgstr[1] "%s Minuten"
+msgstr[0] "大约 %s 分"
+msgstr[1] "%s 分"
 
 #: ../dw-question-answer.php:349
 #, php-format
 msgid "about %s hour"
 msgid_plural "%s hours"
-msgstr[0] "etwa %s Stunde"
-msgstr[1] "%s Stunden"
+msgstr[0] "大约 %s 小时"
+msgstr[1] "%s 小时"
 
 #: ../dw-question-answer.php:355
 #, php-format
 msgid "%s day"
 msgid_plural "%s days"
-msgstr[0] "%s Tag"
-msgstr[1] "%s Tagen"
+msgstr[0] "%s 天"
+msgstr[1] "%s 天"
 
 #: ../dw-question-answer.php:359
 #, php-format
 msgid "%1$s ago"
-msgstr "vor %1$s"
+msgstr "%1$s 之前"
 
-#: ../dw-question-answer.php:425
+#: ../dw-question-answer.php:429
 msgid "Flag"
-msgstr "Kennzeichen"
+msgstr "标记"
 
-#: ../dw-question-answer.php:426
+#: ../dw-question-answer.php:430
 msgid "Unflag"
-msgstr "Zurücknehmen"
+msgstr "不标记"
 
-#: ../dw-question-answer.php:427
+#: ../dw-question-answer.php:431
 msgid "This answer will be hide when flag it. Are you sure?"
-msgstr ""
-"Diese Antwort wird versteckt wenn sie gekennzeichnet wird. Bist du sicher?"
+msgstr "当标记这个答案时，它将会被删除。你确定要这么做吗？"
 
-#: ../dw-question-answer.php:461 ../inc/class-answers-list-table.php:77
+#: ../dw-question-answer.php:465 ../inc/class-answers-list-table.php:77
 msgid "Author"
-msgstr "Autor"
-
-#: ../dw-question-answer.php:463
-msgid "In Response To"
-msgstr "Antwort auf"
+msgstr "作者"
 
 #: ../dw-question-answer.php:467
+msgid "In Response To"
+msgstr "相应"
+
+#: ../dw-question-answer.php:471
 msgid "Info"
-msgstr ""
+msgstr "信息"
 
-#: ../dw-question-answer.php:484
+#: ../dw-question-answer.php:488
 msgid "Submitted"
-msgstr "Übertragen"
+msgstr "提交"
 
-#: ../dw-question-answer.php:485
+#: ../dw-question-answer.php:489
 msgid "on"
-msgstr "auf"
+msgstr "在"
 
-#: ../dw-question-answer.php:512
+#: ../dw-question-answer.php:516
 msgid "Reset all changed to default"
-msgstr "Alle Änderung zurücksetzen"
+msgstr "重置所有改变为默认"
 
-#: ../dw-question-answer.php:526
+#: ../dw-question-answer.php:530
 msgid "answered"
-msgstr "beantwortet"
+msgstr "回答"
 
-#: ../dw-question-answer.php:527
+#: ../dw-question-answer.php:531
 msgid "voted"
-msgstr "bewertet"
+msgstr "投票"
 
-#: ../dw-question-answer.php:528
+#: ../dw-question-answer.php:532
 msgid "views"
-msgstr "gesehen"
+msgstr "浏览数"
 
-#: ../dw-question-answer.php:649 ../inc/shortcodes.php:359
+#: ../dw-question-answer.php:653 ../inc/shortcodes.php:377
 #: ../inc/widgets.php:101
 msgid "asked by"
-msgstr "gefragt von"
+msgstr "提问人"
 
 #: ../inc/actions.php:39
 msgid "Are you cheating, huh?"
-msgstr "Na, tricksen wir?"
+msgstr "你被骗了，呵呵"
 
 #: ../inc/actions.php:53
 msgid "What "
-msgstr "Was"
+msgstr "What "
 
 #: ../inc/actions.php:84
 msgid "You voted for this "
-msgstr "Du hast dafür abgestimmt"
+msgstr "你赞成这个"
 
 #: ../inc/actions.php:205
 msgid "Delete draft"
-msgstr "Entwurf löschen"
+msgstr "删除草稿"
 
 #: ../inc/actions.php:234
 msgid "Answer for "
-msgstr "Antwort für"
+msgstr "回答"
 
 #: ../inc/actions.php:247 ../inc/template-functions.php:363
 msgid "Save draft"
-msgstr "Entwurf speichern"
+msgstr "保存草稿"
 
 #: ../inc/actions.php:261 ../inc/actions.php:508
 msgid "You do not have permission to submit question."
-msgstr "Du hast keine Erlaubnis eine Frage zu bearbeiten."
+msgstr "你没有权限来提交问题"
 
 #: ../inc/actions.php:287 ../inc/actions.php:517
 msgid "Captcha is not correct"
-msgstr "Das Captcha ist nicht korrekt"
+msgstr "验证码不正确"
 
 #: ../inc/actions.php:375 ../inc/actions.php:520 ../inc/actions.php:727
-#: ../inc/actions.php:752 ../inc/actions.php:770 ../inc/actions.php:1491
+#: ../inc/actions.php:752 ../inc/actions.php:770 ../inc/actions.php:1494
 #: ../inc/filter.php:356 ../inc/status.php:286
 msgid "Are you cheating huh?"
-msgstr "Tricksen wir?"
+msgstr "Are you cheating huh?"
 
 #: ../inc/actions.php:378
 msgid "Missing answer ID"
-msgstr "Fehlende Antwort-ID"
+msgstr "消失的答案编号"
 
 #: ../inc/actions.php:477
 msgid "User Registration was disabled."
-msgstr "Benutzeranmeldung is nicht aktiviert"
+msgstr "未开放注册用户"
 
 #: ../inc/actions.php:480
 msgid "This email is already registered, please choose another one."
-msgstr "Diese E-Mail-Adresse ist bereits benutzt, bitte wähle eine andere."
+msgstr "这个邮箱已经被注册，请选择另一个"
 
 #: ../inc/actions.php:483
 msgid "This username is already registered. Please choose another one."
-msgstr "Dieser Nutzername ist bereits vergeben. Bitte wähle einen anderen."
+msgstr "这个用户名字已经被注册，请选择另一个"
 
 #: ../inc/actions.php:732
 msgid "Comment content must not be empty."
-msgstr "Kommentarinhalt darf nicht leer sein."
+msgstr "评论内容必须不为空"
 
 #: ../inc/actions.php:757
 msgid "Comment ID must be show."
-msgstr "Kommentar-ID muss gezeigt werden"
+msgstr "评论编号必须显示"
 
 #: ../inc/actions.php:773
 msgid "Missing id of answer"
-msgstr "Fehlende Antwort-ID"
+msgstr "消失的答案编号"
 
-#: ../inc/actions.php:919 ../inc/actions.php:1012
+#: ../inc/actions.php:919 ../inc/actions.php:1015
 msgid "Publish"
-msgstr "Veröffentlichen"
+msgstr "发布"
 
 #: ../inc/actions.php:924 ../inc/actions.php:934
 #: ../inc/template-functions.php:368 ../inc/template-functions.php:378
@@ -531,19 +527,19 @@ msgstr "Veröffentlichen"
 #: ../inc/templates/default/single-question.php:111 ../thesis/dwqa/box.php:387
 #: ../thesis/dwqa/box.php:398
 msgid "Public"
-msgstr "Öffentlich"
+msgstr "发布"
 
 #: ../inc/actions.php:934 ../inc/template-functions.php:378
 #: ../inc/templates/default/content-answer.php:75
 #: ../inc/templates/default/single-question.php:111 ../thesis/dwqa/box.php:398
 msgid "Everyone can see"
-msgstr "Jeder kann es sehen"
+msgstr "任何人都能看"
 
 #: ../inc/actions.php:935 ../inc/template-functions.php:379
 #: ../inc/templates/default/content-answer.php:76
 #: ../inc/templates/default/single-question.php:112 ../thesis/dwqa/box.php:399
 msgid "Only Author and Administrator can see"
-msgstr "Nur Autor und Administrator kann es sehen"
+msgstr "只要作者和管理员能看"
 
 #: ../inc/actions.php:935 ../inc/template-functions.php:379
 #: ../inc/templates/default/content-answer.php:63
@@ -552,81 +548,77 @@ msgstr "Nur Autor und Administrator kann es sehen"
 #: ../inc/templates/default/single-question.php:112 ../thesis/dwqa/box.php:387
 #: ../thesis/dwqa/box.php:399
 msgid "Private"
-msgstr "Privat"
+msgstr "私人的"
 
-#: ../inc/actions.php:955 ../inc/actions.php:1699
-#, fuzzy
+#: ../inc/actions.php:955 ../inc/actions.php:1702
 msgid "Hello, Are you cheating huh?"
-msgstr "Tricksen wir?"
+msgstr "你好，你是作弊吗？"
 
-#: ../inc/actions.php:1039
+#: ../inc/actions.php:1042
 msgid "You can't post comment"
-msgstr "Du kannst kein Kommentar senden"
+msgstr "你不能发表评论"
 
-#: ../inc/actions.php:1053
+#: ../inc/actions.php:1056
 msgid "Missing email infomation"
-msgstr "Fehlende E-Mail-Informationen"
+msgstr "差邮箱信息"
 
-#: ../inc/actions.php:1058
+#: ../inc/actions.php:1061
 msgid "Missing name infomation"
-msgstr "Fehlender Name"
+msgstr "差名字信息"
 
-#: ../inc/actions.php:1319
+#: ../inc/actions.php:1322
 msgid "Choose as best answer"
-msgstr "Wähle als beste Antwort"
+msgstr "选为最好答案"
 
-#: ../inc/actions.php:1538 ../inc/actions.php:1568
+#: ../inc/actions.php:1541 ../inc/actions.php:1571
 msgid "Invalid Post"
-msgstr "Ungültiger Beitrag"
+msgstr "无效的内容"
 
-#: ../inc/actions.php:1670
+#: ../inc/actions.php:1673
 msgid "Sticky Questions"
-msgstr "Angeheftete Frage"
+msgstr "置顶问答"
 
-#: ../inc/actions.php:1705
-#, fuzzy
+#: ../inc/actions.php:1708
 msgid "Question is not valid"
-msgstr "Fragen-Auflistung-Seite"
+msgstr "问题是无效"
 
-#: ../inc/actions.php:1736
+#: ../inc/actions.php:1739
 msgid "Delete Action was failed"
-msgstr ""
+msgstr "删除动作失败"
 
-#: ../inc/actions.php:1741
-#, fuzzy
+#: ../inc/actions.php:1744
 msgid "You do not have permission to delete this question"
-msgstr "Du hast keine Erlaubnis um Fragen zu sehen"
+msgstr "你没有权限删除这个问题"
 
 #: ../inc/class-answers-list-table.php:78
 msgid "Detail"
-msgstr "Detail"
+msgstr "数据"
 
 #: ../inc/class-answers-list-table.php:97
 msgid "Answered on "
-msgstr "Antwort auf"
+msgstr "回答了"
 
 #: ../inc/class-answers-list-table.php:108 ../inc/contextual-helper.php:202
 msgid "Read more"
-msgstr "Weiterlesen"
+msgstr "阅读更多"
 
 #: ../inc/class-walker-category.php:20 ../inc/class-walker-tag-dropdown.php:19
 #, php-format
 msgid "View all posts filed under %s"
-msgstr "Alle Beiträge zu %s ansehen"
+msgstr "查看 %s 下的所有文章"
 
 #: ../inc/class-walker-category.php:35 ../inc/class-walker-tag-dropdown.php:34
 #, php-format
 msgid "Feed for all posts filed under %s"
-msgstr "Feed für alle Beiträge zu %s"
+msgstr "订阅 %s 下的所有文章"
 
 #: ../inc/contextual-helper.php:48
 msgid "Overview"
-msgstr "Übersicht"
+msgstr "预览"
 
 #: ../inc/contextual-helper.php:49
-#, fuzzy
 msgid "DW Question Answer Plugin"
-msgstr "Wieso sollte man DW Question & Answer nutzen?"
+msgstr "DW问答插件"
 
 #: ../inc/contextual-helper.php:50
 msgid ""
@@ -635,151 +627,147 @@ msgid ""
 "up. Let start building up your community with this WordPress question & "
 "answer system."
 msgstr ""
+"DW问答是一个帮助你在wordpress上建立一个问答系统的插件。这个插件容易安装和设"
+"计。让我们开始使用这个wordpress问答系统建立你的社区吧。"
 
 #: ../inc/contextual-helper.php:53
-#, fuzzy
 msgid "Setup Question List Page"
-msgstr "Fragen-Auflistung-Seite"
+msgstr "设置问题列表页"
 
 #: ../inc/contextual-helper.php:57
-#, fuzzy
 msgid "Setup Ask Question Page"
-msgstr "Frage-Stellen-Seite"
+msgstr "设置提问也"
 
 #: ../inc/contextual-helper.php:61
 msgid "Shortcode"
-msgstr ""
+msgstr "短代码"
 
 #: ../inc/contextual-helper.php:65
 msgid "Style integration"
-msgstr ""
+msgstr "集成式"
 
 #: ../inc/contextual-helper.php:223
 msgid "For more information:"
-msgstr "Für weitere Informationen:"
+msgstr "欲了解更多信息："
 
 #: ../inc/contextual-helper.php:224
-#, fuzzy
 msgid "DW Question Answer Guide"
-msgstr "Wieso sollte man DW Question & Answer nutzen?"
+msgstr "DW问答指南"
 
 #: ../inc/contextual-helper.php:225
-#, fuzzy
 msgid "Community"
-msgstr "Kommentar"
+msgstr "社区"
 
 #: ../inc/contextual-helper.php:226
 msgid "DesignWall Wordpress Themes"
-msgstr ""
+msgstr "DesignWall Wordpress主题"
 
 #: ../inc/contextual-helper.php:227
 msgid "DesignWall Wordpress Plugins"
-msgstr ""
+msgstr "DesignWall Wordpress插件"
 
-#: ../inc/filter.php:101 ../inc/shortcodes.php:270
+#: ../inc/filter.php:101 ../inc/shortcodes.php:289
 #: ../inc/templates/default/archive-question-notfound.php:4
 #: ../thesis/dwqa/box.php:295
 msgid "You do not have permission to view questions"
-msgstr "Du hast keine Erlaubnis um Fragen zu sehen"
+msgstr "你没有权限查看问题"
 
 #: ../inc/filter.php:104
 msgid "Sorry, but nothing matched your filter. "
-msgstr "Entschuldige, aber nichts passte zu deinen Filterkriterien."
+msgstr "抱歉，没有符合你的问题"
 
-#: ../inc/filter.php:111 ../inc/shortcodes.php:281
-#, fuzzy
+#: ../inc/filter.php:111 ../inc/shortcodes.php:300
 msgid "You can ask question"
-msgstr "Du kannst eine Frage stelen <a href=\""
+msgstr "你可以提问"
 
-#: ../inc/filter.php:113 ../inc/shortcodes.php:283
+#: ../inc/filter.php:113 ../inc/shortcodes.php:302
 msgid "here"
-msgstr ""
+msgstr "这里"
 
-#: ../inc/filter.php:119 ../inc/shortcodes.php:289
+#: ../inc/filter.php:119 ../inc/shortcodes.php:308
 #: ../inc/templates/default/archive-question-notfound.php:14
 msgid "Please"
-msgstr "Bitte"
+msgstr "请"
 
-#: ../inc/filter.php:121 ../inc/shortcodes.php:291
+#: ../inc/filter.php:121 ../inc/shortcodes.php:310
 #: ../inc/templates/default/archive-question-notfound.php:16
 msgid "Login"
-msgstr "Anmelden"
+msgstr "登录"
 
-#: ../inc/filter.php:125 ../inc/shortcodes.php:296
+#: ../inc/filter.php:125 ../inc/shortcodes.php:315
 #: ../inc/templates/default/archive-question-notfound.php:17
 #: ../thesis/dwqa/box.php:313
 msgid " or"
-msgstr "oder"
+msgstr "或者"
 
-#: ../inc/filter.php:127 ../inc/shortcodes.php:298
+#: ../inc/filter.php:127 ../inc/shortcodes.php:317
 #: ../inc/templates/default/archive-question-notfound.php:18
 #: ../thesis/dwqa/box.php:315
 msgid " to submit question."
-msgstr "um eine Frage zu stellen."
+msgstr "提交问题。"
 
 #: ../inc/filter.php:364
 msgid "Search query are empty"
-msgstr "Die Suchanfrage ist leer"
+msgstr "搜索查询是空的"
 
 #: ../inc/metaboxes.php:5
 msgid "Answers"
-msgstr "Antworten"
+msgstr "答案"
 
 #: ../inc/metaboxes.php:29
 msgid "Question Meta Data"
-msgstr "Frage-Meta-Daten"
+msgstr "问题元数据"
 
 #: ../inc/metaboxes.php:44 ../inc/templates/default/single-question.php:138
 #: ../thesis/dwqa/box.php:425
 msgid "Status"
-msgstr ""
+msgstr "状态"
 
-#: ../inc/metaboxes.php:46 ../inc/shortcodes.php:64 ../inc/status.php:277
+#: ../inc/metaboxes.php:46 ../inc/shortcodes.php:83 ../inc/status.php:277
 #: ../inc/templates/default/archive-question.php:30 ../thesis/dwqa/box.php:91
 msgid "Open"
-msgstr "Offen"
+msgstr "开放"
 
 #: ../inc/metaboxes.php:47 ../inc/status.php:264
 #: ../inc/templates/default/content-question.php:8
 #: ../inc/templates/default/single-question.php:166 ../thesis/dwqa/box.php:453
 msgid "Pending"
-msgstr "Wartend"
+msgstr "有待解决"
 
-#: ../inc/metaboxes.php:48 ../inc/shortcodes.php:70 ../inc/status.php:261
+#: ../inc/metaboxes.php:48 ../inc/shortcodes.php:89 ../inc/status.php:261
 #: ../inc/templates/default/archive-question.php:36
 #: ../inc/templates/default/single-question.php:171 ../thesis/dwqa/box.php:97
 #: ../thesis/dwqa/box.php:458
 msgid "Resolved"
-msgstr "Gelöst"
+msgstr "已解决"
 
 #: ../inc/metaboxes.php:49 ../inc/status.php:267
 #: ../inc/templates/default/single-question.php:156 ../thesis/dwqa/box.php:443
 msgid "Re-Open"
-msgstr "Erneut geöffnet"
+msgstr "重新开放"
 
-#: ../inc/metaboxes.php:50 ../inc/shortcodes.php:73 ../inc/status.php:270
+#: ../inc/metaboxes.php:50 ../inc/shortcodes.php:92 ../inc/status.php:270
 #: ../inc/templates/default/archive-question.php:39
 #: ../inc/templates/default/single-question.php:161 ../thesis/dwqa/box.php:100
 #: ../thesis/dwqa/box.php:448
 msgid "Closed"
-msgstr "Geschlossen"
+msgstr "关闭"
 
 #: ../inc/metaboxes.php:56
 msgid "Sticky"
-msgstr "Angeheftet"
+msgstr "置顶"
 
 #: ../inc/metaboxes.php:60
 msgid "Sticky question on top of archive page."
-msgstr "Oben angheftete Frage der Archivseite"
+msgstr "在存档页面顶部置顶"
 
 #: ../inc/notification.php:27
 msgid "A new question was posted on {site_name}"
-msgstr "Eine neue Frage wurde auf {site_name} gestellt."
+msgstr "一个新的问题发表在{site_name}"
 
 #: ../inc/notification.php:120
 msgid "A new answer for \"{question_title}\" was posted on {site_name}"
-msgstr ""
-"Eine neue Antwort auf \"{question_title}\" wurde auf {site_name} gegeben"
+msgstr "一个新答案是\"{question_title}\" 发表在{site_name}"
 
 #: ../inc/notification.php:148 ../inc/notification.php:150
 #: ../inc/settings.php:418 ../inc/settings.php:459 ../inc/settings.php:500
@@ -787,562 +775,544 @@ msgstr ""
 #: ../inc/templates/default/content-comment.php:15
 #: ../inc/templates/default/content-question.php:25
 msgid "Anonymous"
-msgstr "Unbekannt"
+msgstr "匿名用户"
 
 #: ../inc/notification.php:188
 msgid "You got new answer for your followed question"
-msgstr "Du hast eine neue Antwort auf deine beobachtete Frage erhalten"
+msgstr "你关注的问题有了新答案"
 
-#: ../inc/notification.php:284 ../inc/notification.php:330
-#, fuzzy
+#: ../inc/notification.php:287 ../inc/notification.php:333
 msgid "[{site_name}] You have a new comment for question {question_title}"
-msgstr ""
-"[{site_name}] Du hast ein neues Kommentar auf die Frage {question_title}"
+msgstr "[{site_name}]你有一个新的评论在问题{question_title}"
 
-#: ../inc/notification.php:289 ../inc/notification.php:335
+#: ../inc/notification.php:292 ../inc/notification.php:338
 msgid "[{site_name}] You have a new comment for answer"
-msgstr "[{site_name}] Du hast ein neues Kommentar auf deine Antwort"
+msgstr "[{site_name}]在答案中你有一个新的评论"
 
 #: ../inc/pointer-helper.php:57
-#, fuzzy
 msgid "How to use DW Question Answer"
-msgstr "Wieso sollte man DW Question & Answer nutzen?"
+msgstr "如何使用DW问答"
 
 #: ../inc/pointer-helper.php:58
 msgid "Documents, Support From DesignWall (help)"
-msgstr ""
+msgstr "文档，来自DesignWall"
 
 #: ../inc/pointer-helper.php:67
 msgid "Config your support channel"
-msgstr ""
+msgstr "配置你的支持通道"
 
 #: ../inc/pointer-helper.php:68
 msgid "Change comment setting, and create submit question page."
-msgstr "Ändere Kommentareinstelkungen und erstelle eine Frage-Seite"
+msgstr "改变评论设置，并且创建问题页"
 
 #: ../inc/settings.php:9
 msgid "Login required. No anonymous allowed"
-msgstr "Anmeldung benötigt."
+msgstr "不允许匿名用户，必须登录"
 
 #: ../inc/settings.php:21
 msgid "Select Archive Question Page"
-msgstr "Wähle eine Fragen-Archiv-Seite"
+msgstr "选择问题页面存档"
 
 #: ../inc/settings.php:25
 msgid "A page where displays all questions"
-msgstr "Eine Seite die alle Fragen zeigt"
+msgstr "一个显示所有问题的页面"
 
 #: ../inc/settings.php:32
 msgid "hours"
-msgstr "Stunden"
+msgstr "小时"
 
 #: ../inc/settings.php:32
 msgid ""
 "A period of time in which new questions are highlighted and marked as New"
-msgstr ""
-"Eine Zeitperiode innerhalb der neue Fragen hervorgehoben und als \"Neu\" "
-"markiert sind"
+msgstr "一个时期以来中的新问题被突出显示，并标记为最新"
 
 #: ../inc/settings.php:37
 msgid "days"
-msgstr "Tage"
+msgstr "天"
 
 #: ../inc/settings.php:37
 msgid ""
 "A Question will be marked as overdue if passes this period of time, starting "
 "from the date the question was submitted"
-msgstr ""
-"Eine Frage wird als überfällig markiert, wenn die Zeitperiode überschritten "
-"ist, gemessen am Zeitpunkt der Fragen-Übermittlung"
+msgstr "从一个问题提交之日开始，如果过了一段时间，它将会标记为过期"
 
 #: ../inc/settings.php:48
 msgid "Select Submit Question Page"
-msgstr "Wähle eine Stelle-Frage-Seite"
+msgstr "选择一个提问页"
 
 #: ../inc/settings.php:53
-#, fuzzy
 msgid "A page where users can submit questions."
-msgstr "Eine Seite wo Benutzer Fragen stellen können."
+msgstr "一个用户可以提问题的页面"
 
 #: ../inc/settings.php:69
 msgid "Upload"
-msgstr "Hochladen"
+msgstr "上传"
 
 #: ../inc/settings.php:69
 msgid "Upload or choose a logo to be displayed at the top of the email"
-msgstr ""
-"Hochladen oder wählen eines Logos, dass oben in der E-Mail angezeigt wird"
+msgstr "上传或者选择一个logo来显示在邮件的顶部"
 
 #: ../inc/settings.php:108
 msgid "Enable notification for new question"
-msgstr "Schalte Benachrichtigungen für neue Fragen ein"
+msgstr "启用通知新问题"
 
 #: ../inc/settings.php:113 ../inc/settings.php:149 ../inc/settings.php:186
 #: ../inc/settings.php:223 ../inc/settings.php:260 ../inc/settings.php:297
 #: ../inc/settings.php:334
 msgid "Email subject"
-msgstr "E-Mail-Betreff"
+msgstr "邮件主题"
 
 #: ../inc/settings.php:118 ../inc/settings.php:154 ../inc/settings.php:191
 #: ../inc/settings.php:228 ../inc/settings.php:265 ../inc/settings.php:302
 #: ../inc/settings.php:339
 msgid "Email Content"
-msgstr "E-Mail-Inhalt"
+msgstr "邮件内容"
 
 #: ../inc/settings.php:144
 msgid "Enable notification for new answer"
-msgstr "Schalte Benachrichtigungen für neue Antworten ein"
+msgstr "启用通知信的答案"
 
 #: ../inc/settings.php:181
 msgid "Enable notification for new answer (to Followers)"
-msgstr "Schalte Benachrichtigungen für neue Antworten (für Beobachter) ein"
+msgstr "启用通知信的答案给关注用户"
 
 #: ../inc/settings.php:218 ../inc/settings.php:255
 msgid "Enable notification for new comment of question"
-msgstr "Schalte Benachrichtigungen für neue Kommentare auf Fragen ein"
+msgstr "启用通知新的问题评论"
 
 #: ../inc/settings.php:292 ../inc/settings.php:329
 msgid "Enable notification for new comment of answer"
-msgstr "Schalte Benachrichtigungen für neue Kommentare auf Antworten ein"
+msgstr "启用通知新的答案评论"
 
 #: ../inc/settings.php:387
 msgid "Question"
-msgstr "Fragen"
+msgstr "问题"
 
 #: ../inc/settings.php:392
-#, fuzzy
 msgid "Read"
-msgstr "Weiterlesen"
+msgstr "阅读"
 
 #: ../inc/settings.php:393
-#, fuzzy
 msgid "Post"
-msgstr "Beitrag von"
+msgstr "发表"
 
 #: ../inc/settings.php:395 ../inc/templates/default/content-answer.php:102
 #: ../inc/templates/default/content-comment.php:51
 #: ../inc/templates/default/single-question.php:62
 msgid "Delete"
-msgstr "Löschen"
+msgstr "删除"
 
 #: ../inc/settings.php:427 ../inc/settings.php:468 ../inc/settings.php:510
 msgid "Reset Default"
-msgstr "Zurücksetzen"
+msgstr "重置为默认"
 
 #: ../inc/settings.php:470
 msgid "Comment"
-msgstr "Kommentar"
+msgstr "评论"
 
 #: ../inc/settings.php:519
 msgid "Enable/Disable captcha on submit question page"
-msgstr "Einschalten/Ausschalten von Captchas auf der Frage-Stellen-Seite"
+msgstr "启用/禁用验证码在提交问题页"
 
 #: ../inc/settings.php:525
 msgid "Enable/Disable captcha on single question page"
-msgstr "Einschalten/Ausschalten von Captchas auf der Einzel-Frage-Seite"
+msgstr "启用/禁用验证码在问题页面"
 
 #: ../inc/settings.php:543
 msgid "questions"
-msgstr "Fragen"
+msgstr "问题"
 
 #: ../inc/settings.php:549
 msgid "Allow members to post private question"
-msgstr "Erlaube es Benutzern private Fragen zu stellen"
+msgstr "允许会员发表私有问题"
 
 #: ../inc/settings.php:567
 msgid "Plugin Settings"
-msgstr "Plugin-Einstellungen"
+msgstr "插件设置"
 
 #: ../inc/settings.php:567
 msgid "Settings"
-msgstr "Einstellungen"
+msgstr "设置"
 
 #: ../inc/settings.php:593
 msgid "Question List Page"
-msgstr "Fragen-Auflistung-Seite"
+msgstr "问题列表页"
 
 #: ../inc/settings.php:601
 msgid "Archive page show at most"
-msgstr ""
+msgstr "存档页面显示最多"
 
 #: ../inc/settings.php:609
 msgid "Ask Question Page"
-msgstr "Frage-Stellen-Seite"
+msgstr "提出问题页"
 
 #: ../inc/settings.php:616
 msgid "Private Question"
-msgstr "Private Frage"
+msgstr "私人问题"
 
 #: ../inc/settings.php:624
 msgid "Time settings"
-msgstr "zeiteinstellungen"
+msgstr "时间设置"
 
 #: ../inc/settings.php:631
 msgid "New Question Time Frame"
-msgstr "Neue-Frage-Zeitspanne"
+msgstr "新问题时限"
 
 #: ../inc/settings.php:639
 msgid "Question Overdue - Time Frame"
-msgstr "Frage-Überfällig-Zeitspanne"
+msgstr "逾期问题 - 时限"
 
 #: ../inc/settings.php:649
 msgid "Captcha settings"
-msgstr "Captcha-Einstellungen"
+msgstr "验证码设置"
 
 #: ../inc/settings.php:656
 msgid "Captcha in Submit Question Page"
-msgstr "Captcha in Frage-Stellen-Seite"
+msgstr "提交问题页验证码"
 
 #: ../inc/settings.php:664
 msgid "Captcha in Single Question Page"
-msgstr "Captcha in Einzel-Frage-Seite"
+msgstr "问题内容页验证码"
 
 #: ../inc/settings.php:672
 msgid "Google Captcha Public Key"
-msgstr ""
+msgstr "谷歌验证码公钥"
 
 #: ../inc/settings.php:680
 msgid "Google Captcha Private Key"
-msgstr ""
+msgstr "谷歌验证码私钥"
 
 #: ../inc/settings.php:690
 msgid "Permalink Settings"
-msgstr "Permalink-Einstellungen"
+msgstr "固定连接设置"
 
 #: ../inc/settings.php:697
 msgid "Single Question"
-msgstr "Einzelne Frage"
+msgstr "问题内容页"
 
 #: ../inc/settings.php:705
 msgid "Single Category"
-msgstr "Einzelne Kategorie"
+msgstr "内容分类"
 
 #: ../inc/settings.php:713
 msgid "Single Tag"
-msgstr "Einzelne Stichwort"
+msgstr "内容标签"
 
 #: ../inc/settings.php:762
-#, fuzzy
 msgid "From Email"
-msgstr "E-Mail"
+msgstr "来自邮箱"
 
 #: ../inc/settings.php:826 ../inc/settings.php:833
 msgid "Group Permission"
-msgstr "Gruppen-Genehmigung"
+msgstr "用户组权限"
 
 #: ../inc/settings.php:846
 msgid "DWQA Settings"
-msgstr "DWQA-Einstellungen"
+msgstr "DWQA设置"
 
 #: ../inc/settings.php:851
 msgid "General"
-msgstr "Allgemein"
+msgstr "一般"
 
 #: ../inc/settings.php:852
 msgid "Notification"
-msgstr "Benachrichtigung"
+msgstr "通知"
 
 #: ../inc/settings.php:853
 msgid "Permission"
-msgstr "Genehmigung"
+msgstr "权限"
 
 #: ../inc/settings.php:861
-#, fuzzy
 msgid "Email setup"
-msgstr "E-Mail-Betreff"
+msgstr "邮件设置"
 
 #: ../inc/settings.php:865
 msgid "Email Logo"
-msgstr "E-Mail-Logo"
+msgstr "邮件Logo"
 
 #: ../inc/settings.php:877
 msgid "New Comment to Question"
-msgstr "Neues Kommentar auf eine Frage"
+msgstr "问题新的评论"
 
 #: ../inc/settings.php:878
 msgid "New Comment to Answer"
-msgstr "Neues Kommentar auf eine Antwort"
+msgstr "答案新评论"
 
 #: ../inc/settings.php:879
 msgid "New Answer (to Followers)"
-msgstr "Neue Antwort (für Beobachter)"
+msgstr "新的答案"
 
 #: ../inc/settings.php:880
 msgid "New Comment to Question (to Followers)"
-msgstr "Neues Kommentar auf eine Frage (für Beobachter)"
+msgstr "问题新的评论"
 
 #: ../inc/settings.php:881
 msgid "New Comment to Answer (to Followers)"
-msgstr "Neues Kommentar auf eine Antwort (für Beobachter)"
+msgstr "答案新的评论（到关注者）"
 
 #: ../inc/settings.php:888
 msgid "New Question Notification"
-msgstr "Neues-Kommentar-Benachrichtigung"
+msgstr "新的问题通知"
 
 #: ../inc/settings.php:895 ../inc/settings.php:904 ../inc/settings.php:913
 #: ../inc/settings.php:922 ../inc/settings.php:932 ../inc/settings.php:940
 #: ../inc/settings.php:950
 msgid "Save all changes"
-msgstr "Alle Änderungen speichern"
+msgstr "保存所有修改"
 
 #: ../inc/settings.php:900
 msgid "New Answer Notification"
-msgstr "Neue-Antwort-Benachrichtigung"
+msgstr "新的答案通知"
 
 #: ../inc/settings.php:909
-#, fuzzy
 msgid "New Answer Notification (to Followers)"
-msgstr "Neue-Antwort-Benachrichtigung (für Beobachter)"
+msgstr "新的答案通知（到关注者）"
 
 #: ../inc/settings.php:918
 msgid "New Comment to Question Notification"
-msgstr "Benachrichtigung bzgl. neuem Kommentar auf eine Frage"
+msgstr "新评论到问题通知"
 
 #: ../inc/settings.php:928
 msgid "New Comment to Answer Notification"
-msgstr "Benachrichtigung bzgl. neuem Kommentar auf eine Antwort"
+msgstr "新评论到答案通知"
 
 #: ../inc/settings.php:936
 msgid "New Comment to Question Notification (to Followers)"
-msgstr "Benachrichtigung bzgl. neuem Kommentar auf eine Frage (für Beobachter)"
+msgstr "新的评论到问题通知（到关注者）"
 
 #: ../inc/settings.php:946
 msgid "New Comment to Answer Notification (to Followers)"
-msgstr ""
-"Benachrichtigung bzgl. neuem Kommentar auf eine Antwort (für Beobachter)"
+msgstr "新的评论到答案通知（到关注者）"
 
 #: ../inc/settings.php:974
 msgid "Send to"
-msgstr "Sende an"
+msgstr "发送到"
 
 #: ../inc/settings.php:979
 msgid "Cc"
-msgstr ""
+msgstr "Cc"
 
 #: ../inc/settings.php:984
 msgid "Bcc"
-msgstr ""
+msgstr "Bcc"
 
 #: ../inc/settings.php:989
 msgid "This address will be used as the sender of the outgoing emails."
-msgstr ""
+msgstr "该地址将被用作外发电子邮件的发送者。"
 
 #: ../inc/settings.php:995
 msgid "Send A Copy Of Every Email To Admin"
-msgstr ""
+msgstr "发送抄送每份邮件给管理员"
 
-#: ../inc/shortcodes.php:37 ../inc/templates/default/search-question.php:4
+#: ../inc/shortcodes.php:56 ../inc/templates/default/search-question.php:4
 #: ../thesis/dwqa/box.php:64
 msgid "Search"
-msgstr "Suche"
+msgstr "搜索"
 
-#: ../inc/shortcodes.php:50 ../inc/shortcodes.php:264
+#: ../inc/shortcodes.php:69 ../inc/shortcodes.php:283
 #: ../inc/template-functions.php:722 ../thesis/dwqa/box.php:77
 #: ../thesis/dwqa/box.php:289
 msgid "Ask a question"
-msgstr "Stell' eine Frage"
+msgstr "问一个问题"
 
-#: ../inc/shortcodes.php:58 ../inc/templates/default/archive-question.php:24
+#: ../inc/shortcodes.php:77 ../inc/templates/default/archive-question.php:24
 #: ../thesis/dwqa/box.php:85
 msgid "Status:"
-msgstr ""
+msgstr "状态:"
 
-#: ../inc/shortcodes.php:60 ../inc/shortcodes.php:108
+#: ../inc/shortcodes.php:79 ../inc/shortcodes.php:127
 #: ../inc/templates/default/archive-question.php:26
 #: ../inc/templates/default/archive-question.php:74 ../thesis/dwqa/box.php:87
 #: ../thesis/dwqa/box.php:135
 msgid "All"
-msgstr "Alle"
+msgstr "所有"
 
-#: ../inc/shortcodes.php:64 ../inc/templates/default/archive-question.php:30
+#: ../inc/shortcodes.php:83 ../inc/templates/default/archive-question.php:30
 #: ../thesis/dwqa/box.php:91
 msgid "Need Answer"
-msgstr "Benötigt Antwort"
+msgstr "需要回答"
 
-#: ../inc/shortcodes.php:67 ../inc/templates/default/archive-question.php:33
+#: ../inc/shortcodes.php:86 ../inc/templates/default/archive-question.php:33
 #: ../thesis/dwqa/box.php:94
 msgid "Answered"
-msgstr "Beantwortet"
+msgstr "已解答"
 
-#: ../inc/shortcodes.php:76 ../inc/templates/default/archive-question.php:42
+#: ../inc/shortcodes.php:95 ../inc/templates/default/archive-question.php:42
 #: ../thesis/dwqa/box.php:103
 msgid "Overdue"
-msgstr "Abgelaufen"
+msgstr "已过期"
 
-#: ../inc/shortcodes.php:77 ../inc/templates/default/archive-question.php:43
+#: ../inc/shortcodes.php:96 ../inc/templates/default/archive-question.php:43
 #: ../thesis/dwqa/box.php:104
 msgid "Queue"
-msgstr "Schlange"
+msgstr "等待回答"
 
-#: ../inc/shortcodes.php:98 ../inc/templates/default/archive-question.php:64
+#: ../inc/shortcodes.php:117 ../inc/templates/default/archive-question.php:64
 #: ../thesis/dwqa/box.php:125
 msgid "Select a category"
-msgstr "Wähle eine Kategorie"
+msgstr "选择一个分类"
 
-#: ../inc/shortcodes.php:109 ../inc/templates/default/archive-question.php:75
+#: ../inc/shortcodes.php:128 ../inc/templates/default/archive-question.php:75
 #: ../thesis/dwqa/box.php:136
 msgid "Empty"
-msgstr "Leer"
+msgstr "空白"
 
-#: ../inc/shortcodes.php:142 ../inc/templates/default/archive-question.php:108
+#: ../inc/shortcodes.php:161 ../inc/templates/default/archive-question.php:108
 #: ../thesis/dwqa/box.php:169
 msgid "View"
-msgstr "Ansicht"
+msgstr "浏览"
 
-#: ../inc/shortcodes.php:148 ../inc/templates/default/archive-question.php:114
+#: ../inc/shortcodes.php:167 ../inc/templates/default/archive-question.php:114
 #: ../thesis/dwqa/box.php:175
 msgid "Vote"
-msgstr "Abstimmen"
+msgstr "投票"
 
-#: ../inc/shortcodes.php:273
+#: ../inc/shortcodes.php:292
 #: ../inc/templates/default/archive-question-notfound.php:7
 #: ../thesis/dwqa/box.php:298
 msgid "Sorry, but nothing matched your filter."
-msgstr "Entschuldige, aber nichts entspricht deinen Filterkriterien."
+msgstr "抱歉，没有符合你的内容"
 
-#: ../inc/shortcodes.php:336 ../inc/widgets.php:79
+#: ../inc/shortcodes.php:354 ../inc/widgets.php:79
 msgid "Popular Questions"
-msgstr "Beliebte Fragen"
+msgstr "热门问题"
 
-#: ../inc/shortcodes.php:373
+#: ../inc/shortcodes.php:391
 msgid "Latest Answers"
-msgstr "Letzte Antworten"
+msgstr "最近问题"
 
-#: ../inc/shortcodes.php:396
+#: ../inc/shortcodes.php:414
 msgid "Answer at"
-msgstr "Antwort auf"
+msgstr "回答在"
 
-#: ../inc/shortcodes.php:396 ../inc/templates/default/single-question.php:89
+#: ../inc/shortcodes.php:414 ../inc/templates/default/single-question.php:89
 #: ../thesis/dwqa/box.php:376
 msgid "Link to"
-msgstr "Link zu"
+msgstr "链接到"
 
-#: ../inc/shortcodes.php:423
+#: ../inc/shortcodes.php:441
 msgid "people are following this question."
-msgstr "Benutzer beobachten diese Frage."
+msgstr "关注这个问题的人"
 
 #: ../inc/status.php:273
 msgid "New"
-msgstr "Neu"
+msgstr "新"
 
 #: ../inc/status.php:291
-#, fuzzy
 msgid "Missing post ID"
-msgstr "Fehlende Beitrags-ID"
+msgstr "丢失了文章编号"
 
 #: ../inc/status.php:306
 msgid "Post does not exist"
-msgstr ""
+msgstr "文章不存在"
 
 #: ../inc/status.php:311
 msgid "Invalid post status"
-msgstr "Ungültiger Beitrags-Status"
+msgstr "无效文章状态"
 
 #: ../inc/template-functions.php:159
 msgid "You need an account to submit question and get answers. Create one:"
-msgstr ""
-"Du benötigst ein Konto um Fragen zu stellen und Antworten zu bekommen. "
-"Erstelle einen:"
+msgstr "你需要一个账号来提交问题和得到答案。创建一个："
 
 #: ../inc/template-functions.php:161 ../inc/template-functions.php:193
 msgid "Type your email"
-msgstr "Gib' deine E-Mail-Adresse an"
+msgstr "输入你的邮箱"
 
 #: ../inc/template-functions.php:166
 msgid "Already a member?"
-msgstr "Bereits ein Mitglied?"
+msgstr "已经是会员？"
 
 #: ../inc/template-functions.php:166
 msgid "Log In"
-msgstr "Anmelden"
+msgstr "登陆"
 
 #: ../inc/template-functions.php:170
 msgid "Login to submit your question"
-msgstr "Anmelden, um deine Frage zu stellen"
+msgstr "登陆提交你的问题"
 
 #: ../inc/template-functions.php:177
 msgid "Not yet a member?"
-msgstr "Noch kein Mitglied?"
+msgstr "还不是会员？"
 
 #: ../inc/template-functions.php:177 ../inc/templates/default/answers.php:114
 msgid "Register"
-msgstr "Registrieren"
+msgstr "注册"
 
 #: ../inc/template-functions.php:205
 #, php-format
 msgid "Private: %s"
-msgstr "Privat: %s"
+msgstr "私人：%s"
 
 #: ../inc/template-functions.php:253
 msgid "Question Category"
-msgstr "Fragen-Kategorie"
+msgstr "问题分类"
 
 #: ../inc/template-functions.php:259
 msgid "Select question category"
-msgstr "Wähle Fragen-Kategorie"
+msgstr "选择问题分类"
 
 #: ../inc/template-functions.php:267
 msgid "tag 1, tag 2,..."
-msgstr "Stichwort 1, Stichwort 2, ..."
+msgstr "标签1,标签2,…"
 
 #: ../inc/template-functions.php:272
 msgid "Your question"
-msgstr "Deine Frage"
+msgstr "你的问题"
 
 #: ../inc/template-functions.php:273
 msgid "How to..."
-msgstr ""
+msgstr "有什么疑问…"
 
 #: ../inc/template-functions.php:280
 msgid "Question details"
-msgstr "Fragen-Details"
+msgstr "问题详细内容"
 
 #: ../inc/template-functions.php:286
 msgid "Post this Question as Private."
-msgstr "Stelle diese Frage als \"privat\"."
+msgstr "作为私人为题发表"
 
 #: ../inc/template-functions.php:286
 msgid "Only you as Author and Admin can see the question"
-msgstr "Nur du als Autor und Administratoren können die Frage sehen"
+msgstr "只有你作为作者和管理员才能看到这个问题"
 
 #: ../inc/template-functions.php:309
 msgid "Ask Question"
-msgstr "Stelle eine Frage"
+msgstr "提出问题"
 
 #: ../inc/template-functions.php:324
 msgid "Answer this Question"
-msgstr "Beantworte diese Frage"
+msgstr "回答这个问题"
 
 #: ../inc/template-functions.php:360
 msgid "Add answer"
-msgstr "Erstelle eine Antwort"
+msgstr "添加答案"
 
 #: ../inc/template-functions.php:498
 msgid "Name"
-msgstr ""
+msgstr "名字"
 
 #: ../inc/template-functions.php:500
 msgid "Email"
-msgstr "E-Mail"
+msgstr "邮箱"
 
 #: ../inc/template-functions.php:502
 msgid "Website"
-msgstr "Webseite"
+msgstr "网站"
 
 #: ../inc/template-functions.php:506
 #, php-format
 msgid "Required fields are marked %s"
-msgstr "Benötigte Felder sind markiert %s"
+msgstr "必填项标记为%s"
 
 #: ../inc/template-functions.php:518
 msgctxt "noun"
 msgid "Comment"
-msgstr "Kommentar"
+msgstr "评论"
 
 #: ../inc/template-functions.php:519
 #, php-format
 msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
-msgstr "Du musst <a href=\"%s\">angemeldet sein</a> um zu kommentieren."
+msgstr "你必须 <a href=\"%s\">登陆</a> 来发表评论."
 
 #: ../inc/template-functions.php:520
 #, php-format
@@ -1350,12 +1320,12 @@ msgid ""
 "Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of "
 "this account\">Log out?</a>"
 msgstr ""
-"Angemeldet als <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Vom Konto "
-"abmelden\">Abmelden?</a>"
+"以 <a href=\"%1$s\">%2$s</a>登陆. <a href=\"%3$s\" title=\"退出这个账号\">退"
+"出?</a>"
 
 #: ../inc/template-functions.php:521
 msgid "Your email address will not be published."
-msgstr "Deine E-Mail-Adresse wird nicht veröffentlicht."
+msgstr "你的邮箱地址将不会被公开"
 
 #: ../inc/template-functions.php:522
 #, php-format
@@ -1363,242 +1333,214 @@ msgid ""
 "You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
 "and attributes: %s"
 msgstr ""
-"Du kannst diese <abbr title=\"HyperText Markup Language\">HTML</abbr>-Tags "
-"and -Attribute verwenden: %s"
+"你可以使用这些<abbr title=\"HyperText Markup Language\">HTML</abbr>标签和属"
+"性: %s"
 
 #: ../inc/template-functions.php:525
 msgid "Leave a Reply"
-msgstr "Hinterlasse eine Antwort"
+msgstr "留下回复"
 
 #: ../inc/template-functions.php:526
 #, php-format
 msgid "Leave a Reply to %s"
-msgstr "Hinterlasse eine Antwort auf %s"
+msgstr "在%s上留下回复"
 
 #: ../inc/template-functions.php:527
 msgid "Cancel reply"
-msgstr "Antwort abbrechen"
+msgstr "取消回复"
 
 #: ../inc/template-functions.php:528
 msgid "Post Comment"
-msgstr "Kommentieren"
+msgstr "发表评论"
 
 #: ../inc/template-functions.php:711
 msgid "Sticky Question"
-msgstr "Angeheftete Frage"
+msgstr "置顶问题"
 
 #: ../inc/templates/default/answers.php:45
 #: ../inc/templates/default/content-question.php:55
 #: ../inc/templates/default/content-question.php:58
 msgid "answer"
 msgid_plural "answers"
-msgstr[0] "Antwort"
-msgstr[1] "Antworten"
+msgstr[0] "答案"
+msgstr[1] "答案"
 
 #: ../inc/templates/default/answers.php:91
 msgid "You do not have permission to view answers"
-msgstr "Du hast keine Erlaubnis um Antworten zu sehen"
+msgstr "你没有权限访问答案"
 
 #: ../inc/templates/default/answers.php:99
 msgid "This question has been closed"
-msgstr "Diese Frage wurde geschlossen"
+msgstr "这个问题已经关闭"
 
 #: ../inc/templates/default/answers.php:107
 msgid "You do not have permission to submit answer."
-msgstr "Du hast keine Erlaubnis zum Antworten"
+msgstr "你没有权限提交答案"
 
 #: ../inc/templates/default/answers.php:112
 msgid "Please login or"
-msgstr "Bitte melde dich an oder"
+msgstr "请登录或者"
 
 #: ../inc/templates/default/answers.php:115
 msgid "to Submit Answer"
-msgstr "um zu antworten"
+msgstr "来提交答案"
 
 #: ../inc/templates/default/comments.php:12
 msgid "View previous comments"
-msgstr "Frühere Kommentare"
+msgstr "查看上一个评论"
 
 #: ../inc/templates/default/comments.php:13
 msgid "of"
-msgstr "von"
+msgstr "of"
 
 #: ../inc/templates/default/comments.php:30
 msgid "Write a reply..."
-msgstr "Schreibe eine Anntwort"
+msgstr "发表回复…"
 
 #: ../inc/templates/default/content-answer.php:20
 #: ../inc/templates/default/single-question.php:22 ../thesis/dwqa/box.php:338
 msgid "Vote Up"
-msgstr ""
+msgstr "支持"
 
 #: ../inc/templates/default/content-answer.php:30
 #: ../inc/templates/default/single-question.php:24 ../thesis/dwqa/box.php:340
 msgid "Vote Down"
-msgstr ""
+msgstr "反对"
 
 #: ../inc/templates/default/content-answer.php:38
 msgid "This is the best answer"
-msgstr "Das ist die beste Antwort"
+msgstr "这是最好的答案"
 
 #: ../inc/templates/default/content-answer.php:50
 #: ../inc/templates/default/content-comment.php:12
 msgid "Staff"
-msgstr "Mitarbeiter"
+msgstr "管理员"
 
 #: ../inc/templates/default/content-answer.php:58
 msgid "Link to answer"
-msgstr "Link zur Antwort"
+msgstr "答案固定链接"
 
 #: ../inc/templates/default/content-answer.php:84
 msgid "Draft"
-msgstr "Entwurf"
+msgstr "草稿"
 
 #: ../inc/templates/default/content-answer.php:117
 msgid "This answer was flagged as spam."
-msgstr "Diese Antwort wurde als Spam markiert"
+msgstr "这个答案被标记为垃圾信息"
 
 #: ../inc/templates/default/content-answer.php:127
 msgid "The answer link"
-msgstr "Der Antwort-Link"
+msgstr "答案链接"
 
 #: ../inc/templates/default/content-comment.php:10
 msgid "Post by"
-msgstr "Beitrag von"
+msgstr "发表"
 
 #: ../inc/templates/default/content-comment.php:25
 msgid "Link to comment"
-msgstr "Link zum Kommentar"
+msgstr "评论链接"
 
 #: ../inc/templates/default/content-question.php:12
 #, php-format
 msgid "Permalink to %s"
-msgstr "Permalink nach %s"
+msgstr "%s 的固定链接"
 
 #: ../inc/templates/default/content-question.php:21
 #, php-format
 msgid "Posts by %s"
-msgstr "Beitrag von %s"
+msgstr "发表人：%s"
 
 #: ../inc/templates/default/content-question.php:27
 msgid "by"
-msgstr "von"
+msgstr "提问人"
 
 #: ../inc/templates/default/content-question.php:41
 #: ../inc/templates/default/content-question.php:44
 msgid "view"
 msgid_plural "views"
-msgstr[0] "Sichtung"
-msgstr[1] "Sichtungen"
+msgstr[0] "浏览数"
+msgstr[1] "浏览数"
 
 #: ../inc/templates/default/content-question.php:69
 #: ../inc/templates/default/content-question.php:72
 msgid "vote"
 msgid_plural "votes"
-msgstr[0] "Stimme"
-msgstr[1] "Stimmen"
+msgstr[0] "投票"
+msgstr[1] "投票"
 
 #: ../inc/templates/default/single-question.php:33
 msgid "Unstick this Question to the front page"
-msgstr "Diese Frage von der Startseite nehmen"
+msgstr "不置顶这个问题到首页"
 
 #: ../inc/templates/default/single-question.php:33
 msgid "Stick this Question to the front page"
-msgstr "Diese Frage an die Startseite heften"
+msgstr "置顶这个问题"
 
 #: ../inc/templates/default/single-question.php:80 ../thesis/dwqa/box.php:367
 msgid "Posts by"
-msgstr "Beiträge von"
+msgstr "发表人"
 
 #: ../inc/templates/default/single-question.php:91 ../thesis/dwqa/box.php:378
 msgid "asked"
-msgstr "fragte"
+msgstr "提问于"
 
 #: ../inc/templates/default/single-question.php:126 ../thesis/dwqa/box.php:413
 msgid "Category"
-msgstr "Kategorie"
+msgstr "分类"
 
 #: ../inc/templates/default/single-question.php:127 ../thesis/dwqa/box.php:414
 msgid "All questions from"
-msgstr "Alle Fragen von"
+msgstr "所有问题来自"
 
 #: ../inc/widgets.php:16
 msgid ""
 "Show a list of questions that related to a question. Just show in single "
 "question page"
-msgstr "Zeige eine Liste ähnlicher Fragen. Nur in Einzel-Fragen-Ansicht"
+msgstr "显示相关问题列表。只显示在问题内容页"
 
 #: ../inc/widgets.php:17
 msgid "DWQA Related Questions"
-msgstr "DWQA Ähnliche Fragen"
+msgstr "DWQA相关问题"
 
 #: ../inc/widgets.php:53 ../inc/widgets.php:124
 msgid "Widget title"
-msgstr "Widget-Titel"
+msgstr "小工具标题"
 
 #: ../inc/widgets.php:56 ../inc/widgets.php:127
 msgid "Number of posts"
-msgstr "Anzahl der Beiträge"
+msgstr "文章数量"
 
 #: ../inc/widgets.php:72
 msgid "Show a list of questions that was ordered by views."
-msgstr "Zeige eine Liste von Fragen nach \"Sichtungen\" geordnet."
+msgstr "显示最多浏览的问题列表"
 
 #: ../inc/widgets.php:73
 msgid "DWQA Popular Questions"
-msgstr "DWQA Beliebte Fragen"
+msgstr "DWQA热门问题"
 
 #: ../thesis/dwqa/box.php:14
 msgid "DW Q&A Box"
-msgstr ""
+msgstr "DW Q$A盒子"
 
 #: ../thesis/dwqa/box.php:21
 msgid "Container Padding"
-msgstr ""
+msgstr "包含边距"
 
 #: ../thesis/dwqa/box.php:23
 msgid "Container padding size"
-msgstr ""
+msgstr "包含边距尺寸"
 
 #: ../thesis/dwqa/box.php:25
 msgid ""
 "By default,The container is not have gutter. You can set padding width to "
 "make a gutter. You make it by update setting here."
 msgstr ""
-"Standardmäßig haben die Container keinen Abstand. Du kannst das hier ändern, "
-"indem du hier die Einstellung änderst."
+"默认，这个容器是没有间隔，你可以设置padding，你可以在这里通过更新设置。"
 
 #: ../thesis/dwqa/box.php:305
 msgid "You can ask question <a href=\""
-msgstr "Du kannst eine Frage stelen <a href=\""
+msgstr "你可以提问 <a href=\""
 
 #: ../thesis/dwqa/box.php:309
 msgid "Please <a href=\""
-msgstr "Bitte <a href=\""
-
-#~ msgid "Email Template"
-#~ msgstr "E-Mail-Template"
-
-#~ msgid "You need a support channel inside wordpress page?"
-#~ msgstr "Du brauchst Support innerhalb deiner Wordpress-Seite?"
-
-#~ msgid "Create Submit Question Page"
-#~ msgstr "Erstelle eine Frage-Formular?"
-
-#~ msgid "How to create submit question page?"
-#~ msgstr "Wie erstelle ich ein Frage-Formular?"
-
-#~ msgid "Go to <strong>Dashboard -> Question -> Settings</strong>"
-#~ msgstr "Gehe zu <strong>Dashboard -> Frage -> Einstellungen</strong>"
-
-#~ msgid "Available Settings"
-#~ msgstr "Mögliche Einstellungen"
-
-#~ msgid "Go to config your support channel"
-#~ msgstr "Konfiguriere deinen Support-Kanal"
-
-#~ msgid "Go to ...?"
-#~ msgstr "Gehe zu ...?"
-
-#~ msgid "Documentations"
-#~ msgstr "Dokumentation"
+msgstr "请 <a href=\""

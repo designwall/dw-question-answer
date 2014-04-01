@@ -11,6 +11,25 @@ class DWQA_Shortcode {
         'dwqa-question-followers'
     );
 
+    public function sanitize_output($buffer) {
+
+        $search = array(
+            '/\>[^\S ]+/s',  // strip whitespaces after tags, except space
+            '/[^\S ]+\</s',  // strip whitespaces before tags, except space
+            '/(\s)+/s'       // shorten multiple whitespace sequences
+        );
+
+        $replace = array(
+            '>',
+            '<',
+            '\\1'
+        );
+
+        $buffer = preg_replace($search, $replace, $buffer);
+
+        return $buffer;
+    }
+
     public function __construct(){
         if( ! defined( 'DWQA_DIR' ) ) {
             return false;
@@ -26,7 +45,7 @@ class DWQA_Shortcode {
 
     public function archive_question(){
         global $script_version, $dwqa_sript_vars;
-        ob_start();
+        ob_start( array( $this, 'sanitize_output' ) );
         ?>
         <div class="dwqa-container" >
             <div id="archive-question" class="dw-question">
@@ -277,11 +296,19 @@ class DWQA_Shortcode {
                                     
                                     $submit_link = get_permalink( $dwqa_options['pages']['submit-question'] );
                                     if( $submit_link ) {
-                                        _e('You can ask question <a href="'.$submit_link.'">here</a>', 'dwqa' );
+                                        printf('%s <a href="">%s</a>',
+                                            __('You can ask question','dwqa'),
+                                            $submit_link,
+                                            __('here','dwqa')
+                                        );
                                     }
                                 }
                              } else {
-                                _e('Please <a href="'.wp_login_url( get_post_type_archive_link( 'dwqa-question' ) ).'">Login</a>', 'dwqa' );
+                                printf('%s <a href="%s">%s</a>',
+                                    __('Please','dwqa'),
+                                    wp_login_url( get_post_type_archive_link( 'dwqa-question' ) ),
+                                    __('Login','dwqa')
+                                );
 
                                 $register_link = wp_register('', '',false);
                                 if( ! empty($register_link) && $register_link  ) {
@@ -308,7 +335,7 @@ class DWQA_Shortcode {
 
     public function submit_question_form_shortcode(){
         global $dwqa_sript_vars, $script_version;
-        ob_start();
+        ob_start( array( $this, 'sanitize_output' ) );
 
         echo '<div class="dwqa-container" >';
             dwqa_submit_question_form();
@@ -316,13 +343,12 @@ class DWQA_Shortcode {
         $html = ob_get_contents();
         ob_end_clean();
 
-        wp_enqueue_script( 'dwqa-submit-question', DWQA_URI . 'assets/js/dwqa-submit-question.js', array( 'jquery' ), $script_version, true );
+        wp_enqueue_script( 'dwqa-submit-question', DWQA_URI . 'inc/templates/default/assets/js/dwqa-submit-question.js', array( 'jquery' ), $script_version, true );
         wp_localize_script( 'dwqa-submit-question', 'dwqa', $dwqa_sript_vars );
         return $html;
     }
 
     public function shortcode_popular_questions( $atts ){
-
         extract( shortcode_atts( array(
             'number' => 5,
             'title' => __('Popular Questions','dwqa')
@@ -426,9 +452,12 @@ class DWQA_Shortcode {
     }
    
     function post_content_remove_shortcodes( $content ) {
+        $shortcodes = array(
+            'dwqa-list-questions',
+            'dwqa-submit-question-form'
+        );
         if( is_singular('dwqa-question' ) || is_singular( 'dwqa-answer' ) ) {
-            /* Loop through the shortcodes and remove them. */
-            foreach ( $this->shortcodes as $shortcode_tag )
+            foreach ( $shortcodes as $shortcode_tag ) 
                 remove_shortcode( $shortcode_tag );
         }
         /* Return the post content. */

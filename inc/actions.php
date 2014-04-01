@@ -28,7 +28,6 @@ $post_submit_filter     = array(
                             'li'            => array(),
                             'ol'            => array(),
                             'pre'            => array()
-                            
                         );
 /**
  * AJAX: vote for a question/answer
@@ -191,7 +190,6 @@ function dwqa_vote_count( $post_id = false, $echo = false ){
 
 /**
  * Add new answer for a specify question
- * @return [type] [description]
  */
 function dwqa_add_answer(){
     global $post_submit_filter, $dwqa_options;
@@ -321,6 +319,7 @@ function dwqa_add_answer(){
 }
 add_action( 'wp_ajax_dwqa-add-answer', 'dwqa_add_answer' );
 add_action( 'wp_ajax_nopriv_dwqa-add-answer', 'dwqa_add_answer' );
+
 
 /**
  * Change redirect link when comment for answer finished
@@ -885,7 +884,7 @@ function dwqa_editor_stylesheet( $plugin_style ){
 }
 add_filter( 'dwqa_editor_style', 'dwqa_editor_stylesheet' );
 
-function dwqa_ajax_create_editor(){
+function dwqa_ajax_create_update_answer_editor(){
 
     if( ! isset($_POST['answer_id']) || ! isset($_POST['question']) ){
         return false;
@@ -932,8 +931,8 @@ function dwqa_ajax_create_editor(){
                             <span class="dwqa-caret-inner"></span>
                         </div>
                         <ul role="menu">
-                            <li data-privacy="publish" class="current" title="<?php _e('Everyone can see','dwqa'); ?>"><a href="#"><i class="fa fa-globe"></i> <?php _e('Public','dwqa'); ?></a></li>
-                            <li data-privacy="private" <?php _e('Only Author and Administrator can see','dwqa'); ?>><a href="#"><i class="fa fa-lock"></i> <?php _e('Private','dwqa') ?></a></li>
+                            <li data-privacy="publish" <?php if( $answer->post_status == 'publish' ) { echo 'class="current"'; } ?> title="<?php _e('Everyone can see','dwqa'); ?>"><a href="#"><i class="fa fa-globe"></i> <?php _e('Public','dwqa'); ?></a></li>
+                            <li data-privacy="private"  <?php if( $answer->post_status == 'private' ) { echo 'class="current"'; } ?>  title="<?php _e('Only Author and Administrator can see','dwqa'); ?>" ><a href="#"><i class="fa fa-lock"></i> <?php _e('Private','dwqa') ?></a></li>
                         </ul>
                     </div>
                 </div>
@@ -947,8 +946,84 @@ function dwqa_ajax_create_editor(){
         'editor'    => $editor
     ) );
 }
-add_action( 'wp_ajax_dwqa-editor-init', 'dwqa_ajax_create_editor' ); 
+add_action( 'wp_ajax_dwqa-editor-update-answer-init', 'dwqa_ajax_create_update_answer_editor' ); 
 
+function dwqa_update_question(){
+    if( ! isset($_POST['_wpnonce']) 
+        || ! wp_verify_nonce( $_POST['_wpnonce'], '_dwqa_update_question' ) ) {
+        wp_send_json_error( array(
+            'message'   => __('Hello, Are you cheating huh?','dwqa')
+        ) );
+    }
+    if( isset($_POST['dwqa-action']) && $_POST['dwqa-action'] == 'update-question' ) {
+        //Start update question
+        $question_id = $_POST['question'];
+        $question_content = dwqa_pre_content_filter( $_POST['dwqa-question-content'] );
+        $question_update = array(
+            'ID'    => $question_id,
+            'post_content'   => $question_content
+        );
+        if( isset($_POST['dwqa-question-title']) && $_POST['dwqa-question-title'] ) {
+            $question_update['post_title'] = $_POST['dwqa-question-title'];
+        }
+        $old_post = get_post( $question_id );
+        $question_id = wp_update_post( $question_update );
+        $new_post = get_post( $question_id );
+        do_action( 'dwqa_update_question', $question_id, $old_post, $new_post );
+        if( $question_id ) {
+            wp_safe_redirect( get_permalink( $question_id ) );
+            return true;
+        }
+        break;
+    }
+}
+add_action( 'wp_ajax_dwqa-update-question', 'dwqa_update_question' );
+
+function dwqa_ajax_create_update_question_editor(){
+
+    if( ! isset($_POST['question']) ){
+        return false;
+    }
+    extract($_POST);
+
+    ob_start();
+    ?>
+    <form action="<?php echo admin_url( 'admin-ajax.php?action=dwqa-update-question' ); ?>" method="post">
+        <?php wp_nonce_field( '_dwqa_update_question' ); ?>
+
+        <?php 
+            if( 'draft' == get_post_status( $question ) && dwqa_current_user_can( 'edit_question' ) ) { 
+        ?>
+        <input type="hidden" name="dwqa-action-draft" value="true" >
+        <?php } ?> 
+        <input type="hidden" name="dwqa-action" value="update-question" >
+        <input type="hidden" name="question" value="<?php echo $question; ?>">
+        <?php $question = get_post( $question ); ?>
+        <input type="text" style="width:100%" name="dwqa-question-title" id="dwqa-question-title" value="<?php echo $question->post_title; ?>">
+        <?php 
+            dwqa_init_tinymce_editor( array(
+                'content'       => htmlentities( $question->post_content, ENT_COMPAT | ENT_HTML5, get_option( 'blog_charset' ) ), 
+                'textarea_name' => 'dwqa-question-content',
+                'wpautop'       => false
+            ) ); 
+        ?>
+        <p class="dwqa-question-form-btn">
+            <input type="submit" name="submit-question" class="dwqa-btn dwqa-btn-default" value="<?php _e('Update','dwqa') ?>">
+            <a type="button" class="question-edit-cancel dwqa-btn dwqa-btn-link" ><?php _e('Cancel','dwqa') ?></a>
+            <?php if( 'draft' == get_post_status( $question ) && current_user_can( 'manage_options' ) ) { 
+            ?>
+            <input type="submit" name="submit-question" class="btn btn-primary btn-small" value="<?php _e('Publish','dwqa') ?>">
+            <?php } ?>
+        </p>
+    </form>
+    <?php
+    $editor = ob_get_contents();
+    ob_end_clean();
+    wp_send_json_success( array(
+        'editor'    => $editor
+    ) );
+}
+add_action( 'wp_ajax_dwqa-editor-update-question-init', 'dwqa_ajax_create_update_question_editor' ); 
 
 function dwqa_comment_form_id_fields_filter($result, $id, $replytoid){
     if( 'dwqa-answer' == get_post_type( $id ) ) {
@@ -1620,4 +1695,57 @@ function dwqa_posts_filter( $query ){
 }
 add_filter( 'parse_query', 'dwqa_posts_filter' );
 
+function dwqa_delete_question(){
+    $valid_ajax = check_ajax_referer( '_dwqa_delete_question', 'nonce', false );
+    if( ! $valid_ajax || ! wp_verify_nonce( $_POST['nonce'], '_dwqa_delete_question' ) || ! is_user_logged_in() ) {
+        wp_send_json_error( array(
+            'message' => __('Hello, Are you cheating huh?', 'dwqa')
+        ) );
+    }
+
+    if( ! isset($_POST['question']) ) {
+        wp_send_json_error( array(
+            'message'   => __('Question is not valid','dwqa')
+        ) );
+    }
+
+    $question = get_post( $_POST['question'] );
+    global $current_user;
+    if( dwqa_current_user_can('delete_question') || $current_user->ID == $question->post_author ) {
+        //Get all answers that is tired with this question
+        $answers = get_posts( array(
+            'post_type' => 'dwqa-answer',
+            'meta_query'    => array(
+                array(
+                    'meta_key' => '_question',
+                    'meta_value' => $_POST['question']
+                )
+            )
+        ) );
+        if( ! empty($answers) ) {
+            foreach ($answers as $anw) {
+                wp_delete_post( $anw->ID );
+                update_post_meta( $anw->ID, '_dwqa_delete_question', true );
+            }
+        }
+        $delete = wp_delete_post( $_POST['question'] );
+        if( $delete ) {
+            global $dwqa_options;
+            wp_send_json_success( array(
+                'question_archive_url' => get_permalink( $dwqa_options['pages']['archive-question'] )
+            ) );
+        } else {
+            wp_send_json_error( array(
+                'message'   => __('Delete Action was failed','dwqa')
+            ) );
+        }
+    } else {
+        wp_send_json_error( array(
+            'message'   => __('You do not have permission to delete this question','dwqa')
+        ) );
+    }
+
+    
+}
+add_action( 'wp_ajax_dwqa-delete-question', 'dwqa_delete_question' );
 ?>

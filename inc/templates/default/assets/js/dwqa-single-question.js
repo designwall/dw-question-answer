@@ -19,8 +19,6 @@ jQuery(function($) {
     var answers = $('#dwqa-answers'),
         answer_editor = $('#dwqa-add-answers');
 
-
-
     function replaceURLWithHTMLLinks(text) {
         var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
         return text.replace(exp, "<a href='$1'>$1</a>");
@@ -91,31 +89,6 @@ jQuery(function($) {
                     }
                 });
 
-        }
-    });
-
-
-    // Change Question Status =====================================================================
-    $('.dwqa-change-status ul li').click(function(event) {
-        event.preventDefault();
-        var t = $(this),
-            parent = t.parent();
-        if (window.confirm('Are you sure about that change?')) {
-            $.ajax({
-                url: dwqa.ajax_url,
-                type: 'POST',
-                dataType: 'json',
-                data: {
-                    action: 'dwqa-update-question-status',
-                    status: t.data('status'),
-                    nonce: parent.data('nonce'),
-                    question: parent.data('question')
-
-                },
-                complete: function(xhr, textStatus) {
-                    window.location.reload();
-                },
-            });
         }
     });
 
@@ -320,7 +293,7 @@ jQuery(function($) {
 
     });
 
-    //Comment Update ==============================================================================
+    //Comment : Update ============================================================================
     $('.dwqa-comments').delegate('.dwqa-comment-edit-link', 'click', function(event) {
         event.preventDefault();
         var t = $(this),
@@ -374,7 +347,7 @@ jQuery(function($) {
     });
     //End comment edit
 
-    //Delete Comment ============================================================================= 
+    // Comment : Delete  ==========================================================================
     $('.dwqa-container').delegate('.comment-delete-link', 'click', function(event) {
         event.preventDefault();
         var t = $(this),
@@ -507,7 +480,7 @@ jQuery(function($) {
             type: 'POST',
             dataType: 'json',
             data: {
-                action: 'dwqa-editor-init',
+                action: 'dwqa-editor-update-answer-init',
                 answer_id: t.data('answer-id'),
                 question: t.data('question-id')
             },
@@ -531,19 +504,18 @@ jQuery(function($) {
 
                 settings.elements = id;
                 settings.body_class = id + ' post-type-dwqa-answer';
-                settings.editor_selector = id;
+                settings.editor_selector = id; // deprecated in TinyMCE 4.x
+                settings.selector = '#' + id;
                 //init tinymce
                 tinymce.init(settings);
                 editor.slideDown();
                 t.data('on-editor', true);
             }
         });
-
     }
+
     /**
      * DWQA add content for mce
-     * @param  string id      Identity of editor element
-     * @param  string content New content add to tinymce
      */
     function dwqa_tinymce_add_content(content, where) {
         if (typeof(tinyMCE) == "object" && typeof(tinyMCE.execCommand) == "function") {
@@ -571,7 +543,7 @@ jQuery(function($) {
         }
     }
 
-    // Answer delete
+    // Answer : Delete ============================================================================
     answers.delegate('.answer-delete', 'click', function(event) {
         event.preventDefault();
         if (!confirm(dwqa.answer_delete_confirm)) {
@@ -605,7 +577,7 @@ jQuery(function($) {
 
     });
 
-    //Flag Answer
+    // Answer : Flag ==============================================================================
     answers.delegate('.dwqa-answer-report', 'click', function(event) {
         event.preventDefault();
         var t = $(this),
@@ -655,7 +627,8 @@ jQuery(function($) {
             $(this).find('.answer-flagged-show').text(dwqa.flag.flagged_show);
         }
     });
-    // Vote Best Answer
+
+    // Answer : Vote the best =====================================================================
     $('.dwqa-best-answer').on('click', function(event) {
         event.preventDefault();
         var t = $(this);
@@ -703,7 +676,6 @@ jQuery(function($) {
         } else {
             $('.dwqa-answer-signin').addClass('dwqa-hide');
         }
-
     });
 
     $('.dwqa-container').delegate('.dwqa-change-privacy ul li', 'click', function(event) {
@@ -767,7 +739,6 @@ jQuery(function($) {
                 }
             });
         return false;
-
     });
 
     $('.dwqa-container').delegate('.dwqa-favourite', 'click', function(event) {
@@ -793,6 +764,176 @@ jQuery(function($) {
         return false;
     });
 
+    // Comment : Highlight ========================================================================
+    var doHighlight = function(speed) {
+        if (document.location.hash.length > 0) {
+            var hash = document.location.hash;
+            if (hash.indexOf('#') >= 0) {
+                $(hash).effect('highlight', speed);
+            }
+        }
+    }
+    $(document).ready(function() {
+        doHighlight(2000);
+    });
+
+    var vis = (function() {
+        var stateKey, eventKey, keys = {
+                hidden: "visibilitychange",
+                webkitHidden: "webkitvisibilitychange",
+                mozHidden: "mozvisibilitychange",
+                msHidden: "msvisibilitychange"
+            };
+        for (stateKey in keys) {
+            if (stateKey in document) {
+                eventKey = keys[stateKey];
+                break;
+            }
+        }
+        return function(c) {
+            if (c) document.addEventListener(eventKey, c);
+            return !document[stateKey];
+        }
+    })();
+    var switchTab = 0;
+    vis(function() {
+        if (vis() && switchTab < 2) {
+            doHighlight(1500);
+            switchTab++;
+        }
+    });
+    // End highlight comment
+
+
+    // Question: Delete ===========================================================================
+    $('.dwqa-question').delegate('.dwqa-actions .dwqa-delete-question', 'click', function(event) {
+        event.preventDefault();
+        if (confirm(dwqa.delete_question_confirm)) {
+            var t = $(this);
+            console.log('test');
+            $.ajax({
+                url: dwqa.ajax_url,
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    'action': 'dwqa-delete-question',
+                    'question': t.closest('.dwqa-actions').data('post'),
+                    'nonce': t.data('nonce')
+                }
+            })
+                .done(function(resp) {
+                    if (resp.success) {
+                        window.location.href = resp.data.question_archive_url
+                    } else {
+                        console.log(resp.data.message);
+                    }
+                });
+        }
+        return false;
+    });
+
+    // Question: Edit =============================================================================
+    $('.dwqa-question').delegate('.dwqa-actions .dwqa-edit-question', 'click', function(event) {
+        event.preventDefault();
+        var t = $(this);
+        var question = t.closest('.dwqa-question');
+        var question_content = question.find('.dwqa-content');
+        var old_content = question_content.html();
+
+        var remove_question_editor = function() {
+            if (!current_answer_editor) {
+                return false;
+            }
+            current_answer_editor.find('.dwqa-content').html(unescape($('#dwqa-custom-content-editor').data('current-content')));
+            t.data('on-editor', '');
+            current_answer_editor = null;
+            question.find('.dwqa-title').html(question.find('.dwqa-title').data('old'));
+        }
+
+        if (t.data('on-editor')) {
+            remove_question_editor();
+            return false;
+        }
+
+        if (current_answer_editor != question && current_answer_editor != null) {
+            remove_question_editor();
+        }
+        current_answer_editor = question;
+
+        if (getUserSetting('editor', 'tmce') == 'html') {
+            setUserSetting('editor', 'tmce');
+        }
+
+        //question.data('old', old_content);
+        $.ajax({
+            url: dwqa.ajax_url,
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                action: 'dwqa-editor-update-question-init',
+                question: t.closest('.dwqa-actions').data('post'),
+                nonce: t.data('nonce')
+            }
+        })
+            .done(function(resp) {
+                if (resp.success) {
+                    var editor = $(unescape(resp.data.editor)),
+                        id = 'dwqa-custom-content-editor';
+                    editor.hide();
+
+                    question.find('.dwqa-title').data('old', question.find('.dwqa-title').text()).html('');
+                    question_content.html(editor);
+                    $('#' + id).data('current-content', escape(old_content));
+
+
+                    var settings = tinyMCEPreInit.mceInit['dwqa-answer-question-editor'];
+
+                    settings.elements = id;
+                    settings.body_class = id + ' post-type-dwqa-question';
+                    settings.editor_selector = id; // deprecated in TinyMCE 4.x
+                    settings.selector = '#' + id;
+                    //init tinymce
+                    tinymce.init(settings);
+                    editor.slideDown();
+                    t.data('on-editor', true);
+
+                    //Question : Cancel Edit
+                    editor.find('.question-edit-cancel').bind('click', function(event) {
+                        event.preventDefault();
+                        editor.fadeIn();
+                        remove_question_editor();
+                    });
+                    //question.find('.dwqa-content').html(resp.data.editor);
+                }
+            });
+
+        return false;
+    });
+    // Question : Change Status ===================================================================
+    $('.dwqa-change-status ul li').click(function(event) {
+        event.preventDefault();
+        var t = $(this),
+            parent = t.parent();
+        if (window.confirm('Are you sure about that change?')) {
+            $.ajax({
+                url: dwqa.ajax_url,
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    action: 'dwqa-update-question-status',
+                    status: t.data('status'),
+                    nonce: parent.data('nonce'),
+                    question: parent.data('question')
+
+                },
+                complete: function(xhr, textStatus) {
+                    window.location.reload();
+                },
+            });
+        }
+    });
+
+    // Question : Sticky =========================================================================+
     $('.dwqa-container').delegate('.dwqa-stick-question', 'click', function(event) {
         event.preventDefault();
         var t = $(this);
@@ -847,42 +988,5 @@ jQuery(function($) {
             });
         }
     });
-    //Highlight comment
-    var doHighlight = function(speed) {
-        if (document.location.hash.length > 0) {
-            var hash = document.location.hash;
-            if (hash.indexOf('#') >= 0) {
-                $(hash).effect('highlight', speed);
-            }
-        }
-    }
-    $(document).ready(function() {
-        doHighlight(2000);
-    });
 
-    var vis = (function() {
-        var stateKey, eventKey, keys = {
-                hidden: "visibilitychange",
-                webkitHidden: "webkitvisibilitychange",
-                mozHidden: "mozvisibilitychange",
-                msHidden: "msvisibilitychange"
-            };
-        for (stateKey in keys) {
-            if (stateKey in document) {
-                eventKey = keys[stateKey];
-                break;
-            }
-        }
-        return function(c) {
-            if (c) document.addEventListener(eventKey, c);
-            return !document[stateKey];
-        }
-    })();
-    var switchTab = 0;
-    vis(function() {
-        if (vis() && switchTab < 2) {
-            doHighlight(1500);
-            switchTab++;
-        }
-    });
 });

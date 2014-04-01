@@ -11,6 +11,25 @@ class DWQA_Shortcode {
         'dwqa-question-followers'
     );
 
+    public function sanitize_output($buffer) {
+
+        $search = array(
+            '/\>[^\S ]+/s',  // strip whitespaces after tags, except space
+            '/[^\S ]+\</s',  // strip whitespaces before tags, except space
+            '/(\s)+/s'       // shorten multiple whitespace sequences
+        );
+
+        $replace = array(
+            '>',
+            '<',
+            '\\1'
+        );
+
+        $buffer = preg_replace($search, $replace, $buffer);
+
+        return $buffer;
+    }
+
     public function __construct(){
         if( ! defined( 'DWQA_DIR' ) ) {
             return false;
@@ -26,7 +45,7 @@ class DWQA_Shortcode {
 
     public function archive_question(){
         global $script_version, $dwqa_sript_vars;
-        ob_start();
+        ob_start( array( $this, 'sanitize_output' ) );
         ?>
         <div class="dwqa-container" >
             <div id="archive-question" class="dw-question">
@@ -316,7 +335,7 @@ class DWQA_Shortcode {
 
     public function submit_question_form_shortcode(){
         global $dwqa_sript_vars, $script_version;
-        ob_start();
+        ob_start( array( $this, 'sanitize_output' ) );
 
         echo '<div class="dwqa-container" >';
             dwqa_submit_question_form();
@@ -324,7 +343,7 @@ class DWQA_Shortcode {
         $html = ob_get_contents();
         ob_end_clean();
 
-        wp_enqueue_script( 'dwqa-submit-question', DWQA_URI . 'assets/js/dwqa-submit-question.js', array( 'jquery' ), $script_version, true );
+        wp_enqueue_script( 'dwqa-submit-question', DWQA_URI . 'inc/templates/default/assets/js/dwqa-submit-question.js', array( 'jquery' ), $script_version, true );
         wp_localize_script( 'dwqa-submit-question', 'dwqa', $dwqa_sript_vars );
         return $html;
     }

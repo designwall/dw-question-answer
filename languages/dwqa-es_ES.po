@@ -1230,6 +1230,18 @@ msgstr ""
 msgid "Type your email"
 msgstr "Escriba su email"
 
+#: ../inc/template-functions.php:164
+msgid "Choose your username"
+msgstr "Elija nombre de usuario"
+
+#: ../inc/template-functions.php:172
+msgid "Type your username"
+msgstr "Escriba su nombre de usuario"
+
+#: ../inc/template-functions.php:175
+msgid "Type your password"
+msgstr "Escriba su contraseña"
+
 #: ../inc/template-functions.php:166
 msgid "Already a member?"
 msgstr "¿Ya es miembro?"

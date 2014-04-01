@@ -1223,7 +1223,7 @@ msgstr "Estatus de publicacion invalido"
 #: ../inc/template-functions.php:159
 msgid "You need an account to submit question and get answers. Create one:"
 msgstr ""
-"Necesita estar registrado para envier preguntas y obtener respuestas.  "
+"Necesita estar registrado para enviar preguntas y obtener respuestas.  "
 "Registrarse:"
 
 #: ../inc/template-functions.php:161 ../inc/template-functions.php:193

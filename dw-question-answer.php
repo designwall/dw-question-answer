@@ -475,6 +475,24 @@ function dwqa_columns_head($defaults) {
 } 
 add_filter('manage_posts_columns', 'dwqa_columns_head');  
 
+function dwqa_answer_row_actions( $actions, $always_visible = false ) {
+    $action_count = count( $actions );
+    $i = 0;
+
+    if ( !$action_count )
+        return '';
+
+    $out = '<div class="' . ( $always_visible ? 'row-actions visible' : 'row-actions' ) . '">';
+    foreach ( $actions as $action => $link ) {
+        ++$i;
+        ( $i == $action_count ) ? $sep = '' : $sep = ' | ';
+        $out .= "<span class='$action'>$link$sep</span>";
+    }
+    $out .= '</div>';
+
+    return $out;
+}
+
 function dwqa_answer_columns_content($column_name, $post_ID) {  
     $answer = get_post( $post_ID );
     switch ($column_name) {
@@ -483,14 +501,21 @@ function dwqa_answer_columns_content($column_name, $post_ID) {
             echo '<a href="'.admin_url('edit-comments.php?p='.$post_ID ).'"  class="post-com-count"><span class="comment-count">'.$comment_count['approved'].'</span></a>';
             break;
         case 'info':
+            //Build row actions
+            $actions = array(
+                'edit'      => sprintf('<a href="%s">%s</a>', get_edit_post_link( $post_ID), __('Edit', 'edd-dw-membersip') ),
+                'delete'    => sprintf('<a href="%s">%s</a>', get_delete_post_link( $post_ID ), __('Delete', 'edd-dw-membersip' ) ),
+                'view'      => sprintf('<a href="%s">%s</a>', get_permalink( $post_ID ), __('View', 'edd-dw-membersip' ) )
+            );
             printf(
-                '%s %s <a href="%s">%s %s</a> <br /> %s',
+                '%s %s <a href="%s">%s %s</a> <br /> %s %s',
                 __('Submitted','dwqa'),
                 __('on','dwqa'),
                 get_permalink(),
                 date( 'M d Y', get_post_time( 'U', false, $answer ) ),
                 ( time() - get_post_time( 'U', false, $answer ) ) > 60 * 60 * 24 * 2 ? '' : ' at ' . human_time_diff( get_post_time( 'U', false, $answer ) ) . ' ago',
-                get_the_excerpt()
+                substr(get_the_content(), 0 , 140 ) . ' ...',
+                dwqa_answer_row_actions($actions)
 
             );
             break;

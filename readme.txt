@@ -1,9 +1,9 @@
 === DW Question & Answer ===
-Contributors: designwall, Farid-Gh, scheunemann, gciprian, Ahmet Kolcu, Astrotenko Roman, David Robles, Nidhal Naji
+Contributors: designwall, Farid-Gh, scheunemann, gciprian, Ahmet Kolcu, Astrotenko Roman, David Robles, Nidhal Naji, developez
 Tags: question, answer, support, quora, stackoverflow
 Requires at least: 3.0.1
 Tested up to: 3.8
-Stable tag: 1.2.4
+Stable tag: 1.2.5
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -11,24 +11,46 @@ Your WordPress site will have a full-featured Question & Answer section like Sta
 
 == Description ==
 
-Developed by [DesignWall](http://www.designwall.com/?utm_source=readme&utm_medium=description_tab&utm_content=plugin_link&utm_campaign=dwqa_plugin), DW Question & Answer is a FREE [WordPress Plugin](http://www.designwall.com/wordpress/plugins/) in which builds up a Question & Answer system on your WordPress site.
+DW Question and Answer is a WordPress plugin which builds a complete Question & Answer system for your WordPress site, like Quora or Stackoverflow. The plugin supports multi-languages, shortcodes, reCAPTCHA, email notification system and so on.
 
-* [Github Project](https://github.com/designwall/DW-Question-Answer)
+= Key features: =
+* Submit / Filter / Order / Edit / Delete Question
+* Answer / Comment 
+* Vote and Pick Best Answer
+* Notification Email system
+* Instant search by keywords
+* 11+ languages supported
+* reCAPTCHA supported
+* Shortcodes available
+* Private/ Public for Question and Answer
+* Questions / Answers follow function
+* Sticky Question
+* More to come
 
-Your WordPress site will have a full-featured Question & Answer section like Stack Overflow, Quora or Yahoo Answers. Your users can Submit question, Search and Filter questions by status, get answered from others. Users can comment and reply to a question or an answer, can vote and definitely can pick one best answer for their questions.
+= Add-on for the plugin: =
+* Embed question and Social Sharing: [http://wordpress.org/plugins/dw-question-answer-embed-question/](https://github.com/designwall/dw-question-answer)
 
-Here is the list of features of this plugin:
+= Documents and Support: =
+You can find [Documents](http://www.designwall.com/guide/dw-question-answer-plugin/) and more detailed information about DW Question and Answer plugin on [DesignWall.com](http://www.designwall.com/). 
+We provide support both on support forum on WordPress.org and our [support page](http://www.designwall.com/question/) on DesignWall.
 
-* Submit Question
-* Order Question by Category, Tags
-* Add Answer to Question
-* Choose Best Answer for Question
-* Comment for Question / Answer
-* Vote Question / Answer
-* Customizable Notification Email regarding new Question / Answer and Comment 
-* Quick Questions filter 
-* Manages Question by status
-* Instant Search by keywords
+= Languages supported: =
+* English (default) 
+* Arabic (ar_AR) - by Nidhal Naji
+* Chinese (zh_CN) - by Jack Cai
+* French (fr_FR) - by [Kanzari Haithem](http://www.designwall.com/profile/kanzari/)
+* German (de_DE) - by [scheunemann](https://github.com/scheunemann)
+* Indonesian (id_ID) - by Ruby Aperta
+* Persian (fa_IR) - by [Farid-Gh](https://github.com/Farid-Gh)
+* Polish (pl_PL) - by Karol Pergot
+* Romanian (ro_RO) - by [gciprian](https://github.com/gciprian)
+* Russian (ru_RU) - by [Roman Astrotenko](http://www.designwall.com/profile/shtirlitz/)
+* Spanish (es_ES) - by David Robles, [Developez](https://github.com/developez)
+* Turkish (tr_TR) - by Ahmet Kolcu
+
+
+The plugin is frequently updated and more and more features added based on all the feedback from our users. This means you are welcome to give us feedback and suggestion on how you would want to have in the plugin.
+Visit our [Github](https://github.com/designwall/dw-question-answer) project or follow us at [@designwall_com](https://twitter.com/designwall_com) to get update of our next release.
 
 [youtube http://www.youtube.com/watch?v=usS9ug0pI7A]
 
@@ -47,6 +69,18 @@ Here is the list of features of this plugin:
 5. Back-end settings
 
 == Changelog ==
+
+= 1.2.5 =
+* New: Arabic supported
+* New: Chinese supported
+* New: Polish Supported
+* New: Indonesian Supported
+* Fix: Some text in template-functions.php was enabled to translate
+* Fix: Remove error in add_cap function when active plugin
+* Fix: update navigation
+* Fix: js in shortcode
+* Fix: error when delete question
+* Update: dwqa-es_ES.po
 
 = 1.2.4 =
 * New:  Spanish Languages supported

@@ -1717,18 +1717,21 @@ function dwqa_delete_question(){
             'post_type' => 'dwqa-answer',
             'meta_query'    => array(
                 array(
-                    'meta_key' => '_question',
-                    'meta_value' => $_POST['question']
+                    'key' => '_question',
+                    'value' => $question->ID
                 )
-            )
+            ),
+            'posts_per_page' => -1
         ) );
+
         if( ! empty($answers) ) {
             foreach ($answers as $anw) {
                 wp_delete_post( $anw->ID );
                 update_post_meta( $anw->ID, '_dwqa_delete_question', true );
             }
         }
-        $delete = wp_delete_post( $_POST['question'] );
+        $delete = wp_delete_post( $question->ID );
+
         if( $delete ) {
             global $dwqa_options;
             wp_send_json_success( array(
@@ -1736,6 +1739,7 @@ function dwqa_delete_question(){
             ) );
         } else {
             wp_send_json_error( array(
+                'question'  => $question->ID,
                 'message'   => __('Delete Action was failed','dwqa')
             ) );
         }

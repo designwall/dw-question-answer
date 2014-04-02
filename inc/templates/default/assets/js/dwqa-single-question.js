@@ -810,7 +810,6 @@ jQuery(function($) {
         event.preventDefault();
         if (confirm(dwqa.delete_question_confirm)) {
             var t = $(this);
-            console.log('test');
             $.ajax({
                 url: dwqa.ajax_url,
                 type: 'POST',

@@ -279,7 +279,7 @@ function dwqa_new_comment_notify( $comment_id, $comment ){
         //From email 
         $from_email = get_option( 'dwqa_subscrible_from_address' );
         if( $from_email ) {
-            $headers = "From: " . $from_email . "\r\n";
+            $headers .= "From: " . $from_email . "\r\n";
         }
         
         if( $parent == 'dwqa-question' ) {

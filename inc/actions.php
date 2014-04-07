@@ -1247,7 +1247,7 @@ function dwqa_auto_convert_urls( $content ){
     global $post;
     if( is_single() && ( 'dwqa-question' == $post->post_type || 'dwqa-answer' == $post->post_type) ) {
         $content = make_clickable( $content );
-        $content = preg_replace('/(<a[^>]*)(>)/', '$1 target="_blank" rel="nofollow" $2', $content);
+        //$content = preg_replace('/(<a[^>]*)(>)/', '$1 target="_blank" rel="nofollow" $2', $content);
         $content = preg_replace_callback('/<a[^>]*>]+/', 'dwqa_auto_nofollow_callback', $content);
     }
     return $content;

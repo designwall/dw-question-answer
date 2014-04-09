@@ -163,7 +163,6 @@ class dwqa_Latest_Question_Widget extends WP_Widget {
             'posts_per_page'       => $instance['number'],
             'order'             => 'DESC',
             'orderby'           => 'post_date',
-#            'meta_key'           => '_dwqa_views',
             'post_type'         => 'dwqa-question',
             'suppress_filters'  => false
         );

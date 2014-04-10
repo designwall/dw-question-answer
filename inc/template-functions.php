@@ -69,7 +69,7 @@ function dwqa_generate_template_for_questions_list_page($template) {
     }
     return $template;
 }
-add_filter( 'archive_template', 
+add_filter( 'taxonomy_template', 
     'dwqa_generate_template_for_questions_list_page', 20 );
 /**
  * Print class for question detail container

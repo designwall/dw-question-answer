@@ -439,7 +439,7 @@ function dwqa_submit_question(){
                             $dwqa_current_error = $user;
                             return false;
                         }
-                    } else {
+                    } elseif ( isset($_POST['login-type']) && $_POST['login-type'] == 'sign-up' ) {
                         //Create new user 
                         $users_can_register = get_option( 'users_can_register' );
                         if( isset($_POST['user-email']) && isset($_POST['user-name-signup']) 
@@ -485,6 +485,9 @@ function dwqa_submit_question(){
                             $dwqa_current_error = new WP_Error( 'submit_question', $message );
                             return false;
                         }
+                    } else {
+                        $is_anonymous = true;
+                        $user_id = 0;
                     }
                 }
 
@@ -509,6 +512,9 @@ function dwqa_submit_question(){
                 }
 
                 if( ! is_wp_error( $new_question ) ) {
+                    if( $is_anonymous ) {
+                        update_post_meta( $new_question, '_dwqa_is_anonymous', true );
+                    }
                     exit( wp_safe_redirect( get_permalink( $new_question ) ) );
                 } else {
                     $dwqa_current_error = $new_question;
@@ -527,8 +533,13 @@ add_action( 'init','dwqa_submit_question', 11 );
 
 
 function dwqa_insert_question( $args ){
-
-    $user_id = get_current_user_id();
+    if( is_user_logged_in() ) {
+        $user_id = get_current_user_id();
+    } elseif( dwqa_current_user_can('post_question') ) {
+        $user_id = 0;
+    } else {
+        return false;
+    }
 
     $args = wp_parse_args( $args, array(
         'comment_status' => 'open',
@@ -538,7 +549,7 @@ function dwqa_insert_question( $args ){
         'post_title'     => '',
         'post_type'      => 'dwqa-question'
     ) );
-            
+        
     $new_question = wp_insert_post( $args, true );
 
     if( ! is_wp_error( $new_question ) ) {
@@ -554,7 +565,6 @@ function dwqa_insert_question( $args ){
         //Call action when add question successfull
         do_action( 'dwqa_add_question', $new_question, $user_id );
     } 
-
     return $new_question;
 }
 

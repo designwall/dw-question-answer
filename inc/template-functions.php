@@ -152,8 +152,7 @@ function dwqa_require_field_submit_question(){
     ?>
     <input type="hidden" name="dwqa-action" value="dwqa-submit-question" />
     <?php wp_nonce_field( 'dwqa-submit-question-nonce-#!' ); ?>
-    <?php if( ! is_user_logged_in() ) { ?>
-    
+    <?php if( ! is_user_logged_in() && ! dwqa_current_user_can('post_question') ) { ?>
     <input type="hidden" name="login-type" id="login-type" value="sign-up" autocomplete="off">
     <div class="question-register clearfix">
         <label for="user-email"><?php _e('You need an account to submit question and get answers. Create one:','dwqa') ?></label>

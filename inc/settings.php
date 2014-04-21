@@ -417,7 +417,7 @@ function dwqa_permission_display(){
             <tr class="group available">
                 <td><?php _e('Anonymous','dwqa') ?></td>
                 <td><input type="checkbox" <?php checked( true, $perms['anonymous']['question']['read'] ); ?> name="dwqa_permission[<?php echo 'anonymous' ?>][question][read]" value="1"></td>
-                <td><input type="checkbox" disabled="disabled" name="dwqa_permission[<?php echo 'anonymous' ?>][question][post]" value="1"></td>
+                <td><input type="checkbox" <?php checked( true, $perms['anonymous']['question']['post'] ); ?>  name="dwqa_permission[<?php echo 'anonymous' ?>][question][post]" value="1"></td>
                 <td><input type="checkbox" <?php checked( true, $perms['anonymous']['question']['edit'] ); ?> disabled="disabled" name="dwqa_permission[<?php echo 'anonymous' ?>][question][edit]" value="1"></td>
                 <td><input type="checkbox" <?php checked( true, $perms['anonymous']['question']['delete'] ); ?> disabled="disabled"  name="dwqa_permission[<?php echo 'anonymous' ?>][question][delete]" value="1"></td>
             </tr>

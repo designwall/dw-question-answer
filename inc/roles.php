@@ -147,7 +147,7 @@ class DWQA_Permission {
             'anonymous'    => array(
                 'question'      => array( 
                     'read'      => 1,
-                    'post'      => 0,
+                    'post'      => 1,
                     'edit'      => 0,
                     'delete'    => 0   
                 ),

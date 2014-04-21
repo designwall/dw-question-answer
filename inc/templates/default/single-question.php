@@ -75,11 +75,15 @@
                             <?php echo get_avatar( $post->post_author, 32, false ); ?>
                             <span class="author">
                                 <?php  
-                                    printf('<a href="%1$s" title="%2$s %3$s">%3$s</a>',
-                                        get_author_posts_url( get_the_author_meta( 'ID' ) ),
-                                        __('Posts by','dwqa'),
-                                        get_the_author_meta(  'display_name')
-                                    );
+                                    if( dwqa_is_anonymous() ) {
+                                        _e('Anonymous','dwqa')
+                                    } else {
+                                        printf('<a href="%1$s" title="%2$s %3$s">%3$s</a>',
+                                            get_author_posts_url( get_the_author_meta( 'ID' ) ),
+                                            __('Posts by','dwqa'),
+                                            get_the_author_meta(  'display_name')
+                                        );
+                                    }
                                 ?>
                             </span><!-- Author Info -->
                             <span class="dwqa-date">

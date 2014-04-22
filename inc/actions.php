@@ -1762,4 +1762,25 @@ function dwqa_delete_question(){
     
 }
 add_action( 'wp_ajax_dwqa-delete-question', 'dwqa_delete_question' );
+
+function dwqa_hook_on_remove_question( $post_id ){
+    if( 'dwqa-question' == get_post_type( $post_id ) ) {
+        $answers = get_posts( array(
+            'post_type'         => 'dwqa-answer',
+            'posts_per_page'    => -1,
+            'post_status'       => 'any',
+            'meta_key'          => '_question',
+            'meta_value'        => $post_id,
+            'fields'            => 'ids'
+
+        ) );
+        if( count( $answers ) > 0 ) {
+            foreach ($answers as $answer) {
+                wp_trash_post( $answer->ID );
+            }
+        }   
+    }
+}
+add_action( 'before_delete_post', 'dwqa_hook_on_remove_question' );
+
 ?>

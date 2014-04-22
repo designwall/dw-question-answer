@@ -101,14 +101,16 @@ jQuery(function($) {
         }
 
         var $paramString = '';
-        for (var i in $url_args) {
-            if (!i) {
-                continue;
+        if( $url_args.length > 0 ) {
+            for (var i in $url_args) {
+                if (!i) {
+                    continue;
+                }
+                $paramString += '&' + i + '=' + $url_args[i];
             }
-            $paramString += '&' + i + '=' + $url_args[i];
-        }
-        if ($paramString.substring(0, 1) == '&') {
-            $paramString = $paramString.substring(1, $paramString.length);
+            if ($paramString.substring(0, 1) == '&') {
+                $paramString = $paramString.substring(1, $paramString.length);
+            }
         }
         $.ajax({
             url: dwqa.ajax_url,

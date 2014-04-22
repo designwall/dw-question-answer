@@ -410,6 +410,9 @@ class DWQA_Shortcode {
             while ( $questions->have_posts() ) { $questions->the_post();
                 $answer_id = get_the_ID();
                 $question_id = get_post_meta( $answer_id, '_question', true );
+                if( 'publish' != get_post_status( $question_id ) ) {
+                    continue;
+                }
                 if( $question_id ) {
                     $html .= '<li>'.__('Answer at','dwqa').' <a href="'.get_permalink( $question_id ).'#answer-'.$answer_id.'" title="'.__('Link to','dwqa').' '.get_the_title( $question_id ).'">'.get_the_title( $question_id ).'</a></li>';
                 }
@@ -438,7 +441,8 @@ class DWQA_Shortcode {
         if( !empty($followers) ) :
             echo '<div class="question-followers">';
             echo $before_title;
-            echo count($followers) . ' ' . __('people are following this question.', 'dwqa'); 
+            $count = count($followers);
+            printf( _n( '% person is following this question', '% people is following this question', $count,  'dwqa'),  $count );
             echo $after_title;
 
             foreach ($followers as $follower) :

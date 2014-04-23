@@ -694,8 +694,7 @@ function dwqa_get_following_user( $question_id = false ){
         return false;
     }
     return $followers;
-
-
 }
+
 
 ?>

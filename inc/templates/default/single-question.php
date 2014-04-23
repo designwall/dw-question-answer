@@ -17,6 +17,9 @@
                 <article id="question-<?php echo $post_id ?>" <?php post_class( 'dwqa-question' ); ?>>
                     <header class="dwqa-header">
                         <h1 class="dwqa-title"><?php the_title(); ?></h1>
+                        <?php if( get_post_status() == 'draft' ) : ?>
+                        <div class="dwqa-alert alert"><?php _e('Your question has been submitted and is currently awaiting approval','dwqa'); ?></div>
+                        <?php endif; ?>
                         <div class="dwqa-meta">
                             <span class="dwqa-vote" data-type="question" data-nonce="<?php echo wp_create_nonce( '_dwqa_question_vote_nonce' ) ?>" data-question="<?php echo $post_id; ?>" >
                                 <a class="dwqa-vote-dwqa-btn dwqa-vote-up" data-vote="up" href="#"  title="<?php _e('Vote Up','dwqa') ?>"><?php _e('Vote Up','dwqa') ?></a>
@@ -76,7 +79,7 @@
                             <span class="author">
                                 <?php  
                                     if( dwqa_is_anonymous() ) {
-                                        _e('Anonymous','dwqa')
+                                        _e('Anonymous','dwqa');
                                     } else {
                                         printf('<a href="%1$s" title="%2$s %3$s">%3$s</a>',
                                             get_author_posts_url( get_the_author_meta( 'ID' ) ),

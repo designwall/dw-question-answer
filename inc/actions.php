@@ -492,6 +492,15 @@ function dwqa_submit_question(){
                 }
 
                 $post_status = ( isset($_POST['private-message']) && $_POST['private-message'] ) ? 'private' : 'publish';
+
+                //Enable review mode
+                global $dwqa_general_settings;
+                if( isset($dwqa_general_settings['enable-review-question']) 
+                    && $dwqa_general_settings['enable-review-question'] 
+                    && $post_status != 'private' ) {
+                     $post_status = 'draft';
+                }
+
                 $postarr = array(
                     'comment_status' => 'open',
                     'post_author'    => $user_id,

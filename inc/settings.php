@@ -549,10 +549,11 @@ function dwqa_enable_private_question_display() {
     echo '<p><label for="dwqa_options_enable_private_question"><input type="checkbox" name="dwqa_options[enable-private-question]"  id="dwqa_options_enable_private_question" value="1" '.checked( 1, (isset($dwqa_general_settings['enable-private-question']) ? $dwqa_general_settings['enable-private-question'] : false) , false ) .'><span class="description">'.__('Allow members to post private question','dwqa').'</span></label></p>';
 }
 
-function dwqa_subscrible_send_to_display(){
-
+function dwqa_enable_review_question_mode() {
+    global $dwqa_general_settings;
+    
+    echo '<p><label for="dwqa_options_enable_review_question"><input type="checkbox" name="dwqa_options[enable-review-question]"  id="dwqa_options_enable_review_question" value="1" '.checked( 1, (isset($dwqa_general_settings['enable-review-question']) ? $dwqa_general_settings['enable-review-question'] : false) , false ) .'><span class="description">'.__('Question must be manually approved','dwqa').'</span></label></p>';
 }
-
 
 class DWQA_Settings {
     public function __construct(){
@@ -615,6 +616,13 @@ class DWQA_Settings {
             'dwqa_options[enable-private-question]', 
             __('Private Question', 'dwqa'), 
             'dwqa_enable_private_question_display', 
+            'dwqa-settings', 
+            'dwqa-general-settings'
+        );
+        add_settings_field( 
+            'dwqa_options[enable-review-question]', 
+            __('Review Question', 'dwqa'), 
+            'dwqa_enable_review_question_mode', 
             'dwqa-settings', 
             'dwqa-general-settings'
         );

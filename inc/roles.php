@@ -168,7 +168,10 @@ class DWQA_Permission {
         add_action( 'init', array( $this, 'first_update_role_functions' ) );
         add_action( 'init', array( $this, 'prepare_permission' ) );
         add_action( 'update_option_dwqa_permission', array( $this, 'update_caps'), 10, 2 );
+
+        add_filter( 'user_has_cap', array( $this, 'allow_user_view_their_draft_post' ), 10, 4 );
     }
+
     public function prepare_permission(){
         $this->perms = get_option( 'dwqa_permission' );
         $this->perms = $this->perms ? $this->perms : array();
@@ -256,6 +259,24 @@ class DWQA_Permission {
                 $role->remove_cap( 'dwqa_can_'.$key.'_comment' );
             }
         }
+    }
+
+    function allow_user_view_their_draft_post( $all_caps, $caps, $name, $user ) {
+        if( is_user_logged_in() ) {
+            global $wp_query, $current_user;
+            if( $wp_query->is_single && $wp_query->query_vars['post_type'] == 'dwqa-question' && $name[0] == 'edit_post' ) {
+                if( isset($name[2]) ) {
+                    $post_id = $name[2];
+                    $author = get_post_field( 'post_author', $post_id );
+                    if( $author == $current_user->ID ) {
+                        foreach ($caps as $cap) {
+                            $all_caps[$cap] = true;
+                        }
+                    }
+                }
+            }
+        }
+        return $all_caps;
     }
 }
 

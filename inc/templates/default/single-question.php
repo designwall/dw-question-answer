@@ -78,7 +78,7 @@
                             <?php echo get_avatar( $post->post_author, 32, false ); ?>
                             <span class="author">
                                 <?php  
-                                    if( dwqa_is_anonymous() ) {
+                                    if( dwqa_is_anonymous( $post->ID ) ) {
                                         _e('Anonymous','dwqa');
                                     } else {
                                         printf('<a href="%1$s" title="%2$s %3$s">%3$s</a>',

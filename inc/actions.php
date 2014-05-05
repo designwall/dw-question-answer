@@ -1307,9 +1307,9 @@ function dwqa_vote_best_answer(){
     if( $current_user->ID == $question->post_author || current_user_can( 'edit_posts' ) ) {
         update_post_meta( $q, '_dwqa_best_answer', $_POST['answer'] );
     }
-    
 }
 add_action( 'wp_ajax_dwqa-vote-best-answer', 'dwqa_vote_best_answer' );
+
 
 function dwqa_unvote_best_answer(){
     global $current_user;

@@ -309,7 +309,7 @@ function dwqa_submit_question_form(){
             </div>  
         </form>
     </div>
-    <?php
+    <?php 
 }
 
 function dwqa_paste_srtip_disable( $mceInit ){

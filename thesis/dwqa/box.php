@@ -48,7 +48,7 @@ class thesis_dwqa extends thesis_box {
             echo '</div>';
         } else if( is_page( $dwqa_options['pages']['submit-question']) ) {
             echo '<div class="submit-dwqa-question" style="padding:'.$padding.'">';
-            dwqa_submit_question_form();
+            dwqa_load_template( 'submit-question', 'form' );
             echo '</div>';
         }
         echo '</div>';

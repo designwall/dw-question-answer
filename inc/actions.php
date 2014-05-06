@@ -487,6 +487,7 @@ function dwqa_submit_question(){
                         }
                     } else {
                         $is_anonymous = true;
+                        $question_author_email = isset($_POST['_dwqa_anonymous_email']) && is_email( $_POST['_dwqa_anonymous_email'] ) ? $_POST['_dwqa_anonymous_email'] : false; 
                         $user_id = 0;
                     }
                 }
@@ -522,7 +523,7 @@ function dwqa_submit_question(){
 
                 if( ! is_wp_error( $new_question ) ) {
                     if( $is_anonymous ) {
-                        update_post_meta( $new_question, '_dwqa_is_anonymous', true );
+                        update_post_meta( $new_question, '_dwqa_is_anonymous', $question_author_email );
                     }
                     exit( wp_safe_redirect( get_permalink( $new_question ) ) );
                 } else {
@@ -873,12 +874,14 @@ function dwqa_init_tinymce_editor( $args = array() ){
             'id'            =>  'dwqa-custom-content-editor',
             'textarea_name' => 'custom-content',
             'rows'          => 5,
-            'wpautop'       => false
-        ) ) );
+            'wpautop'       => false,
+            'media_buttons' => false   
+    ) ) );
+
     
     wp_editor( $content, $id, array(
         'wpautop'       => $wpautop,
-        'media_buttons' => false,
+        'media_buttons' => $media_buttons,
         'textarea_name' => $textarea_name,
         'textarea_rows' => $rows,
         'tinymce' => array(

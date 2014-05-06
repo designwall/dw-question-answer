@@ -338,7 +338,7 @@ class DWQA_Shortcode {
         ob_start( array( $this, 'sanitize_output' ) );
 
         echo '<div class="dwqa-container" >';
-            dwqa_submit_question_form();
+            dwqa_load_template( 'submit-question', 'form' );
         echo '</div>';
         $html = ob_get_contents();
         ob_end_clean();

@@ -220,7 +220,7 @@ function dwqa_get_latest_answer( $question_id ){
                 'compare' => 'IN',
             )
         ),
-        'post_status'    => 'publish'
+        'post_status'    => 'publish,private'
     );
     $recent_answers = wp_get_recent_posts($args);
     if( count($recent_answers) > 0 ) {

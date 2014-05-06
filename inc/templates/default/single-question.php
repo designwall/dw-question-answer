@@ -11,13 +11,13 @@
 <?php do_action( 'dwqa_before_page' ) ?>
     <?php if( have_posts() ) : ?>
         <?php while ( have_posts() ) : the_post(); ?>
-            <?php $post_id = get_the_ID();  ?>
+            <?php $post_id = get_the_ID(); $post_status = get_post_status();  ?>
             <div class="dwqa-single-question">
                 <!-- dwqa-status-private -->
                 <article id="question-<?php echo $post_id ?>" <?php post_class( 'dwqa-question' ); ?>>
                     <header class="dwqa-header">
                         <h1 class="dwqa-title"><?php the_title(); ?></h1>
-                        <?php if( get_post_status() == 'draft' ) : ?>
+                        <?php if( $post_status == 'draft' || $post_status == 'pending' ) : ?>
                         <div class="dwqa-alert alert"><?php _e('Your question has been submitted and is currently awaiting approval','dwqa'); ?></div>
                         <?php endif; ?>
                         <div class="dwqa-meta">

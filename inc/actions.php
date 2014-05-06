@@ -497,8 +497,8 @@ function dwqa_submit_question(){
                 global $dwqa_general_settings;
                 if( isset($dwqa_general_settings['enable-review-question']) 
                     && $dwqa_general_settings['enable-review-question'] 
-                    && $post_status != 'private' ) {
-                     $post_status = 'draft';
+                    && $post_status != 'private' && !current_user_can('manage_options') ) {
+                     $post_status = 'pending';
                 }
 
                 $postarr = array(
@@ -554,7 +554,7 @@ function dwqa_insert_question( $args ){
         'comment_status' => 'open',
         'post_author'    => $user_id,
         'post_content'   => '',
-        'post_status'    => 'draft',
+        'post_status'    => 'pending',
         'post_title'     => '',
         'post_type'      => 'dwqa-question'
     ) );

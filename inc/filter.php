@@ -153,7 +153,7 @@ class DWQA_Filter {
         if( is_user_logged_in() ) {
             $status[] = 'private';
             if( dwqa_current_user_can('edit_question') ) {
-                $status[] = 'draft';
+                $status[] = 'pending';
             }
         }
         $sticky_questions = get_option( 'dwqa_sticky_questions', array() );

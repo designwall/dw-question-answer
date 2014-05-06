@@ -105,7 +105,8 @@
                             <div data-post="<?php echo $post_id; ?>" data-nonce="<?php echo wp_create_nonce( '_dwqa_update_privacy_nonce' ); ?>" data-type="question" class="dwqa-privacy">
                                 <input type="hidden" name="privacy" value="<?php get_post_status(); ?>">
                                 <span class="dwqa-current-privacy"> <?php echo 'private' == get_post_status() ? '<i class="fa fa-lock"></i> ' . __('Private','dwqa') : '<i class="fa fa-globe"></i> ' . __('Public','dwqa'); ?></span>
-                                <?php if( dwqa_current_user_can('edit_question') || dwqa_current_user_can('edit_answer') || $post->post_author == $current_user->ID ) { ?>
+                                <?php 
+                                    if( dwqa_current_user_can('edit_question') || dwqa_current_user_can('edit_answer')  ) { ?>
                                 <span class="dwqa-change-privacy">
                                     <div class="dwqa-btn-group">
                                         <button type="button" class="dropdown-toggle" ><i class="fa fa-caret-down"></i></button>
@@ -147,7 +148,7 @@
                             <?php
                                 if( dwqa_current_user_can('edit_question') 
                                     || dwqa_current_user_can('edit_answer') 
-                                    || $current_user->ID == $post->post_author ) :
+                                    || ( is_user_logged_in() && $current_user->ID == $post->post_author ) ) :
                             ?>
                             <span class="dwqa-change-status">
                                 <div class="dwqa-btn-group">

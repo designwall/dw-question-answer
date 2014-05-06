@@ -149,17 +149,21 @@ class DWQA_Filter {
         if( $on_paged )
             $number = $posts_per_page;
         // arguments array for get questions
-        $status = 'publish';
+        $status = array('publish');
         if( is_user_logged_in() ) {
-            $status = 'publish,private';
+            $status[] = 'private';
+            if( dwqa_current_user_can('edit_question') ) {
+                $status[] = 'draft';
+            }
         }
         $sticky_questions = get_option( 'dwqa_sticky_questions', array() );
         $args = array(
-            'posts_per_page'       => $number,
+            'posts_per_page'    => $number,
             'offset'            => $offset,
             'post_type'         => 'dwqa-question',
             'suppress_filters'  => false,
-            'post__not_in'      => $sticky_questions
+            'post__not_in'      => $sticky_questions,
+            'post_status'       => $status
         );
         $args['order'] = ( $this->filter['order'] && $this->filter['order'] != 'ASC' ? 'DESC' : 'ASC' );
 
@@ -370,12 +374,6 @@ class DWQA_Filter {
             $status = array( 'publish', 'private' );
         }
 
-        $query = new WP_Query( array(
-            'post_type' => 'dwqa-question',
-            'posts_per_page'    => 6,
-            'post_status'   => $status,
-            's'         => $_POST['title']
-        ) );
         query_posts( array(
             'post_type' => 'dwqa-question',
             'posts_per_page'    => 6,

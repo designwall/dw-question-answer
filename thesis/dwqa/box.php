@@ -22,7 +22,7 @@ class thesis_dwqa extends thesis_box {
                 'options'   => array(
                     'padding'   => __('Container padding size','dwqa')
                 ),
-                'tooltip' => __('By default,The container is not have gutter. You can set padding width to make a gutter. You make it by update setting here.', 'dwqa')
+                'tooltip' => __('By default, the container does not have a gutter. You can set padding width to make a gutter. You make it by updating the setting here.', 'dwqa')
             )
         );
     }

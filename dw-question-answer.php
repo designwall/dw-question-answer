@@ -295,8 +295,8 @@ function dwqa_plugin_init(){
         'comment_edit_cancel_link'    =>  __( 'Cancel', 'dwqa' ),
         'comment_delete_confirm'        => __('Do you want to delete this comment?', 'dwqa' ),
         'answer_delete_confirm'     =>  __('Do you want to delete this answer?', 'dwqa' ),
-        'answer_update_privacy_confirm' => __('Do you want to update this answer', 'dwqa' ), 
-        'report_answer_confirm' => __('Do you want to report this answer','dwqa'),
+        'answer_update_privacy_confirm' => __('Do you want to update this answer?', 'dwqa' ), 
+        'report_answer_confirm' => __('Do you want to report this answer?','dwqa'),
         'flag'      => array(
             'label'         =>  __('Report','dwqa'),
             'label_revert'  =>  __('Undo','dwqa'),
@@ -308,8 +308,8 @@ function dwqa_plugin_init(){
         ),
         'follow_tooltip'    => __('Follow This Question','dwqa'),
         'unfollow_tooltip'  => __('Unfollow This Question','dwqa'),
-        'stick_tooltip'    => __('Stick This Question on Frontpage','dwqa'),
-        'unstick_tooltip'  => __('Untick This Question on Frontpage','dwqa'),
+        'stick_tooltip'    => __('Pin this question to top','dwqa'),
+        'unstick_tooltip'  => __('Unpin this question from top','dwqa'),
         'question_category_rewrite' => $question_category_rewrite,
         'question_tag_rewrite'      => $question_tag_rewrite,
         'delete_question_confirm' => __('Do you want to delete this question?','dwqa')
@@ -429,8 +429,8 @@ function dwqa_add_js_variable_for_admin_page(){
                     'flag'       : {
                         'label'          : '<?php echo   __('Flag','dwqa') ?>',
                         'label_revert'   : '<?php echo   __('Unflag','dwqa') ?>',
-                        'text'           : '<?php echo   __('This answer will be hide when flag it. Are you sure?', 'dwqa' ) ?>',
-                        'revert'         : '<?php echo   __('This answer was flagged as spam. Do you want to show it','dwqa') ?>',
+                        'text'           : '<?php echo   __('This answer will be hidden when flagged. Are you sure you want to flag it?', 'dwqa' ) ?>',
+                        'revert'         : '<?php echo   __('This answer was flagged as spam. Do you want to show it?','dwqa') ?>',
                         'flagged_hide'   : '<?php echo   __('hide','dwqa') ?>',
                         'flagged_show'   : '<?php echo  __('show','dwqa') ?>'
                     }
@@ -539,7 +539,7 @@ function dwqa_admin_enqueue_scripts(){
         wp_localize_script( 'dwqa-settings', 'dwqa', array(
             'ajax_url'  => admin_url( 'admin-ajax.php' ),
             'template_folder'   => DWQA_URI . 'inc/templates/email/',
-            'reset_permission_confirm_text'  => __('Reset all changed to default','dwqa')
+            'reset_permission_confirm_text'  => __('Reset all changes to default','dwqa')
         ) );
     }
     if( 'dwqa-question' == get_post_type() || 'dwqa-answer' == get_post_type() || 'dwqa-question_page_dwqa-settings' == $screen->id ) {

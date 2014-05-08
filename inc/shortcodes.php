@@ -442,7 +442,7 @@ class DWQA_Shortcode {
             echo '<div class="question-followers">';
             echo $before_title;
             $count = count($followers);
-            printf( _n( '% person is following this question', '% people is following this question', $count,  'dwqa'),  $count );
+            printf( _n( '% person who is following this question', '% people who are following this question', $count,  'dwqa'),  $count );
             echo $after_title;
 
             foreach ($followers as $follower) :

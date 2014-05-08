@@ -57,7 +57,7 @@ function dwqa_question_status_box_html($post){
     		<?php
         		$sticky_questions = get_option( 'dwqa_sticky_questions', array() );
     		?>
-    		<input <?php checked( true, in_array( $post->ID, $sticky_questions), true ); ?> type="checkbox" name="dwqa-question-sticky" id="dwqa-question-sticky" value="1" ><span class="description"><?php _e('Sticky question on top of archive page.','dwqa'); ?></span>
+    		<input <?php checked( true, in_array( $post->ID, $sticky_questions), true ); ?> type="checkbox" name="dwqa-question-sticky" id="dwqa-question-sticky" value="1" ><span class="description"><?php _e('Pin question to top of archive page.','dwqa'); ?></span>
     	</label>
     </p>
     <?php

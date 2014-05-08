@@ -480,7 +480,7 @@ function dwqa_submit_question(){
                                 $message .= __('This email is already registered, please choose another one.','dwqa').'<br>';
                             }
                             if( username_exists( $_POST['user-name'] ) ) {
-                                $message .= __('This username is already registered. Please choose another one.','dwqa').'<br>';
+                                $message .= __('This username is already registered. Please use another one.','dwqa').'<br>';
                             }
                             $dwqa_current_error = new WP_Error( 'submit_question', $message );
                             return false;
@@ -774,7 +774,7 @@ function dwqa_action_delete_comment(){
     }
     if( ! isset($_POST['comment_id']) ) {
         wp_send_json_error( array(
-            'message'   => __( 'Comment ID must be show.', 'dwqa' )  
+            'message'   => __( 'Comment ID must be showed.', 'dwqa' )  
         ) );
     }
 
@@ -1075,12 +1075,12 @@ function dwqa_comment_action_add(){
     } else {
         if( !isset($_POST['email']) || !$_POST['email'] ) {
             wp_send_json_error( array(
-                'message'   => __('Missing email infomation','dwqa')
+                'message'   => __('Missing email information','dwqa')
             ) );
         }
         if( !isset($_POST['name']) || !$_POST['name'] ) {
             wp_send_json_error( array(
-                'message'   => __('Missing name infomation','dwqa')
+                'message'   => __('Missing name information','dwqa')
             ) );
         }
         $args['comment_author'] = isset($_POST['name']) ? $_POST['name'] : 'anonymous';
@@ -1341,7 +1341,7 @@ function dwqa_vote_best_answer_button(){
     if( $best_answer == get_the_ID() || ( is_user_logged_in() && ( $current_user->ID == $question->post_author || current_user_can( 'edit_posts' ) ) ) ) {
     ?>
     <div class="entry-vote-best <?php echo $best_answer == get_the_ID() ? 'active' : ''; ?>" <?php echo $data ?> >
-        <a href="javascript:void(0);" title="<?php _e('Choose as best answer','dwqa') ?>">
+        <a href="javascript:void(0);" title="<?php _e('Choose as the best answer','dwqa') ?>">
             <div class="entry-vote-best-bg"></div>
             <i class="icon-thumbs-up"></i>
         </a>

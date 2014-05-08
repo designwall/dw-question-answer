@@ -365,7 +365,7 @@ class DWQA_Filter {
         if( ! isset($_POST['title']) ) {
             wp_send_json_error( array( 
                 'error' => 'empty title',
-                'message' => __( 'Search query are empty', 'dwqa' ) 
+                'message' => __( 'Search query is empty', 'dwqa' ) 
             ) ) ;
         }
 

@@ -185,7 +185,7 @@ function dwqa_new_answer_nofity( $answer_id ){
 
             $follow_subject = get_option( 'dwqa_subscrible_new_answer_followers_email_subject' );
             if( ! $follow_subject ) {
-                $follow_subject = __('You got new answer for your followed question','dwqa');
+                $follow_subject = __('You have a new answer for your followed question','dwqa');
             }
             $follow_subject = str_replace('{site_name}', get_bloginfo( 'name' ), $follow_subject);
             $follow_subject = str_replace( '{question_title}', $question->post_title, $follow_subject);

@@ -96,7 +96,7 @@
     //Create answer form
     global $dwqa_options;
     if( dwqa_is_closed( $question_id ) ) {
-        echo '<p class="alert">'.__('This question has been closed','dwqa').'</p>';
+        echo '<p class="alert">'.__('This question is now closed','dwqa').'</p>';
         return false;
     }
 

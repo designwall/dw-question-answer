@@ -6,7 +6,7 @@ function dwqa_question_registration_setting_display(){
     global  $dwqa_general_settings;
     ?>
     <p><input type="checkbox" name="dwqa_options[answer-registration]" value="true" <?php checked( true, isset($dwqa_general_settings['answer-registration']) ? (bool) $dwqa_general_settings['answer-registration'] : false ) ; ?> id="dwqa_option_answer_registation">
-    <label for="dwqa_option_answer_registation"><span class="description"><?php _e('Login required. No anonymous allowed','dwqa'); ?></span></label></p>
+    <label for="dwqa_option_answer_registation"><span class="description"><?php _e('Login required. No anonymous post allowed','dwqa'); ?></span></label></p>
     <?php
 }
 
@@ -34,7 +34,7 @@ function dwqa_question_new_time_frame_display(){
 
 function dwqa_question_overdue_time_frame_display(){ 
     global  $dwqa_general_settings;
-    echo '<p><input type="text" name="dwqa_options[question-overdue-time-frame]" id="dwqa_options_question_new_time_frame" value="'.( isset( $dwqa_general_settings['question-overdue-time-frame'] ) ? $dwqa_general_settings['question-overdue-time-frame'] : 2 ).'" class="small-text" /><span class="description"> '.__('days','dwqa').'<span title="'.__('A Question will be marked as overdue if passes this period of time, starting from the date the question was submitted','dwqa').'">(?)</span></span></p>';
+    echo '<p><input type="text" name="dwqa_options[question-overdue-time-frame]" id="dwqa_options_question_new_time_frame" value="'.( isset( $dwqa_general_settings['question-overdue-time-frame'] ) ? $dwqa_general_settings['question-overdue-time-frame'] : 2 ).'" class="small-text" /><span class="description"> '.__('days','dwqa').'<span title="'.__('A Question will be marked as overdue if it passes this period of time, starting from the time the question was submitted','dwqa').'">(?)</span></span></p>';
 }
 
 function dwqa_submit_question_page_display(){
@@ -661,7 +661,7 @@ class DWQA_Settings {
 
         add_settings_field( 
             'dwqa_options[captcha-in-question]', 
-            __('Captcha in Submit Question Page', 'dwqa'), 
+            __('Captcha on Submit Question Page', 'dwqa'), 
             'dwqa_captcha_in_question_display', 
             'dwqa-settings', 
             'dwqa-captcha-settings'
@@ -669,7 +669,7 @@ class DWQA_Settings {
 
         add_settings_field( 
             'dwqa_options[captcha-in-single-question]', 
-            __('Captcha in Single Question Page', 'dwqa'), 
+            __('Captcha on Single Question Page', 'dwqa'), 
             'dwqa_captcha_in_single_question_display', 
             'dwqa-settings', 
             'dwqa-captcha-settings'

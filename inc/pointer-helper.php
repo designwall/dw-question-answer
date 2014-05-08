@@ -65,7 +65,7 @@ function dwqa_register_pointer_testing( $p ) {
         'options' => array(
             'content' => sprintf( '<h3> %s </h3> <p> %s </p>',
                 __( 'Config your support channel' ,'dwqa'),
-                __( 'Change comment setting, and create submit question page.','dwqa')
+                __( 'Change comment settings, and create the Submit question page.','dwqa')
             ),
             'position' => array( 'edge' => 'left', 'align' => 'middle' )
         )

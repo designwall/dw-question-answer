@@ -165,30 +165,21 @@ class DWQA_Filter {
             'post__not_in'      => $sticky_questions,
             'post_status'       => $status
         );
+
+        if( is_user_logged_in() ) {
+            $args['perm']   = 'readable';
+        }
+
         $args['order'] = ( $this->filter['order'] && $this->filter['order'] != 'ASC' ? 'DESC' : 'ASC' );
 
         switch ( $this->filter['type'] ) {
             case 'views':
                 $args['meta_key'] = '_dwqa_views';
                 $args['orderby'] = 'meta_value_num';
-
-                // $args['meta_query']['relation'] = 'OR';
-                // $args['meta_query'][] = array(
-                //    'key' => '_dwqa_views',
-                //    'value'  => 0,
-                //    'compare' => 'NOT EXISTS',
-                // ); 
                 break;
             case 'votes':
                 $args['meta_key'] = '_dwqa_votes';
                 $args['orderby'] = 'meta_value_num';
-                
-                // $args['meta_query']['relation'] = 'OR';
-                // $args['meta_query'][] = array(
-                //    'key' => '_dwqa_votes',
-                //    'value'  => 0,
-                //    'compare' => 'NOT EXISTS',
-                // ); 
                 break;
             default : 
                 break;

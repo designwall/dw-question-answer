@@ -1805,4 +1805,50 @@ function dwqa_hook_on_update_anonymous_post( $data, $postarr ) {
 }
 add_filter( 'wp_insert_post_data', 'dwqa_hook_on_update_anonymous_post', 10, 2 );
 
+
+function dwqa_anonymous_reload_hidden_single_post($posts){
+    global $wp_query, $wpdb;
+
+    if (is_user_logged_in()) 
+        return $posts;
+    //user is not logged
+
+    if(!is_single()) 
+        return $posts;
+    //this is a single post
+
+    if (!$wp_query->is_main_query())
+        return $posts;
+    //this is the main query
+
+    if($wp_query->post_count) 
+        return $posts;
+
+    if( ! isset($wp_query->query['post_type']) || $wp_query->query['post_type'] != 'dwqa-question' ) {
+        return $posts;
+    }
+
+    $questions = $wpdb->get_results($wp_query->request);
+    $question = $questions[0];
+
+    //this is a question which was submitted by anonymous user
+    if( ! dwqa_is_anonymous( $question->ID ) ) 
+        return $posts;
+
+    //This is a pending question
+    if( 'pending' != get_post_status( $question->ID ) )
+        return $posts;
+
+    $anonymous_author_view = get_post_meta( $question->ID, '_anonymous_author_view', true );
+    $anonymous_author_view = $anonymous_author_view  ? $anonymous_author_view  : 0;
+
+    if( $anonymous_author_view > 3 ) 
+        return $posts;
+    $anonymous_author_view++;
+    update_post_meta( $question->ID, '_anonymous_author_view', $anonymous_author_view );
+
+    return $questions;
+}
+add_filter('the_posts','dwqa_anonymous_reload_hidden_single_post');
+
 ?>

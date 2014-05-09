@@ -523,7 +523,8 @@ function dwqa_submit_question(){
 
                 if( ! is_wp_error( $new_question ) ) {
                     if( $is_anonymous ) {
-                        update_post_meta( $new_question, '_dwqa_is_anonymous', $question_author_email );
+                        update_post_meta( $new_question, '_dwqa_anonymous_email', $question_author_email );
+                        update_post_meta( $new_question, '_dwqa_is_anonymous', true );
                     }
                     exit( wp_safe_redirect( get_permalink( $new_question ) ) );
                 } else {

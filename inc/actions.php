@@ -1796,4 +1796,13 @@ function dwqa_hook_on_remove_question( $post_id ){
 }
 add_action( 'before_delete_post', 'dwqa_hook_on_remove_question' );
 
+
+function dwqa_hook_on_update_anonymous_post( $data, $postarr ) {
+    if( isset($postarr['ID']) && get_post_meta( $postarr['ID'], '_dwqa_is_anonymous', true ) ) {
+        $data['post_author'] = 0;
+    } 
+    return $data;
+}
+add_filter( 'wp_insert_post_data', 'dwqa_hook_on_update_anonymous_post', 10, 2 );
+
 ?>

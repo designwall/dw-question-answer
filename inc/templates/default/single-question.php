@@ -18,7 +18,7 @@
                     <header class="dwqa-header">
                         <h1 class="dwqa-title"><?php the_title(); ?></h1>
                         <?php if( $post_status == 'draft' || $post_status == 'pending' ) : ?>
-                        <div class="dwqa-alert alert"><?php _e('Your question has been submitted and is currently awaiting approval','dwqa'); ?></div>
+                        <div class="dwqa-alert alert"><?php echo $current_user->ID == $post->post_author ? __('Your question has been submitted and is currently awaiting approval','dwqa') : __('This question is currently awaiting approval','dwqa'); ?></div>
                         <?php endif; ?>
                         <div class="dwqa-meta">
                             <span class="dwqa-vote" data-type="question" data-nonce="<?php echo wp_create_nonce( '_dwqa_question_vote_nonce' ) ?>" data-question="<?php echo $post_id; ?>" >

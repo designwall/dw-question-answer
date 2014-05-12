@@ -53,13 +53,24 @@ jQuery(function($) {
         var username_signup = t.find('#user-name-signup');
         var password = t.find('#user-password');
         var username = t.find('#user-name');
+        var anonymous = t.find('#_dwqa_anonymous_email');
+        var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+        if( anonymous.length > 0 ) {
+            if (!regex.test(anonymous.val()) || anonymous.val() == anonymous.attr('placeholder')) {
+                anonymous.closest('p').fadeIn('slow');
+                anonymous.addClass('required');
+                returnDefault(anonymous);
+                flag = false;
+            }
+
+        }
         if ($('#login-type').length > 0) {
             if ($('#login-type').val() == 'sign-up') {
                 username.attr('disabled', 'disabled');
                 password.attr('disabled', 'disabled');
                 username_signup.removeAttr('disabled');
                 username_signup.removeAttr('disabled');
-                var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 
                 if (!regex.test(email_field.val()) || email_field.val() == email_field.attr('placeholder')) {
                     email_field.closest('p').fadeIn('slow');

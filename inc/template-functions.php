@@ -178,9 +178,9 @@ function dwqa_require_field_submit_question(){
     </div>
     <?php } else if( ! is_user_logged_in() && dwqa_current_user_can('post_question' ) ) { ?>
     <div class="user-email">
-        <label for="user-email"><?php _e('Your email','dwqa') ?> <span class="description" title="<?php _e('Enter your email to receive notification regarding your question. Your email is safe with us and will not be published.','dwqa') ?>"><?php _e('(Optional)','dwqa') ?></span></label> 
-        <input type="email" name="_dwqa_anonymous_email" id="_dwqa_anonymous_email" class="large-text" placeholder="<?php _e('Email address ...','dwqa') ?>"> 
-        
+        <label for="user-email" title="<?php _e('Enter your email to receive notification regarding your question. Your email is safe with us and will not be published.','dwqa') ?>"><?php _e('Your email *','dwqa') ?></label> 
+        <input type="email" name="_dwqa_anonymous_email" id="_dwqa_anonymous_email" class="large-text" placeholder="<?php _e('Email address ...','dwqa') ?>" required> 
+        <span><?php printf( __('or <strong><a href="%s">login</a></strong> to submit question', 'dwqa'), wp_login_url( apply_filters( 'the_permalink', get_permalink( get_the_ID() ) ) ) ) ?></span>
     </div>
     <?php  }
 }

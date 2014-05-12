@@ -7,7 +7,7 @@ if ( post_password_required() )
     return;
 ?>
     <?php $count = get_comment_count( get_the_ID() ); ?>
-    <?php if ( get_comment_pages_count( get_the_ID() ) > 1 && get_option( 'page_comments' )  ) : ?>
+    <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' )  ) : ?>
     <div class="dwqa-comments-more">
         <span class="dwqa-comments-more-link" data-post="<?php echo get_the_ID(); ?>"><a href="javascript:void(0);"><?php _e('View previous comments','dwqa') ?></a></span>
         <span class="dwqa-comments-more-pages"><?php echo get_option( 'comments_per_page' ) . ' ' . __('of','dwqa') . ' ' . $count['approved'] ; ?></span>

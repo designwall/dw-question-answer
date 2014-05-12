@@ -54,6 +54,24 @@ function dwqa_submit_question_page_display(){
     </p>
     <?php
 }
+
+function dwqa_404_page_display(){
+    global  $dwqa_general_settings;
+    $submit_question_page = isset($dwqa_general_settings['pages']['404']) ? $dwqa_general_settings['pages']['404'] : 0; 
+    ?>
+    <p>
+        <?php
+            wp_dropdown_pages( array(
+                'name'              => 'dwqa_options[pages][404]',
+                'show_option_none'  => __('Select 404 DWQA Page','dwqa'),
+                'option_none_value' => 0,
+                'selected'          => $submit_question_page
+            ) );
+        ?>
+        <span class="description"><?php _e('This page will be redirected when users without authority click on a private question. You can customize the message of this page in.If not, a default 404 page will be used.','dwqa') ?></span>
+    </p>
+    <?php
+}
 function dwqa_email_template_settings_display(){
     global $dwqa_options;
     $editor_content = isset( $dwqa_options['subscribe']['email-template'] ) ? $dwqa_options['subscribe']['email-template'] : '';
@@ -623,6 +641,14 @@ class DWQA_Settings {
             'dwqa_options[enable-review-question]', 
             __('Review Question', 'dwqa'), 
             'dwqa_enable_review_question_mode', 
+            'dwqa-settings', 
+            'dwqa-general-settings'
+        );
+
+        add_settings_field( 
+            'dwqa_options[pages][404]', 
+            __('DWQA 404 Page', 'dwqa'), 
+            'dwqa_404_page_display', 
             'dwqa-settings', 
             'dwqa-general-settings'
         );

@@ -3,7 +3,7 @@ Contributors: designwall, Farid-Gh, scheunemann, gciprian, Ahmet Kolcu, Astroten
 Tags: question, answer, support, quora, stackoverflow
 Requires at least: 3.0.1
 Tested up to: 3.8
-Stable tag: 1.2.5
+Stable tag: 1.2.6
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -69,6 +69,13 @@ Visit our [Github](https://github.com/designwall/dw-question-answer) project or 
 5. Back-end settings
 
 == Changelog ==
+
+= 1.2.6 =
+* New: Allow Anonymous post question
+* New: Allow Review new questions before publishing feature
+* New: Thai language supported
+* New: Hindi language supported
+* Update: Update default language file
 
 = 1.2.5 =
 * New: Arabic supported

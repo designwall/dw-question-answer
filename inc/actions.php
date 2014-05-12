@@ -1807,12 +1807,11 @@ add_filter( 'wp_insert_post_data', 'dwqa_hook_on_update_anonymous_post', 10, 2 )
 
 
 function dwqa_anonymous_reload_hidden_single_post($posts){
-    global $wp_query, $wpdb;
+    global $wp_query, $wpdb, $dwqa_options;
 
     if (is_user_logged_in()) 
         return $posts;
     //user is not logged
-
     if(!is_single()) 
         return $posts;
     //this is a single post
@@ -1831,14 +1830,23 @@ function dwqa_anonymous_reload_hidden_single_post($posts){
     $questions = $wpdb->get_results($wp_query->request);
     $question = $questions[0];
 
+    //This is a pending question
+    if( 'pending' != get_post_status( $question->ID ) ) {
+        $warning_page_id = isset($dwqa_options['pages']['404']) ? $dwqa_options['pages']['404'] : false;
+        if( ! dwqa_current_user_can('edit_question') && $warning_page_id ) {
+            $query = $wpdb->prepare( "SELECT * FROM ".$wpdb->prefix."posts WHERE ID = %d ",
+                $warning_page_id
+            );
+            $warning_page = $wpdb->get_results( $query );
+            return $warning_page;
+        }
+        return $posts;
+    }
+
     //this is a question which was submitted by anonymous user
     if( ! dwqa_is_anonymous( $question->ID ) ) 
         return $posts;
-
-    //This is a pending question
-    if( 'pending' != get_post_status( $question->ID ) )
-        return $posts;
-
+        
     $anonymous_author_view = get_post_meta( $question->ID, '_anonymous_author_view', true );
     $anonymous_author_view = $anonymous_author_view  ? $anonymous_author_view  : 0;
 

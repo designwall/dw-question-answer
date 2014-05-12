@@ -1833,7 +1833,7 @@ function dwqa_anonymous_reload_hidden_single_post($posts){
     //This is a pending question
     if( 'pending' != get_post_status( $question->ID ) ) {
         $warning_page_id = isset($dwqa_options['pages']['404']) ? $dwqa_options['pages']['404'] : false;
-        if( ! dwqa_current_user_can('edit_question') && $warning_page_id ) {
+        if( ! dwqa_current_user_can('read_question') && $warning_page_id ) {
             $query = $wpdb->prepare( "SELECT * FROM ".$wpdb->prefix."posts WHERE ID = %d ",
                 $warning_page_id
             );

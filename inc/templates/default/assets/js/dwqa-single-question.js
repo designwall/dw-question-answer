@@ -164,6 +164,8 @@ jQuery(function($) {
                 } else {
                     t.parent().find('.name-error').remove();
                 }
+            } else {
+                name = true;
             }
 
             if ($(this).find('[name="email"]').length > 0) {

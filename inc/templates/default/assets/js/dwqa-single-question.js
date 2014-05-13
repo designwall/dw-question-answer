@@ -153,20 +153,7 @@ jQuery(function($) {
             url = '';
 
         if (!dwqa.is_logged_in) {
-            if (t.find('[name="author"]').length > 0) {
-                name = t.find('[name="author"]').val();
-                if (name.length <= 0) {
-                    if (t.parent().find('.name-error').length > 0) {
-                        t.parent().find('.name-error').text(dwqa.error_valid_name).fadeIn();
-                    } else {
-                        t.before('<div class="alert alert-error name-error">' + dwqa.error_valid_name + '</div>');
-                    }
-                } else {
-                    t.parent().find('.name-error').remove();
-                }
-            } else {
-                name = true;
-            }
+            
 
             if ($(this).find('[name="email"]').length > 0) {
                 email = $(this).find('[name="email"]').val();
@@ -182,6 +169,22 @@ jQuery(function($) {
                 } else {
                     t.parent().find('.email-error').remove();
                 }
+            }
+
+            if (t.find('[name="author"]').length > 0) {
+                name = t.find('[name="author"]').val();
+                if (name.length <= 0) {
+                    if (t.parent().find('.name-error').length > 0) {
+                        t.parent().find('.name-error').text(dwqa.error_valid_name).fadeIn();
+                    } else {
+                        t.before('<div class="alert alert-error name-error">' + dwqa.error_valid_name + '</div>');
+                    }
+                } else {
+                    t.parent().find('.name-error').remove();
+                }
+            } else {
+                var email_split = email.split('@');
+                name = email_split[0];
             }
 
             if (!name || !email) {

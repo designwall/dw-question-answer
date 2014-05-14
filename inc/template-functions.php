@@ -39,6 +39,7 @@ function dwqa_generate_template_for_submit_question_page($template) {
 }
 add_filter( 'page_template', 'dwqa_generate_template_for_submit_question_page', 20 );
 
+
 /**
  * Override template path of comment form in singe page for question custom post type
  * @param  string $comment_template Template path 
@@ -70,6 +71,8 @@ function dwqa_generate_template_for_questions_list_page($template) {
     return $template;
 }
 add_filter( 'taxonomy_template', 
+    'dwqa_generate_template_for_questions_list_page', 20 );
+add_filter( 'archive_template', 
     'dwqa_generate_template_for_questions_list_page', 20 );
 /**
  * Print class for question detail container

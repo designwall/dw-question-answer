@@ -3,7 +3,7 @@ Contributors: designwall, Farid-Gh, scheunemann, gciprian, Ahmet Kolcu, Astroten
 Tags: question, answer, support, quora, stackoverflow
 Requires at least: 3.0.1
 Tested up to: 3.8
-Stable tag: 1.2.6
+Stable tag: 1.2.7
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -46,7 +46,6 @@ We provide support both on support forum on WordPress.org and our [support page]
 * Romanian (ro_RO) - by [gciprian](https://github.com/gciprian)
 * Russian (ru_RU) - by [Roman Astrotenko](http://www.designwall.com/profile/shtirlitz/)
 * Spanish (es_ES) - by David Robles, [Developez](https://github.com/developez)
-* Turkish (tr_TR) - by Ahmet Kolcu
 * Turkish (tr_TR) - by Ahmet Kolcu
 * Thai (th) - by [Varut Vutipongsatorn](http://www.arika.co/questions)
 * Hindi (hi_IN) - by [Gaurav Tiwari](http://gauravtiwari.org)

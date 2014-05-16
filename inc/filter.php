@@ -365,15 +365,15 @@ class DWQA_Filter {
             $status = array( 'publish', 'private' );
         }
 
-        query_posts( array(
+        $query = new WP_Query( array(
             'post_type' => 'dwqa-question',
             'posts_per_page'    => 6,
             'post_status'   => $status,
             's'         => $_POST['title']
         )  );
-        if( have_posts() ) {
+        if( $query->have_posts() ) {
             $html = '';
-            while (have_posts()) { the_post();
+            while ($query->have_posts()) { $query->the_post();
                 $words = explode(' ', $_POST['title']);
                 $title = get_the_title();
                 foreach ($words as $w) {

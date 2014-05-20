@@ -18,8 +18,7 @@ class DWQA_Filter {
             'order'             => 'DESC'
         );  
 
-    // Methods 
-
+    // Methods
     
     /**
      * AJAX: To make filter questions for plugins
@@ -237,7 +236,7 @@ class DWQA_Filter {
             );
         }
 
-        if( isset( $this->filter['title'] ) && $this->filter['title'] ) {
+        if( isset( $this->filter['title'] ) && $this->filter['title'] && $this->filter['title'] !== 'Search'  ) {
             $args['s'] = $this->filter['title'];
         }
 

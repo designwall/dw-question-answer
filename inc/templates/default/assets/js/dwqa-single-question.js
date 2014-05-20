@@ -512,7 +512,7 @@ jQuery(function($) {
                 settings.editor_selector = id; // deprecated in TinyMCE 4.x
                 settings.selector = '#' + id;
                 //init tinymce
-                tinymce.init(settings);
+                tinyMCE.init(settings);
                 editor.slideDown();
                 t.data('on-editor', true);
             }
@@ -897,7 +897,7 @@ jQuery(function($) {
                     settings.editor_selector = id; // deprecated in TinyMCE 4.x
                     settings.selector = '#' + id;
                     //init tinymce
-                    tinymce.init(settings);
+                    tinyMCE.init(settings);
                     editor.slideDown();
                     t.data('on-editor', true);
 

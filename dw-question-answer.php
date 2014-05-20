@@ -20,6 +20,7 @@ if( !defined( 'DWQA_URI' ) ) {
 require_once DWQA_DIR  . 'inc/template-functions.php';
 require_once DWQA_DIR  . 'inc/settings.php';
 require_once DWQA_DIR  . 'inc/actions.php';
+require_once DWQA_DIR  . 'inc/actions-vote.php';
 require_once DWQA_DIR  . 'inc/filter.php';
 require_once DWQA_DIR  . 'inc/metaboxes.php';
 include_once DWQA_DIR  . 'inc/notification.php';
@@ -33,7 +34,12 @@ include_once DWQA_DIR  . 'inc/beta.php';
 include_once DWQA_DIR  . 'inc/shortcodes.php';
 include_once DWQA_DIR  . 'inc/status.php';
 include_once DWQA_DIR  . 'inc/roles.php';
-include_once DWQA_DIR  . 'inc/widgets.php';
+
+include_once DWQA_DIR  . 'inc/widgets/related-question.php';
+include_once DWQA_DIR  . 'inc/widgets/popular-question.php';
+include_once DWQA_DIR  . 'inc/widgets/latest-question.php';
+include_once DWQA_DIR  . 'inc/widgets/list-closed-question.php';
+
 include_once DWQA_DIR  . 'inc/deprecated.php';
 
 if( ! defined('RECAPTCHA_VERIFY_SERVER') ) {
@@ -159,6 +165,7 @@ function dwqa_plugin_init(){
         'supports' => array( 'title', 'editor', 'comments', 'author', 'page-attributes' )
     ); 
     register_post_type( 'dwqa-question', $question_args );
+    
     /* Question Posttype Registration */
     $answer_labels = array(
         'name' => _x('Answer', 'post type general name'),
@@ -191,7 +198,6 @@ function dwqa_plugin_init(){
     ); 
     register_post_type( 'dwqa-answer', $answer );
 
-
     // Question Taxonomies ( Tag, Category register for Question Posttype)
     // Question Categories
     $question_category_labels = array(
@@ -209,8 +215,7 @@ function dwqa_plugin_init(){
     );  
 
 
-    register_taxonomy( 'dwqa-question_category', array( 'dwqa-question' ),
-        array(
+    register_taxonomy( 'dwqa-question_category', array( 'dwqa-question' ), array(
             'hierarchical'  => true,
             'labels'        => $question_category_labels,
             'show_ui'       => true,
@@ -219,8 +224,7 @@ function dwqa_plugin_init(){
                 'slug'          => $question_category_rewrite,
                 'with_front'    => false
             )
-        ) 
-    );
+    ) );
 
     // Question Tags
     $question_tag_labels = array(
@@ -241,18 +245,17 @@ function dwqa_plugin_init(){
         'menu_name' => __( 'Question Tags' ),
     ); 
 
-    register_taxonomy('dwqa-question_tag', array('dwqa-question'),
-        array(
-            'hierarchical'  => false,
-            'labels'        => $question_tag_labels,
-            'show_ui'       => true,
-            'update_count_callback' => '_update_post_term_count',
-            'query_var'     => true,
-            'rewrite'       => array( 
-                'slug' => $question_tag_rewrite,
-                'with_front'    => false
-            )
-        ) );
+    register_taxonomy('dwqa-question_tag', array('dwqa-question'), array(
+        'hierarchical'  => false,
+        'labels'        => $question_tag_labels,
+        'show_ui'       => true,
+        'update_count_callback' => '_update_post_term_count',
+        'query_var'     => true,
+        'rewrite'       => array( 
+            'slug' => $question_tag_rewrite,
+            'with_front'    => false
+        )
+    ) );
 
     // Create default category for dwqa question type when dwqa plugin is actived 
     $cats = get_categories ( array(

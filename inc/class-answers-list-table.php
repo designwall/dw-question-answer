@@ -85,7 +85,7 @@ class DWQA_answer_list_table extends WP_List_Table {
         	case 'author':
         		$user_info = get_userdata( $item->post_author );
                 if( ! $user_info ) {
-                    echo '<strong>Anonymous</strong>';
+                    echo '<strong>'.__('Anonymous','dwqa').'</strong>';
                 } else {
                     echo '<strong>'.get_avatar( $item->post_author, $size = '32' ) . ' ' .$user_info->display_name . '</strong>';
                 }

@@ -24,9 +24,9 @@ function dwqa_question_print_status( $question_id, $echo = true ){
     }
 
     if( $echo ) {
-        echo '<span class="dwqa-status status-'.$status.'">'.strtoupper($status).'</span>';    
+        echo '<span  data-toggle="tooltip" data-placement="left" title="'.strtoupper($status).'" class="dwqa-status status-'.$status.'">'.strtoupper($status).'</span>';    
     }
-    return '<span class="entry-status status-'.$status.'">'.strtoupper($status).'</span>';
+    return '<span  data-toggle="tooltip" data-placement="left" class="entry-status title="'.strtoupper($status).'" status-'.$status.'">'.strtoupper($status).'</span>';
 }
 
 // Detect resolved question

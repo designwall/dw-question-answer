@@ -11,9 +11,9 @@ function dwqa_get_latest_action_date( $question = false ){
 		setup_postdata( $post );
 		$date = apply_filters( 'get_the_date', $latest_answer->post_date, get_option( 'date_format' ) );
 		wp_reset_postdata();
-		return $date;
+		return sprintf( __('answered %s by','dwqa'), $date);
 	}
-	return get_the_date();
+	return sprintf( __('asked %s by','dwqa'), get_the_date());
 }
 
 

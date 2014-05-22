@@ -181,6 +181,7 @@ class DWQA_Filter {
                 $args['orderby'] = 'meta_value_num';
                 break;
             default : 
+                $args['orderby'] = 'modified';
                 break;
         }
 
@@ -245,9 +246,19 @@ class DWQA_Filter {
     }
 
     function edit_posts_orderby($orderby_statement) {
-        if( $this->filter['type'] == 'answers' ) {
-            $order = ( $this->filter['order'] && $this->filter['order'] != 'ASC' ? 'DESC' : 'ASC' );
-            $orderby_statement = "count_answer.dwqa_answers ". $order;
+        switch ($this->filter['type']) {
+            case 'answers':
+                $order = ( $this->filter['order'] && $this->filter['order'] != 'ASC' ? 'DESC' : 'ASC' );
+                $orderby_statement = "count_answer.dwqa_answers ". $order;
+                break;
+            case 'views';
+            case 'votes';
+                break;
+            
+            default:
+                $order = ( $this->filter['order'] && $this->filter['order'] != 'ASC' ? 'DESC' : 'ASC' );
+                $orderby_statement = "B.post_modified ". $order;
+                break;
         }
         return $orderby_statement;
     }
@@ -255,15 +266,33 @@ class DWQA_Filter {
     // Join for searching metadata
     function join_postmeta_count_answers($join) {
         global $wp_query, $wpdb;
-
-        if( $this->filter['type'] == 'answers' ) {
-            $join .= "LEFT JOIN 
-                    ( SELECT meta_value AS question, COUNT( * ) AS dwqa_answers
-                    FROM $wpdb->postmeta
-                    WHERE meta_key =  '_question'
-                    GROUP BY meta_value ) AS count_answer
-                ON $wpdb->posts.ID = count_answer.question
-            ";
+        switch ($this->filter['type']) {
+            case 'answers':
+                    $join .= "LEFT JOIN 
+                            ( SELECT meta_value AS question, COUNT( * ) AS dwqa_answers
+                            FROM $wpdb->postmeta
+                            WHERE meta_key =  '_question'
+                            GROUP BY meta_value ) AS count_answer
+                        ON $wpdb->posts.ID = count_answer.question
+                    ";
+                break;
+            case 'views';
+            case 'votes';
+                break;
+            default:
+                $join .= "LEFT JOIN 
+                            (SELECT `wp_posts`.ID as question, COALESCE(A.post_modified, `wp_posts`.post_modified) as post_modified
+                                FROM wp_posts LEFT JOIN 
+                                    ( SELECT wp_postmeta.meta_value as question, max( wp_posts.post_modified) as post_modified 
+                                        FROM wp_posts LEFT JOIN wp_postmeta
+                                            ON wp_posts.ID = wp_postmeta.post_id AND wp_postmeta.meta_key = '_question'
+                                        WHERE ( wp_posts.post_status = 'publish' ) 
+                                            AND wp_posts.post_type = 'dwqa-answer'
+                                        GROUP BY question ) as A
+                                ON wp_posts.ID = A.question
+                                WHERE wp_posts.post_type = 'dwqa-question'  ) AS B 
+                            ON $wpdb->posts.ID = B.question ";
+                break;
         }
         return $join;
     }

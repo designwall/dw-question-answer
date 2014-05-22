@@ -6,11 +6,7 @@ function dwqa_get_latest_action_date( $question = false ){
 	}
 	$latest_answer = dwqa_get_latest_answer( $question );
 	if( $latest_answer ) {
-		global $post;
-		$post = $latest_answer;
-		setup_postdata( $post );
-		$date = apply_filters( 'get_the_date', $latest_answer->post_date, get_option( 'date_format' ) );
-		wp_reset_postdata();
+		$date = dwqa_human_time_diff( strtotime( $latest_answer->post_date ), false, get_option( 'date_format' ) );
 		return sprintf( __('answered %s','dwqa'), $date);
 	}
 	return sprintf( __('asked %s','dwqa'), get_the_date());

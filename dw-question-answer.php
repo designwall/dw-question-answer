@@ -20,6 +20,7 @@ if( !defined( 'DWQA_URI' ) ) {
 require_once DWQA_DIR  . 'inc/template-functions.php';
 require_once DWQA_DIR  . 'inc/settings.php';
 require_once DWQA_DIR  . 'inc/actions.php';
+require_once DWQA_DIR  . 'inc/actions-question.php';
 require_once DWQA_DIR  . 'inc/actions-vote.php';
 require_once DWQA_DIR  . 'inc/filter.php';
 require_once DWQA_DIR  . 'inc/metaboxes.php';

@@ -139,7 +139,7 @@ function dwqa_have_new_reply( $question_id = false ){
             return 'staff-answered';
         } else {
             //Is open
-            return strtotime($latest_answer['post_date']);
+            return strtotime($latest_answer->post_date);
         }
     }
     return false;
@@ -222,7 +222,7 @@ function dwqa_get_latest_answer( $question_id ){
         ),
         'post_status'    => 'publish,private'
     );
-    $recent_answers = wp_get_recent_posts($args);
+    $recent_answers = wp_get_recent_posts($args, 'OBJECT');
     if( count($recent_answers) > 0 ) {
         return $recent_answers[0];    
     }
@@ -239,11 +239,11 @@ function dwqa_get_latest_answer( $question_id ){
 function dwqa_is_staff_answer( $answer ){
     if( ! $answer ) {
         $answer = get_post( get_the_ID() );
-        if( 'dwqa-answer' != $answer['post_status'] ) {
+        if( 'dwqa-answer' != $answer->post_status ) {
             return false;
         }
     }
-    if( user_can( $answer['post_author'], 'edit_posts' ) ) {
+    if( user_can( $answer->post_author, 'edit_posts' ) ) {
         return true;
     }
     return false;

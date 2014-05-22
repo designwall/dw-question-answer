@@ -25,7 +25,7 @@
                         $author_link = __('Anonymous','dwqa');
                     }
                     echo __('by','dwqa') . ' ' . $author_link;
-                ?>&nbsp;&nbsp;<strong>&sdot;</strong>&nbsp;&nbsp;<span><?php echo get_the_date(); ?></span>  
+                ?>&nbsp;&nbsp;<strong>&sdot;</strong>&nbsp;&nbsp;<span><?php echo dwqa_get_latest_action_date(); ?></span>  
                 <?php echo get_the_term_list( $post_id, 'dwqa-question_category', '&nbsp;&nbsp;<strong>&sdot;</strong>&nbsp;&nbsp;<span>Category: ', ', ', '</span>' ); ?>    
 
                 <?php do_action( 'dwqa_question_meta' ); ?>  

@@ -256,8 +256,6 @@ class DWQA_Filter {
                 break;
             
             default:
-                $order = ( $this->filter['order'] && $this->filter['order'] != 'ASC' ? 'DESC' : 'ASC' );
-                $orderby_statement = "B.post_modified ". $order;
                 break;
         }
         return $orderby_statement;
@@ -280,18 +278,6 @@ class DWQA_Filter {
             case 'votes';
                 break;
             default:
-                $join .= "LEFT JOIN 
-                            (SELECT `wp_posts`.ID as question, COALESCE(A.post_modified, `wp_posts`.post_modified) as post_modified
-                                FROM wp_posts LEFT JOIN 
-                                    ( SELECT wp_postmeta.meta_value as question, max( wp_posts.post_modified) as post_modified 
-                                        FROM wp_posts LEFT JOIN wp_postmeta
-                                            ON wp_posts.ID = wp_postmeta.post_id AND wp_postmeta.meta_key = '_question'
-                                        WHERE ( wp_posts.post_status = 'publish' ) 
-                                            AND wp_posts.post_type = 'dwqa-answer'
-                                        GROUP BY question ) as A
-                                ON wp_posts.ID = A.question
-                                WHERE wp_posts.post_type = 'dwqa-question'  ) AS B 
-                            ON $wpdb->posts.ID = B.question ";
                 break;
         }
         return $join;

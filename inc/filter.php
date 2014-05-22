@@ -281,16 +281,16 @@ class DWQA_Filter {
                 break;
             default:
                 $join .= "LEFT JOIN 
-                            (SELECT `wp_posts`.ID as question, COALESCE(A.post_modified, `wp_posts`.post_modified) as post_modified
-                                FROM wp_posts LEFT JOIN 
-                                    ( SELECT wp_postmeta.meta_value as question, max( wp_posts.post_modified) as post_modified 
-                                        FROM wp_posts LEFT JOIN wp_postmeta
-                                            ON wp_posts.ID = wp_postmeta.post_id AND wp_postmeta.meta_key = '_question'
-                                        WHERE ( wp_posts.post_status = 'publish' ) 
-                                            AND wp_posts.post_type = 'dwqa-answer'
+                            (SELECT `$wpdb->posts`.ID as question, COALESCE(A.post_modified, `$wpdb->posts`.post_modified) as post_modified
+                                FROM $wpdb->posts LEFT JOIN 
+                                    ( SELECT $wpdb->postmeta.meta_value as question, max( $wpdb->posts.post_modified) as post_modified 
+                                        FROM $wpdb->posts LEFT JOIN $wpdb->postmeta
+                                            ON $wpdb->posts.ID = $wpdb->postmeta.post_id AND $wpdb->postmeta.meta_key = '_question'
+                                        WHERE ( $wpdb->posts.post_status = 'publish' ) 
+                                            AND $wpdb->posts.post_type = 'dwqa-answer'
                                         GROUP BY question ) as A
-                                ON wp_posts.ID = A.question
-                                WHERE wp_posts.post_type = 'dwqa-question'  ) AS B 
+                                ON $wpdb->posts.ID = A.question
+                                WHERE $wpdb->posts.post_type = 'dwqa-question'  ) AS B 
                             ON $wpdb->posts.ID = B.question ";
                 break;
         }

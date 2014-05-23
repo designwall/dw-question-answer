@@ -509,9 +509,11 @@ jQuery(function($) {
 
                 settings.elements = id;
                 settings.body_class = id + ' post-type-dwqa-answer';
-                settings.editor_selector = id; // deprecated in TinyMCE 4.x
+                //settings.editor_selector = id; // deprecated in TinyMCE 4.x
                 settings.selector = '#' + id;
                 //init tinymce
+                
+                tinymce.remove( '#' + id );
                 tinyMCE.init(settings);
                 editor.slideDown();
                 t.data('on-editor', true);

@@ -1,15 +1,33 @@
 <?php  
 
-function dwqa_get_latest_action_date( $question = false ){
+function dwqa_get_latest_action_date( $question = false, $before = '<span>', $after = '</span>' ){
 	if( !$question ) {
 		$question = get_the_ID();
 	}
+	$message = '';
 	$latest_answer = dwqa_get_latest_answer( $question );
+	$post_id = $latest_answer ? $latest_answer->ID : $question;
+
+	$author_id = get_post_field( 'post_author', $post_id );
+
+	if( $author_id == 0 || dwqa_is_anonymous( $post_id ) ) {
+		$author_link = __('Anonymous','dwqa');
+	} else {
+		$display_name = get_the_author_meta( 'display_name', $author_id );
+		$author_link = sprintf(
+            '<span class="dwqa-author"><span class="dwqa-user-avatar">%4$s<?php echo ; ?></span><a href="%1$s" title="%2$s" rel="author">%3$s</a></span>',
+            get_author_posts_url( $author_id ),
+            esc_attr( sprintf( __( 'Posts by %s' ), $display_name ) ),
+            $display_name,
+            get_avatar( $author_id, 12 )
+        );
+	}
+	
 	if( $latest_answer ) {
 		$date = dwqa_human_time_diff( strtotime( $latest_answer->post_date ), false, get_option( 'date_format' ) );
-		return sprintf( __('answered %s','dwqa'), $date);
+		return sprintf( __('%s answered <span class="dwqa-date">%s</span>','dwqa'), $author_link, $date);
 	}
-	return sprintf( __('asked %s','dwqa'), get_the_date());
+	return sprintf( __('%s asked <span class="dwqa-date">%s</span>','dwqa'), $author_link, get_the_date());
 }
 
 
@@ -42,4 +60,11 @@ function dwqa_prepare_archive_posts(){
     remove_filter( 'posts_orderby', array( $dwqa_filter, 'order_filter_default')  );
 }
 add_action( 'dwqa-prepare-archive-posts', 'dwqa_prepare_archive_posts' );
+
+function dwqa_after_archive_posts(){
+    wp_reset_query();
+    wp_reset_postdata();
+}
+add_action( 'dwqa-after-archive-posts', 'dwqa_after_archive_posts' );
+
 ?>

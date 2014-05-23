@@ -12,20 +12,7 @@
             <a class="dwqa-title" href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'dwqa' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"> <?php the_title(); ?></a>
             <div class="dwqa-meta">
                 <?php dwqa_question_print_status($post_id); ?>               
-                <?php
-                    global $authordata;
-                    if( ! dwqa_is_anonymous($post_id) ) {
-                        $author_link = sprintf(
-                            '<a href="%1$s" title="%2$s" rel="author">%3$s</a>',
-                            get_author_posts_url( $authordata->ID, $authordata->user_nicename ),
-                            esc_attr( sprintf( __( 'Posts by %s' ), get_the_author() ) ),
-                            dw_strip_email_to_display( get_the_author( ) )
-                        );
-                    } else {
-                        $author_link = __('Anonymous','dwqa');
-                    }
-                    echo __('by','dwqa') . ' ' . $author_link;
-                ?>&nbsp;&nbsp;<strong>&sdot;</strong>&nbsp;&nbsp;<span><?php echo dwqa_get_latest_action_date(); ?></span>  
+                <?php echo dwqa_get_latest_action_date(); ?>
                 <?php echo get_the_term_list( $post_id, 'dwqa-question_category', '&nbsp;&nbsp;<strong>&sdot;</strong>&nbsp;&nbsp;<span>Category: ', ', ', '</span>' ); ?>    
 
                 <?php do_action( 'dwqa_question_meta' ); ?>  

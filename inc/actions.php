@@ -1199,11 +1199,7 @@ function dwqa_vote_best_answer_button(){
     }
 }
 
-function dwqa_after_archive_posts(){
-    wp_reset_query();
-    wp_reset_postdata();
-}
-add_action( 'dwqa-after-archive-posts', 'dwqa_after_archive_posts' );
+
 
 function dwqa_user_post_count( $user_id, $post_type = 'post' ) {
     $posts = get_posts( array(

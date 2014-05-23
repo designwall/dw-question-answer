@@ -1199,32 +1199,6 @@ function dwqa_vote_best_answer_button(){
     }
 }
 
-
-function dwqa_prepare_archive_posts(){
-    global $wp_query,$dwqa_general_settings;
-    
-    $posts_per_page = isset($dwqa_general_settings['posts-per-page']) ?  $dwqa_general_settings['posts-per-page'] : 5;
-    $query = array(
-        'post_type' => 'dwqa-question',
-        'posts_per_page' => $posts_per_page
-    );
-    if( is_tax('dwqa-question_category') ) {
-        $query['dwqa-question_category'] = get_query_var('dwqa-question_category');
-    } 
-    if( is_tax('dwqa-question_tag') ) {
-        $query['dwqa-question_tag'] = get_query_var('dwqa-question_tag');
-    } 
-    $paged = get_query_var( 'paged' );
-    $query['paged'] = $paged ? $paged : 1; 
-    $sticky_questions = get_option( 'dwqa_sticky_questions' );
-
-    if( $sticky_questions ) {
-        $query['post__not_in'] = $sticky_questions;
-    }
-    query_posts( $query );
-}
-add_action( 'dwqa-prepare-archive-posts', 'dwqa_prepare_archive_posts' );
-
 function dwqa_after_archive_posts(){
     wp_reset_query();
     wp_reset_postdata();

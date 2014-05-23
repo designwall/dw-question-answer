@@ -257,7 +257,7 @@ class DWQA_Filter {
             
             default:
                 $order = ( $this->filter['order'] && $this->filter['order'] != 'ASC' ? 'DESC' : 'ASC' );
-                $orderby_statement = "B.post_modified ". $order;
+                $orderby_statement = $this->order_filter_default( $orderby_statement, $order );
                 break;
         }
         return $orderby_statement;
@@ -280,25 +280,36 @@ class DWQA_Filter {
             case 'votes';
                 break;
             default:
-                $join .= "LEFT JOIN 
-                            (SELECT `$wpdb->posts`.ID as question, COALESCE(A.post_modified, `$wpdb->posts`.post_modified) as post_modified
-                                FROM $wpdb->posts LEFT JOIN 
-                                    ( SELECT $wpdb->postmeta.meta_value as question, max( $wpdb->posts.post_modified) as post_modified 
-                                        FROM $wpdb->posts LEFT JOIN $wpdb->postmeta
-                                            ON $wpdb->posts.ID = $wpdb->postmeta.post_id AND $wpdb->postmeta.meta_key = '_question'
-                                        WHERE ( $wpdb->posts.post_status = 'publish' ) 
-                                            AND $wpdb->posts.post_type = 'dwqa-answer'
-                                        GROUP BY question ) as A
-                                ON $wpdb->posts.ID = A.question
-                                WHERE $wpdb->posts.post_type = 'dwqa-question'  ) AS B 
-                            ON $wpdb->posts.ID = B.question ";
+                $join = $this->join_filter_default( $join );
                 break;
         }
         return $join;
     }
 
+
+    public function join_filter_default( $join ) {
+        global $wpdb;
+        $join .= "LEFT JOIN 
+                    (SELECT `$wpdb->posts`.ID as question, COALESCE(A.post_modified, `$wpdb->posts`.post_modified) as post_modified
+                        FROM $wpdb->posts LEFT JOIN 
+                            ( SELECT $wpdb->postmeta.meta_value as question, max( $wpdb->posts.post_modified) as post_modified 
+                                FROM $wpdb->posts LEFT JOIN $wpdb->postmeta
+                                    ON $wpdb->posts.ID = $wpdb->postmeta.post_id AND $wpdb->postmeta.meta_key = '_question'
+                                WHERE ( $wpdb->posts.post_status = 'publish' ) 
+                                    AND $wpdb->posts.post_type = 'dwqa-answer'
+                                GROUP BY question ) as A
+                        ON $wpdb->posts.ID = A.question
+                        WHERE $wpdb->posts.post_type = 'dwqa-question'  ) AS B 
+                    ON $wpdb->posts.ID = B.question ";
+        return $join;
+    }
+
+    public function order_filter_default ( $orderby_statement, $order = 'DESC' ) {
+        return "B.post_modified ".$order;
+    }
+
     // Filter post where
-    function posts_where( $where ) {
+    public function posts_where( $where ) {
         global $wpdb, $dwqa_general_settings;
 
         switch ( $this->filter['filter_plus'] ) {
@@ -432,7 +443,6 @@ class DWQA_Filter {
         add_action( 'wp_ajax_nopriv_dwqa-auto-suggest-search-result', array( $this, 'auto_suggest_for_seach' ) );
 
     }
-
 }
 global $dwqa_filter;
 $dwqa_filter = new DWQA_Filter();

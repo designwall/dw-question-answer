@@ -29,17 +29,19 @@ jQuery(function($) {
         order = 'DESC',
         pagenavi_box = filter_bar.find('#dwqa_filter_posts_per_page'),
         posts_per_page = 10,
-        filter_plus = getURLParameter('status');
+        filter_plus = getURLParameter('status'),
+        nonce = filter_bar.find('#_filter_wpnonce').val(),
+        category_select = $('.filter-bar #dwqa-filter-by-category'),
+        category = getURLParameter(dwqa.question_category_rewrite),
+        tag_select = $('.filter-bar #dwqa-filter-by-tags'),
+        tags = getURLParameter(dwqa.question_tag_rewrite),
+        paged = getURLParameter('paged'),
+        search_form = $('.dwqa-search-form'),
+        title = null;
+
     filter_plus = filter_plus ? filter_plus : 'all',
-    nonce = filter_bar.find('#_filter_wpnonce').val(),
-    category_select = $('.filter-bar #dwqa-filter-by-category'),
-    category = getURLParameter(dwqa.question_category_rewrite),
-    tag_select = $('.filter-bar #dwqa-filter-by-tags'),
-    tags = getURLParameter(dwqa.question_tag_rewrite),
-    paged = getURLParameter('paged'),
-    paged = paged ? paged : $('#dwqa-paged').val(),
-    search_form = $('.dwqa-search-form'),
-    title = null, tags = 'null';
+    paged = paged ? paged : $('#dwqa-paged').val();
+    tags = tags ? tags : 0;
 
     var get_filter_args = function() {
         posts_per_page = pagenavi_box.val();
@@ -49,10 +51,12 @@ jQuery(function($) {
             category = category_select.val();
         }
 
-        if (tag_select.is('ul')) {
-            tags = parseInt(tag_select.data('selected')) > 0 ? tag_select.data('selected') : 0;
-        } else {
-            tags = tag_select.val();
+        if( tag_select.length > 0 ) {
+            if ( tag_select.is('ul') ) {
+                tags = parseInt(tag_select.data('selected')) > 0 ? tag_select.data('selected') : 0;
+            } else {
+                tags = tag_select.val();
+            }
         }
 
         title = search_form.find('.dwqa-search-input').val();
@@ -165,12 +169,11 @@ jQuery(function($) {
             .always(function() {
                 container.find('.loading').hide();
             });
-
     }
 
     var offset = 1;
 
-    if (filter_plus != 'all' || category != 'all' || tags != 0) {
+    if (filter_plus != 'all' || category != 'all' || tags != 0 ) {
         start_filter();
     }
 

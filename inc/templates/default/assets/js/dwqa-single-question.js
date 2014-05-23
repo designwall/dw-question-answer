@@ -899,6 +899,7 @@ jQuery(function($) {
                     settings.editor_selector = id; // deprecated in TinyMCE 4.x
                     settings.selector = '#' + id;
                     //init tinymce
+                    tinyMCE.remove('#'+id);
                     tinyMCE.init(settings);
                     editor.slideDown();
                     t.data('on-editor', true);

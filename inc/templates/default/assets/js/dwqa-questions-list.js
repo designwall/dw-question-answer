@@ -75,7 +75,6 @@ jQuery(function($) {
             $filter.abort();
         }
         $url_args = URLToArray();
-
         if (filter_plus != 'all') {
             $url_args['status'] = filter_plus;
         } else {
@@ -103,9 +102,10 @@ jQuery(function($) {
         } else {
             delete($url_args['paged']);
         }
-
         var $paramString = '';
-        if( $url_args.length > 0 ) {
+                console.log( $url_args );
+                console.log( typeof $url_args );
+        if( $url_args ) {
             for (var i in $url_args) {
                 if (!i) {
                     continue;

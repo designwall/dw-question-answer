@@ -42,7 +42,7 @@ class thesis_dwqa extends thesis_box {
             echo '<div class="single-dwqa-question" style="padding:'.$padding.'">';
             $this->single_question();
             echo '</div>';
-        } else if( is_page( $dwqa_options['pages']['archive-question']) ) {
+        } else if( is_page( $dwqa_options['pages']['archive-question']) || is_tax( 'dwqa-question_category' ) || is_tax( 'dwqa-question_tag' ) ) {
             echo '<div class="list-dwqa-question"  style="padding:'.$padding.'">';
             $this->archive_question();
             echo '</div>';

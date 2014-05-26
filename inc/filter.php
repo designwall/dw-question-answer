@@ -289,28 +289,58 @@ class DWQA_Filter {
 
     public function join_filter_default( $join ) {
         global $wpdb;
+        
         $join .= "LEFT JOIN 
-                    (SELECT `$wpdb->posts`.ID as question, COALESCE(A.post_modified, `$wpdb->posts`.post_modified) as post_modified
-                        FROM $wpdb->posts LEFT JOIN 
-                            ( SELECT $wpdb->postmeta.meta_value as question, max( $wpdb->posts.post_modified) as post_modified 
-                                FROM $wpdb->posts LEFT JOIN $wpdb->postmeta
-                                    ON $wpdb->posts.ID = $wpdb->postmeta.post_id AND $wpdb->postmeta.meta_key = '_question'
-                                WHERE ( $wpdb->posts.post_status = 'publish' ) 
-                                    AND $wpdb->posts.post_type = 'dwqa-answer'
-                                GROUP BY question ) as A
-                        ON $wpdb->posts.ID = A.question
-                        WHERE $wpdb->posts.post_type = 'dwqa-question'  ) AS B 
-                    ON $wpdb->posts.ID = B.question ";
+                    ( SELECT $wpdb->postmeta.meta_value as question, max( $wpdb->posts.post_modified) as post_modified 
+                        FROM $wpdb->posts, $wpdb->postmeta
+                        WHERE 
+                            $wpdb->posts.post_type = 'dwqa-answer'
+                            AND ( 
+                                $wpdb->posts.post_status = 'publish'";
+                    if( is_user_logged_in() && dwqa_current_user_can('edit_question') ) {
+                        $join .= " OR $wpdb->posts.post_status = 'private' ";
+                    }
+
+                    $join .= ")
+                            AND $wpdb->postmeta.post_id = $wpdb->posts.ID 
+                            AND $wpdb->postmeta.meta_key = '_question'
+                        GROUP BY question ) as dw_table_latest_answers 
+                    ON $wpdb->posts.ID = dw_table_latest_answers.question ";
         return $join;
     }
 
     public function order_filter_default ( $orderby_statement, $order = 'DESC' ) {
-        return "B.post_modified ".$order;
+        global $wpdb;
+        return " ifnull(dw_table_latest_answers.post_modified, $wpdb->posts.post_modified) ".$order;
     }
 
     // Filter post where
     public function posts_where( $where ) {
         global $wpdb, $dwqa_general_settings;
+        $get_question_answered_query = "SELECT `dw_latest_answer_date`.question
+            FROM `{$wpdb->prefix}posts`, 
+                ( SELECT `{$wpdb->prefix}postmeta`.meta_value as question, max( `{$wpdb->prefix}posts`.post_date) as post_date 
+                    FROM `{$wpdb->prefix}posts`, `{$wpdb->prefix}postmeta` 
+                    WHERE `{$wpdb->prefix}posts`.post_type = 'dwqa-answer' 
+                    AND ( `{$wpdb->prefix}posts`.post_status = 'publish'
+                        OR `{$wpdb->prefix}posts`.post_status = 'private' ) 
+                    AND `{$wpdb->prefix}postmeta`.post_id = `{$wpdb->prefix}posts`.ID 
+                    AND `{$wpdb->prefix}postmeta`.meta_key = '_question' 
+                    GROUP BY question ) AS dw_latest_answer_date,
+                {$wpdb->prefix}users,
+                {$wpdb->prefix}usermeta
+
+            WHERE `{$wpdb->prefix}posts`.post_status = 'publish' 
+            AND `{$wpdb->prefix}posts`.post_type = 'dwqa-answer' 
+            AND `{$wpdb->prefix}posts`.post_date = `dw_latest_answer_date`.post_date
+            AND `{$wpdb->prefix}users`.ID = `{$wpdb->prefix}posts`.post_author
+            AND `{$wpdb->prefix}usermeta`.user_id = `{$wpdb->prefix}users`.ID
+            AND `{$wpdb->prefix}usermeta`.meta_key = '{$wpdb->prefix}capabilities'
+            AND ( 
+                `{$wpdb->prefix}usermeta`.meta_value LIKE '%administrator%' 
+                OR `{$wpdb->prefix}usermeta`.meta_value LIKE '%editor%' 
+                OR `{$wpdb->prefix}usermeta`.meta_value LIKE '%author%' 
+            )";
 
         switch ( $this->filter['filter_plus'] ) {
             case 'overdue' :
@@ -318,40 +348,12 @@ class DWQA_Filter {
                 $where .= " AND post_date < '" . date('Y-m-d H:i:s', strtotime('-'.$overdue_time_frame.' days') ) . "'";
             case 'open':
                 // answered
-                $where .= " AND ID NOT IN (
-                    SELECT `t1`.question FROM 
-                        ( SELECT `{$wpdb->prefix}posts`.post_author, `{$wpdb->prefix}postmeta`.meta_value as `question`, `{$wpdb->prefix}posts`.post_date FROM `{$wpdb->prefix}posts` JOIN `{$wpdb->prefix}postmeta` ON `{$wpdb->prefix}posts`.ID = `{$wpdb->prefix}postmeta`.post_id WHERE `{$wpdb->prefix}posts`.post_type = 'dwqa-answer' AND ( `{$wpdb->prefix}posts`.post_status = 'publish' OR `{$wpdb->prefix}posts`.post_status = 'private' ) AND `{$wpdb->prefix}postmeta`.meta_key = '_question' ) as `t1`
-                    JOIN 
-                        (SELECT `{$wpdb->prefix}postmeta`.meta_value as `question`, max(`{$wpdb->prefix}posts`.post_date) as `lastdate`  FROM `{$wpdb->prefix}posts` JOIN `{$wpdb->prefix}postmeta` on `{$wpdb->prefix}posts`.ID = `{$wpdb->prefix}postmeta`.post_id WHERE post_type = 'dwqa-answer' AND ( `{$wpdb->prefix}posts`.post_status = 'publish' OR `{$wpdb->prefix}posts`.post_status = 'private' ) AND `{$wpdb->prefix}postmeta`.meta_key = '_question' GROUP BY `{$wpdb->prefix}postmeta`.meta_value) as t2
-
-                    ON `t1`.question = `t2`.question AND `t1`.post_date = `t2`.lastdate
-
-                    JOIN `{$wpdb->prefix}usermeta` ON `t1`.post_author = `{$wpdb->prefix}usermeta`.user_id
-                    WHERE 1=1 AND `{$wpdb->prefix}usermeta`.meta_key = '{$wpdb->prefix}capabilities' AND ( 
-                                    `{$wpdb->prefix}usermeta`.meta_value LIKE '%administrator%' 
-                                    OR `{$wpdb->prefix}usermeta`.meta_value LIKE '%editor%' 
-                                    OR `{$wpdb->prefix}usermeta`.meta_value LIKE '%author%' 
-                                ) ";
-                
-                $where .= " )";
+                $where .= " AND ID NOT IN (" . $get_question_answered_query . ")";
 
                 break;
             case 'replied':
                 // answered
-                $where .= " AND ID IN (
-                    SELECT `t1`.question FROM 
-                        ( SELECT `{$wpdb->prefix}posts`.post_author, `{$wpdb->prefix}postmeta`.meta_value as `question`, `{$wpdb->prefix}posts`.post_date FROM `{$wpdb->prefix}posts` JOIN `{$wpdb->prefix}postmeta` ON `{$wpdb->prefix}posts`.ID = `{$wpdb->prefix}postmeta`.post_id WHERE `{$wpdb->prefix}posts`.post_type = 'dwqa-answer' AND ( `{$wpdb->prefix}posts`.post_status = 'publish' OR `{$wpdb->prefix}posts`.post_status = 'private' ) AND `{$wpdb->prefix}postmeta`.meta_key = '_question' ) as `t1`
-                    JOIN 
-                        (SELECT `{$wpdb->prefix}postmeta`.meta_value as `question`, max(`{$wpdb->prefix}posts`.post_date) as `lastdate`  FROM `{$wpdb->prefix}posts` JOIN `{$wpdb->prefix}postmeta` on `{$wpdb->prefix}posts`.ID = `{$wpdb->prefix}postmeta`.post_id WHERE post_type = 'dwqa-answer' AND ( `{$wpdb->prefix}posts`.post_status = 'publish' OR `{$wpdb->prefix}posts`.post_status = 'private' ) AND `{$wpdb->prefix}postmeta`.meta_key = '_question' GROUP BY `{$wpdb->prefix}postmeta`.meta_value) as t2
-
-                    ON `t1`.question = `t2`.question AND `t1`.post_date = `t2`.lastdate
-
-                    JOIN `{$wpdb->prefix}usermeta` ON `t1`.post_author = `{$wpdb->prefix}usermeta`.user_id
-                    WHERE 1=1 AND `{$wpdb->prefix}usermeta`.meta_key = '{$wpdb->prefix}capabilities' AND ( `{$wpdb->prefix}usermeta`.meta_value LIKE '%administrator%' 
-                                    OR `{$wpdb->prefix}usermeta`.meta_value LIKE '%editor%' 
-                                    OR `{$wpdb->prefix}usermeta`.meta_value LIKE '%author%' 
-                                ) 
-                )";
+                $where .= " AND ID IN (" . $get_question_answered_query. ")";
                 break;
             case 'new-comment':
                 if( current_user_can('edit_posts' ) ) {

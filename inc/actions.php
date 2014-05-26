@@ -1318,9 +1318,9 @@ function dwqa_get_questions_permalink(){
                 ) );
             }
         } else {
-            wp_send_json_error( array(
-                'error' => 'empty'
-            ) );
+            $url = get_permalink( $dwqa_options['pages']['archive-question'] );
+            $url = $url ? $url : get_post_type_archive_link( 'dwqa-question' );
+            wp_send_json_success( array( 'url' => $url ) );
         }
     }
     wp_send_json_error();

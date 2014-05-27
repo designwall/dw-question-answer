@@ -41,8 +41,17 @@ add_filter( 'comments_array', 'dwqa_read_comment_permission_apply', 10, 2 );
 class DWQA_Permission {
     public $defaults;
     public $perms;
+    public $default_cap;
+    public $objects;
     
     function __construct() {
+        $this->default_cap = array(
+            'read'      => 1,
+            'post'      => 0,
+            'edit'      => 0,
+            'delete'    => 0   
+        );
+        $this->objects = array( 'question', 'answer', 'comment' );
         $this->defaults = array(
             'administrator' => array(
                 'question'      => array( 
@@ -175,46 +184,30 @@ class DWQA_Permission {
     public function prepare_permission(){
         $this->perms = get_option( 'dwqa_permission' );
         $this->perms = $this->perms ? $this->perms : array();
-        foreach ($this->defaults as $role => $role_val ) {
-            foreach ($role_val as $type => $perms ) {
-                foreach ($perms as $perm => $val) {
-                    $this->perms[$role][$type][$perm] = isset( $this->perms[$role][$type][$perm] ) ? $this->perms[$role][$type][$perm] : 0;
-                }
-            }
-        }
+        $this->perms = wp_parse_args( $this->perms, $this->defaults );
     }
 
 
     public function add_caps( $value ){
-        foreach ($this->defaults as $role_name => $perms) {
-            if( $role_name == 'anonymous' ) { continue; }
-            
-            $role = get_role( $role_name );
-            if( !$role ) {
+        // $roles = get_editable_roles();
+        $this->prepare_permission();
+
+        foreach ($value as $role_name  => $role_info) {
+            if( $role_name == 'anonymous' )
                 continue;
-            }
-            foreach ($perms['question'] as $key => $val) {
-                if( isset($value[$role_name]['question'][$key]) && $value[$role_name]['question'][$key]  ) {
-                    $role->add_cap( 'dwqa_can_' . $key . '_question' );
-                } else {
-                    $role->remove_cap( 'dwqa_can_' . $key . '_question' );
+            $role = get_role( $role_name );
+            if( !$role )
+                continue;
+
+            foreach ($this->objects as $post_type) {
+                foreach ($this->default_cap as $cap => $default) {
+                    if( isset($this->perms[$role_name][$post_type][$cap]) && $this->perms[$role_name][$post_type][$cap] ) {
+                        $role->add_cap( 'dwqa_can_' . $cap . '_' . $post_type );
+                    } else {
+                        $role->remove_cap( 'dwqa_can_' . $cap . '_' . $post_type );
+                    }
                 }
             }
-            foreach ($perms['answer'] as $key => $val) {
-                if( isset($value[$role_name]['answer'][$key]) && $value[$role_name]['answer'][$key]  ) {
-                    $role->add_cap( 'dwqa_can_' . $key . '_answer' );
-                } else {
-                    $role->remove_cap( 'dwqa_can_' . $key . '_answer' );
-                }
-            }
-            foreach ($perms['comment'] as $key => $val) {
-                if( isset($value[$role_name]['comment'][$key]) && $value[$role_name]['comment'][$key]  ) {
-                    $role->add_cap( 'dwqa_can_' . $key . '_comment' );
-                } else {
-                    $role->remove_cap( 'dwqa_can_' . $key . '_comment' );
-                }
-            }
-            
         }
     }
     public function update_caps( $old_value, $value ){

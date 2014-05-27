@@ -400,7 +400,8 @@ function dwqa_question_tag_rewrite_display(){
 function dwqa_permission_display(){
     global $dwqa_permission;
     $perms = $dwqa_permission->perms;
-    ?>
+    $roles = get_editable_roles();
+?>
     <input type="hidden" id="reset-permission-nonce" name="reset-permission-nonce" value="<?php echo wp_create_nonce( '_dwqa_reset_permission' ); ?>">
     <h3><?php _e('Question','dwqa') ?></h3>
     <table class="table widefat dwqa-permission-settings">
@@ -415,8 +416,7 @@ function dwqa_permission_display(){
         </thead>
         <tbody>
             <?php  
-                $roles = get_editable_roles();
-                foreach ($dwqa_permission->defaults as $key => $role) {
+                foreach ($roles as $key => $role) {
                     if( $key == 'anonymous' ) {
                         continue;
                     }
@@ -457,8 +457,7 @@ function dwqa_permission_display(){
         </thead>
         <tbody>
             <?php  
-                $roles = get_editable_roles();
-                foreach ($dwqa_permission->defaults as $key => $role) {
+                foreach ($roles as $key => $role) {
                     if( $key == 'anonymous' ) {
                         continue;
                     }
@@ -498,8 +497,7 @@ function dwqa_permission_display(){
         </thead>
         <tbody>
             <?php  
-                $roles = get_editable_roles();
-                foreach ($dwqa_permission->defaults as $key => $role) {
+                foreach ($roles as $key => $role) {
                     if( $key == 'anonymous' ) {
                         continue;
                     }

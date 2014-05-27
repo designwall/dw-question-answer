@@ -3,6 +3,7 @@
 /**
  *  Inlucde all funtion for filter of dw question answer plugin
  */
+
 class DWQA_Filter {
 
     //Properties 
@@ -25,15 +26,15 @@ class DWQA_Filter {
      * @return string JSON
      */
     public function filter_question(){
-        
         if( !isset($_POST['nonce'])  ) {
             wp_die( 0 );
         }
-        check_ajax_referer( '_dwqa_filter_nonce', 'nonce' );
+        if( ! check_ajax_referer( '_dwqa_filter_nonce', 'nonce', false ) ) {
+            wp_die( 0 );
+        }
         if( !isset($_POST['type']) ) {
             wp_die( 0 );
         }
-
         // Make an query for
         global $wpdb;
         if( ! defined('DWQA_FILTERING') ) {

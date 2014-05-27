@@ -649,6 +649,134 @@ function dwqa_get_ask_question_link( $echo = true, $label = false, $class = fals
     }
 }
 
+function dwqa_question_action_buttons( $post_id ) {
+    if( is_user_logged_in() ) :
+        global $current_user, $post;
+        if( dwqa_current_user_can('edit_question') || $current_user->ID == $post->post_author ) :
+    ?>
+        <div class="dwqa-actions" data-post="<?php echo $post_id ?>" >
+            <span class="loading"></span>
+            <div class="dwqa-btn-group">
+                <button type="button" class="dropdown-toggle"><i class="fa fa-chevron-down"></i> </button>
+                <div class="dwqa-dropdown-menu">
+                    <div class="dwqa-dropdown-caret">
+                        <span class="dwqa-caret-outer"></span>
+                        <span class="dwqa-caret-inner"></span>
+                    </div>
+                    <ul role="menu">
+                        <?php if( dwqa_current_user_can('edit_question') || $current_user->ID == $post->post_author ) :?>
+                        <li class="dwqa-edit-question" data-nonce="<?php echo wp_create_nonce( '_dwqa_edit_question' ); ?>"><a href="<?php echo get_edit_post_link( $post_id ); ?>"><i class="fa fa-pencil"></i> <?php _e('Edit','dwqa') ?></a></li>
+                        <?php endif; ?>
+                        <?php if( dwqa_current_user_can('delete_question') || $current_user->ID == $post->post_author ) : ?>
+                        <li class="dwqa-delete-question" data-nonce="<?php echo wp_create_nonce( '_dwqa_delete_question' ); ?>"><a href="<?php echo get_edit_post_link( $post_id ); ?>"><i class="fa fa-trash-o"></i> <?php _e('Delete','dwqa'); ?></a></li>
+                        <?php endif; ?>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <?php endif; ?>
+    <?php endif;
+}
 
+function dwqa_question_privacy_button() {
+    ?>
+    <div data-post="<?php echo $post_id; ?>" data-nonce="<?php echo wp_create_nonce( '_dwqa_update_privacy_nonce' ); ?>" data-type="question" class="dwqa-privacy">
+        <input type="hidden" name="privacy" value="<?php get_post_status(); ?>">
+        <span class="dwqa-current-privacy"> <?php echo 'private' == get_post_status() ? '<i class="fa fa-lock"></i> ' . __('Private','dwqa') : '<i class="fa fa-globe"></i> ' . __('Public','dwqa'); ?></span>
+        <?php 
+            if( dwqa_current_user_can('edit_question') || dwqa_current_user_can('edit_answer')  ) { ?>
+        <span class="dwqa-change-privacy">
+            <div class="dwqa-btn-group">
+                <button type="button" class="dropdown-toggle" ><i class="fa fa-caret-down"></i></button>
+                <div class="dwqa-dropdown-menu">
+                    <div class="dwqa-dropdown-caret">
+                        <span class="dwqa-caret-outer"></span>
+                        <span class="dwqa-caret-inner"></span>
+                    </div>
+                    <ul role="menu">
+                        <li title="<?php _e('Everyone can see','dwqa'); ?>" data-privacy="publish" <?php echo 'publish' == get_post_status() ? 'class="current"' : ''; ?>><a href="#"><i class="fa fa-globe"></i> <?php _e('Public','dwqa'); ?></a></li>
+                        <li title="<?php _e('Only Author and Administrator can see','dwqa'); ?>" data-privacy="private" <?php echo 'private' == get_post_status() ? 'class="current"' : ''; ?>><a href="#" ><i class="fa fa-lock"></i> <?php _e('Private','dwqa') ?></a></li>
+                    </ul>
+                </div>
+            </div>
+        </span>
+        <?php } ?>
+    </div><!-- post status -->
+<?php
+}
+
+
+function dwqa_question_status_button( $post_id ) {
+    global $current_user, $post;
+    $meta = get_post_meta( $post_id, '_dwqa_status', true );
+    if( ! $meta )
+        $meta = 'open';
+    ?>
+    <div class="dwqa-current-status">
+        <span class="dwqa-status-title"><?php _e('Status','dwqa') ?></span>
+        <span class="dwqa-status-name"><?php echo $meta; ?></span>
+        <?php
+            if( dwqa_current_user_can('edit_question') 
+                || dwqa_current_user_can('edit_answer') 
+                || ( is_user_logged_in() && $current_user->ID == $post->post_author ) ) :
+        ?>
+        <span class="dwqa-change-status">
+            <div class="dwqa-btn-group">
+                <button type="button" class="dropdown-toggle" ><i class="fa fa-caret-down"></i></button>
+                <div class="dwqa-dropdown-menu" data-nonce="<?php echo wp_create_nonce( '_dwqa_update_question_status_nonce' ) ?>" data-question="<?php the_ID(); ?>" >
+                    <div class="dwqa-dropdown-caret">
+                        <span class="dwqa-caret-outer"></span>
+                        <span class="dwqa-caret-inner"></span>
+                    </div>
+                    <ul role="menu" data-nonce="<?php echo wp_create_nonce( '_dwqa_update_question_status_nonce' ) ?>" data-question="<?php the_ID(); ?>">
+                        <?php if( 'resolved' == $meta || 'pending' == $meta || 'closed' == $meta) : ?>
+                            <li class="dwqa-re-open" data-status="re-open">
+                                <a href="#"><i class="fa fa-reply"></i> <?php _e('Re-Open','dwqa') ?></a>
+                            </li>
+                        <?php endif; ?>
+                        <?php if( 'closed' != $meta  ) : ?>
+                            <li class="dwqa-closed" data-status="closed">
+                                <a href="#"><i class="fa fa-lock"></i> <?php _e('Closed','dwqa') ?></a>
+                            </li>
+                        <?php endif; ?>
+                        <?php if( 'pending' != $meta && 'closed' != $meta && current_user_can( 'edit_posts', $post_id ) ) : ?>
+                            <li class="dwqa-pending"  data-status="pending">
+                                <a href="#"><i class="fa fa-question-circle"></i> <?php _e('Pending','dwqa') ?></a>
+                            </li>
+                        <?php endif; ?>
+                        <?php if( 'resolved' != $meta && 'closed' != $meta ) : ?>
+                            <li class="dwqa-resolved" data-status="resolved">
+                                <a href="#"><i class="fa fa-check-circle-o"></i> <?php _e('Resolved','dwqa') ?></a>
+                            </li>
+                        <?php endif; ?>
+                    </ul>
+                </div>
+            </div>
+        </span>
+        <?php endif; ?> <!-- Change Question Status -->
+    </div>
+    <?php
+}
+
+function dwqa_question_meta_button() {
+    ?>
+    <div class="dwqa-meta">
+        <span class="dwqa-vote" data-type="question" data-nonce="<?php echo wp_create_nonce( '_dwqa_question_vote_nonce' ) ?>" data-question="<?php echo $post_id; ?>" >
+            <a class="dwqa-vote-dwqa-btn dwqa-vote-up" data-vote="up" href="#"  title="<?php _e('Vote Up','dwqa') ?>"><?php _e('Vote Up','dwqa') ?></a>
+            <div class="dwqa-vote-count"><?php $point = dwqa_vote_count(); echo $point > 0 ? '+'.$point:$point; ?></div>
+            <a class="dwqa-vote-dwqa-btn dwqa-vote-down" data-vote="down" href="#"  title="<?php _e('Vote Down','dwqa') ?>"><?php _e('Vote Down','dwqa') ?></a>
+        </span>
+
+        <?php if( is_user_logged_in() ) : ?>
+        <span data-post="<?php echo $post_id; ?>" data-nonce="<?php echo wp_create_nonce( '_dwqa_follow_question' ); ?>" class="dwqa-favourite <?php echo dwqa_is_followed($post_id) ? 'active' : ''; ?>" title="<?php echo dwqa_is_followed($post_id) ? __('Unfollow This Question','dwqa') : __('Follow This Question','dwqa'); ?>"><!-- add class 'active' -->
+            <i class="fa fa-star"></i>
+        </span>
+        <?php endif; ?>
+        <?php if( dwqa_current_user_can( 'edit_question' ) ) : ?>
+        <span  data-post="<?php echo $post_id; ?>" data-nonce="<?php echo wp_create_nonce( '_dwqa_stick_question' ); ?>" class="dwqa-stick-question <?php echo dwqa_is_sticky($post_id) ? 'active' : ''; ?>" title="<?php echo dwqa_is_sticky($post_id) ? __('Unpin this Question from the top','dwqa') :  __('Pin this Question to top','dwqa'); ?>"><i class="fa fa-bookmark"></i></span>
+        <?php endif; ?>
+    </div>
+    <?php
+}
 
 ?>

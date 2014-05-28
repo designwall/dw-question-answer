@@ -921,23 +921,21 @@ jQuery(function($) {
         event.preventDefault();
         var t = $(this),
             parent = t.parent();
-        if (window.confirm('Are you sure about that change?')) {
-            $.ajax({
-                url: dwqa.ajax_url,
-                type: 'POST',
-                dataType: 'json',
-                data: {
-                    action: 'dwqa-update-question-status',
-                    status: t.data('status'),
-                    nonce: parent.data('nonce'),
-                    question: parent.data('question')
+        $.ajax({
+            url: dwqa.ajax_url,
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                action: 'dwqa-update-question-status',
+                status: t.data('status'),
+                nonce: parent.data('nonce'),
+                question: parent.data('question')
 
-                },
-                complete: function(xhr, textStatus) {
-                    window.location.reload();
-                },
-            });
-        }
+            },
+            complete: function(xhr, textStatus) {
+                window.location.reload();
+            },
+        });
     });
 
     // Question : Sticky =========================================================================+

@@ -509,7 +509,6 @@ function dwqa_question_views_count( $question_id = null ){
  */
 function dwqa_question_update_status(){
     if( ! isset($_POST['nonce']) || ! wp_verify_nonce( $_POST['nonce'], '_dwqa_update_question_status_nonce' ) ) {
-        wp_die( 0 );
     } 
     if( ! isset($_POST['question']) ) {
         wp_die( 0 );
@@ -1204,7 +1203,7 @@ function dwqa_vote_best_answer_button(){
 function dwqa_user_post_count( $user_id, $post_type = 'post' ) {
     $posts = get_posts( array(
         'author' => $user_id,
-        'post_status'  => 'any',
+        'post_status'  => array( 'publish', 'private' ),
         'post_type'   => $post_type,
         'posts_per_page' => -1
     ) );

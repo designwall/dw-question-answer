@@ -79,7 +79,7 @@
                         </div>
                         <?php endif; ?> <!-- Question Categories -->
 
-                        <?php dwqa_question_status_button(); ?>
+                        <?php dwqa_question_status_button( $post_id ); ?>
                     </footer>
                     <div class="dwqa-comments">
                         <?php comments_template(); ?>

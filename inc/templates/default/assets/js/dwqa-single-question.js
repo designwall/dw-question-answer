@@ -462,8 +462,6 @@ jQuery(function($) {
             answer_container = t.closest('.dwqa-answer'),
             answer_content = answer_container.find('.dwqa-content'),
             current_content = answer_content.html().trim();
-
-
         if (t.data('on-editor')) {
             answer_editor.slideDown();
             remove_editor();
@@ -512,8 +510,9 @@ jQuery(function($) {
                 //settings.editor_selector = id; // deprecated in TinyMCE 4.x
                 settings.selector = '#' + id;
                 //init tinymce
-                
-                tinymce.remove( '#' + id );
+                if( tinyMCE.get(id) ) {
+                    tinymce.remove('#'+id);   
+                }
                 tinyMCE.init(settings);
                 editor.slideDown();
                 t.data('on-editor', true);
@@ -886,7 +885,6 @@ jQuery(function($) {
                     var editor = $(unescape(resp.data.editor)),
                         id = 'dwqa-custom-content-editor';
                     editor.hide();
-
                     question.find('.dwqa-title').data('old', question.find('.dwqa-title').text()).html('');
                     question_content.html(editor);
                     $('#' + id).data('current-content', escape(old_content));
@@ -899,7 +897,9 @@ jQuery(function($) {
                     settings.editor_selector = id; // deprecated in TinyMCE 4.x
                     settings.selector = '#' + id;
                     //init tinymce
-                    tinyMCE.remove('#'+id);
+                    if( tinyMCE.get(id) ) {
+                        tinymce.remove('#'+id);   
+                    }
                     tinyMCE.init(settings);
                     editor.slideDown();
                     t.data('on-editor', true);

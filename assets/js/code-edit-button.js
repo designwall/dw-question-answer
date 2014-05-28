@@ -15,7 +15,8 @@
             ed.addButton('dwqaCodeEmbed', {
                     title : 'Start insert coding here. Use shift+enter to breakline inside code area',
                     cmd : 'dwqaCodeEmbedCommand',
-                    image : dwqa.code_icon
+                    image : false,
+                    icon: 'wp_code'
             });
 
             // Add a node change handler, selects the button in the UI when a image is selected

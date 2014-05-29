@@ -10,7 +10,7 @@ function dwqa_current_user_can( $perm ){
     } else {
         $anonymous = $dwqa_permission->perms['anonymous'];
         $type = explode('_', $perm);
-        if( $anonymous[$type[1]][$type[0]] ) {
+        if( isset($anonymous[$type[1]][$type[0]]) && $anonymous[$type[1]][$type[0]] ) {
             return true;
         } else {
             return false;

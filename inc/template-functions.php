@@ -678,7 +678,10 @@ function dwqa_question_action_buttons( $post_id ) {
     <?php endif;
 }
 
-function dwqa_question_privacy_button() {
+function dwqa_question_privacy_button( $post_id = false ) {
+    if( ! $post_id ) {
+        $post_id = get_the_ID();
+    }
     ?>
     <div data-post="<?php echo $post_id; ?>" data-nonce="<?php echo wp_create_nonce( '_dwqa_update_privacy_nonce' ); ?>" data-type="question" class="dwqa-privacy">
         <input type="hidden" name="privacy" value="<?php get_post_status(); ?>">
@@ -706,8 +709,11 @@ function dwqa_question_privacy_button() {
 }
 
 
-function dwqa_question_status_button( $post_id ) {
+function dwqa_question_status_button( $post_id = false ) {
     global $current_user, $post;
+    if( ! $post_id ) {
+        $post_id = get_the_ID();
+    }
     $meta = get_post_meta( $post_id, '_dwqa_status', true );
     if( ! $meta )
         $meta = 'open';
@@ -758,7 +764,10 @@ function dwqa_question_status_button( $post_id ) {
     <?php
 }
 
-function dwqa_question_meta_button() {
+function dwqa_question_meta_button( $post_id = false ) {
+    if( ! $post_id ) {
+        $post_id = get_the_ID();
+    }
     ?>
     <div class="dwqa-meta">
         <span class="dwqa-vote" data-type="question" data-nonce="<?php echo wp_create_nonce( '_dwqa_question_vote_nonce' ) ?>" data-question="<?php echo $post_id; ?>" >

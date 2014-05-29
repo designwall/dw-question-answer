@@ -20,7 +20,7 @@
                         <?php if( $post_status == 'draft' || $post_status == 'pending' ) : ?>
                         <div class="dwqa-alert alert"><?php echo $current_user->ID == $post->post_author ? __('Your question has been submitted and is currently awaiting approval','dwqa') : __('This question is currently awaiting approval','dwqa'); ?></div>
                         <?php endif; ?>
-                        <?php dwqa_question_meta_button(); ?>
+                        <?php dwqa_question_meta_button( $post_id ); ?>
                     </header>
                     <div class="dwqa-content">
                         <?php the_content(); ?>
@@ -66,7 +66,7 @@
                             </span> <!-- Question Date -->
                             
                             
-                            <?php dwqa_question_privacy_button(); ?>
+                            <?php dwqa_question_privacy_button( $post_id ); ?>
                         </div>
                         <?php  
                             $categories = wp_get_post_terms( $post_id, 'dwqa-question_category' );

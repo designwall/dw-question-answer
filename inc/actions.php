@@ -139,9 +139,11 @@ function dwqa_add_answer(){
                     'ID'    => $_POST['answer-id'],
                     'post_content'   => $answ_content
                 );
-                if( isset($_POST['dwqa-action-draft']) && $_POST['dwqa-action-draft'] && strtolower( $_POST['submit-answer'] ) == 'publish' ) {
+                $post_status = get_post_status( $_POST['answer-id'] );
+
+                if( ($post_status == 'draft' && strtolower( $_POST['submit-answer'] ) == 'publish') || ($post_status != 'draft' && strtolower( $_POST['submit-answer'] ) == 'update') ) {
                     $answer_update['post_status'] = isset($_POST['privacy']) && 'private' == $_POST['privacy'] ? 'private' : 'publish';
-                }
+                } 
                 $old_post = get_post( $_POST['answer-id'] );
                 $answer_id = wp_update_post( $answer_update );
                 $new_post = get_post( $answer_id );

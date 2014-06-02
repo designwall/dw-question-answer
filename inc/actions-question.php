@@ -52,6 +52,11 @@ function dwqa_prepare_archive_posts(){
     if( $sticky_questions ) {
         $query['post__not_in'] = $sticky_questions;
     }
+
+    if( dwqa_current_user_can('post_question') ) {
+        $query['post_status']   = array( 'publish', 'private', 'pending' );
+    }
+
     global $dwqa_filter;
     add_filter( 'posts_join', array( $dwqa_filter, 'join_filter_default') );
     add_filter( 'posts_orderby', array( $dwqa_filter, 'order_filter_default')  );

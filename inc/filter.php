@@ -300,6 +300,8 @@ class DWQA_Filter {
                                 $wpdb->posts.post_status = 'publish'";
                     if( is_user_logged_in() && dwqa_current_user_can('edit_question') ) {
                         $join .= " OR $wpdb->posts.post_status = 'private' ";
+                        $join .= " OR $wpdb->posts.post_status = 'pending' ";
+
                     }
 
                     $join .= ")

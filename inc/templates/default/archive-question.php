@@ -125,7 +125,7 @@ get_header('dwqa'); ?>
 		
 		<?php do_action( 'dwqa-before-question-list' ); ?>
 
-		<?php  do_action('dwqa-prepare-archive-posts');?>
+		<?php do_action('dwqa-prepare-archive-posts'); ?>
 		<?php if ( have_posts() ) : ?>
 		<div class="loading"></div>
 		<div class="questions-list">

@@ -339,6 +339,12 @@ function dwqa_load_template( $name, $extend = false, $include = true ){
     if( $extend ) {
         $name .= '-' . $extend;
     }
+
+    if( $name == 'submit-question-form' && !dwqa_current_user_can('post_question') ) {
+        echo '<div class="alert">'.__('You do not have permission to submit a question','dwqa').'</div>';
+        return false;
+    }
+
     $template = get_stylesheet_directory() . '/dwqa-templates/'.$name.'.php';
     if( ! file_exists($template) ) {
         $template = DWQA_DIR . 'inc/templates/'.$dwqa_template.'/' .$name.'.php';

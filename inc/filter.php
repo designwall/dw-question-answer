@@ -152,9 +152,7 @@ class DWQA_Filter {
         $status = array('publish');
         if( is_user_logged_in() ) {
             $status[] = 'private';
-            if( dwqa_current_user_can('edit_question') ) {
-                $status[] = 'pending';
-            }
+            $status[] = 'pending';
         }
         $sticky_questions = get_option( 'dwqa_sticky_questions', array() );
         $args = array(
@@ -298,23 +296,33 @@ class DWQA_Filter {
                             $wpdb->posts.post_type = 'dwqa-answer'
                             AND ( 
                                 $wpdb->posts.post_status = 'publish'";
-                    if( is_user_logged_in() && dwqa_current_user_can('edit_question') ) {
+                    if( is_user_logged_in() ) {
                         $join .= " OR $wpdb->posts.post_status = 'private' ";
                         $join .= " OR $wpdb->posts.post_status = 'pending' ";
-
                     }
-
                     $join .= ")
                             AND $wpdb->postmeta.post_id = $wpdb->posts.ID 
                             AND $wpdb->postmeta.meta_key = '_question'
                         GROUP BY question ) as dw_table_latest_answers 
                     ON $wpdb->posts.ID = dw_table_latest_answers.question ";
+
         return $join;
     }
 
     public function order_filter_default ( $orderby_statement, $order = 'DESC' ) {
         global $wpdb;
         return " ifnull(dw_table_latest_answers.post_modified, $wpdb->posts.post_modified) ".$order;
+    }
+
+    public function posts_where_filter_default( $where ) {
+        global $current_user;
+        $manager = 0;
+        if( dwqa_current_user_can('edit_question') ) {
+            $manager = 1;
+        }
+        $where .= " AND IF( post_status = 'private', IF( $manager = 1, 1, IF( post_author = $current_user->ID, 1, 0 ) ), 1 ) = 1";
+        $where .= " AND IF( post_status = 'pending', IF( $manager = 1, 1, IF( post_author = $current_user->ID, 1, 0 ) ), 1 ) = 1";
+        return $where;
     }
 
     // Filter post where
@@ -381,6 +389,7 @@ class DWQA_Filter {
                 # code...
                 break;
         }
+
         return $where;
     }
 
@@ -405,7 +414,7 @@ class DWQA_Filter {
         }
 
         $status = 'publish';
-        if( is_user_logged_in() && ( dwqa_current_user_can('edit_question') || dwqa_current_user_can('edit_answer') ) ) {
+        if( is_user_logged_in() ) {
             $status = array( 'publish', 'private' );
         }
 

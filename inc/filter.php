@@ -107,7 +107,7 @@ class DWQA_Filter {
                 if( isset($dwqa_options['pages']['submit-question']) ) {
                     $submit_link = get_permalink( $dwqa_options['pages']['submit-question'] );
                     if( $submit_link ) {
-                        printf('%s <a href="">%s</a>',
+                        printf('%s <a href="%s">%s</a>',
                             __('You can ask question','dwqa'),
                             $submit_link,
                             __('here','dwqa')

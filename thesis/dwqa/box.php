@@ -58,15 +58,8 @@ class thesis_dwqa extends thesis_box {
     ?>
         <div id="archive-question" class="dw-question">
             <div class="dwqa-list-question">
-                <div class="loading"></div>
-                <div class="dwqa-search">
-                    <form action="" class="dwqa-search-form">
-                        <input class="dwqa-search-input" placeholder="<?php _e('Search','dwqa') ?>">
-                        <span class="dwqa-search-submit fa fa-search show"></span>
-                        <span class="dwqa-search-loading dwqa-hide"></span>
-                        <span class="dwqa-search-clear fa fa-times dwqa-hide"></span>
-                    </form>
-                </div>
+                
+                <?php dwqa_load_template('search', 'question'); ?>
                 <div class="filter-bar">
                     <?php wp_nonce_field( '_dwqa_filter_nonce', '_filter_wpnonce', false ); ?>
                     <?php  
@@ -189,105 +182,9 @@ class thesis_dwqa extends thesis_box {
                 <?php endwhile; ?>
                 </div>
                 <div class="archive-question-footer">
-                <?php 
-                    if( $taxonomy == 'dwqa-question_category' ) { 
-                        $args = array(
-                            'post_type' => 'dwqa-question',
-                            'posts_per_page'    =>  -1,
-                            'tax_query' => array(
-                                array(
-                                    'taxonomy' => $taxonomy,
-                                    'field' => 'slug',
-                                    'terms' => $term_name
-                                )
-                            )
-                        );
-                        $query = new WP_Query( $args );
-                        $total = $query->post_count;
-                    } else if( 'dwqa-question_tag' == $taxonomy ) {
+                    <?php dwqa_load_template( 'navigation', 'archive' ); ?>
 
-                        $args = array(
-                            'post_type' => 'dwqa-question',
-                            'posts_per_page'    =>  -1,
-                            'tax_query' => array(
-                                array(
-                                    'taxonomy' => $taxonomy,
-                                    'field' => 'slug',
-                                    'terms' => $term_name
-                                )
-                            )
-                        );
-                        $query = new WP_Query( $args );
-                        $total = $query->post_count;
-                    } else {
-                        $total = wp_count_posts( 'dwqa-question' );
-                        $total = $total->publish;
-                    }
-
-                    $number_questions = $total;
-
-                    $number = get_query_var( 'posts_per_page' );
-
-                    $pages = ceil( $number_questions / $number );
-                    
-                    if( $pages > 1 ) {
-
-                ?>
-                
-                    <div class="pagination">
-                        <ul data-pages="<?php echo $pages; ?>" >
-                            <?php  
-                                $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-                                $i = 0;
-                                echo '<li class="prev';
-                                if( $i == 0 ) {
-                                    echo ' dwqa-hide';
-                                }
-                                echo '"><a href="javascript:void()">'.__('Prev', 'dwqa').'</a></li>';
-                                $link = get_post_type_archive_link( 'dwqa-question' );
-                                $start = $paged - 2;
-                                $end = $paged + 2;
-
-                                if( $end > $pages ) {
-                                    $end = $pages;
-                                    $start = $pages -  5;
-                                }
-
-                                if( $start < 1 ) {
-                                    $start = 1;
-                                    $end = 5;
-                                    if( $end > $pages ) {
-                                        $end = $pages;
-                                    }
-                                }
-                                if( $start > 1 ) {
-                                    echo '<li><a href="'.add_query_arg('paged',1,$link).'">1</a></li><li class="dot"><span>...</span></li>';
-                                }
-                                for ($i=$start; $i <= $end; $i++) { 
-                                    $current = $i == $paged ? 'class="active"' : '';
-                                    if( $i == 1 ) {
-                                        echo '<li '.$current.'><a href="'.$link.'">'.$i.'</a></li>';
-                                    }else{
-                                        echo '<li '.$current.'><a href="'.add_query_arg('paged', $i, $link).'">'.$i.'</a></li>';
-                                    }
-                                }
-
-                                if( $i - 1 < $pages ) {
-                                    echo '<li class="dot"><span>...</span></li><li><a href="'.add_query_arg('paged',$pages,$link).'">'.$pages.'</a></li>';
-                                }
-                                echo '<li class="next';
-                                if( $paged == $pages ) {
-                                    echo ' dwqa-hide';
-                                }
-                                echo '"><a href="javascript:void()">'.__('Next', 'dwqa') .'</a></li>';
-
-                            ?>
-                        </ul>
-                    </div>
-                    <?php } ?>
-                    <?php if( $dwqa_options['pages']['submit-question'] && $submit_question_link ) { ?>
-                    <a href="<?php echo $submit_question_link ?>" class="dwqa-btn dwqa-btn-success"><?php _e('Ask a question','dwqa') ?></a>
-                    <?php } ?>
+                    <?php dwqa_get_ask_question_link(); ?>
                 </div>
                 <?php else: ?>
                     <?php
@@ -327,7 +224,10 @@ class thesis_dwqa extends thesis_box {
     public function single_question(){
         global $post, $current_user;
         $post_id = get_the_ID();
+
     ?>
+
+        <?php do_action( 'dwqa_before_page' ) ?>
         <div class="dwqa-single-question">
             <!-- dwqa-status-private -->
             <article id="question-<?php echo $post_id ?>" <?php post_class( 'dwqa-question' ); ?>>
@@ -474,6 +374,7 @@ class thesis_dwqa extends thesis_box {
                 <?php dwqa_load_template('answers'); ?>
             </div><!-- end dwqa-add-answers -->
         </div><!-- end dwqa-single-question -->
+        <?php do_action( 'dwqa_after_page' ) ?>
     <?php
     }
 }

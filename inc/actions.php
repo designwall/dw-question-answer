@@ -377,6 +377,7 @@ function dwqa_remove_answer(){
     if( ! isset($_POST['answer_id']) ) {
         wp_send_json_error( array( 'message' => __('Missing answer ID','dwqa') ) );
     }
+    do_action('dwqa_remove_answer',$_POST['answer_id']);
     wp_delete_post( $_POST['answer_id'] );
     wp_send_json_success();
 }
@@ -1858,5 +1859,18 @@ function dwqa_anonymous_reload_hidden_single_post($posts){
     return $questions;
 }
 add_filter('the_posts','dwqa_anonymous_reload_hidden_single_post');
+
+//Flush W3TC cache for a question after an answer action
+add_action('dwqa_add_answer','dwqa_flush_cache');
+add_action('dwqa_update_answer','dwqa_flush_cache');
+add_action('dwqa_remove_answer','dwqa_flush_cache');
+function dwqa_flush_cache($answer_id,  $old_post=NULL, $new_post=NULL ){
+    if( !is_wp_error( $answer_id ) ) {
+        $question_id = get_post_meta( $answer_id, '_question', true );
+        if (function_exists('w3tc_pgcache_flush_post')){
+            w3tc_pgcache_flush_post($question_id);
+        }
+    }	
+}	
 
 ?>

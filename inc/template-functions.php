@@ -334,14 +334,15 @@ add_action( 'admin_head', 'dwqa_add_guide_menu_icons_styles' );
 
 function dwqa_load_template( $name, $extend = false, $include = true ){
     global $dwqa_template;
-    
+	global $dwqa_permission;
+	
     $check = true;
     if( $extend ) {
         $name .= '-' . $extend;
     }
 
-    if( $name == 'submit-question-form' && !dwqa_current_user_can('post_question') ) {
-        echo '<div class="alert">'.__('You do not have permission to submit a question','dwqa').'</div>';
+    if( $name == 'submit-question-form' && (!dwqa_current_user_can('post_question') && !$dwqa_permission->perms['subscriber']['question']['post']) ) {
+		echo '<div class="alert">'.__('You do not have permission to submit a question','dwqa').'</div>';
         return false;
     }
 

@@ -20,7 +20,7 @@
             <span class="dwqa-date">
                 <?php  
                     echo get_avatar( $comment->user_id, 0);
-                    printf('<a href="#comment-%1$d" title="%2$s #%1$d">%3$s</a>',
+                    printf('<strong>&sdot;</strong> <a href="#comment-%1$d" title="%2$s #%1$d">%3$s</a>',
                         $comment->comment_ID,
                         __('Link to comment','dwqa'),
                         get_comment_date()
@@ -37,7 +37,7 @@
         <div class="dwqa-comment-actions">
             <span class="loading"></span>
             <div class="dwqa-btn-group">
-                <button type="button" class="dropdown-toggle"><i class="fa fa-chevron-down"></i> </button>
+                <button type="button" class="dropdown-toggle circle"><i class="fa fa-chevron-down"></i> </button>
                 <div class="dwqa-dropdown-menu">
                     <div class="dwqa-dropdown-caret">
                         <span class="dwqa-caret-outer"></span>

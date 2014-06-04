@@ -21,25 +21,9 @@
                         <div class="dwqa-alert alert"><?php echo $current_user->ID == $post->post_author ? __('Your question has been submitted and is currently awaiting approval','dwqa') : __('This question is currently awaiting approval','dwqa'); ?></div>
                         <?php endif; ?>
                         <?php dwqa_question_meta_button( $post_id ); ?>
-                    </header>
-                    <div class="dwqa-content">
-                        <?php the_content(); ?>
-                    </div>
-                    <?php  
-                        $tags = get_the_term_list( $post_id, 'dwqa-question_tag', '<span class="dwqa-tag">', '</span><span class="dwqa-tag">', '</span>' );
-                        if( ! empty($tags) ) :
-                    ?>
-                    <div class="dwqa-tags"><?php echo $tags; ?></div>
-                    <?php endif; ?>  <!-- Question Tags -->
-                    
-                    <?php dwqa_question_action_buttons($post_id); ?>
 
-                    <?php do_action( 'dwqa-question-content-footer' ); ?>
-                    
-                    <!-- Question footer -->
-                    <footer class="dwqa-footer">
                         <div class="dwqa-author">
-                            <?php echo get_avatar( $post->post_author, 32, false ); ?>
+                            <?php echo get_avatar( $post->post_author, 64, false ); ?>
                             <span class="author">
                                 <?php  
                                     if( dwqa_is_anonymous( $post->ID ) ) {
@@ -64,23 +48,22 @@
                                     ); 
                                 ?>
                             </span> <!-- Question Date -->
-                            
-                            
-                            <?php dwqa_question_privacy_button( $post_id ); ?>
                         </div>
-                        <?php  
-                            $categories = wp_get_post_terms( $post_id, 'dwqa-question_category' );
-                            if( ! empty($categories) ) :
-                                $cat = $categories[0]
-                        ?>
-                        <div class="dwqa-category">
-                            <span class="dwqa-category-title"><?php _e('Category','dwqa') ?></span>
-                            <a class="dwqa-category-name" href="<?php echo get_term_link( $cat );  ?>" title="<?php _e('All questions from','dwqa') ?> <?php echo $cat->name ?>"><?php echo $cat->name ?></a>
-                        </div>
-                        <?php endif; ?> <!-- Question Categories -->
+                    </header>
 
-                        <?php dwqa_question_status_button( $post_id ); ?>
-                    </footer>
+                    <div class="dwqa-content">
+                        <?php the_content(); ?>
+                    </div>
+                    <?php  
+                        $tags = get_the_term_list( $post_id, 'dwqa-question_tag', '<span class="dwqa-tag">', '</span><span class="dwqa-tag">', '</span>' );
+                        if( ! empty($tags) ) :
+                    ?>
+                    <div class="dwqa-tags"><?php echo $tags; ?></div>
+                    <?php endif; ?>  <!-- Question Tags -->
+
+                    <?php do_action( 'dwqa-question-content-footer' ); ?>
+                    
+                    <!-- Question footer -->
                     <div class="dwqa-comments">
                         <?php comments_template(); ?>
                     </div>

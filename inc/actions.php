@@ -1207,7 +1207,8 @@ function dwqa_user_post_count( $user_id, $post_type = 'post' ) {
         'author' => $user_id,
         'post_status'  => array( 'publish', 'private' ),
         'post_type'   => $post_type,
-        'posts_per_page' => -1
+        'posts_per_page' => -1,
+        'fields' => 'ids'
     ) );
     if( $posts ) {
         return count($posts);

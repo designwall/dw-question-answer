@@ -14,7 +14,6 @@
                 } else {
                     echo '<span class="author">'.( $comment->comment_author ? $comment->comment_author : __('Anonymous','dwqa') ).'</span>';
                 }
-
             ?>
             
             <span class="dwqa-date">

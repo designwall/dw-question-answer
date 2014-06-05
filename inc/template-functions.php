@@ -718,7 +718,7 @@ function dwqa_question_status_button( $post_id = false ) {
     if( ! $meta )
         $meta = 'open';
     ?>
-    <div class="dwqa-current-status">
+    <div class="dwqa-current-status status-<?php echo $meta; ?>">
         <?php
             if( dwqa_current_user_can('edit_question') 
                 || dwqa_current_user_can('edit_answer') 

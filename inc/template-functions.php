@@ -786,7 +786,7 @@ function dwqa_question_meta_button( $post_id = false ) {
                 $cat = $categories[0]
         ?>
         <div class="dwqa-category">
-            <a class="dwqa-category-name" href="<?php echo get_term_link( $cat );  ?>" title="<?php _e('All questions from','dwqa') ?> <?php echo $cat->name ?>"><?php echo $cat->name ?></a>
+            <a class="dwqa-category-name" href="<?php echo get_term_link( $cat );  ?>" title="<?php _e('All questions from','dwqa') ?> <?php echo $cat->name ?>"><i class="fa fa-folder-open"></i> <?php echo $cat->name ?></a>
         </div>
         <?php endif; ?> <!-- Question Categories -->
 

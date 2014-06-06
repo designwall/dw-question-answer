@@ -930,8 +930,7 @@
 
 		// Draft
 		.dwqa-status-draft {
-			&:before,
-			&:after {
+			&:before {
 				background-image: url('../img/draft.png');
 				display: block;
 				height: 8px;
@@ -939,11 +938,7 @@
 				position: relative;
 				z-index: 1;
 				content: "";
-			}
-			&:after {
-				margin-top: -1px;
-				margin-bottom: 0; 
-			}
+			} 
 		}
 
 
@@ -982,12 +977,12 @@
 			.dwqa-privacy,
 			.dwqa-category {
 				float: left;
-				margin-right: 5px;
+				margin-right: 5px; 
 			}
 
 			.dwqa-category {
 				line-height: 26px;
-				@media (max-width: (@screen-xs - 1px) ) {
+				@media (max-width: (@screen-xs) ) {
 					display: none;
 				}
 			}

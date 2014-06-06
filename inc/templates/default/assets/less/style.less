@@ -982,7 +982,8 @@
 
 			.dwqa-category {
 				line-height: 26px;
-				@media (max-width: (@screen-xs) ) {
+
+				@media (max-width: @screen-xs ) {
 					display: none;
 				}
 			}
@@ -1004,6 +1005,10 @@
 				position: absolute;
 				left: -43px;
 				top: 80px;
+
+				@media(max-width: @screen-xs-max) {
+					display: none;
+				}
 			}
 
 			.dwqa-author {

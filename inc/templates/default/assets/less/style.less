@@ -587,6 +587,7 @@
 			background: transparent;
 			margin: 0;
 			border: none;
+			color: initial;
 			.box-shadow(none);
 
 			&:hover {
@@ -858,11 +859,15 @@
 				position: relative;
 				line-height: 0;
 				border-bottom: 1px solid @gray-border;
-				// text-align: center;
 				
 				strong {
 					padding: 0 20px;
 					color: @gray;
+
+					.tribe-theme-twentyfourteen & {
+						display: none; 
+					}
+
 					@media(max-width: @screen-phone) {
 						display: none;
 					}
@@ -920,6 +925,24 @@
 				@media ( max-width: (@screen-phone - 1) ) {
 					display: none;
 				}
+			}
+		}
+
+		// Draft
+		.dwqa-status-draft {
+			&:before,
+			&:after {
+				background-image: url('../img/draft.png');
+				display: block;
+				height: 8px;
+				margin: -30px 0 22px 0;
+				position: relative;
+				z-index: 1;
+				content: "";
+			}
+			&:after {
+				margin-top: -1px;
+				margin-bottom: 0; 
 			}
 		}
 

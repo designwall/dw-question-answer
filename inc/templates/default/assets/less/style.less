@@ -842,11 +842,15 @@
 
 		// Footer sharing
 		.dwqa-footer-share {
-			margin: 30px 0 0 80px;  
+			margin: 30px 0 0 0;  
 			background: #fff;
 			border-bottom: 0;
 			border-top: 1px solid @gray-border;
 			position: relative;
+
+			@media ( min-width: @screen-sm) {
+				margin-left: 80px;
+			}
 
 			.dwqa-sharing {
 				display: block;
@@ -909,6 +913,12 @@
 			#dwqa-iframe-preview {
 				@media(max-width: @screen-phone) {
 					width: 100%!important;
+				}
+			}
+
+			.dwqa-embed-setting > .dwqa-embed-label {
+				@media ( max-width: (@screen-phone - 1) ) {
+					display: none;
 				}
 			}
 		}

@@ -693,7 +693,7 @@ jQuery(function($) {
             nonce = privacy.data('nonce');
         privacy.find('.dwqa-change-privacy ul li').removeClass('current');
         privacy.find('[name="privacy"]').val(status);
-        privacy.find('.dwqa-current-privacy').html(t.find('a').html());
+        privacy.find('.dropdown-toggle span').html(t.find('a').html());
         t.addClass('current');
 
         if (privacy.data('type') == 'question' || privacy.data('type') == 'answer') {
@@ -849,6 +849,7 @@ jQuery(function($) {
             if (!current_answer_editor) {
                 return false;
             }
+            question.removeClass('dwpa-edit');
             current_answer_editor.find('.dwqa-content').html(unescape($('#dwqa-custom-content-editor').data('current-content')));
             t.data('on-editor', '');
             current_answer_editor = null;
@@ -903,6 +904,8 @@ jQuery(function($) {
                     tinyMCE.init(settings);
                     editor.slideDown();
                     t.data('on-editor', true);
+
+                    question.addClass('dwpa-edit');
 
                     //Question : Cancel Edit
                     editor.find('.question-edit-cancel').bind('click', function(event) {

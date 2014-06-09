@@ -23,6 +23,7 @@ if ( post_password_required() )
     ?>
     </ol>
     <?php endif; ?>
+
     <?php if( ! dwqa_is_closed( get_the_ID() ) && dwqa_current_user_can( 'post_comment' ) ) { ?>
         <?php
             global $current_user;

@@ -26,19 +26,20 @@
                             'taxonomy'      => 'dwqa-question_category',
                             'show_option_none' => __('Select question category','dwqa'),
                             'hide_empty'    => 0,
-                            'quicktags'     => array( 'buttons' => 'strong,em,link,block,del,ins,img,ul,ol,li,code,spell,close' )
+                            'quicktags'     => array( 'buttons' => 'strong,em,link,block,del,ins,img,ul,ol,li,code,spell,close' ),
+                            'selected'      => (isset( $_POST['question-category'] ) ? stripslashes(htmlentities($_POST['question-category'])) : false)
                         ) );
                     ?>
                 </div>   
                 <div class="input-tag">
                     <label for="question-tag"><?php _e('Question Tags','dwqa') ?></label>
-                    <input type="text" name="question-tag" id="question-tag" placeholder="<?php _e('tag 1, tag 2,...','dwqa') ?>" />
+                    <input type="text" name="question-tag" id="question-tag" placeholder="<?php _e('tag 1, tag 2,...','dwqa') ?>" value="<?php echo isset( $_POST['question-tag'] ) ? stripslashes(htmlentities($_POST['question-tag'])) : ''; ?>" />
                 </div>
             </div>
         </div>
         <div class="input-title">
             <label for="question-title"><?php _e('Your question','dwqa') ?> *</label>
-            <input type="text" name="question-title" id="question-title" placeholder="<?php _e('How to...','dwqa') ?>" autocomplete="off" data-nonce="<?php echo wp_create_nonce( '_dwqa_filter_nonce' ) ?>" />
+            <input type="text" name="question-title" id="question-title" placeholder="<?php _e('How to...','dwqa') ?>" autocomplete="off" data-nonce="<?php echo wp_create_nonce( '_dwqa_filter_nonce' ) ?>" value="<?php echo isset( $_POST['question-title'] ) ? stripslashes(htmlentities($_POST['question-title'])) : ''; ?>" />
             <span class="dwqa-search-loading dwqa-hide"></span>
             <span class="dwqa-search-clear fa fa-times dwqa-hide"></span>
         </div>  
@@ -48,6 +49,7 @@
                 <label for="question-content"><?php _e('Question details','dwqa') ?></label>
                 <?php 
                     dwqa_init_tinymce_editor( array( 
+                            'content' => ( isset( $_POST['question-content'] ) ? stripslashes(htmlentities($_POST['question-content'])) : '' ),
                             'id' => 'dwqa-question-content-editor', 
                             'textarea_name' => 'question-content',
                             'media_buttons' => true

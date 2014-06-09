@@ -15,7 +15,7 @@ function dwqa_get_latest_action_date( $question = false, $before = '<span>', $af
 	} else {
 		$display_name = get_the_author_meta( 'display_name', $author_id );
 		$author_link = sprintf(
-            '<span class="dwqa-author"><span class="dwqa-user-avatar">%4$s</span><a href="%1$s" title="%2$s" rel="author">%3$s</a></span>',
+            '<span class="dwqa-author"><span class="dwqa-user-avatar">%4$s</span> <a href="%1$s" title="%2$s" rel="author">%3$s</a></span>',
             get_author_posts_url( $author_id ),
             esc_attr( sprintf( __( 'Posts by %s' ), $display_name ) ),
             $display_name,

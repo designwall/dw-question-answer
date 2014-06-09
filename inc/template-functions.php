@@ -692,7 +692,6 @@ function dwqa_question_privacy_button( $post_id = false ) {
     ?>
     <div data-post="<?php echo $post_id; ?>" data-nonce="<?php echo wp_create_nonce( '_dwqa_update_privacy_nonce' ); ?>" data-type="question" class="dwqa-privacy">
         <input type="hidden" name="privacy" value="<?php get_post_status(); ?>">
-        <span class="dwqa-current-privacy"> <?php echo 'private' == get_post_status() ? '<i class="fa fa-lock"></i> ' . __('Private','dwqa') : ( 'pending' == get_post_status() ? __('Pending','dwqa') : '<i class="fa fa-globe"></i> ' . __('Public','dwqa') ); ?></span>
         <?php 
             if( $post_status != 'draft' && (dwqa_current_user_can('edit_question') || dwqa_current_user_can('edit_answer') || get_post_field( 'post_author', $post_id ) == $current_user->ID) ) { ?>
         <span class="dwqa-change-privacy">

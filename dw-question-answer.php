@@ -43,9 +43,14 @@ include_once DWQA_DIR  . 'inc/widgets/list-closed-question.php';
 
 include_once DWQA_DIR  . 'inc/deprecated.php';
 
-if( ! defined('RECAPTCHA_VERIFY_SERVER') ) {
-    require_once DWQA_DIR  . 'inc/lib/recaptcha-php/recaptchalib.php';
+function dwqa_include_recaptcha_library() {
+    if( ! defined('RECAPTCHA_VERIFY_SERVER') ) {
+        require_once DWQA_DIR  . 'inc/lib/recaptcha-php/recaptchalib.php';
+    }
 }
+add_action( 'plugins_loaded', 'dwqa_include_recaptcha_library' );
+
+
 global $dwqa_permission;
 $dwqa_permission = new DWQA_Permission();
 
@@ -57,6 +62,7 @@ function dwqa_deactivate_hook(){
     flush_rewrite_rules();
 }
 register_deactivation_hook( __FILE__, 'dwqa_deactivate_hook' );
+
 // Update rewrite url when active plugin
 function dwqa_activate() {
     global $dwqa_permission;

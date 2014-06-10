@@ -631,7 +631,7 @@ function dwqa_has_sidebar_template(){
         if( file_exists( DWQA_DIR . 'inc/templates/'.$dwqa_template.'/sidebar-single.php') ) {
             include DWQA_DIR . 'inc/templates/'.$dwqa_template.'/sidebar-single.php';
         } else {
-            //get_sidebar();
+            get_sidebar();
         }
         return;
     }

@@ -295,6 +295,8 @@ function dwqa_plugin_init(){
         'error_valid_email'    =>  __( 'Enter a valid email address', 'dwqa' ),
         'error_valid_user'    =>  __( 'Enter a question title', 'dwqa' ),
         'error_valid_name'    =>  __( 'Please add your name', 'dwqa' ),
+        'error_anon_length'  => 'Name must be longer than 3 characters<br>also must be shorter than 15 characters<br>',
+        'error_anon_invalid_char' => 'Name must not contain any Symbols<br>',
         'error_missing_answer_content'  => __('Please enter your answer','dwqa'),
         'error_missing_comment_content' =>  __('Please enter your comment content','dwqa'),
         'error_not_enought_length'      => __('Comment must have more than 2 characters','dwqa'),

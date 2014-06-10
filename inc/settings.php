@@ -574,6 +574,14 @@ function dwqa_enable_review_question_mode() {
     echo '<p><label for="dwqa_options_enable_review_question"><input type="checkbox" name="dwqa_options[enable-review-question]"  id="dwqa_options_enable_review_question" value="1" '.checked( 1, (isset($dwqa_general_settings['enable-review-question']) ? $dwqa_general_settings['enable-review-question'] : false) , false ) .'><span class="description">'.__('Question must be manually approved','dwqa').'</span></label></p>';
 }
 
+//Add anon name feature to backend 
+function dwqa_enable_anon_name() {
+    global $dwqa_general_settings;
+
+    echo '<p><label for="dwqa_options_enable_anon_name"><input type="checkbox" name="dwqa_options[enable-anon-name]" id="dwqa_options_enable_anon_name" value="1" '.checked( 1, (isset($dwqa_general_settings['enable-anon-name']) ? $dwqa_general_settings['enable-anon-name'] : false) , false) .'><span class="description">Will allow anonymous to have names</span></label></p>';
+}
+
+
 class DWQA_Settings {
     public function __construct(){
 
@@ -593,7 +601,8 @@ class DWQA_Settings {
             'pages'     => array(
                     'submit-question'   => 0,
                     'archive-question'  => 0
-                )
+                ),
+             'enable-anon-name' => 0
         ) );
     }
 
@@ -653,6 +662,15 @@ class DWQA_Settings {
             'dwqa-settings', 
             'dwqa-general-settings'
         );
+        //Add anon name feature to backend 
+        add_settings_field(
+            'dwqa_options[enable-anon-name]',
+            'Enable Names for Anonymous',
+            'dwqa_enable_anon_name',
+            'dwqa-settings',
+            'dwqa-general-settings'
+        );
+
         //Time setting
         add_settings_section( 
             'dwqa-time-settings', 

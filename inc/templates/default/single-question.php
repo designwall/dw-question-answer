@@ -11,7 +11,7 @@
 <?php do_action( 'dwqa_before_page' ) ?>
     <?php if( have_posts() ) : ?>
         <?php while ( have_posts() ) : the_post(); ?>
-            <?php $post_id = get_the_ID(); $post_status = get_post_status();  ?>
+            <?php $post_id = get_the_ID(); $post_status = get_post_status(); $post_is_anon = get_post_meta($post_id, '_post_is_anon', true); ?>
             <div class="dwqa-single-question">
                 <!-- dwqa-status-private -->
                 <article id="question-<?php echo $post_id ?>" <?php post_class( 'dwqa-question' ); ?>>
@@ -27,7 +27,9 @@
                             <span class="author">
                                 <?php  
                                     if( dwqa_is_anonymous( $post->ID ) ) {
-                                        _e('Anonymous','dwqa');
+                                        //if anon field was left blank or disabled
+                                        echo ($post_is_anon == '1' ? _e('Anonymous','dwqa') : $post_is_anon);
+                                        //_e('Anonymous','dwqa');
                                     } else {
                                         printf('<a href="%1$s" title="%2$s %3$s">%3$s</a>',
                                             get_author_posts_url( get_the_author_meta( 'ID' ) ),

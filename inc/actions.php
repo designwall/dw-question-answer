@@ -372,6 +372,8 @@ function dwqa_submit_question(){
 
                 if( ! is_wp_error( $new_question ) ) {
                     if( $is_anonymous ) {
+                        //add anon's name to post meta data to refer to later
+                        add_post_meta( $new_question, '_post_is_anon', (isset($_POST['question-anon-user']) ? $_POST['question-anon-user'] : 1));
                         update_post_meta( $new_question, '_dwqa_anonymous_email', $question_author_email );
                         update_post_meta( $new_question, '_dwqa_is_anonymous', true );
                     }

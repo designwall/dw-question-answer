@@ -7,11 +7,14 @@ function dwqa_get_latest_action_date( $question = false, $before = '<span>', $af
 	$message = '';
 	$latest_answer = dwqa_get_latest_answer( $question );
 	$post_id = $latest_answer ? $latest_answer->ID : $question;
+    $post_is_anon = get_post_meta($post_id, '_post_is_anon', true);
 
 	$author_id = get_post_field( 'post_author', $post_id );
 
 	if( $author_id == 0 || dwqa_is_anonymous( $post_id ) ) {
-		$author_link = __('Anonymous','dwqa');
+        //if anon field was left blank or disabled
+        $author_link = ($post_is_anon == '1') ? __('Anonymous','dwqa') : $post_is_anon;
+		//$author_link = __('Anonymous','dwqa');
 	} else {
 		$display_name = get_the_author_meta( 'display_name', $author_id );
 		$author_link = sprintf(

@@ -17,6 +17,12 @@
     <form action="" name="dwqa-submit-question-form" id="dwqa-submit-question-form" method="post">
         <div class="question-advance">
             <div class="question-meta">
+                <?php if(!is_user_logged_in() && $dwqa_options['enable-anon-name']) : ?>
+                <div class="anon_name">
+                        <label for="question-anon-user"><?php _e('Please add your name','dwqa') ?></label>
+                        <input type="text" name="question-anon-user" id="question-anon-user" placeholder="<?php _e('Anonymous','dwqa') ?>" autocomplete="off" />
+                </div>
+                <?php endif; ?>
                 <div class="select-category">
                     <label for="question-category"><?php _e('Question Category','dwqa') ?></label>
                     <?php  

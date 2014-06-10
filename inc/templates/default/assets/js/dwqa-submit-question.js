@@ -55,6 +55,7 @@ jQuery(function($) {
     $('#dwqa-submit-question-form').on('submit', function(e) {
         var t = $(this);
         var flag = true;
+        var anon_name_regex = /^[A-Za-z0-9]+$/;
 
         if ($('.list-open-question').length > 0) {
             $('.list-open-question').fadeOut(200).remove();
@@ -71,6 +72,24 @@ jQuery(function($) {
                     $(this).next('.required').remove();
                 }
             });
+        }
+        if (!anon_name_regex.test($('#question-anon-user').val())){
+            e.preventDefault();
+            var placeholder = $('#question-anon-title').attr('placeholder');
+            $('#question-anon-user').addClass('required').after('<span class="description required">* ' + dwqa.error_anon_invalid_char + '</span>');
+            returnDefault($('#question-anon-user'), placeholder);
+            flag = false;
+        }
+        if ($('#question-anon-user').val().length > 15 || $('#question-anon-user').val().length <= 3) {
+            e.preventDefault();
+            var placeholder = $('#question-anon-title').attr('placeholder');
+            if ($('#question-anon-user').val().length == 0) {
+                $('#question-anon-user').addClass('required').attr('placeholder', dwqa.error_valid_name);
+            } else {
+                $('#question-anon-user').addClass('required').after('<span class="description required">* ' + dwqa.error_anon_length + '</span>');
+            }
+            returnDefault($('#question-anon-user'), placeholder);
+            flag = false;
         }
         if ($('#question-tag').val() == $('#question-tag').attr('placeholder')) {
             $('#question-tag').val('');

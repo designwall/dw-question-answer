@@ -143,6 +143,7 @@ function dwqa_add_answer(){
 
                 if( ($post_status == 'draft' && strtolower( $_POST['submit-answer'] ) == 'publish') || ($post_status != 'draft' && strtolower( $_POST['submit-answer'] ) == 'update') ) {
                     $answer_update['post_status'] = isset($_POST['privacy']) && 'private' == $_POST['privacy'] ? 'private' : 'publish';
+                    update_post_meta( $question_id, '_dwqa_status', 're-open' );
                 } 
                 $old_post = get_post( $_POST['answer-id'] );
                 $answer_id = wp_update_post( $answer_update );

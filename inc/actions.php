@@ -1175,6 +1175,7 @@ function dwqa_unvote_best_answer(){
     $q = get_post_meta( $_POST['answer'], '_question', true );
     $question = get_post( $q );
     if( $current_user->ID == $question->post_author || current_user_can( 'edit_posts' ) ) {
+        do_action( 'dwqa_unvote_best_answer', $_POST['answer'] );
         delete_post_meta( $q, '_dwqa_best_answer' );
     }
     

@@ -226,6 +226,7 @@ function dwqa_remove_answer(){
     if( ! isset($_POST['answer_id']) ) {
         wp_send_json_error( array( 'message' => __('Missing answer ID','dwqa') ) );
     }
+    do_action( 'dwqa_delete_answer', $_POST['answer_id'] );
     wp_delete_post( $_POST['answer_id'] );
     wp_send_json_success();
 }
@@ -1158,6 +1159,7 @@ function dwqa_vote_best_answer(){
     $q = get_post_meta( $_POST['answer'], '_question', true );
     $question = get_post( $q );
     if( $current_user->ID == $question->post_author || current_user_can( 'edit_posts' ) ) {
+        do_action( 'dwqa_vote_best_answer', $_POST['answer'] );
         update_post_meta( $q, '_dwqa_best_answer', $_POST['answer'] );
     }
 }
@@ -1388,11 +1390,13 @@ function dwqa_follow_question(){
     if( is_user_logged_in() ) {
         global $current_user;
         if( ! dwqa_is_followed( $question->ID )  ) {
+            do_action( 'dwqa_follow_question', $question->ID, $current_user->ID );
             add_post_meta( $question->ID, '_dwqa_followers', $current_user->ID );
             wp_send_json_success( array(
                 'code' => 'followed'
             ) );
         } else {
+            do_action( 'dwqa_unfollow_question', $question->ID, $current_user->ID );
             delete_post_meta( $question->ID, '_dwqa_followers', $current_user->ID );
             wp_send_json_success( array(
                 'code' => 'unfollowed'
@@ -1577,6 +1581,7 @@ function dwqa_delete_question(){
 
         if( $delete ) {
             global $dwqa_options;
+            do_action( 'dwqa_delete_question', $question->ID );
             wp_send_json_success( array(
                 'question_archive_url' => get_permalink( $dwqa_options['pages']['archive-question'] )
             ) );
@@ -1654,7 +1659,7 @@ function dwqa_anonymous_reload_hidden_single_post($posts){
     $question = $questions[0];
 
     //This is a pending question
-    if( 'pending' != get_post_status( $question->ID ) || 'private' != get_post_status( $question->ID ) ) {
+    if( 'pending' == get_post_status( $question->ID ) || 'private' == get_post_status( $question->ID ) ) {
         $warning_page_id = isset($dwqa_options['pages']['404']) ? $dwqa_options['pages']['404'] : false;
         if( ! dwqa_current_user_can('edit_question') && $warning_page_id ) {
             $query = $wpdb->prepare( "SELECT * FROM ".$wpdb->prefix."posts WHERE ID = %d ",
@@ -1681,5 +1686,7 @@ function dwqa_anonymous_reload_hidden_single_post($posts){
     return $questions;
 }
 add_filter('the_posts','dwqa_anonymous_reload_hidden_single_post');
+
+
 
 ?>

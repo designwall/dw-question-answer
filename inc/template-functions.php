@@ -155,7 +155,10 @@ function dwqa_require_field_submit_question(){
     ?>
     <input type="hidden" name="dwqa-action" value="dwqa-submit-question" />
     <?php wp_nonce_field( 'dwqa-submit-question-nonce-#!' ); ?>
-
+    
+    <?php  
+        $subscriber = get_role( 'subscriber' );
+    ?>
     <?php if( ! is_user_logged_in() && ! dwqa_current_user_can('post_question') ) { ?>
     <input type="hidden" name="login-type" id="login-type" value="sign-up" autocomplete="off">
     <div class="question-register clearfix">
@@ -339,7 +342,7 @@ function dwqa_load_template( $name, $extend = false, $include = true ){
         $name .= '-' . $extend;
     }
 
-    if( $name == 'submit-question-form' && !dwqa_current_user_can('post_question') ) {
+    if( $name == 'submit-question-form' && is_user_logged_in() && !dwqa_current_user_can('post_question') ) {
         echo '<div class="alert">'.__('You do not have permission to submit a question','dwqa').'</div>';
         return false;
     }

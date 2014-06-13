@@ -41,6 +41,7 @@ jQuery(function($) {
     });
 
     // DWQA Vote Function=========================================================================
+    var update_vote = false;
     $('.dwqa-vote .dwqa-vote-dwqa-btn').on('click', function(event) {
         event.preventDefault();
         var t = $(this),
@@ -51,7 +52,10 @@ jQuery(function($) {
 
         if (type == 'question') {
             question_id = parent.data('question');
-            $.ajax({
+            if( update_vote ) {
+                update_vote.abort();
+            }
+            update_vote = $.ajax({
                 url: dwqa.ajax_url,
                 type: 'POST',
                 dataType: 'json',
@@ -63,6 +67,9 @@ jQuery(function($) {
                     type: vote
                 }
             })
+                .always( function(resp) {
+                    update_vote = false;
+                })
                 .done(function(resp) {
                     if (resp.success) {
                         parent.find('.dwqa-vote-count').text(resp.data.vote);
@@ -70,8 +77,10 @@ jQuery(function($) {
                 });
         } else if (type == 'answer') {
             answer_id = parent.data('answer');
-
-            $.ajax({
+            if( update_vote ) {
+                update_vote.abort();
+            }
+            update_vote = $.ajax({
                 url: dwqa.ajax_url,
                 type: 'POST',
                 dataType: 'json',
@@ -83,6 +92,9 @@ jQuery(function($) {
                     type: vote
                 }
             })
+                .always( function(resp) {
+                    update_vote = false;
+                })
                 .done(function(resp) {
                     if (resp.success) {
                         parent.find('.dwqa-vote-count').text(resp.data.vote);

@@ -1689,5 +1689,13 @@ function dwqa_anonymous_reload_hidden_single_post($posts){
 add_filter('the_posts','dwqa_anonymous_reload_hidden_single_post');
 
 
+function dwqa_comment_author_link_anonymous( $comment ) {
+    // global $current_comment;
+    if( $comment->user_id <= 0 ) {
+        $comment->comment_author = __('Anonymous','dwqa');
+    }
+    return $comment ;
+}
+add_filter( 'get_comment', 'dwqa_comment_author_link_anonymous' );
 
 ?>

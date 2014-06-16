@@ -80,6 +80,7 @@ Visit our [Github](https://github.com/designwall/dw-question-answer) project or 
 * Fix: Link to shortcode page does not overwrite the 404 page
 * Fix: Submit form content lost when providing error captcha
 * Fix: Recaptcha conflict
+* Fix: unauthorized users can edit questions/answers from back-end
 * New: Update single question UI
 
 

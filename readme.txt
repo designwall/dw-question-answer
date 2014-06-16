@@ -3,7 +3,7 @@ Contributors: designwall, Farid-Gh, scheunemann, gciprian, Ahmet Kolcu, Astroten
 Tags: question, answer, support, quora, stackoverflow
 Requires at least: 3.0.1
 Tested up to: 3.9.1
-Stable tag: 1.2.8
+Stable tag: 1.2.9
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -74,6 +74,14 @@ Visit our [Github](https://github.com/designwall/dw-question-answer) project or 
 5. Back-end settings
 
 == Changelog ==
+
+= 1.2.9 =
+
+* Fix: Link to shortcode page does not overwrite the 404 page
+* Fix: Submit form content lost when providing error captcha
+* Fix: Recaptcha conflict
+* New: Update single question UI
+
 
 = 1.2.8 =
 * Order questions by latest answer post

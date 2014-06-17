@@ -171,13 +171,13 @@ function dwqa_plugin_init(){
         'menu_icon' =>  '',
         'supports' => array( 'title', 'editor', 'comments', 'author', 'page-attributes' ),
         'capabilities' => array(
-            'edit_post' => 'edit_question',
-            'edit_posts' => 'edit_question',
-            'edit_others_posts' => 'edit_question',
-            'publish_posts' => 'post_question',
-            'read_post' => 'read_question',
+            'edit_post' => 'dwqa_can_edit_question',
+            'edit_posts' => 'dwqa_can_edit_question',
+            'edit_others_posts' => 'dwqa_can_edit_question',
+            'publish_posts' => 'dwqa_can_post_question',
+            'read_post' => 'dwqa_can_read_question',
             'read_private_posts' => 'read_private_posts',
-            'delete_post' => 'delete_question'
+            'delete_post' => 'dwqa_can_delete_question'
         )
     ); 
     register_post_type( 'dwqa-question', $question_args );
@@ -212,13 +212,13 @@ function dwqa_plugin_init(){
         'menu_icon' =>  '',
         'supports' => array( 'title', 'editor', 'comments', 'custom-fields', 'author', 'page-attributes' ),
         'capabilities' => array(
-            'edit_post' => 'edit_answer',
-            'edit_posts' => 'edit_answer',
-            'edit_others_posts' => 'edit_answer',
-            'publish_posts' => 'post_answer',
-            'read_post' => 'read_answer',
+            'edit_post' => 'dwqa_can_edit_answer',
+            'edit_posts' => 'dwqa_can_edit_answer',
+            'edit_others_posts' => 'dwqa_can_edit_answer',
+            'publish_posts' => 'dwqa_can_post_answer',
+            'read_post' => 'dwqa_can_read_answer',
             'read_private_posts' => 'read_private_posts',
-            'delete_post' => 'delete_answer'
+            'delete_post' => 'dwqa_can_delete_answer'
         )
     ); 
     register_post_type( 'dwqa-answer', $answer );

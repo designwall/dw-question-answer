@@ -10,17 +10,12 @@ function dwqa_generate_template_for_plugin($template) {
         $question_id = get_post_meta( $post->ID, '_question', true );
         if( $question_id ) {
             wp_safe_redirect( get_permalink( $question_id ) );
-            query_posts( 'p='.$question_id.'&post_type=dwqa-question' );
-            return dwqa_load_template( 'single', 'question', false );
+            exit(0);
         }
-    } 
-
-    if( is_singular( 'dwqa-question' ) ) {
-        return dwqa_load_template( 'single', 'question', false );
     }
     return $template;
 }
-//add_filter( "single_template", "dwqa_generate_template_for_plugin", 20 ) ;
+add_filter( "single_template", "dwqa_generate_template_for_plugin", 20 ) ;
 
 /**
  * Filter new page for submit question form
@@ -835,8 +830,9 @@ class DWQA_Template {
     public function __construct() {
         add_filter( 'template_include', array( $this, 'question_content' ) );
         add_filter( 'comments_open', array( $this, 'close_default_comment') );
+        add_filter( 'term_link', array( $this, 'force_term_link_to_setting_page'), 10, 3 );
     }
-    
+
     public function sanitize_output($buffer) {
 
         $search = array(
@@ -980,6 +976,14 @@ class DWQA_Template {
         if( is_singular( 'dwqa-question' ) || is_singular( 'dwqa-answer' ) ) 
             return false;
         return $open;
+    }
+
+    function force_term_link_to_setting_page( $termlink, $term, $taxonomy ) {
+        global $dwqa_options;
+        if( $taxonomy == 'dwqa-question_category' || $taxonomy == 'dwqa-question_tag' ) {
+            $termlink = add_query_arg( $taxonomy, $term->term_id, get_permalink( $dwqa_options['pages']['archive-question'] ) );
+        }
+        return $termlink;
     }
 }
 $GLOBALS['dwqa_template'] = new DWQA_Template();

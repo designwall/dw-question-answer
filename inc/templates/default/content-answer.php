@@ -13,10 +13,10 @@
     $post_class = 'dwqa-answer';
 ?>
 
-    <article id="answer-<?php echo $answer_id; ?>" <?php post_class(); ?>>
+    <div id="answer-<?php echo $answer_id; ?>" <?php post_class(); ?>>
         <header class="dwqa-header">
             <div class="dwqa-meta">
-                <span class="dwqa-vote" data-type="answer" data-nonce="<?php echo wp_create_nonce( '_dwqa_answer_vote_nonce' ) ?>" data-answer="<?php the_ID(); ?>" >
+                <div class="dwqa-vote" data-type="answer" data-nonce="<?php echo wp_create_nonce( '_dwqa_answer_vote_nonce' ) ?>" data-answer="<?php the_ID(); ?>" >
                     <a data-vote="up" class="dwqa-vote-dwqa-btn dwqa-vote-up" href="#" title="<?php _e('Vote Up','dwqa') ?>"><?php _e('Vote Up','dwqa') ?> </a>
                     <div class="dwqa-vote-count">
                     <?php  
@@ -28,7 +28,7 @@
                     ?>
                     </div>
                     <a data-vote="down" class="dwqa-vote-dwqa-btn dwqa-vote-down" href="#"  title="<?php _e('Vote Down','dwqa') ?>"><?php _e('Vote Down','dwqa') ?> </a>
-                </span>
+                </div>
                 
                 <?php  if( is_user_logged_in() ) { ?>
                 <div class="dwqa-actions">
@@ -137,4 +137,4 @@
             <?php comments_template(); ?>
         </div>
         <?php } ?>
-    </article>
+    </div>

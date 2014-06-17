@@ -781,11 +781,11 @@ function dwqa_question_meta_button( $post_id = false ) {
     }
     ?>
     <div class="dwqa-meta">
-        <span class="dwqa-vote" data-type="question" data-nonce="<?php echo wp_create_nonce( '_dwqa_question_vote_nonce' ) ?>" data-question="<?php echo $post_id; ?>" >
+        <div class="dwqa-vote" data-type="question" data-nonce="<?php echo wp_create_nonce( '_dwqa_question_vote_nonce' ) ?>" data-question="<?php echo $post_id; ?>" >
             <a class="dwqa-vote-dwqa-btn dwqa-vote-up" data-vote="up" href="#"  title="<?php _e('Vote Up','dwqa') ?>"><?php _e('Vote Up','dwqa') ?></a>
             <div class="dwqa-vote-count"><?php $point = dwqa_vote_count(); echo $point > 0 ? '+'.$point:$point; ?></div>
             <a class="dwqa-vote-dwqa-btn dwqa-vote-down" data-vote="down" href="#"  title="<?php _e('Vote Down','dwqa') ?>"><?php _e('Vote Down','dwqa') ?></a>
-        </span>
+        </div>
         
         <?php dwqa_question_status_button( $post_id ); ?>
 

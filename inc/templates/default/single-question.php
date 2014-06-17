@@ -5,18 +5,15 @@
  *  @since  DW Question Answer 1.0
  */
     global $current_user, $post;
-    get_header('dwqa'); 
 ?>
 
-<?php do_action( 'dwqa_before_page' ) ?>
     <?php if( have_posts() ) : ?>
         <?php while ( have_posts() ) : the_post(); ?>
             <?php $post_id = get_the_ID(); $post_status = get_post_status();  ?>
             <div class="dwqa-single-question">
                 <!-- dwqa-status-private -->
-                <article id="question-<?php echo $post_id ?>" <?php post_class( 'dwqa-question' ); ?>>
+                <div class="dwqa-question">
                     <header class="dwqa-header">
-                        <h1 class="dwqa-title"><?php the_title(); ?></h1>
                         <?php if( $post_status == 'draft' || $post_status == 'pending' ) : ?>
                         <div class="dwqa-alert alert"><?php echo $current_user->ID == $post->post_author ? __('Your question has been submitted and is currently awaiting approval','dwqa') : __('This question is currently awaiting approval','dwqa'); ?></div>
                         <?php endif; ?>
@@ -67,7 +64,7 @@
                     <div class="dwqa-comments">
                         <?php comments_template(); ?>
                     </div>
-                </article><!-- end question -->
+                </div><!-- end question -->
 
                 <div id="dwqa-answers">
                     <?php dwqa_load_template('answers'); ?>
@@ -76,5 +73,3 @@
             </div><!-- end dwqa-single-question -->
         <?php endwhile; // end of the loop. ?>  
     <?php endif; ?>
-<?php do_action( 'dwqa_after_page' ) ?>
-<?php get_footer('dwqa'); ?>

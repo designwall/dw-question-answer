@@ -25,7 +25,7 @@ class dwqa_Latest_Question_Widget extends WP_Widget {
         echo $after_title;
         
         $args = array(
-            'posts_per_page'       => $instance['number'],
+            'posts_per_page'    => $instance['number'],
             'order'             => 'DESC',
             'orderby'           => 'post_date',
             'post_type'         => 'dwqa-question',

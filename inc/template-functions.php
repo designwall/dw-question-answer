@@ -836,10 +836,29 @@ class DWQA_Template {
         add_filter( 'template_include', array( $this, 'question_content' ) );
         add_filter( 'comments_open', array( $this, 'close_default_comment') );
     }
+    
+    public function sanitize_output($buffer) {
+
+        $search = array(
+            '/\>[^\S ]+/s',  // strip whitespaces after tags, except space
+            '/[^\S ]+\</s',  // strip whitespaces before tags, except space
+            '/(\s)+/s'       // shorten multiple whitespace sequences
+        );
+
+        $replace = array(
+            '>',
+            '<',
+            '\\1'
+        );
+
+        $buffer = preg_replace($search, $replace, $buffer);
+
+        return $buffer;
+    }
 
     public function question_content( $template ) {
         if( is_singular( 'dwqa-question' ) ) {
-            ob_start();
+            ob_start( array( $this, 'sanitize_output' ) );
             echo '<div class="dwqa-container" >';
             dwqa_load_template('single', 'question');
             echo '</div>';

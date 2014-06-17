@@ -646,7 +646,19 @@ function dwqa_get_ask_question_link( $echo = true, $label = false, $class = fals
     global $dwqa_options;
     $submit_question_link = get_permalink( $dwqa_options['pages']['submit-question'] );
     if( $dwqa_options['pages']['submit-question'] && $submit_question_link ) {
-        $label = $label ? $label : __('Ask a question','dwqa');
+
+
+        if( dwqa_current_user_can('post_question') ) {
+            $label = $label ? $label : __('Ask a question','dwqa');
+        } elseif( ! is_user_logged_in() ) {
+            $label = $label ? $label : __('Login to ask a question','dwqa');
+            $submit_question_link = wp_login_url( $submit_question_link );
+        } else {
+            return false;
+        }
+        //Add filter to change ask question link text
+        $label = apply_filters( 'dwqa_ask_question_link_label', $label );
+
         $class = $class ? $class  : 'dwqa-btn-success';
         $button = '<a href="'.$submit_question_link.'" class="dwqa-btn '.$class.'">'.$label.'</a>';
         $button = apply_filters( 'dwqa_ask_question_link', $button, $submit_question_link );

@@ -837,7 +837,6 @@ class DWQA_Template {
             ob_start();
 
             remove_filter( 'comments_open', array( $this, 'close_default_comment') );
-            add_filter( 'the_content', 'wpautop' );
 
             echo '<div class="dwqa-container" >';
             dwqa_load_template('single', 'question');
@@ -846,7 +845,6 @@ class DWQA_Template {
             $content = ob_get_contents();
 
             add_filter( 'comments_open', array( $this, 'close_default_comment') );
-            remove_filter( 'the_content', 'wpautop' );
             
             ob_end_clean();
 

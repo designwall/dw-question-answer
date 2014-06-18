@@ -905,6 +905,7 @@ class DWQA_Template {
                 'comment_status' => 'closed'
             ) );
             if( file_exists( trailingslashit( get_template_directory() ) . 'page.php' ) ) {
+                
                 return trailingslashit ( get_template_directory() ) . 'page.php';
             }
         }

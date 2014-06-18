@@ -1,4 +1,4 @@
-<?php  
+<?php
 /**
  *  DW Question Answer Shortcode
  */
@@ -52,12 +52,19 @@ class DWQA_Shortcode {
     }
 
     public function archive_question(){
-        global $script_version, $dwqa_sript_vars;
+        global $script_version, $dwqa_sript_vars, $dwqa_template_compat;
+        
         ob_start();
+
+        $dwqa_template_compat->remove_all_filters( 'the_content' );
+
         echo '<div class="dwqa-container" >';
         dwqa_load_template('question', 'list');
         echo '</div>';
         $html = ob_get_contents();
+
+        $dwqa_template_compat->restore_all_filters( 'the_content' );
+
         ob_end_clean();
 
         wp_enqueue_script( 'dwqa-questions-list', DWQA_URI . 'inc/templates/default/assets/js/dwqa-questions-list.js', array( 'jquery' ), $script_version, true );
@@ -69,10 +76,15 @@ class DWQA_Shortcode {
         global $dwqa_sript_vars, $script_version;
         ob_start();
 
+        $dwqa_template->remove_all_filters( 'the_content' );
+
         echo '<div class="dwqa-container" >';
             dwqa_load_template( 'question', 'submit-form' );
         echo '</div>';
         $html = ob_get_contents();
+
+        $dwqa_template->restore_all_filters( 'the_content' );
+
         ob_end_clean();
 
         wp_enqueue_script( 'dwqa-submit-question', DWQA_URI . 'inc/templates/default/assets/js/dwqa-submit-question.js', array( 'jquery' ), $script_version, true );

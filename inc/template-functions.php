@@ -826,7 +826,11 @@ function dwqa_question_meta_button( $post_id = false ) {
 
 
 class DWQA_Template {
+
+    public $filters;
+
     public function __construct() {
+        $this->filters = new stdClass();
         add_filter( 'template_include', array( $this, 'question_content' ) );
         add_filter( 'term_link', array( $this, 'force_term_link_to_setting_page'), 10, 3 );
         add_filter( 'comments_open', array( $this, 'close_default_comment') );
@@ -837,7 +841,6 @@ class DWQA_Template {
             ob_start();
 
             remove_filter( 'comments_open', array( $this, 'close_default_comment') );
-            add_filter( 'the_content', 'wpautop' );
 
             echo '<div class="dwqa-container" >';
             dwqa_load_template('single', 'question');
@@ -846,7 +849,6 @@ class DWQA_Template {
             $content = ob_get_contents();
 
             add_filter( 'comments_open', array( $this, 'close_default_comment') );
-            remove_filter( 'the_content', 'wpautop' );
             
             ob_end_clean();
 
@@ -863,7 +865,7 @@ class DWQA_Template {
                 'is_single'      => true
             ) );
             if( file_exists( trailingslashit( get_template_directory() ) . 'page.php' ) ) {
-                remove_filter( 'the_content', 'wpautop' );
+                $this->remove_all_filters( 'the_content' );
                 return trailingslashit ( get_template_directory() ) . 'page.php';
             }
         }
@@ -1001,5 +1003,82 @@ class DWQA_Template {
         return $termlink;
     }
 
+    public function remove_all_filters( $tag, $priority = false ) {
+        global $wp_filter, $merged_filters;
+
+        // Filters exist
+        if ( isset( $wp_filter[$tag] ) ) {
+
+            // Filters exist in this priority
+            if ( !empty( $priority ) && isset( $wp_filter[$tag][$priority] ) ) {
+
+                // Store filters in a backup
+                $this->filters->wp_filter[$tag][$priority] = $wp_filter[$tag][$priority];
+
+                // Unset the filters
+                unset( $wp_filter[$tag][$priority] );
+
+            // Priority is empty
+            } else {
+
+                // Store filters in a backup
+                $this->filters->wp_filter[$tag] = $wp_filter[$tag];
+
+                // Unset the filters
+                unset( $wp_filter[$tag] );
+            }
+        }
+
+        // Check merged filters
+        if ( isset( $merged_filters[$tag] ) ) {
+
+            // Store filters in a backup
+            $this->filters->merged_filters[$tag] = $merged_filters[$tag];
+
+            // Unset the filters
+            unset( $merged_filters[$tag] );
+        }
+
+        return true;
+    }
+
+    public function restore_all_filters( $tag, $priority = false ) {
+        global $wp_filter, $merged_filters;
+
+        // Filters exist
+        if ( isset( $this->filters->wp_filter[$tag] ) ) {
+
+            // Filters exist in this priority
+            if ( !empty( $priority ) && isset( $this->filters->wp_filter[$tag][$priority] ) ) {
+
+                // Store filters in a backup
+                $wp_filter[$tag][$priority] = $this->filters->wp_filter[$tag][$priority];
+
+                // Unset the filters
+                unset( $this->filters->wp_filter[$tag][$priority] );
+
+            // Priority is empty
+            } else {
+
+                // Store filters in a backup
+                $wp_filter[$tag] = $this->filters->wp_filter[$tag];
+
+                // Unset the filters
+                unset( $this->filters->wp_filter[$tag] );
+            }
+        }
+
+        // Check merged filters
+        if ( isset( $this->filters->merged_filters[$tag] ) ) {
+
+            // Store filters in a backup
+            $merged_filters[$tag] = $this->filters->merged_filters[$tag];
+
+            // Unset the filters
+            unset( $this->filters->merged_filters[$tag] );
+        }
+
+        return true;
+    }
 }
-$GLOBALS['dwqa_template'] = new DWQA_Template();
+$GLOBALS['dwqa_template_compat'] = new DWQA_Template();

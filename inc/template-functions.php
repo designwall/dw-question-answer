@@ -831,33 +831,6 @@ class DWQA_Template {
         add_filter( 'template_include', array( $this, 'question_content' ) );
         add_filter( 'comments_open', array( $this, 'close_default_comment') );
         add_filter( 'term_link', array( $this, 'force_term_link_to_setting_page'), 10, 3 );
-        add_filter( 'wp', array( $this, 'remove_autop_in_shortcode') );
-    }
-
-    public function sanitize_output($buffer) {
-        $search = array(
-            '/>\s+/s',  // strip whitespaces after tags, except space
-            '/\s+</s',  // strip whitespaces before tags, except space
-            '/(\s)+/s',       // shorten multiple whitespace sequences
-            "/\r/",
-            "/\n/",
-            "/\t/",
-            '/<!--[^>]*>/s',
-        );
-
-        $replace = array(
-            '>',
-            '<',
-            '\\1',
-            '',
-            '',
-            '',
-            ''
-        );
-
-        $buffer = preg_replace($search, $replace, $buffer);
-
-        return $buffer;
     }
 
     public function question_content( $template ) {
@@ -874,7 +847,7 @@ class DWQA_Template {
                 'post_title'     => get_the_title(),
                 'post_author'    => 0,
                 'post_date'      => get_the_date(),
-                'post_content'   => $this->sanitize_output( $content ),
+                'post_content'   => $content,
                 'post_type'      => 'dwqa-question',
                 'post_status'    => get_post_status(),
                 'is_single'      => true,
@@ -898,13 +871,14 @@ class DWQA_Template {
                 'post_title'     => get_the_title(),
                 'post_author'    => 0,
                 'post_date'      => get_the_date(),
-                'post_content'   => $this->sanitize_output( $content ),
+                'post_content'   => $content,
                 'post_type'      => 'dwqa-question',
                 'post_status'    => get_post_status(),
                 'is_archive'      => true,
                 'comment_status' => 'closed'
             ) );
             if( file_exists( trailingslashit( get_template_directory() ) . 'page.php' ) ) {
+                $this->remove_content_filter( 'the_content' );
                 return trailingslashit ( get_template_directory() ) . 'page.php';
             }
         }
@@ -1016,12 +990,5 @@ class DWQA_Template {
         return $termlink;
     }
 
-    public function remove_autop_in_shortcode(){
-    }
 }
 $GLOBALS['dwqa_template'] = new DWQA_Template();
-
-
-?>
-
-

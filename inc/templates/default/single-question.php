@@ -18,7 +18,6 @@
                         <div class="dwqa-alert alert"><?php echo $current_user->ID == $post->post_author ? __('Your question has been submitted and is currently awaiting approval','dwqa') : __('This question is currently awaiting approval','dwqa'); ?></div>
                         <?php endif; ?>
                         <?php dwqa_question_meta_button( $post_id ); ?>
-
                         <div class="dwqa-author">
                             <?php echo get_avatar( $post->post_author, 64, false ); ?>
                             <span class="author">

@@ -14,15 +14,23 @@ class DWQA_Shortcode {
     public function sanitize_output($buffer) {
 
         $search = array(
-            '/\>[^\S ]+/s',  // strip whitespaces after tags, except space
-            '/[^\S ]+\</s',  // strip whitespaces before tags, except space
-            '/(\s)+/s'       // shorten multiple whitespace sequences
+            '/>\s+/s',  // strip whitespaces after tags, except space
+            '/\s+</s',  // strip whitespaces before tags, except space
+            '/(\s)+/s',       // shorten multiple whitespace sequences
+            "/\r/",
+            "/\n/",
+            "/\t/",
+            '/<!--[^>]*>/s',
         );
 
         $replace = array(
             '>',
             '<',
-            '\\1'
+            '\\1',
+            '',
+            '',
+            '',
+            ''
         );
 
         $buffer = preg_replace($search, $replace, $buffer);
@@ -45,20 +53,21 @@ class DWQA_Shortcode {
 
     public function archive_question(){
         global $script_version, $dwqa_sript_vars;
-        ob_start( array( $this, 'sanitize_output' ) );
+        ob_start();
         echo '<div class="dwqa-container" >';
         dwqa_load_template('question', 'list');
         echo '</div>';
         $html = ob_get_contents();
         ob_end_clean();
+
         wp_enqueue_script( 'dwqa-questions-list', DWQA_URI . 'inc/templates/default/assets/js/dwqa-questions-list.js', array( 'jquery' ), $script_version, true );
         wp_localize_script( 'dwqa-questions-list', 'dwqa', $dwqa_sript_vars );
-        return $html;
+        return $this->sanitize_output( $html );
     }
 
     public function submit_question_form_shortcode(){
         global $dwqa_sript_vars, $script_version;
-        ob_start( array( $this, 'sanitize_output' ) );
+        ob_start();
 
         echo '<div class="dwqa-container" >';
             dwqa_load_template( 'question', 'submit-form' );
@@ -68,7 +77,7 @@ class DWQA_Shortcode {
 
         wp_enqueue_script( 'dwqa-submit-question', DWQA_URI . 'inc/templates/default/assets/js/dwqa-submit-question.js', array( 'jquery' ), $script_version, true );
         wp_localize_script( 'dwqa-submit-question', 'dwqa', $dwqa_sript_vars );
-        return $html;
+        return $this->sanitize_output( $html );
     }
 
     public function shortcode_popular_questions( $atts ){

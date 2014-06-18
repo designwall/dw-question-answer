@@ -831,20 +831,28 @@ class DWQA_Template {
         add_filter( 'template_include', array( $this, 'question_content' ) );
         add_filter( 'comments_open', array( $this, 'close_default_comment') );
         add_filter( 'term_link', array( $this, 'force_term_link_to_setting_page'), 10, 3 );
+        add_filter( 'wp', array( $this, 'remove_autop_in_shortcode') );
     }
 
     public function sanitize_output($buffer) {
-
         $search = array(
-            '/\>[^\S ]+/s',  // strip whitespaces after tags, except space
-            '/[^\S ]+\</s',  // strip whitespaces before tags, except space
-            '/(\s)+/s'       // shorten multiple whitespace sequences
+            '/>\s+/s',  // strip whitespaces after tags, except space
+            '/\s+</s',  // strip whitespaces before tags, except space
+            '/(\s)+/s',       // shorten multiple whitespace sequences
+            "/\r/",
+            "/\n/",
+            "/\t/",
+            '/<!--[^>]*>/s',
         );
 
         $replace = array(
             '>',
             '<',
-            '\\1'
+            '\\1',
+            '',
+            '',
+            '',
+            ''
         );
 
         $buffer = preg_replace($search, $replace, $buffer);
@@ -854,20 +862,19 @@ class DWQA_Template {
 
     public function question_content( $template ) {
         if( is_singular( 'dwqa-question' ) ) {
-            ob_start( array( $this, 'sanitize_output' ) );
+            ob_start();
             echo '<div class="dwqa-container" >';
             dwqa_load_template('single', 'question');
             echo '</div>';
             $content = ob_get_contents();
             ob_end_clean();
-
             // Reset post
             $this->reset_content( array(
                 'ID'             => get_the_ID(),
                 'post_title'     => get_the_title(),
                 'post_author'    => 0,
                 'post_date'      => get_the_date(),
-                'post_content'   => $content,
+                'post_content'   => $this->sanitize_output( $content ),
                 'post_type'      => 'dwqa-question',
                 'post_status'    => get_post_status(),
                 'is_single'      => true,
@@ -877,7 +884,30 @@ class DWQA_Template {
                 return trailingslashit ( get_template_directory() ) . 'page.php';
             }
         }
+        if( is_tax( 'dwqa-question_category' ) || is_tax( 'dwqa-question_tax' ) ) {
 
+            ob_start();
+            echo '<div class="dwqa-container" >';
+            dwqa_load_template('question', 'list');
+            echo '</div>';
+            $content = ob_get_contents();
+            ob_end_clean();
+
+            $this->reset_content( array(
+                'ID'             => get_the_ID(),
+                'post_title'     => get_the_title(),
+                'post_author'    => 0,
+                'post_date'      => get_the_date(),
+                'post_content'   => $this->sanitize_output( $content ),
+                'post_type'      => 'dwqa-question',
+                'post_status'    => get_post_status(),
+                'is_archive'      => true,
+                'comment_status' => 'closed'
+            ) );
+            if( file_exists( trailingslashit( get_template_directory() ) . 'page.php' ) ) {
+                return trailingslashit ( get_template_directory() ) . 'page.php';
+            }
+        }
         return $template;
     }
 
@@ -972,21 +1002,25 @@ class DWQA_Template {
         $wp_query->is_tax     = $dummy['is_tax'];
     }
 
-    function close_default_comment( $open ) {
+    public function close_default_comment( $open ) {
         if( is_singular( 'dwqa-question' ) || is_singular( 'dwqa-answer' ) ) 
             return false;
         return $open;
     }
 
-    function force_term_link_to_setting_page( $termlink, $term, $taxonomy ) {
+    public function force_term_link_to_setting_page( $termlink, $term, $taxonomy ) {
         global $dwqa_options;
         if( $taxonomy == 'dwqa-question_category' || $taxonomy == 'dwqa-question_tag' ) {
             $termlink = add_query_arg( $taxonomy, $term->term_id, get_permalink( $dwqa_options['pages']['archive-question'] ) );
         }
         return $termlink;
     }
+
+    public function remove_autop_in_shortcode(){
+    }
 }
 $GLOBALS['dwqa_template'] = new DWQA_Template();
+
 
 ?>
 

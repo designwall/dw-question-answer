@@ -46,8 +46,7 @@ function dwqa_generate_template_for_comment_form( $comment_template ) {
     }
     return $comment_template;
 }
-
-//add_filter( "comments_template", "dwqa_generate_template_for_comment_form", 20 );
+add_filter( "comments_template", "dwqa_generate_template_for_comment_form", 20 );
 
 /**
  * Override template path for archive of question post type template
@@ -829,18 +828,29 @@ function dwqa_question_meta_button( $post_id = false ) {
 class DWQA_Template {
     public function __construct() {
         add_filter( 'template_include', array( $this, 'question_content' ) );
-        add_filter( 'comments_open', array( $this, 'close_default_comment') );
         add_filter( 'term_link', array( $this, 'force_term_link_to_setting_page'), 10, 3 );
+        add_filter( 'comments_open', array( $this, 'close_default_comment') );
     }
 
     public function question_content( $template ) {
         if( is_singular( 'dwqa-question' ) ) {
             ob_start();
+
+            remove_filter( 'comments_open', array( $this, 'close_default_comment') );
+            add_filter( 'the_content', 'wpautop' );
+
             echo '<div class="dwqa-container" >';
             dwqa_load_template('single', 'question');
             echo '</div>';
+
             $content = ob_get_contents();
+
+            add_filter( 'comments_open', array( $this, 'close_default_comment') );
+            remove_filter( 'the_content', 'wpautop' );
+            
             ob_end_clean();
+
+
             // Reset post
             $this->reset_content( array(
                 'ID'             => get_the_ID(),
@@ -850,10 +860,10 @@ class DWQA_Template {
                 'post_content'   => $content,
                 'post_type'      => 'dwqa-question',
                 'post_status'    => get_post_status(),
-                'is_single'      => true,
-                'comment_status' => 'closed'
+                'is_single'      => true
             ) );
             if( file_exists( trailingslashit( get_template_directory() ) . 'page.php' ) ) {
+                remove_filter( 'the_content', 'wpautop' );
                 return trailingslashit ( get_template_directory() ) . 'page.php';
             }
         }
@@ -878,7 +888,7 @@ class DWQA_Template {
                 'comment_status' => 'closed'
             ) );
             if( file_exists( trailingslashit( get_template_directory() ) . 'page.php' ) ) {
-                $this->remove_content_filter( 'the_content' );
+                remove_filter( 'the_content', 'wpautop' );
                 return trailingslashit ( get_template_directory() ) . 'page.php';
             }
         }
@@ -977,8 +987,9 @@ class DWQA_Template {
     }
 
     public function close_default_comment( $open ) {
-        if( is_singular( 'dwqa-question' ) || is_singular( 'dwqa-answer' ) ) 
+        if( is_singular( 'dwqa-question' ) || is_singular( 'dwqa-answer' ) ) {
             return false;
+        }
         return $open;
     }
 

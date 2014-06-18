@@ -13,6 +13,7 @@ if ( post_password_required() )
         <span class="dwqa-comments-more-pages"><?php echo get_option( 'comments_per_page' ) . ' ' . __('of','dwqa') . ' ' . $count['approved'] ; ?></span>
     </div>
     <?php endif; ?>
+
     <?php if( have_comments() ) : ?>
     <ol class="dwqa-comment-list">
     <?php 

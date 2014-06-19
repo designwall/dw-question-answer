@@ -463,7 +463,7 @@ function dwqa_question_answers_count( $question_id = null){
  */ 
 function dwqa_question_view(){
     global $post;
-    if( is_single() && get_post_type() === 'dwqa-question' ) {
+    if( is_singular( 'dwqa-question' ) ) {
         $refer = wp_get_referer();
         if( is_user_logged_in() ) {
             global $current_user;
@@ -472,7 +472,7 @@ function dwqa_question_view(){
                 update_post_meta( $post->ID, '_dwqa_admin_checked_id', $current_user->ID );
             }
         }
-        if( $refer && $refer != get_permalink( $post->ID ) ) {
+        if( ($refer && $refer != get_permalink( $post->ID )) || ! $refer ) {
             if( is_single() && 'dwqa-question' == get_post_type() ) {
                 $views = get_post_meta( $post->ID, '_dwqa_views', true );
 
@@ -486,7 +486,7 @@ function dwqa_question_view(){
         }
     }
 }
-add_action( 'dwqa_before_page', 'dwqa_question_view' );
+add_action( 'wp', 'dwqa_question_view' );
 
 /**
  * Count number of views for a questions

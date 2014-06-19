@@ -14,8 +14,8 @@ class DWQA_Shortcode {
     public function sanitize_output($buffer) {
 
         $search = array(
-            '/>\s+/s',  // strip whitespaces after tags, except space
-            '/\s+</s',  // strip whitespaces before tags, except space
+            '/\>[^\S ]+/s',  // strip whitespaces after tags, except space
+            '/[^\S ]+\</s',  // strip whitespaces before tags, except space
             '/(\s)+/s',       // shorten multiple whitespace sequences
             "/\r/",
             "/\n/",
@@ -53,7 +53,6 @@ class DWQA_Shortcode {
 
     public function archive_question(){
         global $script_version, $dwqa_sript_vars, $dwqa_template_compat;
-        
         ob_start();
 
         $dwqa_template_compat->remove_all_filters( 'the_content' );
@@ -73,17 +72,17 @@ class DWQA_Shortcode {
     }
 
     public function submit_question_form_shortcode(){
-        global $dwqa_sript_vars, $script_version;
+        global $dwqa_sript_vars, $script_version, $dwqa_template_compat;
         ob_start();
 
-        $dwqa_template->remove_all_filters( 'the_content' );
+        $dwqa_template_compat->remove_all_filters( 'the_content' );
 
         echo '<div class="dwqa-container" >';
             dwqa_load_template( 'question', 'submit-form' );
         echo '</div>';
         $html = ob_get_contents();
 
-        $dwqa_template->restore_all_filters( 'the_content' );
+        $dwqa_template_compat->restore_all_filters( 'the_content' );
 
         ob_end_clean();
 

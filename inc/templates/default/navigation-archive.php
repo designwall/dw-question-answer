@@ -48,6 +48,8 @@
 		<div class="pagination">
 			<ul data-pages="<?php echo $pages; ?>" >
 				<?php  
+					global $dwqa_options;
+
 					$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 					$i = 0;
 					echo '<li class="prev';
@@ -55,7 +57,7 @@
 						echo ' dwqa-hide';
 					}
 					echo '"><a href="javascript:void()">'.__('Prev', 'dwqa').'</a></li>';
-					$link = get_post_type_archive_link( 'dwqa-question' );
+					$link = get_permalink( $dwqa_options['pages']['archive-question'] );
 					$start = $paged - 2;
 					$end = $paged + 2;
 

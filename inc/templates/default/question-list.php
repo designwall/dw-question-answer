@@ -42,7 +42,7 @@
 						$taxonomy = get_query_var( 'taxonomy' );
 						if( $taxonomy && 'dwqa-question_category' == $taxonomy ) {
 							$term_name = get_query_var( $taxonomy );
-							$term = get_term_by( 'slug', $term, $taxonomy );
+							$term = get_term_by( 'slug', $term_name, $taxonomy );
 							$selected = $term->term_id;
 						} else {
 

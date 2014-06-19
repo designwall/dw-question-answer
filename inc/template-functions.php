@@ -1,73 +1,5 @@
 <?php  
-/**
- * Custom template for each page of plugin
- * @param  string $single_template template url 
- * @return string                  New url of custom template for each page of dwqa plugin
- */ 
-function dwqa_generate_template_for_plugin($template) {
-    global $post, $dwqa_options;
-    if( is_singular( 'dwqa-answer' ) ) {
-        $question_id = get_post_meta( $post->ID, '_question', true );
-        if( $question_id ) {
-            wp_safe_redirect( get_permalink( $question_id ) );
-            exit(0);
-        }
-    }
-    return $template;
-}
-add_filter( "single_template", "dwqa_generate_template_for_plugin", 20 ) ;
 
-/**
- * Filter new page for submit question form
- * @param  string $template Template path
- * @return string           Submit question template path
- */ 
-function dwqa_generate_template_for_submit_question_page($template) {
-    global $post, $dwqa_options;
-    if( isset($dwqa_options['pages']['submit-question']) && is_page( $dwqa_options['pages']['submit-question'] ) ){
-        $template = dwqa_load_template( 'question', 'submit', false );
-    }
-    if( isset($dwqa_options['pages']['archive-question']) && is_page( $dwqa_options['pages']['archive-question'])  ){
-        return dwqa_load_template( 'archive', 'question', false );
-    }
-    return $template;
-}
-add_filter( 'page_template', 'dwqa_generate_template_for_submit_question_page', 20 );
-
-
-/**
- * Override template path of comment form in singe page for question custom post type
- * @param  string $comment_template Template path 
- * @return string                   New template path
- */
-function dwqa_generate_template_for_comment_form( $comment_template ) {
-    if (  is_single() && ('dwqa-question' == get_post_type() || 'dwqa-answer' == get_post_type()) ) {
-        return dwqa_load_template( 'comments', false, false );
-    }
-    return $comment_template;
-}
-add_filter( "comments_template", "dwqa_generate_template_for_comment_form", 20 );
-
-/**
- * Override template path for archive of question post type template
- * @param  string $template template path
- * @return string           New template path
- */
-function dwqa_generate_template_for_questions_list_page($template) {
-    if( is_archive() 
-        &&  ( 'dwqa-question' == get_post_type() 
-                || 'dwqa-question' == get_query_var( 'post_type' ) 
-                || 'dwqa-question_category' == get_query_var( 'taxonomy' ) 
-                || 'dwqa-question_tag' == get_query_var( 'taxonomy' ) ) 
-    ) {
-        return dwqa_load_template( 'archive', 'question', false );
-    }
-    return $template;
-}
-add_filter( 'taxonomy_template', 
-    'dwqa_generate_template_for_questions_list_page', 20 );
-add_filter( 'archive_template', 
-    'dwqa_generate_template_for_questions_list_page', 20 );
 /**
  * Print class for question detail container
  */
@@ -309,7 +241,7 @@ function dwqa_submit_answer_form(){
 
 function dwqa_paged_query(){
     $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-    echo '<input type="hidden" name="dwqa-paged" id="dwqa-paged" value="'.$paged.'" >';
+    echo '<div><input type="hidden" name="dwqa-paged" id="dwqa-paged" value="'.$paged.'" ></div>';
 }
 add_action( 'dwqa-prepare-archive-posts', 'dwqa_paged_query' );
 
@@ -388,7 +320,6 @@ function dwqa_enqueue_scripts(){
         $single_script_vars['question_id'] = get_the_ID();
         wp_localize_script( 'dwqa-single-question', 'dwqa', $single_script_vars );
     }
-
 
     if( (is_archive() && 'dwqa-question' == get_post_type()) || ( isset( $dwqa_options['pages']['archive-question'] ) && is_page( $dwqa_options['pages']['archive-question'] ) ) ) {
         wp_enqueue_script( 'dwqa-questions-list', $assets_folder . 'js/dwqa-questions-list.js', array( 'jquery' ), $version, true );
@@ -834,9 +765,34 @@ class DWQA_Template {
         add_filter( 'template_include', array( $this, 'question_content' ) );
         add_filter( 'term_link', array( $this, 'force_term_link_to_setting_page'), 10, 3 );
         add_filter( 'comments_open', array( $this, 'close_default_comment') );
+
+        //Template Include Hook
+        add_filter( 'single_template', array( $this, 'redirect_answer_to_question'), 20 ) ;
+        add_filter( 'comments_template', array( $this, 'generate_template_for_comment_form'), 20 );
+    }
+
+    public function redirect_answer_to_question($template) {
+        global $post, $dwqa_options;
+        if( is_singular( 'dwqa-answer' ) ) {
+            $question_id = get_post_meta( $post->ID, '_question', true );
+            if( $question_id ) {
+                wp_safe_redirect( get_permalink( $question_id ) );
+                exit(0);
+            }
+        }
+        return $template;
+    }
+
+    public function generate_template_for_comment_form( $comment_template ) {
+        if (  is_single() && ('dwqa-question' == get_post_type() || 'dwqa-answer' == get_post_type()) ) {
+            return dwqa_load_template( 'comments', false, false );
+        }
+        return $comment_template;
     }
 
     public function question_content( $template ) {
+        global $dwqa_options;
+
         if( is_singular( 'dwqa-question' ) ) {
             ob_start();
 
@@ -886,11 +842,11 @@ class DWQA_Template {
                 'post_content'   => $content,
                 'post_type'      => 'dwqa-question',
                 'post_status'    => get_post_status(),
-                'is_archive'      => true,
+                'is_page'      => true,
                 'comment_status' => 'closed'
             ) );
             if( file_exists( trailingslashit( get_template_directory() ) . 'page.php' ) ) {
-                remove_filter( 'the_content', 'wpautop' );
+                $this->remove_all_filters( 'the_content' );
                 return trailingslashit ( get_template_directory() ) . 'page.php';
             }
         }
@@ -989,7 +945,13 @@ class DWQA_Template {
     }
 
     public function close_default_comment( $open ) {
-        if( is_singular( 'dwqa-question' ) || is_singular( 'dwqa-answer' ) ) {
+        global $dwqa_options;
+
+        if( is_singular( 'dwqa-question' ) 
+            || is_singular( 'dwqa-answer' ) 
+            || ( $dwqa_options['pages']['archive-question'] && is_page( $dwqa_options['pages']['archive-question']) )
+            || ( $dwqa_options['pages']['submit-question'] && is_page( $dwqa_options['pages']['submit-question']) )
+        ) {
             return false;
         }
         return $open;

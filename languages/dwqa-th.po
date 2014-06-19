@@ -3,13 +3,13 @@ msgstr ""
 "Project-Id-Version: DW Question Answer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-24 15:17+0700\n"
-"PO-Revision-Date: 2014-05-19 19:37-0000\n"
-"Last-Translator: Varut <varut.vu@gmail.com>\n"
+"PO-Revision-Date: 2014-06-19 11:17+0700\n"
+"Last-Translator: DesignWall <webmaster@designwall.com>\n"
 "Language-Team: DesignWall <webmaster@designwall.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.5\n"
+"X-Generator: Poedit 1.6.4\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -144,11 +144,11 @@ msgstr "หมวดหมู่ทั้งหมด"
 
 #: ../dw-question-answer.php:201
 msgid "Parent Category"
-msgstr "หมวดหมู่แม่"
+msgstr "หมวดหมู่หลัก"
 
 #: ../dw-question-answer.php:202
 msgid "Parent Category:"
-msgstr "หมวดหมู่แม่:"
+msgstr "หมวดหมู่หลัก:"
 
 #: ../dw-question-answer.php:203
 msgid "Edit Category"
@@ -726,14 +726,14 @@ msgstr "เปิด"
 #: ../inc/templates/default/content-question.php:8
 #: ../inc/templates/default/single-question.php:166 ../thesis/dwqa/box.php:453
 msgid "Pending"
-msgstr "รอดำเนินการ"
+msgstr "กำลังรอดำเนินการ"
 
 #: ../inc/metaboxes.php:48 ../inc/shortcodes.php:70 ../inc/status.php:261
 #: ../inc/templates/default/archive-question.php:36
 #: ../inc/templates/default/single-question.php:171 ../thesis/dwqa/box.php:97
 #: ../thesis/dwqa/box.php:458
 msgid "Resolved"
-msgstr "ตอบสมบูรณ์"
+msgstr "มีคำตอบสมบูรณ์"
 
 #: ../inc/metaboxes.php:49 ../inc/status.php:267
 #: ../inc/templates/default/single-question.php:156 ../thesis/dwqa/box.php:443

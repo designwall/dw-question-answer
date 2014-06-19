@@ -5,6 +5,10 @@
  */
 if ( post_password_required() )
     return;
+
+if( ! comments_open( get_the_ID() ) ) 
+    return;
+
 ?>
     <?php $count = get_comment_count( get_the_ID() ); ?>
     <?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' )  ) : ?>

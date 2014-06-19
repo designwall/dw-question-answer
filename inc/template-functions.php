@@ -808,7 +808,6 @@ class DWQA_Template {
             
             ob_end_clean();
 
-
             // Reset post
             $this->reset_content( array(
                 'ID'             => get_the_ID(),
@@ -946,7 +945,6 @@ class DWQA_Template {
 
     public function close_default_comment( $open ) {
         global $dwqa_options;
-
         if( is_singular( 'dwqa-question' ) 
             || is_singular( 'dwqa-answer' ) 
             || ( $dwqa_options['pages']['archive-question'] && is_page( $dwqa_options['pages']['archive-question']) )

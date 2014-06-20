@@ -344,40 +344,28 @@ function dwqa_plugin_init(){
           
     );
 
-    //add_rewrite_tag( $tag, $regex, $query );
+    //add rewrite for question taxonomy
+
     if( isset($dwqa_options['pages']['archive-question']) ) {
         global $wp_rewrite;
 
         $page_id = $dwqa_options['pages']['archive-question'];
         $question_list_page = get_page( $page_id );
-
-        add_rewrite_tag( '%dwqa-question_category%', '([^/]*)', 'taxonomy=dwqa-question_category&dwqa-question_category=' );
         
         $dwqa_rewrite_rules = array(
-            array(
-                'rule'  => array(
-                    '^'.$question_list_page->post_name.'/dwqa-question_category/([^/]*)',
-                    'index.php?page_id='.$page_id.'&taxonomy=dwqa-question_category&dwqa-question_category=$matches[1]'
-                ),
-                'structure' => $question_list_page->post_name.'/%dwqa-question_category%'
-            ),
-            array(
-                'rule'  => array(
-                    '^'.$question_list_page->post_name.'/dwqa-question_tag/([^/]*)',
-                    'index.php?page_id='.$page_id.'&taxonomy=dwqa-question_tag&dwqa-question_tag=$matches[1]'
-                )
-            )
+            '^'.$question_list_page->post_name.'/dwqa-question_category/([^/]*)' => 'index.php?page_id='.$page_id.'&taxonomy=dwqa-question_category&dwqa-question_category=$matches[1]',
+            '^'.$question_list_page->post_name.'/dwqa-question_tag/([^/]*)' => 'index.php?page_id='.$page_id.'&taxonomy=dwqa-question_tag&dwqa-question_tag=$matches[1]'
         );
-        foreach ($dwqa_rewrite_rules as $rule ) {
-            add_rewrite_rule( $rule['rule'][0], $rule['rule'][1], 'top' );
+        foreach ($dwqa_rewrite_rules as $regex => $redirect ) {
+            add_rewrite_rule( $regex, $redirect, 'top' );
         }
 
         $maybe_missing = $wp_rewrite->rewrite_rules();
-        $flush = false;
-        foreach ( $dwqa_rewrite_rules as $rule ) {
 
-            if( array_key_exists($rule['rule'][0], $maybe_missing) ) {
-                if( $maybe_missing[$rule['rule'][0]] != $rule['rule'][1] ) {
+        $flush = false;
+        foreach ( $dwqa_rewrite_rules as $regex => $redirect ) {
+            if( array_key_exists( $regex, $maybe_missing) ) {
+                if( $maybe_missing[$regex] != $redirect ) {
                     $flush = true;
                 }
             } else {

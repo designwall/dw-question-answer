@@ -58,10 +58,10 @@ function dwqa_deactivate_hook(){
     global $dwqa_permission;
     wp_clear_scheduled_hook( 'dwqa_hourly_event' );
     $dwqa_permission->remove_permision_caps();
-    delete_option( 'dwqa_options' );
     flush_rewrite_rules();
 }
 register_deactivation_hook( __FILE__, 'dwqa_deactivate_hook' );
+
 
 // Update rewrite url when active plugin
 function dwqa_activate() {
@@ -76,10 +76,16 @@ function dwqa_activate() {
         'post_title' => __('DWQA Questions','dwqa'),
         'post_type' => 'page',
         'post_status' => 'publish',
-        'posts_per_page' => 1
+        'posts_per_page' => 1,
+        'post_content'  => '[dwqa-list-questions]'
     );
     $question_page = get_page_by_title( $args['post_title'] );
-    if( ! $question_page && ( !isset($options['pages']['archive-question']) || ! $options['pages']['archive-question'] ) ) {
+    if( ! $question_page 
+        && ( !isset($options['pages']['archive-question'])
+            || ( isset($options['pages']['archive-question'])
+                    && ! get_page( $options['pages']['archive-question'] ) )
+        )
+    ) {
         $new_page = wp_insert_post( $args );
         $options['pages']['archive-question'] = $new_page;
     } else {
@@ -89,10 +95,16 @@ function dwqa_activate() {
         'post_title' => __('DWQA Ask Question','dwqa'),
         'post_type' => 'page',
         'post_status' => 'publish',
-        'posts_per_page' => 1
+        'posts_per_page' => 1,
+        'post_content'  => '[dwqa-submit-question-form]'
     );
     $ask_page = get_page_by_title( $args['post_title'] );
-    if( ! $ask_page && ( !isset($options['pages']['submit-question']) || ! $options['pages']['archive-question'] ) ) {
+    if( ! $ask_page 
+        && ( !isset($options['pages']['submit-question'])
+            || ( isset($options['pages']['submit-question'])
+                    && ! get_page( $options['pages']['submit-question'] ) )
+        )
+    ) {
         $new_page = wp_insert_post( $args );
         $options['pages']['submit-question'] = $new_page;
     } else {
@@ -351,33 +363,34 @@ function dwqa_plugin_init(){
 
         $page_id = $dwqa_options['pages']['archive-question'];
         $question_list_page = get_page( $page_id );
-        
-        $dwqa_rewrite_rules = array(
-            '^'.$question_list_page->post_name.'/dwqa-question_category/([^/]*)' => 'index.php?page_id='.$page_id.'&taxonomy=dwqa-question_category&dwqa-question_category=$matches[1]',
-            '^'.$question_list_page->post_name.'/dwqa-question_tag/([^/]*)' => 'index.php?page_id='.$page_id.'&taxonomy=dwqa-question_tag&dwqa-question_tag=$matches[1]'
-        );
-        foreach ($dwqa_rewrite_rules as $regex => $redirect ) {
-            add_rewrite_rule( $regex, $redirect, 'top' );
-        }
+        if( $question_list_page ) {
+            $dwqa_rewrite_rules = array(
+                '^'.$question_list_page->post_name.'/dwqa-question_category/([^/]*)' => 'index.php?page_id='.$page_id.'&taxonomy=dwqa-question_category&dwqa-question_category=$matches[1]',
+                '^'.$question_list_page->post_name.'/dwqa-question_tag/([^/]*)' => 'index.php?page_id='.$page_id.'&taxonomy=dwqa-question_tag&dwqa-question_tag=$matches[1]'
+            );
+            foreach ($dwqa_rewrite_rules as $regex => $redirect ) {
+                add_rewrite_rule( $regex, $redirect, 'top' );
+            }
 
-        $maybe_missing = $wp_rewrite->rewrite_rules();
+            $maybe_missing = $wp_rewrite->rewrite_rules();
 
-        $flush = false;
-        foreach ( $dwqa_rewrite_rules as $regex => $redirect ) {
-            if( array_key_exists( $regex, $maybe_missing) ) {
-                if( $maybe_missing[$regex] != $redirect ) {
+            $flush = false;
+            foreach ( $dwqa_rewrite_rules as $regex => $redirect ) {
+                if( array_key_exists( $regex, $maybe_missing) ) {
+                    if( $maybe_missing[$regex] != $redirect ) {
+                        $flush = true;
+                    }
+                } else {
                     $flush = true;
                 }
-            } else {
-                $flush = true;
+            }
+
+            if( $flush ) {
+                flush_rewrite_rules();
+                $flush = false;
             }
         }
-
-        if( $flush ) {
-            flush_rewrite_rules();
-            $flush = false;
-        }
-
+        
     }
 }
 add_action( 'init', 'dwqa_plugin_init' );

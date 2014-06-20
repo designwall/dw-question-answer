@@ -43,9 +43,9 @@
 						if( $taxonomy && 'dwqa-question_category' == $taxonomy ) {
 							$term_name = get_query_var( $taxonomy );
 							$term = get_term_by( 'slug', $term_name, $taxonomy );
-							$selected = $term->term_id;
+							if( $term )
+								$selected = $term->term_id;
 						} else {
-
 						    $question_category_rewrite = get_option( 'dwqa-question-category-rewrite', 'question-category' );
 						    $question_category_rewrite = $question_category_rewrite ? $question_category_rewrite : 'question-category';
 							$selected =  isset($_GET[$question_category_rewrite]) ? $_GET[$question_category_rewrite] : 'all'; 

@@ -30,7 +30,7 @@
                     <a data-vote="down" class="dwqa-vote-dwqa-btn dwqa-vote-down" href="#"  title="<?php _e('Vote Down','dwqa') ?>"><?php _e('Vote Down','dwqa') ?> </a>
                 </div>
                 
-                <?php  if( is_user_logged_in() && false ) { ?>
+                <?php  if( is_user_logged_in() ) { ?>
                 <div class="dwqa-actions">
                     <span class="loading"></span>
                     <div class="dwqa-btn-group">

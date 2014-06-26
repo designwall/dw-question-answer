@@ -135,6 +135,21 @@ function dwqa_add_answer(){
                 
                 break;
             case 'update-answer':
+                $answer_author = get_post_field( 'post_author', $_POST['answer-id'] );
+                
+                global $current_user;
+                if( ! dwqa_current_user_can( 'delete_answer' ) || ( is_user_logged_in() && $answer_author != $current_user->ID ) ) {
+                    wp_send_json_error( array(
+                        'message'   => __('You do not have permission to edit this post','dwqa')
+                    ) );
+                }
+                if( get_post_type( $_POST['answer-id'] ) != 'dwqa-answer' ) {
+                    wp_send_json_error( array(
+                        'message'   => __('This post is not an answer','dwqa')
+                    ) );
+                }
+
+
                 $answer_update = array(
                     'ID'    => $_POST['answer-id'],
                     'post_content'   => $answ_content
@@ -220,14 +235,31 @@ add_action( 'comment_form', 'dwqa_wp_comment_form_unfiltered_html_nonce' );
  * Remove an answer with specify id
  */
 function dwqa_remove_answer(){
-    if( ! isset($_POST['wpnonce']) || ! wp_verify_nonce( $_POST['wpnonce'], '_dwqa_action_remove_answer_nonce' ) ) {
+    if( ! isset($_POST['wpnonce']) || ! wp_verify_nonce( $_POST['wpnonce'], '_dwqa_action_remove_answer_nonce' ) || ! is_user_logged_in() ) {
         wp_send_json_error( array( 'message' => __( 'Are you cheating huh?','dwqa' ) ) );
     }
     if( ! isset($_POST['answer_id']) ) {
         wp_send_json_error( array( 'message' => __('Missing answer ID','dwqa') ) );
+    }   
+
+    global $current_user;
+    $answer_author = get_post_field( 'post_author', $_POST['answer_id'] );
+
+    if( ! dwqa_current_user_can( 'delete_answer' ) || ( is_user_logged_in() && $answer_author != $current_user->ID ) ) {
+        wp_send_json_error( array(
+            'message'   => __('You do not have permission to edit this post','dwqa')
+        ) );
     }
+    if( get_post_type( $_POST['answer_id'] ) != 'dwqa-answer' ) {
+        wp_send_json_error( array(
+            'message'   => __('This post is not an answer','dwqa')
+        ) );
+    }
+
     do_action( 'dwqa_delete_answer', $_POST['answer_id'] );
+
     wp_delete_post( $_POST['answer_id'] );
+
     wp_send_json_success();
 }
 add_action( 'wp_ajax_dwqa-action-remove-answer', 'dwqa_remove_answer' );
@@ -850,7 +882,7 @@ function dwqa_update_question(){
         break;
     }
 }
-//add_action( 'wp_ajax_dwqa-update-question', 'dwqa_update_question' );
+add_action( 'wp_ajax_dwqa-update-question', 'dwqa_update_question' );
 
 function dwqa_ajax_create_update_question_editor(){
 
@@ -1600,7 +1632,7 @@ function dwqa_delete_question(){
 
     
 }
-//add_action( 'wp_ajax_dwqa-delete-question', 'dwqa_delete_question' );
+add_action( 'wp_ajax_dwqa-delete-question', 'dwqa_delete_question' );
 
 function dwqa_hook_on_remove_question( $post_id ){
     if( 'dwqa-question' == get_post_type( $post_id ) ) {

@@ -595,7 +595,7 @@ function dwqa_get_ask_question_link( $echo = true, $label = false, $class = fals
 }
 
 function dwqa_question_action_buttons( $post_id ) {
-    if( is_user_logged_in() && false ) :
+    if( is_user_logged_in() ) :
         global $current_user, $post;
         if( dwqa_current_user_can('edit_question') || dwqa_current_user_can('delete_question') || $current_user->ID == $post->post_author ) :
     ?>

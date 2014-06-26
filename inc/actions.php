@@ -850,7 +850,7 @@ function dwqa_update_question(){
         break;
     }
 }
-add_action( 'wp_ajax_dwqa-update-question', 'dwqa_update_question' );
+//add_action( 'wp_ajax_dwqa-update-question', 'dwqa_update_question' );
 
 function dwqa_ajax_create_update_question_editor(){
 
@@ -1600,7 +1600,7 @@ function dwqa_delete_question(){
 
     
 }
-add_action( 'wp_ajax_dwqa-delete-question', 'dwqa_delete_question' );
+//add_action( 'wp_ajax_dwqa-delete-question', 'dwqa_delete_question' );
 
 function dwqa_hook_on_remove_question( $post_id ){
     if( 'dwqa-question' == get_post_type( $post_id ) ) {

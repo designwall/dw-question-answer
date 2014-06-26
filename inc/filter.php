@@ -397,6 +397,25 @@ class DWQA_Filter {
         $where .= " AND post_title LIKE '%".preg_quote($_POST['title'])."%'";
         return $where;
     }
+    
+    public function posts_where_suggest( $where ) {
+        global $current_search;
+        $first=true;
+        $s = explode(' ',$current_search);
+        if(count($s)>0){
+            $where .= " AND (";
+            foreach($s as $w){
+                if(!$first){
+                    $where.= " OR ";
+                }
+                $where.= "post_title LIKE '%".preg_quote($w)."%'";
+                $first = false;
+            }
+            $where .= " ) ";
+        }
+        return $where;
+    }
+    
     public function auto_suggest_for_seach(){
         if( !isset($_POST['nonce'])  ) {
             wp_send_json_error( array( 
@@ -418,12 +437,33 @@ class DWQA_Filter {
             $status = array( 'publish', 'private' );
         }
 
-        $query = new WP_Query( array(
+        $search = $_POST['title'];
+        $args_query = array(
             'post_type' => 'dwqa-question',
             'posts_per_page'    => 6,
-            'post_status'   => $status,
-            's'         => $_POST['title']
-        )  );
+            'post_status'   => $status
+        );
+        preg_match_all('/#\S*\w/i', $search, $matches);
+        if($matches && is_array($matches) && count($matches)>0 && count($matches[0])>0){
+            $args_query['tax_query'][] = array(
+                'taxonomy' => 'dwqa-question_tag',
+                'field' => 'slug',
+                'terms' => $matches[0],
+                'operator'  => 'IN'
+            );
+            $search = preg_replace('/#\S*\w/i', "", $search);
+        }
+        $args_query['s'] = $search;
+        $query = new WP_Query( $args_query );
+        if( !$query->have_posts() ) {
+            global $current_search;
+            $current_search = $search;
+            add_filter( 'posts_where' , array($this,'posts_where_suggest' ));
+            unset($args_query['s']);
+            $query = new WP_Query( $args_query );
+            remove_filter( 'posts_where' , array($this,'posts_where_suggest') );
+        }
+        
         if( $query->have_posts() ) {
             $html = '';
             while ($query->have_posts()) { $query->the_post();

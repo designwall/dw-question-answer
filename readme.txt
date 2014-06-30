@@ -3,7 +3,7 @@ Contributors: designwall, Farid-Gh, scheunemann, gciprian, Ahmet Kolcu, Astroten
 Tags: question, answer, support, quora, stackoverflow
 Requires at least: 3.0.1
 Tested up to: 3.9.1
-Stable tag: 1.2.9
+Stable tag: 1.3.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -75,6 +75,18 @@ Visit our [Github](https://github.com/designwall/dw-question-answer) project or 
 
 == Changelog ==
 
+= 1.3.0 =
+
+* New: apply shortcodes in creating Question list & Question submit page
+* New: Czech language supported
+* New: Polish language supported
+* New: Italian language supported
+* Fix: Question & answers disappear in backend
+
+= 1.2.10 =
+
+* Fix: Security issue in editing/ deleting answers
+
 = 1.2.9 =
 
 * Fix: Link to shortcode page does not overwrite the 404 page
@@ -83,8 +95,8 @@ Visit our [Github](https://github.com/designwall/dw-question-answer) project or 
 * Fix: unauthorized users can edit questions/answers from back-end
 * New: Update single question UI
 
-
 = 1.2.8 =
+
 * Order questions by latest answer post
 * Support custom user's roles
 * Czech Languages Supported

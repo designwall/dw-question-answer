@@ -1,8 +1,13 @@
 <?php  
 
-function dwqa_current_user_can( $perm ){
+function dwqa_current_user_can( $perm, $post_id = false ){
     global $dwqa_permission, $current_user;
     if( is_user_logged_in() ) {
+
+        if( $post_id && $current_user->ID == get_post_field( 'post_author', $post_id ) ) {
+            return true;
+        }
+
         if( current_user_can( 'dwqa_can_' . $perm ) ) {
             return true;
         }

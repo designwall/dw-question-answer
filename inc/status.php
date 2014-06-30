@@ -291,26 +291,37 @@ function dwqa_update_privacy(){
         wp_send_json_error( array( 'message' => __('Missing post ID','dwqa' ) ) );
     }
 
-    $status = 'publish';
-    if( isset($_POST['status']) && in_array( $_POST['status'], array( 'draft' , 'publish' , 'pending', 'future' , 'private' ) ) ) {
-        $update = wp_update_post( array(
-            'ID'    => (int) $_POST['post'],
-            'post_status'   => $_POST['status']
-        ) );
-        if( $update ) {
-            wp_send_json_success( array( 
-                'ID'    => $update
+    global $current_user;
+    $post_author = get_post_field( 'post_author', $_POST['post'] );
+
+    if( dwqa_current_user_can('edit_question') || $current_user->ID == $post_author ) {
+        $status = 'publish';
+        if( isset($_POST['status']) && in_array( $_POST['status'], array( 'draft' , 'publish' , 'pending', 'future' , 'private' ) ) ) {
+            $update = wp_update_post( array(
+                'ID'    => (int) $_POST['post'],
+                'post_status'   => $_POST['status']
             ) );
+            if( $update ) {
+                wp_send_json_success( array( 
+                    'ID'    => $update
+                ) );
+            } else {
+                wp_send_json_error(  array(
+                    'message'   => __('Post does not exist','dwqa')
+                ) );
+            }
         } else {
-            wp_send_json_error(  array(
-                'message'   => __('Post does not exist','dwqa')
+            wp_send_json_error( array(
+                'message'   => __('Invalid post status','dwqa')
             ) );
         }
     } else {
         wp_send_json_error( array(
-            'message'   => __('Invalid post status','dwqa')
+            'message'   => __('You do not have permission to edit question','dwqa')
         ) );
     }
+
+    
 }
 add_action( 'wp_ajax_dwqa-update-privacy', 'dwqa_update_privacy' );
 

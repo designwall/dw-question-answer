@@ -555,15 +555,19 @@ function dwqa_question_update_status(){
 
     global $current_user;
     $question = get_post( $_POST['question'] );
-    if( current_user_can( 'edit_posts', $_POST['question']   ) || $current_user->ID == $question->post_author ) { 
+
+    if( dwqa_current_user_can('edit_question') || $current_user->ID == $question->post_author ) { 
         update_post_meta( $_POST['question'], '_dwqa_status', $_POST['status'] );
         if( $_POST['status'] == 'resolved' ) {
             update_post_meta( $_POST['question'], '_dwqa_resolved_time', time() );
         } 
+    } else {
+        wp_send_json_error( array(
+            'message'   => __('You do not have permission to edit question status', 'dwqa' )
+        ) );
     }
 }
-add_action( 'wp_ajax_dwqa-update-question-status', 
-                'dwqa_question_update_status' );   
+add_action( 'wp_ajax_dwqa-update-question-status', 'dwqa_question_update_status' );   
 
 
 
@@ -860,6 +864,13 @@ function dwqa_update_question(){
             'message'   => __('Hello, Are you cheating huh?','dwqa')
         ) );
     }
+
+    if( ! dwqa_current_user_can('edit_question', $_POST['question']) ) {
+        wp_send_json_error( array(
+            'message'   => __('You do not have permission to edit question','dwqa')
+        ) );
+    }
+
     if( isset($_POST['dwqa-action']) && $_POST['dwqa-action'] == 'update-question' ) {
         //Start update question
         $question_id = $_POST['question'];
@@ -883,6 +894,7 @@ function dwqa_update_question(){
     }
 }
 add_action( 'wp_ajax_dwqa-update-question', 'dwqa_update_question' );
+
 
 function dwqa_ajax_create_update_question_editor(){
 
@@ -1591,7 +1603,7 @@ function dwqa_delete_question(){
 
     $question = get_post( $_POST['question'] );
     global $current_user;
-    if( dwqa_current_user_can('delete_question') || $current_user->ID == $question->post_author ) {
+    if( dwqa_current_user_can('delete_question', $question->ID) ) {
         //Get all answers that is tired with this question
         $answers = get_posts( array(
             'post_type' => 'dwqa-answer',

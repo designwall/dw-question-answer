@@ -1738,7 +1738,7 @@ function dwqa_comment_author_link_anonymous( $comment ) {
     if( $comment->user_id <= 0 && ( get_post_type( $comment->comment_post_ID ) == 'dwqa-question' || get_post_type( $comment->comment_post_ID ) == 'dwqa-answer') ) {
         $comment->comment_author = __('Anonymous','dwqa');
     }
-    return $comment ;
+    return $comment;
 }
 add_filter( 'get_comment', 'dwqa_comment_author_link_anonymous' );
 

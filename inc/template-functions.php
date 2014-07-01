@@ -1,5 +1,15 @@
 <?php  
 
+function dwqa_archive_redirect() {
+    global $dwqa_options;
+    if(( is_post_type_archive( 'dwqa-question' ) || is_post_type_archive( 'dwqa-answer' ) ) && isset($dwqa_options['pages']['archive-question']) ) {
+        wp_redirect( get_permalink( $dwqa_options['pages']['archive-question'] ) );
+        exit();
+    }
+}
+add_action( 'template_redirect', 'dwqa_archive_redirect' );
+
+
 /**
  * Print class for question detail container
  */

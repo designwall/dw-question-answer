@@ -1,15 +1,4 @@
 <?php  
-
-function dwqa_archive_redirect() {
-    global $dwqa_options;
-    if(( is_post_type_archive( 'dwqa-question' ) || is_post_type_archive( 'dwqa-answer' ) ) && isset($dwqa_options['pages']['archive-question']) ) {
-        wp_redirect( get_permalink( $dwqa_options['pages']['archive-question'] ) );
-        exit();
-    }
-}
-add_action( 'template_redirect', 'dwqa_archive_redirect' );
-
-
 /**
  * Print class for question detail container
  */
@@ -834,7 +823,7 @@ class DWQA_Template {
                 return trailingslashit ( get_template_directory() ) . 'page.php';
             }
         }
-        if( is_tax( 'dwqa-question_category' ) || is_tax( 'dwqa-question_tax' ) ) {
+        if( is_tax( 'dwqa-question_category' ) || is_tax( 'dwqa-question_tax' ) || is_post_type_archive( 'dwqa-question' ) || is_post_type_archive( 'dwqa-answer' ) ) {
 
             ob_start();
             echo '<div class="dwqa-container" >';

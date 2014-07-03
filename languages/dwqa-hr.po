@@ -1,0 +1,1667 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: DW Question Answer\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-06-09 11:00+0700\n"
+"PO-Revision-Date: 2014-06-26 19:37+0100\n"
+"Last-Translator: tamara <tammara.sipek@gmail.com>\n"
+"Language-Team: DesignWall <webmaster@designwall.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.5\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: hr_HR\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../dw-question-answer.php:70
+msgid "DWQA Questions"
+msgstr "DWQA Pitanja"
+
+#: ../dw-question-answer.php:83
+msgid "DWQA Ask Question"
+msgstr "DWQA Postavi pitanje"
+
+#: ../dw-question-answer.php:137
+msgctxt "post type general name"
+msgid "Question"
+msgstr "Pitanja"
+
+#: ../dw-question-answer.php:138
+msgctxt "post type singular name"
+msgid "Question"
+msgstr "Pitanje"
+
+#: ../dw-question-answer.php:139 ../dw-question-answer.php:174
+msgctxt "theme"
+msgid "Add New"
+msgstr "Unesite novu"
+
+#: ../dw-question-answer.php:140
+msgid "Add New Question"
+msgstr "Unesite novo pitanje"
+
+#: ../dw-question-answer.php:141
+msgid "Edit Question"
+msgstr "Napišite pitanje"
+
+#: ../dw-question-answer.php:142 ../inc/settings.php:910
+msgid "New Question"
+msgstr "Novo pitanje"
+
+#: ../dw-question-answer.php:143
+msgid "All Questions"
+msgstr "Sva pitanja"
+
+#: ../dw-question-answer.php:144
+msgid "View Question"
+msgstr "Vidi pitanje"
+
+#: ../dw-question-answer.php:145
+msgid "Search Question"
+msgstr "Traži pitanje"
+
+#: ../dw-question-answer.php:146
+msgid "No questions found"
+msgstr "Nijedno pitanje nije pronađeno"
+
+#: ../dw-question-answer.php:147
+msgid "No questions found in Trash"
+msgstr "Nije pronađeno ni jedno pitanje u smeću"
+
+#: ../dw-question-answer.php:149
+msgid "DW Q&A"
+msgstr "DW Q&A"
+
+#: ../dw-question-answer.php:172
+msgctxt "post type general name"
+msgid "Answer"
+msgstr "Odgovori"
+
+#: ../dw-question-answer.php:173
+msgctxt "post type singular name"
+msgid "Answer"
+msgstr "Odgovor"
+
+#: ../dw-question-answer.php:175
+msgid "Add new answer"
+msgstr "Dodaj novi odgovor"
+
+#: ../dw-question-answer.php:176
+msgid "Edit answer"
+msgstr "Napiši odgovor"
+
+#: ../dw-question-answer.php:177 ../inc/settings.php:911
+msgid "New Answer"
+msgstr "Novi odgovor"
+
+#: ../dw-question-answer.php:178
+msgid "All Answers"
+msgstr "Svi odgovori"
+
+#: ../dw-question-answer.php:179
+msgid "View Answer"
+msgstr "Vidi odgovor"
+
+#: ../dw-question-answer.php:180
+msgid "Search Answer"
+msgstr "Traži odgovor"
+
+#: ../dw-question-answer.php:181
+msgid "No Answers found"
+msgstr "Nije pronađen ni jedan odgovor"
+
+#: ../dw-question-answer.php:182
+msgid "No Answers found in Trash"
+msgstr "Nije pronađen ni jedan odgovor u smeću"
+
+#: ../dw-question-answer.php:184 ../dw-question-answer.php:469
+#: ../inc/settings.php:448 ../inc/shortcodes.php:164
+#: ../inc/templates/default/archive-question.php:111
+#: ../thesis/dwqa/box.php:165
+msgid "Answer"
+msgstr "Odgovor"
+
+#: ../dw-question-answer.php:205
+msgctxt "taxonomy general name"
+msgid "Categories"
+msgstr "Teme"
+
+#: ../dw-question-answer.php:206
+msgctxt "taxonomy singular name"
+msgid "Category"
+msgstr "Tema"
+
+#: ../dw-question-answer.php:207
+msgid "Search Categories"
+msgstr "Traži teme"
+
+#: ../dw-question-answer.php:208
+msgid "All Categories"
+msgstr "Sve teme"
+
+#: ../dw-question-answer.php:209
+msgid "Parent Category"
+msgstr "Matična kategorija"
+
+#: ../dw-question-answer.php:210
+msgid "Parent Category:"
+msgstr "Matična kategorija:"
+
+#: ../dw-question-answer.php:211
+msgid "Edit Category"
+msgstr "Napiši temu"
+
+#: ../dw-question-answer.php:212
+msgid "Update Category"
+msgstr "Obnovi temu"
+
+#: ../dw-question-answer.php:213
+msgid "Add New Category"
+msgstr "Dodaj novu temu"
+
+#: ../dw-question-answer.php:214
+msgid "New Category Name"
+msgstr "Novo ime teme"
+
+#: ../dw-question-answer.php:215
+msgid "Question Categories"
+msgstr "Teme za pitanja"
+
+#: ../dw-question-answer.php:232
+msgctxt "taxonomy general name"
+msgid "Tags"
+msgstr "Tagovi"
+
+#: ../dw-question-answer.php:233
+msgctxt "taxonomy singular name"
+msgid "Tag"
+msgstr "Tag"
+
+#: ../dw-question-answer.php:234
+msgid "Search Tags"
+msgstr "Traži tagove"
+
+#: ../dw-question-answer.php:235
+msgid "Popular Tags"
+msgstr "Popularni tagovi"
+
+#: ../dw-question-answer.php:236
+msgid "All Tags"
+msgstr "Svi tagovi"
+
+#: ../dw-question-answer.php:239
+msgid "Edit Tag"
+msgstr ""
+"Upišite kratku ključnu riječ ili tag. Možete unijeti do 5 tagova: tag1, "
+"tag2, tag3 ..."
+
+#: ../dw-question-answer.php:240
+msgid "Update Tag"
+msgstr "Obnovi tag"
+
+#: ../dw-question-answer.php:241
+msgid "Add New Tag"
+msgstr "Dodaj novi tag"
+
+#: ../dw-question-answer.php:242
+msgid "New Tag Name"
+msgstr "Novo ime taga"
+
+#: ../dw-question-answer.php:243
+msgid "Separate tags with commas"
+msgstr "Odvoji tagove zarezima"
+
+#: ../dw-question-answer.php:244
+msgid "Add or remove tags"
+msgstr "Dodaj ili ukloni tagove"
+
+#: ../dw-question-answer.php:245
+msgid "Choose from the most used tags"
+msgstr "Odaberi od najviše korištenih tagova"
+
+#: ../dw-question-answer.php:246
+#: ../inc/templates/default/submit-question-form.php:34
+msgid "Question Tags"
+msgstr "Tagovi od pitanja"
+
+#: ../dw-question-answer.php:284 ../dw-question-answer.php:421
+#: ../inc/filter.php:83 ../inc/shortcodes.php:276
+#: ../inc/templates/default/navigation-archive.php:93
+msgid "Next"
+msgstr "Sljedeće"
+
+#: ../dw-question-answer.php:285 ../dw-question-answer.php:422
+#: ../inc/shortcodes.php:240
+#: ../inc/templates/default/navigation-archive.php:57
+msgid "Prev"
+msgstr "Prethodno"
+
+#: ../dw-question-answer.php:287 ../dw-question-answer.php:424
+msgid "Please enter your question"
+msgstr "Molimo, unesite vaše pitanje"
+
+#: ../dw-question-answer.php:288
+msgid "Your question must be at least 2 characters in length"
+msgstr "Vaše pitanje mora imati barem 2 znaka"
+
+#: ../dw-question-answer.php:289
+msgid "Enter a valid email address"
+msgstr "Upišite valjanu e-mail adresu"
+
+#: ../dw-question-answer.php:290
+msgid "Enter a question title"
+msgstr "Unesite naslov pitanja - pitanje ukratko s ključnim pojmovima"
+
+#: ../dw-question-answer.php:291
+msgid "Please add your name"
+msgstr "Molimo, unesite vaše ime"
+
+#: ../dw-question-answer.php:292 ../dw-question-answer.php:425
+msgid "Please enter your answer"
+msgstr "Molimo, unesite vaš odgovor"
+
+#: ../dw-question-answer.php:293 ../dw-question-answer.php:426
+msgid "Please enter your comment content"
+msgstr "Molim, unesite sadržaj komentara"
+
+#: ../dw-question-answer.php:294 ../dw-question-answer.php:427
+msgid "Comment must have more than 2 characters"
+msgstr "Komentar mora imati više od 2 znaka"
+
+#: ../dw-question-answer.php:295
+msgid "Not found! Try another keyword."
+msgstr "Nije pronađeno! Pokušajte drugu ključnu riječ."
+
+#: ../dw-question-answer.php:296
+msgid "Or press <strong>ENTER</strong> to get more questions"
+msgstr "Ili pritisnite <strong>ENTER</strong>za više pitanja"
+
+#: ../dw-question-answer.php:297 ../dw-question-answer.php:428
+#: ../inc/actions.php:787 ../inc/actions.php:883
+msgid "Update"
+msgstr "Obnovi"
+
+#: ../dw-question-answer.php:298 ../dw-question-answer.php:429
+#: ../dw-question-answer.php:511 ../inc/settings.php:413
+#: ../inc/template-functions.php:674
+#: ../inc/templates/default/content-answer.php:99
+#: ../inc/templates/default/content-comment.php:48
+msgid "Edit"
+msgstr "Unesi"
+
+#: ../dw-question-answer.php:299 ../dw-question-answer.php:430
+#: ../inc/actions.php:788 ../inc/actions.php:884
+msgid "Cancel"
+msgstr "Otkaži"
+
+#: ../dw-question-answer.php:300 ../dw-question-answer.php:431
+msgid "Do you want to delete this comment?"
+msgstr "Želite li izbrisati ovaj komentar?"
+
+#: ../dw-question-answer.php:301 ../dw-question-answer.php:432
+msgid "Do you want to delete this answer?"
+msgstr "Želite li izbrisati ovaj odgovor?"
+
+#: ../dw-question-answer.php:302
+msgid "Do you want to update this answer?"
+msgstr "Želite obnoviti ovaj odgovor?"
+
+#: ../dw-question-answer.php:303
+msgid "Do you want to report this answer?"
+msgstr "Želite li prijaviti ovaj odgovor?"
+
+#: ../dw-question-answer.php:305
+#: ../inc/templates/default/content-answer.php:104
+msgid "Report"
+msgstr "Prijavi"
+
+#: ../dw-question-answer.php:306
+msgid "Undo"
+msgstr "Vrati"
+
+#: ../dw-question-answer.php:307
+msgid "This answer will be marked as spam and hidden. Do you want to flag it?"
+msgstr ""
+"Ovaj odgovor biti će označen kao spam ili skriven. Želite li ga označiti?"
+
+#: ../dw-question-answer.php:308
+msgid "This answer was flagged as spam. Do you want to show it"
+msgstr "Ovaj je odgovor označen kao spam. Želite ga pokazati?"
+
+#: ../dw-question-answer.php:309
+msgid "This answer was flagged as spam"
+msgstr "Ovaj odgovor označen je kao spam"
+
+#: ../dw-question-answer.php:310 ../dw-question-answer.php:438
+msgid "hide"
+msgstr "sakrij"
+
+#: ../dw-question-answer.php:311 ../dw-question-answer.php:439
+msgid "show"
+msgstr "pokaži"
+
+#: ../dw-question-answer.php:313 ../inc/template-functions.php:788
+#: ../thesis/dwqa/box.php:244
+msgid "Follow This Question"
+msgstr "Slijedi ovo pitanje"
+
+#: ../dw-question-answer.php:314 ../inc/template-functions.php:788
+#: ../thesis/dwqa/box.php:244
+msgid "Unfollow This Question"
+msgstr "Prestani slijediti ovo pitanje"
+
+#: ../dw-question-answer.php:315
+msgid "Pin this question to top"
+msgstr "Zalijepi ovo pitanje na vrh "
+
+#: ../dw-question-answer.php:316
+msgid "Unpin this question from top"
+msgstr "Odlijepi ovo pitanje s vrha"
+
+#: ../dw-question-answer.php:319
+msgid "Do you want to delete this question?"
+msgstr "Želite li izbrisati ovo pitanje?"
+
+#: ../dw-question-answer.php:339
+#, php-format
+msgid "%s second"
+msgid_plural "%s seconds"
+msgstr[0] "%s sekunda"
+msgstr[1] "%s sekunde"
+msgstr[2] "%s sekundi"
+
+#. translators: min=minute
+#: ../dw-question-answer.php:348
+#, php-format
+msgid "about %s min"
+msgid_plural "%s mins"
+msgstr[0] "oko %s min"
+msgstr[1] "oko %s min"
+msgstr[2] "oko %s min"
+
+#: ../dw-question-answer.php:354
+#, php-format
+msgid "about %s hour"
+msgid_plural "%s hours"
+msgstr[0] "oko %s sat"
+msgstr[1] "oko %s sata"
+msgstr[2] "oko %s sati"
+
+#: ../dw-question-answer.php:360
+#, php-format
+msgid "%s day"
+msgid_plural "%s days"
+msgstr[0] "%s dan"
+msgstr[1] "%s dana"
+msgstr[2] "%s dana"
+
+#: ../dw-question-answer.php:364
+#, php-format
+msgid "%1$s ago"
+msgstr "%1$s prije"
+
+#: ../dw-question-answer.php:434
+msgid "Flag"
+msgstr "Označi"
+
+#: ../dw-question-answer.php:435
+msgid "Unflag"
+msgstr "Odznači"
+
+#: ../dw-question-answer.php:436
+msgid ""
+"This answer will be hidden when flagged. Are you sure you want to flag it?"
+msgstr "Nakon označavanja odgovor će biti skriven. Jeste li sigurni?"
+
+#: ../dw-question-answer.php:437
+msgid "This answer was flagged as spam. Do you want to show it?"
+msgstr "Ovaj je odgovor označen kao spam. Želite ga pokazati?"
+
+#: ../dw-question-answer.php:470 ../inc/class-answers-list-table.php:77
+msgid "Author"
+msgstr "Autor"
+
+#: ../dw-question-answer.php:472
+msgid "In Response To"
+msgstr "Odgovor na"
+
+#: ../dw-question-answer.php:476
+msgid "Info"
+msgstr "Info"
+
+#: ../dw-question-answer.php:512 ../inc/settings.php:414
+#: ../inc/template-functions.php:677
+#: ../inc/templates/default/content-answer.php:102
+#: ../inc/templates/default/content-comment.php:51
+msgid "Delete"
+msgstr "Izbriši"
+
+#: ../dw-question-answer.php:513 ../inc/shortcodes.php:161
+#: ../inc/templates/default/archive-question.php:108
+#: ../thesis/dwqa/box.php:162
+msgid "View"
+msgstr "Vidi"
+
+#: ../dw-question-answer.php:517
+msgid "Submitted"
+msgstr "Dostavljeno"
+
+#: ../dw-question-answer.php:518
+msgid "on"
+msgstr "on"
+
+#: ../dw-question-answer.php:546
+msgid "Reset all changes to default"
+msgstr "Resetiraj sve promjene na zadano"
+
+#: ../dw-question-answer.php:560
+msgid "answered"
+msgstr "odgovoreno"
+
+#: ../dw-question-answer.php:561
+msgid "voted"
+msgstr "glasano"
+
+#: ../dw-question-answer.php:562
+msgid "views"
+msgstr "pregledi"
+
+#: ../dw-question-answer.php:683 ../inc/shortcodes.php:377
+#: ../inc/widgets/latest-question.php:40
+#: ../inc/widgets/list-closed-question.php:48
+#: ../inc/widgets/popular-question.php:40
+msgid "asked by"
+msgstr "pitao"
+
+#: ../inc/actions-question.php:14 ../inc/class-answers-list-table.php:88
+#: ../inc/notification.php:147 ../inc/notification.php:149
+#: ../inc/settings.php:436 ../inc/settings.php:478 ../inc/settings.php:519
+#: ../inc/templates/default/content-answer.php:53
+#: ../inc/templates/default/content-comment.php:15
+#: ../inc/templates/default/single-question.php:46
+msgid "Anonymous"
+msgstr "Anonimus"
+
+#: ../inc/actions-question.php:20
+#, php-format
+msgid "Posts by %s"
+msgstr "Objavio%s"
+
+#: ../inc/actions-question.php:28
+#, php-format
+msgid "%s answered <span class=\"dwqa-date\">%s</span>"
+msgstr "%s odgovoreno <span class=\"dwqa-datum\">%s</span>"
+
+#: ../inc/actions-question.php:30
+#, php-format
+msgid "%s asked <span class=\"dwqa-date\">%s</span>"
+msgstr "%s pitano <span class=\"dwqa-datum\">%s</span>"
+
+#: ../inc/actions-vote.php:6
+msgid "Are you cheating, huh?"
+msgstr "Varaš li, uh?"
+
+#: ../inc/actions-vote.php:20
+msgid "What "
+msgstr "Što"
+
+#: ../inc/actions-vote.php:51
+msgid "You voted for this "
+msgstr "Glasali ste za ovo"
+
+#: ../inc/actions.php:51
+msgid "Delete draft"
+msgstr "Obriši skicu"
+
+#: ../inc/actions.php:80
+msgid "Answer for "
+msgstr "Odgovor za "
+
+#: ../inc/actions.php:93 ../inc/template-functions.php:287
+msgid "Save draft"
+msgstr "Spremi skicu"
+
+#: ../inc/actions.php:107 ../inc/actions.php:369
+msgid "You do not have permission to submit question."
+msgstr "Nemate dozvolu za slanje odgovora. "
+
+#: ../inc/actions.php:133 ../inc/actions.php:382
+msgid "Captcha is not correct"
+msgstr "Captcha nije pravilna"
+
+#: ../inc/actions.php:223 ../inc/actions.php:385 ../inc/actions.php:597
+#: ../inc/actions.php:622 ../inc/actions.php:640 ../inc/actions.php:1337
+#: ../inc/filter.php:404 ../inc/status.php:286
+msgid "Are you cheating huh?"
+msgstr "Varaš li, ha?"
+
+#: ../inc/actions.php:226
+msgid "Missing answer ID"
+msgstr "Nedostaje ID odgovora"
+
+#: ../inc/actions.php:325
+msgid "User Registration was disabled."
+msgstr "Registracija korisnika je onemogućena."
+
+#: ../inc/actions.php:328
+msgid "This email is already registered, please choose another one."
+msgstr "Ovaj e-mail već je registriran, molimo odaberite drugi."
+
+#: ../inc/actions.php:331
+msgid "This username is already registered. Please use another one."
+msgstr "Ovo korisničko ime već je registrirano. Molimo odaberite drugo."
+
+#: ../inc/actions.php:602
+msgid "Comment content must not be empty."
+msgstr "Sadržaj komentara ne smije biti prazan."
+
+#: ../inc/actions.php:627
+msgid "Comment ID must be showed."
+msgstr "ID komentara mora biti vidljiv."
+
+#: ../inc/actions.php:643
+msgid "Missing id of answer"
+msgstr "Nedostaje ID odgovora"
+
+#: ../inc/actions.php:791 ../inc/actions.php:887
+msgid "Publish"
+msgstr "Objavi"
+
+#: ../inc/actions.php:796 ../inc/actions.php:806
+#: ../inc/template-functions.php:292 ../inc/template-functions.php:302
+#: ../inc/template-functions.php:696 ../inc/template-functions.php:708
+#: ../inc/templates/default/content-answer.php:63
+#: ../inc/templates/default/content-answer.php:75 ../thesis/dwqa/box.php:287
+#: ../thesis/dwqa/box.php:298
+msgid "Public"
+msgstr "Javno"
+
+#: ../inc/actions.php:806 ../inc/template-functions.php:302
+#: ../inc/template-functions.php:708
+#: ../inc/templates/default/content-answer.php:75 ../thesis/dwqa/box.php:298
+msgid "Everyone can see"
+msgstr "Svatko može vidjeti"
+
+#: ../inc/actions.php:807 ../inc/template-functions.php:303
+#: ../inc/template-functions.php:709
+#: ../inc/templates/default/content-answer.php:76 ../thesis/dwqa/box.php:299
+msgid "Only Author and Administrator can see"
+msgstr "Samo autor i administrator mogu vidjeti"
+
+#: ../inc/actions.php:807 ../inc/template-functions.php:303
+#: ../inc/template-functions.php:696 ../inc/template-functions.php:709
+#: ../inc/templates/default/content-answer.php:63
+#: ../inc/templates/default/content-answer.php:76 ../thesis/dwqa/box.php:287
+#: ../thesis/dwqa/box.php:299
+msgid "Private"
+msgstr "Privatno"
+
+#: ../inc/actions.php:827 ../inc/actions.php:1545
+msgid "Hello, Are you cheating huh?"
+msgstr "Halo, varaš li?"
+
+#: ../inc/actions.php:914
+msgid "You can't post comment"
+msgstr "Ne možete objaviti komentar"
+
+#: ../inc/actions.php:928
+msgid "Missing email information"
+msgstr "Nedostaje e-mail "
+
+#: ../inc/actions.php:933
+msgid "Missing name information"
+msgstr "Nedostaje ime"
+
+#: ../inc/actions.php:1194
+msgid "Choose as the best answer"
+msgstr "Odaberi kao najbolji odgovor"
+
+#: ../inc/actions.php:1384 ../inc/actions.php:1414
+msgid "Invalid Post"
+msgstr "Nevaljala objava"
+
+#: ../inc/actions.php:1516
+msgid "Sticky Questions"
+msgstr "Istaknuta pitanja"
+
+#: ../inc/actions.php:1551
+msgid "Question is not valid"
+msgstr "Nevažeće pitanje"
+
+#: ../inc/actions.php:1586
+msgid "Delete Action was failed"
+msgstr "Akcija brisanja nije uspjela"
+
+#: ../inc/actions.php:1591
+msgid "You do not have permission to delete this question"
+msgstr "Nemate dozvolu brisati ovo pitanje"
+
+#: ../inc/class-answers-list-table.php:78
+msgid "Detail"
+msgstr "Pojedinost"
+
+#: ../inc/class-answers-list-table.php:97
+msgid "Answered on "
+msgstr "Odgovorio "
+
+#: ../inc/class-answers-list-table.php:108 ../inc/contextual-helper.php:202
+msgid "Read more"
+msgstr "Opširnije"
+
+#: ../inc/class-walker-category.php:20 ../inc/class-walker-tag-dropdown.php:19
+#, php-format
+msgid "View all posts filed under %s"
+msgstr "Vidi sve objave unutar %s"
+
+#: ../inc/class-walker-category.php:35 ../inc/class-walker-tag-dropdown.php:34
+#, php-format
+msgid "Feed for all posts filed under %s"
+msgstr "Feed za sve postove dokumentirane unutar %s"
+
+#: ../inc/contextual-helper.php:48
+msgid "Overview"
+msgstr "Pregled"
+
+#: ../inc/contextual-helper.php:49
+msgid "DW Question Answer Plugin"
+msgstr "DW Pitanje Odgovor dodatak"
+
+#: ../inc/contextual-helper.php:50
+msgid ""
+"DW Question Answer is a WordPress Plugin which helps you build a Question & "
+"Answer system on your WordPress sites. The plugin is easy to install and set "
+"up. Let start building up your community with this WordPress question & "
+"answer system."
+msgstr ""
+"DW Question Answer is a WordPress Plugin which helps you build a Question & "
+"Answer system on your WordPress sites. The plugin is easy to install and set "
+"up. Let start building up your community with this WordPress question & "
+"answer system."
+
+#: ../inc/contextual-helper.php:53
+msgid "Setup Question List Page"
+msgstr "Postavke stranice Popis pitanja"
+
+#: ../inc/contextual-helper.php:57
+msgid "Setup Ask Question Page"
+msgstr "Postavke stranice Postavi pitanje"
+
+#: ../inc/contextual-helper.php:61
+msgid "Shortcode"
+msgstr "Shortcode"
+
+#: ../inc/contextual-helper.php:65
+msgid "Style integration"
+msgstr "Integracija stila"
+
+#: ../inc/contextual-helper.php:223
+msgid "For more information:"
+msgstr "Za više informacija:"
+
+#: ../inc/contextual-helper.php:224
+msgid "DW Question Answer Guide"
+msgstr "DW Question Answer vodič"
+
+#: ../inc/contextual-helper.php:225
+msgid "Community"
+msgstr "Zajednica"
+
+#: ../inc/contextual-helper.php:226
+msgid "DesignWall Wordpress Themes"
+msgstr "DesignWall Wordpress Themes"
+
+#: ../inc/contextual-helper.php:227
+msgid "DesignWall Wordpress Plugins"
+msgstr "DesignWall Wordpress Plugins"
+
+#: ../inc/filter.php:101 ../inc/shortcodes.php:289
+#: ../inc/templates/default/archive-question-notfound.php:4
+#: ../thesis/dwqa/box.php:192
+msgid "You do not have permission to view questions"
+msgstr "Nemate dozvolu vidjeti pitanja"
+
+#: ../inc/filter.php:104
+msgid "Sorry, but nothing matched your filter. "
+msgstr "Žao nam je ali ništa ne odgovara odabranom filteru."
+
+#: ../inc/filter.php:111 ../inc/shortcodes.php:300
+msgid "You can ask question"
+msgstr "Možete postaviti pitanje"
+
+#: ../inc/filter.php:113 ../inc/shortcodes.php:302
+msgid "here"
+msgstr "ovdje"
+
+#: ../inc/filter.php:119 ../inc/shortcodes.php:308
+#: ../inc/templates/default/archive-question-notfound.php:14
+msgid "Please"
+msgstr "Molimo"
+
+#: ../inc/filter.php:121 ../inc/shortcodes.php:310
+#: ../inc/templates/default/archive-question-notfound.php:16
+msgid "Login"
+msgstr "Prijavite se"
+
+#: ../inc/filter.php:125 ../inc/shortcodes.php:315
+#: ../inc/templates/default/archive-question-notfound.php:17
+#: ../thesis/dwqa/box.php:210
+msgid " or"
+msgstr "ili"
+
+#: ../inc/filter.php:127 ../inc/shortcodes.php:317
+#: ../inc/templates/default/archive-question-notfound.php:18
+#: ../thesis/dwqa/box.php:212
+msgid " to submit question."
+msgstr "za dostavu pitanja."
+
+#: ../inc/filter.php:412
+msgid "Search query is empty"
+msgstr "Upit za pretragu je prazan"
+
+#: ../inc/metaboxes.php:5
+msgid "Answers"
+msgstr "Odgovori"
+
+#: ../inc/metaboxes.php:29
+msgid "Question Meta Data"
+msgstr "Pitanje Meta podatci"
+
+#: ../inc/metaboxes.php:44 ../inc/template-functions.php:730
+#: ../thesis/dwqa/box.php:325
+msgid "Status"
+msgstr "Status"
+
+#: ../inc/metaboxes.php:46 ../inc/shortcodes.php:83 ../inc/status.php:277
+#: ../inc/templates/default/archive-question.php:30 ../thesis/dwqa/box.php:84
+msgid "Open"
+msgstr "Otvoreno"
+
+#: ../inc/metaboxes.php:47 ../inc/status.php:264
+#: ../inc/template-functions.php:696 ../inc/template-functions.php:758
+#: ../inc/templates/default/content-question.php:8 ../thesis/dwqa/box.php:353
+msgid "Pending"
+msgstr "U tijeku"
+
+#: ../inc/metaboxes.php:48 ../inc/shortcodes.php:89 ../inc/status.php:261
+#: ../inc/template-functions.php:763
+#: ../inc/templates/default/archive-question.php:36 ../thesis/dwqa/box.php:90
+#: ../thesis/dwqa/box.php:358
+msgid "Resolved"
+msgstr "Riješeno"
+
+#: ../inc/metaboxes.php:49 ../inc/status.php:267
+#: ../inc/template-functions.php:748 ../thesis/dwqa/box.php:343
+msgid "Re-Open"
+msgstr "Reotvoreno"
+
+#: ../inc/metaboxes.php:50 ../inc/shortcodes.php:92 ../inc/status.php:270
+#: ../inc/template-functions.php:753
+#: ../inc/templates/default/archive-question.php:39 ../thesis/dwqa/box.php:93
+#: ../thesis/dwqa/box.php:348
+msgid "Closed"
+msgstr "Zatvoreno"
+
+#: ../inc/metaboxes.php:56
+msgid "Sticky"
+msgstr "Ljepljivo"
+
+#: ../inc/metaboxes.php:60
+msgid "Pin question to top of archive page."
+msgstr "Zalijepi ovo pitanje na vrh stranice arhive. "
+
+#: ../inc/notification.php:28
+msgid "A new question was posted on {site_name}"
+msgstr "Postavljeno je novo pitanje na {ime_stranice}"
+
+#: ../inc/notification.php:119
+msgid "A new answer for \"{question_title}\" was posted on {site_name}"
+msgstr "Novi odgovor za \"{pitanje_naslov} \" objavljen je na {stranica_ime}"
+
+#: ../inc/notification.php:187
+msgid "You have a new answer for your followed question"
+msgstr "Imate novi odgovor na pitanje koje slijedite"
+
+#: ../inc/notification.php:284 ../inc/notification.php:330
+msgid "[{site_name}] You have a new comment for question {question_title}"
+msgstr "[{ime_stranice}] Imate novi komentar na pitanje {pitanje_naslov}"
+
+#: ../inc/notification.php:289 ../inc/notification.php:335
+msgid "[{site_name}] You have a new comment for answer"
+msgstr "[{ime_stranice}] Imate novi komentar na odgovor"
+
+#: ../inc/pointer-helper.php:57
+msgid "How to use DW Question Answer"
+msgstr "Kako koristiti DWQA"
+
+#: ../inc/pointer-helper.php:58
+msgid "Documents, Support From DesignWall (help)"
+msgstr "Documents, Support From DesignWall (help)"
+
+#: ../inc/pointer-helper.php:67
+msgid "Config your support channel"
+msgstr "Config your support channel"
+
+#: ../inc/pointer-helper.php:68
+msgid "Change comment settings, and create the Submit question page."
+msgstr "Promijenite postavke komentara i kreirajte stranicu za objavu pitanja."
+
+#: ../inc/settings.php:9
+msgid "Login required. No anonymous post allowed"
+msgstr "Potrebna je prijava. Anonimnost nije dozvoljena"
+
+#: ../inc/settings.php:21
+msgid "Select Archive Question Page"
+msgstr "Odaberite stranicu Arhiva pitanja"
+
+#: ../inc/settings.php:25
+msgid "A page where displays all questions"
+msgstr "Stranica na kojoj se prikazuju sva pitanja"
+
+#: ../inc/settings.php:32
+msgid "hours"
+msgstr "sati"
+
+#: ../inc/settings.php:32
+msgid ""
+"A period of time in which new questions are highlighted and marked as New"
+msgstr "Vrijeme u kome će nova pitanja biti istaknuta i označena kao Nova"
+
+#: ../inc/settings.php:37
+msgid "days"
+msgstr "dani"
+
+#: ../inc/settings.php:37
+msgid ""
+"A Question will be marked as overdue if it passes this period of time, "
+"starting from the time the question was submitted"
+msgstr ""
+"Pitanje će biti označeno kao isteklo ako premaši ovaj vremenski period, "
+"počevši od datuma kada je pitanje objavljeno"
+
+#: ../inc/settings.php:48
+msgid "Select Submit Question Page"
+msgstr "Odaberi stranicu Objavi pitanje "
+
+#: ../inc/settings.php:53
+msgid "A page where users can submit questions."
+msgstr "Stranica gdje korisnici mogu objaviti pitanja."
+
+#: ../inc/settings.php:66
+msgid "Select 404 DWQA Page"
+msgstr "Select 404 DWQA Page"
+
+#: ../inc/settings.php:71
+msgid ""
+"This page will be redirected when users without authority click on a private "
+"question. You can customize the message of this page in.If not, a default "
+"404 page will be used."
+msgstr ""
+"Ova stranica će se pojaviti kada korisnici bez dozvole kliknu na privatno "
+"pitanje. Možete preurediti poruku na stranici. Inače će se koristitit zadana "
+"stranica 404."
+
+#: ../inc/settings.php:87
+msgid "Upload"
+msgstr "Učitaj"
+
+#: ../inc/settings.php:87
+msgid "Upload or choose a logo to be displayed at the top of the email"
+msgstr "Učitaj ili odaberi logo koji će se prikazivati na vrhu e-maila"
+
+#: ../inc/settings.php:126
+msgid "Enable notification for new question"
+msgstr "Omogući obavijest za novo pitanje"
+
+#: ../inc/settings.php:131 ../inc/settings.php:167 ../inc/settings.php:204
+#: ../inc/settings.php:241 ../inc/settings.php:278 ../inc/settings.php:315
+#: ../inc/settings.php:352
+msgid "Email subject"
+msgstr "E-mail predmet"
+
+#: ../inc/settings.php:136 ../inc/settings.php:172 ../inc/settings.php:209
+#: ../inc/settings.php:246 ../inc/settings.php:283 ../inc/settings.php:320
+#: ../inc/settings.php:357
+msgid "Email Content"
+msgstr "E-mail sadržaj"
+
+#: ../inc/settings.php:162
+msgid "Enable notification for new answer"
+msgstr "Omogući obavijest o novom pitanju "
+
+#: ../inc/settings.php:199
+msgid "Enable notification for new answer (to Followers)"
+msgstr "Obavijest o novom odgovoru (sljedbenicima)"
+
+#: ../inc/settings.php:236 ../inc/settings.php:273
+msgid "Enable notification for new comment of question"
+msgstr "Omogući obavijest za novi komentar na pitanje"
+
+#: ../inc/settings.php:310 ../inc/settings.php:347
+msgid "Enable notification for new comment of answer"
+msgstr "Omogući obavijest za novi komentar na odgovor"
+
+#: ../inc/settings.php:406
+msgid "Question"
+msgstr "Pitanje"
+
+#: ../inc/settings.php:411
+msgid "Read"
+msgstr "Čitaj"
+
+#: ../inc/settings.php:412
+msgid "Post"
+msgstr "Objavi"
+
+#: ../inc/settings.php:446 ../inc/settings.php:488 ../inc/settings.php:529
+msgid "Reset Default"
+msgstr "Resetiraj zadano"
+
+#: ../inc/settings.php:490
+msgid "Comment"
+msgstr "Komentiraj "
+
+#: ../inc/settings.php:538
+msgid "Enable/Disable captcha on submit question page"
+msgstr "Omogući/onemogući captcha na stranici Objavi pitanje"
+
+#: ../inc/settings.php:544
+msgid "Enable/Disable captcha on single question page"
+msgstr "Omogući/onemogući captcha na singl pitanje stranici"
+
+#: ../inc/settings.php:562
+msgid "questions"
+msgstr "pitanja"
+
+#: ../inc/settings.php:568
+msgid "Allow members to post private question"
+msgstr "Dozvoli korisnicima objavu privatnog pitanja"
+
+#: ../inc/settings.php:574
+msgid "Question must be manually approved"
+msgstr "Pitanje treba biti ručno odobreno"
+
+#: ../inc/settings.php:587
+msgid "Plugin Settings"
+msgstr "Postavke dodatka"
+
+#: ../inc/settings.php:587
+msgid "Settings"
+msgstr "Postavke"
+
+#: ../inc/settings.php:613
+msgid "Question List Page"
+msgstr "Stranica Popis pitanja"
+
+#: ../inc/settings.php:621
+msgid "Archive page show at most"
+msgstr "Stranica arhive većinom prikazuje"
+
+#: ../inc/settings.php:629
+msgid "Ask Question Page"
+msgstr "Stranica Postavi pitanje "
+
+#: ../inc/settings.php:636
+msgid "Private Question"
+msgstr "Privatno pitanje"
+
+#: ../inc/settings.php:643
+msgid "Review Question"
+msgstr "Prikaži pitanje"
+
+#: ../inc/settings.php:651
+msgid "DWQA 404 Page"
+msgstr "DWQA 404 Stranica"
+
+#: ../inc/settings.php:659
+msgid "Time settings"
+msgstr "Postavke vremena"
+
+#: ../inc/settings.php:666
+msgid "New Question Time Frame"
+msgstr "Vremenski okvir za novo pitanje "
+
+#: ../inc/settings.php:674
+msgid "Question Overdue - Time Frame"
+msgstr "Isteklo pitanje - vremenski okvir"
+
+#: ../inc/settings.php:684
+msgid "Captcha settings"
+msgstr "Captcha postavke"
+
+#: ../inc/settings.php:691
+msgid "Captcha on Submit Question Page"
+msgstr "Captcha na stranici Objavi pitanje"
+
+#: ../inc/settings.php:699
+msgid "Captcha on Single Question Page"
+msgstr "Captcha na Single Question Page"
+
+#: ../inc/settings.php:707
+msgid "Google Captcha Public Key"
+msgstr "Google Captcha Public Key"
+
+#: ../inc/settings.php:715
+msgid "Google Captcha Private Key"
+msgstr "Google Captcha Private Key"
+
+#: ../inc/settings.php:725
+msgid "Permalink Settings"
+msgstr "Permalink postavke"
+
+#: ../inc/settings.php:732
+msgid "Single Question"
+msgstr "Single pitanje"
+
+#: ../inc/settings.php:740
+msgid "Single Category"
+msgstr "Single kategorija"
+
+#: ../inc/settings.php:748
+msgid "Single Tag"
+msgstr "Single tag"
+
+#: ../inc/settings.php:797
+msgid "From Email"
+msgstr "Sa e-maila"
+
+#: ../inc/settings.php:861 ../inc/settings.php:868
+msgid "Group Permission"
+msgstr "Grupna dozvola"
+
+#: ../inc/settings.php:881
+msgid "DWQA Settings"
+msgstr "DWQA Postavke"
+
+#: ../inc/settings.php:886
+msgid "General"
+msgstr "Općenito"
+
+#: ../inc/settings.php:887
+msgid "Notification"
+msgstr "Obavijest"
+
+#: ../inc/settings.php:888
+msgid "Permission"
+msgstr "Dozvola"
+
+#: ../inc/settings.php:896
+msgid "Email setup"
+msgstr "E-mail postavke"
+
+#: ../inc/settings.php:900
+msgid "Email Logo"
+msgstr "E-mail logo"
+
+#: ../inc/settings.php:912
+msgid "New Comment to Question"
+msgstr "Novi komentar na pitanje "
+
+#: ../inc/settings.php:913
+msgid "New Comment to Answer"
+msgstr "Nov komentar na odgovor"
+
+#: ../inc/settings.php:914
+msgid "New Answer (to Followers)"
+msgstr "Novi odgovor (sljedbenicima)"
+
+#: ../inc/settings.php:915
+msgid "New Comment to Question (to Followers)"
+msgstr "Nov komentar na pitanje (sljedbenicima)"
+
+#: ../inc/settings.php:916
+msgid "New Comment to Answer (to Followers)"
+msgstr "Nov komentar na odgovor (sljedbenicima)"
+
+#: ../inc/settings.php:923
+msgid "New Question Notification"
+msgstr "Obavijest o novom pitanju "
+
+#: ../inc/settings.php:930 ../inc/settings.php:939 ../inc/settings.php:948
+#: ../inc/settings.php:957 ../inc/settings.php:967 ../inc/settings.php:975
+#: ../inc/settings.php:985
+msgid "Save all changes"
+msgstr "Spremi sve promjene"
+
+#: ../inc/settings.php:935
+msgid "New Answer Notification"
+msgstr "Obavijest Novi odgovor"
+
+#: ../inc/settings.php:944
+msgid "New Answer Notification (to Followers)"
+msgstr "Obavijest o novom odgovoru (sljedbenicima)"
+
+#: ../inc/settings.php:953
+msgid "New Comment to Question Notification"
+msgstr "Nov komentar na obavijest o pitanju"
+
+#: ../inc/settings.php:963
+msgid "New Comment to Answer Notification"
+msgstr "Novi komentar na obavijest o odgovoru"
+
+#: ../inc/settings.php:971
+msgid "New Comment to Question Notification (to Followers)"
+msgstr "Novi komentar na obavijest o pitanju (sljedbenicima)"
+
+#: ../inc/settings.php:981
+msgid "New Comment to Answer Notification (to Followers)"
+msgstr "Novi komentar na obavijest o odgovoru (sljedbenicima)"
+
+#: ../inc/settings.php:1009
+msgid "Send to"
+msgstr "Pošalji"
+
+#: ../inc/settings.php:1014
+msgid "Cc"
+msgstr "Cc"
+
+#: ../inc/settings.php:1019
+msgid "Bcc"
+msgstr "Bcc"
+
+#: ../inc/settings.php:1024
+msgid "This address will be used as the sender of the outgoing emails."
+msgstr "Ova adresa koristititi će se kao pošiljatelj za odlaznu poštu"
+
+#: ../inc/settings.php:1030
+msgid "Send A Copy Of Every Email To Admin"
+msgstr "Pošalji kopiju svakog e-maila administratoru"
+
+#: ../inc/shortcodes.php:56 ../inc/templates/default/search-question.php:4
+msgid "Search"
+msgstr "Traži"
+
+#: ../inc/shortcodes.php:69 ../inc/shortcodes.php:283
+#: ../inc/template-functions.php:647 ../thesis/dwqa/box.php:70
+msgid "Ask a question"
+msgstr "Postavite pitanje"
+
+#: ../inc/shortcodes.php:77 ../inc/templates/default/archive-question.php:24
+#: ../thesis/dwqa/box.php:78
+msgid "Status:"
+msgstr "Status:"
+
+#: ../inc/shortcodes.php:79 ../inc/shortcodes.php:127
+#: ../inc/templates/default/archive-question.php:26
+#: ../inc/templates/default/archive-question.php:74 ../thesis/dwqa/box.php:80
+#: ../thesis/dwqa/box.php:128
+msgid "All"
+msgstr "Sve"
+
+#: ../inc/shortcodes.php:83 ../inc/templates/default/archive-question.php:30
+#: ../thesis/dwqa/box.php:84
+msgid "Need Answer"
+msgstr "Čeka odgovor"
+
+#: ../inc/shortcodes.php:86 ../inc/templates/default/archive-question.php:33
+#: ../thesis/dwqa/box.php:87
+msgid "Answered"
+msgstr "Odgovoreno"
+
+#: ../inc/shortcodes.php:95 ../inc/templates/default/archive-question.php:42
+#: ../thesis/dwqa/box.php:96
+msgid "Overdue"
+msgstr "Isteklo"
+
+#: ../inc/shortcodes.php:96 ../inc/templates/default/archive-question.php:43
+#: ../thesis/dwqa/box.php:97
+msgid "Queue"
+msgstr "Na čekanju"
+
+#: ../inc/shortcodes.php:117 ../inc/templates/default/archive-question.php:64
+#: ../thesis/dwqa/box.php:118
+msgid "Select a category"
+msgstr "Odaberite temu"
+
+#: ../inc/shortcodes.php:128 ../inc/templates/default/archive-question.php:75
+#: ../thesis/dwqa/box.php:129
+msgid "Empty"
+msgstr "Isprazni"
+
+#: ../inc/shortcodes.php:167 ../inc/templates/default/archive-question.php:114
+#: ../thesis/dwqa/box.php:168
+msgid "Vote"
+msgstr "Glasaj"
+
+#: ../inc/shortcodes.php:292
+#: ../inc/templates/default/archive-question-notfound.php:7
+#: ../thesis/dwqa/box.php:195
+msgid "Sorry, but nothing matched your filter."
+msgstr "Žao nam je ali ništa ne odgovara odabranom filteru."
+
+#: ../inc/shortcodes.php:354 ../inc/widgets/popular-question.php:18
+msgid "Popular Questions"
+msgstr "Popularna pitanja"
+
+#: ../inc/shortcodes.php:391
+msgid "Latest Answers"
+msgstr "Novi odgovori"
+
+#: ../inc/shortcodes.php:417
+msgid "Answer at"
+msgstr "Odgovorio"
+
+#: ../inc/shortcodes.php:417 ../inc/templates/default/single-question.php:60
+#: ../thesis/dwqa/box.php:276
+msgid "Link to"
+msgstr "Link za"
+
+#: ../inc/shortcodes.php:445
+msgid "% person who is following this question"
+msgid_plural "% people who are following this question"
+msgstr[0] "% korisnik prati ovo pitanje"
+msgstr[1] "% korisnika prati ovo pitanje"
+msgstr[2] "% korisnika prati ovo pitanje"
+
+#: ../inc/status.php:273
+msgid "New"
+msgstr "Novo"
+
+#: ../inc/status.php:291
+msgid "Missing post ID"
+msgstr "Nedostaje ID objave"
+
+#: ../inc/status.php:306
+msgid "Post does not exist"
+msgstr "Objava ne postoji"
+
+#: ../inc/status.php:311
+msgid "Invalid post status"
+msgstr "Nevažeći post status "
+
+#: ../inc/template-functions.php:162
+msgid "You need an account to submit question and get answers. Create one:"
+msgstr ""
+"Kako bi postavili pitanje i dobili odgovor, potreban vam je korisnički "
+"račun. Kreirajte ga: "
+
+#: ../inc/template-functions.php:164 ../inc/template-functions.php:201
+msgid "Type your email"
+msgstr "Unesite svoju e-mail adresu"
+
+#: ../inc/template-functions.php:169
+msgid "Already a member?"
+msgstr "Već ste registrirani korisnik?"
+
+#: ../inc/template-functions.php:169
+msgid "Log In"
+msgstr "Prijava"
+
+#: ../inc/template-functions.php:173
+msgid "Login to submit your question"
+msgstr "Prijava za objavu pitanja"
+
+#: ../inc/template-functions.php:175
+msgid "Type your username"
+msgstr "Unesite korisničko ime"
+
+#: ../inc/template-functions.php:178
+msgid "Type your password"
+msgstr "Unesite zaporku"
+
+#: ../inc/template-functions.php:180
+msgid "Not yet a member?"
+msgstr "Još niste korisnik?"
+
+#: ../inc/template-functions.php:180 ../inc/templates/default/answers.php:114
+msgid "Register"
+msgstr "Registrirajte "
+
+#: ../inc/template-functions.php:184
+msgid ""
+"Enter your email to receive notification regarding your question. Your email "
+"is safe with us and will not be published."
+msgstr ""
+"Unesite svoju e-mail adresu kako biste primili obavijest vezanu na vaše "
+"pitanje. Vaša e-mail adresa je tajna i neće biti objavljena."
+
+#: ../inc/template-functions.php:184
+msgid "Your email *"
+msgstr "Vaša e-mail adresa*"
+
+#: ../inc/template-functions.php:185
+msgid "Email address ..."
+msgstr "Upišite valjanu adresu"
+
+#: ../inc/template-functions.php:186
+#, php-format
+msgid "or <strong><a href=\"%s\">login</a></strong> to submit question"
+msgstr "ili <strong><a href=\"%s\">se prijavite</a></strong> za objavu pitanja"
+
+#: ../inc/template-functions.php:213
+#, php-format
+msgid "Private: %s"
+msgstr "Privatno: %s"
+
+#: ../inc/template-functions.php:248
+msgid "Answer this Question"
+msgstr "Odgovori na pitanje"
+
+#: ../inc/template-functions.php:284
+msgid "Add answer"
+msgstr "Unesi odgovor"
+
+#: ../inc/template-functions.php:344
+msgid "You do not have permission to submit a question"
+msgstr "Nemate dozvolu za slanje odgovora. "
+
+#: ../inc/template-functions.php:428
+msgid "Email"
+msgstr "E-mail"
+
+#: ../inc/template-functions.php:432
+#, php-format
+msgid "Required fields are marked %s"
+msgstr "Obavezna polja su označena %s"
+
+#: ../inc/template-functions.php:444
+msgctxt "noun"
+msgid "Comment"
+msgstr "Komentar"
+
+#: ../inc/template-functions.php:445
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr "Morate biti<a href=\"%s\">prijavljeni</a> za komentiranje."
+
+#: ../inc/template-functions.php:446
+#, php-format
+msgid ""
+"Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of "
+"this account\">Log out?</a>"
+msgstr ""
+"Prijavljen kao <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out "
+"of this account\">Odjava?</a>"
+
+#: ../inc/template-functions.php:447
+msgid "Your email address will not be published."
+msgstr "Vaša e-mail adresa neće biti javna (vidljiva)."
+
+#: ../inc/template-functions.php:448
+#, php-format
+msgid ""
+"You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
+"and attributes: %s"
+msgstr ""
+"You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
+"and attributes: %s"
+
+#: ../inc/template-functions.php:451
+msgid "Leave a Reply"
+msgstr "Odgovori"
+
+#: ../inc/template-functions.php:452
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr "Odgovor za %s"
+
+#: ../inc/template-functions.php:453
+msgid "Cancel reply"
+msgstr "Otkaži odgovor"
+
+#: ../inc/template-functions.php:454
+msgid "Post Comment"
+msgstr "Objavi komentar"
+
+#: ../inc/template-functions.php:636
+msgid "Sticky Question"
+msgstr "Istaknuto pitanje"
+
+#: ../inc/template-functions.php:782
+#: ../inc/templates/default/content-answer.php:20 ../thesis/dwqa/box.php:238
+msgid "Vote Up"
+msgstr "Glasaj za"
+
+#: ../inc/template-functions.php:784
+#: ../inc/templates/default/content-answer.php:30 ../thesis/dwqa/box.php:240
+msgid "Vote Down"
+msgstr "Glasaj protiv"
+
+#: ../inc/template-functions.php:793
+msgid "Unpin this Question from the top"
+msgstr "Odlijepi ovo pitanje s vrha"
+
+#: ../inc/template-functions.php:793
+msgid "Pin this Question to top"
+msgstr "Zalijepi ovo pitanje na vrh  "
+
+#: ../inc/templates/default/answers.php:45
+#: ../inc/templates/default/content-question.php:42
+#: ../inc/templates/default/content-question.php:45
+msgid "answer"
+msgid_plural "answers"
+msgstr[0] "odgovor"
+msgstr[1] "odgovora"
+msgstr[2] "odgovora"
+
+#: ../inc/templates/default/answers.php:91
+msgid "You do not have permission to view answers"
+msgstr "Nemate dozvolu vidjeti pitanja"
+
+#: ../inc/templates/default/answers.php:99
+msgid "This question is now closed"
+msgstr "Ovo pitanje sada je zatvoreno"
+
+#: ../inc/templates/default/answers.php:107
+msgid "You do not have permission to submit answer."
+msgstr "Nemate dozvolu za objavu pitanja. "
+
+#: ../inc/templates/default/answers.php:112
+msgid "Please login or"
+msgstr "Molimo prijavite se ili "
+
+#: ../inc/templates/default/answers.php:115
+msgid "to Submit Answer"
+msgstr "za objaviti pitanje"
+
+#: ../inc/templates/default/comments.php:12
+msgid "View previous comments"
+msgstr "Vidi prijašnje komentare"
+
+#: ../inc/templates/default/comments.php:13
+msgid "of"
+msgstr "of"
+
+#: ../inc/templates/default/comments.php:30
+msgid "Write a reply..."
+msgstr "Napiši odgovor..."
+
+#: ../inc/templates/default/content-answer.php:38
+msgid "This is the best answer"
+msgstr "Ovo je najbolji odgovor"
+
+#: ../inc/templates/default/content-answer.php:50
+#: ../inc/templates/default/content-comment.php:12
+msgid "Staff"
+msgstr "Član DO tima "
+
+#: ../inc/templates/default/content-answer.php:58
+msgid "Link to answer"
+msgstr "Link za odgovor"
+
+#: ../inc/templates/default/content-answer.php:84
+msgid "Draft"
+msgstr "Skica"
+
+#: ../inc/templates/default/content-answer.php:117
+msgid "This answer was flagged as spam."
+msgstr "Ovaj odgovor označen je kao spam"
+
+#: ../inc/templates/default/content-answer.php:127
+msgid "The answer link"
+msgstr "Link za odgovor"
+
+#: ../inc/templates/default/content-comment.php:10
+msgid "Post by"
+msgstr "Objavio"
+
+#: ../inc/templates/default/content-comment.php:25
+msgid "Link to comment"
+msgstr "Link za komentar"
+
+#: ../inc/templates/default/content-question.php:12
+#, php-format
+msgid "Permalink to %s"
+msgstr "Trajni link na %s"
+
+#: ../inc/templates/default/content-question.php:28
+#: ../inc/templates/default/content-question.php:31
+msgid "view"
+msgid_plural "views"
+msgstr[0] "pregled"
+msgstr[1] "pregleda"
+msgstr[2] "pregleda"
+
+#: ../inc/templates/default/content-question.php:56
+#: ../inc/templates/default/content-question.php:59
+msgid "vote"
+msgid_plural "votes"
+msgstr[0] "glas"
+msgstr[1] "glasa"
+msgstr[2] "glasova"
+
+#: ../inc/templates/default/single-question.php:21
+msgid "Your question has been submitted and is currently awaiting approval"
+msgstr "Vaše pitanje je poslano i trenutno čeka odobrenje "
+
+#: ../inc/templates/default/single-question.php:21
+msgid "This question is currently awaiting approval"
+msgstr "Pitanje čeka odobrenje."
+
+#: ../inc/templates/default/single-question.php:50 ../thesis/dwqa/box.php:267
+msgid "Posts by"
+msgstr "Objave od"
+
+#: ../inc/templates/default/single-question.php:62 ../thesis/dwqa/box.php:278
+msgid "asked"
+msgstr "pitao"
+
+#: ../inc/templates/default/single-question.php:77 ../thesis/dwqa/box.php:313
+msgid "Category"
+msgstr "tema"
+
+#: ../inc/templates/default/single-question.php:78 ../thesis/dwqa/box.php:314
+msgid "All questions from"
+msgstr "Sva pitanja od"
+
+#: ../inc/templates/default/submit-question-form.php:21
+msgid "Question Category"
+msgstr "Tema pitanja"
+
+#: ../inc/templates/default/submit-question-form.php:27
+msgid "Select question category"
+msgstr "Odaberite temu "
+
+#: ../inc/templates/default/submit-question-form.php:35
+msgid "tag 1, tag 2,..."
+msgstr "Upišite ključne riječi ili tagove, najviše 5."
+
+#: ../inc/templates/default/submit-question-form.php:40
+msgid "Your question"
+msgstr "Vaše pitanje"
+
+#: ../inc/templates/default/submit-question-form.php:41
+msgid "How to..."
+msgstr "Pitanje ukratko kao naslov"
+
+#: ../inc/templates/default/submit-question-form.php:48
+msgid "Question details"
+msgstr ""
+"Upišite i objasnite svoje pitanje u detalje kako bi dobili što kvalitetniji "
+"odgovor!"
+
+#: ../inc/templates/default/submit-question-form.php:60
+msgid "Post this Question as Private."
+msgstr "Objavi ovo pitanje kao privatno."
+
+#: ../inc/templates/default/submit-question-form.php:60
+msgid "Only you as Author and Admin can see the question"
+msgstr "Samo vi kao autor i administrator možete vidjeti pitanje"
+
+#: ../inc/templates/default/submit-question-form.php:83
+msgid "Ask Question"
+msgstr "Dostavi pitanje"
+
+#: ../inc/widgets/latest-question.php:11
+#: ../inc/widgets/list-closed-question.php:11
+msgid "Show a list of questions that was ordered by views."
+msgstr "Vidi popis pitanja prema pregledima."
+
+#: ../inc/widgets/latest-question.php:12
+msgid "DWQA Latest Questions"
+msgstr "DWQA Nova pitanja"
+
+#: ../inc/widgets/latest-question.php:18
+msgid "Latest Questions"
+msgstr "Nova pitanja"
+
+#: ../inc/widgets/latest-question.php:64
+#: ../inc/widgets/list-closed-question.php:72
+#: ../inc/widgets/popular-question.php:63
+#: ../inc/widgets/related-question.php:48
+msgid "Widget title"
+msgstr "Naslov widgeta"
+
+#: ../inc/widgets/latest-question.php:67
+#: ../inc/widgets/list-closed-question.php:75
+#: ../inc/widgets/popular-question.php:66
+#: ../inc/widgets/related-question.php:51
+msgid "Number of posts"
+msgstr "Broj objava"
+
+#: ../inc/widgets/list-closed-question.php:12
+msgid "DWQA Closed Questions"
+msgstr "DWQA Zatvorena pitanja"
+
+#: ../inc/widgets/list-closed-question.php:18
+msgid "Closed Questions"
+msgstr "Zatvorena pitanja"
+
+#: ../inc/widgets/popular-question.php:11
+msgid "Show a list of questions that ordered by views."
+msgstr "Pokaži popis pitanja po pregledima."
+
+#: ../inc/widgets/popular-question.php:12
+msgid "DWQA Popular Questions"
+msgstr "DWQA Popularna pitanja"
+
+#: ../inc/widgets/related-question.php:11
+msgid ""
+"Show a list of questions that related to a question. Just show in single "
+"question page"
+msgstr "Pokaži popis pitanja u vezi s pitanjem. Pokaži u single question page."
+
+#: ../inc/widgets/related-question.php:12
+msgid "DWQA Related Questions"
+msgstr "DWQA Povezana pitanja"
+
+#: ../thesis/dwqa/box.php:14
+msgid "DW Q&A Box"
+msgstr "DW Q&A Box"
+
+#: ../thesis/dwqa/box.php:21
+msgid "Container Padding"
+msgstr "Container Padding"
+
+#: ../thesis/dwqa/box.php:23
+msgid "Container padding size"
+msgstr "Container padding size"
+
+#: ../thesis/dwqa/box.php:25
+msgid ""
+"By default, the container does not have a gutter. You can set padding width "
+"to make a gutter. You make it by updating the setting here."
+msgstr ""
+"By default,The container is not have gutter. You can set padding width to "
+"make a gutter. You make it by update setting here."
+
+#: ../thesis/dwqa/box.php:202
+msgid "You can ask question <a href=\""
+msgstr "Možete postaviti pitanje <a href=\""
+
+#: ../thesis/dwqa/box.php:206
+msgid "Please <a href=\""
+msgstr "Molimo <a href=\""

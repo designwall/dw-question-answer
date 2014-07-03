@@ -1,4 +1,4 @@
-=== DW Question & Answer ===
+﻿=== DW Question & Answer ===
 Contributors: designwall, Farid-Gh, scheunemann, gciprian, Ahmet Kolcu, Astrotenko Roman, David Robles, Nidhal Naji, developez, markhall1971
 Tags: question, answer, support, quora, stackoverflow
 Requires at least: 3.0.1
@@ -53,6 +53,7 @@ We provide support both on support forum on WordPress.org and our [support page]
 * Vietnamese (vi_VN) - by [Le Nghia](http://www.designwall.com/profile/delatdecatsini/)
 * Czech ( cs_CZ ) - by [Karel Baláč](karel.balac@gmail.com)
 * Italian ( it_IT ) - by [Alberto Lusoli](alberto.lusoli@gmail.com)
+* Croatian ( hr ) - by [Tammara Bugg](tammara.bugg@gmail.com)
 
 The plugin is frequently updated and more and more features added based on all the feedback from our users. This means you are welcome to give us feedback and suggestion on how you would want to have in the plugin.
 Visit our [Github](https://github.com/designwall/dw-question-answer) project or follow us at [@designwall_com](https://twitter.com/designwall_com) to get update of our next release.

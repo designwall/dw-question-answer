@@ -44,7 +44,7 @@ We provide support both on support forum on WordPress.org and our [support page]
 * Persian (fa_IR) - by [Farid-Gh](https://github.com/Farid-Gh)
 * Polish (pl_PL) - by Karol Pergot
 * Romanian (ro_RO) - by [gciprian](https://github.com/gciprian)
-* Russian (ru_RU) - by [Roman Astrotenko](http://www.designwall.com/profile/shtirlitz/)
+* Russian (ru_RU) - by [Roman Astrotenko](http://www.designwall.com/profile/shtirlitz/),[shalomanov](https://github.com/shalomanov)
 * Spanish (es_ES) - by David Robles, [Developez](https://github.com/developez)
 * Turkish (tr_TR) - by Ahmet Kolcu
 * Thai (th) - by [Varut Vutipongsatorn](http://www.arika.co/questions)

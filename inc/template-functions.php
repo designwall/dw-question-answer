@@ -818,7 +818,10 @@ class DWQA_Template {
                 'post_status'    => get_post_status(),
                 'is_single'      => true
             ) );
-            if( file_exists( trailingslashit( get_template_directory() ) . 'page.php' ) ) {
+            if( file_exists( trailingslashit( get_template_directory() ) . 'single.php' ) ) {
+                $this->remove_all_filters( 'the_content' );
+                return trailingslashit ( get_template_directory() ) . 'single.php';
+            } else if( file_exists( trailingslashit( get_template_directory() ) . 'page.php' ) ) {
                 $this->remove_all_filters( 'the_content' );
                 return trailingslashit ( get_template_directory() ) . 'page.php';
             }

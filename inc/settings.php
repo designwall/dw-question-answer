@@ -580,7 +580,13 @@ class DWQA_Settings {
         add_action( 'admin_menu', array($this, 'admin_menu') );
         add_action( 'init', array( $this, 'init_options' ) );
         add_action( 'admin_init', array( $this, 'register_settings' ) );
+        add_action('update_option_dwqa_options', array( $this, 'flush_rewrite_rules') );
     }
+
+    public function flush_rewrite_rules() {
+        flush_rewrite_rules();
+    }
+
     // Create admin menus for backend
     public function admin_menu(){
         global $dwqa_setting_page;

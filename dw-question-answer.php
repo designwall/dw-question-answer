@@ -117,7 +117,7 @@ register_activation_hook( __FILE__, 'dwqa_activate' );
 function dwqa_flush_rewrite(){
     flush_rewrite_rules();
 }
-add_action('switch_theme', 'dwqa_flush_rewrite');
+add_action('after_switch_theme', 'dwqa_flush_rewrite');
 
 /*** PLUGIN INIT */
 function dwqa_plugin_init(){
@@ -304,9 +304,6 @@ function dwqa_plugin_init(){
     if( empty($cats) ) {
         wp_insert_term( 'Questions', 'dwqa-question_category' );
     }
-    if( $flag == true ){
-        flush_rewrite_rules();
-    }
 
     global $script_version, $dwqa_template, $dwqa_sript_vars;
 
@@ -370,24 +367,6 @@ function dwqa_plugin_init(){
             );
             foreach ($dwqa_rewrite_rules as $regex => $redirect ) {
                 add_rewrite_rule( $regex, $redirect, 'top' );
-            }
-
-            $maybe_missing = $wp_rewrite->rewrite_rules();
-
-            $flush = false;
-            foreach ( $dwqa_rewrite_rules as $regex => $redirect ) {
-                if( array_key_exists( $regex, $maybe_missing) ) {
-                    if( $maybe_missing[$regex] != $redirect ) {
-                        $flush = true;
-                    }
-                } else {
-                    $flush = true;
-                }
-            }
-
-            if( $flush ) {
-                flush_rewrite_rules();
-                $flush = false;
             }
         }
         

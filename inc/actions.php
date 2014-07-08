@@ -518,7 +518,7 @@ function dwqa_question_view(){
         }
     }
 }
-add_action( 'wp', 'dwqa_question_view' );
+add_action( 'wp_head', 'dwqa_question_view' );
 
 /**
  * Count number of views for a questions

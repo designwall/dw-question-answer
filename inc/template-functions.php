@@ -309,8 +309,10 @@ function dwqa_enqueue_scripts(){
     $version = $script_version;
     
 
+    // Register font
+    wp_register_style( 'font-awesome', $assets_folder . 'font/font-awesome/css/font-awesome.min.css', array(), '4.0.3' );
     // Enqueue style
-    wp_enqueue_style( 'dwqa-style', $assets_folder . 'css/style.css', array(), $version );
+    wp_enqueue_style( 'dwqa-style', $assets_folder . 'css/style.css', array( 'font-awesome' ), $version );
     // Enqueue for single question page
     if( is_single() && 'dwqa-question' == get_post_type() ) {
         // js

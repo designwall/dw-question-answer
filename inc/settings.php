@@ -574,6 +574,27 @@ function dwqa_enable_review_question_mode() {
     echo '<p><label for="dwqa_options_enable_review_question"><input type="checkbox" name="dwqa_options[enable-review-question]"  id="dwqa_options_enable_review_question" value="1" '.checked( 1, (isset($dwqa_general_settings['enable-review-question']) ? $dwqa_general_settings['enable-review-question'] : false) , false ) .'><span class="description">'.__('Question must be manually approved','dwqa').'</span></label></p>';
 }
 
+function dwqa_single_template_options() {
+    global $dwqa_general_settings;
+    $selected = isset($dwqa_general_settings['single-template']) ? $dwqa_general_settings['single-template'] : -1;
+    $theme_path = trailingslashit(get_template_directory());
+    $files = scandir($theme_path);
+    ?>
+        <p><label for="dwqa_single_question_template">
+                <select name="dwqa_options[single-template]" id="dwqa_single_question_template">
+                    <option <?php selected( $selected, -1 ); ?> value="-1"><?php _e('Select template for Single Quesiton page','dwqa') ?></option>
+                    <?php foreach ($files as $file) : ?>
+                        <?php $ext = pathinfo($file, PATHINFO_EXTENSION); ?>
+                        <?php if( is_dir( $file ) || strpos($file, '.' == 0) || $ext != 'php' ) continue; ?>
+                    <option <?php selected( $selected, $file ); ?> value="<?php echo $file; ?>"><?php echo $file ?></option>
+                    <?php endforeach; ?>
+                </select> <span class="description"><?php _e('By default, your single.php template file will be used if you do not choose any template','dwqa') ?></span>
+            </label>
+        </p>
+    <?php
+
+}
+
 class DWQA_Settings {
     public function __construct(){
 
@@ -659,6 +680,15 @@ class DWQA_Settings {
             'dwqa-settings', 
             'dwqa-general-settings'
         );
+
+        add_settings_field( 
+            'dwqa_options[single-template]', 
+            __('Single Question Template','dwqa'), 
+            'dwqa_single_template_options', 
+            'dwqa-settings', 
+            'dwqa-general-settings' 
+        );
+
         //Time setting
         add_settings_section( 
             'dwqa-time-settings', 

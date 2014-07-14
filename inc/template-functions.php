@@ -791,6 +791,7 @@ class DWQA_Template {
 
     public function question_content( $template ) {
         global $dwqa_options;
+        $template_folder = trailingslashit ( get_template_directory() );
 
         if( is_singular( 'dwqa-question' ) ) {
             ob_start();
@@ -818,12 +819,18 @@ class DWQA_Template {
                 'post_status'    => get_post_status(),
                 'is_single'      => true
             ) );
-            if( file_exists( trailingslashit( get_template_directory() ) . 'single.php' ) ) {
+
+            $single_template = isset($dwqa_options['single-template']) ? $dwqa_options['single-template'] : false;
+
+            if( $single_template && file_exists( $template_folder . $single_template ) ) {
                 $this->remove_all_filters( 'the_content' );
-                return trailingslashit ( get_template_directory() ) . 'single.php';
-            } else if( file_exists( trailingslashit( get_template_directory() ) . 'page.php' ) ) {
+                return  $template_folder . $single_template;
+            } else if( file_exists( $template_folder . $single_template ) ) {
                 $this->remove_all_filters( 'the_content' );
-                return trailingslashit ( get_template_directory() ) . 'page.php';
+                return $template_folder . 'single.php';
+            } else if( file_exists( $template_folder . 'page.php' ) ) {
+                $this->remove_all_filters( 'the_content' );
+                return $template_folder . 'page.php';
             }
         }
         if( is_tax( 'dwqa-question_category' ) || is_tax( 'dwqa-question_tax' ) || is_post_type_archive( 'dwqa-question' ) || is_post_type_archive( 'dwqa-answer' ) ) {

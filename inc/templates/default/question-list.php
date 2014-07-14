@@ -10,7 +10,7 @@
 						$selected = isset($_GET['status']) ? $_GET['status'] : 'all';
 					?>
 					<ul>
-						<li><?php _e('Status:') ?></li>
+						<li><?php _e('Status:','dwqa') ?></li>
 						<li class="<?php echo $selected == 'all' ? 'active' : ''; ?> status-all" data-type="all">
 							<a href="#"><?php _e( 'All','dwqa' ); ?></a>
 						</li>

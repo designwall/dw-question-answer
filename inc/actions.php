@@ -246,7 +246,7 @@ function dwqa_remove_answer(){
     global $current_user;
     $answer_author = get_post_field( 'post_author', $_POST['answer_id'] );
 
-    if( ! dwqa_current_user_can( 'delete_answer' ) || ( is_user_logged_in() && $answer_author != $current_user->ID ) ) {
+    if( !( dwqa_current_user_can( 'delete_answer' ) || ( is_user_logged_in() && $answer_author == $current_user->ID )) ) {
         wp_send_json_error( array(
             'message'   => __('You do not have permission to edit this post','dwqa')
         ) );

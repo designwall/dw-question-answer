@@ -831,7 +831,7 @@ function dwqa_ajax_create_update_answer_editor(){
             <?php } ?>
         </p>
         <div class="dwqa-privacy">
-            <input type="hidden" name="privacy" value="publish">
+            <input type="hidden" name="privacy" value="<?php echo $answer->post_status ?>">
             <span class="dwqa-change-privacy">
                 <div class="dwqa-btn-group">
                     <button type="button" class="dropdown-toggle" ><span><?php echo 'private' == get_post_status() ? '<i class="fa fa-lock"></i> '.__('Private','dwqa') : '<i class="fa fa-globe"></i> '.__('Public','dwqa'); ?></span> <i class="fa fa-caret-down"></i></button>

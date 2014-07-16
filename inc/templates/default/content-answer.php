@@ -47,7 +47,7 @@
                                 <?php if( dwqa_current_user_can('delete_answer') || $answer->post_author == $current_user->ID ) { ?>
                                 <li  class="answer-delete" data-answer-id="<?php echo $answer_id ?>" data-nonce="<?php echo wp_create_nonce( '_dwqa_action_remove_answer_nonce' ); ?>" ><a href="#"><i class="fa fa-trash-o"></i> <?php _e('Delete','dwqa') ?></a></li>
                                 <?php } ?>
-                                <li class="dwqa-answer-report" data-answer-id="<?php echo $answer_id ?>" data-nonce="<?php echo wp_create_nonce( '_dwqa_action_flag_answer_nonce' ); ?>" ><a href="#"><i class="fa fa-flag"></i> <?php _e('Report','dwqa') ?></a>
+                                <li class="dwqa-answer-report" data-answer-id="<?php echo $answer_id ?>" data-nonce="<?php echo wp_create_nonce( '_dwqa_action_flag_answer_nonce' ); ?>" ><a href="#"><i class="fa fa-flag"></i> <?php echo dwqa_is_answer_flag($answer_id) ? __('Unflag','dwqa') : __('Flag','dwqa'); ?></a>
                                 </li>
                             </ul>
                         </ul>

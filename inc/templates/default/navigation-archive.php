@@ -32,8 +32,11 @@
 		$query = new WP_Query( $args );
 		$total = $query->post_count;
 	} else {
-		$total = wp_count_posts( 'dwqa-question' );
-		$total = $total->publish;
+		$post_count = wp_count_posts( 'dwqa-question' );
+		$total = $post_count->publish;
+		if( current_user_can( 'manage_options' ) ) {
+			$total += $post_count->private;
+		}
 	}
 
 	$number_questions = $total;

@@ -78,10 +78,17 @@ Visit our [Github](https://github.com/designwall/dw-question-answer) project or 
 
 = 1.3.1 =
 
-* Fix: Wrongly use flush_rewrite_rules() function
 * Fix: All comments' authors were changed to anonymous
 * Fix: Template for Archive List Question page was not displayed
+* Fix: Paging does not work properly
+* Fix: Subscribers cannot edit their own answers
+* Fix: Wrongly use flush_rewrite_rules() function
+* Fix: Label of flag answer is not correct
+* Fix: Wordpress post filters were duplicated when displayed DWQA single question
+* Update: vi_VN language file
+* Update: default languages file
 * New: Add setting to choose a page template for Single Question page
+
 
 = 1.3.0 =
 

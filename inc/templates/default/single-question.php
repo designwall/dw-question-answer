@@ -6,7 +6,6 @@
  */
     global $current_user, $post;
 ?>
-
     <?php if( have_posts() ) : ?>
         <?php while ( have_posts() ) : the_post(); ?>
             <?php $post_id = get_the_ID(); $post_status = get_post_status();  ?>

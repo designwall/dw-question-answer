@@ -585,7 +585,7 @@ function dwqa_single_template_options() {
                     <option <?php selected( $selected, -1 ); ?> value="-1"><?php _e('Select template for Single Quesiton page','dwqa') ?></option>
                     <?php foreach ($files as $file) : ?>
                         <?php $ext = pathinfo($file, PATHINFO_EXTENSION); ?>
-                        <?php if( is_dir( $file ) || strpos($file, '.' == 0) || $ext != 'php' ) continue; ?>
+                        <?php if( is_dir( $file ) || strpos($file, '.' === 0) || $ext != 'php' ) continue; ?>
                     <option <?php selected( $selected, $file ); ?> value="<?php echo $file; ?>"><?php echo $file ?></option>
                     <?php endforeach; ?>
                 </select> <span class="description"><?php _e('By default, your single.php template file will be used if you do not choose any template','dwqa') ?></span>

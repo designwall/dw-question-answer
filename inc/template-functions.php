@@ -809,7 +809,8 @@ class DWQA_Template {
             ob_end_clean();
 
             // Reset post
-            global $post;
+            global $post, $current_user;
+
             $this->reset_content( array(
                 'ID'             => $post->ID,
                 'post_title'     => $post->post_title,

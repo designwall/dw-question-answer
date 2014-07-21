@@ -31,6 +31,17 @@ function dwqa_read_permission_apply( $posts, $query ){
     if( isset($query->query['post_type']) && $query->query['post_type'] == 'dwqa-question' && ! dwqa_current_user_can('read_question') ) {
         return false;
     }
+
+    if( isset($query->query['post_type']) && $query->query['post_type'] == 'dwqa-question' && ! dwqa_current_user_can('read_question') ) {
+        $availables = array();
+        foreach ($posts as $key => $post) {
+            if( $post->post_status == 'publish' || ( $post->post_status != 'publish' && dwqa_current_user_can('edit_question') ) ){
+                $availables[] = $post;
+            }
+        }
+        return $availables;
+    }
+
     return $posts;
 }
 add_filter( 'the_posts', 'dwqa_read_permission_apply', 10, 2 );

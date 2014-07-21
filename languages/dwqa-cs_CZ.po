@@ -1,0 +1,2665 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: DW Question Answer v1.2.6\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2014-05-13 19:52:53+0000\n"
+"Last-Translator: k_balac <karel.balac@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%100/10==1 ? 2 : n%10==1 ? 0 : (n+9)%10>3 ? 2 : 1;\n"
+"X-Generator: CSL v1.x\n"
+"X-Poedit-Language: Czech\n"
+"X-Poedit-Country: CZECH REPUBLIC\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: dw-question-answer.php:63
+#@ dwqa
+msgid "DWQA Questions"
+msgstr ""
+
+#: dw-question-answer.php:76
+#@ dwqa
+msgid "DWQA Ask Question"
+msgstr ""
+
+#: dw-question-answer.php:130
+#@ default
+msgctxt "post type general name"
+msgid "Question"
+msgstr ""
+
+#: dw-question-answer.php:131
+#@ default
+msgctxt "post type singular name"
+msgid "Question"
+msgstr ""
+
+#: dw-question-answer.php:132
+#: dw-question-answer.php:166
+#@ default
+msgctxt "theme"
+msgid "Add New"
+msgstr ""
+
+#: dw-question-answer.php:133
+#@ default
+msgid "Add New Question"
+msgstr ""
+
+#: dw-question-answer.php:134
+#@ default
+msgid "Edit Question"
+msgstr ""
+
+#: dw-question-answer.php:135
+#: inc/settings.php:909
+#@ default
+#@ dwqa
+msgid "New Question"
+msgstr "Nový dotaz"
+
+#: dw-question-answer.php:136
+#@ default
+msgid "All Questions"
+msgstr ""
+
+#: dw-question-answer.php:137
+#@ default
+msgid "View Question"
+msgstr ""
+
+#: dw-question-answer.php:138
+#@ default
+msgid "Search Question"
+msgstr ""
+
+#: dw-question-answer.php:139
+#@ default
+msgid "No questions found"
+msgstr ""
+
+#: dw-question-answer.php:140
+#@ default
+msgid "No questions found in Trash"
+msgstr ""
+
+#: dw-question-answer.php:142
+#@ default
+msgid "DW Q&A"
+msgstr ""
+
+#: dw-question-answer.php:164
+#@ default
+msgctxt "post type general name"
+msgid "Answer"
+msgstr ""
+
+#: dw-question-answer.php:165
+#@ default
+msgctxt "post type singular name"
+msgid "Answer"
+msgstr ""
+
+#: dw-question-answer.php:167
+#@ default
+msgid "Add new answer"
+msgstr ""
+
+#: dw-question-answer.php:168
+#@ default
+msgid "Edit answer"
+msgstr ""
+
+#: dw-question-answer.php:169
+#: inc/settings.php:910
+#@ default
+#@ dwqa
+msgid "New Answer"
+msgstr "Nová odpověď"
+
+#: dw-question-answer.php:170
+#@ default
+msgid "All Answers"
+msgstr ""
+
+#: dw-question-answer.php:171
+#@ default
+msgid "View Answer"
+msgstr ""
+
+#: dw-question-answer.php:172
+#@ default
+msgid "Search Answer"
+msgstr ""
+
+#: dw-question-answer.php:173
+#@ default
+msgid "No Answers found"
+msgstr ""
+
+#: dw-question-answer.php:174
+#@ default
+msgid "No Answers found in Trash"
+msgstr ""
+
+#: dw-question-answer.php:176
+#: dw-question-answer.php:465
+#: inc/settings.php:447
+#: inc/shortcodes.php:164
+#: inc/templates/default/archive-question.php:111
+#: thesis/dwqa/box.php:172
+#@ default
+#@ dwqa
+msgid "Answer"
+msgstr "Odpověď"
+
+#: dw-question-answer.php:198
+#@ default
+msgctxt "taxonomy general name"
+msgid "Categories"
+msgstr ""
+
+#: dw-question-answer.php:199
+#@ default
+msgctxt "taxonomy singular name"
+msgid "Category"
+msgstr ""
+
+#: dw-question-answer.php:200
+#@ default
+msgid "Search Categories"
+msgstr ""
+
+#: dw-question-answer.php:201
+#@ default
+msgid "All Categories"
+msgstr ""
+
+#: dw-question-answer.php:202
+#@ default
+msgid "Parent Category"
+msgstr ""
+
+#: dw-question-answer.php:203
+#@ default
+msgid "Parent Category:"
+msgstr ""
+
+#: dw-question-answer.php:204
+#@ default
+msgid "Edit Category"
+msgstr ""
+
+#: dw-question-answer.php:205
+#@ default
+msgid "Update Category"
+msgstr ""
+
+#: dw-question-answer.php:206
+#@ default
+msgid "Add New Category"
+msgstr ""
+
+#: dw-question-answer.php:207
+#@ default
+msgid "New Category Name"
+msgstr ""
+
+#: dw-question-answer.php:208
+#@ default
+msgid "Question Categories"
+msgstr ""
+
+#: dw-question-answer.php:227
+#@ default
+msgctxt "taxonomy general name"
+msgid "Tags"
+msgstr ""
+
+#: dw-question-answer.php:228
+#@ default
+msgctxt "taxonomy singular name"
+msgid "Tag"
+msgstr ""
+
+#: dw-question-answer.php:229
+#@ default
+msgid "Search Tags"
+msgstr ""
+
+#: dw-question-answer.php:230
+#@ default
+msgid "Popular Tags"
+msgstr ""
+
+#: dw-question-answer.php:231
+#@ default
+msgid "All Tags"
+msgstr ""
+
+#: dw-question-answer.php:234
+#@ default
+msgid "Edit Tag"
+msgstr ""
+
+#: dw-question-answer.php:235
+#@ default
+msgid "Update Tag"
+msgstr ""
+
+#: dw-question-answer.php:236
+#@ default
+msgid "Add New Tag"
+msgstr ""
+
+#: dw-question-answer.php:237
+#@ default
+msgid "New Tag Name"
+msgstr ""
+
+#: dw-question-answer.php:238
+#@ default
+msgid "Separate tags with commas"
+msgstr ""
+
+#: dw-question-answer.php:239
+#@ default
+msgid "Add or remove tags"
+msgstr ""
+
+#: dw-question-answer.php:240
+#@ default
+msgid "Choose from the most used tags"
+msgstr ""
+
+#: dw-question-answer.php:241
+#: inc/templates/default/submit-question-form.php:34
+#@ default
+#@ dwqa
+msgid "Question Tags"
+msgstr "Štítky dotazu"
+
+#: dw-question-answer.php:280
+#: dw-question-answer.php:417
+#: inc/filter.php:83
+#: inc/shortcodes.php:276
+#: inc/templates/default/navigation-archive.php:93
+#: thesis/dwqa/box.php:282
+#@ dwqa
+msgid "Next"
+msgstr "Další"
+
+#: dw-question-answer.php:281
+#: dw-question-answer.php:418
+#: inc/shortcodes.php:240
+#: inc/templates/default/navigation-archive.php:57
+#: thesis/dwqa/box.php:246
+#@ dwqa
+msgid "Prev"
+msgstr "Předchozí"
+
+#: dw-question-answer.php:283
+#: dw-question-answer.php:420
+#@ dwqa
+msgid "Please enter your question"
+msgstr "Prosím zadejte váš dotaz"
+
+#: dw-question-answer.php:284
+#@ dwqa
+msgid "Your question must be at least 2 characters in length"
+msgstr "Váš dotaz musí být minimálně 2 znaky dlouhý"
+
+#: dw-question-answer.php:285
+#@ dwqa
+msgid "Enter a valid email address"
+msgstr "Zadejte platný email"
+
+#: dw-question-answer.php:286
+#@ dwqa
+msgid "Enter a question title"
+msgstr "Zadejte nadpis dotazu"
+
+#: dw-question-answer.php:287
+#@ dwqa
+msgid "Please add your name"
+msgstr "Zadejte vaše jméno"
+
+#: dw-question-answer.php:288
+#: dw-question-answer.php:421
+#@ dwqa
+msgid "Please enter your answer"
+msgstr "Zadejte vaši odpověď"
+
+#: dw-question-answer.php:289
+#: dw-question-answer.php:422
+#@ dwqa
+msgid "Please enter your comment content"
+msgstr "Zadejte obsah komentáře"
+
+#: dw-question-answer.php:290
+#: dw-question-answer.php:423
+#@ dwqa
+msgid "Comment must have more than 2 characters"
+msgstr "Komentář musí být delší než 2 znaky"
+
+#: dw-question-answer.php:291
+#@ dwqa
+msgid "Not found! Try another keyword."
+msgstr "Nenalezeno. Zkuste jiné klíčové slovo."
+
+#: dw-question-answer.php:292
+#@ dwqa
+msgid "Or press <strong>ENTER</strong> to get more questions"
+msgstr "Nebo zmáčkněte <strong>ENTER</strong> k zobrazení více dotazů"
+
+#: dw-question-answer.php:293
+#: dw-question-answer.php:424
+#: inc/actions.php:938
+#: inc/actions.php:1034
+#@ dwqa
+msgid "Update"
+msgstr "Aktualizace"
+
+#: dw-question-answer.php:294
+#: dw-question-answer.php:425
+#: dw-question-answer.php:507
+#: inc/settings.php:412
+#: inc/templates/default/content-answer.php:99
+#: inc/templates/default/content-comment.php:48
+#: inc/templates/default/single-question.php:62
+#@ dwqa
+#@ edd-dw-membersip
+msgid "Edit"
+msgstr "Upravit"
+
+#: dw-question-answer.php:295
+#: dw-question-answer.php:426
+#: inc/actions.php:939
+#: inc/actions.php:1035
+#@ dwqa
+msgid "Cancel"
+msgstr "Zrušit"
+
+#: dw-question-answer.php:296
+#: dw-question-answer.php:427
+#@ dwqa
+msgid "Do you want to delete this comment?"
+msgstr "Chcete smazat tento komentář?"
+
+#: dw-question-answer.php:297
+#: dw-question-answer.php:428
+#@ dwqa
+msgid "Do you want to delete this answer?"
+msgstr "Chcete smazat tuto odpověď?"
+
+#: dw-question-answer.php:298
+#@ dwqa
+msgid "Do you want to update this answer?"
+msgstr "Chcete aktualizovat tuto odpověď?"
+
+#: dw-question-answer.php:299
+#@ dwqa
+msgid "Do you want to report this answer?"
+msgstr "Chcete nahlásit tuto odpověď?"
+
+#: dw-question-answer.php:301
+#: inc/templates/default/content-answer.php:104
+#@ dwqa
+msgid "Report"
+msgstr "Nahlásit"
+
+#: dw-question-answer.php:302
+#@ dwqa
+msgid "Undo"
+msgstr "Zpět"
+
+#: dw-question-answer.php:303
+#@ dwqa
+msgid "This answer will be marked as spam and hidden. Do you want to flag it?"
+msgstr "Tato odpověď bude označena jako spam a skryta. Chcete ji tak označit?"
+
+#: dw-question-answer.php:304
+#@ dwqa
+msgid "This answer was flagged as spam. Do you want to show it"
+msgstr "Tato odpověď byla označena jako spam. Chcete ji zobrazit"
+
+#: dw-question-answer.php:305
+#@ dwqa
+msgid "This answer was flagged as spam"
+msgstr "Tato odpověď byla označena jako spam"
+
+#: dw-question-answer.php:306
+#: dw-question-answer.php:434
+#@ dwqa
+msgid "hide"
+msgstr "schovat"
+
+#: dw-question-answer.php:307
+#: dw-question-answer.php:435
+#@ dwqa
+msgid "show"
+msgstr "zobrazit"
+
+#: dw-question-answer.php:309
+#: inc/templates/default/single-question.php:31
+#: thesis/dwqa/box.php:344
+#@ dwqa
+msgid "Follow This Question"
+msgstr "Sledovat tento dotaz"
+
+#: dw-question-answer.php:310
+#: inc/templates/default/single-question.php:31
+#: thesis/dwqa/box.php:344
+#@ dwqa
+msgid "Unfollow This Question"
+msgstr "Zrušit sledování tohoto dotazu"
+
+#: dw-question-answer.php:311
+#@ dwqa
+msgid "Pin this question to top"
+msgstr "Připíchnout tento dotaz nahoru"
+
+#: dw-question-answer.php:312
+#@ dwqa
+msgid "Unpin this question from top"
+msgstr "Odpíchnout tento dotaz z vrchu"
+
+#: dw-question-answer.php:315
+#@ dwqa
+msgid "Do you want to delete this question?"
+msgstr "Chcete smazat tento dotaz?"
+
+#: dw-question-answer.php:335
+#, php-format
+#@ default
+msgid "%s second"
+msgid_plural "%s seconds"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#. translators: min=minute
+#: dw-question-answer.php:344
+#, php-format
+#@ default
+msgid "about %s min"
+msgid_plural "%s mins"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: dw-question-answer.php:350
+#, php-format
+#@ default
+msgid "about %s hour"
+msgid_plural "%s hours"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: dw-question-answer.php:356
+#, php-format
+#@ default
+msgid "%s day"
+msgid_plural "%s days"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: dw-question-answer.php:360
+#, php-format
+#@ dwqa
+msgid "%1$s ago"
+msgstr "%1$s před"
+
+#: dw-question-answer.php:430
+#@ dwqa
+msgid "Flag"
+msgstr "Označit"
+
+#: dw-question-answer.php:431
+#@ dwqa
+msgid "Unflag"
+msgstr "Odznačit"
+
+#: dw-question-answer.php:432
+#@ dwqa
+msgid "This answer will be hidden when flagged. Are you sure you want to flag it?"
+msgstr "Tato odpověď bude skryta když ji označíte. Chcete ji opravdu označit?"
+
+#: dw-question-answer.php:433
+#@ dwqa
+msgid "This answer was flagged as spam. Do you want to show it?"
+msgstr "Tato odpověď byla označena jako spam. Chcete ji zobrazit?"
+
+#: dw-question-answer.php:466
+#: inc/class-answers-list-table.php:77
+#@ dwqa
+msgid "Author"
+msgstr "Autor"
+
+#: dw-question-answer.php:468
+#@ dwqa
+msgid "In Response To"
+msgstr "V reakci na"
+
+#: dw-question-answer.php:472
+#@ dwqa
+msgid "Info"
+msgstr "Info"
+
+#: dw-question-answer.php:508
+#: inc/settings.php:413
+#: inc/templates/default/content-answer.php:102
+#: inc/templates/default/content-comment.php:51
+#: inc/templates/default/single-question.php:65
+#@ edd-dw-membersip
+#@ dwqa
+msgid "Delete"
+msgstr "Smazat"
+
+#: dw-question-answer.php:509
+#: inc/shortcodes.php:161
+#: inc/templates/default/archive-question.php:108
+#: thesis/dwqa/box.php:169
+#@ edd-dw-membersip
+#@ dwqa
+msgid "View"
+msgstr "Zobrazit"
+
+#: dw-question-answer.php:513
+#@ dwqa
+msgid "Submitted"
+msgstr "Odesláno"
+
+#: dw-question-answer.php:514
+#@ dwqa
+msgid "on"
+msgstr "na"
+
+#: dw-question-answer.php:542
+#@ dwqa
+msgid "Reset all changes to default"
+msgstr "Resetovat všechny změny do defaultu"
+
+#: dw-question-answer.php:556
+#@ dwqa
+msgid "answered"
+msgstr "odpovězeno"
+
+#: dw-question-answer.php:557
+#@ dwqa
+msgid "voted"
+msgstr "hlasováno"
+
+#: dw-question-answer.php:558
+#@ dwqa
+msgid "views"
+msgstr "zobrazení"
+
+#: dw-question-answer.php:679
+#: inc/shortcodes.php:377
+#: inc/widgets.php:101
+#: inc/widgets.php:175
+#: inc/widgets.php:255
+#@ dwqa
+msgid "asked by"
+msgstr "dotaz od"
+
+#: inc/actions.php:39
+#@ dwqa
+msgid "Are you cheating, huh?"
+msgstr ""
+
+#: inc/actions.php:53
+#@ dwqa
+msgid "What  are you looking for? "
+msgstr "Co hledáte?"
+
+#: inc/actions.php:84
+#@ dwqa
+msgid "You voted for this "
+msgstr "Hlasovali jste pro tuto"
+
+#: inc/actions.php:205
+#@ dwqa
+msgid "Delete draft"
+msgstr "Smazat koncept"
+
+#: inc/actions.php:234
+#@ dwqa
+msgid "Answer for "
+msgstr "Odpověď pro"
+
+#: inc/actions.php:247
+#: inc/template-functions.php:284
+#@ dwqa
+msgid "Save draft"
+msgstr "Uložit koncept"
+
+#: inc/actions.php:261
+#: inc/actions.php:521
+#@ dwqa
+msgid "You do not have permission to submit question."
+msgstr "Nemáte práva pro položení dotazu."
+
+#: inc/actions.php:287
+#: inc/actions.php:534
+#@ dwqa
+msgid "Captcha is not correct"
+msgstr "Captcha není správně"
+
+#: inc/actions.php:375
+#: inc/actions.php:537
+#: inc/actions.php:748
+#: inc/actions.php:773
+#: inc/actions.php:791
+#: inc/actions.php:1517
+#: inc/filter.php:351
+#: inc/status.php:286
+#@ dwqa
+#@ default
+msgid "Are you cheating huh?"
+msgstr ""
+
+#: inc/actions.php:378
+#@ dwqa
+msgid "Missing answer ID"
+msgstr ""
+
+#: inc/actions.php:477
+#@ dwqa
+msgid "User Registration was disabled."
+msgstr ""
+
+#: inc/actions.php:480
+#@ dwqa
+msgid "This email is already registered, please choose another one."
+msgstr "Tento email již byl zaregistrován, zadejte prosím jiný."
+
+#: inc/actions.php:483
+#@ dwqa
+msgid "This username is already registered. Please use another one."
+msgstr "Toto uživatelské jméno již bylo registrováno. Prosíme, zvolte si jiné."
+
+#: inc/actions.php:753
+#@ dwqa
+msgid "Comment content must not be empty."
+msgstr "Obsah komentáře nesmí být prázdný."
+
+#: inc/actions.php:778
+#@ dwqa
+msgid "Comment ID must be showed."
+msgstr ""
+
+#: inc/actions.php:794
+#@ dwqa
+msgid "Missing id of answer"
+msgstr ""
+
+#: inc/actions.php:942
+#: inc/actions.php:1038
+#@ dwqa
+msgid "Publish"
+msgstr "Odeslat"
+
+#: inc/actions.php:947
+#: inc/actions.php:957
+#: inc/template-functions.php:289
+#: inc/template-functions.php:299
+#: inc/templates/default/content-answer.php:63
+#: inc/templates/default/content-answer.php:75
+#: inc/templates/default/single-question.php:107
+#: inc/templates/default/single-question.php:119
+#: thesis/dwqa/box.php:387
+#: thesis/dwqa/box.php:398
+#@ dwqa
+msgid "Public"
+msgstr "Veřejné"
+
+#: inc/actions.php:957
+#: inc/template-functions.php:299
+#: inc/templates/default/content-answer.php:75
+#: inc/templates/default/single-question.php:119
+#: thesis/dwqa/box.php:398
+#@ dwqa
+msgid "Everyone can see"
+msgstr "Všichni mohou zobrazit"
+
+#: inc/actions.php:958
+#: inc/template-functions.php:300
+#: inc/templates/default/content-answer.php:76
+#: inc/templates/default/single-question.php:120
+#: thesis/dwqa/box.php:399
+#@ dwqa
+msgid "Only Author and Administrator can see"
+msgstr "Pouze autor a administrátor mohou zobrazit"
+
+#: inc/actions.php:958
+#: inc/template-functions.php:300
+#: inc/templates/default/content-answer.php:63
+#: inc/templates/default/content-answer.php:76
+#: inc/templates/default/single-question.php:107
+#: inc/templates/default/single-question.php:120
+#: thesis/dwqa/box.php:387
+#: thesis/dwqa/box.php:399
+#@ dwqa
+msgid "Private"
+msgstr "Soukromé"
+
+#: inc/actions.php:978
+#: inc/actions.php:1725
+#@ dwqa
+msgid "Hello, Are you cheating huh?"
+msgstr ""
+
+#: inc/actions.php:1065
+#@ dwqa
+msgid "You can't post comment"
+msgstr "Nemůžete vkládat komentáře"
+
+#: inc/actions.php:1079
+#@ dwqa
+msgid "Missing email information"
+msgstr ""
+
+#: inc/actions.php:1084
+#@ dwqa
+msgid "Missing name information"
+msgstr ""
+
+#: inc/actions.php:1345
+#@ dwqa
+msgid "Choose as the best answer"
+msgstr "Vyberte nejlepší odpověď"
+
+#: inc/actions.php:1564
+#: inc/actions.php:1594
+#@ dwqa
+msgid "Invalid Post"
+msgstr ""
+
+#: inc/actions.php:1696
+#@ dwqa
+msgid "Sticky Questions"
+msgstr "Zvýrazněný dotaz"
+
+#: inc/actions.php:1731
+#@ dwqa
+msgid "Question is not valid"
+msgstr ""
+
+#: inc/actions.php:1766
+#@ dwqa
+msgid "Delete Action was failed"
+msgstr ""
+
+#: inc/actions.php:1771
+#@ dwqa
+msgid "You do not have permission to delete this question"
+msgstr "Nemáte práva ke smazání tohoto dotazu"
+
+#: inc/class-answers-list-table.php:78
+#@ dwqa
+msgid "Detail"
+msgstr ""
+
+#: inc/class-answers-list-table.php:97
+#@ dwqa
+msgid "Answered on "
+msgstr "Odpovězeno"
+
+#: inc/class-answers-list-table.php:108
+#: inc/contextual-helper.php:202
+#@ dwqa
+msgid "Read more"
+msgstr "Zobrazit celé"
+
+#: inc/class-walker-category.php:20
+#: inc/class-walker-tag-dropdown.php:19
+#, php-format
+#@ default
+msgid "View all posts filed under %s"
+msgstr ""
+
+#: inc/class-walker-category.php:35
+#: inc/class-walker-tag-dropdown.php:34
+#, php-format
+#@ default
+msgid "Feed for all posts filed under %s"
+msgstr ""
+
+#: inc/contextual-helper.php:48
+#@ dwqa
+msgid "Overview"
+msgstr "Přehled"
+
+#: inc/contextual-helper.php:49
+#@ dwqa
+msgid "DW Question Answer Plugin"
+msgstr ""
+
+#: inc/contextual-helper.php:50
+#@ dwqa
+msgid "DW Question Answer is a WordPress Plugin which helps you build a Question & Answer system on your WordPress sites. The plugin is easy to install and set up. Let start building up your community with this WordPress question & answer system."
+msgstr ""
+
+#: inc/contextual-helper.php:53
+#@ dwqa
+msgid "Setup Question List Page"
+msgstr ""
+
+#: inc/contextual-helper.php:57
+#@ dwqa
+msgid "Setup Ask Question Page"
+msgstr ""
+
+#: inc/contextual-helper.php:61
+#@ dwqa
+msgid "Shortcode"
+msgstr ""
+
+#: inc/contextual-helper.php:65
+#@ dwqa
+msgid "Style integration"
+msgstr ""
+
+#: inc/contextual-helper.php:216
+#@ dwqa
+msgid "title"
+msgstr "nadpis"
+
+#: inc/contextual-helper.php:223
+#@ default
+msgid "For more information:"
+msgstr ""
+
+#: inc/contextual-helper.php:224
+#@ default
+msgid "DW Question Answer Guide"
+msgstr ""
+
+#: inc/contextual-helper.php:225
+#@ default
+msgid "Community"
+msgstr ""
+
+#: inc/contextual-helper.php:226
+#@ default
+msgid "DesignWall Wordpress Themes"
+msgstr ""
+
+#: inc/contextual-helper.php:227
+#@ default
+msgid "DesignWall Wordpress Plugins"
+msgstr ""
+
+#: inc/filter.php:101
+#: inc/shortcodes.php:289
+#: inc/templates/default/archive-question-notfound.php:4
+#: thesis/dwqa/box.php:295
+#@ dwqa
+msgid "You do not have permission to view questions"
+msgstr "Nemáte práva k zobrazení dotazů"
+
+#: inc/filter.php:104
+#@ dwqa
+msgid "Sorry, but nothing matched your filter. "
+msgstr "Nic k zobrazení"
+
+#: inc/filter.php:111
+#: inc/shortcodes.php:300
+#@ dwqa
+msgid "You can ask question"
+msgstr "Můžete položit dotaz"
+
+#: inc/filter.php:113
+#: inc/shortcodes.php:302
+#@ dwqa
+msgid "here"
+msgstr "zde"
+
+#: inc/filter.php:119
+#: inc/shortcodes.php:308
+#: inc/templates/default/archive-question-notfound.php:14
+#@ dwqa
+msgid "Please"
+msgstr "Prosíme"
+
+#: inc/filter.php:121
+#: inc/shortcodes.php:310
+#: inc/templates/default/archive-question-notfound.php:16
+#@ dwqa
+msgid "Login"
+msgstr "přihlašte se"
+
+#: inc/filter.php:125
+#: inc/shortcodes.php:315
+#: inc/templates/default/archive-question-notfound.php:17
+#: thesis/dwqa/box.php:313
+#@ dwqa
+msgid " or"
+msgstr "nebo"
+
+#: inc/filter.php:127
+#: inc/shortcodes.php:317
+#: inc/templates/default/archive-question-notfound.php:18
+#: thesis/dwqa/box.php:315
+#@ dwqa
+msgid " to submit question."
+msgstr "k položení dotazu."
+
+#: inc/filter.php:359
+#@ dwqa
+msgid "Search query is empty"
+msgstr "Nic nezadáno"
+
+#: inc/metaboxes.php:5
+#@ dwqa
+msgid "Answers"
+msgstr "Odpovědi"
+
+#: inc/metaboxes.php:29
+#@ dwqa
+msgid "Question Meta Data"
+msgstr "Metadata dotazu"
+
+#: inc/metaboxes.php:44
+#: inc/templates/default/single-question.php:146
+#: thesis/dwqa/box.php:425
+#@ dwqa
+msgid "Status"
+msgstr ""
+
+#: inc/metaboxes.php:46
+#: inc/shortcodes.php:83
+#: inc/status.php:277
+#: inc/templates/default/archive-question.php:30
+#: thesis/dwqa/box.php:91
+#@ dwqa
+msgid "Open"
+msgstr "Otevřený"
+
+#: inc/metaboxes.php:47
+#: inc/status.php:264
+#: inc/templates/default/content-question.php:8
+#: inc/templates/default/single-question.php:174
+#: thesis/dwqa/box.php:453
+#@ dwqa
+msgid "Pending"
+msgstr "Neodpovězený"
+
+#: inc/metaboxes.php:48
+#: inc/shortcodes.php:89
+#: inc/status.php:261
+#: inc/templates/default/archive-question.php:36
+#: inc/templates/default/single-question.php:179
+#: thesis/dwqa/box.php:97
+#: thesis/dwqa/box.php:458
+#@ dwqa
+msgid "Resolved"
+msgstr "Vyřešený"
+
+#: inc/metaboxes.php:49
+#: inc/status.php:267
+#: inc/templates/default/single-question.php:164
+#: thesis/dwqa/box.php:443
+#@ dwqa
+msgid "Re-Open"
+msgstr "Znovuotevřený"
+
+#: inc/metaboxes.php:50
+#: inc/shortcodes.php:92
+#: inc/status.php:270
+#: inc/templates/default/archive-question.php:39
+#: inc/templates/default/single-question.php:169
+#: thesis/dwqa/box.php:100
+#: thesis/dwqa/box.php:448
+#@ dwqa
+msgid "Closed"
+msgstr "Uzavřený"
+
+#: inc/metaboxes.php:56
+#@ dwqa
+msgid "Sticky"
+msgstr "Zvýrazněný"
+
+#: inc/metaboxes.php:60
+#@ dwqa
+msgid "Pin question to top of archive page."
+msgstr "Připíchnout dotaz nahoru.."
+
+#: inc/notification.php:27
+#@ dwqa
+msgid "A new question was posted on {site_name}"
+msgstr ""
+
+#: inc/notification.php:120
+#@ dwqa
+msgid "A new answer for \"{question_title}\" was posted on {site_name}"
+msgstr ""
+
+#: inc/notification.php:148
+#: inc/notification.php:150
+#: inc/settings.php:436
+#: inc/settings.php:477
+#: inc/settings.php:518
+#: inc/templates/default/content-answer.php:53
+#: inc/templates/default/content-comment.php:15
+#: inc/templates/default/content-question.php:25
+#: inc/templates/default/single-question.php:82
+#@ dwqa
+msgid "Anonymous"
+msgstr ""
+
+#: inc/notification.php:188
+#@ dwqa
+msgid "You have a new answer for your followed question"
+msgstr ""
+
+#: inc/notification.php:287
+#: inc/notification.php:333
+#@ dwqa
+msgid "[{site_name}] You have a new comment for question {question_title}"
+msgstr ""
+
+#: inc/notification.php:292
+#: inc/notification.php:338
+#@ dwqa
+msgid "[{site_name}] You have a new comment for answer"
+msgstr ""
+
+#: inc/pointer-helper.php:57
+#@ dwqa
+msgid "How to use DW Question Answer"
+msgstr ""
+
+#: inc/pointer-helper.php:58
+#@ dwqa
+msgid "Documents, Support From DesignWall (help)"
+msgstr ""
+
+#: inc/pointer-helper.php:67
+#@ dwqa
+msgid "Config your support channel"
+msgstr ""
+
+#: inc/pointer-helper.php:68
+#@ dwqa
+msgid "Change comment settings, and create the Submit question page."
+msgstr ""
+
+#: inc/settings.php:9
+#@ dwqa
+msgid "Login required. No anonymous post allowed"
+msgstr "Vyžadováno přihlášení"
+
+#: inc/settings.php:21
+#@ dwqa
+msgid "Select Archive Question Page"
+msgstr ""
+
+#: inc/settings.php:25
+#@ dwqa
+msgid "A page where displays all questions"
+msgstr ""
+
+#: inc/settings.php:32
+#@ dwqa
+msgid "hours"
+msgstr "hodin"
+
+#: inc/settings.php:32
+#@ dwqa
+msgid "A period of time in which new questions are highlighted and marked as New"
+msgstr ""
+
+#: inc/settings.php:37
+#@ dwqa
+msgid "days"
+msgstr "dny"
+
+#: inc/settings.php:37
+#@ dwqa
+msgid "A Question will be marked as overdue if it passes this period of time, starting from the time the question was submitted"
+msgstr ""
+
+#: inc/settings.php:48
+#@ dwqa
+msgid "Select Submit Question Page"
+msgstr ""
+
+#: inc/settings.php:53
+#@ dwqa
+msgid "A page where users can submit questions."
+msgstr ""
+
+#: inc/settings.php:66
+#@ dwqa
+msgid "Select 404 DWQA Page"
+msgstr ""
+
+#: inc/settings.php:71
+#@ dwqa
+msgid "This page will be redirected when users without authority click on a private question. You can customize the message of this page in.If not, a default 404 page will be used."
+msgstr ""
+
+#: inc/settings.php:87
+#@ dwqa
+msgid "Upload"
+msgstr ""
+
+#: inc/settings.php:87
+#@ dwqa
+msgid "Upload or choose a logo to be displayed at the top of the email"
+msgstr ""
+
+#: inc/settings.php:126
+#@ dwqa
+msgid "Enable notification for new question"
+msgstr ""
+
+#: inc/settings.php:131
+#: inc/settings.php:167
+#: inc/settings.php:204
+#: inc/settings.php:241
+#: inc/settings.php:278
+#: inc/settings.php:315
+#: inc/settings.php:352
+#@ dwqa
+msgid "Email subject"
+msgstr ""
+
+#: inc/settings.php:136
+#: inc/settings.php:172
+#: inc/settings.php:209
+#: inc/settings.php:246
+#: inc/settings.php:283
+#: inc/settings.php:320
+#: inc/settings.php:357
+#@ dwqa
+msgid "Email Content"
+msgstr ""
+
+#: inc/settings.php:162
+#@ dwqa
+msgid "Enable notification for new answer"
+msgstr ""
+
+#: inc/settings.php:199
+#@ dwqa
+msgid "Enable notification for new answer (to Followers)"
+msgstr ""
+
+#: inc/settings.php:236
+#: inc/settings.php:273
+#@ dwqa
+msgid "Enable notification for new comment of question"
+msgstr ""
+
+#: inc/settings.php:310
+#: inc/settings.php:347
+#@ dwqa
+msgid "Enable notification for new comment of answer"
+msgstr ""
+
+#: inc/settings.php:405
+#@ dwqa
+msgid "Question"
+msgstr ""
+
+#: inc/settings.php:410
+#@ dwqa
+msgid "Read"
+msgstr ""
+
+#: inc/settings.php:411
+#@ dwqa
+msgid "Post"
+msgstr ""
+
+#: inc/settings.php:445
+#: inc/settings.php:486
+#: inc/settings.php:528
+#@ dwqa
+msgid "Reset Default"
+msgstr ""
+
+#: inc/settings.php:488
+#@ dwqa
+msgid "Comment"
+msgstr ""
+
+#: inc/settings.php:537
+#@ dwqa
+msgid "Enable/Disable captcha on submit question page"
+msgstr ""
+
+#: inc/settings.php:543
+#@ dwqa
+msgid "Enable/Disable captcha on single question page"
+msgstr ""
+
+#: inc/settings.php:561
+#@ dwqa
+msgid "questions"
+msgstr ""
+
+#: inc/settings.php:567
+#@ dwqa
+msgid "Allow members to post private question"
+msgstr ""
+
+#: inc/settings.php:573
+#@ dwqa
+msgid "Question must be manually approved"
+msgstr ""
+
+#: inc/settings.php:586
+#@ dwqa
+msgid "Plugin Settings"
+msgstr ""
+
+#: inc/settings.php:586
+#@ dwqa
+msgid "Settings"
+msgstr ""
+
+#: inc/settings.php:612
+#@ dwqa
+msgid "Question List Page"
+msgstr ""
+
+#: inc/settings.php:620
+#@ dwqa
+msgid "Archive page show at most"
+msgstr ""
+
+#: inc/settings.php:628
+#@ dwqa
+msgid "Ask Question Page"
+msgstr ""
+
+#: inc/settings.php:635
+#@ dwqa
+msgid "Private Question"
+msgstr ""
+
+#: inc/settings.php:642
+#@ dwqa
+msgid "Review Question"
+msgstr ""
+
+#: inc/settings.php:650
+#@ dwqa
+msgid "DWQA 404 Page"
+msgstr ""
+
+#: inc/settings.php:658
+#@ dwqa
+msgid "Time settings"
+msgstr ""
+
+#: inc/settings.php:665
+#@ dwqa
+msgid "New Question Time Frame"
+msgstr ""
+
+#: inc/settings.php:673
+#@ dwqa
+msgid "Question Overdue - Time Frame"
+msgstr ""
+
+#: inc/settings.php:683
+#@ dwqa
+msgid "Captcha settings"
+msgstr ""
+
+#: inc/settings.php:690
+#@ dwqa
+msgid "Captcha on Submit Question Page"
+msgstr ""
+
+#: inc/settings.php:698
+#@ dwqa
+msgid "Captcha on Single Question Page"
+msgstr ""
+
+#: inc/settings.php:706
+#@ dwqa
+msgid "Google Captcha Public Key"
+msgstr ""
+
+#: inc/settings.php:714
+#@ dwqa
+msgid "Google Captcha Private Key"
+msgstr ""
+
+#: inc/settings.php:724
+#@ dwqa
+msgid "Permalink Settings"
+msgstr ""
+
+#: inc/settings.php:731
+#@ dwqa
+msgid "Single Question"
+msgstr ""
+
+#: inc/settings.php:739
+#@ dwqa
+msgid "Single Category"
+msgstr ""
+
+#: inc/settings.php:747
+#@ dwqa
+msgid "Single Tag"
+msgstr ""
+
+#: inc/settings.php:796
+#@ dwqa
+msgid "From Email"
+msgstr ""
+
+#: inc/settings.php:860
+#: inc/settings.php:867
+#@ dwqa
+msgid "Group Permission"
+msgstr ""
+
+#: inc/settings.php:880
+#@ dwqa
+msgid "DWQA Settings"
+msgstr ""
+
+#: inc/settings.php:885
+#@ dwqa
+msgid "General"
+msgstr ""
+
+#: inc/settings.php:886
+#@ dwqa
+msgid "Notification"
+msgstr ""
+
+#: inc/settings.php:887
+#@ dwqa
+msgid "Permission"
+msgstr ""
+
+#: inc/settings.php:895
+#@ dwqa
+msgid "Email setup"
+msgstr ""
+
+#: inc/settings.php:899
+#@ dwqa
+msgid "Email Logo"
+msgstr ""
+
+#: inc/settings.php:911
+#@ dwqa
+msgid "New Comment to Question"
+msgstr ""
+
+#: inc/settings.php:912
+#@ dwqa
+msgid "New Comment to Answer"
+msgstr ""
+
+#: inc/settings.php:913
+#@ dwqa
+msgid "New Answer (to Followers)"
+msgstr ""
+
+#: inc/settings.php:914
+#@ dwqa
+msgid "New Comment to Question (to Followers)"
+msgstr ""
+
+#: inc/settings.php:915
+#@ dwqa
+msgid "New Comment to Answer (to Followers)"
+msgstr ""
+
+#: inc/settings.php:922
+#@ dwqa
+msgid "New Question Notification"
+msgstr ""
+
+#: inc/settings.php:929
+#: inc/settings.php:938
+#: inc/settings.php:947
+#: inc/settings.php:956
+#: inc/settings.php:966
+#: inc/settings.php:974
+#: inc/settings.php:984
+#@ dwqa
+msgid "Save all changes"
+msgstr ""
+
+#: inc/settings.php:934
+#@ dwqa
+msgid "New Answer Notification"
+msgstr ""
+
+#: inc/settings.php:943
+#@ dwqa
+msgid "New Answer Notification (to Followers)"
+msgstr ""
+
+#: inc/settings.php:952
+#@ dwqa
+msgid "New Comment to Question Notification"
+msgstr ""
+
+#: inc/settings.php:962
+#@ dwqa
+msgid "New Comment to Answer Notification"
+msgstr ""
+
+#: inc/settings.php:970
+#@ dwqa
+msgid "New Comment to Question Notification (to Followers)"
+msgstr ""
+
+#: inc/settings.php:980
+#@ dwqa
+msgid "New Comment to Answer Notification (to Followers)"
+msgstr ""
+
+#: inc/settings.php:1008
+#@ dwqa
+msgid "Send to"
+msgstr ""
+
+#: inc/settings.php:1013
+#@ dwqa
+msgid "Cc"
+msgstr ""
+
+#: inc/settings.php:1018
+#@ dwqa
+msgid "Bcc"
+msgstr ""
+
+#: inc/settings.php:1023
+#@ dwqa
+msgid "This address will be used as the sender of the outgoing emails."
+msgstr ""
+
+#: inc/settings.php:1029
+#@ dwqa
+msgid "Send A Copy Of Every Email To Admin"
+msgstr ""
+
+#: inc/shortcodes.php:56
+#: inc/templates/default/search-question.php:4
+#: thesis/dwqa/box.php:64
+#@ dwqa
+msgid "Search"
+msgstr "Hledat"
+
+#: inc/shortcodes.php:69
+#: inc/shortcodes.php:283
+#: inc/template-functions.php:638
+#: thesis/dwqa/box.php:77
+#: thesis/dwqa/box.php:289
+#@ dwqa
+msgid "Ask a question"
+msgstr "Položit dotaz"
+
+#: inc/shortcodes.php:77
+#: inc/templates/default/archive-question.php:24
+#: thesis/dwqa/box.php:85
+#@ default
+msgid "Status:"
+msgstr ""
+
+#: inc/shortcodes.php:79
+#: inc/shortcodes.php:127
+#: inc/templates/default/archive-question.php:26
+#: inc/templates/default/archive-question.php:74
+#: thesis/dwqa/box.php:87
+#: thesis/dwqa/box.php:135
+#@ dwqa
+msgid "All"
+msgstr "Všechny"
+
+#: inc/shortcodes.php:83
+#: inc/templates/default/archive-question.php:30
+#: thesis/dwqa/box.php:91
+#@ dwqa
+msgid "Need Answer"
+msgstr "Bez odpovědi"
+
+#: inc/shortcodes.php:86
+#: inc/templates/default/archive-question.php:33
+#: thesis/dwqa/box.php:94
+#@ dwqa
+msgid "Answered"
+msgstr "Odpovězen"
+
+#: inc/shortcodes.php:95
+#: inc/templates/default/archive-question.php:42
+#: thesis/dwqa/box.php:103
+#@ dwqa
+msgid "Overdue"
+msgstr "Expirován"
+
+#: inc/shortcodes.php:96
+#: inc/templates/default/archive-question.php:43
+#: thesis/dwqa/box.php:104
+#@ dwqa
+msgid "Queue"
+msgstr "Fronta"
+
+#: inc/shortcodes.php:117
+#: inc/templates/default/archive-question.php:64
+#: thesis/dwqa/box.php:125
+#@ dwqa
+msgid "Select a category"
+msgstr "Vyberte kategorii"
+
+#: inc/shortcodes.php:128
+#: inc/templates/default/archive-question.php:75
+#: thesis/dwqa/box.php:136
+#@ dwqa
+msgid "Empty"
+msgstr "Prázdné"
+
+#: inc/shortcodes.php:167
+#: inc/templates/default/archive-question.php:114
+#: thesis/dwqa/box.php:175
+#@ dwqa
+msgid "Vote"
+msgstr "Hlasovat"
+
+#: inc/shortcodes.php:292
+#: inc/templates/default/archive-question-notfound.php:7
+#: thesis/dwqa/box.php:298
+#@ dwqa
+msgid "Sorry, but nothing matched your filter."
+msgstr "Nic k zobrazení."
+
+#: inc/shortcodes.php:354
+#: inc/widgets.php:79
+#@ dwqa
+msgid "Popular Questions"
+msgstr "Populární dotazy"
+
+#: inc/shortcodes.php:391
+#@ dwqa
+msgid "Latest Answers"
+msgstr "Poslední odpovědi"
+
+#: inc/shortcodes.php:417
+#@ dwqa
+msgid "Answer at"
+msgstr "Odpověď na"
+
+#: inc/shortcodes.php:417
+#: inc/templates/default/single-question.php:96
+#: thesis/dwqa/box.php:376
+#@ dwqa
+msgid "Link to"
+msgstr "Link k"
+
+#: inc/shortcodes.php:445
+#@ dwqa
+msgid "% person who is following this question"
+msgid_plural "% people who are following this question"
+msgstr[0] "% lidí sledujících tento dotaz"
+msgstr[1] "% člověk sledující tento dotaz"
+msgstr[2] "% lidí sledujících tento dotaz"
+
+#: inc/status.php:273
+#@ dwqa
+msgid "New"
+msgstr "Nový"
+
+#: inc/status.php:291
+#@ dwqa
+msgid "Missing post ID"
+msgstr ""
+
+#: inc/status.php:306
+#@ dwqa
+msgid "Post does not exist"
+msgstr ""
+
+#: inc/status.php:311
+#@ dwqa
+msgid "Invalid post status"
+msgstr ""
+
+#: inc/template-functions.php:159
+#@ dwqa
+msgid "You need an account to submit question and get answers. Create one:"
+msgstr "Potřebujte účet k položení dotazu a získání odpovědi. Vytvořte si jej:"
+
+#: inc/template-functions.php:161
+#: inc/template-functions.php:198
+#@ dwqa
+msgid "Type your email"
+msgstr "Zadejte váš email"
+
+#: inc/template-functions.php:166
+#@ dwqa
+msgid "Already a member?"
+msgstr "Již registrován?"
+
+#: inc/template-functions.php:166
+#@ dwqa
+msgid "Log In"
+msgstr "Přihlašte se"
+
+#: inc/template-functions.php:170
+#@ dwqa
+msgid "Login to submit your question"
+msgstr "Přihlašte se k položení vašeho dotazu"
+
+#: inc/template-functions.php:172
+#@ dwqa
+msgid "Type your username"
+msgstr "Zadejte vaše uživatelské jméno"
+
+#: inc/template-functions.php:175
+#@ dwqa
+msgid "Type your password"
+msgstr "Zadejte vaše heslo"
+
+#: inc/template-functions.php:177
+#@ dwqa
+msgid "Not yet a member?"
+msgstr "Neregistrován?"
+
+#: inc/template-functions.php:177
+#: inc/templates/default/answers.php:114
+#@ dwqa
+msgid "Register"
+msgstr "registrujte se"
+
+#: inc/template-functions.php:181
+#@ dwqa
+msgid "Enter your email to receive notification regarding your question. Your email is safe with us and will not be published."
+msgstr "Zadejte váš email, k dostávání notifikací. Nebojte se, váš email nezobrazujeme."
+
+#: inc/template-functions.php:181
+#@ dwqa
+msgid "Your email *"
+msgstr "Váš email *"
+
+#: inc/template-functions.php:182
+#@ dwqa
+msgid "Email address ..."
+msgstr "Email ..."
+
+#: inc/template-functions.php:183
+#, php-format
+#@ dwqa
+msgid "or <strong><a href=\"%s\">login</a></strong> to submit question"
+msgstr "nebo <strong><a href=\"%s\">se přihlašte</a></strong> k položení dotazu"
+
+#: inc/template-functions.php:210
+#, php-format
+#@ default
+msgid "Private: %s"
+msgstr ""
+
+#: inc/template-functions.php:245
+#@ dwqa
+msgid "Answer this Question"
+msgstr "Odpovědět na tento dotaz"
+
+#: inc/template-functions.php:281
+#@ dwqa
+msgid "Add answer"
+msgstr "Přidat odpověď"
+
+#: inc/template-functions.php:419
+#@ default
+msgid "Email"
+msgstr ""
+
+#: inc/template-functions.php:423
+#, php-format
+#@ default
+msgid "Required fields are marked %s"
+msgstr ""
+
+#: inc/template-functions.php:435
+#@ default
+msgctxt "noun"
+msgid "Comment"
+msgstr ""
+
+#: inc/template-functions.php:436
+#, php-format
+#@ dwqa
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr "Musíte být <a href=\"%s\">přihlášen</a> k napsání komentáře."
+
+#: inc/template-functions.php:437
+#, php-format
+#@ default
+msgid "Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of this account\">Log out?</a>"
+msgstr ""
+
+#: inc/template-functions.php:438
+#@ dwqa
+msgid "Your email address will not be published."
+msgstr "Váš email nebude zobrazován."
+
+#: inc/template-functions.php:439
+#, php-format
+#@ dwqa
+msgid "You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags and attributes: %s"
+msgstr "Můžete použít tyto <abbr title=\"HyperText Markup Language\">HTML</abbr> tagy a atributy: %s"
+
+#: inc/template-functions.php:442
+#@ dwqa
+msgid "Leave a Reply"
+msgstr "Přidejte odpověď"
+
+#: inc/template-functions.php:443
+#, php-format
+#@ dwqa
+msgid "Leave a Reply to %s"
+msgstr "Přidejte odpověď k %s"
+
+#: inc/template-functions.php:444
+#@ dwqa
+msgid "Cancel reply"
+msgstr "Zrušit odpověď"
+
+#: inc/template-functions.php:445
+#@ dwqa
+msgid "Post Comment"
+msgstr "Odeslat komentář"
+
+#: inc/template-functions.php:627
+#@ dwqa
+msgid "Sticky Question"
+msgstr "Zvýrazněný dotaz"
+
+#. gettext fix: identical singular and plural forms found, that may be ambiguous! Please check the code!
+#: inc/templates/default/answers.php:45
+#: inc/templates/default/content-question.php:55
+#: inc/templates/default/content-question.php:58
+#@ dwqa
+msgid "answer"
+msgid_plural "answers"
+msgstr[0] "odpověď"
+msgstr[1] "odpověď"
+msgstr[2] "odpovědí"
+
+#: inc/templates/default/answers.php:91
+#@ dwqa
+msgid "You do not have permission to view answers"
+msgstr "Nemáte práva k zobrazení odpovědí"
+
+#: inc/templates/default/answers.php:99
+#@ dwqa
+msgid "This question is now closed"
+msgstr "Tento dotaz je nyní uzavřen"
+
+#: inc/templates/default/answers.php:107
+#@ dwqa
+msgid "You do not have permission to submit answer."
+msgstr "Nemáte práva k odpovědi."
+
+#: inc/templates/default/answers.php:112
+#@ dwqa
+msgid "Please login or"
+msgstr "Prosíme přihlašte se nebo"
+
+#: inc/templates/default/answers.php:115
+#@ dwqa
+msgid "to Submit Answer"
+msgstr "k odeslání odpovědi"
+
+#: inc/templates/default/comments.php:12
+#@ dwqa
+msgid "View previous comments"
+msgstr "Zobrazit předchozí komentáře"
+
+#: inc/templates/default/comments.php:13
+#@ dwqa
+msgid "of"
+msgstr "z"
+
+#: inc/templates/default/comments.php:30
+#@ dwqa
+msgid "Write a reply..."
+msgstr "Napište odpověď..."
+
+#: inc/templates/default/content-answer.php:20
+#: inc/templates/default/single-question.php:25
+#: thesis/dwqa/box.php:338
+#@ dwqa
+msgid "Vote Up"
+msgstr "Palec nahoru"
+
+#: inc/templates/default/content-answer.php:30
+#: inc/templates/default/single-question.php:27
+#: thesis/dwqa/box.php:340
+#@ dwqa
+msgid "Vote Down"
+msgstr "Palec dolů"
+
+#: inc/templates/default/content-answer.php:38
+#@ dwqa
+msgid "This is the best answer"
+msgstr "Toto je nejlepší odpověď"
+
+#: inc/templates/default/content-answer.php:50
+#: inc/templates/default/content-comment.php:12
+#@ dwqa
+msgid "Staff"
+msgstr ""
+
+#: inc/templates/default/content-answer.php:58
+#@ dwqa
+msgid "Link to answer"
+msgstr "Link k odpovědi"
+
+#: inc/templates/default/content-answer.php:84
+#@ dwqa
+msgid "Draft"
+msgstr "Koncept"
+
+#: inc/templates/default/content-answer.php:117
+#@ dwqa
+msgid "This answer was flagged as spam."
+msgstr "Tato odpověď byla označena jako spam."
+
+#: inc/templates/default/content-answer.php:127
+#@ dwqa
+msgid "The answer link"
+msgstr "Link odpovědi"
+
+#: inc/templates/default/content-comment.php:10
+#@ dwqa
+msgid "Post by"
+msgstr "Napsal"
+
+#: inc/templates/default/content-comment.php:25
+#@ dwqa
+msgid "Link to comment"
+msgstr "Link komentáře"
+
+#: inc/templates/default/content-question.php:12
+#, php-format
+#@ dwqa
+msgid "Permalink to %s"
+msgstr "Permalink k %s"
+
+#: inc/templates/default/content-question.php:21
+#, php-format
+#@ default
+msgid "Posts by %s"
+msgstr ""
+
+#: inc/templates/default/content-question.php:27
+#@ dwqa
+msgid "by"
+msgstr "od"
+
+#. gettext fix: identical singular and plural forms found, that may be ambiguous! Please check the code!
+#: inc/templates/default/content-question.php:41
+#: inc/templates/default/content-question.php:44
+#@ dwqa
+msgid "view"
+msgid_plural "views"
+msgstr[0] "zobrazení"
+msgstr[1] "zobrazení"
+msgstr[2] "zobrazení"
+
+#. gettext fix: identical singular and plural forms found, that may be ambiguous! Please check the code!
+#: inc/templates/default/content-question.php:69
+#: inc/templates/default/content-question.php:72
+#@ dwqa
+msgid "vote"
+msgid_plural "votes"
+msgstr[0] "hlasů"
+msgstr[1] "hlas"
+msgstr[2] "hlasů"
+
+#: inc/templates/default/single-question.php:21
+#@ dwqa
+msgid "Your question has been submitted and is currently awaiting approval"
+msgstr "Váš dotaz byl položen a nyní čeká na schválení"
+
+#: inc/templates/default/single-question.php:21
+#@ dwqa
+msgid "This question is currently awaiting approval"
+msgstr "Tento dotaz nyní čeká na schválení"
+
+#: inc/templates/default/single-question.php:36
+#@ dwqa
+msgid "Unpin this Question from the top"
+msgstr "Zrušit zvýraznění tohoto dotazu"
+
+#: inc/templates/default/single-question.php:36
+#@ dwqa
+msgid "Pin this Question to top"
+msgstr "Zvýraznit tento dotaz"
+
+#: inc/templates/default/single-question.php:86
+#: thesis/dwqa/box.php:367
+#@ dwqa
+msgid "Posts by"
+msgstr "Napsal"
+
+#: inc/templates/default/single-question.php:98
+#: thesis/dwqa/box.php:378
+#@ dwqa
+msgid "asked"
+msgstr "dotaz"
+
+#: inc/templates/default/single-question.php:134
+#: thesis/dwqa/box.php:413
+#@ dwqa
+msgid "Category"
+msgstr "Kategorie"
+
+#: inc/templates/default/single-question.php:135
+#: thesis/dwqa/box.php:414
+#@ dwqa
+msgid "All questions from"
+msgstr "Všechny dotazy z"
+
+#: inc/templates/default/submit-question-form.php:21
+#@ dwqa
+msgid "Question Category"
+msgstr "Kategorie dotazu"
+
+#: inc/templates/default/submit-question-form.php:27
+#@ dwqa
+msgid "Select question category"
+msgstr "Vyberte kategorii"
+
+#: inc/templates/default/submit-question-form.php:35
+#@ dwqa
+msgid "tag 1, tag 2,..."
+msgstr "štítek 1, štítek 2,..."
+
+#: inc/templates/default/submit-question-form.php:40
+#@ dwqa
+msgid "Your question"
+msgstr "Nadpis"
+
+#: inc/templates/default/submit-question-form.php:41
+#@ dwqa
+msgid "How to..."
+msgstr "Jak a co ..."
+
+#: inc/templates/default/submit-question-form.php:48
+#@ dwqa
+msgid "Question details"
+msgstr "Dotaz"
+
+#: inc/templates/default/submit-question-form.php:60
+#@ dwqa
+msgid "Post this Question as Private."
+msgstr "Odeslat tento dotaz jako soukromý."
+
+#: inc/templates/default/submit-question-form.php:60
+#@ dwqa
+msgid "Only you as Author and Admin can see the question"
+msgstr "Pouze autor a admin můžou vidět dotaz"
+
+#: inc/templates/default/submit-question-form.php:83
+#@ dwqa
+msgid "Ask Question"
+msgstr "Položit dotaz"
+
+#: inc/widgets.php:16
+#@ dwqa
+msgid "Show a list of questions that related to a question. Just show in single question page"
+msgstr "Zobrazit seznam dotazů podobných tomuto."
+
+#: inc/widgets.php:17
+#@ dwqa
+msgid "DWQA Related Questions"
+msgstr "Podobné dotazy"
+
+#: inc/widgets.php:53
+#: inc/widgets.php:124
+#: inc/widgets.php:199
+#: inc/widgets.php:279
+#@ default
+msgid "Widget title"
+msgstr ""
+
+#: inc/widgets.php:56
+#: inc/widgets.php:127
+#: inc/widgets.php:202
+#: inc/widgets.php:282
+#@ default
+msgid "Number of posts"
+msgstr ""
+
+#: inc/widgets.php:72
+#@ dwqa
+msgid "Show a list of questions that ordered by views."
+msgstr "Zobrazit seznam dotazů seřazený podle počtu zobrazení."
+
+#: inc/widgets.php:73
+#@ dwqa
+msgid "DWQA Popular Questions"
+msgstr "Oblíbené dotazy"
+
+#: inc/widgets.php:146
+#: inc/widgets.php:218
+#@ dwqa
+msgid "Show a list of questions that was ordered by views."
+msgstr "Zobrazit seznam dotazů seřazen podle počtu zobrazení."
+
+#: inc/widgets.php:147
+#@ dwqa
+msgid "DWQA Latest Questions"
+msgstr "Poslední dotazy"
+
+#: inc/widgets.php:153
+#@ dwqa
+msgid "Latest Questions"
+msgstr "Poslední dotazy"
+
+#: inc/widgets.php:219
+#@ dwqa
+msgid "DWQA Closed Questions"
+msgstr "Uzavřené dotazy"
+
+#: inc/widgets.php:225
+#@ dwqa
+msgid "Closed Questions"
+msgstr "Uzavřené dotazy"
+
+#: thesis/dwqa/box.php:14
+#@ dwqa
+msgid "DW Q&A Box"
+msgstr ""
+
+#: thesis/dwqa/box.php:21
+#@ dwqa
+msgid "Container Padding"
+msgstr ""
+
+#: thesis/dwqa/box.php:23
+#@ dwqa
+msgid "Container padding size"
+msgstr ""
+
+#: thesis/dwqa/box.php:25
+#@ dwqa
+msgid "By default, the container does not have a gutter. You can set padding width to make a gutter. You make it by updating the setting here."
+msgstr ""
+
+#: thesis/dwqa/box.php:305
+#@ dwqa
+msgid "You can ask question <a href=\"\">here</a>"
+msgstr "Můžete položit dotaz <a href=\"\">zde</a>"
+
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html xmlns="http://www.w3.org/1999/xhtml" class="ie8 wp-toolbar"  lang="cs-CZ">
+<![endif]-->
+<!--[if !(IE 8) ]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" class="wp-toolbar"  lang="cs-CZ">
+<!--<![endif]-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>FileManager &lsaquo; GizChina.cz &#8211; WordPress</title>
+<script type="text/javascript">
+addLoadEvent = function(func){if(typeof jQuery!="undefined")jQuery(document).ready(func);else if(typeof wpOnload!='function'){wpOnload=func;}else{var oldonload=wpOnload;wpOnload=function(){oldonload();func();}}};
+var ajaxurl = '/wp-admin/admin-ajax.php',
+	pagenow = 'wp-filemanager/fm',
+	typenow = '',
+	adminpage = 'wp-filemanager-fm-php',
+	thousandsSeparator = ' ',
+	decimalPoint = ',',
+	isRtl = 0;
+</script>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel='stylesheet' href='http://gizchina.cz/wp-admin/load-styles.php?c=1&amp;dir=ltr&amp;load=dashicons,admin-bar,wp-admin,buttons,wp-auth-check,wp-color-picker&amp;ver=3.9.1' type='text/css' media='all' />
+<style type='text/css'>
+
+				#toplevel_page_jetpack .wp-menu-image:before {
+					font-family: 'Jetpack' !important;
+					content: '\e600';
+				}
+				#toplevel_page_jetpack .wp-menu-image {
+					background-repeat: no-repeat;
+				}
+				#menu-posts-feedback .wp-menu-image:before {
+					font-family: dashicons !important;
+					content: '\f175';
+				}
+				#adminmenu #menu-posts-feedback div.wp-menu-image {
+					background: none !important;
+					background-repeat: no-repeat;
+				}
+</style>
+<link rel='stylesheet' id='thickbox-css'  href='http://gizchina.cz/wp-includes/js/thickbox/thickbox.css?ver=3.9.1' type='text/css' media='all' />
+<link rel='stylesheet' id='twitter-follow-widget-style-css'  href='http://gizchina.cz/wp-content/plugins/wp-twitter-mega-fan-box/followbox/followbox.css?ver=3.9.1' type='text/css' media='all' />
+<link rel='stylesheet' id='twitter-follow-color-style-css'  href='http://gizchina.cz/wp-content/plugins/wp-twitter-mega-fan-box/color-picker/css/colorpicker.css?ver=3.9.1' type='text/css' media='all' />
+<link rel='stylesheet' id='jetpack-subscriptions-css'  href='http://gizchina.cz/wp-content/plugins/jetpack/modules/subscriptions/subscriptions.css?ver=3.9.1' type='text/css' media='all' />
+<link rel='stylesheet' id='open-sans-css'  href='//fonts.googleapis.com/css?family=Open+Sans%3A300italic%2C400italic%2C600italic%2C300%2C400%2C600&#038;subset=latin%2Clatin-ext&#038;ver=3.9.1' type='text/css' media='all' />
+<!--[if lte IE 7]>
+<link rel='stylesheet' id='ie-css'  href='http://gizchina.cz/wp-admin/css/ie.min.css?ver=3.9.1' type='text/css' media='all' />
+<![endif]-->
+<link rel='stylesheet' id='seedprod_plugin-css'  href='http://gizchina.cz/wp-content/plugins/ultimate-maintenance-mode/inc/css/admin-style.css?ver=3.9.1' type='text/css' media='all' />
+<link rel='stylesheet' id='AtD_style-css'  href='http://gizchina.cz/wp-content/plugins/jetpack/modules/after-the-deadline/atd.css?ver=20120221' type='text/css' media='screen' />
+<link rel='stylesheet' id='grunion-menu-alter-css'  href='http://gizchina.cz/wp-content/plugins/jetpack/modules/contact-form/css/menu-alter.css?ver=3.9.1' type='text/css' media='all' />
+<link rel='stylesheet' id='jetpack-icons-css'  href='http://gizchina.cz/wp-content/plugins/jetpack/_inc/jetpack-icons/jetpack-icons.css?ver=2.9.3' type='text/css' media='all' />
+<link rel='stylesheet' id='vwcss-icon-entypo-css'  href='http://gizchina.cz/wp-content/themes/presso/framework/font-icons/entypo/css/entypo.css?ver=1.9.1' type='text/css' media='all' />
+<link rel='stylesheet' id='vwcss-bootstrap-admin-css'  href='http://gizchina.cz/wp-content/themes/presso/framework/bootstrap-admin/bootstrap.css?ver=1.9.1' type='text/css' media='all' />
+<link rel='stylesheet' id='vwcss-admin-css'  href='http://gizchina.cz/wp-content/themes/presso/css/admin.css?ver=1.9.1' type='text/css' media='all' />
+    <script type="text/javascript">
+    if( ! dwqa ) {
+        var dwqa = {
+                    'plugin_dir'                : '/home/gizchicz/public_html/wp-content/plugins/dw-question-answer/',
+                    'plugin_uri'                : 'http://gizchina.cz/wp-content/plugins/dw-question-answer/',
+                    'ajax_url'                  : 'http://gizchina.cz/wp-admin/admin-ajax.php',
+                    'text_next'                 : 'Další',
+                    'text_prev'                 : 'Předchozí' ,
+                    'questions_archive_link'    : 'http://gizchina.cz/dotaz/',
+                    'error_missing_question_content'     : 'Prosím zadejte váš dotaz',
+                    'error_missing_answer_content'   : 'Zadejte vaši odpověď',
+                    'error_missing_comment_content'  : 'Zadejte obsah komentáře',
+                    'error_not_enought_length'      : 'Komentář musí být delší než 2 znaky',
+                    'comment_edit_submit_button'     : 'Aktualizace',
+                    'comment_edit_link'     : 'Upravit',
+                    'comment_edit_cancel_link'     : 'Zrušit',
+                    'comment_delete_confirm'         : 'Chcete smazat tento komentář?',
+                    'answer_delete_confirm'      : 'Chcete smazat tuto odpověď?',
+                    'flag'       : {
+                        'label'          : 'Označit',
+                        'label_revert'   : 'Odznačit',
+                        'text'           : 'Tato odpověď bude skryta když ji označíte. Chcete ji opravdu označit?',
+                        'revert'         : 'Tato odpověď byla označena jako spam. Chcete ji zobrazit?',
+                        'flagged_hide'   : 'schovat',
+                        'flagged_show'   : 'zobrazit'
+                    }
+            }
+    }
+    </script>
+        <style>
+        .redux-opts-section-info-field {
+            font-size: 1.2em;
+            color: white;
+            background-color: #333;
+            padding: 5px;
+            font-weight: bold;
+        }
+
+        .redux-opts-section-info-field ~ .form-table {
+            margin-top: 10px;
+        }
+    </style>
+    <script type='text/javascript' src='http://gizchina.cz/wp-includes/js/tw-sack.min.js?ver=1.6.1'></script>
+			<script>
+				function add_sidebar( sidebar_name )
+				{
+					
+					var mysack = new sack("http://gizchina.cz/wp-admin/admin-ajax.php" );    
+				
+				  	mysack.execute = 1;
+				  	mysack.method = 'POST';
+				  	mysack.setVar( "action", "add_sidebar" );
+				  	mysack.setVar( "sidebar_name", sidebar_name );
+				  	mysack.encVar( "cookie", document.cookie, false );
+				  	mysack.onError = function() { alert('Ajax error. Cannot add sidebar' )};
+				  	mysack.runAJAX();
+					return true;
+				}
+				
+				function remove_sidebar( sidebar_name,num )
+				{
+					
+					var mysack = new sack("http://gizchina.cz/wp-admin/admin-ajax.php" );    
+				
+				  	mysack.execute = 1;
+				  	mysack.method = 'POST';
+				  	mysack.setVar( "action", "remove_sidebar" );
+				  	mysack.setVar( "sidebar_name", sidebar_name );
+				  	mysack.setVar( "row_number", num );
+				  	mysack.encVar( "cookie", document.cookie, false );
+				  	mysack.onError = function() { alert('Ajax error. Cannot remove sidebar. Try to remove it after page reload.' )};
+				  	mysack.runAJAX();
+					//alert('hi!:::'+sidebar_name);
+					return true;
+				}
+			</script>
+		<script type='text/javascript'>
+/* <![CDATA[ */
+var AtD_l10n_r0ar = {"menu_title_spelling":"Spelling","menu_title_repeated_word":"Repeated Word","menu_title_no_suggestions":"\u017d\u00e1dn\u00e9 n\u00e1vrhy","menu_option_explain":"Explain...","menu_option_ignore_once":"Ignore suggestion","menu_option_ignore_always":"Ignore always","menu_option_ignore_all":"P\u0159esko\u010dit v\u0161e","menu_option_edit_selection":"Edit Selection...","button_proofread":"proofread","button_edit_text":"edit text","button_proofread_tooltip":"Proofread Writing","message_no_errors_found":"No writing errors were found.","message_server_error":"There was a problem communicating with the Proofreading service. Try again in one minute.","message_server_error_short":"There was an error communicating with the proofreading service.","dialog_replace_selection":"Replace selection with:","dialog_confirm_post_publish":"The proofreader has suggestions for this post. Are you sure you want to publish it?\n\nPress OK to publish your post, or Cancel to view the suggestions and edit your post.","dialog_confirm_post_update":"The proofreader has suggestions for this post. Are you sure you want to update it?\n\nPress OK to update your post, or Cancel to view the suggestions and edit your post."};
+/* ]]> */
+</script>
+
+<script type='text/javascript'>
+/* <![CDATA[ */
+var thickboxL10n = {"next":"N\u00e1sleduj\u00edc\u00ed >","prev":"< P\u0159edchoz\u00ed","image":"Obr\u00e1zek","of":"z celkem","close":"Zav\u0159\u00edt","noiframes":"Tato funkce WordPressu vy\u017eaduje pou\u017eit\u00ed vnit\u0159n\u00edch r\u00e1m\u016f (iframe), kter\u00e9 v\u0161ak patrn\u011b nem\u00e1te povoleny nebo je v\u00e1\u0161 prohl\u00ed\u017ee\u010d v\u016fbec nepodporuje.","loadingAnimation":"http:\/\/gizchina.cz\/wp-includes\/js\/thickbox\/loadingAnimation.gif"};var userSettings = {"url":"\/","uid":"3","time":"1400010865"};var quicktagsL10n = {"closeAllOpenTags":"Uzav\u0159\u00edt v\u0161echny otev\u0159en\u00e9 zna\u010dky","closeTags":"uzav\u0159\u00edt zna\u010dky","enterURL":"Vlo\u017eit URL","enterImageURL":"Vlo\u017eit URL obr\u00e1zku","enterImageDescription":"Vlo\u017eit popis obr\u00e1zku","fullscreen":"cel\u00e1 obrazovka","toggleFullscreen":"P\u0159epnout na celou obrazovku","textdirection":"sm\u011br textu","toggleTextdirection":"P\u0159epnout sm\u011br textu v editoru"};/* ]]> */
+</script>
+<script type='text/javascript' src='http://gizchina.cz/wp-admin/load-scripts.php?c=1&amp;load%5B%5D=jquery-core,jquery-migrate,thickbox,utils,quicktags&amp;ver=3.9.1'></script>
+<script type='text/javascript' src='http://gizchina.cz/wp-content/plugins/wp-twitter-mega-fan-box/followbox/jquery.followbox.js?ver=3.9.1'></script>
+<script type='text/javascript' src='http://gizchina.cz/wp-content/plugins/wp-twitter-mega-fan-box/color-picker/js/colorpicker.js?ver=3.9.1'></script>
+<script type='text/javascript' src='http://gizchina.cz/wp-content/plugins/wp-twitter-mega-fan-box/color-picker/js/colorpicker.js?ver=3.9.1'></script>
+<script type='text/javascript' src='http://gizchina.cz/wp-content/plugins/wp-twitter-mega-fan-box/color-picker/js/colorpicker.js?ver=3.9.1'></script>
+<script type='text/javascript' src='http://gizchina.cz/wp-content/plugins/wp-twitter-mega-fan-box/color-picker/js/colorpicker.js?ver=3.9.1'></script>
+<script type='text/javascript' src='http://gizchina.cz/wp-content/plugins/social-polls-by-opinionstage/opinionstage_plugin.js?ver=3.9.1'></script>
+<script type='text/javascript' src='http://gizchina.cz/wp-content/plugins/jetpack/modules/after-the-deadline/atd.core.js?ver=20120221'></script>
+<script type='text/javascript' src='http://gizchina.cz/wp-content/plugins/jetpack/modules/after-the-deadline/atd-nonvis-editor-plugin.js?ver=20120221'></script>
+<script type='text/javascript' src='http://gizchina.cz/wp-content/plugins/jetpack/modules/after-the-deadline/jquery.atd.js?ver=20120221'></script>
+<script type='text/javascript' src='http://gizchina.cz/wp-admin/admin-ajax.php?action=atd_settings&#038;ver=20120221'></script>
+<script type='text/javascript' src='http://gizchina.cz/wp-content/plugins/jetpack/modules/after-the-deadline/atd-autoproofread.js?ver=20120221'></script>
+    <style>
+    #adminmenu .menu-icon-dwqa-question div.wp-menu-image:before {
+      content: "\f468";
+    }
+    </style>
+            <script type="text/javascript">
+                var original_lang_switch_form = null;
+                
+                var wp_lang_switch_target = 'http://gizchina.cz/wp-admin/options-general.php?page=wordpress_language';
+                
+                var wp_lang_ajx_spinner = '<img src="http://gizchina.cz/wp-content/plugins/wordpress-language/res/img/ajax-loader-big.gif">';
+
+                function wp_lang_lang_switch() {
+                    var locale = jQuery('input[name="wp_lang_locale\\[\\]"]:checked').val();
+                    window.location = wp_lang_switch_target + '&switch_to=' + locale + '&scope=back-end' + '&_wpnonce=' + jQuery('#wp_lang_get_lang_info').val();
+                }
+                
+                function getUrlVars(href) {
+                    var vars = {};
+                    var parts = href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+                        vars[key] = value;
+                    });
+                    return vars;
+                }            
+                jQuery(document).ready(function() {
+                    
+                    
+                    original_lang_switch_form = jQuery('#wp_lang_switch_form').html();
+                    
+                    jQuery('.wp_lang_thickbox a').addClass('thickbox');
+                    
+                    jQuery('.wp_lang_thickbox a').click(function() {
+                        
+                        var lang = getUrlVars(jQuery(this).attr('href'))['switch_to'];
+                        
+                        // hide the language popup
+                        var refresh = function(i, el){ // force the browser to refresh the tabbing index
+                            var node = $(el), tab = node.attr('tabindex');
+                            if ( tab )
+                                node.attr('tabindex', '0').attr('tabindex', tab);
+                        };
+                        
+                        var target = jQuery(this).parent().parent().parent().parent();
+                        target.closest('.hover').removeClass('hover').children('.ab-item').focus();
+                        target.siblings('.ab-sub-wrapper').find('.ab-item').each(refresh);
+                        //
+
+                        if (lang != 'undefined') {
+                        
+                            jQuery.ajax({
+                                url: ajaxurl,
+                                type: 'post',
+                                data: 'action=wp_language_get_info&lang=' + lang + '&_wpnonce=' + jQuery('#wp_lang_get_lang_info').val() + '&scope=back-end',
+                                cache: false,
+                                beforeSend: function () {
+                                    
+                                },
+                                success: function (data) {
+                                    jQuery('#wp_lang_switch_form').html(data);
+                                }
+                            });
+                        }
+                        
+                    });
+
+                });
+                
+
+            function wp_lang_show_hide_selector() {
+                var state = jQuery('#wp_lang_show_hide_selector:checked').val();
+                if (state == 'on') {
+                    jQuery('#wp-admin-bar-WP_LANG_lang').show();
+                } else {
+                    jQuery('#wp-admin-bar-WP_LANG_lang').hide();
+                }
+                
+                jQuery.ajax({
+                    url: ajaxurl,
+                    type: 'post',
+                    data: 'action=wp_show_hide_language_selector&state=' + state + '&_wpnonce=' + jQuery('#wp_lang_get_lang_info').val(),
+                    cache: false,
+                    beforeSend: function () {
+                        
+                    },
+                    success: function (data) {
+                    }
+                });
+                
+            }
+            </script>    
+        <script type="text/javascript">
+/* <![CDATA[ */
+	var wpNotesIsJetpackClient = true;
+/* ]]> */
+</script>
+<script type="text/javascript">var _wpColorScheme = {"icons":{"base":"#999","focus":"#2ea2cc","current":"#fff"}};</script>
+<style type="text/css" media="print">#wpadminbar { display:none; }</style>
+</head>
+<body class="wp-admin wp-core-ui no-js  jetpack-connected wp-filemanager-fm-php auto-fold admin-bar branch-3-9 version-3-9-1 admin-color-fresh locale-cs-cz no-customize-support no-svg">
+<script type="text/javascript">
+	document.body.className = document.body.className.replace('no-js','js');
+</script>
+
+	<script type="text/javascript">
+		(function() {
+			var request, b = document.body, c = 'className', cs = 'customize-support', rcs = new RegExp('(^|\\s+)(no-)?'+cs+'(\\s+|$)');
+
+			request = true;
+
+			b[c] = b[c].replace( rcs, ' ' );
+			b[c] += ( window.postMessage && request ? ' ' : ' no-' ) + cs;
+		}());
+	</script>
+	
+<div id="wpwrap">
+<a tabindex="1" href="#wpbody-content" class="screen-reader-shortcut">Skip to main content</a>
+
+<div id="adminmenuback"></div>
+<div id="adminmenuwrap">
+<ul id="adminmenu" role="navigation">
+
+
+	<li class="wp-first-item wp-has-submenu wp-not-current-submenu menu-top menu-top-first menu-icon-dashboard menu-top-first" id="menu-dashboard">
+	<a href='index.php' class="wp-first-item wp-has-submenu wp-not-current-submenu menu-top menu-top-first menu-icon-dashboard menu-top-first" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-dashboard'><br /></div><div class='wp-menu-name'>Nástěnka</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head'>Nástěnka</li><li class="wp-first-item"><a href='index.php' class="wp-first-item">Úvodní stránka</a></li><li><a href='update-core.php'>Aktualizace <span class='update-plugins count-4' title='4 aktualizace šablon'><span class='update-count'>4</span></span></a></li></ul></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top toplevel_page_jetpack menu-top-last" id="toplevel_page_jetpack"><a href='admin.php?page=jetpack' class="wp-has-submenu wp-not-current-submenu menu-top toplevel_page_jetpack menu-top-last" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before'><br /></div><div class='wp-menu-name'>Jetpack</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head'>Jetpack</li><li class="wp-first-item"><a href='admin.php?page=jetpack' class="wp-first-item">Jetpack</a></li><li><a href='admin.php?page=omnisearch'>Omnisearch</a></li><li><a href='admin.php?page=stats'>Site Stats</a></li><li><a href='admin.php?page=akismet-key-config'>Akismet</a></li></ul></li>
+	<li class="wp-not-current-submenu wp-menu-separator"><div class="separator"></div></li>
+	<li class="wp-has-submenu wp-not-current-submenu open-if-no-js menu-top menu-icon-post menu-top-first" id="menu-posts">
+	<a href='edit.php' class="wp-has-submenu wp-not-current-submenu open-if-no-js menu-top menu-icon-post menu-top-first" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-post'><br /></div><div class='wp-menu-name'>Příspěvky</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head'>Příspěvky</li><li class="wp-first-item"><a href='edit.php' class="wp-first-item">Přehled příspěvků</a></li><li><a href='post-new.php'>Vytvořit příspěvek</a></li><li><a href='edit-tags.php?taxonomy=category'>Rubriky</a></li><li><a href='edit-tags.php?taxonomy=post_tag'>Štítky</a></li></ul></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-media" id="menu-media">
+	<a href='upload.php' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-media" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-media'><br /></div><div class='wp-menu-name'>Média</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head'>Média</li><li class="wp-first-item"><a href='upload.php' class="wp-first-item">Knihovna médií</a></li><li><a href='media-new.php'>Nahrát soubor</a></li></ul></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-page" id="menu-pages">
+	<a href='edit.php?post_type=page' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-page" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-page'><br /></div><div class='wp-menu-name'>Stránky</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head'>Stránky</li><li class="wp-first-item"><a href='edit.php?post_type=page' class="wp-first-item">Přehled stránek</a></li><li><a href='post-new.php?post_type=page'>Vytvořit stránku</a></li></ul></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-comments" id="menu-comments">
+	<a href='edit-comments.php' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-comments" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-comments'><br /></div><div class='wp-menu-name'>Komentáře <span class='awaiting-mod count-0'><span class='pending-count'>0</span></span></div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head'>Komentáře <span class='awaiting-mod count-0'><span class='pending-count'>0</span></span></li><li class="wp-first-item"><a href='edit-comments.php' class="wp-first-item">Přehled komentářů</a></li><li><a href='edit-comments.php?page=cgb_admin_about'>About Guestbook</a></li></ul></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-dwqa-question" id="menu-posts-dwqa-question">
+	<a href='edit.php?post_type=dwqa-question' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-dwqa-question" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before'></div><div class='wp-menu-name'>DW Q&amp;A</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head'>DW Q&amp;A</li><li class="wp-first-item"><a href='edit.php?post_type=dwqa-question' class="wp-first-item">All Questions</a></li><li><a href='post-new.php?post_type=dwqa-question'>Add New</a></li><li><a href='edit-tags.php?taxonomy=dwqa-question_category&amp;post_type=dwqa-question'>Question Categories</a></li><li><a href='edit-tags.php?taxonomy=dwqa-question_tag&amp;post_type=dwqa-question'>Question Tags</a></li><li><a href='edit.php?post_type=dwqa-answer'>All Answers</a></li><li><a href='edit.php?post_type=dwqa-question&#038;page=dwqa-settings'>Settings</a></li></ul></li>
+	<li class="wp-not-current-submenu menu-top menu-icon-feedback" id="menu-posts-feedback">
+	<a href='edit.php?post_type=feedback' class="wp-not-current-submenu menu-top menu-icon-feedback" ><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before'><img src="http://gizchina.cz/wp-content/plugins/jetpack/modules/contact-form//images/grunion-menu.png" alt="" /></div><div class='wp-menu-name'>Feedback</div></a></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-generic toplevel_page_wpcf7" id="toplevel_page_wpcf7"><a href='admin.php?page=wpcf7' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-generic toplevel_page_wpcf7" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-generic'><br /></div><div class='wp-menu-name'>Kontakt</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head'>Kontakt</li><li class="wp-first-item"><a href='admin.php?page=wpcf7' class="wp-first-item">Kontaktní formuláře</a></li><li><a href='admin.php?page=wpcf7-new'>Přidat nový</a></li></ul></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top toplevel_page_tablepress menu-top-last" id="toplevel_page_tablepress"><a href='admin.php?page=tablepress' class="wp-has-submenu wp-not-current-submenu menu-top toplevel_page_tablepress menu-top-last" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-list-view'><br /></div><div class='wp-menu-name'>TablePress</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head'>TablePress</li><li class="wp-first-item"><a href='admin.php?page=tablepress' class="wp-first-item">Všechny tabulky</a></li><li><a href='admin.php?page=tablepress_add'>Nová tabulka</a></li><li><a href='admin.php?page=tablepress_import'>Importovat tabulku</a></li><li><a href='admin.php?page=tablepress_export'>Exportovat tabulku</a></li><li><a href='admin.php?page=tablepress_options'>Nastavení</a></li><li><a href='admin.php?page=tablepress_about'>O pluginu</a></li></ul></li>
+	<li class="wp-not-current-submenu wp-menu-separator"><div class="separator"></div></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-appearance menu-top-first" id="menu-appearance">
+	<a href='themes.php' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-appearance menu-top-first" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-appearance'><br /></div><div class='wp-menu-name'>Vzhled</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head'>Vzhled</li><li class="wp-first-item"><a href='themes.php' class="wp-first-item">Šablony</a></li><li><a href='customize.php'>Přizpůsobit</a></li><li><a href='widgets.php'>Widgety</a></li><li><a href='nav-menus.php'>Menu</a></li><li><a href='themes.php?page=SidebarGenerator'>Sidebars</a></li><li><a href='themes.php?page=redux_options'>Theme Options</a></li><li><a href='themes.php?page=editcss'>Upravit CSS</a></li><li><a href='themes.php?page=custom-background'>Pozadí</a></li><li><a href='theme-editor.php'>Editor</a></li></ul></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-plugins" id="menu-plugins">
+	<a href='plugins.php' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-plugins" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-plugins'><br /></div><div class='wp-menu-name'>Pluginy <span class='update-plugins count-0'><span class='plugin-count'>0</span></span></div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head'>Pluginy <span class='update-plugins count-0'><span class='plugin-count'>0</span></span></li><li class="wp-first-item"><a href='plugins.php' class="wp-first-item">Přehled pluginů</a></li><li><a href='plugin-install.php'>Instalace pluginů</a></li><li><a href='plugin-editor.php'>Editor</a></li></ul></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-users" id="menu-users">
+	<a href='users.php' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-users" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-users'><br /></div><div class='wp-menu-name'>Uživatelé</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head'>Uživatelé</li><li class="wp-first-item"><a href='users.php' class="wp-first-item">Přehled uživatelů</a></li><li><a href='user-new.php'>Vytvořit uživatele</a></li><li><a href='profile.php'>Profil</a></li><li><a href='users.php?page=users-user-role-editor.php'>User Role Editor</a></li></ul></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-tools" id="menu-tools">
+	<a href='tools.php' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-tools" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-tools'><br /></div><div class='wp-menu-name'>Nástroje</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head'>Nástroje</li><li class="wp-first-item"><a href='tools.php' class="wp-first-item">Dostupné nástroje</a></li><li><a href='import.php'>Import</a></li><li><a href='export.php'>Export</a></li><li><a href='tools.php?page=codestyling-localization/codestyling-localization.php'>Lokalizace</a></li><li><a href='tools.php?page=force-regenerate-thumbnails'>Force Regenerate Thumbnails</a></li></ul></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-settings menu-top-last" id="menu-settings">
+	<a href='options-general.php' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-settings menu-top-last" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-settings'><br /></div><div class='wp-menu-name'>Nastavení</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head'>Nastavení</li><li class="wp-first-item"><a href='options-general.php' class="wp-first-item">Obecné</a></li><li><a href='options-writing.php'>Publikování</a></li><li><a href='options-reading.php'>Zobrazování</a></li><li><a href='options-discussion.php'>Komentáře</a></li><li><a href='options-media.php'>Média</a></li><li><a href='options-permalink.php'>Trvalé odkazy</a></li><li><a href='options-general.php?page=backup'>Backup</a></li><li><a href='options-general.php?page=cgb_admin_options'>Guestbook</a></li><li><a href='options-general.php?page=flc-options'>Fb lightbox comments</a></li><li><a href='options-general.php?page=NKgoogleanalytics'>NK Google Analytics</a></li><li><a href='options-general.php?page=quick-adsense.php'>Quick Adsense</a></li><li><a href='options-general.php?page=really_simple_share_options'>Really simple share</a></li><li><a href='options-general.php?page=really_simple_share_counts'>Really simple counts</a></li><li><a href='options-general.php?page=responsive-lightbox'>Responsive Lightbox</a></li><li><a href='options-general.php?page=tinymce-advanced'>TinyMCE Advanced</a></li><li><a href='options-general.php?page=seedprod_maintenance_mode'>Maintenance Mode</a></li><li><a href='options-general.php?page=settings-user-role-editor.php'>User Role Editor</a></li><li><a href='options-general.php?page=user-submitted-posts/user-submitted-posts.php'>User Submitted Posts</a></li><li><a href='options-general.php?page=wpsupercache'>WP Super Cache</a></li><li><a href='options-general.php?page=wp_twitter_mega_fanbox'>WP Twitter Mega Fan Box</a></li><li><a href='options-general.php?page=wordpress_language'>Language</a></li><li><a href='options-general.php?page=sharing'>Sharing</a></li></ul></li>
+	<li class="wp-not-current-submenu wp-menu-separator"><div class="separator"></div></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top toplevel_page_wpseo_dashboard menu-top-first" id="toplevel_page_wpseo_dashboard"><a href='admin.php?page=wpseo_dashboard' class="wp-has-submenu wp-not-current-submenu menu-top toplevel_page_wpseo_dashboard menu-top-first" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before'><img src="http://gizchina.cz/wp-content/plugins/wordpress-seo/images/yoast-icon.png" alt="" /></div><div class='wp-menu-name'>SEO</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head'>SEO</li><li class="wp-first-item"><a href='admin.php?page=wpseo_dashboard' class="wp-first-item">Nástěnka</a></li><li><a href='admin.php?page=wpseo_titles'>Nadpisy &amp; Meta data</a></li><li><a href='admin.php?page=wpseo_social'>Sociální sítě</a></li><li><a href='admin.php?page=wpseo_xml'>XML Sitemap</a></li><li><a href='admin.php?page=wpseo_permalinks'>Trvalé odkazy (permalinks)</a></li><li><a href='admin.php?page=wpseo_internal-links'>Interní odkazy</a></li><li><a href='admin.php?page=wpseo_rss'>RSS</a></li><li><a href='admin.php?page=wpseo_import'>Import &#038; Export</a></li><li><a href='admin.php?page=wpseo_bulk-title-editor'>Bulk Title Editor</a></li><li><a href='admin.php?page=wpseo_bulk-description-editor'>Bulk Description Editor</a></li><li><a href='admin.php?page=wpseo_files'>Upravit soubory</a></li><li><a href='admin.php?page=wpseo_licenses'><span style="color:#f18500">Extensions</span></a></li></ul></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-generic toplevel_page_oa_social_login_setup" id="toplevel_page_oa_social_login_setup"><a href='admin.php?page=oa_social_login_setup' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-generic toplevel_page_oa_social_login_setup" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-generic'><br /></div><div class='wp-menu-name'>Social Login</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head'>Social Login</li><li class="wp-first-item"><a href='admin.php?page=oa_social_login_setup' class="wp-first-item">Setup</a></li><li><a href='admin.php?page=oa_social_login_settings'>Nastavení</a></li></ul></li>
+	<li class="wp-not-current-submenu menu-top toplevel_page_social-polls-by-opinionstage/opinionstage-polls" id="toplevel_page_social-polls-by-opinionstage-opinionstage-polls">
+	<a href='admin.php?page=social-polls-by-opinionstage/opinionstage-polls.php' class="wp-not-current-submenu menu-top toplevel_page_social-polls-by-opinionstage/opinionstage-polls" ><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before'><img src="http://gizchina.cz/wp-content/plugins/social-polls-by-opinionstage/images/os.png" alt="" /></div><div class='wp-menu-name'>Social Polls</div></a></li>
+	<li class="wp-has-submenu wp-has-current-submenu wp-menu-open menu-top menu-icon-generic toplevel_page_wp-filemanager/fm" id="toplevel_page_wp-filemanager-fm"><a href='admin.php?page=wp-filemanager/fm.php' class="wp-has-submenu wp-has-current-submenu wp-menu-open menu-top menu-icon-generic toplevel_page_wp-filemanager/fm" ><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-generic'><br /></div><div class='wp-menu-name'>FileManager</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head'>FileManager</li><li class="wp-first-item current"><a href='admin.php?page=wp-filemanager/fm.php' class="wp-first-item current">FileManager</a></li><li><a href='admin.php?page=wpfileman'>Configuration</a></li></ul></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-generic toplevel_page_wp-insert" id="toplevel_page_wp-insert"><a href='admin.php?page=wp-insert' class="wp-has-submenu wp-not-current-submenu menu-top menu-icon-generic toplevel_page_wp-insert" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before dashicons-admin-generic'><br /></div><div class='wp-menu-name'>Wp Insert</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head'>Wp Insert</li><li class="wp-first-item"><a href='admin.php?page=wp-insert' class="wp-first-item">Manage In-Post Ads</a></li><li><a href='admin.php?page=wp-insert-adwidgets'>Manage Ad Widgets<br /><small>(1 &#8211; 10)</small></a></li><li><a href='admin.php?page=wp-insert-more-adwidgets'>Manage Ad Widgets<br /><small>(11 &#8211; 20)</small></a></li><li><a href='admin.php?page=wp-insert-templateads'>Manage Ad Tags<br /><small>(1 &#8211; 10)</small></a></li><li><a href='admin.php?page=wp-insert-more-templateads'>Manage Ad Tags<br /><small>(11 &#8211; 20)</small></a></li><li><a href='admin.php?page=wp-insert-legal'>Setup Legal Pages</a></li><li><a href='admin.php?page=wp-insert-tracking-codes'>Tracking Codes</a></li><li><a href='admin.php?page=wp-insert-syntax-highlighting'>Syntax Highlighting</a></li></ul></li>
+	<li class="wp-has-submenu wp-not-current-submenu menu-top toplevel_page_wp-user-avatar menu-top-last" id="toplevel_page_wp-user-avatar"><a href='admin.php?page=wp-user-avatar' class="wp-has-submenu wp-not-current-submenu menu-top toplevel_page_wp-user-avatar menu-top-last" aria-haspopup="true"><div class="wp-menu-arrow"><div></div></div><div class='wp-menu-image dashicons-before'><img src="http://gizchina.cz/wp-content/plugins/wp-user-avatar/images/wpua-icon.png" alt="" /></div><div class='wp-menu-name'>Avataři</div></a>
+	<ul class='wp-submenu wp-submenu-wrap'><li class='wp-submenu-head'>Avataři</li><li class="wp-first-item"><a href='admin.php?page=wp-user-avatar' class="wp-first-item">Nastavení</a></li><li><a href='admin.php?page=wp-user-avatar-library'>Knihovna médií</a></li></ul></li><li id="collapse-menu" class="hide-if-no-js"><div id="collapse-button"><div></div></div><span>Zmenšit menu</span></li></ul>
+</div>
+<div id="wpcontent">
+
+		<div id="wpadminbar" class="nojq nojs" role="navigation">
+			<a class="screen-reader-shortcut" href="#wp-toolbar" tabindex="1">Přejít k navigační liště</a>
+			<div class="quicklinks" id="wp-toolbar" role="navigation" aria-label="Horní navigační lišta" tabindex="0">
+				<ul id="wp-admin-bar-root-default" class="ab-top-menu">
+		<li id="wp-admin-bar-menu-toggle"><a class="ab-item"  href="#"><span class="ab-icon"></span><span class="screen-reader-text">Menu</span></a>		</li>
+		<li id="wp-admin-bar-wp-logo" class="menupop"><a class="ab-item"  aria-haspopup="true" href="http://gizchina.cz/wp-admin/about.php" title="O WordPressu"><span class="ab-icon"></span></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-wp-logo-default" class="ab-submenu">
+		<li id="wp-admin-bar-about"><a class="ab-item"  href="http://gizchina.cz/wp-admin/about.php">O WordPressu</a>		</li></ul><ul id="wp-admin-bar-wp-logo-external" class="ab-sub-secondary ab-submenu">
+		<li id="wp-admin-bar-wporg"><a class="ab-item"  href="https://cs.wordpress.org/">Česká lokalizace</a>		</li>
+		<li id="wp-admin-bar-documentation"><a class="ab-item"  href="http://codex.wordpress.org/">Manuál (anglicky)</a>		</li>
+		<li id="wp-admin-bar-support-forums"><a class="ab-item"  href="http://www.separatista.net/forum/">Fórum podpory (česky)</a>		</li>
+		<li id="wp-admin-bar-feedback"><a class="ab-item"  href="https://cs.wordpress.org/contact/">Kontakt</a>		</li></ul></div>		</li>
+		<li id="wp-admin-bar-site-name" class="menupop"><a class="ab-item"  aria-haspopup="true" href="http://gizchina.cz/">GizChina.cz</a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-site-name-default" class="ab-submenu">
+		<li id="wp-admin-bar-view-site"><a class="ab-item"  href="http://gizchina.cz/">Zobrazit web</a>		</li></ul></div>		</li>
+		<li id="wp-admin-bar-updates"><a class="ab-item"  href="http://gizchina.cz/wp-admin/update-core.php" title="4 aktualizace šablon"><span class="ab-icon"></span><span class="ab-label">4</span><span class="screen-reader-text">4 aktualizace šablon</span></a>		</li>
+		<li id="wp-admin-bar-comments"><a class="ab-item"  href="http://gizchina.cz/wp-admin/edit-comments.php" title="0 komentářů čeká na schválení"><span class="ab-icon"></span><span id="ab-awaiting-mod" class="ab-label awaiting-mod pending-count count-0">0</span></a>		</li>
+		<li id="wp-admin-bar-new-content" class="menupop"><a class="ab-item"  aria-haspopup="true" href="http://gizchina.cz/wp-admin/post-new.php" title="Akce"><span class="ab-icon"></span><span class="ab-label">Akce</span></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-new-content-default" class="ab-submenu">
+		<li id="wp-admin-bar-new-post"><a class="ab-item"  href="http://gizchina.cz/wp-admin/post-new.php">Vytvořit příspěvek</a>		</li>
+		<li id="wp-admin-bar-new-media"><a class="ab-item"  href="http://gizchina.cz/wp-admin/media-new.php">Nahrát soubor</a>		</li>
+		<li id="wp-admin-bar-new-page"><a class="ab-item"  href="http://gizchina.cz/wp-admin/post-new.php?post_type=page">Vytvořit stránku</a>		</li>
+		<li id="wp-admin-bar-new-dwqa-question"><a class="ab-item"  href="http://gizchina.cz/wp-admin/post-new.php?post_type=dwqa-question">Question</a>		</li>
+		<li id="wp-admin-bar-new-user"><a class="ab-item"  href="http://gizchina.cz/wp-admin/user-new.php">Vytvořit uživatele</a>		</li>
+		<li id="wp-admin-bar-new-tablepress-table"><a class="ab-item"  href="http://gizchina.cz/wp-admin/admin.php?page=tablepress_add">Tabulka Tablepress</a>		</li></ul></div>		</li>
+		<li id="wp-admin-bar-wpseo-menu" class="menupop"><a class="ab-item"  aria-haspopup="true" href="http://gizchina.cz/wp-admin/admin.php?page=wpseo_dashboard">SEO</a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-wpseo-menu-default" class="ab-submenu">
+		<li id="wp-admin-bar-wpseo-kwresearch" class="menupop"><div class="ab-item ab-empty-item"  aria-haspopup="true">Průzkum klíčových slov</div><div class="ab-sub-wrapper"><ul id="wp-admin-bar-wpseo-kwresearch-default" class="ab-submenu">
+		<li id="wp-admin-bar-wpseo-adwordsexternal"><a class="ab-item"  href="http://adwords.google.com/keywordplanner" target="_blank">Externí AdWords </a>		</li>
+		<li id="wp-admin-bar-wpseo-googleinsights"><a class="ab-item"  href="http://www.google.com/insights/search/#q=&#038;cmpt=q" target="_blank">Google Insights</a>		</li>
+		<li id="wp-admin-bar-wpseo-wordtracker"><a class="ab-item"  href="http://tools.seobook.com/keyword-tools/seobook/?keyword=" target="_blank">SEO Kniha</a>		</li></ul></div>		</li>
+		<li id="wp-admin-bar-wpseo-settings" class="menupop"><a class="ab-item"  aria-haspopup="true" href="http://gizchina.cz/wp-admin/admin.php?page=wpseo_titles">SEO nastavení</a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-wpseo-settings-default" class="ab-submenu">
+		<li id="wp-admin-bar-wpseo-titles"><a class="ab-item"  href="http://gizchina.cz/wp-admin/admin.php?page=wpseo_titles">Nadpisy &amp; Meta data</a>		</li>
+		<li id="wp-admin-bar-wpseo-social"><a class="ab-item"  href="http://gizchina.cz/wp-admin/admin.php?page=wpseo_social">Sociální sítě</a>		</li>
+		<li id="wp-admin-bar-wpseo-xml"><a class="ab-item"  href="http://gizchina.cz/wp-admin/admin.php?page=wpseo_xml">XML Sitemap</a>		</li>
+		<li id="wp-admin-bar-wpseo-permalinks"><a class="ab-item"  href="http://gizchina.cz/wp-admin/admin.php?page=wpseo_permalinks">Trvalé odkazy (permalinks)</a>		</li>
+		<li id="wp-admin-bar-wpseo-internal-links"><a class="ab-item"  href="http://gizchina.cz/wp-admin/admin.php?page=wpseo_internal-links">Interní odkazy</a>		</li>
+		<li id="wp-admin-bar-wpseo-rss"><a class="ab-item"  href="http://gizchina.cz/wp-admin/admin.php?page=wpseo_rss">RSS</a>		</li>
+		<li id="wp-admin-bar-wpseo-import"><a class="ab-item"  href="http://gizchina.cz/wp-admin/admin.php?page=wpseo_import">Import & Export</a>		</li>
+		<li id="wp-admin-bar-wpseo-files"><a class="ab-item"  href="http://gizchina.cz/wp-admin/admin.php?page=wpseo_files">Upravit soubory</a>		</li>
+		<li id="wp-admin-bar-wpseo-licenses"><a class="ab-item"  href="http://gizchina.cz/wp-admin/admin.php?page=wpseo_licenses">Extensions</a>		</li></ul></div>		</li></ul></div>		</li>
+		<li id="wp-admin-bar-WP_LANG_lang" class="menupop"><a class="ab-item"  aria-haspopup="true" href="http://gizchina.cz/wp-admin/options-general.php?page=wordpress_language" title="Čeština"><img src="http://gizchina.cz/wp-content/plugins/wordpress-language/res/flags/cs.png" /> Čeština</a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-WP_LANG_lang-default" class="ab-submenu">
+		<li id="wp-admin-bar-WP_LANG_lang_child_en" class="wp_lang_thickbox"><a class="ab-item"  href="#TB_inline?height=255&#038;width=750&#038;inlineId=wp_lang_switch_popup&#038;modal=true&#038;switch_to=en_US" title="English"><img src="http://gizchina.cz/wp-content/plugins/wordpress-language/res/flags/en.png" /> English (English)</a>		</li>
+		<li id="wp-admin-bar-WP_LANG_lang_child_es" class="wp_lang_thickbox"><a class="ab-item"  href="#TB_inline?height=255&#038;width=750&#038;inlineId=wp_lang_switch_popup&#038;modal=true&#038;switch_to=es_ES" title="Español"><img src="http://gizchina.cz/wp-content/plugins/wordpress-language/res/flags/es.png" /> Español (Spanish)</a>		</li>
+		<li id="wp-admin-bar-WP_LANG_lang_child_de" class="wp_lang_thickbox"><a class="ab-item"  href="#TB_inline?height=255&#038;width=750&#038;inlineId=wp_lang_switch_popup&#038;modal=true&#038;switch_to=de_DE" title="Deutsch"><img src="http://gizchina.cz/wp-content/plugins/wordpress-language/res/flags/de.png" /> Deutsch (German)</a>		</li>
+		<li id="wp-admin-bar-WP_LANG_lang_child_fr" class="wp_lang_thickbox"><a class="ab-item"  href="#TB_inline?height=255&#038;width=750&#038;inlineId=wp_lang_switch_popup&#038;modal=true&#038;switch_to=fr_FR" title="Français"><img src="http://gizchina.cz/wp-content/plugins/wordpress-language/res/flags/fr.png" /> Français (French)</a>		</li>
+		<li id="wp-admin-bar-WP_LANG_lang_child_da" class="wp_lang_thickbox"><a class="ab-item"  href="#TB_inline?height=255&#038;width=750&#038;inlineId=wp_lang_switch_popup&#038;modal=true&#038;switch_to=da_DK" title="Dansk"><img src="http://gizchina.cz/wp-content/plugins/wordpress-language/res/flags/da.png" /> Dansk (Danish)</a>		</li>
+		<li id="wp-admin-bar-WP_LANG_lang_child_it" class="wp_lang_thickbox"><a class="ab-item"  href="#TB_inline?height=255&#038;width=750&#038;inlineId=wp_lang_switch_popup&#038;modal=true&#038;switch_to=it_IT" title="Italiano"><img src="http://gizchina.cz/wp-content/plugins/wordpress-language/res/flags/it.png" /> Italiano (Italian)</a>		</li>
+		<li id="wp-admin-bar-WP_LANG_lang_child_ja" class="wp_lang_thickbox"><a class="ab-item"  href="#TB_inline?height=255&#038;width=750&#038;inlineId=wp_lang_switch_popup&#038;modal=true&#038;switch_to=ja" title="日本語"><img src="http://gizchina.cz/wp-content/plugins/wordpress-language/res/flags/ja.png" /> 日本語 (Japanese)</a>		</li>
+		<li id="wp-admin-bar-WP_LANG_lang_child_nl" class="wp_lang_thickbox"><a class="ab-item"  href="#TB_inline?height=255&#038;width=750&#038;inlineId=wp_lang_switch_popup&#038;modal=true&#038;switch_to=nl_NL" title="Nederlands"><img src="http://gizchina.cz/wp-content/plugins/wordpress-language/res/flags/nl.png" /> Nederlands (Dutch)</a>		</li>
+		<li id="wp-admin-bar-WP_LANG_lang_child_ru" class="wp_lang_thickbox"><a class="ab-item"  href="#TB_inline?height=255&#038;width=750&#038;inlineId=wp_lang_switch_popup&#038;modal=true&#038;switch_to=ru_RU" title="Русский"><img src="http://gizchina.cz/wp-content/plugins/wordpress-language/res/flags/ru.png" /> Русский (Russian)</a>		</li>
+		<li id="wp-admin-bar-WP_LANG_lang_child_zh" class="wp_lang_thickbox"><a class="ab-item"  href="#TB_inline?height=255&#038;width=750&#038;inlineId=wp_lang_switch_popup&#038;modal=true&#038;switch_to=zh_CN" title="Chinese"><img src="http://gizchina.cz/wp-content/plugins/wordpress-language/res/flags/zh.png" /> Chinese (Chinese)</a>		</li>
+		<li id="wp-admin-bar-WP_LANG_lang_child_more_langs"><a class="ab-item"  href="http://gizchina.cz/wp-admin/options-general.php?page=wordpress_language&#038;more_langs=1" title="More languages..."><img style="margin-top:4px;" align="left" src="http://gizchina.cz/wp-content/plugins/wordpress-language/res/img/more-languages.png" />&nbsp;More languages...</a>		</li>
+		<li id="wp-admin-bar-WP_LANG_change_front_page_language" class="hidden"><a class="ab-item"  href="http://gizchina.cz/wp-admin/options-general.php?page=wordpress_language&#038;more_langs=1&#038;scope=front-end"><img style="margin-top:4px;" align="left" src="http://gizchina.cz/wp-content/plugins/wordpress-language/res/img/public-language.png" />&nbsp;Change language for public pages (currently <img src="http://gizchina.cz/wp-content/plugins/wordpress-language/res/flags/cs.png" width="18" height="12" alt="cs" />  Čeština - cs)</a>		</li>
+		<li id="wp-admin-bar-WP_LANG_lang_options"><a class="ab-item"  href="http://gizchina.cz/wp-admin/options-general.php?page=wordpress_language" title="Language options"><img style="margin-top:4px;" align="left" src="http://gizchina.cz/wp-content/plugins/wordpress-language/res/img/language-options.png" />&nbsp;Language options</a>		</li></ul></div>		</li>
+		<li id="wp-admin-bar-delete-cache"><a class="ab-item"  href="http://gizchina.cz/wp-admin/index.php?action=delcachepage&#038;path=%2Fwp-admin%2Fadmin.php%3Fpage%3Dwp-filemanager%252Ffm.php%26path%3Dwp-content%252Fplugins%252Fdw-question-answer%252Flanguages%252F%26filename%3Ddwqa-cs_CZ.po%26action%3Ddownload&#038;_wpnonce=1dc67313d1" title="Delete cache of the current page">Delete Cache</a>		</li></ul><ul id="wp-admin-bar-top-secondary" class="ab-top-secondary ab-top-menu">
+		<li id="wp-admin-bar-search" class="admin-bar-search"><div class="ab-item ab-empty-item" tabindex="-1">
+		<form action="http://gizchina.cz/wp-admin/admin.php" method="get" class="" id="adminbarsearch">
+			<input type="hidden" name="page" value="omnisearch" />
+			<input name="s" type="search" class="adminbar-input" id="adminbar-search" value="" placeholder="Search Everything" />
+							<input type="submit" class="adminbar-button" value="Hledat" />
+					</form>
+
+		<style>
+				#adminbar-search::-webkit-input-placeholder,
+				#adminbar-search:-moz-placeholder,
+				#adminbar-search::-moz-placeholder,
+				#adminbar-search:-ms-input-placeholder {
+					text-shadow: none;
+				}
+			</style></div>		</li>
+		<li id="wp-admin-bar-my-account" class="menupop with-avatar"><a class="ab-item"  aria-haspopup="true" href="http://gizchina.cz/wp-admin/profile.php" title="Můj účet">Přihlášený uživatel: Karel Baláč<img src="http://gizchina.cz/wp-content/uploads/2014/02/58735_1370827237473_7289622_n-150x150.jpg" width="26" height="26" alt="Karel Baláč" class="avatar avatar-26 wp-user-avatar wp-user-avatar-26 alignnone photo" /></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-user-actions" class="ab-submenu">
+		<li id="wp-admin-bar-user-info"><a class="ab-item" tabindex="-1" href="http://gizchina.cz/wp-admin/profile.php"><img src="http://gizchina.cz/wp-content/uploads/2014/02/58735_1370827237473_7289622_n-150x150.jpg" width="64" height="64" alt="Karel Baláč" class="avatar avatar-64 wp-user-avatar wp-user-avatar-64 alignnone photo" /><span class='display-name'>Karel Baláč</span><span class='username'>K_Balac</span></a>		</li>
+		<li id="wp-admin-bar-edit-profile"><a class="ab-item"  href="http://gizchina.cz/wp-admin/profile.php">Profil</a>		</li>
+		<li id="wp-admin-bar-logout"><a class="ab-item"  href="http://gizchina.cz/wp-login.php?action=logout&#038;_wpnonce=886481d87a">Odhlásit se</a>		</li></ul></div>		</li>
+		<li id="wp-admin-bar-notes" class="menupop"><div class="ab-item ab-empty-item" ><span id="wpnt-notes-unread-count" class="wpnt-loading wpn-read">
+					<span class="noticon noticon-notification"></span>
+					</span></div><div id="wpnt-notes-panel" style="display:none" lang="cs_CZ" dir="ltr"><div class="wpnt-notes-panel-header"><span class="wpnt-notes-header">Notifications</span><span class="wpnt-notes-panel-link"></span></div></div>		</li></ul>			</div>
+						<a class="screen-reader-shortcut" href="http://gizchina.cz/wp-login.php?action=logout&#038;_wpnonce=886481d87a">Odhlásit se</a>
+					</div>
+
+		
+<div id="wpbody">
+
+<div id="wpbody-content" aria-label="Main content" tabindex="0">
+		<div id="screen-meta" class="metabox-prefs">
+
+			<div id="contextual-help-wrap" class="hidden no-sidebar" tabindex="-1" aria-label="Contextual Help Tab">
+				<div id="contextual-help-back"></div>
+				<div id="contextual-help-columns">
+					<div class="contextual-help-tabs">
+						<ul>
+												</ul>
+					</div>
+
+					
+					<div class="contextual-help-tabs-wrap">
+											</div>
+				</div>
+			</div>
+				</div>
+		<link rel='stylesheet' href='http://gizchina.cz/wp-content/plugins/wp-filemanager/incl/phpfm.css' type='text/css'><center><br />
+<div class="clear"></div></div><!-- wpbody-content -->
+<div class="clear"></div></div><!-- wpbody -->
+<div class="clear"></div></div><!-- wpcontent -->
+
+<div id="wpfooter">
+		<p id="footer-left" class="alignleft">
+			<div id="opinionstage-insert-poll-form" style="display:none;">
+      <div id="content">
+		<h1><strong>Insert a Poll</strong></h1>
+		<h3><strong>Enter Poll ID (e.g. 4567):</strong></h3>
+		<p><input type="text" name="poll-id" id="opinionstage-poll-id" value="" /></p>
+		<p class="submit">
+		  <input type="button" id="opinionstage-submit" class="button-primary" value="Insert Poll" name="submit" />
+		</p>
+		<p><strong>Haven't created a poll yet?</strong></br></br>
+			<a href="http://www.opinionstage.com/new_poll?o=wp35e8" target='_blank' style=>Create a new poll</a>		</p>
+		<p><strong>Don't know the poll ID?</strong></br></br>
+			<a href="http://www.opinionstage.com/dashboard?o=wp35e8" target='_blank' style=>Find ID of an existing poll</a>		</p>
+	  </div>
+	</div>  
+		</p>
+	<p id="footer-upgrade" class="alignright">
+		Verze 3.9.1	</p>
+	<div class="clear"></div>
+</div>
+<div id="wp_lang_switch_popup" style="display:none;"><div id="wp_lang_switch_form" style="padding:20px;"><strong>Fetching language information ...</strong> <img src="http://gizchina.cz/wp-content/plugins/wordpress-language/res/img/ajax-loader-big.gif"></div><input type="hidden" id="wp_lang_get_lang_info" name="wp_lang_get_lang_info" value="600c100715" /><input type="hidden" name="_wp_http_referer" value="/wp-admin/admin.php?page=wp-filemanager%2Ffm.php&amp;path=wp-content%2Fplugins%2Fdw-question-answer%2Flanguages%2F&amp;filename=dwqa-cs_CZ.po&amp;action=download" /></div>	<div id="wp-auth-check-wrap" class="hidden">
+	<div id="wp-auth-check-bg"></div>
+	<div id="wp-auth-check">
+	<div class="wp-auth-check-close" tabindex="0" title="Zavřít"></div>
+			<div id="wp-auth-check-form" data-src="http://gizchina.cz/wp-login.php?interim-login=1"></div>
+			<div class="wp-auth-fallback">
+		<p><b class="wp-auth-fallback-expired" tabindex="0">Aktuální relace přihlášení vypršela</b></p>
+		<p><a href="http://gizchina.cz/wp-login.php" target="_blank">Přihlaste se prosím znovu.</a>
+		Přihlašovací stránka bude zobrazena v novém okně. Po přihlášení můžete okno zavřít a vrátit se zpět na stávající stránku.</p>
+	</div>
+	</div>
+	</div>
+	<link rel='stylesheet' id='wpcom-notes-admin-bar-css'  href='http://s0.wp.com/wp-content/mu-plugins/notes/admin-bar-v2.css?ver=2.9.3-201420' type='text/css' media='all' />
+<link rel='stylesheet' id='noticons-css'  href='http://s0.wp.com/i/noticons/noticons.css?ver=2.9.3-201420' type='text/css' media='all' />
+<script type='text/javascript'>
+/* <![CDATA[ */
+var vwpc_ajax = {"ajaxurl":"http:\/\/gizchina.cz\/wp-admin\/admin-ajax.php"};
+var vwpc_sections = {"featured_post_slider":{"title":"Featured Post Slider","options":{"category":{"title":"Category","description":"Choose a post category to be shown up","field":"category_with_all_option","default":"0"},"show_posts":{"title":"Show Posts","description":"Show only posts marked as Featured post or show all posts.","field":"select","default":"only_featured","options":{"only_featured":"Only posts marked as Featured post","all":"Show all posts"}},"number":{"title":"Number of featured posts","description":"Enter the number","field":"number","default":5},"is_show_headline_posts":{"title":"Show headline Posts","description":"Enable additional featured posts under post slider (Max. 4 posts)","field":"select","default":"1","options":["Do not show","Show"]},"sidebar":{"title":"Sidebar","description":"Choose a sidebar to be shown up","field":"sidebar","default":"0"}}},"latest":{"title":"Latest Posts","options":{"super_title":{"title":"Super-Title","description":"The text over the title","field":"text","default":""},"title":{"title":"Title","description":"The section title","field":"text","default":""},"sub_title":{"title":"Subtitle","description":"The text under the title","field":"text","default":""},"number":{"title":"Number of posts","description":"Enter the number","field":"number","default":5},"exclude_categories":{"title":"Exclude Categories","description":"Choose the post categories to be excluded","field":"categories","default":""},"thumbnail_style":{"title":"Thumbnail Style","description":"Choose the post thumbnail style","field":"select","default":"large-small","options":{"large":"Large Thumbnail","large-small":"Large & Small Thumbnail","classic":"Classic","poster":"Poster"}},"sidebar":{"title":"Sidebar","description":"Choose a sidebar to be shown up","field":"sidebar","default":"Blog-sidebar"},"show_pagination":{"title":"Show Pagination","description":"Show the pagination","field":"select","default":"0","options":["Do not show","Show"]}}},"latest_reviews":{"title":"Latest Reviews","options":{"super_title":{"title":"Super-Title","description":"The text over the title","field":"text","default":""},"title":{"title":"Title","description":"The section title","field":"text","default":""},"sub_title":{"title":"Subtitle","description":"The text under the title","field":"text","default":""},"number":{"title":"Number of posts","description":"Enter the number","field":"number","default":5},"thumbnail_style":{"title":"Thumbnail Style","description":"Choose a post thumbnail style","field":"select","default":"large-small","options":{"large":"Large Thumbnail","large-small":"Large & Small Thumbnail","classic":"Classic","poster":"Poster"}},"sidebar":{"title":"Sidebar","description":"Choose a sidebar to be shown up","field":"sidebar","default":"Blog-sidebar"},"show_pagination":{"title":"Show Pagination","description":"Show the pagination","field":"select","default":"0","options":["Do not show","Show"]}}},"latest_category":{"title":"Latest By Category","options":{"super_title":{"title":"Super-Title","description":"The text over the title","field":"text","default":""},"title":{"title":"Title","description":"The section title","field":"text","default":""},"sub_title":{"title":"Subtitle","description":"The text under the title","field":"text","default":""},"category":{"title":"Category","description":"Choose a post category to be shown up","field":"category","default":"1"},"number":{"title":"Number of posts","description":"Enter the number","field":"number","default":5},"thumbnail_style":{"title":"Thumbnail Style","description":"Choose a post thumbnail style","field":"select","default":"large-small","options":{"large":"Large Thumbnail","large-small":"Large & Small Thumbnail","classic":"Classic","poster":"Poster"}},"sidebar":{"title":"Sidebar","description":"Choose a sidebar to be shown up","field":"sidebar","default":"Blog-sidebar"},"show_pagination":{"title":"Show Pagination","description":"Show the pagination","field":"select","default":"0","options":["Do not show","Show"]}}},"latest_format":{"title":"Latest By Format","options":{"super_title":{"title":"Super-Title","description":"The text over the title","field":"text","default":""},"title":{"title":"Title","description":"The section title","field":"text","default":""},"sub_title":{"title":"Subtitle","description":"The text under the title","field":"text","default":""},"format":{"title":"Post Format","description":"Choose a post format to be shown up","field":"select","default":"standard","options":{"standard":"Standard","audio":"Audio","video":"Video","gallery":"Gallery"}},"number":{"title":"Number of posts","description":"Enter the number","field":"number","default":5},"thumbnail_style":{"title":"Thumbnail Style","description":"Choose a post thumbnail style","field":"select","default":"large-small","options":{"large":"Large Thumbnail","large-small":"Large & Small Thumbnail","classic":"Classic","poster":"Poster"}},"sidebar":{"title":"Sidebar","description":"Choose a sidebar to be show up","field":"sidebar","default":"Blog-sidebar"},"show_pagination":{"title":"Show Pagination","description":"Show the pagination","field":"select","default":"0","options":["Do not show","Show"]}}},"3_sidebars":{"title":"3 Sidebars","options":{"sidebar_1":{"title":"Sidebar 1","description":"Choose a sidebar to be show up","field":"sidebar","default":"Blog-sidebar"},"sidebar_2":{"title":"Sidebar 2","description":"Choose a sidebar to be show up","field":"sidebar","default":"Blog-sidebar"},"sidebar_3":{"title":"Sidebar 3","description":"Choose a sidebar to be show up","field":"sidebar","default":"Blog-sidebar"}}},"custom_content":{"title":"Custom Content","options":{"super_title":{"title":"Super-Title","description":"The text over the title","field":"text","default":""},"title":{"title":"Title","description":"The section title","field":"text","default":""},"sub_title":{"title":"Subtitle","description":"The text under the title","field":"text","default":""},"content":{"title":"Content","description":"Enter the content (HTML is allowance)","field":"html","default":""},"sidebar":{"title":"Sidebar","description":"Choose a sidebar to be shown up","field":"sidebar","default":"0"}}}};
+/* ]]> */
+</script>
+
+<script type='text/javascript'>
+/* <![CDATA[ */
+var commonL10n = {"warnDelete":"Chyst\u00e1te se nen\u00e1vratn\u011b smazat vybran\u00e9 polo\u017eky.\n  Akci m\u016f\u017eete zastavit kliknut\u00edm na 'Storno' nebo potvrdit pomoc\u00ed 'OK'."};var heartbeatSettings = {"nonce":"d0e1efd404"};var authcheckL10n = {"beforeunload":"Aktu\u00e1ln\u00ed relace p\u0159ihl\u00e1\u0161en\u00ed vypr\u0161ela. M\u016f\u017eete se znovu p\u0159ihl\u00e1sit p\u0159\u00edmo zde nebo pou\u017e\u00edt standardn\u00ed p\u0159ihla\u0161ovac\u00ed str\u00e1nku.","interval":"180"};var wpColorPickerL10n = {"clear":"Zru\u0161it","defaultString":"V\u00fdchoz\u00ed","pick":"Zvolit barvu","current":"Aktu\u00e1ln\u00ed barva"};/* ]]> */
+</script>
+<script type='text/javascript' src='http://gizchina.cz/wp-admin/load-scripts.php?c=1&amp;load%5B%5D=jquery-ui-core,jquery-ui-widget,jquery-ui-mouse,jquery-ui-sortable,hoverIntent,common,admin-bar,svg-painter,heartbeat,wp-auth-ch&amp;load%5B%5D=eck,jquery-effects-core,jquery-effects-fold,jquery-ui-draggable,jquery-ui-slider,jquery-touch-punch,iris,wp-color-picker,undersc&amp;load%5B%5D=ore,backbone&amp;ver=3.9.1'></script>
+<script type='text/javascript' src='http://gizchina.cz/wp-content/themes/presso/framework/page-composer/js/page-composer.js?ver=1.9.1'></script>
+<script type='text/javascript' src='http://gizchina.cz/wp-content/plugins/wordpress-seo/js/wp-seo-admin-global.min.js?ver=1.5.3'></script>
+<script type='text/javascript' src='http://s0.wp.com/wp-content/js/devicepx-jetpack.js?ver=201420'></script>
+<script type='text/javascript' src='http://gizchina.cz/wp-content/themes/presso/js/jquery.fitvids.js?ver=1.9.1'></script>
+<script type='text/javascript' src='http://gizchina.cz/wp-content/themes/presso/framework/bootstrap-admin/bootstrap.min.js?ver=1.9.1'></script>
+<script type='text/javascript' src='http://gizchina.cz/wp-content/themes/presso/js/admin.js?ver=1.9.1'></script>
+<script type='text/javascript' src='http://s1.wp.com/wp-content/js/mustache.js?ver=2.9.3-201420'></script>
+<script type='text/javascript' src='http://gizchina.cz/wp-content/plugins/jetpack/_inc/spin.js?ver=1.3'></script>
+<script type='text/javascript' src='http://gizchina.cz/wp-content/plugins/jetpack/_inc/jquery.spin.js?ver=1.3'></script>
+<script type='text/javascript' src='http://s1.wp.com/wp-content/mu-plugins/notes/notes-common-v2.js?ver=2.9.3-201420'></script>
+<script type='text/javascript' src='http://s0.wp.com/wp-content/mu-plugins/notes/admin-bar-v2.js?ver=2.9.3-201420'></script>
+	<script type="text/javascript">
+		wpvcomp = true;
+		edaddID = new Array();
+		edaddNm = new Array();
+		if(typeof(edButtons)!='undefined') {
+			edadd = edButtons.length;	
+			var dynads={"all":[
+				"1","0","0","0","0","0","0","0","0","0",			"0"]};
+			for(i=1;i<=10;i++) {
+				if(dynads.all[i-1]=="1") {
+					edButtons[edButtons.length]=new edButton("ads"+i.toString(),"Ads"+i.toString(),"\n<!--Ads"+i.toString()+"-->\n","","",-1);
+					edaddID[edaddID.length] = "ads"+i.toString();
+					edaddNm[edaddNm.length] = "Ads"+i.toString();
+				}	
+			}
+							edButtons[edButtons.length]=new edButton("random_ads","RndAds","\n<!--RndAds-->\n","","",-1);
+				edaddID[edaddID.length] = "random_ads";
+				edaddNm[edaddNm.length] = "RndAds";
+				
+							edButtons[edButtons.length]=new edButton("no_ads","NoAds","\n<!--NoAds-->\n","","",-1);
+				edaddID[edaddID.length] = "no_ads";
+				edaddNm[edaddNm.length] = "NoAds";
+				edButtons[edButtons.length]=new edButton("off_def","OffDef","\n<!--OffDef-->\n","","",-1);	
+				edaddID[edaddID.length] = "off_def";
+				edaddNm[edaddNm.length] = "OffDef";
+				edButtons[edButtons.length]=new edButton("off_wid","OffWidget","\n<!--OffWidget-->\n","","",-1);	
+				edaddID[edaddID.length] = "off_wid";
+				edaddNm[edaddNm.length] = "OffWidget";				
+										edButtons[edButtons.length]=new edButton("off_bgn","OffBegin","\n<!--OffBegin-->\n","","",-1);
+				edaddID[edaddID.length] = "off_bgn";
+				edaddNm[edaddNm.length] = "OffBegin";
+				edButtons[edButtons.length]=new edButton("off_mid","OffMiddle","\n<!--OffMiddle-->\n","","",-1);
+				edaddID[edaddID.length] = "off_mid";
+				edaddNm[edaddNm.length] = "OffMiddle";
+				edButtons[edButtons.length]=new edButton("off_end","OffEnd","\n<!--OffEnd-->\n","","",-1);
+				edaddID[edaddID.length] = "off_end";
+				edaddNm[edaddNm.length] = "OffEnd";				
+				edButtons[edButtons.length]=new edButton("off_more","OffAfMore","\n<!--OffAfMore-->\n","","",-1);
+				edaddID[edaddID.length] = "off_more";
+				edaddNm[edaddNm.length] = "OffAfMore";				
+				edButtons[edButtons.length]=new edButton("off_last","OffBfLastPara","\n<!--OffBfLastPara-->\n","","",-1);
+				edaddID[edaddID.length] = "off_last";
+				edaddNm[edaddNm.length] = "OffBfLastPara";								
+						
+		};
+		(function(){
+			if(typeof(edButtons)!='undefined' && typeof(jQuery)!='undefined' && wpvcomp){
+				jQuery(document).ready(function(){
+					for(i=0;i<edaddID.length;i++) {
+						jQuery("#ed_toolbar").append('<input type="button" value="' + edaddNm[i] +'" id="' + edaddID[i] +'" class="ed_button" onclick="edInsertTag(edCanvas, ' + (edadd+i) + ');" title="' + edaddNm[i] +'" />');
+					}
+				});
+			}
+		}());	
+	</script> 
+	
+<div class="clear"></div></div><!-- wpwrap -->
+<script type="text/javascript">if(typeof wpOnload=='function')wpOnload();</script>
+</body>
+</html>

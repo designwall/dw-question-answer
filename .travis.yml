@@ -28,6 +28,5 @@ before_script:
     - sed -i "s/yourpasswordhere//" wp-tests-config.php
     # set up database
     - mysql -e 'CREATE DATABASE wordpress_test;' -uroot
-    # prepare for running the tests
 
 script: phpunit

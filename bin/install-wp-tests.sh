@@ -1,9 +1,7 @@
-
-<!-- saved from url=(0085)https://raw.githubusercontent.com/wp-cli/sample-plugin/master/bin/install-wp-tests.sh -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link type="text/css" rel="stylesheet" href="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/style.css"><script type="text/javascript" charset="utf-8" src="chrome-extension://cpngackimfmofbokmjmljamhdncknpmg/js/page_context.js"></script></head><body screen_capture_injected="true"><pre style="word-wrap: break-word; white-space: pre-wrap;">#!/usr/bin/env bash
+#!/usr/bin/env bash
 
 if [ $# -lt 3 ]; then
-	echo "usage: $0 &lt;db-name&gt; &lt;db-user&gt; &lt;db-pass&gt; [db-host] [wp-version]"
+	echo "usage: $0 <db-name> <db-user> <db-pass> [db-host] [wp-version]"
 	exit 1
 fi
 
@@ -78,4 +76,3 @@ install_db() {
 install_wp
 install_test_suite
 install_db
-</pre></body></html>

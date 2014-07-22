@@ -5,9 +5,9 @@
         if( is_wp_error( $dwqa_current_error ) ) {
             $error_messages = $dwqa_current_error->get_error_messages();
             
-            if( !empty($error_messages) ) {
+            if ( ! empty( $error_messages ) ) {
                 echo '<div class="alert alert-error">';
-                foreach ($error_messages as $message) {
+                foreach ( $error_messages as $message ) {
                     echo $message;
                 }
                 echo '</div>';
@@ -27,37 +27,37 @@
                             'show_option_none' => __('Select question category','dwqa'),
                             'hide_empty'    => 0,
                             'quicktags'     => array( 'buttons' => 'strong,em,link,block,del,ins,img,ul,ol,li,code,spell,close' ),
-                            'selected'      => (isset( $_POST['question-category'] ) ? stripslashes(htmlentities($_POST['question-category'])) : false)
+                            'selected'      => ( isset( $_POST['question-category'] ) ? stripslashes(htmlentities($_POST['question-category']) ) : false ),
                         ) );
                     ?>
                 </div>   
                 <div class="input-tag">
-                    <label for="question-tag"><?php _e('Question Tags','dwqa') ?></label>
-                    <input type="text" name="question-tag" id="question-tag" placeholder="<?php _e('tag 1, tag 2,...','dwqa') ?>" value="<?php echo isset( $_POST['question-tag'] ) ? stripslashes(htmlentities($_POST['question-tag'])) : ''; ?>" />
+                    <label for="question-tag"><?php _e( 'Question Tags', 'dwqa' ) ?></label>
+                    <input type="text" name="question-tag" id="question-tag" placeholder="<?php _e( 'tag 1, tag 2,...', 'dwqa' ) ?>" value="<?php echo isset( $_POST['question-tag'] ) ? stripslashes( htmlentities( $_POST['question-tag'] ) ) : ''; ?>" />
                 </div>
             </div>
         </div>
         <div class="input-title">
-            <label for="question-title"><?php _e('Your question','dwqa') ?> *</label>
-            <input type="text" name="question-title" id="question-title" placeholder="<?php _e('How to...','dwqa') ?>" autocomplete="off" data-nonce="<?php echo wp_create_nonce( '_dwqa_filter_nonce' ) ?>" value="<?php echo isset( $_POST['question-title'] ) ? stripslashes(htmlentities($_POST['question-title'])) : ''; ?>" />
+            <label for="question-title"><?php _e( 'Your question', 'dwqa' ) ?> *</label>
+            <input type="text" name="question-title" id="question-title" placeholder="<?php _e( 'How to...', 'dwqa' ) ?>" autocomplete="off" data-nonce="<?php echo wp_create_nonce( '_dwqa_filter_nonce' ) ?>" value="<?php echo isset( $_POST['question-title'] ) ? stripslashes( htmlentities( $_POST['question-title'] ) ) : ''; ?>" />
             <span class="dwqa-search-loading dwqa-hide"></span>
             <span class="dwqa-search-clear fa fa-times dwqa-hide"></span>
         </div>  
             
         <div class="question-advance">
             <div class="input-content">
-                <label for="question-content"><?php _e('Question details','dwqa') ?></label>
+                <label for="question-content"><?php _e( 'Question details', 'dwqa' ) ?></label>
                 <?php 
                     dwqa_init_tinymce_editor( array( 
-                            'content' => ( isset( $_POST['question-content'] ) ? stripslashes(htmlentities($_POST['question-content'])) : '' ),
+                            'content' => ( isset( $_POST['question-content'] ) ? stripslashes( htmlentities( $_POST['question-content'] ) ) : '' ),
                             'id' => 'dwqa-question-content-editor', 
                             'textarea_name' => 'question-content',
-                            'media_buttons' => true
+                            'media_buttons' => true,
                     ) ); 
                 ?>
             </div>
             
-            <?php if( isset($dwqa_options['enable-private-question']) && $dwqa_options['enable-private-question'] ) : ?>
+            <?php if ( isset( $dwqa_options['enable-private-question'] ) && $dwqa_options['enable-private-question'] ) : ?>
             <div class="checkbox-private">
                 <label for="private-message"><input type="checkbox" name="private-message" id="private-message" value="true"> <?php _e('Post this Question as Private.','dwqa') ?> <i class="fa fa-question-circle" title="<?php _e('Only you as Author and Admin can see the question', 'dwqa') ?>"></i></label>
             </div>
@@ -71,9 +71,9 @@
              };
              </script>
             <?php  
-                global  $dwqa_general_settings;
-                if( dwqa_is_captcha_enable_in_submit_question() ) {
-                    $public_key = isset($dwqa_general_settings['captcha-google-public-key']) ?  $dwqa_general_settings['captcha-google-public-key'] : '';
+                global $dwqa_general_settings;
+                if ( dwqa_is_captcha_enable_in_submit_question() ) {
+                    $public_key = isset( $dwqa_general_settings['captcha-google-public-key'] ) ?  $dwqa_general_settings['captcha-google-public-key'] : '';
                     echo '<div class="google-recaptcha">';
                     echo recaptcha_get_html($public_key);
                     echo '<br></div>';

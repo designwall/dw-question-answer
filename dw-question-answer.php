@@ -44,7 +44,7 @@ include_once DWQA_DIR  . 'inc/widgets/list-closed-question.php';
 include_once DWQA_DIR  . 'inc/deprecated.php';
 
 function dwqa_include_recaptcha_library() {
-    if ( ! defined('RECAPTCHA_VERIFY_SERVER') ) {
+    if ( ! defined( 'RECAPTCHA_VERIFY_SERVER' ) ) {
         require_once DWQA_DIR  . 'inc/lib/recaptcha-php/recaptchalib.php';
     }
 }
@@ -76,7 +76,6 @@ function dwqa_activate() {
         'post_title' => __( 'DWQA Questions', 'dwqa' ),
         'post_type' => 'page',
         'post_status' => 'publish',
-        'posts_per_page' => 1,
         'post_content'  => '[dwqa-list-questions]',
     );
     $question_page = get_page_by_title( $args['post_title'] );
@@ -90,7 +89,6 @@ function dwqa_activate() {
         'post_title' => __( 'DWQA Ask Question', 'dwqa' ),
         'post_type' => 'page',
         'post_status' => 'publish',
-        'posts_per_page' => 1,
         'post_content'  => '[dwqa-submit-question-form]',
     );
     $ask_page = get_page_by_title( $args['post_title'] );

@@ -9,11 +9,11 @@
  */
 
 // Define constant for plugin info 
-if( !defined( 'DWQA_DIR' ) ) {
+if ( ! defined( 'DWQA_DIR' ) ) {
     define( 'DWQA_DIR', plugin_dir_path( __FILE__ ) );
 }
 
-if( !defined( 'DWQA_URI' ) ) {
+if ( ! defined( 'DWQA_URI' ) ) {
     define( 'DWQA_URI', plugin_dir_url( __FILE__ ) );
 }
 
@@ -44,7 +44,7 @@ include_once DWQA_DIR  . 'inc/widgets/list-closed-question.php';
 include_once DWQA_DIR  . 'inc/deprecated.php';
 
 function dwqa_include_recaptcha_library() {
-    if( ! defined('RECAPTCHA_VERIFY_SERVER') ) {
+    if ( ! defined('RECAPTCHA_VERIFY_SERVER') ) {
         require_once DWQA_DIR  . 'inc/lib/recaptcha-php/recaptchalib.php';
     }
 }
@@ -54,7 +54,7 @@ add_action( 'plugins_loaded', 'dwqa_include_recaptcha_library' );
 global $dwqa_permission;
 $dwqa_permission = new DWQA_Permission();
 
-function dwqa_deactivate_hook(){
+function dwqa_deactivate_hook() {
     global $dwqa_permission;
     wp_clear_scheduled_hook( 'dwqa_hourly_event' );
     $dwqa_permission->remove_permision_caps();
@@ -73,38 +73,28 @@ function dwqa_activate() {
     $options = get_option( 'dwqa_options' );
 
     $args = array(
-        'post_title' => __('DWQA Questions','dwqa'),
+        'post_title' => __( 'DWQA Questions', 'dwqa' ),
         'post_type' => 'page',
         'post_status' => 'publish',
         'posts_per_page' => 1,
-        'post_content'  => '[dwqa-list-questions]'
+        'post_content'  => '[dwqa-list-questions]',
     );
     $question_page = get_page_by_title( $args['post_title'] );
-    if( ! $question_page 
-        && ( !isset($options['pages']['archive-question'])
-            || ( isset($options['pages']['archive-question'])
-                    && ! get_page( $options['pages']['archive-question'] ) )
-        )
-    ) {
+    if( ! $question_page && ( ! isset( $options['pages']['archive-question'] ) || ( isset( $options['pages']['archive-question'] ) && ! get_page( $options['pages']['archive-question'] ) ) ) ) {
         $new_page = wp_insert_post( $args );
         $options['pages']['archive-question'] = $new_page;
     } else {
         $options['pages']['archive-question'] = $question_page->ID;
     }
     $args = array(
-        'post_title' => __('DWQA Ask Question','dwqa'),
+        'post_title' => __( 'DWQA Ask Question', 'dwqa' ),
         'post_type' => 'page',
         'post_status' => 'publish',
         'posts_per_page' => 1,
-        'post_content'  => '[dwqa-submit-question-form]'
+        'post_content'  => '[dwqa-submit-question-form]',
     );
     $ask_page = get_page_by_title( $args['post_title'] );
-    if( ! $ask_page 
-        && ( !isset($options['pages']['submit-question'])
-            || ( isset($options['pages']['submit-question'])
-                    && ! get_page( $options['pages']['submit-question'] ) )
-        )
-    ) {
+    if( ! $ask_page && ( ! isset( $options['pages']['submit-question'] ) || ( isset( $options['pages']['submit-question'] ) && ! get_page( $options['pages']['submit-question'] ) ) ) ) {
         $new_page = wp_insert_post( $args );
         $options['pages']['submit-question'] = $new_page;
     } else {
@@ -114,13 +104,13 @@ function dwqa_activate() {
 }
 register_activation_hook( __FILE__, 'dwqa_activate' );
 
-function dwqa_flush_rewrite(){
+function dwqa_flush_rewrite() {
     flush_rewrite_rules();
 }
-add_action('after_switch_theme', 'dwqa_flush_rewrite');
+add_action( 'after_switch_theme', 'dwqa_flush_rewrite' );
 
 /*** PLUGIN INIT */
-function dwqa_plugin_init(){
+function dwqa_plugin_init() {
     global  $dwqa_general_settings, $dwqa_options;
     load_plugin_textdomain( 'dwqa', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
     $dwqa_general_settings = get_option( 'dwqa_options' );
@@ -128,7 +118,7 @@ function dwqa_plugin_init(){
 
     $question_rewrite = get_option( 'dwqa-question-rewrite', 'question' );
     $question_rewrite = $question_rewrite ? $question_rewrite : 'question';
-    if( isset($dwqa_general_settings['question-rewrite']) && $dwqa_general_settings['question-rewrite'] && $dwqa_general_settings['question-rewrite'] != $question_rewrite ) {
+    if( isset( $dwqa_general_settings['question-rewrite'] ) && $dwqa_general_settings['question-rewrite'] && $dwqa_general_settings['question-rewrite'] != $question_rewrite ) {
         $question_rewrite = $dwqa_general_settings['question-rewrite'];
         update_option( 'dwqa-question-rewrite', $question_rewrite );
         $flag = true;
@@ -136,7 +126,7 @@ function dwqa_plugin_init(){
 
     $question_category_rewrite = get_option( 'dwqa-question-category-rewrite', 'question-category' );
     $question_category_rewrite = $question_category_rewrite ? $question_category_rewrite : 'question-category';
-    if( isset($dwqa_general_settings['question-category-rewrite']) && $dwqa_general_settings['question-category-rewrite'] && $dwqa_general_settings['question-category-rewrite'] != $question_category_rewrite ) {
+    if( isset( $dwqa_general_settings['question-category-rewrite'] ) && $dwqa_general_settings['question-category-rewrite'] && $dwqa_general_settings['question-category-rewrite'] != $question_category_rewrite ) {
         $question_category_rewrite = $dwqa_general_settings['question-category-rewrite'];
         update_option( 'dwqa-question-category-rewrite', $question_category_rewrite );
         $flag = true;
@@ -144,7 +134,7 @@ function dwqa_plugin_init(){
 
     $question_tag_rewrite = get_option( 'dwqa-question-tag-rewrite', 'question-tag' );
     $question_tag_rewrite = $question_tag_rewrite ? $question_tag_rewrite : 'question-tag';
-    if( isset($dwqa_general_settings['question-tag-rewrite']) && $dwqa_general_settings['question-tag-rewrite'] && $dwqa_general_settings['question-tag-rewrite'] != $question_tag_rewrite ) {
+    if( isset( $dwqa_general_settings['question-tag-rewrite'] ) && $dwqa_general_settings['question-tag-rewrite'] && $dwqa_general_settings['question-tag-rewrite'] != $question_tag_rewrite ) {
         $question_tag_rewrite = $dwqa_general_settings['question-tag-rewrite'];
         update_option( 'dwqa-question-tag-rewrite', $question_tag_rewrite );
         $flag = true;
@@ -152,19 +142,19 @@ function dwqa_plugin_init(){
 
     /* Question Posttype Registration */
     $question_labels = array(
-        'name' => _x('Question', 'post type general name'),
-        'singular_name' => _x('Question', 'post type singular name'),
-        'add_new' => _x('Add New', 'theme'),
-        'add_new_item' => __('Add New Question'),
-        'edit_item' => __('Edit Question'),
-        'new_item' => __('New Question'),
-        'all_items' => __('All Questions'),
-        'view_item' => __('View Question'),
-        'search_items' => __('Search Question'),
-        'not_found' =>  __('No questions found'),
-        'not_found_in_trash' => __('No questions found in Trash'), 
+        'name' => _x( 'Question', 'post type general name' ),
+        'singular_name' => _x( 'Question', 'post type singular name' ),
+        'add_new' => _x( 'Add New', 'theme' ),
+        'add_new_item' => __( 'Add New Question', 'dwqa' ),
+        'edit_item' => __( 'Edit Question' ),
+        'new_item' => __( 'New Question', 'dwqa' ),
+        'all_items' => __( 'All Questions', 'dwqa' ),
+        'view_item' => __( 'View Question', 'dwqa' ),
+        'search_items' => __( 'Search Question', 'dwqa' ),
+        'not_found' =>  __( 'No questions found', 'dwqa' ),
+        'not_found_in_trash' => __( 'No questions found in Trash', 'dwqa' ), 
         'parent_item_colon' => '',
-        'menu_name' => __('DW Q&A')
+        'menu_name' => __( 'DW Q&A', 'dwqa' ),
     );
     $question_args = array(
         'labels' => $question_labels,
@@ -175,7 +165,7 @@ function dwqa_plugin_init(){
         'query_var' => true,
         'rewrite' => array( 
             'slug' => $question_rewrite,
-            'with_front'    => false
+            'with_front'    => false,
         ),
         'capability_type' => 'post',
         'has_archive' => true, 
@@ -189,26 +179,26 @@ function dwqa_plugin_init(){
             'publish_posts' => 'dwqa_can_post_question',
             'read_post' => 'dwqa_can_read_question',
             'read_private_posts' => 'read_private_posts',
-            'delete_post' => 'dwqa_can_delete_question'
+            'delete_post' => 'dwqa_can_delete_question',
         )
     ); 
     register_post_type( 'dwqa-question', $question_args );
     
     /* Question Posttype Registration */
     $answer_labels = array(
-        'name' => _x('Answer', 'post type general name'),
-        'singular_name' => _x('Answer', 'post type singular name'),
-        'add_new' => _x('Add New', 'theme'),
-        'add_new_item' => __('Add new answer'),
-        'edit_item' => __('Edit answer'),
-        'new_item' => __('New Answer'),
-        'all_items' => __('All Answers'),
-        'view_item' => __('View Answer'),
-        'search_items' => __('Search Answer'),
-        'not_found' =>  __('No Answers found'),
-        'not_found_in_trash' => __('No Answers found in Trash'), 
+        'name' => _x( 'Answer', 'post type general name' ),
+        'singular_name' => _x( 'Answer', 'post type singular name' ),
+        'add_new' => _x( 'Add New', 'theme' ),
+        'add_new_item' => __( 'Add new answer', 'dwqa' ),
+        'edit_item' => __( 'Edit answer', 'dwqa' ),
+        'new_item' => __( 'New Answer', 'dwqa' ),
+        'all_items' => __( 'All Answers', 'dwqa' ),
+        'view_item' => __( 'View Answer', 'dwqa' ),
+        'search_items' => __( 'Search Answer', 'dwqa' ),
+        'not_found' =>  __( 'No Answers found', 'dwqa' ),
+        'not_found_in_trash' => __( 'No Answers found in Trash', 'dwqa' ), 
         'parent_item_colon' => '',
-        'menu_name' => __('Answer')
+        'menu_name' => __( 'Answer', 'dwqa' ),
     );
     $answer = array(
         'labels' => $answer_labels,
@@ -222,7 +212,7 @@ function dwqa_plugin_init(){
         'has_archive' => false, 
         'hierarchical' => true,
         'menu_icon' =>  '',
-        'supports' => array( 'title', 'editor', 'comments', 'custom-fields', 'author', 'page-attributes' ),
+        'supports' => array( 'title', 'editor', 'comments', 'custom-fields', 'author', 'page-attributes', ),
         'capabilities' => array(
             'edit_post' => 'dwqa_can_edit_answer',
             'edit_posts' => 'dwqa_can_edit_answer',
@@ -230,8 +220,8 @@ function dwqa_plugin_init(){
             'publish_posts' => 'dwqa_can_post_answer',
             'read_post' => 'dwqa_can_read_answer',
             'read_private_posts' => 'read_private_posts',
-            'delete_post' => 'dwqa_can_delete_answer'
-        )
+            'delete_post' => 'dwqa_can_delete_answer',
+        ),
     ); 
     register_post_type( 'dwqa-answer', $answer );
 
@@ -241,14 +231,14 @@ function dwqa_plugin_init(){
         'name' => _x( 'Categories', 'taxonomy general name' ),
         'singular_name' => _x( 'Category', 'taxonomy singular name' ),
         'search_items' =>  __( 'Search Categories' ),
-        'all_items' => __( 'All Categories' ),
-        'parent_item' => __( 'Parent Category' ),
-        'parent_item_colon' => __( 'Parent Category:' ),
-        'edit_item' => __( 'Edit Category' ), 
-        'update_item' => __( 'Update Category' ),
-        'add_new_item' => __( 'Add New Category' ),
-        'new_item_name' => __( 'New Category Name' ),
-        'menu_name' => __( 'Question Categories' ),
+        'all_items' => __( 'All Categories', 'dwqa' ),
+        'parent_item' => __( 'Parent Category', 'dwqa' ),
+        'parent_item_colon' => __( 'Parent Category:', 'dwqa' ),
+        'edit_item' => __( 'Edit Category', 'dwqa' ), 
+        'update_item' => __( 'Update Category', 'dwqa' ),
+        'add_new_item' => __( 'Add New Category', 'dwqa' ),
+        'new_item_name' => __( 'New Category Name', 'dwqa' ),
+        'menu_name' => __( 'Question Categories', 'dwqa' ),
     );  
 
 
@@ -259,27 +249,27 @@ function dwqa_plugin_init(){
             'query_var'     => true,
             'rewrite'       => array( 
                 'slug'          => $question_category_rewrite,
-                'with_front'    => false
-            )
+                'with_front'    => false,
+            ),
     ) );
 
     // Question Tags
     $question_tag_labels = array(
         'name' => _x( 'Tags', 'taxonomy general name' ),
         'singular_name' => _x( 'Tag', 'taxonomy singular name' ),
-        'search_items' =>  __( 'Search Tags' ),
-        'popular_items' => __( 'Popular Tags' ),
-        'all_items' => __( 'All Tags' ),
+        'search_items' =>  __( 'Search Tags', 'dwqa' ),
+        'popular_items' => __( 'Popular Tags', 'dwqa' ),
+        'all_items' => __( 'All Tags', 'dwqa' ),
         'parent_item' => null,
         'parent_item_colon' => null,
-        'edit_item' => __( 'Edit Tag' ), 
-        'update_item' => __( 'Update Tag' ),
-        'add_new_item' => __( 'Add New Tag' ),
-        'new_item_name' => __( 'New Tag Name' ),
-        'separate_items_with_commas' => __( 'Separate tags with commas' ),
-        'add_or_remove_items' => __( 'Add or remove tags' ),
-        'choose_from_most_used' => __( 'Choose from the most used tags' ),
-        'menu_name' => __( 'Question Tags' ),
+        'edit_item' => __( 'Edit Tag', 'dwqa' ), 
+        'update_item' => __( 'Update Tag', 'dwqa' ),
+        'add_new_item' => __( 'Add New Tag', 'dwqa' ),
+        'new_item_name' => __( 'New Tag Name', 'dwqa' ),
+        'separate_items_with_commas' => __( 'Separate tags with commas', 'dwqa' ),
+        'add_or_remove_items' => __( 'Add or remove tags', 'dwqa' ),
+        'choose_from_most_used' => __( 'Choose from the most used tags', 'dwqa' ),
+        'menu_name' => __( 'Question Tags', 'dwqa' ),
     ); 
 
     register_taxonomy('dwqa-question_tag', array('dwqa-question'), array(
@@ -290,18 +280,18 @@ function dwqa_plugin_init(){
         'query_var'     => true,
         'rewrite'       => array( 
             'slug' => $question_tag_rewrite,
-            'with_front'    => false
-        )
+            'with_front'    => false,
+        ),
     ) );
 
     // Create default category for dwqa question type when dwqa plugin is actived 
     $cats = get_categories ( array(
         'type'                     => 'dwqa-question',
         'hide_empty'               => 0,
-        'taxonomy'                 => 'dwqa-question_category'
+        'taxonomy'                 => 'dwqa-question_category',
     ) );
 
-    if( empty($cats) ) {
+    if( empty( $cats ) ) {
         wp_insert_term( 'Questions', 'dwqa-question_category' );
     }
 
@@ -314,48 +304,47 @@ function dwqa_plugin_init(){
         'plugin_dir_url' => DWQA_URI,
         'code_icon'    => DWQA_URI . 'inc/templates/'.$dwqa_template.'/assets/img/icon-code.png',
         'ajax_url'      => admin_url( 'admin-ajax.php' ),
-        'text_next'     => __('Next','dwqa'),
-        'text_prev'     => __('Prev','dwqa'),
+        'text_next'     => __( 'Next','dwqa' ),
+        'text_prev'     => __( 'Prev','dwqa' ),
         'questions_archive_link'    => get_post_type_archive_link( 'dwqa-question' ),
         'error_missing_question_content'    =>  __( 'Please enter your question', 'dwqa' ),
-        'error_question_length' => __('Your question must be at least 2 characters in length', 'dwqa' ),
+        'error_question_length' => __( 'Your question must be at least 2 characters in length', 'dwqa' ),
         'error_valid_email'    =>  __( 'Enter a valid email address', 'dwqa' ),
         'error_valid_user'    =>  __( 'Enter a question title', 'dwqa' ),
         'error_valid_name'    =>  __( 'Please add your name', 'dwqa' ),
-        'error_missing_answer_content'  => __('Please enter your answer','dwqa'),
-        'error_missing_comment_content' =>  __('Please enter your comment content','dwqa'),
-        'error_not_enought_length'      => __('Comment must have more than 2 characters','dwqa'),
-        'search_not_found_message'  => __('Not found! Try another keyword.','dwqa'),
-        'search_enter_get_more'  => __('Or press <strong>ENTER</strong> to get more questions','dwqa'),
+        'error_missing_answer_content'  => __( 'Please enter your answer', 'dwqa' ),
+        'error_missing_comment_content' =>  __( 'Please enter your comment content', 'dwqa' ),
+        'error_not_enought_length'      => __( 'Comment must have more than 2 characters', 'dwqa' ),
+        'search_not_found_message'  => __( 'Not found! Try another keyword.', 'dwqa' ),
+        'search_enter_get_more'  => __( 'Or press <strong>ENTER</strong> to get more questions', 'dwqa' ),
         'comment_edit_submit_button'    =>  __( 'Update', 'dwqa' ),
         'comment_edit_link'    =>  __( 'Edit', 'dwqa' ),
         'comment_edit_cancel_link'    =>  __( 'Cancel', 'dwqa' ),
-        'comment_delete_confirm'        => __('Do you want to delete this comment?', 'dwqa' ),
-        'answer_delete_confirm'     =>  __('Do you want to delete this answer?', 'dwqa' ),
-        'answer_update_privacy_confirm' => __('Do you want to update this answer?', 'dwqa' ), 
-        'report_answer_confirm' => __('Do you want to report this answer?','dwqa'),
+        'comment_delete_confirm'        => __( 'Do you want to delete this comment?', 'dwqa' ),
+        'answer_delete_confirm'     =>  __( 'Do you want to delete this answer?', 'dwqa' ),
+        'answer_update_privacy_confirm' => __( 'Do you want to update this answer?', 'dwqa' ), 
+        'report_answer_confirm' => __( 'Do you want to report this answer?', 'dwqa' ),
         'flag'      => array(
-            'label'         =>  __('Report','dwqa'),
-            'label_revert'  =>  __('Undo','dwqa'),
-            'text'          =>  __('This answer will be marked as spam and hidden. Do you want to flag it?', 'dwqa' ),
-            'revert'        =>  __('This answer was flagged as spam. Do you want to show it','dwqa'),
-            'flag_alert'         => __('This answer was flagged as spam','dwqa'),
-            'flagged_hide'  =>  __('hide','dwqa'),
-            'flagged_show'  =>  __('show','dwqa')
+            'label'         =>  __( 'Report', 'dwqa' ),
+            'label_revert'  =>  __( 'Undo', 'dwqa' ),
+            'text'          =>  __( 'This answer will be marked as spam and hidden. Do you want to flag it?', 'dwqa' ),
+            'revert'        =>  __( 'This answer was flagged as spam. Do you want to show it', 'dwqa' ),
+            'flag_alert'         => __( 'This answer was flagged as spam', 'dwqa' ),
+            'flagged_hide'  =>  __( 'hide', 'dwqa' ),
+            'flagged_show'  =>  __( 'show', 'dwqa' ),
         ),
-        'follow_tooltip'    => __('Follow This Question','dwqa'),
-        'unfollow_tooltip'  => __('Unfollow This Question','dwqa'),
-        'stick_tooltip'    => __('Pin this question to top','dwqa'),
-        'unstick_tooltip'  => __('Unpin this question from top','dwqa'),
+        'follow_tooltip'    => __( 'Follow This Question', 'dwqa' ),
+        'unfollow_tooltip'  => __( 'Unfollow This Question', 'dwqa' ),
+        'stick_tooltip'    => __( 'Pin this question to top', 'dwqa' ),
+        'unstick_tooltip'  => __( 'Unpin this question from top', 'dwqa' ),
         'question_category_rewrite' => $question_category_rewrite,
         'question_tag_rewrite'      => $question_tag_rewrite,
-        'delete_question_confirm' => __('Do you want to delete this question?','dwqa')
+        'delete_question_confirm' => __( 'Do you want to delete this question?', 'dwqa' )
           
     );
 
     //add rewrite for question taxonomy
-
-    if( isset($dwqa_options['pages']['archive-question']) ) {
+    if( isset( $dwqa_options['pages']['archive-question']) ) {
         global $wp_rewrite;
 
         $page_id = $dwqa_options['pages']['archive-question'];
@@ -363,9 +352,9 @@ function dwqa_plugin_init(){
         if( $question_list_page ) {
             $dwqa_rewrite_rules = array(
                 '^'.$question_list_page->post_name.'/dwqa-question_category/([^/]*)' => 'index.php?page_id='.$page_id.'&taxonomy=dwqa-question_category&dwqa-question_category=$matches[1]',
-                '^'.$question_list_page->post_name.'/dwqa-question_tag/([^/]*)' => 'index.php?page_id='.$page_id.'&taxonomy=dwqa-question_tag&dwqa-question_tag=$matches[1]'
+                '^'.$question_list_page->post_name.'/dwqa-question_tag/([^/]*)' => 'index.php?page_id='.$page_id.'&taxonomy=dwqa-question_tag&dwqa-question_tag=$matches[1]',
             );
-            foreach ($dwqa_rewrite_rules as $regex => $redirect ) {
+            foreach ( $dwqa_rewrite_rules as $regex => $redirect ) {
                 add_rewrite_rule( $regex, $redirect, 'top' );
             }
         }
@@ -376,12 +365,12 @@ add_action( 'init', 'dwqa_plugin_init' );
 
 
 
-function dwqa_human_time_diff( $from, $to = false, $format = false ){
+function dwqa_human_time_diff( $from, $to = false, $format = false ) {
     if( ! $format ) {
-        $format = get_option('date_format');
+        $format = get_option( 'date_format' );
     }
-    if ( !$to ){
-        $to = current_time('timestamp');
+    if ( !$to ) {
+        $to = current_time( 'timestamp' );
     }
 
     $diff = (int) abs($to - $from);
@@ -398,13 +387,13 @@ function dwqa_human_time_diff( $from, $to = false, $format = false ){
         }
         /* translators: min=minute */
         $since = sprintf(_n('about %s min', '%s mins', $mins), $mins);
-    } else if ( ($diff <= 86400) && ($diff > 3600)) {
+    } else if ( ($diff <= 86400) && ($diff > 3600) ) {
         $hours = round($diff / 3600);
         if ($hours <= 1) {
             $hours = 1;
         }
         $since = sprintf(_n('about %s hour', '%s hours', $hours), $hours);
-    } elseif ($diff >= 86400 && $diff <= 86400*7 ) {
+    } elseif ( $diff >= 86400 && $diff <= 86400*7 ) {
         $days = round($diff / 86400);
         if ($days <= 1) {
             $days = 1;
@@ -417,7 +406,7 @@ function dwqa_human_time_diff( $from, $to = false, $format = false ){
 }
 
 
-function dwqa_human_time_diff_for_date( $the_date, $d ){
+function dwqa_human_time_diff_for_date( $the_date, $d ) {
     global $post;
     if( $post->post_type == 'dwqa-question' || $post->post_type == 'dwqa-answer' ) {
         return dwqa_human_time_diff( strtotime( get_the_time('c') ), false, $d );
@@ -426,7 +415,7 @@ function dwqa_human_time_diff_for_date( $the_date, $d ){
 }
 add_filter( 'get_the_date', 'dwqa_human_time_diff_for_date', 10, 2);
 
-function dwqa_comment_human_time_diff_for_date( $the_date, $d ){
+function dwqa_comment_human_time_diff_for_date( $the_date, $d ) {
     global $comment;
     $parent_posttype = get_post_type( $comment->comment_post_ID );
     if( $parent_posttype == 'dwqa-question' || $parent_posttype == 'dwqa-answer' ) {
@@ -455,14 +444,13 @@ function dwqa_register_custom_button($buttons) {
 
 function dwqa_add_custom_tinymce_plugin($plugin_array) {
     global $dwqa_options;
-    if( is_singular('dwqa-question') || ($dwqa_options['pages']['submit-question'] && is_page( $dwqa_options['pages']['submit-question'] ) )
-    ){
+    if( is_singular('dwqa-question') || ( $dwqa_options['pages']['submit-question'] && is_page( $dwqa_options['pages']['submit-question'] ) ) ) {
         $plugin_array['dwqaCodeEmbed'] = DWQA_URI . 'assets/js/code-edit-button.js';
     }
     return $plugin_array;
 }
 
-function dwqa_add_js_variable_for_admin_page(){
+function dwqa_add_js_variable_for_admin_page() {
     ?>
     <script type="text/javascript">
     if( ! dwqa ) {
@@ -498,30 +486,30 @@ function dwqa_add_js_variable_for_admin_page(){
 //add_action( 'wp_head', 'dwqa_add_js_variable_for_admin_page' );
 add_action( 'admin_print_scripts', 'dwqa_add_js_variable_for_admin_page' );
 
-function dwqa_array_insert(&$array,$element,$position=null) {
-    if( is_array($element) ) {
+function dwqa_array_insert( &$array, $element, $position=null ) {
+    if( is_array( $element ) ) {
         $part = $element;
     } else {
-        $part = array($position=>$element);
+        $part = array( $position=>$element );
     }
 
     $len = count($array);
 
-    $firsthalf = array_slice($array, 0, $len / 2);
-    $secondhalf = array_slice($array, $len / 2);
+    $firsthalf = array_slice( $array, 0, $len / 2 );
+    $secondhalf = array_slice( $array, $len / 2 );
 
-    $array = array_merge($firsthalf, $part, $secondhalf);
+    $array = array_merge( $firsthalf, $part, $secondhalf );
     return $array;
 }
 // ADD NEW COLUMN  
-function dwqa_columns_head($defaults) {  
+function dwqa_columns_head( $defaults ) {  
     if( isset( $_GET['post_type'] ) && $_GET['post_type'] == 'dwqa-answer' ) {
         $defaults = array(
             'cb'            => '<input type="checkbox">',
             'info'          => __( 'Answer', 'dwqa' ),
             'author'        => __( 'Author', 'dwqa' ),
             'comment'       => '<span><span class="vers"><div title="Comments" class="comment-grey-bubble"></div></span></span>',
-            'dwqa-question' => __( 'In Response To', 'dwqa' )
+            'dwqa-question' => __( 'In Response To', 'dwqa' ),
         );
     }
     if( $_GET['post_type'] == 'dwqa-question' ) {
@@ -530,7 +518,7 @@ function dwqa_columns_head($defaults) {
     }
     return $defaults;  
 } 
-add_filter('manage_posts_columns', 'dwqa_columns_head');  
+add_filter( 'manage_posts_columns', 'dwqa_columns_head' );  
 
 function dwqa_answer_row_actions( $actions, $always_visible = false ) {
     $action_count = count( $actions );
@@ -550,11 +538,11 @@ function dwqa_answer_row_actions( $actions, $always_visible = false ) {
     return $out;
 }
 
-function dwqa_answer_columns_content($column_name, $post_ID) {  
+function dwqa_answer_columns_content( $column_name, $post_ID ) {  
     $answer = get_post( $post_ID );
-    switch ($column_name) {
+    switch ( $column_name ) {
         case 'comment' :
-            $comment_count = get_comment_count($post_ID);
+            $comment_count = get_comment_count( $post_ID );
             echo '<a href="'.admin_url('edit-comments.php?p='.$post_ID ).'"  class="post-com-count"><span class="comment-count">'.$comment_count['approved'].'</span></a>';
             break;
         case 'info':
@@ -583,11 +571,11 @@ function dwqa_answer_columns_content($column_name, $post_ID) {
             break;
     }
 } 
-add_action('manage_dwqa-answer_posts_custom_column', 'dwqa_answer_columns_content', 10, 2);
+add_action( 'manage_dwqa-answer_posts_custom_column', 'dwqa_answer_columns_content', 10, 2);
 
 
 // Init script for back-end
-function dwqa_admin_enqueue_scripts(){
+function dwqa_admin_enqueue_scripts() {
     $screen = get_current_screen();
     if( 'dwqa-question_page_dwqa-settings' == $screen->id ) {
         wp_enqueue_media();
@@ -605,8 +593,8 @@ function dwqa_admin_enqueue_scripts(){
 add_action( 'admin_enqueue_scripts', 'dwqa_admin_enqueue_scripts' ); 
 
 // SHOW THE FEATURED IMAGE  
-function dwqa_question_columns_content($column_name, $post_ID) {  
-    switch ($column_name) {
+function dwqa_question_columns_content( $column_name, $post_ID ) {  
+    switch ( $column_name ) {
         case 'info':
             echo ucfirst( get_post_meta( $post_ID, '_dwqa_status', true ) ) . '<br>';
             echo '<strong>'.dwqa_answer_count($post_ID) . '</strong> '.__('answered','dwqa') . '<br>';
@@ -637,10 +625,9 @@ function dwqa_question_columns_content($column_name, $post_ID) {
             break;
     }
 } 
-add_action('manage_dwqa-question_posts_custom_column', 'dwqa_question_columns_content', 10, 2);  
+add_action( 'manage_dwqa-question_posts_custom_column', 'dwqa_question_columns_content', 10, 2 );  
 
-
-function dwqa_answer_count( $question_id ){
+function dwqa_answer_count( $question_id ) {
     $args = array(
        'posts_per_page' => -1,
        'post_type'      => 'dwqa-answer',
@@ -652,20 +639,20 @@ function dwqa_answer_count( $question_id ){
     return $rs->found_posts;
 }
 
-function dwqa_content_start_wrapper(){
+function dwqa_content_start_wrapper() {
     dwqa_load_template( 'content', 'start-wrapper' );
     echo '<div class="dwqa-container" >';
 }
 add_action( 'dwqa_before_page', 'dwqa_content_start_wrapper' );
 
-function dwqa_content_end_wrapper(){
+function dwqa_content_end_wrapper() {
     echo '</div>';
     dwqa_load_template( 'content', 'end-wrapper' );
     wp_reset_query();
 }
 add_action( 'dwqa_after_page', 'dwqa_content_end_wrapper' );
 
-function dwqa_has_sidebar_template(){
+function dwqa_has_sidebar_template() {
     global $dwqa_options, $dwqa_template;
     $template = get_stylesheet_directory() . '/dwqa-templates/';
     if( is_single() && file_exists($template . '/sidebar-single.php') ) {
@@ -706,24 +693,24 @@ function dwqa_related_question( $question_id = false, $number = 5 ) {
         'post__not_in'  => array($question_id),
         'showposts'     => $number,
         'ignore_sticky_posts' => 1,
-        'post_type'     => 'dwqa-question'
+        'post_type'     => 'dwqa-question',
     );
 
     $args['tax_query']['relation'] = 'OR';
-    if( !empty($cat_in) ) {
+    if( ! empty($cat_in) ) {
         $args['tax_query'][] = array(
             'taxonomy'  => 'dwqa-question_category',
             'field'     => 'id',
             'terms'     => $cat_in,
-            'operator'  => 'IN'
+            'operator'  => 'IN',
         );
     }
-    if( !empty($tag_in) ) {
+    if( ! empty($tag_in) ) {
         $args['tax_query'][] = array(
             'taxonomy'  => 'dwqa-question_tag',
             'field'     => 'id',
             'terms'     => $tag_in,
-            'operator'  => 'IN'
+            'operator'  => 'IN',
         );
     }
 
@@ -741,7 +728,7 @@ function dwqa_related_question( $question_id = false, $number = 5 ) {
     wp_reset_postdata();
 }
 
-function dwqa_get_following_user( $question_id = false ){
+function dwqa_get_following_user( $question_id = false ) {
     if( ! $question_id ) {
         $question_id = get_the_ID();
     }

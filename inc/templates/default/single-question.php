@@ -30,7 +30,7 @@
                             </span><!-- Author Info -->
                             <span class="dwqa-date">
                                 <?php 
-                                    printf( '<a href="%s" title="%s #%d">%s %s</a>', get_permalink(), __('Link to','dwqa'), $post_id, __('asked','dwqa'), get_the_date() ; 
+                                    printf( '<a href="%s" title="%s #%d">%s %s</a>', get_permalink(), __('Link to','dwqa'), $post_id, __('asked','dwqa'), get_the_date() ) ; 
                                 ?>
                             </span> <!-- Question Date -->
                         </div>

@@ -1743,30 +1743,4 @@ function dwqa_comment_author_link_anonymous( $comment ) {
 }
 add_filter( 'get_comment', 'dwqa_comment_author_link_anonymous' );
 
-function dwqa_update_shortcode_content() {
-    global $dwqa_options;
-    if( isset($dwqa_options['pages']['archive-question']) && $dwqa_options['pages']['archive-question'] ) {
-
-        $content = get_post_field( 'post_content', $dwqa_options['pages']['archive-question'] );
-        if( strpos($content, '[dwqa-list-questions]') === false ) {
-            wp_update_post( array(
-                'ID'    => $dwqa_options['pages']['archive-question'],
-                'post_content' => $content . '[dwqa-list-questions]'
-            ) );
-        }
-    }
-    if( isset($dwqa_options['pages']['submit-question']) && $dwqa_options['pages']['submit-question'] ) {
-
-        $content = get_post_field( 'post_content', $dwqa_options['pages']['submit-question'] );
-        if( strpos($content, '[dwqa-submit-question-form]') === false ) {
-            wp_update_post( array(
-                'ID'    => $dwqa_options['pages']['submit-question'],
-                'post_content' => $content . '[dwqa-submit-question-form]'
-            ) );
-        }
-    }
-}
-add_action( 'init', 'dwqa_update_shortcode_content' );
-
-
 ?>

@@ -254,27 +254,27 @@ function dwqa_is_staff_answer( $answer ){
  * @param  string $status status code
  * @return string         Status message
  */ 
-function dwqa_question_get_status_name( $status, $context = 'dwqa' ){  
+function dwqa_question_get_status_name( $status ){  
     $status = strtolower($status);  
     switch ($status) {
         case 'resolved':
-            $message = __( 'Resolved', $context );
+            $message = __( 'Resolved', 'dwqa' );
             break;
         case 'pending':
-            $message = __( 'Pending', $context );
+            $message = __( 'Pending', 'dwqa' );
             break;
         case 're-open':
-            $message = __( 'Re-Open', $context );
+            $message = __( 'Re-Open', 'dwqa' );
             break;
         case 'closed':
-            $message = __( 'Closed', $context );
+            $message = __( 'Closed', 'dwqa' );
             break;
         case 'new':
-            $message = __( 'New', $context );
+            $message = __( 'New', 'dwqa' );
             break;
         
         default:
-            $message = __( 'Open', $context );
+            $message = __( 'Open', 'dwqa' );
             break;
     }
     return $message;

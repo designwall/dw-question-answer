@@ -4,7 +4,7 @@
     $question = get_post( $question_id );
     $best_answer_id = dwqa_get_the_best_answer( $question_id );
 
-    $status = array( 'publish', 'private' );
+    $status = array( 'publish', 'private', );
     $args = array(
        'post_type' => 'dwqa-answer',
        'posts_per_page' =>  -1,
@@ -33,7 +33,7 @@
     }
     $drafts = dwqa_get_drafts( $question_id );
 
-    if( $count > 0 || ! empty( $drafts ) ) { ?>
+    if ( $count > 0 || ! empty( $drafts ) ) { ?>
         <h3 class="dwqa-headline">
             <?php 
                 printf( '<span class="answer-count"><span class="digit">%d</span> %s</span>',
@@ -67,11 +67,11 @@
                     }
                     $position++;
                 } 
-                unset($position);
+                unset( $position );
                 //Drafts
                 if ( current_user_can( 'edit_posts' ) ) {
                     global $post;
-                    if( ! empty($drafts) ) {
+                    if ( ! empty( $drafts ) ) {
                         foreach ( $drafts as $post ) {
                             setup_postdata( $post );
                             dwqa_load_template( 'content', 'answer' );
@@ -82,7 +82,7 @@
         </div>
     
     <?php } else {
-        if( ! dwqa_current_user_can('read_answer') ) {
+        if( ! dwqa_current_user_can( 'read_answer' ) ) {
             echo '<div class="alert">'.__('You do not have permission to view answers','dwqa').'</div>';
         }
     }
@@ -90,12 +90,12 @@
     wp_reset_query();
     //Create answer form
     global $dwqa_options;
-    if( dwqa_is_closed( $question_id ) ) {
+    if ( dwqa_is_closed( $question_id ) ) {
         echo '<p class="alert">'.__('This question is now closed','dwqa').'</p>';
         return false;
     }
 
-    if( dwqa_current_user_can('post_answer') ){
+    if ( dwqa_current_user_can( 'post_answer' ) ){
         dwqa_submit_answer_form();
     } else { ?>
         <?php if ( is_user_logged_in() ) { ?>
@@ -103,18 +103,15 @@
         <?php } else { ?>
         <h3 class="dwqa-title">
             <?php 
-                printf('%1$s <a href="%2$s" title="%3$s">%3$s</a> %4$s',
-                    __('Please login or','dwqa'),
-                    wp_registration_url(),
-                    __('Register','dwqa'),
-                    __('to Submit Answer','dwqa')
-                );
+                printf( '%1$s <a href="%2$s" title="%3$s">%3$s</a> %4$s', __( 'Please login or', 'dwqa' ), wp_registration_url(), __( 'Register', 'dwqa' ), __( 'to Submit Answer', 'dwqa' ) );
             ?>
         </h3>
         <div class="login-box">
-            <?php wp_login_form( array(
-                'redirect'  => get_post_permalink( $question_id ),
-            ) ); ?>
+            <?php 
+                wp_login_form( array(
+                    'redirect'  => get_post_permalink( $question_id ),
+                ) ); 
+            ?>
         </div>
         <?php
         }

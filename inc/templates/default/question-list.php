@@ -3,10 +3,10 @@
 		<?php dwqa_load_template( 'search', 'question' ); ?>
 		<div class="filter-bar">
 			<?php wp_nonce_field( '_dwqa_filter_nonce', '_filter_wpnonce', false ); ?>
-			<?php dwqa_get_ask_question_link(); ?>
+			<?php dwqa_get_ask_question_link( ); ?>
 			<div class="filter">
 				<li class="status">
-					<?php $selected = isset( $_GET['status'] ) ? $_GET['status'] : 'all'; ?>
+					<?php $selected = isset( $_GET['status'] ) ? esc_html( $_GET['status'] ) : 'all'; ?>
 					<ul>
 						<li><?php _e( 'Status:', 'dwqa' ) ?></li>
 						<li class="<?php echo $selected == 'all' ? 'active' : ''; ?> status-all" data-type="all">
@@ -113,11 +113,11 @@
 		
 		<?php do_action( 'dwqa-before-question-list' ); ?>
 
-		<?php do_action('dwqa-prepare-archive-posts'); ?>
+		<?php do_action( 'dwqa-prepare-archive-posts' ); ?>
 		<?php if ( have_posts() ) : ?>
 		<div class="loading"></div>
 		<div class="questions-list">
-		<?php while ( have_posts() ) : the_post(); ?>
+		<?php while ( have_posts() ) : the_post( ); ?>
 			<?php dwqa_load_template( 'content', 'question' ); ?>
 		<?php endwhile; ?>
 		</div>
@@ -127,7 +127,7 @@
 			<?php dwqa_get_ask_question_link(); ?>
 		</div>
 		<?php else: ?>
-			<?php dwqa_load_template( 'archive', 'question-notfound'); ?>
+			<?php dwqa_load_template( 'archive', 'question-notfound' ); ?>
 		<?php endif; ?>
 
 		<?php do_action( 'dwqa-after-archive-posts' ); ?>

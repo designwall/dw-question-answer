@@ -1,15 +1,15 @@
 <?php  
 
-class dwqa_latest_question_widget extends WP_Widget {
+class DWQA_Latest_Question_Widget extends WP_Widget {
 
 	/**
 	 * Constructor
 	 *
 	 * @return void
 	 **/
-	function dwqa_latest_question_widget() {
-		$widget_ops = array( 'classname' => 'dwqa-widget dwqa-latest-questions', 'description' => __( 'Show a list of questions that was ordered by views.' , 'dwqa' ) );
-		$this->WP_Widget( 'dwqa-latest-question', __( 'DWQA Latest Questions' , 'dwqa' ), $widget_ops );
+	function DWQA_Latest_Question_Widget() {
+		$widget_ops = array( 'classname' => 'dwqa-widget dwqa-latest-questions', 'description' => __( 'Show a list of questions that was ordered by views.', 'dwqa' ) );
+		$this->WP_Widget( 'dwqa-latest-question', __( 'DWQA Latest Questions', 'dwqa' ), $widget_ops );
 	}
 
 	function widget( $args, $instance ) {
@@ -37,7 +37,7 @@ class dwqa_latest_question_widget extends WP_Widget {
 			echo '<ul>';
 			while ( $questions->have_posts() ) { $questions->the_post( );
 				echo '
-				<li><a href="'.get_permalink( ).'" class="question-title">'.get_the_title( ).'</a> '.__( 'asked by' , 'dwqa' ).' ' . ( dwqa_is_anonymous( get_the_ID() ) ? __( 'Anonymous' , 'dwqa') : get_the_author_link() ) . ", " .  human_time_diff( get_the_time( 'U' ), current_time( 'timestamp') ) . ' ago';
+				<li><a href="'.get_permalink().'" class="question-title">'.get_the_title( ).'</a> '.__( 'asked by', 'dwqa' ).' ' . ( dwqa_is_anonymous( get_the_ID() ) ? __( 'Anonymous', 'dwqa' ) : get_the_author_link() ) . ', ' .  human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) . ' ago';
 				'</li>';
 			}   
 			echo '</ul>';
@@ -61,15 +61,15 @@ class dwqa_latest_question_widget extends WP_Widget {
 			'number' => 5,
 		) );
 		?>
-		<p><label for="<?php echo $this->get_field_id( 'title') ?>"><?php _e( 'Widget title', 'dwqa' ) ?></label>
+		<p><label for="<?php echo $this->get_field_id( 'title' ) ?>"><?php _e( 'Widget title', 'dwqa' ) ?></label>
 		<input type="text" name="<?php echo $this->get_field_name( 'title' ) ?>" id="<?php echo $this->get_field_id( 'title' ) ?>" value="<?php echo $instance['title'] ?>" class="widefat">
 		</p>
-		<p><label for="<?php echo $this->get_field_id( 'number') ?>"><?php _e( 'Number of posts', 'dwqa' ) ?></label>
+		<p><label for="<?php echo $this->get_field_id( 'number' ) ?>"><?php _e( 'Number of posts', 'dwqa' ) ?></label>
 		<input type="text" name="<?php echo $this->get_field_name( 'number' ) ?>" id="<?php echo $this->get_field_id( 'number' ) ?>" value="<?php echo $instance['number'] ?>" class="widefat">
 		</p>
 		<?php
 	}
 }
-add_action( 'widgets_init', create_function( '', "register_widget( 'dwqa_latest_question_widget' );" ) );
+add_action( 'widgets_init', create_function( '', "register_widget( 'DWQA_Latest_Question_Widget' );" ) );
 
 ?>

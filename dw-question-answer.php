@@ -634,15 +634,16 @@ add_action( 'manage_dwqa-question_posts_custom_column', 'dwqa_question_columns_c
 
 function dwqa_answer_count( $question_id ) {
 	$args = array(
-	   'posts_per_page' => -1,
-	   'post_type'      => 'dwqa-answer',
-	   'meta_key'       => '_question',
-	   'meta_value'     => $question_id,
+		'posts_per_page'	=> -1,
+		'post_type'     	=> 'dwqa-answer',
+		'meta_key'      	=> '_question',
+		'meta_value'    	=> $question_id,
+		'field'				=> 'ids',
 	);
 	$rs = new WP_Query( $args );
-
 	return $rs->found_posts;
 }
+
 
 function dwqa_content_start_wrapper() {
 	dwqa_load_template( 'content', 'start-wrapper' );

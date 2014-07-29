@@ -1,13 +1,13 @@
 <?php  
 
-class dwqa_related_question_widget extends WP_Widget {
+class DWQA_Related_Question_Widget extends WP_Widget {
 
 	/**
 	 * Constructor
 	 *
 	 * @return void
 	 **/
-	function dwqa_related_question_widget() {
+	function DWQA_Related_Question_Widget() {
 		$widget_ops = array( 'classname' => 'dwqa-widget dwqa-related-questions', 'description' => __( 'Show a list of questions that related to a question. Just show in single question page', 'dwqa' ) );
 		$this->WP_Widget( 'dwqa-related-question', __( 'DWQA Related Questions', 'dwqa' ), $widget_ops );
 	}
@@ -54,6 +54,6 @@ class dwqa_related_question_widget extends WP_Widget {
 		<?php
 	}
 }
-add_action( 'widgets_init', create_function( '', "register_widget( 'dwqa_related_question_widget' );" ) );
+add_action( 'widgets_init', create_function( '', "register_widget( 'DWQA_Related_Question_Widget' );" ) );
 
 ?>

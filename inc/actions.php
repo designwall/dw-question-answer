@@ -79,8 +79,9 @@ function dwqa_add_answer() {
 
 		$answer_title = __( 'Answer for ', 'dwqa' ) . $question->post_title;
 
-		$answ_content = dwqa_pre_content_filter( $_POST['answer-content'] );
-		$answ_content = wp_kses(  $answ_content, $post_submit_filter );
+		$answ_content = wp_kses( $_POST['answer-content'], $post_submit_filter );
+		$answ_content = dwqa_pre_content_filter( $answ_content );
+		
 		$post_status = ( isset( $_POST['private-message'] ) && esc_html( $_POST['private-message'] ) ) ? 'private' : 'publish';
 		$answers = array(
 			'comment_status' => 'open',
@@ -164,7 +165,7 @@ function dwqa_add_answer() {
 				$post_status = get_post_status( $answer_id );
 
 				if ( ( $post_status == 'draft' && strtolower( $_POST['submit-answer'] ) == 'publish' ) || ( $post_status != 'draft' && strtolower( $_POST['submit-answer'] ) == 'update' ) ) {
-					$answer_update['post_status'] = isset( $_POST['privacy'] ) && 'private' == $_POST['privacy'] ? 'private' : 'publish';
+					$answer_update['post_status'] = isset( $_POST['privacy'] ) && 'private' == esc_html( $_POST['privacy'] ) ? 'private' : 'publish';
 					update_post_meta( $question_id, '_dwqa_status', 're-open' );
 				} 
 				$old_post = get_post( $answer_id  );
@@ -243,10 +244,10 @@ function dwqa_remove_answer() {
 	if ( ! isset( $_POST['wpnonce'] ) || ! wp_verify_nonce( esc_html( $_POST['wpnonce'] ), '_dwqa_action_remove_answer_nonce' ) || ! is_user_logged_in() ) {
 		wp_send_json_error( array( 'message' => __( 'Are you cheating huh?', 'dwqa' ) ) );
 	}
-	if ( ! isset( $_POST['answer_id'] ) ) {
-		wp_send_json_error( array( 'message' => __( 'Missing answer ID', 'dwqa' ) ) );
+	if ( isset( $_POST['answer_id'] ) ) {
+		$answer_id = intval( $_POST['answer_id'] );
 	} else {
-		$answer_id = intval( $_POST['answer-id'] );
+		wp_send_json_error( array( 'message' => __( 'Missing answer ID', 'dwqa' ) ) );
 	}
 
 	global $current_user;
@@ -279,7 +280,7 @@ add_action( 'wp_ajax_dwqa-action-remove-answer', 'dwqa_remove_answer' );
 function dwqa_submit_question() {
 	global $post_submit_filter, $dwqa_options;
 
-	if ( isset( $_POST['dwqa-action'] ) && 'dwqa-submit-question' == $_POST['dwqa-action'] ) {
+	if ( isset( $_POST['dwqa-action'] ) && 'dwqa-submit-question' == esc_html( $_POST['dwqa-action'] ) ) {
 		global $dwqa_current_error;
 		$valid_captcha = dwqa_valid_captcha( 'question' );
 
@@ -305,7 +306,7 @@ function dwqa_submit_question() {
 							esc_html( $_POST['question-tag'] ): '';
 
 				$content = isset( $_POST['question-content'] ) ? 
-							wp_kses( dwqa_pre_content_filter( $_POST['question-content'] ), $post_submit_filter ) : '';
+							 dwqa_pre_content_filter( wp_kses( $_POST['question-content'] , $post_submit_filter ) ) : '';
 				
 				$user_id = 0;
 				$is_anonymous = false;
@@ -315,8 +316,8 @@ function dwqa_submit_question() {
 					//$post_author_email = $_POST['user-email'];
 					if ( isset( $_POST['login-type'] ) && $_POST['login-type'] == 'sign-in' ) {
 						$user = wp_signon( array(
-							'user_login'    => esc_html( $_POST['user-name'] ),
-							'user_password' => esc_html( $_POST['user-password'] ),
+							'user_login'    => isset( $_POST['user-name'] ) ? esc_html( $_POST['user-name'] ) : '',
+							'user_password' => isset( $_POST['user-password'] ) ? esc_html( $_POST['user-password'] ) : '',
 						), false );
 
 						if ( ! is_wp_error( $user ) ) {
@@ -886,7 +887,7 @@ function dwqa_update_question() {
 			wp_send_json_error( array( 'message' => __( 'You do not have permission to edit question', 'dwqa' ) ) );
 		}
 
-		$question_content = isset( $_POST['dwqa-question-content'] ) ? wp_kses( dwqa_pre_content_filter( $_POST['dwqa-question-content'] ), $post_submit_filter ) : '';
+		$question_content = isset( $_POST['dwqa-question-content'] ) ? dwqa_pre_content_filter( wp_kses( $_POST['dwqa-question-content'] , $post_submit_filter ) ): '';
 		$question_update = array(
 			'ID'    => $question_id,
 			'post_content'   => $question_content,
@@ -967,7 +968,7 @@ function dwqa_comment_action_add() {
 			'message'   => __( 'You can\'t post comment', 'dwqa' )
 		) );
 	}
-	if( ! isset( $_POST['comment_post_ID'] ) ) {
+	if ( ! isset( $_POST['comment_post_ID'] ) ) {
 		wp_send_json_error( array(
 			'message'   => __( 'Please enter your comment content', 'dwqa' )
 		) );

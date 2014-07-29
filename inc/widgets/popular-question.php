@@ -1,13 +1,13 @@
 <?php  
 
-class dwqa_popular_question_widget extends WP_Widget {
+class DWQA_Popular_Question_Widget extends WP_Widget {
 
 	/**
 	 * Constructor
 	 *
 	 * @return void
 	 **/
-	function dwqa_popular_question_widget() {
+	function DWQA_Popular_Question_Widget() {
 		$widget_ops = array( 'classname' => 'dwqa-widget dwqa-popular-question', 'description' => __( 'Show a list of questions that ordered by views.', 'dwqa' ) );
 		$this->WP_Widget( 'dwqa-popular-question', __( 'DWQA Popular Questions', 'dwqa' ), $widget_ops );
 	}
@@ -17,7 +17,7 @@ class dwqa_popular_question_widget extends WP_Widget {
 		$instance = wp_parse_args( $instance, array( 
 			'title' => __( 'Popular Questions', 'dwqa' ),
 			'number' => 5,
-		) )
+		) );
 		
 		echo $before_widget;
 		echo $before_title;
@@ -69,6 +69,6 @@ class dwqa_popular_question_widget extends WP_Widget {
 		<?php
 	}
 }
-add_action( 'widgets_init', create_function( '', "register_widget( 'dwqa_popular_question_widget' );" ) );
+add_action( 'widgets_init', create_function( '', "register_widget( 'DWQA_Popular_Question_Widget' );" ) );
 
 ?>

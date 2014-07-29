@@ -20,17 +20,22 @@
 						<div class="dwqa-author">
 							<?php echo get_avatar( $post->post_author, 64, false ); ?>
 							<span class="author">
-								<?php  
-									if ( dwqa_is_anonymous( $post->ID ) ) {
-										_e( 'Anonymous', 'dwqa' );
-									} else {
-										printf( '<a href="%1$s" title="%2$s %3$s">%3$s</a>', get_author_posts_url( get_the_author_meta( 'ID' ) ), __( 'Posts by', 'dwqa' ), get_the_author_meta(  'display_name') );
-									}
+							<?php if ( dwqa_is_anonymous( $post->ID ) ) : ?>
+									<?php _e( 'Anonymous', 'dwqa' ); ?>
+							<?php else : ?>
+								<?php
+									printf( 
+										'<a href="%1$s" title="%2$s %3$s">%3$s</a>',
+										get_author_posts_url( get_the_author_meta( 'ID' ) ),
+										__( 'Posts by', 'dwqa' ),
+										get_the_author_meta( 'display_name' ) 
+									);
 								?>
+							<?php endif; ?>
 							</span><!-- Author Info -->
 							<span class="dwqa-date">
 								<?php 
-									printf( '<a href="%s" title="%s #%d">%s %s</a>', get_permalink(), __( 'Link to', 'dwqa' ), $post_id, __( 'asked', 'dwqa' ), get_the_date() ) ; 
+									printf( '<a href="%s" title="%s #%d">%s %s</a>', get_permalink(), __( 'Link to', 'dwqa' ), $post_id, __( 'asked', 'dwqa' ), get_the_date() ); 
 								?>
 							</span> <!-- Question Date -->
 						</div>
@@ -39,10 +44,8 @@
 					<div class="dwqa-content">
 						<?php the_content(); ?>
 					</div>
-					<?php  
-						$tags = get_the_term_list( $post_id, 'dwqa-question_tag', '<span class="dwqa-tag">', '</span><span class="dwqa-tag">', '</span>' );
-						if ( ! empty( $tags ) ) :
-					?>
+					<?php $tags = get_the_term_list( $post_id, 'dwqa-question_tag', '<span class="dwqa-tag">', '</span><span class="dwqa-tag">', '</span>' ); ?>
+					<?php if ( ! empty( $tags ) ) : ?>
 					<div class="dwqa-tags"><?php echo $tags; ?></div>
 					<?php endif; ?>  <!-- Question Tags -->
 

@@ -28,7 +28,7 @@ if ( is_wp_error( $dwqa_current_error ) ) {
 							'show_option_none' => __( 'Select question category','dwq' ),
 							'hide_empty'    => 0,
 							'quicktags'     => array( 'buttons' => 'strong,em,link,block,del,ins,img,ul,ol,li,code,spell,close' ),
-							'selected'      => isset( $_POST['question-category'] ? esc_html( $_POST['question-category'] ) : false ),
+							'selected'      => isset( $_POST['question-category'] ) ? esc_html( $_POST['question-category'] ) : false,
 						) );
 					?>
 				</div>   
@@ -74,7 +74,7 @@ if ( is_wp_error( $dwqa_current_error ) ) {
 			<?php if ( dwqa_is_captcha_enable_in_submit_question() ) {
 				$public_key = isset( $dwqa_general_settings['captcha-google-public-key'] ) ?  $dwqa_general_settings['captcha-google-public-key'] : '';
 				echo '<div class="google-recaptcha">';
-				echo recaptcha_get_html( $public_ky );
+				echo recaptcha_get_html( $public_key );
 				echo '<br></div>';
 			} ?>
 			

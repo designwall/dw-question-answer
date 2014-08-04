@@ -136,13 +136,13 @@ function dwqa_add_answer() {
 				
 				break;
 			case 'update-answer':
-				if ( ! isset( $_POST['answer_id'] ) ) {
+				if ( ! isset( $_POST['answer-id'] ) ) {
 					wp_send_json_error( array(
 						'message'   => __( 'Answer is missing', 'dwqa' )
 					) );
 				}
 
-				$answer_id = intval( $_POST['answer_id'] );
+				$answer_id = intval( $_POST['answer-id'] );
 				$answer_author = get_post_field( 'post_author', $answer_id  );
 				
 				global $current_user;

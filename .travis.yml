@@ -8,11 +8,11 @@ env:
     # Trunk
     # @link https://github.com/WordPress/WordPress
     - WP_VERSION=master WP_MULTISITE=0
-    # - WP_VERSION=master WP_MULTISITE=1
+    - WP_VERSION=master WP_MULTISITE=1
     # WordPress 3.9
     # @link https://github.com/WordPress/WordPress/tree/3.9-branch
-    # - WP_VERSION=3.9 WP_MULTISITE=0
-    # - WP_VERSION=3.9 WP_MULTISITE=1
+    - WP_VERSION=3.9 WP_MULTISITE=0
+    - WP_VERSION=3.9 WP_MULTISITE=1
 
 before_script:
     # Set up WordPress installation.

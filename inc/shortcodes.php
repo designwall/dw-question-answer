@@ -78,7 +78,11 @@ class DWQA_Shortcode {
 		$dwqa_template_compat->remove_all_filters( 'the_content' );
 
 		echo '<div class="dwqa-container" >';
+		if ( dwqa_current_user_can( 'post_question' ) ) {
 			dwqa_load_template( 'question', 'submit-form' );
+		} else {
+			echo '<p class="alert alert-error">'.__( 'You do not have permission to submit question.', 'dwqa' ).'</p>';
+		}
 		echo '</div>';
 		$html = ob_get_contents();
 

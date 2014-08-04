@@ -412,7 +412,8 @@ function dwqa_submit_question() {
 				if ( dwqa_current_user_can( 'post_question' ) ) {
 					$new_question = dwqa_insert_question( $postarr );
 				} else {
-					$new_question = new WP_Error( 'permission', __( 'You do not have permission to submit question.', 'dwqa' ) );
+					$dwqa_submit_question_errors->add( 'submit_question',  __( 'You do not have permission to submit question.', 'dwqa' ) );
+					$new_question = $dwqa_submit_question_errors;
 				}
 
 				if ( ! is_wp_error( $new_question ) ) {
@@ -421,9 +422,7 @@ function dwqa_submit_question() {
 						update_post_meta( $new_question, '_dwqa_is_anonymous', true );
 					}
 					exit( wp_safe_redirect( get_permalink( $new_question ) ) );
-				} else {
-					$dwqa_current_error = $new_question;
-				}   
+				}
 			} else {
 				$dwqa_submit_question_errors->add( 'submit_question', __( 'Captcha is not correct','dwqa' ) );
 			}
@@ -431,7 +430,6 @@ function dwqa_submit_question() {
 			$dwqa_submit_question_errors->add( 'submit_question', __( 'Are you cheating huh?','dwqa' ) );
 		}
 		$dwqa_current_error = $dwqa_submit_question_errors;
-
 	}
 }
 add_action( 'init','dwqa_submit_question', 11 );
@@ -1665,65 +1663,6 @@ function dwqa_hook_on_update_anonymous_post( $data, $postarr ) {
 	return $data;
 }
 add_filter( 'wp_insert_post_data', 'dwqa_hook_on_update_anonymous_post', 10, 2 );
-
-
-function dwqa_anonymous_reload_hidden_single_post( $posts ) {
-	global $wp_query, $wpdb, $dwqa_options;
-
-	if ( is_user_logged_in() ) 
-		return $posts;
-	//user is not logged
-	if ( ! is_single() ) 
-		return $posts;
-	//this is a single post
-
-	if ( ! $wp_query->is_main_query() )
-		return $posts;
-	//this is the main query
-
-	if ( $wp_query->post_count ) 
-		return $posts;
-
-	if ( ! isset( $wp_query->query['post_type'] ) || $wp_query->query['post_type'] != 'dwqa-question' ) {
-		return $posts;
-	}
-	$question = $posts[0];
-
-	//This is a pending question
-	if ( 'pending' == get_post_status( $question->ID ) || 'private' == get_post_status( $question->ID ) ) {
-		$warning_page_id = isset( $dwqa_options['pages']['404'] ) ? $dwqa_options['pages']['404'] : false;
-		if ( ! dwqa_current_user_can( 'edit_question' ) && $warning_page_id ) {
-			
-
-			$warning_page = wp_cache_get( 'dwqa-warning-page' );
-			if ( $warning_page == false ) {
-				$query = $wpdb->prepare( 'SELECT * FROM '.$wpdb->prefix.'posts WHERE ID = %d ',
-					$warning_page_id
-				);
-				$warning_page = $wpdb->get_results( $query );
-				wp_cache_set( 'dwqa-warning-page', $warning_page );
-			}
-			return $warning_page;
-		}
-		return $posts;
-	}
-
-	//this is a question which was submitted by anonymous user
-	if ( ! dwqa_is_anonymous( $question->ID ) ) 
-		return $posts;
-		
-	$anonymous_author_view = get_post_meta( $question->ID, '_anonymous_author_view', true );
-	$anonymous_author_view = $anonymous_author_view  ? $anonymous_author_view  : 0;
-
-	if ( $anonymous_author_view > 3 ) 
-		return $posts;
-	$anonymous_author_view++;
-	update_post_meta( $question->ID, '_anonymous_author_view', $anonymous_author_view );
-
-	return $questions;
-}
-add_filter( 'the_posts','dwqa_anonymous_reload_hidden_single_post' );
-
 
 function dwqa_comment_author_link_anonymous( $comment ) {
 	// global $current_comment;

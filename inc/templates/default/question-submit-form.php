@@ -4,7 +4,7 @@
 <div id="submit-question" class="dwqa-submit-question">    
 <?php  
 if ( is_wp_error( $dwqa_current_error ) ) {
-	$error_messages = $dwqa_current_error->get_error_message( );
+	$error_messages = $dwqa_current_error->get_error_messages( );
 	
 	if ( ! empty( $error_messages ) ) {
 		echo '<div class="alert alert-error">';

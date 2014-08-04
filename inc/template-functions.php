@@ -680,22 +680,22 @@ function dwqa_question_status_button( $post_id = false ) {
 					<ul role="menu" data-nonce="<?php echo wp_create_nonce( '_dwqa_update_question_status_nonce' ) ?>" data-question="<?php the_ID(); ?>">
 						<?php if ( 'resolved' == $meta || 'pending' == $meta || 'closed' == $meta ) : ?>
 							<li class="dwqa-re-open" data-status="re-open">
-								<a href="#"><i class="fa fa-reply"></i> <?php _e( 'Re-Open','dwqa' ) ?></a>
+								<a href="#"><i class="fa fa-reply"></i> <?php _e( 'Re-Open', 'dwqa' ) ?></a>
 							</li>
 						<?php endif; ?>
 						<?php if ( 'closed' != $meta  ) : ?>
 							<li class="dwqa-closed" data-status="closed">
-								<a href="#"><i class="fa fa-lock"></i> <?php _e( 'Closed','dwqa' ) ?></a>
+								<a href="#"><i class="fa fa-lock"></i> <?php _e( 'Closed', 'dwqa' ) ?></a>
 							</li>
 						<?php endif; ?>
 						<?php if ( 'pending' != $meta && 'closed' != $meta && current_user_can( 'edit_posts', $post_id ) ) : ?>
 							<li class="dwqa-pending"  data-status="pending">
-								<a href="#"><i class="fa fa-question-circle"></i> <?php _e( 'Pending','dwqa' ) ?></a>
+								<a href="#"><i class="fa fa-question-circle"></i> <?php _e( 'Pending', 'dwqa' ) ?></a>
 							</li>
 						<?php endif; ?>
 						<?php if ( 'resolved' != $meta && 'closed' != $meta ) : ?>
 							<li class="dwqa-resolved" data-status="resolved">
-								<a href="#"><i class="fa fa-check-circle-o"></i> <?php _e( 'Resolved','dwqa' ) ?></a>
+								<a href="#"><i class="fa fa-check-circle-o"></i> <?php _e( 'Resolved', 'dwqa' ) ?></a>
 							</li>
 						<?php endif; ?>
 					</ul>

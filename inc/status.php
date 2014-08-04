@@ -158,19 +158,23 @@ function dwqa_have_new_comment( $question_id = false ) {
 	$comments = get_comments( array(
 		'status'    => 'approve',
 		'post_id'   => $question_id,
-	) );    
-	if ( count( $comments ) > 0 ) {
+	) );   
+
+	if ( ! empty( $comments ) ) {
 		$lastest_comment = $comments[0];
 	}
 
-	$answers = get_posts(  array(
-		'numberposts'	=> -1,
-		'meta_key'		=> '_question',
-		'meta_value'	=> $question_id,
-		'post_type' 	=> 'dwqa-answer',
-		'post_status'	=> 'publish',
-	) );
-	if ( count( $answers ) > 0 ) {
+	$answers = wp_cache_get( 'dwqa-answers-for-'.$question_id, 'dwqa' );
+	if ( false == $answers ) {
+		global $wpdb;
+		$query = "SELECT `{$wpdb->posts}`.ID FROM `{$wpdb->posts}` JOIN `{$wpdb->postmeta}` ON `{$wpdb->posts}`.ID = `{$wpdb->postmeta}`.post_id  WHERE 1=1 AND `{$wpdb->postmeta}`.meta_key = '_question' AND `{$wpdb->postmeta}`.meta_value = {$question_id} AND `{$wpdb->posts}`.post_status = 'publish' AND `{$wpdb->posts}`.post_type = 'dwqa-answer'";
+
+		$answers = $wpdb->get_results( $query );
+
+		wp_cache_set( 'dwqa-answers-for'.$question_id, $answers, 'dwqa', 21600 );
+	}
+
+	if ( ! empty( $answers ) ) {
 		//Comment of answers
 		foreach ( $answers as $answer ) {
 			$comments = get_comments( array( 
@@ -211,7 +215,6 @@ function dwqa_have_new_comment( $question_id = false ) {
 // Get new reply
 function dwqa_get_latest_answer( $question_id ) {
 	$args = array(
-		'numberposts'   => 1,
 		'post_type' => 'dwqa-answer',
 		'meta_query' => array(
 			array(
@@ -228,8 +231,6 @@ function dwqa_get_latest_answer( $question_id ) {
 	}
 	return false;
 }
-
-
 
 /**
  * All status of the Answer

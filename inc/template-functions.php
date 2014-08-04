@@ -529,7 +529,7 @@ function dwqa_display_sticky_questions(){
 		$query = array(
 			'post_type' => 'dwqa-question',
 			'post__in' => $sticky_questions,
-			'posts_per_page' => -1,
+			'posts_per_page' => 40,
 		);
 		query_posts( $query );
 		?>

@@ -486,7 +486,6 @@ function dwqa_question_answers_count( $question_id = null ) {
 
 	$args = array(
 	   'post_type' => 'dwqa-answer',
-	   'posts_per_page' => -1,
 	   'post_status' => 'publish',
 	   'meta_query' => array(
 			array(
@@ -498,7 +497,7 @@ function dwqa_question_answers_count( $question_id = null ) {
 	   'fields' => 'ids',
 	);
 	$answers = new WP_Query( $args );
-	return $answers->post_count;
+	return $answers->found_posts;
 }
 
 /**
@@ -1056,17 +1055,22 @@ function dwqa_get_the_best_answer( $question_id = false ) {
 		return $user_vote;
 	}
 
-	global $wpdb;
+	$answer_id = wp_cache_get( 'dwqa-best-answer-for-' . $question_id, 'dwqa' );
+	
+	if ( false == $answer_id ) {
+		global $wpdb;
+		$query = "SELECT `post_id` FROM `{$wpdb->prefix}postmeta` LEFT JOIN `{$wpdb->prefix}posts` 
+					ON `{$wpdb->prefix}postmeta`.post_id = `{$wpdb->prefix}posts`.ID   
+					WHERE `post_id` 
+						IN ( SELECT  `post_id` FROM `{$wpdb->prefix}postmeta` 
+								WHERE `meta_key` = '_question' AND `meta_value` = {$question_id} ) 
+						AND `meta_key` = '_dwqa_votes'
+						ORDER BY CAST( `meta_value` as DECIMAL ) DESC LIMIT 0,1";
+		$answer_id = $wpdb->get_var( $query );
 
-	$query = "SELECT `post_id` FROM `{$wpdb->prefix}postmeta` LEFT JOIN `{$wpdb->prefix}posts` 
-				ON `{$wpdb->prefix}postmeta`.post_id = `{$wpdb->prefix}posts`.ID   
-				WHERE `post_id` 
-					IN ( SELECT  `post_id` FROM `{$wpdb->prefix}postmeta` 
-							WHERE `meta_key` = '_question' AND `meta_value` = {$question_id} ) 
-					AND `meta_key` = '_dwqa_votes'
-					ORDER BY CAST( `meta_value` as DECIMAL ) DESC LIMIT 0,1";
+		wp_cache_set( 'dwqa-best-answer-for-'.$question_id, $answer_id, 'dwqa', 21600 );
+	}
 
-	$answer_id = $wpdb->get_var( $query );
 
 	if ( $answer_id && ( int ) dwqa_vote_count( $answer_id ) > 2 ) {
 		return $answer_id;
@@ -1094,7 +1098,7 @@ function dwqa_user_get_draft( $question_id = false ) {
 
 	$answers = get_posts(  array(
 	   'post_type' => 'dwqa-answer',
-	   'posts_per_page' => 1,
+	   'posts_per_page' => 40,
 	   'meta_query' => array(
 			array(
 				'key' => '_question',
@@ -1128,7 +1132,7 @@ function dwqa_get_drafts( $question_id = false ) {
 
 	$answers = get_posts(  array(
 		'post_type' => 'dwqa-answer',
-		'posts_per_page' => -1,
+		'posts_per_page' => 40,
 		'meta_query' => array(
 			array(
 				'key' => '_question',
@@ -1143,24 +1147,6 @@ function dwqa_get_drafts( $question_id = false ) {
 		return $answers;
 	}
 	return false;
-}
-
-function dwqa_user_question_number( $user_id ) {
-	global $wpdb;
- 
-	$where = get_posts_by_author_sql( 'dwqa-question', true, $user_id, true );
-	$count = $wpdb->get_var( "SELECT COUNT( * ) FROM $wpdb->posts $where" );
-
-	return apply_filters( 'get_usernumposts', $count, $user_id );
-}
-
-function dwqa_user_answer_number( $user_id ) {
-	global $wpdb;
- 
-	$where = get_posts_by_author_sql( 'dwqa-answer', true, $user_id, true );
-	$count = $wpdb->get_var( "SELECT COUNT( * ) FROM $wpdb->posts $where" );
-
-	return apply_filters( 'get_usernumposts', $count, $user_id );
 }
 
 function dwqa_get_mail_template( $option, $name = '' ) {
@@ -1273,21 +1259,16 @@ function dwqa_vote_best_answer_button() {
 	}
 }
 
-
-
 function dwqa_user_post_count( $user_id, $post_type = 'post' ) {
-	$posts = get_posts( array(
+	$posts = new WP_Query( array(
 		'author' => $user_id,
-		'post_status'  => array( 'publish', 'private' ),
-		'post_type'   => $post_type,
-		'posts_per_page' => -1,
+		'post_status'		=> array( 'publish', 'private' ),
+		'post_type'			=> $post_type,
 		'fields' => 'ids',
 	) );
-	if ( $posts ) {
-		return count( $posts );
-	}
-	return 0;
+	return $posts->found_posts;
 }
+
 function dwqa_user_question_count( $user_id ) {
 	return dwqa_user_post_count( $user_id, 'dwqa-question' );
 }
@@ -1628,23 +1609,8 @@ function dwqa_delete_question() {
 	global $current_user;
 	if ( dwqa_current_user_can( 'delete_question', $question->ID ) ) {
 		//Get all answers that is tired with this question
-		$answers = get_posts( array(
-			'post_type' => 'dwqa-answer',
-			'meta_query'    => array(
-				array(
-					'key' => '_question',
-					'value' => $question->ID,
-				),
-			),
-			'posts_per_page' => -1,
-		) );
+		do_action( 'before_delete_post', $question->ID );
 
-		if ( ! empty( $answers ) ) {
-			foreach ( $answers as $anw ) {
-				wp_delete_post( $anw->ID );
-				update_post_meta( $anw->ID, '_dwqa_delete_question', true );
-			}
-		}
 		$delete = wp_delete_post( $question->ID );
 
 		if ( $delete ) {
@@ -1671,15 +1637,18 @@ add_action( 'wp_ajax_dwqa-delete-question', 'dwqa_delete_question' );
 
 function dwqa_hook_on_remove_question( $post_id ) {
 	if ( 'dwqa-question' == get_post_type( $post_id ) ) {
-		$answers = get_posts( array(
-			'post_type'         => 'dwqa-answer',
-			'posts_per_page'    => -1,
-			'post_status'       => 'any',
-			'meta_key'          => '_question',
-			'meta_value'        => $post_id,
-			'fields'            => 'ids',
-		) );
-		if ( count( $answers ) > 0 ) {
+		$answers = wp_cache_get( 'dwqa-answers-for-'.$question_id, 'dwqa' );
+
+		if ( false == $answers ) {
+			global $wpdb;
+			$query = "SELECT `{$wpdb->posts}`.ID FROM `{$wpdb->posts}` JOIN `{$wpdb->postmeta}` ON `{$wpdb->posts}`.ID = `{$wpdb->postmeta}`.post_id  WHERE 1=1 AND `{$wpdb->postmeta}`.meta_key = '_question' AND `{$wpdb->postmeta}`.meta_value = {$question_id} AND `{$wpdb->posts}`.post_status = 'publish' AND `{$wpdb->posts}`.post_type = 'dwqa-answer'";
+
+			$answers = $wpdb->get_results( $query );
+
+			wp_cache_set( 'dwqa-answers-for'.$question_id, $answers, 'dwqa', 21600 );
+		}
+
+		if ( ! empty( $answers ) ) {
 			foreach ( $answers as $answer ) {
 				wp_trash_post( $answer->ID );
 			}
@@ -1764,4 +1733,5 @@ function dwqa_comment_author_link_anonymous( $comment ) {
 	return $comment;
 }
 add_filter( 'get_comment', 'dwqa_comment_author_link_anonymous' );
+
 ?>

@@ -50,20 +50,17 @@ function dwqa_schedule_events() {
 add_action( 'wp', 'dwqa_schedule_events' );
 
 function dwqa_do_this_hourly() {
-	$questions = get_posts(  array(
-		'numberposts' => -1,
-		'meta_query' => array(
-				array(
-					'key' => '_dwqa_status',
-					'value' => 'closed',
-					'compare' => '=',
-				),
-		   ),
-		'post_type' => 'dwqa-question',
-		'post_status' => 'publish',
-	) );
-	if ( count( $questions ) > 0 ) {
-		foreach ( $questions as $q ) {
+	$closed_questions = wp_cache_get( 'dwqa-closed-question' );
+	if ( false == $closed_questions ) {
+		global $wpdb;
+		$query = "SELECT `{$wpdb->posts}`.ID FROM `{$wpdb->posts}` JOIN `{$wpdb->postmeta}` ON `{$wpdb->posts}`.ID = `{$wpdb->postmeta}`.post_id WHERE 1=1 AND `{$wpdb->postmeta}`.meta_key = '_dwqa_status' AND `{$wpdb->postmeta}`.meta_value = 'closed' AND `{$wpdb->posts}`.post_status = 'publish' AND `{$wpdb->posts}`.post_type = 'dwqa-question'";
+		$closed_questions = $wpdb->get_results( $query );
+		
+		wp_cache_set( 'dwqa-closed-question', $closed_questions );
+	}
+
+	if ( ! empty( $closed_questions ) ) {
+		foreach ( $closed_questions as $q ) {
 			$resolved_time = get_post_meta( $q->ID, '_dwqa_resolved_time', true );
 			if ( dwqa_is_resolved( $q->ID ) && ( time() - $resolved_time > (3 * 24 * 60 * 60 ) ) ) {
 				update_post_meta( $q->ID, '_dwqa_status', 'resolved' );

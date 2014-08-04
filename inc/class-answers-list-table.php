@@ -19,7 +19,7 @@ class DWQA_answer_list_table extends WP_List_Table {
 	 * @abstract
 	 */
 	function prepare_items() {
-		global $post;
+		global $avail_post_stati, $wp_query, $per_page, $mode, $post;
 
 		$columns = $this->get_columns();
 		$hidden = array();
@@ -34,10 +34,16 @@ class DWQA_answer_list_table extends WP_List_Table {
 		 */
 		$this->_column_headers = array( $columns, $hidden, $sortable );
 
+		$post_type = 'dwqa-answer';
+		$per_page = $this->get_items_per_page( 'edit_' . $post_type . '_per_page' );
+
+		/** This filter is documented in wp-admin/includes/post.php */
+ 		$per_page = apply_filters( 'edit_posts_per_page', $per_page, $post_type );
+
 		$question_id = $post->ID;
 		$args = array(
 			'post_type' => 'dwqa-answer',
-			'posts_per_page' => -1,
+			'posts_per_page' => $per_page,
 			'order'      => 'ASC',
 			'meta_query' => array(
 				array(

@@ -3,35 +3,10 @@
 global $dwqa_options;
 $taxonomy = get_query_var( 'taxonomy' );
 $term_name = get_query_var( $taxonomy );
-if ( $taxonomy == 'dwqa-question_category' ) { 
-	$args = array(
-		'post_type' => 'dwqa-question',
-		'posts_per_page'	=>	-1,
-		'tax_query' => array(
-			array(
-				'taxonomy' => $taxonomy,
-				'field' => 'slug',
-				'terms' => $term_name,
-			),
-		),
-	);
-	$query = new WP_Query( $args );
-	$total = $query->post_count;
-} elseif ( 'dwqa-question_tag' == $taxonomy ) {
 
-	$args = array(
-		'post_type' => 'dwqa-question',
-		'posts_per_page'	=>	-1,
-		'tax_query' => array(
-			array(
-				'taxonomy' => $taxonomy,
-				'field' => 'slug',
-				'terms' => $term_name,
-			),
-		),
-	);
-	$query = new WP_Query( $args );
-	$total = $query->post_count;
+if ( $taxonomy && $term_name ) {
+	$term = get_term_by( 'slug', $term_name, $taxonomy );
+	$total = $term->count;
 } else {
 	$post_count = wp_count_posts( 'dwqa-question' );
 	$total = $post_count->publish;

@@ -2,7 +2,7 @@
 <ruleset name="Subtitles WordPress Plugin Coding Standards">
 	<!-- Set a description for this ruleset. -->
 	<description>A custom set of code standard rules to check for Subtitles.</description>
-
+	<exclude-pattern>/lib/*</exclude-pattern>
 	<!-- Include the WordPress ruleset, with exclusions. -->
 	<rule ref="WordPress">
 		<exclude name="WordPress.XSS.EscapeOutput" />

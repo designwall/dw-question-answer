@@ -7,7 +7,7 @@ $best_answer_id = dwqa_get_the_best_answer( $question_id );
 $status = array( 'publish', 'private' );
 $args = array(
 	'post_type' 		=> 'dwqa-answer',
-	'posts_per_page' 	=> -1,
+	'posts_per_page' 	=> 40,
 	'order'      		=> 'ASC',
 	'meta_query' 		=> array(
 		array(
@@ -24,7 +24,7 @@ $count = 0;
 
 foreach ( $answers->posts as $answer ) {
 	if ( $answer->post_status == 'private' ) {
-		if ( is_user_logged_in() && ( $current_user->ID == $question->post_author || $current_user->ID == $answer->post_author || dwqa_current_user_can( 'edit_question' ) || dwqa_current_user_can( 'edit_answer' ) ) ) {
+		if ( dwqa_current_user_can( 'edit_answer', $answer->ID ) ) {
 			$count++;
 		}
 	} elseif ( $answer->post_status == 'publish' ) {

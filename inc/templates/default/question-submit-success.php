@@ -20,11 +20,12 @@
     <div class="row-fluid">
         <div class="span6">
         <?php 
+            //Count post for custom post type, and custom post status
             $latest = array(); $i = 0;
             $latest[] = $post->ID;
             $args = array(
                 'post_type' => 'dwqa-question',
-                'posts_per_page' => -1,
+                'posts_per_page' => 10,
                 'orderby' => 'date',
                 'order' => 'DESC',
                 'post__not_in' => array( $post->ID ),
@@ -43,7 +44,7 @@
         <h3><?php echo 'Latest ' . ( $latest_query->found_posts > 10 ? 10 : $latest_query->found_posts ) . ' open questions awaiting for your answers'; ?></h3>
         <ul class="dwqa-latest-questions">
             <?php  while ( $latest_query->have_posts() ) : $latest_query->the_post(); ?>
-                <?php $i++; $latest[] = get_the_ID(); ?>
+                <?php $latest[] = get_the_ID(); ?>
                 <li>
                  <a href="<?php the_permalink(); ?>" class="question-title"><?php the_title(); ?></a>
                  <div class="dwqa-meta">
@@ -55,7 +56,6 @@
                  </div>
                 </li>
             <?php
-                    if ( $i == 10 ) break;
                 endwhile;
             ?>
         </ul>

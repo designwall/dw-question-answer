@@ -572,9 +572,9 @@ function dwqa_get_ask_question_link( $echo = true, $label = false, $class = fals
 
 
 		if ( dwqa_current_user_can( 'post_question' ) ) {
-			$label = $label ? $label : __( 'Ask a question','dwqa' );
+			$label = $label ? $label : __( 'Ask a question', 'dwqa' );
 		} elseif ( ! is_user_logged_in() ) {
-			$label = $label ? $label : __( 'Login to ask a question','dwqa' );
+			$label = $label ? $label : __( 'Login to ask a question', 'dwqa' );
 			$submit_question_link = wp_login_url( $submit_question_link );
 		} else {
 			return false;
@@ -737,9 +737,9 @@ function dwqa_question_meta_button( $post_id = false ) {
 
 		<?php if ( is_user_logged_in() ) : ?>
 		<span data-post="<?php echo $post_id; ?>" data-nonce="<?php echo wp_create_nonce( '_dwqa_follow_question' ); ?>" class="dwqa-favourite <?php echo dwqa_is_followed( $post_id ) ? 'active' : ''; ?>" title="<?php echo dwqa_is_followed( $post_id ) ? __( 'Unfollow This Question','dwqa' ) : __( 'Follow This Question','dwqa' ); ?>"><!-- add class 'active' -->
-			<span class="dwpa_follow"><?php _e( 'follow','dwqa' ) ?></span>
-			<span class="dwpa_following"><?php _e( 'following','dwqa' ) ?></span>
-			<span class="dwpa_unfollow"><?php _e( 'unfollow','dwqa' ) ?></span>
+			<span class="dwpa_follow"><?php _e( 'follow', 'dwqa' ) ?></span>
+			<span class="dwpa_following"><?php _e( 'following', 'dwqa' ) ?></span>
+			<span class="dwpa_unfollow"><?php _e( 'unfollow', 'dwqa' ) ?></span>
 		</span>
 		<?php endif; ?>
 

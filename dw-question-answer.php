@@ -139,9 +139,9 @@ function dwqa_plugin_init() {
 
 	/* Question Posttype Registration */
 	$question_labels = array(
-		'name' => _x( 'Question', 'post type general name' ),
-		'singular_name' => _x( 'Question', 'post type singular name' ),
-		'add_new' => _x( 'Add New', 'theme' ),
+		'name' => __( 'Question', 'dwqa' ),
+		'singular_name' => __( 'Question', 'dwqa' ),
+		'add_new' => __( 'Add New', 'theme' ),
 		'add_new_item' => __( 'Add New Question', 'dwqa' ),
 		'edit_item' => __( 'Edit Question' ),
 		'new_item' => __( 'New Question', 'dwqa' ),
@@ -183,9 +183,9 @@ function dwqa_plugin_init() {
 	
 	/* Question Posttype Registration */
 	$answer_labels = array(
-		'name' => _x( 'Answer', 'post type general name' ),
-		'singular_name' => _x( 'Answer', 'post type singular name' ),
-		'add_new' => _x( 'Add New', 'theme' ),
+		'name' => __( 'Answer', 'dwqa' ),
+		'singular_name' => __( 'Answer', 'dwqa' ),
+		'add_new' => __( 'Add New', 'dwqa' ),
 		'add_new_item' => __( 'Add new answer', 'dwqa' ),
 		'edit_item' => __( 'Edit answer', 'dwqa' ),
 		'new_item' => __( 'New Answer', 'dwqa' ),

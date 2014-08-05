@@ -556,7 +556,7 @@ function dwqa_single_template_options() {
 						<?php if ( is_dir( $file ) || strpos( $file, '.' === 0 ) || $ext != 'php' ) continue; ?>
 					<option <?php selected( $selected, $file ); ?> value="<?php echo $file; ?>"><?php echo $file ?></option>
 					<?php endforeach; ?>
-				</select> <span class="description"><?php _e( 'By default, your single.php template file will be used if you do not choose any template','dwqa' ) ?></span>
+				</select> <span class="description"><?php _e( 'By default, your single.php template file will be used if you do not choose any template', 'dwqa' ) ?></span>
 			</label>
 		</p>
 	<?php
@@ -651,7 +651,7 @@ class DWQA_Settings {
 
 		add_settings_field( 
 			'dwqa_options[single-template]', 
-			__( 'Single Question Template','dwqa' ), 
+			__( 'Single Question Template', 'dwqa' ), 
 			'dwqa_single_template_options', 
 			'dwqa-settings', 
 			'dwqa-general-settings' 

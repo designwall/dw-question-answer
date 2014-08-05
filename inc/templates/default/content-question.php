@@ -11,7 +11,7 @@
 			<div class="dwqa-meta">
 				<?php dwqa_question_print_status( $post_id ); ?>               
 				<?php echo dwqa_get_latest_action_date(); ?>
-				<?php echo get_the_term_list( $post_id, 'dwqa-question_category', '&nbsp;&nbsp;<strong>&sdot;</strong>&nbsp;&nbsp;<span>Category: ', ', ', '</span>' ); ?>    
+				<?php echo get_the_term_list( $post_id, 'dwqa-question_category', '&nbsp;&nbsp;<strong>&sdot;</strong>&nbsp;&nbsp;<span>'.__( 'Category', 'dwqa' ).': ', ', ', '</span>' ); ?>    
 
 				<?php do_action( 'dwqa_question_meta' ); ?>  
 			</div>

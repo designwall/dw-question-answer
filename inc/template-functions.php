@@ -671,7 +671,7 @@ function dwqa_question_status_button( $post_id = false ) {
 		?>
 		<span class="dwqa-change-status">
 			<div class="dwqa-btn-group">
-				<button type="button" class="dropdown-toggle" ><?php echo $meta; ?> <i class="fa fa-caret-down"></i></button>
+				<button type="button" class="dropdown-toggle" ><?php echo dwqa_question_get_status_name( $meta ); ?> <i class="fa fa-caret-down"></i></button>
 				<div class="dwqa-dropdown-menu" data-nonce="<?php echo wp_create_nonce( '_dwqa_update_question_status_nonce' ) ?>" data-question="<?php the_ID(); ?>" >
 					<div class="dwqa-dropdown-caret">
 						<span class="dwqa-caret-outer"></span>

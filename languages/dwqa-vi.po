@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DW Question Answer v1.3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-04 15:22+0700\n"
-"PO-Revision-Date: 2014-08-04 15:22+0700\n"
+"POT-Creation-Date: 2014-08-05 16:19+0700\n"
+"PO-Revision-Date: 2014-08-05 16:19+0700\n"
 "Last-Translator: DesignWall <webmaster@designwall.com>\n"
 "Language-Team: \n"
 "Language: vi_VN\n"
@@ -623,7 +623,6 @@ msgstr "Captcha không đúng"
 
 # @ dwqa
 #: inc/actions.php:141
-#, fuzzy
 msgid "Answer is missing"
 msgstr "Trả lời câu hỏi này"
 
@@ -734,7 +733,6 @@ msgstr "Xin chào, bạn đang lừa dối phải phải không?"
 
 # @ dwqa
 #: inc/actions.php:877
-#, fuzzy
 msgid "The question is missing"
 msgstr "Câu hỏi này hiện đang đóng"
 
@@ -1131,7 +1129,6 @@ msgstr "Cho phép thông báo cho câu trả lời mới"
 
 # @ dwqa
 #: inc/settings.php:195
-#, fuzzy
 msgid "Enable notification for new answer (to Followers )"
 msgstr "Cho phép thông báo câu trả lời mới (tới người theo dõi)"
 
@@ -1417,7 +1414,6 @@ msgstr "Thông báo khi có bình luận mới của câu hỏi (tới người 
 
 # @ dwqa
 #: inc/settings.php:983
-#, fuzzy
 msgid "New Comment to Answer Notification (to Followers )"
 msgstr "Thông báo khi có bình luận mới của câu trả lời (tới người theo dõi)"
 
@@ -1807,6 +1803,11 @@ msgstr "Liên kết đến bình luận"
 #, php-format
 msgid "Permalink to %s"
 msgstr "Permalink tới %s"
+
+# @ dwqa
+#: inc/templates/default/content-question.php:14
+msgid "Category"
+msgstr "Danh mục đơn"
 
 # @ dwqa
 #: inc/templates/default/content-question.php:25

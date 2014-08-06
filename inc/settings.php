@@ -610,7 +610,7 @@ class DWQA_Settings {
 		if ( $option == 'dwqa_options' ) {
 			if ( $old_value['pages']['archive-question'] != $value['pages']['archive-question']  ) {
 				$questions_page_content = get_post_field( 'post_content', $value['pages']['archive-question'] );
-				if ( strpos( $questions_page_content, '[dwqa-list-questions]') === false ) {
+				if ( strpos( $questions_page_content, '[dwqa-list-questions]' ) === false ) {
 					$questions_page_content = str_replace( '[dwqa-submit-question-form]', '', $questions_page_content );
 					wp_update_post( array(
 						'ID'			=> $value['pages']['archive-question'],
@@ -621,7 +621,7 @@ class DWQA_Settings {
 
 			if ( $old_value['pages']['submit-question'] != $value['pages']['submit-question'] ) {
 				$submit_question_content = get_post_field( 'post_content', $value['pages']['submit-question'] );
-				if ( strpos( $submit_question_content, '[dwqa-submit-question-form]') === false ) {
+				if ( strpos( $submit_question_content, '[dwqa-submit-question-form]' ) === false ) {
 					$submit_question_content = str_replace( '[dwqa-list-questions]', '', $submit_question_content );
 					wp_update_post( array(
 						'ID'			=> $value['pages']['submit-question'],

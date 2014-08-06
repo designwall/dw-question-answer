@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DW Question Answer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-04 15:18+0700\n"
-"PO-Revision-Date: 2014-08-04 15:18+0700\n"
+"POT-Creation-Date: 2014-08-06 15:38+0700\n"
+"PO-Revision-Date: 2014-08-06 15:38+0700\n"
 "Last-Translator: DesignWall <webmaster@designwall.com>\n"
 "Language-Team: DesignWall &lt;webmaster@designwall.com&gt;\n"
 "Language: en\n"
@@ -16,342 +16,342 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../dw-question-answer.php:75
-msgid "DWQA Questions"
-msgstr "DWQA Perguntas"
-
-#: ../dw-question-answer.php:88
-msgid "DWQA Ask Question"
-msgstr "DWQA Faça uma pergunta"
-
-#: ../dw-question-answer.php:142 ../dw-question-answer.php:143
+#: ../dw-question-answer.php:61 ../dw-question-answer.php:62
 #: ../inc/settings.php:392
 msgid "Question"
 msgstr "Pergunta"
 
-#: ../dw-question-answer.php:144 ../dw-question-answer.php:188
+#: ../dw-question-answer.php:63 ../dw-question-answer.php:107
 #, fuzzy
 msgid "Add New"
 msgstr "Adicionar novo"
 
-#: ../dw-question-answer.php:145
+#: ../dw-question-answer.php:64
 msgid "Add New Question"
 msgstr "Adicionar nova pergunta"
 
-#: ../dw-question-answer.php:146
+#: ../dw-question-answer.php:65
 msgid "Edit Question"
 msgstr "Editar Pergunta"
 
-#: ../dw-question-answer.php:147 ../inc/settings.php:912
+#: ../dw-question-answer.php:66 ../inc/settings.php:971
 msgid "New Question"
 msgstr "Nova Pergunta"
 
-#: ../dw-question-answer.php:148
+#: ../dw-question-answer.php:67
 msgid "All Questions"
 msgstr "Todas as Perguntas"
 
-#: ../dw-question-answer.php:149
+#: ../dw-question-answer.php:68
 msgid "View Question"
 msgstr "Ver Pergunta"
 
-#: ../dw-question-answer.php:150
+#: ../dw-question-answer.php:69
 msgid "Search Question"
 msgstr "Pesquisar Pergunta"
 
-#: ../dw-question-answer.php:151
+#: ../dw-question-answer.php:70
 msgid "No questions found"
 msgstr "Nenhuma pergunta encontrada"
 
-#: ../dw-question-answer.php:152
+#: ../dw-question-answer.php:71
 msgid "No questions found in Trash"
 msgstr "Nenhuma pergunta encontrada na Lixeira"
 
-#: ../dw-question-answer.php:154
+#: ../dw-question-answer.php:73
 #, fuzzy
 msgid "DW Q&A"
 msgstr "DW P&amp;R"
 
-#: ../dw-question-answer.php:186 ../dw-question-answer.php:187
-#: ../dw-question-answer.php:198 ../dw-question-answer.php:514
+#: ../dw-question-answer.php:105 ../dw-question-answer.php:106
+#: ../dw-question-answer.php:117 ../dw-question-answer.php:534
 #: ../inc/settings.php:428 ../inc/templates/default/question-list.php:111
 msgid "Answer"
 msgstr "Resposta"
 
-#: ../dw-question-answer.php:189
+#: ../dw-question-answer.php:108
 msgid "Add new answer"
 msgstr "Adicionar nova resposta"
 
-#: ../dw-question-answer.php:190
+#: ../dw-question-answer.php:109
 msgid "Edit answer"
 msgstr "Editar resposta"
 
-#: ../dw-question-answer.php:191 ../inc/settings.php:913
+#: ../dw-question-answer.php:110 ../inc/settings.php:972
 msgid "New Answer"
 msgstr "Nova Resposta"
 
-#: ../dw-question-answer.php:192
+#: ../dw-question-answer.php:111
 msgid "All Answers"
 msgstr "Todas as Respostas"
 
-#: ../dw-question-answer.php:193
+#: ../dw-question-answer.php:112
 msgid "View Answer"
 msgstr "Ver Resposta"
 
-#: ../dw-question-answer.php:194
+#: ../dw-question-answer.php:113
 msgid "Search Answer"
 msgstr "Pesquisar Resposta"
 
-#: ../dw-question-answer.php:195
+#: ../dw-question-answer.php:114
 msgid "No Answers found"
 msgstr "Nenhuma Resposta encontrada"
 
-#: ../dw-question-answer.php:196
+#: ../dw-question-answer.php:115
 msgid "No Answers found in Trash"
 msgstr "Nenhuma Resposta encontrada no Lixo"
 
-#: ../dw-question-answer.php:228
+#: ../dw-question-answer.php:147
 msgctxt "taxonomy general name"
 msgid "Categories"
 msgstr "Categorias"
 
-#: ../dw-question-answer.php:229
+#: ../dw-question-answer.php:148
 msgctxt "taxonomy singular name"
 msgid "Category"
 msgstr "Categoria"
 
-#: ../dw-question-answer.php:230
+#: ../dw-question-answer.php:149
 msgid "Search Categories"
 msgstr "Pesquisar Categorias"
 
-#: ../dw-question-answer.php:231
+#: ../dw-question-answer.php:150
 msgid "All Categories"
 msgstr "Todas as Categorias"
 
-#: ../dw-question-answer.php:232
+#: ../dw-question-answer.php:151
 msgid "Parent Category"
 msgstr "Categoria Superior"
 
-#: ../dw-question-answer.php:233
+#: ../dw-question-answer.php:152
 msgid "Parent Category:"
 msgstr "Categoria Superior:"
 
-#: ../dw-question-answer.php:234
+#: ../dw-question-answer.php:153
 msgid "Edit Category"
 msgstr "Editar Categoria"
 
-#: ../dw-question-answer.php:235
+#: ../dw-question-answer.php:154
 msgid "Update Category"
 msgstr "Atualizar Categoria"
 
-#: ../dw-question-answer.php:236
+#: ../dw-question-answer.php:155
 msgid "Add New Category"
 msgstr "Adicionar Nova Categoria"
 
-#: ../dw-question-answer.php:237
+#: ../dw-question-answer.php:156
 msgid "New Category Name"
 msgstr "Nome da Nova Categoria"
 
-#: ../dw-question-answer.php:238
+#: ../dw-question-answer.php:157
 msgid "Question Categories"
 msgstr "Categorias de Perguntas"
 
-#: ../dw-question-answer.php:255
+#: ../dw-question-answer.php:174
 msgctxt "taxonomy general name"
 msgid "Tags"
 msgstr "Tags"
 
-#: ../dw-question-answer.php:256
+#: ../dw-question-answer.php:175
 msgctxt "taxonomy singular name"
 msgid "Tag"
 msgstr "Tag"
 
-#: ../dw-question-answer.php:257
+#: ../dw-question-answer.php:176
 msgid "Search Tags"
 msgstr "Pesquisas Tags"
 
-#: ../dw-question-answer.php:258
+#: ../dw-question-answer.php:177
 msgid "Popular Tags"
 msgstr "Tags Populares"
 
-#: ../dw-question-answer.php:259
+#: ../dw-question-answer.php:178
 msgid "All Tags"
 msgstr "Todas as Tags"
 
-#: ../dw-question-answer.php:262
+#: ../dw-question-answer.php:181
 msgid "Edit Tag"
 msgstr "Editar Tag"
 
-#: ../dw-question-answer.php:263
+#: ../dw-question-answer.php:182
 msgid "Update Tag"
 msgstr "Atualizar Tag"
 
-#: ../dw-question-answer.php:264
+#: ../dw-question-answer.php:183
 msgid "Add New Tag"
 msgstr "Adicionar Nova Tag"
 
-#: ../dw-question-answer.php:265
+#: ../dw-question-answer.php:184
 msgid "New Tag Name"
 msgstr "Nome da Nova Tag"
 
-#: ../dw-question-answer.php:266
+#: ../dw-question-answer.php:185
 msgid "Separate tags with commas"
 msgstr "Separe as tags com vírgulas"
 
-#: ../dw-question-answer.php:267
+#: ../dw-question-answer.php:186
 msgid "Add or remove tags"
 msgstr "Adicionar ou remover tags"
 
-#: ../dw-question-answer.php:268
+#: ../dw-question-answer.php:187
 msgid "Choose from the most used tags"
 msgstr "Escolher das tags mais usadas"
 
-#: ../dw-question-answer.php:269
+#: ../dw-question-answer.php:188
 #: ../inc/templates/default/question-submit-form.php:36
 msgid "Question Tags"
 msgstr "Tags de Perguntas"
 
-#: ../dw-question-answer.php:304 ../dw-question-answer.php:456
+#: ../dw-question-answer.php:233 ../dw-question-answer.php:476
 #: ../inc/filter.php:83 ../inc/templates/default/navigation-archive.php:70
 msgid "Next"
 msgstr "Próximo"
 
-#: ../dw-question-answer.php:305 ../dw-question-answer.php:457
+#: ../dw-question-answer.php:234 ../dw-question-answer.php:477
 #: ../inc/templates/default/navigation-archive.php:34
 msgid "Prev"
 msgstr "Anterior"
 
-#: ../dw-question-answer.php:307 ../dw-question-answer.php:459
+#: ../dw-question-answer.php:236 ../dw-question-answer.php:479
 msgid "Please enter your question"
 msgstr "Por favor digite sua pergunta"
 
-#: ../dw-question-answer.php:308
+#: ../dw-question-answer.php:237
 msgid "Your question must be at least 2 characters in length"
 msgstr "Sua pergunta precisa ter pelo menos 2 caracteres de tamanho"
 
-#: ../dw-question-answer.php:309
+#: ../dw-question-answer.php:238
 msgid "Enter a valid email address"
 msgstr "Informe um endereço de e-mail válido"
 
-#: ../dw-question-answer.php:310
+#: ../dw-question-answer.php:239
 msgid "Enter a question title"
 msgstr "Informe o título da pergunta"
 
-#: ../dw-question-answer.php:311
+#: ../dw-question-answer.php:240
 msgid "Please add your name"
 msgstr "Por favor digite seu nome"
 
-#: ../dw-question-answer.php:312 ../dw-question-answer.php:460
+#: ../dw-question-answer.php:241 ../dw-question-answer.php:480
 msgid "Please enter your answer"
 msgstr "Por favor digite a sua resposta"
 
-#: ../dw-question-answer.php:313 ../dw-question-answer.php:461
+#: ../dw-question-answer.php:242 ../dw-question-answer.php:481
 #: ../inc/actions.php:970
 msgid "Please enter your comment content"
 msgstr "Por favor digite o conteúdo do seu comentário"
 
-#: ../dw-question-answer.php:314 ../dw-question-answer.php:462
+#: ../dw-question-answer.php:243 ../dw-question-answer.php:482
 msgid "Comment must have more than 2 characters"
 msgstr "Comentários precisam ter mais de 2 caracteres"
 
-#: ../dw-question-answer.php:315
+#: ../dw-question-answer.php:244
 msgid "Not found! Try another keyword."
 msgstr "Não encontrado! Tente outra palavra chave."
 
-#: ../dw-question-answer.php:316
+#: ../dw-question-answer.php:245
 #, fuzzy
 msgid "Or press <strong>ENTER</strong> to get more questions"
 msgstr "Ou tecle &lt;strong&gt;ENTER&lt;/strong&gt; para ver mais perguntas"
 
-#: ../dw-question-answer.php:317 ../dw-question-answer.php:463
+#: ../dw-question-answer.php:246 ../dw-question-answer.php:483
 #: ../inc/actions.php:833 ../inc/actions.php:936
 msgid "Update"
 msgstr "Atualizar"
 
-#: ../dw-question-answer.php:318 ../dw-question-answer.php:464
-#: ../dw-question-answer.php:556 ../inc/settings.php:399
+#: ../dw-question-answer.php:247 ../dw-question-answer.php:484
+#: ../dw-question-answer.php:576 ../inc/settings.php:399
 #: ../inc/template-functions.php:611
 #: ../inc/templates/default/content-answer.php:36
 #: ../inc/templates/default/content-comment.php:47
 msgid "Edit"
 msgstr "Editar"
 
-#: ../dw-question-answer.php:319 ../dw-question-answer.php:465
+#: ../dw-question-answer.php:248 ../dw-question-answer.php:485
 #: ../inc/actions.php:834 ../inc/actions.php:937
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: ../dw-question-answer.php:320 ../dw-question-answer.php:466
+#: ../dw-question-answer.php:249 ../dw-question-answer.php:486
 msgid "Do you want to delete this comment?"
 msgstr "Você quer mesmo deletar este comentário?"
 
-#: ../dw-question-answer.php:321 ../dw-question-answer.php:467
+#: ../dw-question-answer.php:250 ../dw-question-answer.php:487
 msgid "Do you want to delete this answer?"
 msgstr "Você quer mesmo deletar esta pergunta?"
 
-#: ../dw-question-answer.php:322
+#: ../dw-question-answer.php:251
 #, fuzzy
 msgid "Do you want to update this answer?"
 msgstr "Você quer mesmo atualizar esta resposta?"
 
-#: ../dw-question-answer.php:323
+#: ../dw-question-answer.php:252
 #, fuzzy
 msgid "Do you want to report this answer?"
 msgstr "Você quer mesmo reportar esta resposta?"
 
-#: ../dw-question-answer.php:325
+#: ../dw-question-answer.php:254
 msgid "Report"
 msgstr "Denunciar"
 
-#: ../dw-question-answer.php:326
+#: ../dw-question-answer.php:255
 msgid "Undo"
 msgstr "Desfazer"
 
-#: ../dw-question-answer.php:327
+#: ../dw-question-answer.php:256
 msgid "This answer will be marked as spam and hidden. Do you want to flag it?"
 msgstr ""
 "Esta resposta será marcada como spam e ocultada. Você quer mesmo sinalizá-la "
 "assim?"
 
-#: ../dw-question-answer.php:328
+#: ../dw-question-answer.php:257
 msgid "This answer was flagged as spam. Do you want to show it"
 msgstr "Esta resposta foi marcada como spam. Você quer vê-la"
 
-#: ../dw-question-answer.php:329
+#: ../dw-question-answer.php:258
 msgid "This answer was flagged as spam"
 msgstr "Esta resposta foi marcada como spam"
 
-#: ../dw-question-answer.php:330 ../dw-question-answer.php:473
+#: ../dw-question-answer.php:259 ../dw-question-answer.php:493
 msgid "hide"
 msgstr "ocultar"
 
-#: ../dw-question-answer.php:331 ../dw-question-answer.php:474
+#: ../dw-question-answer.php:260 ../dw-question-answer.php:494
 #: ../inc/templates/default/content-answer.php:103
 msgid "show"
 msgstr "exibir"
 
-#: ../dw-question-answer.php:333 ../inc/template-functions.php:739
+#: ../dw-question-answer.php:262 ../inc/template-functions.php:739
 msgid "Follow This Question"
 msgstr "Seguir Esta Pergunta"
 
-#: ../dw-question-answer.php:334 ../inc/template-functions.php:739
+#: ../dw-question-answer.php:263 ../inc/template-functions.php:739
 msgid "Unfollow This Question"
 msgstr "Deixar de Seguir esta Pergunta"
 
-#: ../dw-question-answer.php:335
+#: ../dw-question-answer.php:264
 #, fuzzy
 msgid "Pin this question to top"
 msgstr "Fixar esta Pergunta na página inicial"
 
-#: ../dw-question-answer.php:336
+#: ../dw-question-answer.php:265
 #, fuzzy
 msgid "Unpin this question from top"
 msgstr "Desafixar esta Pergunta da página inicial"
 
-#: ../dw-question-answer.php:339
+#: ../dw-question-answer.php:268
 msgid "Do you want to delete this question?"
 msgstr "Você quer mesmo deletar esta pergunta?"
 
-#: ../dw-question-answer.php:376
+#: ../dw-question-answer.php:284
+msgid "DWQA Questions"
+msgstr "DWQA Perguntas"
+
+#: ../dw-question-answer.php:301
+msgid "DWQA Ask Question"
+msgstr "DWQA Faça uma pergunta"
+
+#: ../dw-question-answer.php:396
 #, php-format
 msgid "%s second"
 msgid_plural "%s seconds"
@@ -359,103 +359,103 @@ msgstr[0] "%s segundo"
 msgstr[1] "%s segundos"
 
 #. translators: min=minute
-#: ../dw-question-answer.php:385
+#: ../dw-question-answer.php:405
 #, php-format
 msgid "about %s min"
 msgid_plural "%s mins"
 msgstr[0] "cerca de %s min"
 msgstr[1] "%s mins"
 
-#: ../dw-question-answer.php:391
+#: ../dw-question-answer.php:411
 #, php-format
 msgid "about %s hour"
 msgid_plural "%s hours"
 msgstr[0] "cerca de %s hora"
 msgstr[1] "%s horas"
 
-#: ../dw-question-answer.php:397
+#: ../dw-question-answer.php:417
 #, php-format
 msgid "%s day"
 msgid_plural "%s days"
 msgstr[0] "%s dia"
 msgstr[1] "%s dias"
 
-#: ../dw-question-answer.php:401
+#: ../dw-question-answer.php:421
 #, php-format
 msgid "%1$s ago"
 msgstr "%1$s atrás"
 
-#: ../dw-question-answer.php:469
+#: ../dw-question-answer.php:489
 #: ../inc/templates/default/content-answer.php:41
 msgid "Flag"
 msgstr "Sinalizar"
 
-#: ../dw-question-answer.php:470
+#: ../dw-question-answer.php:490
 #: ../inc/templates/default/content-answer.php:41
 msgid "Unflag"
 msgstr "Remover sinalização"
 
-#: ../dw-question-answer.php:471
+#: ../dw-question-answer.php:491
 #, fuzzy
 msgid ""
 "This answer will be hidden when flagged. Are you sure you want to flag it?"
 msgstr "Esta resposta será ocultada quando for sinalizada. Você tem certeza?"
 
-#: ../dw-question-answer.php:472
+#: ../dw-question-answer.php:492
 #, fuzzy
 msgid "This answer was flagged as spam. Do you want to show it?"
 msgstr "Esta resposta foi marcada como spam. Você quer vê-la"
 
-#: ../dw-question-answer.php:515 ../inc/class-answers-list-table.php:81
+#: ../dw-question-answer.php:535 ../inc/class-answers-list-table.php:81
 msgid "Author"
 msgstr "Autor"
 
-#: ../dw-question-answer.php:517
+#: ../dw-question-answer.php:537
 msgid "In Response To"
 msgstr "Em resposta a"
 
-#: ../dw-question-answer.php:521
+#: ../dw-question-answer.php:541
 msgid "Info"
 msgstr "Info"
 
-#: ../dw-question-answer.php:557 ../inc/settings.php:400
+#: ../dw-question-answer.php:577 ../inc/settings.php:400
 #: ../inc/template-functions.php:614
 #: ../inc/templates/default/content-answer.php:39
 #: ../inc/templates/default/content-comment.php:50
 msgid "Delete"
 msgstr "Deletar"
 
-#: ../dw-question-answer.php:558
+#: ../dw-question-answer.php:578
 #: ../inc/templates/default/question-list.php:108
 msgid "View"
 msgstr "Ver"
 
-#: ../dw-question-answer.php:562
+#: ../dw-question-answer.php:582
 msgid "Submitted"
 msgstr "Enviada"
 
-#: ../dw-question-answer.php:563
+#: ../dw-question-answer.php:583
 msgid "on"
 msgstr "em"
 
-#: ../dw-question-answer.php:590
+#: ../dw-question-answer.php:610
 #, fuzzy
 msgid "Reset all changes to default"
 msgstr "Redefinir todas as mudanças para o padrão"
 
-#: ../dw-question-answer.php:604
+#: ../dw-question-answer.php:624
 msgid "answered"
 msgstr "respondeu"
 
-#: ../dw-question-answer.php:605
+#: ../dw-question-answer.php:625
 msgid "voted"
 msgstr "votou"
 
-#: ../dw-question-answer.php:606
+#: ../dw-question-answer.php:626
 msgid "views"
 msgstr "visitas"
 
-#: ../dw-question-answer.php:714 ../inc/shortcodes.php:124
+#: ../dw-question-answer.php:734 ../inc/shortcodes.php:124
 #: ../inc/widgets/latest-question.php:40
 #: ../inc/widgets/list-closed-question.php:48
 #: ../inc/widgets/popular-question.php:40
@@ -1021,203 +1021,203 @@ msgid ""
 "any template"
 msgstr ""
 
-#: ../inc/settings.php:582
+#: ../inc/settings.php:641
 msgid "Plugin Settings"
 msgstr "Configurações do Plugin"
 
-#: ../inc/settings.php:582
+#: ../inc/settings.php:641
 msgid "Settings"
 msgstr "Configurações"
 
-#: ../inc/settings.php:608
+#: ../inc/settings.php:667
 msgid "Question List Page"
 msgstr "Página de Lista de Perguntas"
 
-#: ../inc/settings.php:616
+#: ../inc/settings.php:675
 msgid "Archive page show at most"
 msgstr "Página de Arquivo exibe no máximo"
 
-#: ../inc/settings.php:624
+#: ../inc/settings.php:683
 msgid "Ask Question Page"
 msgstr "Página de Pergunta"
 
-#: ../inc/settings.php:631
+#: ../inc/settings.php:690
 msgid "Private Question"
 msgstr "Pergunta Privada"
 
-#: ../inc/settings.php:638
+#: ../inc/settings.php:697
 #, fuzzy
 msgid "Review Question"
 msgstr "Ver Pergunta"
 
-#: ../inc/settings.php:646
+#: ../inc/settings.php:705
 msgid "DWQA 404 Page"
 msgstr ""
 
-#: ../inc/settings.php:654
+#: ../inc/settings.php:713
 #, fuzzy
 msgid "Single Question Template"
 msgstr "Pergunta Única"
 
-#: ../inc/settings.php:663
+#: ../inc/settings.php:722
 msgid "Time settings"
 msgstr "Ajuste de horário"
 
-#: ../inc/settings.php:670
+#: ../inc/settings.php:729
 msgid "New Question Time Frame"
 msgstr "Nova Janela do Horário de Perguntas"
 
-#: ../inc/settings.php:678
+#: ../inc/settings.php:737
 msgid "Question Overdue - Time Frame"
 msgstr "Pergunta com tempo estourado - Janela de Horário"
 
-#: ../inc/settings.php:688
+#: ../inc/settings.php:747
 msgid "Captcha settings"
 msgstr "Ajuste de Captcha"
 
-#: ../inc/settings.php:695
+#: ../inc/settings.php:754
 #, fuzzy
 msgid "Captcha on Submit Question Page"
 msgstr "Captcha em Página de Enviar Pergunta"
 
-#: ../inc/settings.php:703
+#: ../inc/settings.php:762
 #, fuzzy
 msgid "Captcha on Single Question Page"
 msgstr "Captcha em Página de Pergunta Única"
 
-#: ../inc/settings.php:711
+#: ../inc/settings.php:770
 msgid "Google Captcha Public Key"
 msgstr "Google Captcha Public Key"
 
-#: ../inc/settings.php:719
+#: ../inc/settings.php:778
 msgid "Google Captcha Private Key"
 msgstr "Google Captcha Private Key"
 
-#: ../inc/settings.php:729
+#: ../inc/settings.php:788
 msgid "Permalink Settings"
 msgstr "Ajuste de Permalink"
 
-#: ../inc/settings.php:736
+#: ../inc/settings.php:795
 msgid "Single Question"
 msgstr "Pergunta Única"
 
-#: ../inc/settings.php:744
+#: ../inc/settings.php:803
 msgid "Single Category"
 msgstr "Categoria Única"
 
-#: ../inc/settings.php:752
+#: ../inc/settings.php:811
 msgid "Single Tag"
 msgstr "Tag Única"
 
-#: ../inc/settings.php:801
+#: ../inc/settings.php:860
 msgid "From Email"
 msgstr "Remetente do Email"
 
-#: ../inc/settings.php:865 ../inc/settings.php:872
+#: ../inc/settings.php:924 ../inc/settings.php:931
 msgid "Group Permission"
 msgstr "Permissão de Grupo"
 
-#: ../inc/settings.php:885
+#: ../inc/settings.php:944
 msgid "DWQA Settings"
 msgstr "DWQA Ajustes "
 
-#: ../inc/settings.php:889
+#: ../inc/settings.php:948
 msgid "General"
 msgstr "Geral"
 
-#: ../inc/settings.php:890
+#: ../inc/settings.php:949
 msgid "Notification"
 msgstr "Notificação"
 
-#: ../inc/settings.php:891
+#: ../inc/settings.php:950
 msgid "Permission"
 msgstr "Permissão"
 
-#: ../inc/settings.php:898
+#: ../inc/settings.php:957
 msgid "Email setup"
 msgstr "Ajuste de Email"
 
-#: ../inc/settings.php:902
+#: ../inc/settings.php:961
 msgid "Email Logo"
 msgstr "Logo do Email"
 
-#: ../inc/settings.php:914
+#: ../inc/settings.php:973
 msgid "New Comment to Question"
 msgstr "Novo Comentário para Pergunta"
 
-#: ../inc/settings.php:915
+#: ../inc/settings.php:974
 msgid "New Comment to Answer"
 msgstr "Novo Comentário para Resposta"
 
-#: ../inc/settings.php:916
+#: ../inc/settings.php:975
 #, fuzzy
 msgid "New Answer (to Followers )"
 msgstr "Nova Resposta (para Seguidores)"
 
-#: ../inc/settings.php:917
+#: ../inc/settings.php:976
 #, fuzzy
 msgid "New Comment to Question (to Followers )"
 msgstr "Novo Comentário à pergunta (para Seguidores)"
 
-#: ../inc/settings.php:918
+#: ../inc/settings.php:977
 #, fuzzy
 msgid "New Comment to Answer (to Followers )"
 msgstr "Novo Comentário para Resposta (para Seguidores)"
 
-#: ../inc/settings.php:925
+#: ../inc/settings.php:984
 msgid "New Question Notification"
 msgstr "Nova Notificação de Pergunta"
 
-#: ../inc/settings.php:932 ../inc/settings.php:941 ../inc/settings.php:950
-#: ../inc/settings.php:959 ../inc/settings.php:969 ../inc/settings.php:977
-#: ../inc/settings.php:987
+#: ../inc/settings.php:991 ../inc/settings.php:1000 ../inc/settings.php:1009
+#: ../inc/settings.php:1018 ../inc/settings.php:1028 ../inc/settings.php:1036
+#: ../inc/settings.php:1046
 msgid "Save all changes"
 msgstr "Salvar todas alterações"
 
-#: ../inc/settings.php:937
+#: ../inc/settings.php:996
 msgid "New Answer Notification"
 msgstr "Nova Notificação de Resposta"
 
-#: ../inc/settings.php:946
+#: ../inc/settings.php:1005
 #, fuzzy
 msgid "New Answer Notification (to Followers )"
 msgstr "Nova Notificação de Resposta (para Seguidores)"
 
-#: ../inc/settings.php:955
+#: ../inc/settings.php:1014
 msgid "New Comment to Question Notification"
 msgstr "Novo Comentário à Notificação de pergunta"
 
-#: ../inc/settings.php:965
+#: ../inc/settings.php:1024
 msgid "New Comment to Answer Notification"
 msgstr "Novo Comentário de Notificação de Resposta"
 
-#: ../inc/settings.php:973
+#: ../inc/settings.php:1032
 #, fuzzy
 msgid "New Comment to Question Notification (to Followers )"
 msgstr "Novo Comentário à Notificação de Pergunta (para Seguidores)"
 
-#: ../inc/settings.php:983
+#: ../inc/settings.php:1042
 #, fuzzy
 msgid "New Comment to Answer Notification (to Followers )"
 msgstr "Novo Comentário para Notificação de Resposta (para Seguidores)"
 
-#: ../inc/settings.php:1012
+#: ../inc/settings.php:1071
 msgid "Send to"
 msgstr "Enviar para"
 
-#: ../inc/settings.php:1017
+#: ../inc/settings.php:1076
 msgid "Cc"
 msgstr "Cc"
 
-#: ../inc/settings.php:1022
+#: ../inc/settings.php:1081
 msgid "Bcc"
 msgstr "Cco"
 
-#: ../inc/settings.php:1027
+#: ../inc/settings.php:1086
 msgid "This address will be used as the sender of the outgoing emails."
 msgstr "Este endereço será usado como o remetente dos emails enviados."
 
-#: ../inc/settings.php:1033
+#: ../inc/settings.php:1092
 msgid "Send A Copy Of Every Email To Admin"
 msgstr "Enviar uma Cópia de Cada Email Para Administrador"
 
@@ -1528,6 +1528,10 @@ msgstr "Link para comentar"
 msgid "Permalink to %s"
 msgstr "Permalink para %s"
 
+#: ../inc/templates/default/content-question.php:14
+msgid "Category"
+msgstr "Categoria"
+
 #: ../inc/templates/default/content-question.php:25
 #: ../inc/templates/default/content-question.php:28
 msgid "view"
@@ -1725,9 +1729,6 @@ msgstr "DWQA Perguntas Relacionadas"
 
 #~ msgid "by"
 #~ msgstr "por"
-
-#~ msgid "Category"
-#~ msgstr "Categoria"
 
 #, fuzzy
 #~ msgid "DW Q&A Box"

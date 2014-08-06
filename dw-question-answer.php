@@ -315,7 +315,7 @@ function dwqa_activate() {
 
 	// Valid page content to ensure shortcode was inserted
 	$questions_page_content = get_post_field( 'post_content', $options['pages']['archive-question'] );
-	if ( strpos( $questions_page_content, '[dwqa-list-questions]') === false ) {
+	if ( strpos( $questions_page_content, '[dwqa-list-questions]' ) === false ) {
 		$questions_page_content = str_replace( '[dwqa-submit-question-form]', '', $questions_page_content );
 		wp_update_post( array(
 			'ID'			=> $options['pages']['archive-question'],
@@ -324,7 +324,7 @@ function dwqa_activate() {
 	}
 
 	$submit_question_content = get_post_field( 'post_content', $options['pages']['submit-question'] );
-	if ( strpos( $submit_question_content, '[dwqa-submit-question-form]') === false ) {
+	if ( strpos( $submit_question_content, '[dwqa-submit-question-form]' ) === false ) {
 		$submit_question_content = str_replace( '[dwqa-list-questions]', '', $submit_question_content );
 		wp_update_post( array(
 			'ID'			=> $options['pages']['submit-question'],

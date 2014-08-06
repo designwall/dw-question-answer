@@ -563,17 +563,76 @@ function dwqa_single_template_options() {
 
 }
 
+function dwqa_get_rewrite_slugs() {
+	global  $dwqa_general_settings;
+	$dwqa_general_settings = get_option( 'dwqa_options' );
+	
+	$rewrite_slugs = array();
+
+	$question_rewrite = get_option( 'dwqa-question-rewrite', 'question' );
+	$question_rewrite = $question_rewrite ? $question_rewrite : 'question';
+	if ( isset( $dwqa_general_settings['question-rewrite'] ) && $dwqa_general_settings['question-rewrite'] && $dwqa_general_settings['question-rewrite'] != $question_rewrite ) {
+		$question_rewrite = $dwqa_general_settings['question-rewrite'];
+		update_option( 'dwqa-question-rewrite', $question_rewrite );
+	}
+
+	$rewrite_slugs['question_rewrite'] = $question_rewrite;
+
+	$question_category_rewrite = get_option( 'dwqa-question-category-rewrite', 'question-category' );
+	$question_category_rewrite = $question_category_rewrite ? $question_category_rewrite : 'question-category';
+	if ( isset( $dwqa_general_settings['question-category-rewrite'] ) && $dwqa_general_settings['question-category-rewrite'] && $dwqa_general_settings['question-category-rewrite'] != $question_category_rewrite ) {
+		$question_category_rewrite = $dwqa_general_settings['question-category-rewrite'];
+		update_option( 'dwqa-question-category-rewrite', $question_category_rewrite );
+	}
+
+	$rewrite_slugs['question_category_rewrite'] = $question_category_rewrite;
+
+	$question_tag_rewrite = get_option( 'dwqa-question-tag-rewrite', 'question-tag' );
+	$question_tag_rewrite = $question_tag_rewrite ? $question_tag_rewrite : 'question-tag';
+	if ( isset( $dwqa_general_settings['question-tag-rewrite'] ) && $dwqa_general_settings['question-tag-rewrite'] && $dwqa_general_settings['question-tag-rewrite'] != $question_tag_rewrite ) {
+		$question_tag_rewrite = $dwqa_general_settings['question-tag-rewrite'];
+		update_option( 'dwqa-question-tag-rewrite', $question_tag_rewrite );
+	}
+	$rewrite_slugs['question_tag_rewrite'] = $question_tag_rewrite;
+
+	return $rewrite_slugs;
+}
+
 class DWQA_Settings {
 	public function __construct(){
-
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 		add_action( 'init', array( $this, 'init_options' ) );
 		add_action( 'admin_init', array( $this, 'register_settings' ) );
-		add_action( 'update_option_dwqa_options', array( $this, 'flush_rewrite_rules' ) );
+		add_action( 'updated_option', array( $this, 'update_options' ), 10, 3 );
 	}
 
-	public function flush_rewrite_rules() {
-		flush_rewrite_rules();
+	public function update_options( $option, $old_value, $value ) {
+		if ( $option == 'dwqa_options' ) {
+			if ( $old_value['pages']['archive-question'] != $value['pages']['archive-question']  ) {
+				$questions_page_content = get_post_field( 'post_content', $value['pages']['archive-question'] );
+				if ( strpos( $questions_page_content, '[dwqa-list-questions]') === false ) {
+					$questions_page_content = str_replace( '[dwqa-submit-question-form]', '', $questions_page_content );
+					wp_update_post( array(
+						'ID'			=> $value['pages']['archive-question'],
+						'post_content'	=> $questions_page_content . '[dwqa-list-questions]',
+					) );
+				}
+			}
+
+			if ( $old_value['pages']['submit-question'] != $value['pages']['submit-question'] ) {
+				$submit_question_content = get_post_field( 'post_content', $value['pages']['submit-question'] );
+				if ( strpos( $submit_question_content, '[dwqa-submit-question-form]') === false ) {
+					$submit_question_content = str_replace( '[dwqa-list-questions]', '', $submit_question_content );
+					wp_update_post( array(
+						'ID'			=> $value['pages']['submit-question'],
+						'post_content'	=> $submit_question_content . '[dwqa-submit-question-form]',
+					) );
+				}
+			}
+			
+			// Flush rewrite when rewrite rule settings change
+			flush_rewrite_rules();
+		}
 	}
 
 	// Create admin menus for backend

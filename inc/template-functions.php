@@ -781,7 +781,7 @@ class DWQA_Template {
 	public function __construct() {
 		$this->filters = new stdClass();
 		add_filter( 'template_include', array( $this, 'question_content' ) );
-		add_filter( 'term_link', array( $this, 'force_term_link_to_setting_page' ), 10, 3 );
+		//add_filter( 'term_link', array( $this, 'force_term_link_to_setting_page' ), 10, 3 );
 		add_filter( 'comments_open', array( $this, 'close_default_comment' ) );
 
 		//Template Include Hook
@@ -978,17 +978,6 @@ class DWQA_Template {
 			return false;
 		}
 		return $open;
-	}
-
-	public function force_term_link_to_setting_page( $termlink, $term, $taxonomy ) {
-		global $dwqa_options;
-		if ( $taxonomy == 'dwqa-question_category' || $taxonomy == 'dwqa-question_tag' ) {
-			$termlink = add_query_arg( array(
-				'taxonomy'  => $taxonomy,
-				$taxonomy   => $term->slug,
-			), get_permalink( $dwqa_options['pages']['archive-question'] ) );
-		}
-		return $termlink;
 	}
 
 	public function remove_all_filters( $tag, $priority = false ) {

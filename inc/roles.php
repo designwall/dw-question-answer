@@ -23,7 +23,7 @@ function dwqa_current_user_can( $perm, $post_id = false ) {
 	return false;
 }
 
-function dwqa_anonymous_read_permission_apply( $posts ) {
+function dwqa_restrict_single_question( $posts ) {
 	global $wp_query, $wpdb, $dwqa_options;
 
 	if ( is_user_logged_in() ) 
@@ -43,51 +43,60 @@ function dwqa_anonymous_read_permission_apply( $posts ) {
 	if ( ! isset( $wp_query->query['post_type'] ) || $wp_query->query['post_type'] != 'dwqa-question' ) {
 		return $posts;
 	}
-
-	if ( isset( $wp_query->query['p'] ) && ! $posts ) {
+	if ( isset( $wp_query->query['name'] ) && ! $posts ) {
+		$question = get_page_by_path( $wp_query->query['name'], OBJECT, 'dwqa-question' );
+	} elseif ( isset( $wp_query->query['p'] ) && ! $posts ) {
 		$question = get_post( $wp_query->query['p'] );
 	} elseif ( ! empty( $posts ) ) {
 		$question = $posts[0];	
 	} else {
-		return $posts;
+		return dwqa_get_warning_page();
 	}
-
 	//this is a question which was submitted by anonymous user
-	if ( ! dwqa_is_anonymous( $question->ID ) ) 
+	if ( ! dwqa_is_anonymous( $question->ID ) ) {
+		if ( ! $posts ) {
+			return dwqa_get_warning_page();
+		}
 		return $posts;
-
-	//This is a pending question
-	if ( 'pending' == get_post_status( $question->ID ) || 'private' == get_post_status( $question->ID ) ) {
-		$anonymous_author_view = get_post_meta( $question->ID, '_anonymous_author_view', true );
-		$anonymous_author_view = $anonymous_author_view  ? $anonymous_author_view  : 0;
-		
-		
-		if ( $anonymous_author_view < 3 ) {
-			// Allow to read question right after this was added
-			$questions[] = $question;
-			$anonymous_author_view++;
-			update_post_meta( $question->ID, '_anonymous_author_view', $anonymous_author_view );
-			return $questions;
-		} else {
-			$warning_page_id = isset( $dwqa_options['pages']['404'] ) ? $dwqa_options['pages']['404'] : false;
-			if ( ! dwqa_current_user_can( 'edit_question', $question->ID ) && $warning_page_id ) {
+	} else {
+		//This is a pending question
+		if ( 'pending' == get_post_status( $question->ID ) || 'private' == get_post_status( $question->ID ) ) {
+			$anonymous_author_view = get_post_meta( $question->ID, '_anonymous_author_view', true );
+			$anonymous_author_view = $anonymous_author_view  ? $anonymous_author_view  : 0;
 			
-				$warning_page = wp_cache_get( 'dwqa-warning-page' );
-				if ( $warning_page == false ) {
-					$query = $wpdb->prepare( 'SELECT * FROM '.$wpdb->prefix.'posts WHERE ID = %d ',
-						$warning_page_id
-					);
-					$warning_page = $wpdb->get_results( $query );
-					wp_cache_set( 'dwqa-warning-page', $warning_page );
-				}
-				return $warning_page;
+			
+			if ( $anonymous_author_view < 3 ) {
+				// Allow to read question right after this was added
+				$questions[] = $question;
+				$anonymous_author_view++;
+				update_post_meta( $question->ID, '_anonymous_author_view', $anonymous_author_view );
+				return $questions;
+			} else {
+				return dwqa_get_warning_page();
 			}
 		}
 	}
 
 	return $posts;
 }
-add_filter( 'the_posts','dwqa_anonymous_read_permission_apply', 11 );
+add_filter( 'the_posts','dwqa_restrict_single_question', 11 );
+
+function dwqa_get_warning_page() {
+	global $dwqa_options, $wpdb;
+	$warning_page_id = isset( $dwqa_options['pages']['404'] ) ? $dwqa_options['pages']['404'] : false;
+	if (  $warning_page_id ) {
+	
+		$warning_page = wp_cache_get( 'dwqa-warning-page' );
+		if ( $warning_page == false ) {
+			$query = $wpdb->prepare( 'SELECT * FROM '.$wpdb->prefix.'posts WHERE ID = %d ',
+				$warning_page_id
+			);
+			$warning_page = $wpdb->get_results( $query );
+			wp_cache_set( 'dwqa-warning-page', $warning_page );
+		}
+		return $warning_page;
+	}
+}
 
 function dwqa_read_permission_apply( $posts, $query ) {
 

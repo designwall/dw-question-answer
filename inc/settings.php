@@ -2,7 +2,7 @@
 
 
 // Callback for dwqa-general-settings Option
-function dwqa_question_registration_setting_display(){
+function dwqa_question_registration_setting_display() {
 	global  $dwqa_general_settings;
 	?>
 	<p><input type="checkbox" name="dwqa_options[answer-registration]" value="true" <?php checked( true, isset( $dwqa_general_settings['answer-registration'] ) ? (bool ) $dwqa_general_settings['answer-registration'] : false ); ?> id="dwqa_option_answer_registation">
@@ -10,7 +10,7 @@ function dwqa_question_registration_setting_display(){
 	<?php
 }
 
-function dwqa_pages_settings_display(){
+function dwqa_pages_settings_display() {
 	global  $dwqa_general_settings;
 	$archive_question_page = isset( $dwqa_general_settings['pages']['archive-question'] ) ? $dwqa_general_settings['pages']['archive-question'] : 0; 
 	?>
@@ -27,12 +27,12 @@ function dwqa_pages_settings_display(){
 	<?php
 }
 
-function dwqa_question_new_time_frame_display(){ 
+function dwqa_question_new_time_frame_display() { 
 	global  $dwqa_general_settings;
 	echo '<p><input type="text" name="dwqa_options[question-new-time-frame]" id="dwqa_options_question_new_time_frame" value="'.( isset( $dwqa_general_settings['question-new-time-frame'] ) ? $dwqa_general_settings['question-new-time-frame'] : 4 ).'" class="small-text" /><span class="description"> '.__( 'hours','dwqa' ).'<span title="'.__( 'A period of time in which new questions are highlighted and marked as New','dwqa' ).'">( ? )</span></span></p>';
 }
 
-function dwqa_question_overdue_time_frame_display(){ 
+function dwqa_question_overdue_time_frame_display() { 
 	global  $dwqa_general_settings;
 	echo '<p><input type="text" name="dwqa_options[question-overdue-time-frame]" id="dwqa_options_question_new_time_frame" value="'.( isset( $dwqa_general_settings['question-overdue-time-frame'] ) ? $dwqa_general_settings['question-overdue-time-frame'] : 2 ).'" class="small-text" /><span class="description"> '.__( 'days','dwqa' ).'<span title="'.__( 'A Question will be marked as overdue if it passes this period of time, starting from the time the question was submitted','dwqa' ).'">( ? )</span></span></p>';
 }

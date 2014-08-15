@@ -1,0 +1,2212 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: DW Question Answer v1.3.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2014-08-13 14:59:38+0000\n"
+"Last-Translator: arika-varut <varut@arika.academy>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: CSL v1.x\n"
+"X-Poedit-Language: Thai\n"
+"X-Poedit-Country: THAILAND\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: inc/filter.php:125
+#: inc/templates/default/archive-question-notfound.php:17
+#: thesis/dwqa/box.php:210
+#@ dwqa
+msgid " or"
+msgstr ""
+
+#: inc/filter.php:127
+#: inc/templates/default/archive-question-notfound.php:18
+#: thesis/dwqa/box.php:212
+#@ dwqa
+msgid " to submit question."
+msgstr ""
+
+#: inc/shortcodes.php:188
+#@ dwqa
+msgid "% person who is following this question"
+msgid_plural "% people who are following this question"
+msgstr[0] ""
+msgstr[1] ""
+
+#: dw-question-answer.php:416
+#, php-format
+#@ dwqa
+msgid "%1$s ago"
+msgstr "%1$s ที่แล้ว"
+
+#: inc/actions-question.php:28
+#, php-format
+#@ dwqa
+msgid "%s answered <span class=\"dwqa-date\">%s</span>"
+msgstr "%s ตอบเมื่อ <span class=\"dwqa-date\">%s</span>"
+
+#: inc/actions-question.php:30
+#, php-format
+#@ dwqa
+msgid "%s asked <span class=\"dwqa-date\">%s</span>"
+msgstr ""
+
+#: dw-question-answer.php:412
+#, php-format
+#@ default
+msgid "%s day"
+msgid_plural "%s days"
+msgstr[0] "%s วัน"
+msgstr[1] "%s วัน"
+
+#: dw-question-answer.php:391
+#, php-format
+#@ default
+msgid "%s second"
+msgid_plural "%s seconds"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/settings.php:37
+#@ dwqa
+msgid "A Question will be marked as overdue if it passes this period of time, starting from the time the question was submitted"
+msgstr ""
+
+#: inc/notification.php:119
+#@ dwqa
+msgid "A new answer for \"{question_title}\" was posted on {site_name}"
+msgstr ""
+
+#: inc/notification.php:28
+#@ dwqa
+msgid "A new question was posted on {site_name}"
+msgstr ""
+
+#: inc/settings.php:25
+#@ dwqa
+msgid "A page where displays all questions"
+msgstr ""
+
+#: inc/settings.php:53
+#@ dwqa
+msgid "A page where users can submit questions."
+msgstr ""
+
+#: inc/settings.php:32
+#@ dwqa
+msgid "A period of time in which new questions are highlighted and marked as New"
+msgstr ""
+
+#: dw-question-answer.php:63
+#: dw-question-answer.php:107
+#@ theme
+#@ dwqa
+msgid "Add New"
+msgstr ""
+
+#: dw-question-answer.php:249
+#@ default
+msgid "Add New Category"
+msgstr ""
+
+#: dw-question-answer.php:158
+#@ default
+msgid "Add New Question"
+msgstr ""
+
+#: dw-question-answer.php:277
+#@ default
+msgid "Add New Tag"
+msgstr ""
+
+#: inc/template-functions.php:212
+#@ dwqa
+msgid "Add answer"
+msgstr "โพสคำตอบ"
+
+#: dw-question-answer.php:202
+#@ default
+msgid "Add new answer"
+msgstr ""
+
+#: dw-question-answer.php:280
+#@ default
+msgid "Add or remove tags"
+msgstr ""
+
+#: inc/templates/default/question-list.php:15
+#: inc/templates/default/question-list.php:63
+#: thesis/dwqa/box.php:80
+#: thesis/dwqa/box.php:128
+#@ dwqa
+msgid "All"
+msgstr "ทั้งหมด"
+
+#: dw-question-answer.php:205
+#@ default
+msgid "All Answers"
+msgstr ""
+
+#: dw-question-answer.php:244
+#@ default
+msgid "All Categories"
+msgstr ""
+
+#: dw-question-answer.php:161
+#@ default
+msgid "All Questions"
+msgstr ""
+
+#: dw-question-answer.php:272
+#@ default
+msgid "All Tags"
+msgstr ""
+
+#: inc/template-functions.php:736
+#: thesis/dwqa/box.php:314
+#@ dwqa
+msgid "All questions from"
+msgstr ""
+
+#: inc/settings.php:568
+#@ dwqa
+msgid "Allow members to post private question"
+msgstr ""
+
+#: inc/template-functions.php:97
+#@ dwqa
+msgid "Already a member?"
+msgstr "กรุณาเข้าระบบก่อนโพส:"
+
+#: inc/actions-question.php:14
+#: inc/actions.php:1740
+#: inc/class-answers-list-table.php:88
+#: inc/notification.php:147
+#: inc/notification.php:149
+#: inc/settings.php:436
+#: inc/settings.php:478
+#: inc/settings.php:519
+#: inc/templates/default/content-answer.php:93
+#: inc/templates/default/content-comment.php:15
+#: inc/templates/default/single-question.php:25
+#: inc/widgets/latest-question.php:40
+#@ dwqa
+msgid "Anonymous"
+msgstr ""
+
+#: dw-question-answer.php:211
+#: dw-question-answer.php:521
+#: inc/settings.php:448
+#: inc/templates/default/question-list.php:100
+#: thesis/dwqa/box.php:165
+#@ default
+#@ dwqa
+msgid "Answer"
+msgstr "คำตอบ"
+
+#: inc/shortcodes.php:160
+#@ dwqa
+msgid "Answer at"
+msgstr ""
+
+#: inc/actions.php:80
+#@ dwqa
+msgid "Answer for "
+msgstr ""
+
+#: inc/actions.php:141
+#@ dwqa
+msgid "Answer is missing"
+msgstr ""
+
+#: inc/template-functions.php:176
+#@ dwqa
+msgid "Answer this Question"
+msgstr "ตอบคำถามนี้"
+
+#: inc/templates/default/question-list.php:22
+#: thesis/dwqa/box.php:87
+#@ dwqa
+msgid "Answered"
+msgstr "ตอบแล้ว"
+
+#: inc/class-answers-list-table.php:97
+#@ dwqa
+msgid "Answered on "
+msgstr ""
+
+#: inc/metaboxes.php:5
+#@ dwqa
+msgid "Answers"
+msgstr ""
+
+#: inc/settings.php:648
+#@ dwqa
+msgid "Archive page show at most"
+msgstr ""
+
+#: inc/actions.php:240
+#: inc/actions.php:420
+#: inc/actions.php:636
+#: inc/actions.php:661
+#: inc/actions.php:679
+#: inc/actions.php:1385
+#: inc/filter.php:423
+#: inc/status.php:286
+#@ dwqa
+#@ default
+msgid "Are you cheating huh?"
+msgstr ""
+
+#: inc/actions-vote.php:6
+#@ dwqa
+msgid "Are you cheating, huh?"
+msgstr ""
+
+#: inc/templates/default/question-submit-form.php:85
+#@ dwqa
+msgid "Ask Question"
+msgstr "โพสคำถาม"
+
+#: inc/settings.php:656
+#@ dwqa
+msgid "Ask Question Page"
+msgstr ""
+
+#: inc/template-functions.php:576
+#: thesis/dwqa/box.php:70
+#@ dwqa
+msgid "Ask a question"
+msgstr "ต้ังคำถาม"
+
+#: dw-question-answer.php:522
+#: inc/class-answers-list-table.php:77
+#@ dwqa
+msgid "Author"
+msgstr ""
+
+#: inc/settings.php:1055
+#@ dwqa
+msgid "Bcc"
+msgstr ""
+
+#: thesis/dwqa/box.php:25
+#@ dwqa
+msgid "By default, the container does not have a gutter. You can set padding width to make a gutter. You make it by updating the setting here."
+msgstr ""
+
+#: inc/settings.php:591
+#@ dwqa
+msgid "By default, your single.php template file will be used if you do not choose any template"
+msgstr ""
+
+#: dw-question-answer.php:332
+#: dw-question-answer.php:482
+#: inc/actions.php:827
+#: inc/actions.php:930
+#@ dwqa
+msgid "Cancel"
+msgstr ""
+
+#: inc/template-functions.php:379
+#@ dwqa
+msgid "Cancel reply"
+msgstr ""
+
+#: inc/actions.php:133
+#: inc/actions.php:417
+#@ dwqa
+msgid "Captcha is not correct"
+msgstr ""
+
+#: inc/settings.php:735
+#@ dwqa
+msgid "Captcha on Single Question Page"
+msgstr ""
+
+#: inc/settings.php:727
+#@ dwqa
+msgid "Captcha on Submit Question Page"
+msgstr ""
+
+#: inc/settings.php:720
+#@ dwqa
+msgid "Captcha settings"
+msgstr ""
+
+#: thesis/dwqa/box.php:313
+#@ dwqa
+msgid "Category"
+msgstr "หมวดหมู่"
+
+#: inc/settings.php:1050
+#@ dwqa
+msgid "Cc"
+msgstr ""
+
+#: inc/pointer-helper.php:68
+#@ dwqa
+msgid "Change comment settings, and create the Submit question page."
+msgstr ""
+
+#: inc/actions.php:1242
+#@ dwqa
+msgid "Choose as the best answer"
+msgstr "เลือกเป็นคำตอบที่ดีที่สุด"
+
+#: dw-question-answer.php:281
+#@ default
+msgid "Choose from the most used tags"
+msgstr ""
+
+#: inc/metaboxes.php:50
+#: inc/status.php:270
+#: inc/template-functions.php:690
+#: inc/templates/default/question-list.php:28
+#: thesis/dwqa/box.php:93
+#: thesis/dwqa/box.php:348
+#@ dwqa
+msgid "Closed"
+msgstr "ปิด"
+
+#: inc/widgets/list-closed-question.php:18
+#@ dwqa
+msgid "Closed Questions"
+msgstr ""
+
+#: inc/settings.php:490
+#@ dwqa
+msgid "Comment"
+msgstr ""
+
+#: inc/actions.php:666
+#@ dwqa
+msgid "Comment ID must be showed."
+msgstr ""
+
+#: inc/actions.php:641
+#@ dwqa
+msgid "Comment content must not be empty."
+msgstr ""
+
+#: inc/actions.php:644
+#@ dwqa
+msgid "Comment is missing"
+msgstr ""
+
+#: dw-question-answer.php:327
+#: dw-question-answer.php:479
+#@ dwqa
+msgid "Comment must have more than 2 characters"
+msgstr ""
+
+#: inc/contextual-helper.php:225
+#@ default
+msgid "Community"
+msgstr ""
+
+#: inc/pointer-helper.php:67
+#@ dwqa
+msgid "Config your support channel"
+msgstr ""
+
+#: thesis/dwqa/box.php:21
+#@ dwqa
+msgid "Container Padding"
+msgstr ""
+
+#: thesis/dwqa/box.php:23
+#@ dwqa
+msgid "Container padding size"
+msgstr ""
+
+#: dw-question-answer.php:167
+#@ default
+msgid "DW Q&A"
+msgstr ""
+
+#: thesis/dwqa/box.php:14
+#@ dwqa
+msgid "DW Q&A Box"
+msgstr ""
+
+#: inc/contextual-helper.php:224
+#@ default
+msgid "DW Question Answer Guide"
+msgstr ""
+
+#: inc/contextual-helper.php:49
+#@ dwqa
+msgid "DW Question Answer Plugin"
+msgstr ""
+
+#: inc/contextual-helper.php:50
+#@ dwqa
+msgid "DW Question Answer is a WordPress Plugin which helps you build a Question & Answer system on your WordPress sites. The plugin is easy to install and set up. Let start building up your community with this WordPress question & answer system."
+msgstr ""
+
+#: inc/settings.php:678
+#@ dwqa
+msgid "DWQA 404 Page"
+msgstr ""
+
+#: dw-question-answer.php:95
+#@ dwqa
+msgid "DWQA Ask Question"
+msgstr ""
+
+#: inc/widgets/list-closed-question.php:12
+#@ dwqa
+msgid "DWQA Closed Questions"
+msgstr ""
+
+#: inc/widgets/latest-question.php:12
+#@ dwqa
+msgid "DWQA Latest Questions"
+msgstr ""
+
+#: inc/widgets/popular-question.php:12
+#@ dwqa
+msgid "DWQA Popular Questions"
+msgstr ""
+
+#: dw-question-answer.php:76
+#@ dwqa
+msgid "DWQA Questions"
+msgstr ""
+
+#: inc/widgets/related-question.php:12
+#@ dwqa
+msgid "DWQA Related Questions"
+msgstr ""
+
+#: inc/settings.php:917
+#@ dwqa
+msgid "DWQA Settings"
+msgstr ""
+
+#: dw-question-answer.php:564
+#: inc/settings.php:414
+#: inc/template-functions.php:615
+#: inc/templates/default/content-answer.php:48
+#: inc/templates/default/content-comment.php:50
+#@ edd-dw-membersip
+#@ dwqa
+msgid "Delete"
+msgstr "ลบ"
+
+#: inc/actions.php:1637
+#@ dwqa
+msgid "Delete Action was failed"
+msgstr ""
+
+#: inc/actions.php:51
+#@ dwqa
+msgid "Delete draft"
+msgstr ""
+
+#: inc/contextual-helper.php:227
+#@ default
+msgid "DesignWall Wordpress Plugins"
+msgstr ""
+
+#: inc/contextual-helper.php:226
+#@ default
+msgid "DesignWall Wordpress Themes"
+msgstr ""
+
+#: inc/class-answers-list-table.php:78
+#@ dwqa
+msgid "Detail"
+msgstr ""
+
+#: dw-question-answer.php:334
+#: dw-question-answer.php:484
+#@ dwqa
+msgid "Do you want to delete this answer?"
+msgstr ""
+
+#: dw-question-answer.php:333
+#: dw-question-answer.php:483
+#@ dwqa
+msgid "Do you want to delete this comment?"
+msgstr ""
+
+#: dw-question-answer.php:352
+#@ dwqa
+msgid "Do you want to delete this question?"
+msgstr ""
+
+#: dw-question-answer.php:336
+#@ dwqa
+msgid "Do you want to report this answer?"
+msgstr ""
+
+#: dw-question-answer.php:335
+#@ dwqa
+msgid "Do you want to update this answer?"
+msgstr ""
+
+#: inc/pointer-helper.php:58
+#@ dwqa
+msgid "Documents, Support From DesignWall (help)"
+msgstr ""
+
+#: inc/templates/default/content-answer.php:102
+#@ dwqa
+msgid "Draft"
+msgstr ""
+
+#: dw-question-answer.php:331
+#: dw-question-answer.php:481
+#: dw-question-answer.php:563
+#: inc/settings.php:413
+#: inc/template-functions.php:612
+#: inc/templates/default/content-answer.php:45
+#: inc/templates/default/content-comment.php:47
+#@ dwqa
+#@ edd-dw-membersip
+msgid "Edit"
+msgstr "แก้ไข"
+
+#: dw-question-answer.php:247
+#@ default
+msgid "Edit Category"
+msgstr ""
+
+#: dw-question-answer.php:159
+#@ default
+msgid "Edit Question"
+msgstr ""
+
+#: dw-question-answer.php:275
+#@ default
+msgid "Edit Tag"
+msgstr ""
+
+#: dw-question-answer.php:203
+#@ default
+msgid "Edit answer"
+msgstr ""
+
+#: inc/template-functions.php:354
+#@ default
+msgid "Email"
+msgstr ""
+
+#: inc/settings.php:136
+#: inc/settings.php:172
+#: inc/settings.php:209
+#: inc/settings.php:246
+#: inc/settings.php:283
+#: inc/settings.php:320
+#: inc/settings.php:357
+#@ dwqa
+msgid "Email Content"
+msgstr ""
+
+#: inc/settings.php:936
+#@ dwqa
+msgid "Email Logo"
+msgstr ""
+
+#: inc/template-functions.php:113
+#@ dwqa
+msgid "Email address ..."
+msgstr ""
+
+#: inc/settings.php:932
+#@ dwqa
+msgid "Email setup"
+msgstr ""
+
+#: inc/settings.php:131
+#: inc/settings.php:167
+#: inc/settings.php:204
+#: inc/settings.php:241
+#: inc/settings.php:278
+#: inc/settings.php:315
+#: inc/settings.php:352
+#@ dwqa
+msgid "Email subject"
+msgstr ""
+
+#: inc/templates/default/question-list.php:64
+#: thesis/dwqa/box.php:129
+#@ dwqa
+msgid "Empty"
+msgstr ""
+
+#: inc/settings.php:162
+#@ dwqa
+msgid "Enable notification for new answer"
+msgstr ""
+
+#: inc/settings.php:195
+#@ dwqa
+msgid "Enable notification for new answer (to Followers )"
+msgstr ""
+
+#: inc/settings.php:199
+#@ dwqa
+msgid "Enable notification for new answer (to Followers)"
+msgstr ""
+
+#: inc/settings.php:310
+#: inc/settings.php:347
+#@ dwqa
+msgid "Enable notification for new comment of answer"
+msgstr ""
+
+#: inc/settings.php:236
+#: inc/settings.php:273
+#@ dwqa
+msgid "Enable notification for new comment of question"
+msgstr ""
+
+#: inc/settings.php:126
+#@ dwqa
+msgid "Enable notification for new question"
+msgstr ""
+
+#: inc/settings.php:544
+#@ dwqa
+msgid "Enable/Disable captcha on single question page"
+msgstr ""
+
+#: inc/settings.php:538
+#@ dwqa
+msgid "Enable/Disable captcha on submit question page"
+msgstr ""
+
+#: dw-question-answer.php:323
+#@ dwqa
+msgid "Enter a question title"
+msgstr ""
+
+#: dw-question-answer.php:322
+#@ dwqa
+msgid "Enter a valid email address"
+msgstr ""
+
+#: inc/template-functions.php:112
+#@ dwqa
+msgid "Enter your email to receive notification regarding your question. Your email is safe with us and will not be published."
+msgstr ""
+
+#: inc/actions.php:844
+#: inc/template-functions.php:229
+#: inc/template-functions.php:645
+#: inc/templates/default/content-answer.php:71
+#: thesis/dwqa/box.php:298
+#@ dwqa
+msgid "Everyone can see"
+msgstr ""
+
+#: inc/class-walker-category.php:35
+#: inc/class-walker-tag-dropdown.php:34
+#, php-format
+#@ default
+msgid "Feed for all posts filed under %s"
+msgstr ""
+
+#: dw-question-answer.php:486
+#: inc/templates/default/content-answer.php:50
+#@ dwqa
+msgid "Flag"
+msgstr ""
+
+#: dw-question-answer.php:346
+#: inc/template-functions.php:743
+#: thesis/dwqa/box.php:244
+#@ dwqa
+msgid "Follow This Question"
+msgstr "ติดตามคำถามนี้"
+
+#: inc/contextual-helper.php:223
+#@ default
+msgid "For more information:"
+msgstr ""
+
+#: inc/settings.php:833
+#@ dwqa
+msgid "From Email"
+msgstr ""
+
+#: inc/settings.php:922
+#@ dwqa
+msgid "General"
+msgstr ""
+
+#: inc/settings.php:751
+#@ dwqa
+msgid "Google Captcha Private Key"
+msgstr ""
+
+#: inc/settings.php:743
+#@ dwqa
+msgid "Google Captcha Public Key"
+msgstr ""
+
+#: inc/settings.php:897
+#: inc/settings.php:904
+#@ dwqa
+msgid "Group Permission"
+msgstr ""
+
+#: inc/actions.php:865
+#: inc/actions.php:1595
+#@ dwqa
+msgid "Hello, Are you cheating huh?"
+msgstr ""
+
+#: inc/pointer-helper.php:57
+#@ dwqa
+msgid "How to use DW Question Answer"
+msgstr ""
+
+#: inc/templates/default/question-submit-form.php:42
+#@ dwqa
+msgid "How to..."
+msgstr "คำถามฉันคือ..."
+
+#: dw-question-answer.php:524
+#@ dwqa
+msgid "In Response To"
+msgstr ""
+
+#: dw-question-answer.php:528
+#@ dwqa
+msgid "Info"
+msgstr ""
+
+#: inc/actions.php:1432
+#: inc/actions.php:1464
+#@ dwqa
+msgid "Invalid Post"
+msgstr ""
+
+#: inc/status.php:315
+#@ dwqa
+msgid "Invalid post status"
+msgstr ""
+
+#: inc/shortcodes.php:134
+#@ dwqa
+msgid "Latest Answers"
+msgstr ""
+
+#: inc/widgets/latest-question.php:18
+#@ dwqa
+msgid "Latest Questions"
+msgstr ""
+
+#: inc/template-functions.php:377
+#@ dwqa
+msgid "Leave a Reply"
+msgstr ""
+
+#: inc/template-functions.php:378
+#, php-format
+#@ dwqa
+msgid "Leave a Reply to %s"
+msgstr ""
+
+#: inc/shortcodes.php:160
+#: inc/templates/default/single-question.php:39
+#: thesis/dwqa/box.php:276
+#@ dwqa
+msgid "Link to"
+msgstr ""
+
+#: inc/templates/default/content-answer.php:98
+#@ dwqa
+msgid "Link to answer"
+msgstr ""
+
+#: inc/templates/default/content-comment.php:24
+#@ dwqa
+msgid "Link to comment"
+msgstr ""
+
+#: inc/template-functions.php:97
+#@ dwqa
+msgid "Log In"
+msgstr ""
+
+#: inc/template-functions.php:372
+#, php-format
+#@ default
+msgid "Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of this account\">Log out?</a>"
+msgstr ""
+
+#: inc/filter.php:121
+#: inc/templates/default/archive-question-notfound.php:16
+#@ dwqa
+msgid "Login"
+msgstr ""
+
+#: inc/settings.php:9
+#@ dwqa
+msgid "Login required. No anonymous post allowed"
+msgstr ""
+
+#: inc/template-functions.php:578
+#@ dwqa
+msgid "Login to ask a question"
+msgstr "เข้าระบบก่อนถามคำถาม"
+
+#: inc/template-functions.php:101
+#@ dwqa
+msgid "Login to submit your question"
+msgstr ""
+
+#: inc/actions.php:243
+#@ dwqa
+msgid "Missing answer ID"
+msgstr ""
+
+#: inc/actions.php:974
+#@ dwqa
+msgid "Missing email information"
+msgstr ""
+
+#: inc/actions.php:682
+#@ dwqa
+msgid "Missing id of answer"
+msgstr ""
+
+#: inc/actions.php:979
+#@ dwqa
+msgid "Missing name information"
+msgstr ""
+
+#: inc/status.php:291
+#@ dwqa
+msgid "Missing post ID"
+msgstr ""
+
+#: inc/templates/default/question-list.php:19
+#: thesis/dwqa/box.php:84
+#@ dwqa
+msgid "Need Answer"
+msgstr "รอตอบ"
+
+#: inc/status.php:273
+#@ dwqa
+msgid "New"
+msgstr ""
+
+#: dw-question-answer.php:204
+#: inc/settings.php:947
+#@ default
+#@ dwqa
+msgid "New Answer"
+msgstr ""
+
+#: inc/settings.php:975
+#@ dwqa
+msgid "New Answer (to Followers )"
+msgstr ""
+
+#: inc/settings.php:950
+#@ dwqa
+msgid "New Answer (to Followers)"
+msgstr ""
+
+#: inc/settings.php:971
+#@ dwqa
+msgid "New Answer Notification"
+msgstr ""
+
+#: inc/settings.php:1005
+#@ dwqa
+msgid "New Answer Notification (to Followers )"
+msgstr ""
+
+#: inc/settings.php:980
+#@ dwqa
+msgid "New Answer Notification (to Followers)"
+msgstr ""
+
+#: dw-question-answer.php:250
+#@ default
+msgid "New Category Name"
+msgstr ""
+
+#: inc/settings.php:949
+#@ dwqa
+msgid "New Comment to Answer"
+msgstr ""
+
+#: inc/settings.php:977
+#@ dwqa
+msgid "New Comment to Answer (to Followers )"
+msgstr ""
+
+#: inc/settings.php:952
+#@ dwqa
+msgid "New Comment to Answer (to Followers)"
+msgstr ""
+
+#: inc/settings.php:999
+#@ dwqa
+msgid "New Comment to Answer Notification"
+msgstr ""
+
+#: inc/settings.php:1042
+#@ dwqa
+msgid "New Comment to Answer Notification (to Followers )"
+msgstr ""
+
+#: inc/settings.php:1017
+#@ dwqa
+msgid "New Comment to Answer Notification (to Followers)"
+msgstr ""
+
+#: inc/settings.php:948
+#@ dwqa
+msgid "New Comment to Question"
+msgstr ""
+
+#: inc/settings.php:976
+#@ dwqa
+msgid "New Comment to Question (to Followers )"
+msgstr ""
+
+#: inc/settings.php:951
+#@ dwqa
+msgid "New Comment to Question (to Followers)"
+msgstr ""
+
+#: inc/settings.php:989
+#@ dwqa
+msgid "New Comment to Question Notification"
+msgstr ""
+
+#: inc/settings.php:1032
+#@ dwqa
+msgid "New Comment to Question Notification (to Followers )"
+msgstr ""
+
+#: inc/settings.php:1007
+#@ dwqa
+msgid "New Comment to Question Notification (to Followers)"
+msgstr ""
+
+#: dw-question-answer.php:160
+#: inc/settings.php:946
+#@ default
+#@ dwqa
+msgid "New Question"
+msgstr "คำถามใหม่"
+
+#: inc/settings.php:959
+#@ dwqa
+msgid "New Question Notification"
+msgstr ""
+
+#: inc/settings.php:702
+#@ dwqa
+msgid "New Question Time Frame"
+msgstr ""
+
+#: dw-question-answer.php:278
+#@ default
+msgid "New Tag Name"
+msgstr ""
+
+#: dw-question-answer.php:317
+#: dw-question-answer.php:473
+#: inc/filter.php:83
+#: inc/templates/default/navigation-archive.php:98
+#@ dwqa
+msgid "Next"
+msgstr ""
+
+#: dw-question-answer.php:208
+#@ default
+msgid "No Answers found"
+msgstr ""
+
+#: dw-question-answer.php:209
+#@ default
+msgid "No Answers found in Trash"
+msgstr ""
+
+#: dw-question-answer.php:164
+#@ default
+msgid "No questions found"
+msgstr ""
+
+#: dw-question-answer.php:165
+#@ default
+msgid "No questions found in Trash"
+msgstr ""
+
+#: dw-question-answer.php:328
+#@ dwqa
+msgid "Not found! Try another keyword."
+msgstr ""
+
+#: inc/template-functions.php:108
+#@ dwqa
+msgid "Not yet a member?"
+msgstr ""
+
+#: inc/settings.php:923
+#@ dwqa
+msgid "Notification"
+msgstr ""
+
+#: inc/widgets/latest-question.php:67
+#: inc/widgets/list-closed-question.php:75
+#: inc/widgets/popular-question.php:66
+#: inc/widgets/related-question.php:51
+#@ default
+msgid "Number of posts"
+msgstr ""
+
+#: inc/actions.php:845
+#: inc/template-functions.php:230
+#: inc/template-functions.php:646
+#: inc/templates/default/content-answer.php:72
+#: thesis/dwqa/box.php:299
+#@ dwqa
+msgid "Only Author and Administrator can see"
+msgstr ""
+
+#: inc/templates/default/question-submit-form.php:62
+#@ dwqa
+msgid "Only you as Author and Admin can see the question"
+msgstr ""
+
+#: inc/metaboxes.php:46
+#: inc/status.php:277
+#: inc/templates/default/question-list.php:19
+#: thesis/dwqa/box.php:84
+#@ dwqa
+msgid "Open"
+msgstr "เปิด"
+
+#: dw-question-answer.php:329
+#@ dwqa
+msgid "Or press <strong>ENTER</strong> to get more questions"
+msgstr ""
+
+#: inc/templates/default/question-list.php:31
+#: thesis/dwqa/box.php:96
+#@ dwqa
+msgid "Overdue"
+msgstr "เลยกำหนด"
+
+#: inc/contextual-helper.php:48
+#@ dwqa
+msgid "Overview"
+msgstr ""
+
+#: dw-question-answer.php:245
+#@ default
+msgid "Parent Category"
+msgstr ""
+
+#: dw-question-answer.php:246
+#@ default
+msgid "Parent Category:"
+msgstr ""
+
+#: inc/metaboxes.php:47
+#: inc/status.php:264
+#: inc/template-functions.php:695
+#: inc/templates/default/content-question.php:8
+#: thesis/dwqa/box.php:353
+#@ dwqa
+msgid "Pending"
+msgstr "รอพิจารณา"
+
+#: inc/settings.php:761
+#@ dwqa
+msgid "Permalink Settings"
+msgstr ""
+
+#: inc/templates/default/content-question.php:12
+#, php-format
+#@ dwqa
+msgid "Permalink to %s"
+msgstr ""
+
+#: inc/settings.php:924
+#@ dwqa
+msgid "Permission"
+msgstr ""
+
+#: inc/metaboxes.php:60
+#@ dwqa
+msgid "Pin question to top of archive page."
+msgstr ""
+
+#: inc/template-functions.php:751
+#@ dwqa
+msgid "Pin this Question to top"
+msgstr "ปักหมุดคำถามนี้"
+
+#: dw-question-answer.php:348
+#@ dwqa
+msgid "Pin this question to top"
+msgstr "ปักหมุดคำถามนี้"
+
+#: inc/filter.php:119
+#: inc/templates/default/archive-question-notfound.php:14
+#@ dwqa
+msgid "Please"
+msgstr ""
+
+#: dw-question-answer.php:324
+#@ dwqa
+msgid "Please add your name"
+msgstr ""
+
+#: dw-question-answer.php:325
+#: dw-question-answer.php:477
+#@ dwqa
+msgid "Please enter your answer"
+msgstr ""
+
+#: dw-question-answer.php:326
+#: dw-question-answer.php:478
+#@ dwqa
+msgid "Please enter your comment content"
+msgstr ""
+
+#: dw-question-answer.php:320
+#: dw-question-answer.php:476
+#@ dwqa
+msgid "Please enter your question"
+msgstr ""
+
+#: inc/templates/default/answers.php:112
+#@ dwqa
+msgid "Please login or"
+msgstr "กรุณา Login หรือ"
+
+#: inc/settings.php:614
+#@ dwqa
+msgid "Plugin Settings"
+msgstr ""
+
+#: inc/shortcodes.php:97
+#: inc/widgets/popular-question.php:18
+#@ dwqa
+msgid "Popular Questions"
+msgstr ""
+
+#: dw-question-answer.php:271
+#@ default
+msgid "Popular Tags"
+msgstr ""
+
+#: inc/settings.php:412
+#@ dwqa
+msgid "Post"
+msgstr ""
+
+#: inc/template-functions.php:380
+#@ dwqa
+msgid "Post Comment"
+msgstr ""
+
+#: inc/templates/default/content-comment.php:10
+#@ dwqa
+msgid "Post by"
+msgstr ""
+
+#: inc/status.php:310
+#@ dwqa
+msgid "Post does not exist"
+msgstr ""
+
+#: inc/templates/default/question-submit-form.php:62
+#@ dwqa
+msgid "Post this Question as Private."
+msgstr ""
+
+#: inc/templates/default/single-question.php:29
+#: thesis/dwqa/box.php:267
+#@ dwqa
+msgid "Posts by"
+msgstr ""
+
+#: inc/actions-question.php:20
+#, php-format
+#@ default
+msgid "Posts by %s"
+msgstr ""
+
+#: dw-question-answer.php:318
+#: dw-question-answer.php:474
+#: inc/templates/default/navigation-archive.php:62
+#@ dwqa
+msgid "Prev"
+msgstr ""
+
+#: inc/actions.php:837
+#: inc/actions.php:845
+#: inc/template-functions.php:222
+#: inc/template-functions.php:230
+#: inc/template-functions.php:638
+#: inc/template-functions.php:646
+#: inc/template-functions.php:652
+#: inc/templates/default/content-answer.php:64
+#: inc/templates/default/content-answer.php:72
+#: inc/templates/default/content-answer.php:78
+#: thesis/dwqa/box.php:287
+#: thesis/dwqa/box.php:299
+#@ dwqa
+msgid "Private"
+msgstr "ส่วนตัว"
+
+#: inc/settings.php:663
+#@ dwqa
+msgid "Private Question"
+msgstr ""
+
+#: inc/template-functions.php:141
+#, php-format
+#@ default
+msgid "Private: %s"
+msgstr ""
+
+#: inc/actions.php:837
+#: inc/actions.php:844
+#: inc/template-functions.php:222
+#: inc/template-functions.php:229
+#: inc/template-functions.php:638
+#: inc/template-functions.php:645
+#: inc/template-functions.php:652
+#: inc/templates/default/content-answer.php:64
+#: inc/templates/default/content-answer.php:71
+#: inc/templates/default/content-answer.php:78
+#: thesis/dwqa/box.php:287
+#: thesis/dwqa/box.php:298
+#@ dwqa
+msgid "Public"
+msgstr "สาธารณะ"
+
+#: inc/actions.php:830
+#: inc/actions.php:933
+#@ dwqa
+msgid "Publish"
+msgstr ""
+
+#: inc/settings.php:406
+#@ dwqa
+msgid "Question"
+msgstr "คำถาม"
+
+#: dw-question-answer.php:251
+#@ default
+msgid "Question Categories"
+msgstr ""
+
+#: inc/templates/default/question-submit-form.php:21
+#@ dwqa
+msgid "Question Category"
+msgstr "หมวดหมู่คำถาม"
+
+#: inc/settings.php:640
+#@ dwqa
+msgid "Question List Page"
+msgstr ""
+
+#: inc/metaboxes.php:29
+#@ dwqa
+msgid "Question Meta Data"
+msgstr ""
+
+#: inc/settings.php:710
+#@ dwqa
+msgid "Question Overdue - Time Frame"
+msgstr ""
+
+#: dw-question-answer.php:282
+#: inc/templates/default/question-submit-form.php:35
+#@ default
+#@ dwqa
+msgid "Question Tags"
+msgstr "Tag คำถาม"
+
+#: inc/templates/default/question-submit-form.php:49
+#@ dwqa
+msgid "Question details"
+msgstr "รายละเอียดคำถาม"
+
+#: inc/actions.php:1601
+#@ dwqa
+msgid "Question is not valid"
+msgstr ""
+
+#: inc/settings.php:574
+#@ dwqa
+msgid "Question must be manually approved"
+msgstr ""
+
+#: inc/templates/default/question-list.php:32
+#: thesis/dwqa/box.php:97
+#@ dwqa
+msgid "Queue"
+msgstr "คิว"
+
+#: inc/metaboxes.php:49
+#: inc/status.php:267
+#: inc/template-functions.php:685
+#: thesis/dwqa/box.php:343
+#@ dwqa
+msgid "Re-Open"
+msgstr "เปิดใหม่"
+
+#: inc/settings.php:411
+#@ dwqa
+msgid "Read"
+msgstr ""
+
+#: inc/class-answers-list-table.php:108
+#: inc/contextual-helper.php:202
+#@ dwqa
+msgid "Read more"
+msgstr ""
+
+#: inc/template-functions.php:108
+#: inc/templates/default/answers.php:114
+#@ dwqa
+msgid "Register"
+msgstr "สมัครสมาชิก"
+
+#: dw-question-answer.php:338
+#@ dwqa
+msgid "Report"
+msgstr ""
+
+#: inc/template-functions.php:358
+#, php-format
+#@ default
+msgid "Required fields are marked %s"
+msgstr ""
+
+#: inc/settings.php:446
+#: inc/settings.php:488
+#: inc/settings.php:529
+#@ dwqa
+msgid "Reset Default"
+msgstr ""
+
+#: dw-question-answer.php:598
+#@ dwqa
+msgid "Reset all changes to default"
+msgstr ""
+
+#: inc/metaboxes.php:48
+#: inc/status.php:261
+#: inc/template-functions.php:700
+#: inc/templates/default/question-list.php:25
+#: thesis/dwqa/box.php:90
+#: thesis/dwqa/box.php:358
+#@ dwqa
+msgid "Resolved"
+msgstr "คำตอบสมบูรณ์"
+
+#: inc/settings.php:670
+#@ dwqa
+msgid "Review Question"
+msgstr ""
+
+#: inc/settings.php:966
+#: inc/settings.php:975
+#: inc/settings.php:984
+#: inc/settings.php:993
+#: inc/settings.php:1003
+#: inc/settings.php:1011
+#: inc/settings.php:1021
+#@ dwqa
+msgid "Save all changes"
+msgstr ""
+
+#: inc/actions.php:93
+#: inc/template-functions.php:215
+#@ dwqa
+msgid "Save draft"
+msgstr "บันทึกแบบร่าง"
+
+#: inc/templates/default/search-question.php:4
+#@ dwqa
+msgid "Search"
+msgstr "ค้นหา"
+
+#: dw-question-answer.php:207
+#@ default
+msgid "Search Answer"
+msgstr ""
+
+#: dw-question-answer.php:243
+#@ default
+msgid "Search Categories"
+msgstr ""
+
+#: dw-question-answer.php:163
+#@ default
+msgid "Search Question"
+msgstr ""
+
+#: dw-question-answer.php:270
+#@ default
+msgid "Search Tags"
+msgstr ""
+
+#: inc/filter.php:431
+#@ dwqa
+msgid "Search query is empty"
+msgstr ""
+
+#: inc/settings.php:66
+#@ dwqa
+msgid "Select 404 DWQA Page"
+msgstr ""
+
+#: inc/settings.php:21
+#@ dwqa
+msgid "Select Archive Question Page"
+msgstr ""
+
+#: inc/settings.php:48
+#@ dwqa
+msgid "Select Submit Question Page"
+msgstr ""
+
+#: inc/templates/default/question-list.php:53
+#: thesis/dwqa/box.php:118
+#@ dwqa
+msgid "Select a category"
+msgstr "เลือกหมวดหมู่"
+
+#: inc/templates/default/question-submit-form.php:27
+#@ dwqa
+msgid "Select question category"
+msgstr "เลือกหมวดหมู่"
+
+#: inc/settings.php:585
+#@ dwqa
+msgid "Select template for Single Quesiton page"
+msgstr ""
+
+#: inc/settings.php:1066
+#@ dwqa
+msgid "Send A Copy Of Every Email To Admin"
+msgstr ""
+
+#: inc/settings.php:1045
+#@ dwqa
+msgid "Send to"
+msgstr ""
+
+#: dw-question-answer.php:279
+#@ default
+msgid "Separate tags with commas"
+msgstr ""
+
+#: inc/settings.php:614
+#@ dwqa
+msgid "Settings"
+msgstr ""
+
+#: inc/contextual-helper.php:57
+#@ dwqa
+msgid "Setup Ask Question Page"
+msgstr ""
+
+#: inc/contextual-helper.php:53
+#@ dwqa
+msgid "Setup Question List Page"
+msgstr ""
+
+#: inc/contextual-helper.php:61
+#@ dwqa
+msgid "Shortcode"
+msgstr ""
+
+#: inc/widgets/popular-question.php:11
+#@ dwqa
+msgid "Show a list of questions that ordered by views."
+msgstr ""
+
+#: inc/widgets/related-question.php:11
+#@ dwqa
+msgid "Show a list of questions that related to a question. Just show in single question page"
+msgstr ""
+
+#: inc/widgets/latest-question.php:11
+#: inc/widgets/list-closed-question.php:11
+#@ dwqa
+msgid "Show a list of questions that was ordered by views."
+msgstr ""
+
+#: inc/settings.php:776
+#@ dwqa
+msgid "Single Category"
+msgstr ""
+
+#: inc/settings.php:768
+#@ dwqa
+msgid "Single Question"
+msgstr ""
+
+#: inc/settings.php:686
+#@ dwqa
+msgid "Single Question Template"
+msgstr ""
+
+#: inc/settings.php:784
+#@ dwqa
+msgid "Single Tag"
+msgstr ""
+
+#: inc/templates/default/archive-question-notfound.php:7
+#: thesis/dwqa/box.php:195
+#@ dwqa
+msgid "Sorry, but nothing matched your filter."
+msgstr ""
+
+#: inc/filter.php:104
+#@ dwqa
+msgid "Sorry, but nothing matched your filter. "
+msgstr ""
+
+#: inc/templates/default/content-answer.php:90
+#: inc/templates/default/content-comment.php:12
+#@ dwqa
+msgid "Staff"
+msgstr ""
+
+#: inc/metaboxes.php:44
+#: thesis/dwqa/box.php:325
+#@ dwqa
+msgid "Status"
+msgstr "สถานะ"
+
+#: inc/templates/default/question-list.php:13
+#: thesis/dwqa/box.php:78
+#@ dwqa
+#@ default
+msgid "Status:"
+msgstr "สถานะ:"
+
+#: inc/metaboxes.php:56
+#@ dwqa
+msgid "Sticky"
+msgstr ""
+
+#: inc/template-functions.php:562
+#@ dwqa
+msgid "Sticky Question"
+msgstr ""
+
+#: inc/actions.php:1566
+#@ dwqa
+msgid "Sticky Questions"
+msgstr ""
+
+#: inc/contextual-helper.php:65
+#@ dwqa
+msgid "Style integration"
+msgstr ""
+
+#: dw-question-answer.php:569
+#@ dwqa
+msgid "Submitted"
+msgstr ""
+
+#: inc/templates/default/content-answer.php:132
+#@ dwqa
+msgid "The answer link"
+msgstr ""
+
+#: inc/actions.php:877
+#@ dwqa
+msgid "The question is missing"
+msgstr ""
+
+#: inc/settings.php:1060
+#@ dwqa
+msgid "This address will be used as the sender of the outgoing emails."
+msgstr ""
+
+#: dw-question-answer.php:342
+#@ dwqa
+msgid "This answer was flagged as spam"
+msgstr ""
+
+#: inc/templates/default/content-answer.php:112
+#@ dwqa
+msgid "This answer was flagged as spam."
+msgstr ""
+
+#: dw-question-answer.php:341
+#@ dwqa
+msgid "This answer was flagged as spam. Do you want to show it"
+msgstr ""
+
+#: dw-question-answer.php:489
+#@ dwqa
+msgid "This answer was flagged as spam. Do you want to show it?"
+msgstr ""
+
+#: dw-question-answer.php:488
+#@ dwqa
+msgid "This answer will be hidden when flagged. Are you sure you want to flag it?"
+msgstr ""
+
+#: dw-question-answer.php:340
+#@ dwqa
+msgid "This answer will be marked as spam and hidden. Do you want to flag it?"
+msgstr ""
+
+#: inc/actions.php:363
+#@ dwqa
+msgid "This email is already registered, please choose another one."
+msgstr ""
+
+#: inc/templates/default/content-answer.php:128
+#@ dwqa
+msgid "This is the best answer"
+msgstr "นี่คือคำตอบที่ดีที่สุด"
+
+#: inc/settings.php:71
+#@ dwqa
+msgid "This page will be redirected when users without authority click on a private question. You can customize the message of this page in.If not, a default 404 page will be used."
+msgstr ""
+
+#: inc/actions.php:149
+#: inc/actions.php:256
+#@ dwqa
+msgid "This post is not an answer"
+msgstr ""
+
+#: inc/templates/default/single-question.php:17
+#@ dwqa
+msgid "This question is currently awaiting approval"
+msgstr ""
+
+#: inc/templates/default/answers.php:99
+#@ dwqa
+msgid "This question is now closed"
+msgstr ""
+
+#: inc/actions.php:366
+#@ dwqa
+msgid "This username is already registered. Please use another one."
+msgstr ""
+
+#: inc/settings.php:695
+#@ dwqa
+msgid "Time settings"
+msgstr ""
+
+#: inc/template-functions.php:92
+#: inc/template-functions.php:129
+#@ dwqa
+msgid "Type your email"
+msgstr ""
+
+#: inc/template-functions.php:106
+#@ dwqa
+msgid "Type your password"
+msgstr ""
+
+#: inc/template-functions.php:103
+#@ dwqa
+msgid "Type your username"
+msgstr ""
+
+#: dw-question-answer.php:339
+#@ dwqa
+msgid "Undo"
+msgstr ""
+
+#: dw-question-answer.php:487
+#: inc/templates/default/content-answer.php:50
+#@ dwqa
+msgid "Unflag"
+msgstr ""
+
+#: dw-question-answer.php:347
+#: inc/template-functions.php:743
+#: thesis/dwqa/box.php:244
+#@ dwqa
+msgid "Unfollow This Question"
+msgstr "ไม่ติดตามคำถามนี้"
+
+#: inc/template-functions.php:751
+#@ dwqa
+msgid "Unpin this Question from the top"
+msgstr "เลิกปักหมุดคำถามนี้"
+
+#: dw-question-answer.php:349
+#@ dwqa
+msgid "Unpin this question from top"
+msgstr "เลิกปักหมุดคำถามนี้"
+
+#: dw-question-answer.php:330
+#: dw-question-answer.php:480
+#: inc/actions.php:826
+#: inc/actions.php:929
+#@ dwqa
+msgid "Update"
+msgstr ""
+
+#: dw-question-answer.php:248
+#@ default
+msgid "Update Category"
+msgstr ""
+
+#: dw-question-answer.php:276
+#@ default
+msgid "Update Tag"
+msgstr ""
+
+#: inc/settings.php:87
+#@ dwqa
+msgid "Upload"
+msgstr ""
+
+#: inc/settings.php:87
+#@ dwqa
+msgid "Upload or choose a logo to be displayed at the top of the email"
+msgstr ""
+
+#: inc/actions.php:360
+#@ dwqa
+msgid "User Registration was disabled."
+msgstr ""
+
+#: dw-question-answer.php:565
+#: inc/templates/default/question-list.php:97
+#: thesis/dwqa/box.php:162
+#@ edd-dw-membersip
+#@ dwqa
+msgid "View"
+msgstr "อ่าน"
+
+#: dw-question-answer.php:206
+#@ default
+msgid "View Answer"
+msgstr ""
+
+#: dw-question-answer.php:162
+#@ default
+msgid "View Question"
+msgstr ""
+
+#: inc/class-walker-category.php:20
+#: inc/class-walker-tag-dropdown.php:19
+#, php-format
+#@ default
+msgid "View all posts filed under %s"
+msgstr ""
+
+#: inc/templates/default/comments.php:16
+#@ dwqa
+msgid "View previous comments"
+msgstr ""
+
+#: inc/templates/default/question-list.php:103
+#: thesis/dwqa/box.php:168
+#@ dwqa
+msgid "Vote"
+msgstr "โหวด"
+
+#: inc/template-functions.php:723
+#: inc/templates/default/content-answer.php:30
+#: thesis/dwqa/box.php:240
+#@ dwqa
+msgid "Vote Down"
+msgstr "โหวตลง"
+
+#: inc/template-functions.php:721
+#: inc/templates/default/content-answer.php:20
+#: thesis/dwqa/box.php:238
+#@ dwqa
+msgid "Vote Up"
+msgstr "โหวตขึ้น"
+
+#: inc/actions-vote.php:19
+#@ dwqa
+msgid "What  are you looking for?"
+msgstr ""
+
+#: inc/actions-vote.php:20
+#@ dwqa
+msgid "What  are you looking for? "
+msgstr ""
+
+#: inc/widgets/latest-question.php:64
+#: inc/widgets/list-closed-question.php:72
+#: inc/widgets/popular-question.php:63
+#: inc/widgets/related-question.php:48
+#@ default
+msgid "Widget title"
+msgstr ""
+
+#: inc/templates/default/comments.php:36
+#@ dwqa
+msgid "Write a reply..."
+msgstr ""
+
+#: inc/filter.php:111
+#@ dwqa
+msgid "You can ask question"
+msgstr ""
+
+#: thesis/dwqa/box.php:202
+#@ dwqa
+msgid "You can ask question <a href=\"\">here</a>"
+msgstr "คุณสามารถโพสคำถามได้<a href=\"\">ที่นี้</a>"
+
+#: inc/actions.php:960
+#@ dwqa
+msgid "You can't post comment"
+msgstr ""
+
+#: inc/actions.php:1642
+#@ dwqa
+msgid "You do not have permission to delete this question"
+msgstr ""
+
+#: inc/actions.php:871
+#: inc/status.php:320
+#@ dwqa
+msgid "You do not have permission to edit question"
+msgstr ""
+
+#: inc/actions.php:567
+#@ dwqa
+msgid "You do not have permission to edit question status"
+msgstr ""
+
+#: inc/actions.php:144
+#: inc/actions.php:251
+#@ dwqa
+msgid "You do not have permission to edit this post"
+msgstr ""
+
+#: inc/template-functions.php:271
+#@ dwqa
+msgid "You do not have permission to submit a question"
+msgstr ""
+
+#: inc/templates/default/answers.php:107
+#@ dwqa
+msgid "You do not have permission to submit answer."
+msgstr ""
+
+#: inc/actions.php:107
+#: inc/actions.php:404
+#@ dwqa
+msgid "You do not have permission to submit question."
+msgstr ""
+
+#: inc/templates/default/answers.php:91
+#@ dwqa
+msgid "You do not have permission to view answers"
+msgstr ""
+
+#: inc/filter.php:101
+#: inc/templates/default/archive-question-notfound.php:4
+#: thesis/dwqa/box.php:192
+#@ dwqa
+msgid "You do not have permission to view questions"
+msgstr ""
+
+#: inc/notification.php:187
+#@ dwqa
+msgid "You have a new answer for your followed question"
+msgstr ""
+
+#: inc/template-functions.php:374
+#, php-format
+#@ dwqa
+msgid "You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags and attributes: %s"
+msgstr ""
+
+#: inc/template-functions.php:371
+#, php-format
+#@ dwqa
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr ""
+
+#: inc/template-functions.php:90
+#@ dwqa
+msgid "You need an account to submit question and get answers. Create one:"
+msgstr ""
+
+#: inc/actions-vote.php:52
+#@ dwqa
+msgid "You voted for this "
+msgstr ""
+
+#: inc/template-functions.php:112
+#@ dwqa
+msgid "Your email *"
+msgstr ""
+
+#: inc/template-functions.php:373
+#@ dwqa
+msgid "Your email address will not be published."
+msgstr ""
+
+#: inc/templates/default/question-submit-form.php:41
+#@ dwqa
+msgid "Your question"
+msgstr "คำถามของคุณ"
+
+#: inc/templates/default/single-question.php:17
+#@ dwqa
+msgid "Your question has been submitted and is currently awaiting approval"
+msgstr ""
+
+#: dw-question-answer.php:321
+#@ dwqa
+msgid "Your question must be at least 2 characters in length"
+msgstr ""
+
+#: inc/notification.php:289
+#: inc/notification.php:335
+#@ dwqa
+msgid "[{site_name}] You have a new comment for answer"
+msgstr ""
+
+#: inc/notification.php:284
+#: inc/notification.php:330
+#@ dwqa
+msgid "[{site_name}] You have a new comment for question {question_title}"
+msgstr ""
+
+#: dw-question-answer.php:406
+#, php-format
+#@ default
+msgid "about %s hour"
+msgid_plural "%s hours"
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: min=minute
+#: dw-question-answer.php:400
+#, php-format
+#@ default
+msgid "about %s min"
+msgid_plural "%s mins"
+msgstr[0] ""
+msgstr[1] ""
+
+#. gettext fix: identical singular and plural forms found, that may be ambiguous! Please check the code!
+#: inc/templates/default/answers.php:45
+#: inc/templates/default/content-question.php:42
+#: inc/templates/default/content-question.php:45
+#@ dwqa
+msgid "answer"
+msgid_plural "answers"
+msgstr[0] "คำตอบ"
+msgstr[1] "คำตอบ"
+
+#: dw-question-answer.php:612
+#@ dwqa
+msgid "answered"
+msgstr "ตอบ"
+
+#: inc/templates/default/single-question.php:41
+#: thesis/dwqa/box.php:278
+#@ dwqa
+msgid "asked"
+msgstr ""
+
+#: dw-question-answer.php:735
+#: inc/shortcodes.php:120
+#: inc/widgets/latest-question.php:40
+#: inc/widgets/list-closed-question.php:48
+#: inc/widgets/popular-question.php:40
+#@ dwqa
+msgid "asked by"
+msgstr ""
+
+#: inc/settings.php:37
+#@ dwqa
+msgid "days"
+msgstr "วัน"
+
+#: inc/template-functions.php:744
+#@ dwqa
+msgid "follow"
+msgstr "ตามคำถาม"
+
+#: inc/template-functions.php:745
+#@ dwqa
+msgid "following"
+msgstr "กำลังติดตาม"
+
+#: inc/filter.php:113
+#@ dwqa
+msgid "here"
+msgstr ""
+
+#: dw-question-answer.php:343
+#: dw-question-answer.php:490
+#@ dwqa
+msgid "hide"
+msgstr ""
+
+#: inc/settings.php:32
+#@ dwqa
+msgid "hours"
+msgstr ""
+
+#: inc/template-functions.php:370
+#@ default
+msgctxt "noun"
+msgid "Comment"
+msgstr ""
+
+#: inc/templates/default/comments.php:17
+#@ dwqa
+msgid "of"
+msgstr ""
+
+#: dw-question-answer.php:570
+#@ dwqa
+msgid "on"
+msgstr ""
+
+#: inc/template-functions.php:114
+#, php-format
+#@ dwqa
+msgid "or <strong><a href=\"%s\">login</a></strong> to submit question"
+msgstr ""
+
+#: dw-question-answer.php:199
+#@ default
+msgctxt "post type general name"
+msgid "Answer"
+msgstr ""
+
+#: dw-question-answer.php:155
+#@ default
+msgctxt "post type general name"
+msgid "Question"
+msgstr ""
+
+#: dw-question-answer.php:200
+#@ default
+msgctxt "post type singular name"
+msgid "Answer"
+msgstr ""
+
+#: dw-question-answer.php:156
+#@ default
+msgctxt "post type singular name"
+msgid "Question"
+msgstr ""
+
+#: inc/settings.php:562
+#@ dwqa
+msgid "questions"
+msgstr ""
+
+#: dw-question-answer.php:344
+#: dw-question-answer.php:491
+#@ dwqa
+msgid "show"
+msgstr ""
+
+#: inc/templates/default/question-submit-form.php:36
+#@ dwqa
+msgid "tag 1, tag 2,..."
+msgstr ""
+
+#: dw-question-answer.php:241
+#@ default
+msgctxt "taxonomy general name"
+msgid "Categories"
+msgstr "หมวดหมู่"
+
+#: dw-question-answer.php:268
+#@ default
+msgctxt "taxonomy general name"
+msgid "Tags"
+msgstr ""
+
+#: dw-question-answer.php:242
+#@ default
+msgctxt "taxonomy singular name"
+msgid "Category"
+msgstr "หมวดหมู่"
+
+#: dw-question-answer.php:269
+#@ default
+msgctxt "taxonomy singular name"
+msgid "Tag"
+msgstr ""
+
+#: dw-question-answer.php:157
+#: dw-question-answer.php:201
+#@ default
+msgctxt "theme"
+msgid "Add New"
+msgstr ""
+
+#: inc/contextual-helper.php:216
+#@ dwqa
+msgid "title"
+msgstr ""
+
+#: inc/templates/default/answers.php:115
+#@ dwqa
+msgid "to Submit Answer"
+msgstr "ก่อนโพสคำตอบ"
+
+#: inc/template-functions.php:746
+#@ dwqa
+msgid "unfollow"
+msgstr "ไม่ติดตาม"
+
+#. gettext fix: identical singular and plural forms found, that may be ambiguous! Please check the code!
+#: inc/templates/default/content-question.php:28
+#: inc/templates/default/content-question.php:31
+#@ dwqa
+msgid "view"
+msgid_plural "views"
+msgstr[0] "อ่าน"
+msgstr[1] "อ่าน"
+
+#: dw-question-answer.php:614
+#@ dwqa
+msgid "views"
+msgstr "อ่าน"
+
+#. gettext fix: identical singular and plural forms found, that may be ambiguous! Please check the code!
+#: inc/templates/default/content-question.php:56
+#: inc/templates/default/content-question.php:59
+#@ dwqa
+msgid "vote"
+msgid_plural "votes"
+msgstr[0] "โหวด"
+msgstr[1] "โหวด"
+
+#: dw-question-answer.php:613
+#@ dwqa
+msgid "voted"
+msgstr ""
+

@@ -703,7 +703,21 @@ function dwqa_question_status_button( $post_id = false ) {
 			</div>
 		</span>
 		<?php else : ?>
-			<span class="dwqa-status-name"><?php echo $meta; ?></span>
+                   <?php if ( 'open' == $meta) :  ?>
+                          <span class="dwqa-status-name"><?php _e( 'Open', 'dwqa' );?></span>
+                   <?php endif; ?>
+                   <?php if ( 'resolved' == $meta) : ?>
+                          <span class="dwqa-status-name"><?php _e( 'Resolved', 'dwqa' );?></span>
+                   <?php endif; ?>
+                   <?php if ( 'pending' == $meta) : ?>
+                          <span class="dwqa-status-name"><?php _e( 'Pending', 'dwqa' );?></span>
+                   <?php endif; ?>
+                   <?php if ( 'closed' == $meta) : ?>
+                          <span class="dwqa-status-name"><?php _e( 'Closed', 'dwqa' );?></span>
+                   <?php endif; ?>
+                    <?php if ( 're-open' == $meta) : ?>
+                          <span class="dwqa-status-name"><?php _e( 'Re-Open', 'dwqa' );?></span>
+                   <?php endif; ?>
 		<?php endif; ?> <!-- Change Question Status -->
 	</div>
 	<?php

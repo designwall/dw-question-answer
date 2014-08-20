@@ -703,7 +703,7 @@ function dwqa_question_status_button( $post_id = false ) {
 			</div>
 		</span>
 		<?php else : ?>
-                   <?php if ( 'open' == $meta) :  ?>
+                   <?php if ( 'open' == $meta) : ?>
                           <span class="dwqa-status-name"><?php _e( 'Open', 'dwqa' );?></span>
                    <?php endif; ?>
                    <?php if ( 'resolved' == $meta) : ?>

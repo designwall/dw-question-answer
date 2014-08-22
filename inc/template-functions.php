@@ -703,7 +703,7 @@ function dwqa_question_status_button( $post_id = false ) {
 			</div>
 		</span>
 		<?php else : ?>
-			<span class="dwqa-status-name"><?php _e( ucwords($meta), 'dwqa' ) ?></span>
+			<span class="dwqa-status-name"><?php _e( ucwords( $meta ), 'dwqa' ) ?></span>
 		<?php endif; ?> <!-- Change Question Status -->
 	</div>
 	<?php

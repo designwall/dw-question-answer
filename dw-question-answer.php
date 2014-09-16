@@ -34,13 +34,18 @@ include_once DWQA_DIR  . 'inc/beta.php';
 include_once DWQA_DIR  . 'inc/shortcodes.php';
 include_once DWQA_DIR  . 'inc/status.php';
 include_once DWQA_DIR  . 'inc/roles.php';
+include_once DWQA_DIR  . 'inc/buddypress.php';
+
 
 include_once DWQA_DIR  . 'inc/widgets/related-question.php';
 include_once DWQA_DIR  . 'inc/widgets/popular-question.php';
 include_once DWQA_DIR  . 'inc/widgets/latest-question.php';
 include_once DWQA_DIR  . 'inc/widgets/list-closed-question.php';
 
+
 include_once DWQA_DIR  . 'inc/deprecated.php';
+
+
 
 function dwqa_include_recaptcha_library() {
 	if ( ! defined( 'RECAPTCHA_VERIFY_SERVER' ) ) {
@@ -331,6 +336,13 @@ function dwqa_activate() {
 			'post_content'	=> $submit_question_content . '[dwqa-submit-question-form]',
 		) );
 	}
+	if ( is_plugin_active( 'buddypress/bp-loader.php' ) ) {
+  //plugin is activated
+		create_bbcustom();
+		append_string_2_functions();
+	}
+	
+
 
 	update_option( 'dwqa_options', $options );
 
@@ -345,6 +357,12 @@ function dwqa_deactivate_hook() {
 	$dwqa_permission->remove_permision_caps();
 
 	wp_clear_scheduled_hook( 'dwqa_hourly_event' );
+	
+	if ( is_plugin_active( 'buddypress/bp-loader.php' ) ) {
+	remove_bbcustom();
+	replace_string_functions();
+	}
+
 
 	flush_rewrite_rules();
 }

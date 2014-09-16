@@ -50,8 +50,9 @@ function dwqa_include_recaptcha_library() {
 add_action( 'plugins_loaded', 'dwqa_include_recaptcha_library' );
 
 
-global $dwqa_permission;
+global $dwqa_permission, $dwqa_db_version;
 $dwqa_permission = new DWQA_Permission();
+$dwqa_db_version = '1.3.3';
 
 function dwqa_posttype_init() {
 	global $dwqa_options;

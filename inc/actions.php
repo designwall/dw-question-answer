@@ -124,7 +124,7 @@ function dwqa_add_answer() {
 								update_post_meta( $answer_id, '_dwqa_anonymous_email', $post_author_email );
 							}
 						}
-						do_action( 'dwqa_add_answer', $answer_id );
+						do_action( 'dwqa_add_answer', $answer_id, $question_id );
 						wp_redirect( get_permalink( $question_id ) );
 						return true;
 					} else {
@@ -263,8 +263,8 @@ function dwqa_remove_answer() {
 			'message'   => __( 'This post is not an answer', 'dwqa' )
 		) );
 	}
-
-	do_action( 'dwqa_delete_answer', $answer_id );
+	$question_id = get_post_meta( $answer_id, '_question', true );
+	do_action( 'dwqa_delete_answer', $answer_id, $question_id );
 
 	wp_delete_post( $answer_id );
 
@@ -465,6 +465,9 @@ function dwqa_insert_question( $args ) {
 		update_post_meta( $new_question, '_dwqa_status', 'open' );
 		update_post_meta( $new_question, '_dwqa_views', 0 );
 		update_post_meta( $new_question, '_dwqa_votes', 0 );
+		update_post_meta( $new_question, '_dwqa_answers_count', 0 );
+		$date = get_post_field( 'post_date', $new_question );
+		dwqa_log_last_activity_on_question( $new_question, 'Create question', $date );
 		//Call action when add question successfull
 		do_action( 'dwqa_add_question', $new_question, $user_id );
 	} 
@@ -1672,5 +1675,52 @@ function dwqa_comment_author_link_anonymous( $comment ) {
 	return $comment;
 }
 add_filter( 'get_comment', 'dwqa_comment_author_link_anonymous' );
+
+
+/**
+ * Hook when have new answer
+ */
+//add_action( 'dwqa_add_answer', 'dwqa_add_answer_logs', 10, 2 );
+function dwqa_add_answer_logs( $answer_id, $question_id ) {
+	dwqa_question_answer_count( $answer_id, $question_id );
+	$date = get_post_field( 'post_date', $answer_id );
+	dwqa_log_last_activity_on_question( $question_id, 'Add new answer', $date );
+}
+
+/**
+ * Hook when delete answer
+ */
+//add_action( 'dwqa_delete_answer', 'dwqa_delete_answer_logs', 10, 2 );
+function dwqa_delete_answer_logs( $answer_id, $question_id ) {
+	dwqa_question_answer_count( $answer_id, $question_id );
+	$date = get_post_field( 'post_date', $answer_id );
+	dwqa_log_last_activity_on_question( $question_id, 'Delete answer', $date );
+}
+
+/**
+ * Update answers count for question when new answer was added
+ * @param  int $answer_id   new answer id
+ * @param  int $question_id question id
+ */
+function dwqa_question_answer_count( $answer_id, $question_id ) {
+	$query = new WP_Query( array(
+		'post_type' => 'dwqa-answer',
+		'post_status' => 'publish,private',
+		'meta_query' => array(
+			array(
+				'key'	=> '_question',
+				'value' => $question_id
+			)
+		),
+	) );
+	update_post_meta( $question_id, '_dwqa_answers_count', $query->found_posts );
+}
+
+function dwqa_log_last_activity_on_question( $question_id, $message, $date ) {
+	//log activity date
+	// update_post_meta( $question_id, '_dwqa_log_last_activity', $message );
+	// update_post_meta( $question_id, '_dwqa_log_last_activity_date', $date );
+	
+}
 
 ?>

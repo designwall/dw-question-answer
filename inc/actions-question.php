@@ -38,6 +38,7 @@ function dwqa_prepare_archive_posts() {
 	$query = array(
 		'post_type' => 'dwqa-question',
 		'posts_per_page' => $posts_per_page,
+		'orderby'	=> 'modified',
 	);
 	if ( is_tax( 'dwqa-question_category' ) ) {
 		$query['dwqa-question_category'] = get_query_var( 'dwqa-question_category' );
@@ -56,13 +57,7 @@ function dwqa_prepare_archive_posts() {
 		$query['post_status'] = array( 'publish', 'private', 'pending' );
 	}
 	global $dwqa_filter;
-	add_filter( 'posts_join', array( $dwqa_filter, 'join_filter_default' ) );
-	add_filter( 'posts_orderby', array( $dwqa_filter, 'order_filter_default' )  );
-	add_filter( 'posts_where', array( $dwqa_filter, 'posts_where_filter_default' )  );
 	query_posts( $query );
-	remove_filter( 'posts_join', array( $dwqa_filter, 'join_filter_default' ) );
-	remove_filter( 'posts_orderby', array( $dwqa_filter, 'order_filter_default' )  );
-	remove_filter( 'posts_where', array( $dwqa_filter, 'posts_where_filter_default' )  );
 }
 add_action( 'dwqa-prepare-archive-posts', 'dwqa_prepare_archive_posts' );
 

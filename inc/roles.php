@@ -25,7 +25,6 @@ function dwqa_current_user_can( $perm, $post_id = false ) {
 
 function dwqa_restrict_single_question( $posts ) {
 	global $wp_query, $wpdb, $dwqa_options;
-
 	if ( is_user_logged_in() ) 
 		return $posts;
 	//user is not logged
@@ -107,9 +106,8 @@ function dwqa_read_permission_apply( $posts, $query ) {
 	if ( isset( $query->query['post_type'] ) && $query->query['post_type'] == 'dwqa-answer' && ! dwqa_current_user_can( 'read_answer' ) ) {
 		return false;
 	}
-
-	if ( isset( $query->query['post_type'] ) && $query->query['post_type'] == 'dwqa-question' && ! is_single() ) {
-
+	
+	if ( ! is_single() && isset( $query->query['post_type'] ) && $query->query['post_type'] == 'dwqa-question' ) {
 		$availables = array();
 		foreach ( $posts as $key => $post ) {
 			if ( $post->post_status == 'publish' || ( $post->post_status != 'publish' && dwqa_current_user_can( 'edit_question' ) ) ){

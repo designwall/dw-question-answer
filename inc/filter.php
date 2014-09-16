@@ -250,13 +250,9 @@ class DWQA_Filter {
 				$order = ( $this->filter['order'] && $this->filter['order'] != 'ASC' ? 'DESC' : 'ASC' );
 				$orderby_statement = 'count_answer.dwqa_answers '. $order;
 				break;
-			case 'views';
-			case 'votes';
-				break;
-			
+			case 'views':
+			case 'votes':
 			default:
-				$order = ( $this->filter['order'] && $this->filter['order'] != 'ASC' ? 'DESC' : 'ASC' );
-				$orderby_statement = $this->order_filter_default( $orderby_statement, $order );
 				break;
 		}
 		return $orderby_statement;
@@ -275,11 +271,9 @@ class DWQA_Filter {
 						ON $wpdb->posts.ID = count_answer.question
 					";
 				break;
-			case 'views';
-			case 'votes';
-				break;
+			case 'views':
+			case 'votes':
 			default:
-				$join = $this->join_filter_default( $join );
 				break;
 		}
 		return $join;
@@ -288,7 +282,7 @@ class DWQA_Filter {
 
 	public function join_filter_default( $join ) {
 		global $wpdb;
-		
+	
 		$join .= "LEFT JOIN 
 				( SELECT $wpdb->postmeta.meta_value as question, max( $wpdb->posts.post_modified) as post_modified 
 					FROM $wpdb->posts, $wpdb->postmeta

@@ -850,7 +850,7 @@ class DWQA_Template {
 				return dwqa_get_template( 'single.php' );
 			}
 		}
-		if ( is_tax( 'dwqa-question_category' ) || is_tax( 'dwqa-question_tax' ) || is_post_type_archive( 'dwqa-question' ) || is_post_type_archive( 'dwqa-answer' ) ) {
+		if ( is_tax( 'dwqa-question_category' ) || is_tax( 'dwqa-question_tag' ) || is_post_type_archive( 'dwqa-question' ) || is_post_type_archive( 'dwqa-answer' ) ) {
 
 			ob_start();
 			echo '<div class="dwqa-container" >';

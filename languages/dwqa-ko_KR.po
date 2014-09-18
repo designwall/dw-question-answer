@@ -2,369 +2,348 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DW Question Answer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-18 16:48+0900\n"
-"PO-Revision-Date: 2014-05-18 17:09+0900\n"
-"Last-Translator: Stanley <ibnet@ibnet.co.kr>\n"
+"POT-Creation-Date: 2014-08-06 15:38+0700\n"
+"PO-Revision-Date: 2014-08-06 15:38+0700\n"
+"Last-Translator: DesignWall <webmaster@designwall.com>\n"
 "Language-Team: DesignWall <webmaster@designwall.com>\n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.5\n"
+"X-Generator: Poedit 1.6.4\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../dw-question-answer.php:63
-msgid "DWQA Questions"
-msgstr "DWAQ 질문"
-
-#: ../dw-question-answer.php:76
-msgid "DWQA Ask Question"
-msgstr "DWQA 질문하기"
-
-#: ../dw-question-answer.php:130
-msgctxt "post type general name"
+#: ../dw-question-answer.php:61 ../dw-question-answer.php:62
+#: ../inc/settings.php:392
 msgid "Question"
-msgstr "질문"
+msgstr ""
 
-#: ../dw-question-answer.php:131
-msgctxt "post type singular name"
-msgid "Question"
-msgstr "질문"
-
-#: ../dw-question-answer.php:132 ../dw-question-answer.php:166
-msgctxt "theme"
+#: ../dw-question-answer.php:63 ../dw-question-answer.php:107
+#, fuzzy
 msgid "Add New"
 msgstr "새로 추가"
 
-#: ../dw-question-answer.php:133
+#: ../dw-question-answer.php:64
 msgid "Add New Question"
 msgstr "새로운 질문하기"
 
-#: ../dw-question-answer.php:134
+#: ../dw-question-answer.php:65
 msgid "Edit Question"
 msgstr "질문 편집하기"
 
-#: ../dw-question-answer.php:135 ../inc/settings.php:909
+#: ../dw-question-answer.php:66 ../inc/settings.php:971
 msgid "New Question"
 msgstr "새로운 질문"
 
-#: ../dw-question-answer.php:136
+#: ../dw-question-answer.php:67
 msgid "All Questions"
 msgstr "모든 질문"
 
-#: ../dw-question-answer.php:137
+#: ../dw-question-answer.php:68
 msgid "View Question"
 msgstr "질문 보기"
 
-#: ../dw-question-answer.php:138
+#: ../dw-question-answer.php:69
 msgid "Search Question"
 msgstr "질문 검색"
 
-#: ../dw-question-answer.php:139
+#: ../dw-question-answer.php:70
 msgid "No questions found"
 msgstr "질문이 발견되지 않았습니다."
 
-#: ../dw-question-answer.php:140
+#: ../dw-question-answer.php:71
 msgid "No questions found in Trash"
 msgstr "휴지통에 질문이 없습니다."
 
-#: ../dw-question-answer.php:142
+#: ../dw-question-answer.php:73
 msgid "DW Q&A"
 msgstr "DW 질문과 답변"
 
-#: ../dw-question-answer.php:164
-msgctxt "post type general name"
+#: ../dw-question-answer.php:105 ../dw-question-answer.php:106
+#: ../dw-question-answer.php:117 ../dw-question-answer.php:534
+#: ../inc/settings.php:428 ../inc/templates/default/question-list.php:111
 msgid "Answer"
 msgstr "답변"
 
-#: ../dw-question-answer.php:165
-msgctxt "post type singular name"
-msgid "Answer"
-msgstr "답변"
-
-#: ../dw-question-answer.php:167
+#: ../dw-question-answer.php:108
 msgid "Add new answer"
 msgstr "새로운 질문하기"
 
-#: ../dw-question-answer.php:168
+#: ../dw-question-answer.php:109
 msgid "Edit answer"
 msgstr "질문 편집하기"
 
-#: ../dw-question-answer.php:169 ../inc/settings.php:910
+#: ../dw-question-answer.php:110 ../inc/settings.php:972
 msgid "New Answer"
 msgstr "새로운 답변"
 
-#: ../dw-question-answer.php:170
+#: ../dw-question-answer.php:111
 msgid "All Answers"
 msgstr "모든 답변"
 
-#: ../dw-question-answer.php:171
+#: ../dw-question-answer.php:112
 msgid "View Answer"
 msgstr "답변 보기"
 
-#: ../dw-question-answer.php:172
+#: ../dw-question-answer.php:113
 msgid "Search Answer"
 msgstr "답변 검색하기"
 
-#: ../dw-question-answer.php:173
+#: ../dw-question-answer.php:114
 msgid "No Answers found"
 msgstr "답변이 발견되지 않았습니다."
 
-#: ../dw-question-answer.php:174
+#: ../dw-question-answer.php:115
 msgid "No Answers found in Trash"
 msgstr "휴지통에 답변이 없습니다."
 
-#: ../dw-question-answer.php:176 ../dw-question-answer.php:465
-#: ../inc/settings.php:447 ../inc/shortcodes.php:164
-#: ../inc/templates/default/archive-question.php:111
-#: ../thesis/dwqa/box.php:172
-msgid "Answer"
-msgstr "답변"
-
-#: ../dw-question-answer.php:198
+#: ../dw-question-answer.php:147
 msgctxt "taxonomy general name"
 msgid "Categories"
 msgstr "분류"
 
-#: ../dw-question-answer.php:199
+#: ../dw-question-answer.php:148
 msgctxt "taxonomy singular name"
 msgid "Category"
 msgstr "분류"
 
-#: ../dw-question-answer.php:200
+#: ../dw-question-answer.php:149
 msgid "Search Categories"
 msgstr "분류 검색"
 
-#: ../dw-question-answer.php:201
+#: ../dw-question-answer.php:150
 msgid "All Categories"
 msgstr "모든 카테고리"
 
-#: ../dw-question-answer.php:202
+#: ../dw-question-answer.php:151
 msgid "Parent Category"
 msgstr "상위 분류"
 
-#: ../dw-question-answer.php:203
+#: ../dw-question-answer.php:152
 msgid "Parent Category:"
 msgstr "상위 분류:"
 
-#: ../dw-question-answer.php:204
+#: ../dw-question-answer.php:153
 msgid "Edit Category"
 msgstr "분류 편집"
 
-#: ../dw-question-answer.php:205
+#: ../dw-question-answer.php:154
 msgid "Update Category"
 msgstr "분류 업데이트"
 
-#: ../dw-question-answer.php:206
+#: ../dw-question-answer.php:155
 msgid "Add New Category"
 msgstr "새로운 분류 추가하기"
 
-#: ../dw-question-answer.php:207
+#: ../dw-question-answer.php:156
 msgid "New Category Name"
 msgstr "새로운 분류명"
 
-#: ../dw-question-answer.php:208
+#: ../dw-question-answer.php:157
 msgid "Question Categories"
 msgstr "질문 분류"
 
-#: ../dw-question-answer.php:227
+#: ../dw-question-answer.php:174
 msgctxt "taxonomy general name"
 msgid "Tags"
 msgstr "태\t그"
 
-#: ../dw-question-answer.php:228
+#: ../dw-question-answer.php:175
 msgctxt "taxonomy singular name"
 msgid "Tag"
 msgstr "태그"
 
-#: ../dw-question-answer.php:229
+#: ../dw-question-answer.php:176
 msgid "Search Tags"
 msgstr "태그 검색"
 
-#: ../dw-question-answer.php:230
+#: ../dw-question-answer.php:177
 msgid "Popular Tags"
 msgstr "태그 검색"
 
-#: ../dw-question-answer.php:231
+#: ../dw-question-answer.php:178
 msgid "All Tags"
 msgstr "모든 태그"
 
-#: ../dw-question-answer.php:234
+#: ../dw-question-answer.php:181
 msgid "Edit Tag"
 msgstr "태그 편집"
 
-#: ../dw-question-answer.php:235
+#: ../dw-question-answer.php:182
 msgid "Update Tag"
 msgstr "태그 업데이트"
 
-#: ../dw-question-answer.php:236
+#: ../dw-question-answer.php:183
 msgid "Add New Tag"
 msgstr "새로운 태그 추가"
 
-#: ../dw-question-answer.php:237
+#: ../dw-question-answer.php:184
 msgid "New Tag Name"
 msgstr "새로운 태그명"
 
-#: ../dw-question-answer.php:238
+#: ../dw-question-answer.php:185
 msgid "Separate tags with commas"
 msgstr "태그를 콤마로 구분하세요."
 
-#: ../dw-question-answer.php:239
+#: ../dw-question-answer.php:186
 msgid "Add or remove tags"
 msgstr "태그 추가/삭제"
 
-#: ../dw-question-answer.php:240
+#: ../dw-question-answer.php:187
 msgid "Choose from the most used tags"
 msgstr "많이 사용된 태그 선택"
 
-#: ../dw-question-answer.php:241
-#: ../inc/templates/default/submit-question-form.php:34
+#: ../dw-question-answer.php:188
+#: ../inc/templates/default/question-submit-form.php:36
 msgid "Question Tags"
 msgstr "질문 태그"
 
-#: ../dw-question-answer.php:280 ../dw-question-answer.php:417
-#: ../inc/filter.php:83 ../inc/shortcodes.php:276
-#: ../inc/templates/default/navigation-archive.php:93
-#: ../thesis/dwqa/box.php:282
+#: ../dw-question-answer.php:233 ../dw-question-answer.php:476
+#: ../inc/filter.php:83 ../inc/templates/default/navigation-archive.php:70
 msgid "Next"
 msgstr "다음"
 
-#: ../dw-question-answer.php:281 ../dw-question-answer.php:418
-#: ../inc/shortcodes.php:240
-#: ../inc/templates/default/navigation-archive.php:57
-#: ../thesis/dwqa/box.php:246
+#: ../dw-question-answer.php:234 ../dw-question-answer.php:477
+#: ../inc/templates/default/navigation-archive.php:34
 msgid "Prev"
 msgstr "이전"
 
-#: ../dw-question-answer.php:283 ../dw-question-answer.php:420
+#: ../dw-question-answer.php:236 ../dw-question-answer.php:479
 msgid "Please enter your question"
 msgstr "질문을 작성해주세요."
 
-#: ../dw-question-answer.php:284
+#: ../dw-question-answer.php:237
 msgid "Your question must be at least 2 characters in length"
 msgstr "질문의 길이가 최소한 2글자 이상이 되어야합니다."
 
-#: ../dw-question-answer.php:285
+#: ../dw-question-answer.php:238
 msgid "Enter a valid email address"
 msgstr "정확한 이메일 주소를 입력해주세요."
 
-#: ../dw-question-answer.php:286
+#: ../dw-question-answer.php:239
 msgid "Enter a question title"
 msgstr "질문 제목을 입력해 주세요."
 
-#: ../dw-question-answer.php:287
+#: ../dw-question-answer.php:240
 msgid "Please add your name"
 msgstr "이름을 입력해 주세요."
 
-#: ../dw-question-answer.php:288 ../dw-question-answer.php:421
+#: ../dw-question-answer.php:241 ../dw-question-answer.php:480
 msgid "Please enter your answer"
 msgstr "답변을 입력하세요."
 
-#: ../dw-question-answer.php:289 ../dw-question-answer.php:422
+#: ../dw-question-answer.php:242 ../dw-question-answer.php:481
+#: ../inc/actions.php:970
 msgid "Please enter your comment content"
 msgstr "댓글을 입력해 주세요"
 
-#: ../dw-question-answer.php:290 ../dw-question-answer.php:423
+#: ../dw-question-answer.php:243 ../dw-question-answer.php:482
 msgid "Comment must have more than 2 characters"
 msgstr "댓글은 최소한 두글자 이상이 되어야 합니다."
 
-#: ../dw-question-answer.php:291
+#: ../dw-question-answer.php:244
 msgid "Not found! Try another keyword."
 msgstr "결과가 없습니다. 다른 키워드를 입력하세요.\t"
 
-#: ../dw-question-answer.php:292
+#: ../dw-question-answer.php:245
 msgid "Or press <strong>ENTER</strong> to get more questions"
 msgstr "아니면 <strong>ENTER</strong>를 클릭하시어 다른 질문을 찾아보세요."
 
-#: ../dw-question-answer.php:293 ../dw-question-answer.php:424
-#: ../inc/actions.php:938 ../inc/actions.php:1034
+#: ../dw-question-answer.php:246 ../dw-question-answer.php:483
+#: ../inc/actions.php:833 ../inc/actions.php:936
 msgid "Update"
 msgstr "업데이트"
 
-#: ../dw-question-answer.php:294 ../dw-question-answer.php:425
-#: ../dw-question-answer.php:507 ../inc/settings.php:412
-#: ../inc/templates/default/content-answer.php:99
-#: ../inc/templates/default/content-comment.php:48
-#: ../inc/templates/default/single-question.php:62
+#: ../dw-question-answer.php:247 ../dw-question-answer.php:484
+#: ../dw-question-answer.php:576 ../inc/settings.php:399
+#: ../inc/template-functions.php:611
+#: ../inc/templates/default/content-answer.php:36
+#: ../inc/templates/default/content-comment.php:47
 msgid "Edit"
 msgstr "편집"
 
-#: ../dw-question-answer.php:295 ../dw-question-answer.php:426
-#: ../inc/actions.php:939 ../inc/actions.php:1035
+#: ../dw-question-answer.php:248 ../dw-question-answer.php:485
+#: ../inc/actions.php:834 ../inc/actions.php:937
 msgid "Cancel"
 msgstr "취소"
 
-#: ../dw-question-answer.php:296 ../dw-question-answer.php:427
+#: ../dw-question-answer.php:249 ../dw-question-answer.php:486
 msgid "Do you want to delete this comment?"
 msgstr "이 댓글을 삭제 하시겠습니까?"
 
-#: ../dw-question-answer.php:297 ../dw-question-answer.php:428
+#: ../dw-question-answer.php:250 ../dw-question-answer.php:487
 msgid "Do you want to delete this answer?"
 msgstr "이 답변을 삭제 하시겠습니까?"
 
-#: ../dw-question-answer.php:298
+#: ../dw-question-answer.php:251
 msgid "Do you want to update this answer?"
 msgstr "이 답변을 업데이트 하시겠습니까?"
 
-#: ../dw-question-answer.php:299
+#: ../dw-question-answer.php:252
 msgid "Do you want to report this answer?"
 msgstr "이 답변을 신고 하시겠습니까?"
 
-#: ../dw-question-answer.php:301
-#: ../inc/templates/default/content-answer.php:104
+#: ../dw-question-answer.php:254
 msgid "Report"
 msgstr "신고"
 
-#: ../dw-question-answer.php:302
+#: ../dw-question-answer.php:255
 msgid "Undo"
 msgstr "스팸 해제하기"
 
-#: ../dw-question-answer.php:303
+#: ../dw-question-answer.php:256
 msgid "This answer will be marked as spam and hidden. Do you want to flag it?"
 msgstr "이 답변은 스팸으로 처리되며, 보이지 않게 됩니다. 신고 하시겠습니다. "
 
-#: ../dw-question-answer.php:304
+#: ../dw-question-answer.php:257
 msgid "This answer was flagged as spam. Do you want to show it"
 msgstr "이 답변은 스팹으로 등록되었습니다. 그래도 보여주시겠습니까?"
 
-#: ../dw-question-answer.php:305
+#: ../dw-question-answer.php:258
 msgid "This answer was flagged as spam"
 msgstr "이 답변은 스팸으로 등록되었습니다."
 
-#: ../dw-question-answer.php:306 ../dw-question-answer.php:434
+#: ../dw-question-answer.php:259 ../dw-question-answer.php:493
 msgid "hide"
 msgstr "감추기"
 
-#: ../dw-question-answer.php:307 ../dw-question-answer.php:435
+#: ../dw-question-answer.php:260 ../dw-question-answer.php:494
+#: ../inc/templates/default/content-answer.php:103
 msgid "show"
 msgstr "보여주기"
 
-#: ../dw-question-answer.php:309
-#: ../inc/templates/default/single-question.php:31 ../thesis/dwqa/box.php:344
+#: ../dw-question-answer.php:262 ../inc/template-functions.php:739
 msgid "Follow This Question"
 msgstr "이 질문 구독하기"
 
-#: ../dw-question-answer.php:310
-#: ../inc/templates/default/single-question.php:31 ../thesis/dwqa/box.php:344
+#: ../dw-question-answer.php:263 ../inc/template-functions.php:739
 msgid "Unfollow This Question"
 msgstr "이 질문 구독 해제하기"
 
-#: ../dw-question-answer.php:311
+#: ../dw-question-answer.php:264
 msgid "Pin this question to top"
 msgstr "이 질문에 답변해 주세요."
 
-#: ../dw-question-answer.php:312
+#: ../dw-question-answer.php:265
 msgid "Unpin this question from top"
 msgstr "고정 해제하기"
 
-#: ../dw-question-answer.php:315
+#: ../dw-question-answer.php:268
 msgid "Do you want to delete this question?"
 msgstr "이 질문을 삭제하시겠습니까?"
 
-#: ../dw-question-answer.php:335
+#: ../dw-question-answer.php:284
+msgid "DWQA Questions"
+msgstr "DWAQ 질문"
+
+#: ../dw-question-answer.php:301
+msgid "DWQA Ask Question"
+msgstr "DWQA 질문하기"
+
+#: ../dw-question-answer.php:396
 #, php-format
 msgid "%s second"
 msgid_plural "%s seconds"
@@ -372,253 +351,311 @@ msgstr[0] "%s 초"
 msgstr[1] "%s 초"
 
 #. translators: min=minute
-#: ../dw-question-answer.php:344
+#: ../dw-question-answer.php:405
 #, php-format
 msgid "about %s min"
 msgid_plural "%s mins"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../dw-question-answer.php:350
+#: ../dw-question-answer.php:411
 #, php-format
 msgid "about %s hour"
 msgid_plural "%s hours"
 msgstr[0] "%s 시간 "
 msgstr[1] "%s 시간"
 
-#: ../dw-question-answer.php:356
+#: ../dw-question-answer.php:417
 #, php-format
 msgid "%s day"
 msgid_plural "%s days"
 msgstr[0] "%s 일"
 msgstr[1] "%s 일"
 
-#: ../dw-question-answer.php:360
+#: ../dw-question-answer.php:421
 #, php-format
 msgid "%1$s ago"
 msgstr "%1$s전"
 
-#: ../dw-question-answer.php:430
+#: ../dw-question-answer.php:489
+#: ../inc/templates/default/content-answer.php:41
 msgid "Flag"
 msgstr ""
 
-#: ../dw-question-answer.php:431
+#: ../dw-question-answer.php:490
+#: ../inc/templates/default/content-answer.php:41
 msgid "Unflag"
 msgstr ""
 
-#: ../dw-question-answer.php:432
+#: ../dw-question-answer.php:491
 msgid ""
 "This answer will be hidden when flagged. Are you sure you want to flag it?"
 msgstr "이 답변은 스팸으로 처리되며, 보이지 않게 됩니다. 신고 하시겠습니다. "
 
-#: ../dw-question-answer.php:433
+#: ../dw-question-answer.php:492
 msgid "This answer was flagged as spam. Do you want to show it?"
 msgstr "이 답변은 스팸으로 등록되었습니다. 그래도 보여주시겠습니까?"
 
-#: ../dw-question-answer.php:466 ../inc/class-answers-list-table.php:77
+#: ../dw-question-answer.php:535 ../inc/class-answers-list-table.php:81
 msgid "Author"
 msgstr ""
 
-#: ../dw-question-answer.php:468
+#: ../dw-question-answer.php:537
 msgid "In Response To"
 msgstr ""
 
-#: ../dw-question-answer.php:472
+#: ../dw-question-answer.php:541
 msgid "Info"
 msgstr ""
 
-#: ../dw-question-answer.php:508 ../inc/settings.php:413
-#: ../inc/templates/default/content-answer.php:102
-#: ../inc/templates/default/content-comment.php:51
-#: ../inc/templates/default/single-question.php:65
+#: ../dw-question-answer.php:577 ../inc/settings.php:400
+#: ../inc/template-functions.php:614
+#: ../inc/templates/default/content-answer.php:39
+#: ../inc/templates/default/content-comment.php:50
 msgid "Delete"
 msgstr "삭제"
 
-#: ../dw-question-answer.php:509 ../inc/shortcodes.php:161
-#: ../inc/templates/default/archive-question.php:108
-#: ../thesis/dwqa/box.php:169
+#: ../dw-question-answer.php:578
+#: ../inc/templates/default/question-list.php:108
 msgid "View"
 msgstr ""
 
-#: ../dw-question-answer.php:513
+#: ../dw-question-answer.php:582
 msgid "Submitted"
 msgstr ""
 
-#: ../dw-question-answer.php:514
+#: ../dw-question-answer.php:583
 msgid "on"
 msgstr ""
 
-#: ../dw-question-answer.php:542
+#: ../dw-question-answer.php:610
 msgid "Reset all changes to default"
 msgstr ""
 
-#: ../dw-question-answer.php:556
+#: ../dw-question-answer.php:624
 msgid "answered"
 msgstr "답변됨"
 
-#: ../dw-question-answer.php:557
+#: ../dw-question-answer.php:625
 msgid "voted"
 msgstr ""
 
-#: ../dw-question-answer.php:558
+#: ../dw-question-answer.php:626
 msgid "views"
 msgstr "읽음"
 
-#: ../dw-question-answer.php:679 ../inc/shortcodes.php:377
-#: ../inc/widgets.php:101 ../inc/widgets.php:175 ../inc/widgets.php:255
+#: ../dw-question-answer.php:734 ../inc/shortcodes.php:124
+#: ../inc/widgets/latest-question.php:40
+#: ../inc/widgets/list-closed-question.php:48
+#: ../inc/widgets/popular-question.php:40
 msgid "asked by"
 msgstr "질문자 "
 
-#: ../inc/actions.php:39
+#: ../inc/actions-question.php:14 ../inc/actions.php:1670
+#: ../inc/class-answers-list-table.php:92 ../inc/notification.php:146
+#: ../inc/notification.php:148 ../inc/settings.php:416 ../inc/settings.php:452
+#: ../inc/settings.php:487 ../inc/templates/default/content-answer.php:83
+#: ../inc/templates/default/content-comment.php:15
+#: ../inc/templates/default/single-question.php:24
+#: ../inc/widgets/latest-question.php:40
+msgid "Anonymous"
+msgstr ""
+
+#: ../inc/actions-question.php:20
+#, php-format
+msgid "Posts by %s"
+msgstr ""
+
+#: ../inc/actions-question.php:28
+#, php-format
+msgid "%s answered <span class=\"dwqa-date\">%s</span>"
+msgstr ""
+
+#: ../inc/actions-question.php:30
+#, php-format
+msgid "%s asked <span class=\"dwqa-date\">%s</span>"
+msgstr ""
+
+#: ../inc/actions-vote.php:6
 msgid "Are you cheating, huh?"
 msgstr ""
 
-#: ../inc/actions.php:53
+#: ../inc/actions-vote.php:19
 msgid "What "
 msgstr ""
 
-#: ../inc/actions.php:84
+#: ../inc/actions-vote.php:47
 msgid "You voted for this "
 msgstr ""
 
-#: ../inc/actions.php:205
+#: ../inc/actions.php:50
 msgid "Delete draft"
 msgstr ""
 
-#: ../inc/actions.php:234
+#: ../inc/actions.php:80
 msgid "Answer for "
 msgstr ""
 
-#: ../inc/actions.php:247 ../inc/template-functions.php:287
+#: ../inc/actions.php:94 ../inc/template-functions.php:217
 msgid "Save draft"
 msgstr "임시 저장"
 
-#: ../inc/actions.php:261 ../inc/actions.php:521
+#: ../inc/actions.php:108 ../inc/actions.php:415 ../inc/shortcodes.php:84
 msgid "You do not have permission to submit question."
 msgstr ""
 
-#: ../inc/actions.php:287 ../inc/actions.php:534
+#: ../inc/actions.php:134 ../inc/actions.php:427
 msgid "Captcha is not correct"
 msgstr ""
 
-#: ../inc/actions.php:375 ../inc/actions.php:537 ../inc/actions.php:748
-#: ../inc/actions.php:773 ../inc/actions.php:791 ../inc/actions.php:1517
-#: ../inc/filter.php:351 ../inc/status.php:286
+#: ../inc/actions.php:141
+#, fuzzy
+msgid "Answer is missing"
+msgstr "이 질문에 답변해 주세요."
+
+#: ../inc/actions.php:152 ../inc/actions.php:258
+msgid "You do not have permission to edit this post"
+msgstr ""
+
+#: ../inc/actions.php:157 ../inc/actions.php:263
+msgid "This post is not an answer"
+msgstr ""
+
+#: ../inc/actions.php:245 ../inc/actions.php:430 ../inc/actions.php:651
+#: ../inc/actions.php:673 ../inc/actions.php:691 ../inc/actions.php:1401
+#: ../inc/filter.php:425 ../inc/status.php:287
 msgid "Are you cheating huh?"
 msgstr ""
 
-#: ../inc/actions.php:378
+#: ../inc/actions.php:250
 msgid "Missing answer ID"
 msgstr ""
 
-#: ../inc/actions.php:477
+#: ../inc/actions.php:371
 msgid "User Registration was disabled."
 msgstr ""
 
-#: ../inc/actions.php:480
+#: ../inc/actions.php:374
 msgid "This email is already registered, please choose another one."
 msgstr ""
 
-#: ../inc/actions.php:483
+#: ../inc/actions.php:377
 msgid "This username is already registered. Please use another one."
 msgstr ""
 
-#: ../inc/actions.php:753
+#: ../inc/actions.php:577
+msgid "You do not have permission to edit question status"
+msgstr ""
+
+#: ../inc/actions.php:644
+msgid "Comment is missing"
+msgstr ""
+
+#: ../inc/actions.php:654
 msgid "Comment content must not be empty."
 msgstr ""
 
-#: ../inc/actions.php:778
+#: ../inc/actions.php:678
 msgid "Comment ID must be showed."
 msgstr ""
 
-#: ../inc/actions.php:794
+#: ../inc/actions.php:694
 msgid "Missing id of answer"
 msgstr ""
 
-#: ../inc/actions.php:942 ../inc/actions.php:1038
+#: ../inc/actions.php:837 ../inc/actions.php:940
 msgid "Publish"
 msgstr ""
 
-#: ../inc/actions.php:947 ../inc/actions.php:957
-#: ../inc/template-functions.php:292 ../inc/template-functions.php:302
+#: ../inc/actions.php:844 ../inc/actions.php:852
+#: ../inc/template-functions.php:224 ../inc/template-functions.php:232
+#: ../inc/template-functions.php:637 ../inc/template-functions.php:645
+#: ../inc/template-functions.php:651
+#: ../inc/templates/default/content-answer.php:55
 #: ../inc/templates/default/content-answer.php:63
-#: ../inc/templates/default/content-answer.php:75
-#: ../inc/templates/default/single-question.php:107
-#: ../inc/templates/default/single-question.php:119 ../thesis/dwqa/box.php:387
-#: ../thesis/dwqa/box.php:398
-msgid "Public"
-msgstr "공개"
-
-#: ../inc/actions.php:957 ../inc/template-functions.php:302
-#: ../inc/templates/default/content-answer.php:75
-#: ../inc/templates/default/single-question.php:119 ../thesis/dwqa/box.php:398
-msgid "Everyone can see"
-msgstr ""
-
-#: ../inc/actions.php:958 ../inc/template-functions.php:303
-#: ../inc/templates/default/content-answer.php:76
-#: ../inc/templates/default/single-question.php:120 ../thesis/dwqa/box.php:399
-msgid "Only Author and Administrator can see"
-msgstr ""
-
-#: ../inc/actions.php:958 ../inc/template-functions.php:303
-#: ../inc/templates/default/content-answer.php:63
-#: ../inc/templates/default/content-answer.php:76
-#: ../inc/templates/default/single-question.php:107
-#: ../inc/templates/default/single-question.php:120 ../thesis/dwqa/box.php:387
-#: ../thesis/dwqa/box.php:399
+#: ../inc/templates/default/content-answer.php:69
 msgid "Private"
 msgstr "비공개"
 
-#: ../inc/actions.php:978 ../inc/actions.php:1725
+#: ../inc/actions.php:844 ../inc/actions.php:851
+#: ../inc/template-functions.php:224 ../inc/template-functions.php:231
+#: ../inc/template-functions.php:637 ../inc/template-functions.php:644
+#: ../inc/template-functions.php:651
+#: ../inc/templates/default/content-answer.php:55
+#: ../inc/templates/default/content-answer.php:62
+#: ../inc/templates/default/content-answer.php:69
+msgid "Public"
+msgstr "공개"
+
+#: ../inc/actions.php:851 ../inc/template-functions.php:231
+#: ../inc/template-functions.php:644
+#: ../inc/templates/default/content-answer.php:62
+msgid "Everyone can see"
+msgstr ""
+
+#: ../inc/actions.php:852 ../inc/template-functions.php:232
+#: ../inc/template-functions.php:645
+#: ../inc/templates/default/content-answer.php:63
+msgid "Only Author and Administrator can see"
+msgstr ""
+
+#: ../inc/actions.php:869 ../inc/actions.php:1596
 msgid "Hello, Are you cheating huh?"
 msgstr ""
 
-#: ../inc/actions.php:1065
+#: ../inc/actions.php:877
+msgid "The question is missing"
+msgstr ""
+
+#: ../inc/actions.php:884 ../inc/status.php:318
+msgid "You do not have permission to edit question"
+msgstr ""
+
+#: ../inc/actions.php:965
 msgid "You can't post comment"
 msgstr ""
 
-#: ../inc/actions.php:1079
+#: ../inc/actions.php:984
 msgid "Missing email information"
 msgstr ""
 
-#: ../inc/actions.php:1084
+#: ../inc/actions.php:989
 msgid "Missing name information"
 msgstr ""
 
-#: ../inc/actions.php:1345
+#: ../inc/actions.php:1251
 msgid "Choose as the best answer"
 msgstr "많이 사용된 태그 선택"
 
-#: ../inc/actions.php:1564 ../inc/actions.php:1594
+#: ../inc/actions.php:1447 ../inc/actions.php:1471
 msgid "Invalid Post"
 msgstr ""
 
-#: ../inc/actions.php:1696
+#: ../inc/actions.php:1566
 msgid "Sticky Questions"
 msgstr ""
 
-#: ../inc/actions.php:1731
+#: ../inc/actions.php:1602
 msgid "Question is not valid"
 msgstr ""
 
-#: ../inc/actions.php:1766
+#: ../inc/actions.php:1623
 msgid "Delete Action was failed"
 msgstr ""
 
-#: ../inc/actions.php:1771
+#: ../inc/actions.php:1628
 msgid "You do not have permission to delete this question"
 msgstr ""
 
-#: ../inc/class-answers-list-table.php:78
+#: ../inc/class-answers-list-table.php:82
 msgid "Detail"
 msgstr ""
 
-#: ../inc/class-answers-list-table.php:97
+#: ../inc/class-answers-list-table.php:101
 msgid "Answered on "
 msgstr ""
 
-#: ../inc/class-answers-list-table.php:108 ../inc/contextual-helper.php:202
+#: ../inc/class-answers-list-table.php:112 ../inc/contextual-helper.php:201
 msgid "Read more"
 msgstr ""
 
@@ -632,15 +669,15 @@ msgstr ""
 msgid "Feed for all posts filed under %s"
 msgstr ""
 
-#: ../inc/contextual-helper.php:48
+#: ../inc/contextual-helper.php:47
 msgid "Overview"
 msgstr ""
 
-#: ../inc/contextual-helper.php:49
+#: ../inc/contextual-helper.php:48
 msgid "DW Question Answer Plugin"
 msgstr ""
 
-#: ../inc/contextual-helper.php:50
+#: ../inc/contextual-helper.php:49
 msgid ""
 "DW Question Answer is a WordPress Plugin which helps you build a Question & "
 "Answer system on your WordPress sites. The plugin is easy to install and set "
@@ -648,83 +685,80 @@ msgid ""
 "answer system."
 msgstr ""
 
-#: ../inc/contextual-helper.php:53
+#: ../inc/contextual-helper.php:52
 msgid "Setup Question List Page"
 msgstr "질문 목록 페이지 설정"
 
-#: ../inc/contextual-helper.php:57
+#: ../inc/contextual-helper.php:56
 msgid "Setup Ask Question Page"
 msgstr "질문 페이지 설정"
 
-#: ../inc/contextual-helper.php:61
+#: ../inc/contextual-helper.php:60
 msgid "Shortcode"
 msgstr ""
 
-#: ../inc/contextual-helper.php:65
+#: ../inc/contextual-helper.php:64
 msgid "Style integration"
 msgstr ""
 
-#: ../inc/contextual-helper.php:223
+#: ../inc/contextual-helper.php:221
 msgid "For more information:"
 msgstr ""
 
-#: ../inc/contextual-helper.php:224
+#: ../inc/contextual-helper.php:222
 msgid "DW Question Answer Guide"
 msgstr ""
 
-#: ../inc/contextual-helper.php:225
+#: ../inc/contextual-helper.php:223
 msgid "Community"
 msgstr ""
 
-#: ../inc/contextual-helper.php:226
+#: ../inc/contextual-helper.php:224
 msgid "DesignWall Wordpress Themes"
 msgstr ""
 
-#: ../inc/contextual-helper.php:227
+#: ../inc/contextual-helper.php:225
 msgid "DesignWall Wordpress Plugins"
 msgstr ""
 
-#: ../inc/filter.php:101 ../inc/shortcodes.php:289
-#: ../inc/templates/default/archive-question-notfound.php:4
-#: ../thesis/dwqa/box.php:295
+#: ../inc/filter.php:100
+#: ../inc/templates/default/archive-question-notfound.php:5
 msgid "You do not have permission to view questions"
 msgstr ""
 
-#: ../inc/filter.php:104
+#: ../inc/filter.php:103
 msgid "Sorry, but nothing matched your filter. "
 msgstr "죄송합니다. 찾으시는 결과가 없습니다."
 
-#: ../inc/filter.php:111 ../inc/shortcodes.php:300
+#: ../inc/filter.php:111
 msgid "You can ask question"
 msgstr ""
 
-#: ../inc/filter.php:113 ../inc/shortcodes.php:302
+#: ../inc/filter.php:113
 msgid "here"
 msgstr ""
 
-#: ../inc/filter.php:119 ../inc/shortcodes.php:308
-#: ../inc/templates/default/archive-question-notfound.php:14
+#: ../inc/filter.php:119
+#: ../inc/templates/default/archive-question-notfound.php:22
 msgid "Please"
 msgstr ""
 
-#: ../inc/filter.php:121 ../inc/shortcodes.php:310
-#: ../inc/templates/default/archive-question-notfound.php:16
+#: ../inc/filter.php:121
+#: ../inc/templates/default/archive-question-notfound.php:24
 msgid "Login"
 msgstr ""
 
-#: ../inc/filter.php:125 ../inc/shortcodes.php:315
-#: ../inc/templates/default/archive-question-notfound.php:17
-#: ../thesis/dwqa/box.php:313
+#: ../inc/filter.php:125
+#: ../inc/templates/default/archive-question-notfound.php:25
 msgid " or"
 msgstr ""
 
-#: ../inc/filter.php:127 ../inc/shortcodes.php:317
-#: ../inc/templates/default/archive-question-notfound.php:18
-#: ../thesis/dwqa/box.php:315
+#: ../inc/filter.php:127
+#: ../inc/templates/default/archive-question-notfound.php:26
 msgid " to submit question."
 msgstr ""
 
-#: ../inc/filter.php:359
+#: ../inc/filter.php:433
 msgid "Search query is empty"
 msgstr "질문 검색어를 입력해주세요."
 
@@ -736,38 +770,35 @@ msgstr ""
 msgid "Question Meta Data"
 msgstr ""
 
-#: ../inc/metaboxes.php:44 ../inc/templates/default/single-question.php:146
-#: ../thesis/dwqa/box.php:425
+#: ../inc/metaboxes.php:44
 msgid "Status"
 msgstr "상태"
 
-#: ../inc/metaboxes.php:46 ../inc/shortcodes.php:83 ../inc/status.php:277
-#: ../inc/templates/default/archive-question.php:30 ../thesis/dwqa/box.php:91
+#: ../inc/metaboxes.php:46 ../inc/status.php:278
+#: ../inc/templates/default/question-list.php:17
 msgid "Open"
 msgstr ""
 
-#: ../inc/metaboxes.php:47 ../inc/status.php:264
-#: ../inc/templates/default/content-question.php:8
-#: ../inc/templates/default/single-question.php:174 ../thesis/dwqa/box.php:453
+#: ../inc/metaboxes.php:47 ../inc/status.php:265
+#: ../inc/template-functions.php:693
+#: ../inc/templates/default/content-question.php:6
 msgid "Pending"
 msgstr "보류중"
 
-#: ../inc/metaboxes.php:48 ../inc/shortcodes.php:89 ../inc/status.php:261
-#: ../inc/templates/default/archive-question.php:36
-#: ../inc/templates/default/single-question.php:179 ../thesis/dwqa/box.php:97
-#: ../thesis/dwqa/box.php:458
+#: ../inc/metaboxes.php:48 ../inc/status.php:262
+#: ../inc/template-functions.php:698
+#: ../inc/templates/default/question-list.php:23
 msgid "Resolved"
 msgstr "해결됨"
 
-#: ../inc/metaboxes.php:49 ../inc/status.php:267
-#: ../inc/templates/default/single-question.php:164 ../thesis/dwqa/box.php:443
+#: ../inc/metaboxes.php:49 ../inc/status.php:268
+#: ../inc/template-functions.php:683
 msgid "Re-Open"
 msgstr "재오픈"
 
-#: ../inc/metaboxes.php:50 ../inc/shortcodes.php:92 ../inc/status.php:270
-#: ../inc/templates/default/archive-question.php:39
-#: ../inc/templates/default/single-question.php:169 ../thesis/dwqa/box.php:100
-#: ../thesis/dwqa/box.php:448
+#: ../inc/metaboxes.php:50 ../inc/status.php:271
+#: ../inc/template-functions.php:688
+#: ../inc/templates/default/question-list.php:26
 msgid "Closed"
 msgstr " 완료됨"
 
@@ -783,28 +814,19 @@ msgstr ""
 msgid "A new question was posted on {site_name}"
 msgstr ""
 
-#: ../inc/notification.php:120
+#: ../inc/notification.php:118
 msgid "A new answer for \"{question_title}\" was posted on {site_name}"
 msgstr ""
 
-#: ../inc/notification.php:148 ../inc/notification.php:150
-#: ../inc/settings.php:436 ../inc/settings.php:477 ../inc/settings.php:518
-#: ../inc/templates/default/content-answer.php:53
-#: ../inc/templates/default/content-comment.php:15
-#: ../inc/templates/default/content-question.php:25
-#: ../inc/templates/default/single-question.php:82
-msgid "Anonymous"
-msgstr ""
-
-#: ../inc/notification.php:188
+#: ../inc/notification.php:186
 msgid "You have a new answer for your followed question"
 msgstr ""
 
-#: ../inc/notification.php:287 ../inc/notification.php:333
+#: ../inc/notification.php:282 ../inc/notification.php:328
 msgid "[{site_name}] You have a new comment for question {question_title}"
 msgstr ""
 
-#: ../inc/notification.php:292 ../inc/notification.php:338
+#: ../inc/notification.php:287 ../inc/notification.php:333
 msgid "[{site_name}] You have a new comment for answer"
 msgstr ""
 
@@ -891,561 +913,548 @@ msgstr ""
 msgid "Enable notification for new question"
 msgstr ""
 
-#: ../inc/settings.php:131 ../inc/settings.php:167 ../inc/settings.php:204
-#: ../inc/settings.php:241 ../inc/settings.php:278 ../inc/settings.php:315
-#: ../inc/settings.php:352
+#: ../inc/settings.php:131 ../inc/settings.php:165 ../inc/settings.php:200
+#: ../inc/settings.php:235 ../inc/settings.php:270 ../inc/settings.php:305
+#: ../inc/settings.php:340
 msgid "Email subject"
 msgstr ""
 
-#: ../inc/settings.php:136 ../inc/settings.php:172 ../inc/settings.php:209
-#: ../inc/settings.php:246 ../inc/settings.php:283 ../inc/settings.php:320
-#: ../inc/settings.php:357
+#: ../inc/settings.php:136 ../inc/settings.php:170 ../inc/settings.php:205
+#: ../inc/settings.php:240 ../inc/settings.php:275 ../inc/settings.php:310
+#: ../inc/settings.php:345
 msgid "Email Content"
 msgstr ""
 
-#: ../inc/settings.php:162
+#: ../inc/settings.php:160
 msgid "Enable notification for new answer"
 msgstr ""
 
-#: ../inc/settings.php:199
-msgid "Enable notification for new answer (to Followers)"
+#: ../inc/settings.php:195
+msgid "Enable notification for new answer (to Followers )"
 msgstr ""
 
-#: ../inc/settings.php:236 ../inc/settings.php:273
+#: ../inc/settings.php:230 ../inc/settings.php:265
 msgid "Enable notification for new comment of question"
 msgstr ""
 
-#: ../inc/settings.php:310 ../inc/settings.php:347
+#: ../inc/settings.php:300 ../inc/settings.php:335
 msgid "Enable notification for new comment of answer"
 msgstr ""
 
-#: ../inc/settings.php:405
-msgid "Question"
-msgstr ""
-
-#: ../inc/settings.php:410
+#: ../inc/settings.php:397
 msgid "Read"
 msgstr ""
 
-#: ../inc/settings.php:411
+#: ../inc/settings.php:398
 msgid "Post"
 msgstr ""
 
-#: ../inc/settings.php:445 ../inc/settings.php:486 ../inc/settings.php:528
+#: ../inc/settings.php:426 ../inc/settings.php:462 ../inc/settings.php:497
 msgid "Reset Default"
 msgstr ""
 
-#: ../inc/settings.php:488
+#: ../inc/settings.php:464
 msgid "Comment"
 msgstr ""
 
-#: ../inc/settings.php:537
+#: ../inc/settings.php:506
 msgid "Enable/Disable captcha on submit question page"
 msgstr ""
 
-#: ../inc/settings.php:543
+#: ../inc/settings.php:512
 msgid "Enable/Disable captcha on single question page"
 msgstr ""
 
-#: ../inc/settings.php:561
+#: ../inc/settings.php:530
 msgid "questions"
 msgstr "개의 질문"
 
-#: ../inc/settings.php:567
+#: ../inc/settings.php:536
 msgid "Allow members to post private question"
 msgstr "회원에게는 비밀질문을 허용합니다."
 
-#: ../inc/settings.php:573
+#: ../inc/settings.php:542
 msgid "Question must be manually approved"
 msgstr "수동으로 질문을 승인합니다."
 
-#: ../inc/settings.php:586
+#: ../inc/settings.php:553
+msgid "Select template for Single Quesiton page"
+msgstr ""
+
+#: ../inc/settings.php:559
+msgid ""
+"By default, your single.php template file will be used if you do not choose "
+"any template"
+msgstr ""
+
+#: ../inc/settings.php:641
 msgid "Plugin Settings"
 msgstr ""
 
-#: ../inc/settings.php:586
+#: ../inc/settings.php:641
 msgid "Settings"
 msgstr ""
 
-#: ../inc/settings.php:612
+#: ../inc/settings.php:667
 msgid "Question List Page"
 msgstr "질문의 목록 페이지를 설정"
 
-#: ../inc/settings.php:620
+#: ../inc/settings.php:675
 msgid "Archive page show at most"
 msgstr "목록에 몇개의 질문을 표시할까요?"
 
-#: ../inc/settings.php:628
+#: ../inc/settings.php:683
 msgid "Ask Question Page"
 msgstr "질문 페이지 설정"
 
-#: ../inc/settings.php:635
+#: ../inc/settings.php:690
 msgid "Private Question"
 msgstr "비공개 질문"
 
-#: ../inc/settings.php:642
+#: ../inc/settings.php:697
 msgid "Review Question"
 msgstr "질문 검토하기"
 
-#: ../inc/settings.php:650
+#: ../inc/settings.php:705
 msgid "DWQA 404 Page"
 msgstr ""
 
-#: ../inc/settings.php:658
+#: ../inc/settings.php:713
+#, fuzzy
+msgid "Single Question Template"
+msgstr "새로운 질문으로 처리되는 시간"
+
+#: ../inc/settings.php:722
 msgid "Time settings"
 msgstr "시간 설정"
 
-#: ../inc/settings.php:665
+#: ../inc/settings.php:729
 msgid "New Question Time Frame"
 msgstr "새로운 질문으로 처리되는 시간"
 
-#: ../inc/settings.php:673
+#: ../inc/settings.php:737
 msgid "Question Overdue - Time Frame"
 msgstr "지연된 질문으로 처리되는 시간"
 
-#: ../inc/settings.php:683
+#: ../inc/settings.php:747
 msgid "Captcha settings"
 msgstr ""
 
-#: ../inc/settings.php:690
+#: ../inc/settings.php:754
 msgid "Captcha on Submit Question Page"
 msgstr ""
 
-#: ../inc/settings.php:698
+#: ../inc/settings.php:762
 msgid "Captcha on Single Question Page"
 msgstr ""
 
-#: ../inc/settings.php:706
+#: ../inc/settings.php:770
 msgid "Google Captcha Public Key"
 msgstr ""
 
-#: ../inc/settings.php:714
+#: ../inc/settings.php:778
 msgid "Google Captcha Private Key"
 msgstr "구글 캡차 비밀키"
 
-#: ../inc/settings.php:724
+#: ../inc/settings.php:788
 msgid "Permalink Settings"
 msgstr ""
 
-#: ../inc/settings.php:731
+#: ../inc/settings.php:795
 msgid "Single Question"
 msgstr ""
 
-#: ../inc/settings.php:739
+#: ../inc/settings.php:803
 msgid "Single Category"
 msgstr "분류"
 
-#: ../inc/settings.php:747
+#: ../inc/settings.php:811
 msgid "Single Tag"
 msgstr ""
 
-#: ../inc/settings.php:796
+#: ../inc/settings.php:860
 msgid "From Email"
 msgstr ""
 
-#: ../inc/settings.php:860 ../inc/settings.php:867
+#: ../inc/settings.php:924 ../inc/settings.php:931
 msgid "Group Permission"
 msgstr ""
 
-#: ../inc/settings.php:880
+#: ../inc/settings.php:944
 msgid "DWQA Settings"
 msgstr "설정"
 
-#: ../inc/settings.php:885
+#: ../inc/settings.php:948
 msgid "General"
 msgstr ""
 
-#: ../inc/settings.php:886
+#: ../inc/settings.php:949
 msgid "Notification"
 msgstr ""
 
-#: ../inc/settings.php:887
+#: ../inc/settings.php:950
 msgid "Permission"
 msgstr ""
 
-#: ../inc/settings.php:895
+#: ../inc/settings.php:957
 msgid "Email setup"
 msgstr ""
 
-#: ../inc/settings.php:899
+#: ../inc/settings.php:961
 msgid "Email Logo"
 msgstr ""
 
-#: ../inc/settings.php:911
+#: ../inc/settings.php:973
 msgid "New Comment to Question"
 msgstr ""
 
-#: ../inc/settings.php:912
+#: ../inc/settings.php:974
 msgid "New Comment to Answer"
 msgstr ""
 
-#: ../inc/settings.php:913
-msgid "New Answer (to Followers)"
+#: ../inc/settings.php:975
+msgid "New Answer (to Followers )"
 msgstr ""
 
-#: ../inc/settings.php:914
-msgid "New Comment to Question (to Followers)"
+#: ../inc/settings.php:976
+msgid "New Comment to Question (to Followers )"
 msgstr ""
 
-#: ../inc/settings.php:915
-msgid "New Comment to Answer (to Followers)"
+#: ../inc/settings.php:977
+msgid "New Comment to Answer (to Followers )"
 msgstr ""
 
-#: ../inc/settings.php:922
+#: ../inc/settings.php:984
 msgid "New Question Notification"
 msgstr ""
 
-#: ../inc/settings.php:929 ../inc/settings.php:938 ../inc/settings.php:947
-#: ../inc/settings.php:956 ../inc/settings.php:966 ../inc/settings.php:974
-#: ../inc/settings.php:984
+#: ../inc/settings.php:991 ../inc/settings.php:1000 ../inc/settings.php:1009
+#: ../inc/settings.php:1018 ../inc/settings.php:1028 ../inc/settings.php:1036
+#: ../inc/settings.php:1046
 msgid "Save all changes"
 msgstr ""
 
-#: ../inc/settings.php:934
+#: ../inc/settings.php:996
 msgid "New Answer Notification"
 msgstr ""
 
-#: ../inc/settings.php:943
-msgid "New Answer Notification (to Followers)"
+#: ../inc/settings.php:1005
+msgid "New Answer Notification (to Followers )"
 msgstr ""
 
-#: ../inc/settings.php:952
+#: ../inc/settings.php:1014
 msgid "New Comment to Question Notification"
 msgstr ""
 
-#: ../inc/settings.php:962
+#: ../inc/settings.php:1024
 msgid "New Comment to Answer Notification"
 msgstr ""
 
-#: ../inc/settings.php:970
-msgid "New Comment to Question Notification (to Followers)"
+#: ../inc/settings.php:1032
+msgid "New Comment to Question Notification (to Followers )"
 msgstr ""
 
-#: ../inc/settings.php:980
-msgid "New Comment to Answer Notification (to Followers)"
+#: ../inc/settings.php:1042
+msgid "New Comment to Answer Notification (to Followers )"
 msgstr ""
 
-#: ../inc/settings.php:1008
+#: ../inc/settings.php:1071
 msgid "Send to"
 msgstr ""
 
-#: ../inc/settings.php:1013
+#: ../inc/settings.php:1076
 msgid "Cc"
 msgstr ""
 
-#: ../inc/settings.php:1018
+#: ../inc/settings.php:1081
 msgid "Bcc"
 msgstr ""
 
-#: ../inc/settings.php:1023
+#: ../inc/settings.php:1086
 msgid "This address will be used as the sender of the outgoing emails."
 msgstr ""
 
-#: ../inc/settings.php:1029
+#: ../inc/settings.php:1092
 msgid "Send A Copy Of Every Email To Admin"
 msgstr ""
 
-#: ../inc/shortcodes.php:56 ../inc/templates/default/search-question.php:4
-#: ../thesis/dwqa/box.php:64
-msgid "Search"
-msgstr "검색"
-
-#: ../inc/shortcodes.php:69 ../inc/shortcodes.php:283
-#: ../inc/template-functions.php:641 ../thesis/dwqa/box.php:77
-#: ../thesis/dwqa/box.php:289
-msgid "Ask a question"
-msgstr "질문하기"
-
-#: ../inc/shortcodes.php:77 ../inc/templates/default/archive-question.php:24
-#: ../thesis/dwqa/box.php:85
-msgid "Status:"
-msgstr "상태:"
-
-#: ../inc/shortcodes.php:79 ../inc/shortcodes.php:127
-#: ../inc/templates/default/archive-question.php:26
-#: ../inc/templates/default/archive-question.php:74 ../thesis/dwqa/box.php:87
-#: ../thesis/dwqa/box.php:135
-msgid "All"
-msgstr "전체보기"
-
-#: ../inc/shortcodes.php:83 ../inc/templates/default/archive-question.php:30
-#: ../thesis/dwqa/box.php:91
-msgid "Need Answer"
-msgstr "답변대기"
-
-#: ../inc/shortcodes.php:86 ../inc/templates/default/archive-question.php:33
-#: ../thesis/dwqa/box.php:94
-msgid "Answered"
-msgstr "답변됨"
-
-#: ../inc/shortcodes.php:95 ../inc/templates/default/archive-question.php:42
-#: ../thesis/dwqa/box.php:103
-msgid "Overdue"
-msgstr "지연됨"
-
-#: ../inc/shortcodes.php:96 ../inc/templates/default/archive-question.php:43
-#: ../thesis/dwqa/box.php:104
-msgid "Queue"
-msgstr "대기중"
-
-#: ../inc/shortcodes.php:117 ../inc/templates/default/archive-question.php:64
-#: ../thesis/dwqa/box.php:125
-msgid "Select a category"
-msgstr "분류를 선택하세요."
-
-#: ../inc/shortcodes.php:128 ../inc/templates/default/archive-question.php:75
-#: ../thesis/dwqa/box.php:136
-msgid "Empty"
-msgstr ""
-
-#: ../inc/shortcodes.php:167 ../inc/templates/default/archive-question.php:114
-#: ../thesis/dwqa/box.php:175
-msgid "Vote"
-msgstr ""
-
-#: ../inc/shortcodes.php:292
-#: ../inc/templates/default/archive-question-notfound.php:7
-#: ../thesis/dwqa/box.php:298
-msgid "Sorry, but nothing matched your filter."
-msgstr ""
-
-#: ../inc/shortcodes.php:354 ../inc/widgets.php:79
+#: ../inc/shortcodes.php:101 ../inc/widgets/popular-question.php:18
 msgid "Popular Questions"
 msgstr ""
 
-#: ../inc/shortcodes.php:391
+#: ../inc/shortcodes.php:138
 msgid "Latest Answers"
 msgstr ""
 
-#: ../inc/shortcodes.php:417
+#: ../inc/shortcodes.php:164
 msgid "Answer at"
 msgstr ""
 
-#: ../inc/shortcodes.php:417 ../inc/templates/default/single-question.php:96
-#: ../thesis/dwqa/box.php:376
+#: ../inc/shortcodes.php:164 ../inc/templates/default/single-question.php:38
 msgid "Link to"
 msgstr ""
 
-#: ../inc/shortcodes.php:445
+#: ../inc/shortcodes.php:192
 msgid "% person who is following this question"
 msgid_plural "% people who are following this question"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../inc/status.php:273
+#: ../inc/status.php:274
 msgid "New"
 msgstr ""
 
-#: ../inc/status.php:291
+#: ../inc/status.php:292
 msgid "Missing post ID"
 msgstr ""
 
-#: ../inc/status.php:306
+#: ../inc/status.php:308
 msgid "Post does not exist"
 msgstr ""
 
-#: ../inc/status.php:311
+#: ../inc/status.php:313
 msgid "Invalid post status"
 msgstr ""
 
-#: ../inc/template-functions.php:162
+#: ../inc/template-functions.php:90
 msgid "You need an account to submit question and get answers. Create one:"
 msgstr ""
 
-#: ../inc/template-functions.php:164 ../inc/template-functions.php:201
+#: ../inc/template-functions.php:92 ../inc/template-functions.php:129
 msgid "Type your email"
 msgstr ""
 
-#: ../inc/template-functions.php:169
+#: ../inc/template-functions.php:97
 msgid "Already a member?"
 msgstr ""
 
-#: ../inc/template-functions.php:169
+#: ../inc/template-functions.php:97
 msgid "Log In"
 msgstr ""
 
-#: ../inc/template-functions.php:173
+#: ../inc/template-functions.php:101
 msgid "Login to submit your question"
 msgstr ""
 
-#: ../inc/template-functions.php:175
+#: ../inc/template-functions.php:103
 msgid "Type your username"
 msgstr ""
 
-#: ../inc/template-functions.php:178
+#: ../inc/template-functions.php:106
 msgid "Type your password"
 msgstr ""
 
-#: ../inc/template-functions.php:180
+#: ../inc/template-functions.php:108
 msgid "Not yet a member?"
 msgstr ""
 
-#: ../inc/template-functions.php:180 ../inc/templates/default/answers.php:114
+#: ../inc/template-functions.php:108 ../inc/templates/default/answers.php:109
 msgid "Register"
 msgstr ""
 
-#: ../inc/template-functions.php:184
+#: ../inc/template-functions.php:112
 msgid ""
 "Enter your email to receive notification regarding your question. Your email "
 "is safe with us and will not be published."
 msgstr ""
 
-#: ../inc/template-functions.php:184
+#: ../inc/template-functions.php:112
 msgid "Your email *"
 msgstr ""
 
-#: ../inc/template-functions.php:185
+#: ../inc/template-functions.php:113
 msgid "Email address ..."
 msgstr ""
 
-#: ../inc/template-functions.php:186
+#: ../inc/template-functions.php:114
 #, php-format
 msgid "or <strong><a href=\"%s\">login</a></strong> to submit question"
 msgstr ""
 
-#: ../inc/template-functions.php:213
+#: ../inc/template-functions.php:141
 #, php-format
 msgid "Private: %s"
 msgstr "비밀질문: %s"
 
-#: ../inc/template-functions.php:248
+#: ../inc/template-functions.php:176
 msgid "Answer this Question"
 msgstr "이 질문에 답변해 주세요."
 
-#: ../inc/template-functions.php:284
+#: ../inc/template-functions.php:214
 msgid "Add answer"
 msgstr "답변하기"
 
-#: ../inc/template-functions.php:422
+#: ../inc/template-functions.php:273
+msgid "You do not have permission to submit a question"
+msgstr ""
+
+#: ../inc/template-functions.php:356
 msgid "Email"
 msgstr ""
 
-#: ../inc/template-functions.php:426
+#: ../inc/template-functions.php:360
 #, php-format
 msgid "Required fields are marked %s"
 msgstr ""
 
-#: ../inc/template-functions.php:438
+#: ../inc/template-functions.php:372
 msgctxt "noun"
 msgid "Comment"
 msgstr ""
 
-#: ../inc/template-functions.php:439
+#: ../inc/template-functions.php:373
 #, php-format
 msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
 msgstr ""
 
-#: ../inc/template-functions.php:440
+#: ../inc/template-functions.php:374
 #, php-format
 msgid ""
 "Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of "
 "this account\">Log out?</a>"
 msgstr ""
 
-#: ../inc/template-functions.php:441
+#: ../inc/template-functions.php:375
 msgid "Your email address will not be published."
 msgstr ""
 
-#: ../inc/template-functions.php:442
+#: ../inc/template-functions.php:376
 #, php-format
 msgid ""
 "You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
 "and attributes: %s"
 msgstr ""
 
-#: ../inc/template-functions.php:445
+#: ../inc/template-functions.php:379
 msgid "Leave a Reply"
 msgstr ""
 
-#: ../inc/template-functions.php:446
+#: ../inc/template-functions.php:380
 #, php-format
 msgid "Leave a Reply to %s"
 msgstr ""
 
-#: ../inc/template-functions.php:447
+#: ../inc/template-functions.php:381
 msgid "Cancel reply"
 msgstr ""
 
-#: ../inc/template-functions.php:448
+#: ../inc/template-functions.php:382
 msgid "Post Comment"
 msgstr ""
 
-#: ../inc/template-functions.php:630
+#: ../inc/template-functions.php:561
 msgid "Sticky Question"
 msgstr ""
 
-#: ../inc/templates/default/answers.php:45
-#: ../inc/templates/default/content-question.php:55
-#: ../inc/templates/default/content-question.php:58
+#: ../inc/template-functions.php:575
+msgid "Ask a question"
+msgstr "질문하기"
+
+#: ../inc/template-functions.php:577
+#, fuzzy
+msgid "Login to ask a question"
+msgstr "질문하기"
+
+#: ../inc/template-functions.php:719
+#: ../inc/templates/default/content-answer.php:19
+msgid "Vote Up"
+msgstr ""
+
+#: ../inc/template-functions.php:721
+#: ../inc/templates/default/content-answer.php:21
+msgid "Vote Down"
+msgstr ""
+
+#: ../inc/template-functions.php:732
+msgid "All questions from"
+msgstr ""
+
+#: ../inc/template-functions.php:740
+msgid "follow"
+msgstr ""
+
+#: ../inc/template-functions.php:741
+msgid "following"
+msgstr ""
+
+#: ../inc/template-functions.php:742
+msgid "unfollow"
+msgstr ""
+
+#: ../inc/template-functions.php:747
+msgid "Unpin this Question from the top"
+msgstr ""
+
+#: ../inc/template-functions.php:747
+msgid "Pin this Question to top"
+msgstr "이 질문에 답변해 주세요."
+
+#: ../inc/templates/default/answers.php:42
+#: ../inc/templates/default/content-question.php:38
+#: ../inc/templates/default/content-question.php:41
 msgid "answer"
 msgid_plural "answers"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../inc/templates/default/answers.php:91
+#: ../inc/templates/default/answers.php:90
 msgid "You do not have permission to view answers"
 msgstr ""
 
-#: ../inc/templates/default/answers.php:99
+#: ../inc/templates/default/answers.php:97
 msgid "This question is now closed"
 msgstr ""
 
-#: ../inc/templates/default/answers.php:107
+#: ../inc/templates/default/answers.php:105
 msgid "You do not have permission to submit answer."
 msgstr ""
 
-#: ../inc/templates/default/answers.php:112
+#: ../inc/templates/default/answers.php:109
 msgid "Please login or"
 msgstr ""
 
-#: ../inc/templates/default/answers.php:115
+#: ../inc/templates/default/answers.php:109
 msgid "to Submit Answer"
 msgstr ""
 
-#: ../inc/templates/default/comments.php:12
+#: ../inc/templates/default/archive-question-notfound.php:14
+msgid "Sorry, but nothing matched your filter."
+msgstr ""
+
+#: ../inc/templates/default/comments.php:16
 msgid "View previous comments"
 msgstr ""
 
-#: ../inc/templates/default/comments.php:13
+#: ../inc/templates/default/comments.php:17
 msgid "of"
 msgstr ""
 
-#: ../inc/templates/default/comments.php:30
+#: ../inc/templates/default/comments.php:36
 msgid "Write a reply..."
 msgstr "댓글을 적어주세요..."
 
-#: ../inc/templates/default/content-answer.php:20
-#: ../inc/templates/default/single-question.php:25 ../thesis/dwqa/box.php:338
-msgid "Vote Up"
-msgstr ""
-
-#: ../inc/templates/default/content-answer.php:30
-#: ../inc/templates/default/single-question.php:27 ../thesis/dwqa/box.php:340
-msgid "Vote Down"
-msgstr ""
-
-#: ../inc/templates/default/content-answer.php:38
-msgid "This is the best answer"
-msgstr ""
-
-#: ../inc/templates/default/content-answer.php:50
+#: ../inc/templates/default/content-answer.php:79
 #: ../inc/templates/default/content-comment.php:12
 msgid "Staff"
 msgstr ""
 
-#: ../inc/templates/default/content-answer.php:58
+#: ../inc/templates/default/content-answer.php:88
 msgid "Link to answer"
 msgstr ""
 
-#: ../inc/templates/default/content-answer.php:84
+#: ../inc/templates/default/content-answer.php:92
 msgid "Draft"
 msgstr ""
 
-#: ../inc/templates/default/content-answer.php:117
+#: ../inc/templates/default/content-answer.php:102
 msgid "This answer was flagged as spam."
 msgstr ""
 
-#: ../inc/templates/default/content-answer.php:127
+#: ../inc/templates/default/content-answer.php:117
+msgid "This is the best answer"
+msgstr ""
+
+#: ../inc/templates/default/content-answer.php:121
 msgid "The answer link"
 msgstr ""
 
@@ -1453,176 +1462,191 @@ msgstr ""
 msgid "Post by"
 msgstr ""
 
-#: ../inc/templates/default/content-comment.php:25
+#: ../inc/templates/default/content-comment.php:24
 msgid "Link to comment"
 msgstr ""
 
-#: ../inc/templates/default/content-question.php:12
+#: ../inc/templates/default/content-question.php:10
 #, php-format
 msgid "Permalink to %s"
 msgstr ""
 
-#: ../inc/templates/default/content-question.php:21
-#, php-format
-msgid "Posts by %s"
-msgstr ""
+#: ../inc/templates/default/content-question.php:14
+msgid "Category"
+msgstr "분류"
 
-#: ../inc/templates/default/content-question.php:27
-msgid "by"
-msgstr ""
-
-#: ../inc/templates/default/content-question.php:41
-#: ../inc/templates/default/content-question.php:44
+#: ../inc/templates/default/content-question.php:25
+#: ../inc/templates/default/content-question.php:28
 msgid "view"
 msgid_plural "views"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../inc/templates/default/content-question.php:69
-#: ../inc/templates/default/content-question.php:72
+#: ../inc/templates/default/content-question.php:51
+#: ../inc/templates/default/content-question.php:54
 msgid "vote"
 msgid_plural "votes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../inc/templates/default/single-question.php:21
-msgid "Your question has been submitted and is currently awaiting approval"
+#: ../inc/templates/default/question-list.php:11
+msgid "Status:"
+msgstr "상태:"
+
+#: ../inc/templates/default/question-list.php:13
+#: ../inc/templates/default/question-list.php:66
+msgid "All"
+msgstr "전체보기"
+
+#: ../inc/templates/default/question-list.php:17
+msgid "Need Answer"
+msgstr "답변대기"
+
+#: ../inc/templates/default/question-list.php:20
+msgid "Answered"
+msgstr "답변됨"
+
+#: ../inc/templates/default/question-list.php:29
+msgid "Overdue"
+msgstr "지연됨"
+
+#: ../inc/templates/default/question-list.php:30
+msgid "Queue"
+msgstr "대기중"
+
+#: ../inc/templates/default/question-list.php:54
+msgid "Select a category"
+msgstr "분류를 선택하세요."
+
+#: ../inc/templates/default/question-list.php:67
+msgid "Empty"
 msgstr ""
 
-#: ../inc/templates/default/single-question.php:21
-msgid "This question is currently awaiting approval"
+#: ../inc/templates/default/question-list.php:114
+msgid "Vote"
 msgstr ""
 
-#: ../inc/templates/default/single-question.php:36
-msgid "Unpin this Question from the top"
-msgstr ""
-
-#: ../inc/templates/default/single-question.php:36
-msgid "Pin this Question to top"
-msgstr "이 질문에 답변해 주세요."
-
-#: ../inc/templates/default/single-question.php:86 ../thesis/dwqa/box.php:367
-msgid "Posts by"
-msgstr ""
-
-#: ../inc/templates/default/single-question.php:98 ../thesis/dwqa/box.php:378
-msgid "asked"
-msgstr ""
-
-#: ../inc/templates/default/single-question.php:134 ../thesis/dwqa/box.php:413
-msgid "Category"
-msgstr "분류"
-
-#: ../inc/templates/default/single-question.php:135 ../thesis/dwqa/box.php:414
-msgid "All questions from"
-msgstr ""
-
-#: ../inc/templates/default/submit-question-form.php:21
+#: ../inc/templates/default/question-submit-form.php:22
 msgid "Question Category"
 msgstr "질문의 분류"
 
-#: ../inc/templates/default/submit-question-form.php:27
+#: ../inc/templates/default/question-submit-form.php:28
 msgid "Select question category"
 msgstr "질문의 분류를 선택하세요."
 
-#: ../inc/templates/default/submit-question-form.php:35
+#: ../inc/templates/default/question-submit-form.php:37
 msgid "tag 1, tag 2,..."
 msgstr "태그1, 태그2, ..."
 
-#: ../inc/templates/default/submit-question-form.php:40
+#: ../inc/templates/default/question-submit-form.php:42
 msgid "Your question"
 msgstr "당신의 질문은?"
 
-#: ../inc/templates/default/submit-question-form.php:41
+#: ../inc/templates/default/question-submit-form.php:43
 msgid "How to..."
 msgstr "제목을 입력하세요..."
 
-#: ../inc/templates/default/submit-question-form.php:48
+#: ../inc/templates/default/question-submit-form.php:50
 msgid "Question details"
 msgstr "질문 상세내용"
 
-#: ../inc/templates/default/submit-question-form.php:60
+#: ../inc/templates/default/question-submit-form.php:63
 msgid "Post this Question as Private."
 msgstr "이 글을 비밀글로 작성합니다."
 
-#: ../inc/templates/default/submit-question-form.php:60
+#: ../inc/templates/default/question-submit-form.php:63
 msgid "Only you as Author and Admin can see the question"
 msgstr "글쓴이와 관리자만 이 질문을 볼 수 있습니다."
 
-#: ../inc/templates/default/submit-question-form.php:83
+#: ../inc/templates/default/question-submit-form.php:83
 msgid "Ask Question"
 msgstr "질문하기"
 
-#: ../inc/widgets.php:16
+#: ../inc/templates/default/search-question.php:4
+msgid "Search"
+msgstr "검색"
+
+#: ../inc/templates/default/single-question.php:17
+msgid "Your question has been submitted and is currently awaiting approval"
+msgstr ""
+
+#: ../inc/templates/default/single-question.php:17
+msgid "This question is currently awaiting approval"
+msgstr ""
+
+#: ../inc/templates/default/single-question.php:30
+msgid "Posts by"
+msgstr ""
+
+#: ../inc/templates/default/single-question.php:38
+msgid "asked"
+msgstr ""
+
+#: ../inc/widgets/latest-question.php:11
+#: ../inc/widgets/list-closed-question.php:11
+msgid "Show a list of questions that was ordered by views."
+msgstr ""
+
+#: ../inc/widgets/latest-question.php:12
+msgid "DWQA Latest Questions"
+msgstr "최근 질문"
+
+#: ../inc/widgets/latest-question.php:18
+msgid "Latest Questions"
+msgstr "비공개 질문"
+
+#: ../inc/widgets/latest-question.php:64
+#: ../inc/widgets/list-closed-question.php:71
+#: ../inc/widgets/popular-question.php:63
+#: ../inc/widgets/related-question.php:48
+msgid "Widget title"
+msgstr ""
+
+#: ../inc/widgets/latest-question.php:67
+#: ../inc/widgets/list-closed-question.php:74
+#: ../inc/widgets/popular-question.php:66
+#: ../inc/widgets/related-question.php:51
+msgid "Number of posts"
+msgstr ""
+
+#: ../inc/widgets/list-closed-question.php:12
+msgid "DWQA Closed Questions"
+msgstr "완료된 질문"
+
+#: ../inc/widgets/list-closed-question.php:18
+msgid "Closed Questions"
+msgstr "완료된 질문"
+
+#: ../inc/widgets/popular-question.php:11
+msgid "Show a list of questions that ordered by views."
+msgstr ""
+
+#: ../inc/widgets/popular-question.php:12
+msgid "DWQA Popular Questions"
+msgstr ""
+
+#: ../inc/widgets/related-question.php:11
 msgid ""
 "Show a list of questions that related to a question. Just show in single "
 "question page"
 msgstr ""
 
-#: ../inc/widgets.php:17
+#: ../inc/widgets/related-question.php:12
 msgid "DWQA Related Questions"
 msgstr ""
 
-#: ../inc/widgets.php:53 ../inc/widgets.php:124 ../inc/widgets.php:199
-#: ../inc/widgets.php:279
-msgid "Widget title"
-msgstr ""
+#~ msgctxt "post type general name"
+#~ msgid "Question"
+#~ msgstr "질문"
 
-#: ../inc/widgets.php:56 ../inc/widgets.php:127 ../inc/widgets.php:202
-#: ../inc/widgets.php:282
-msgid "Number of posts"
-msgstr ""
+#~ msgctxt "post type singular name"
+#~ msgid "Question"
+#~ msgstr "질문"
 
-#: ../inc/widgets.php:72
-msgid "Show a list of questions that ordered by views."
-msgstr ""
+#~ msgctxt "post type general name"
+#~ msgid "Answer"
+#~ msgstr "답변"
 
-#: ../inc/widgets.php:73
-msgid "DWQA Popular Questions"
-msgstr ""
-
-#: ../inc/widgets.php:146 ../inc/widgets.php:218
-msgid "Show a list of questions that was ordered by views."
-msgstr ""
-
-#: ../inc/widgets.php:147
-msgid "DWQA Latest Questions"
-msgstr "최근 질문"
-
-#: ../inc/widgets.php:153
-msgid "Latest Questions"
-msgstr "비공개 질문"
-
-#: ../inc/widgets.php:219
-msgid "DWQA Closed Questions"
-msgstr "완료된 질문"
-
-#: ../inc/widgets.php:225
-msgid "Closed Questions"
-msgstr "완료된 질문"
-
-#: ../thesis/dwqa/box.php:14
-msgid "DW Q&A Box"
-msgstr ""
-
-#: ../thesis/dwqa/box.php:21
-msgid "Container Padding"
-msgstr ""
-
-#: ../thesis/dwqa/box.php:23
-msgid "Container padding size"
-msgstr ""
-
-#: ../thesis/dwqa/box.php:25
-msgid ""
-"By default, the container does not have a gutter. You can set padding width "
-"to make a gutter. You make it by updating the setting here."
-msgstr ""
-
-#: ../thesis/dwqa/box.php:305
-msgid "You can ask question <a href=\""
-msgstr ""
-
-#: ../thesis/dwqa/box.php:309
-msgid "Please <a href=\""
-msgstr ""
+#~ msgctxt "post type singular name"
+#~ msgid "Answer"
+#~ msgstr "답변"

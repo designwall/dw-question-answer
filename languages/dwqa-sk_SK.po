@@ -1,0 +1,1974 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: DW Question Answer v1.2.6\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-08-06 15:38+0700\n"
+"PO-Revision-Date: 2014-08-06 15:38+0700\n"
+"Last-Translator: DesignWall <webmaster@designwall.com>\n"
+"Language-Team: Mário Halás\n"
+"Language: sk_SK\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Poedit 1.6.4\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-Basepath: ../\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: .\n"
+
+# @ dwqa
+#: dw-question-answer.php:61 dw-question-answer.php:62 inc/settings.php:392
+msgid "Question"
+msgstr "Otázka"
+
+#: dw-question-answer.php:63 dw-question-answer.php:107
+msgid "Add New"
+msgstr ""
+
+# @ default
+#: dw-question-answer.php:64
+msgid "Add New Question"
+msgstr "Pridať novú otázku"
+
+# @ default
+#: dw-question-answer.php:65
+msgid "Edit Question"
+msgstr "Upraviť otázku"
+
+# @ default
+# @ dwqa
+#: dw-question-answer.php:66 inc/settings.php:971
+msgid "New Question"
+msgstr "Nová otázka"
+
+# @ default
+#: dw-question-answer.php:67
+msgid "All Questions"
+msgstr "Všetky otázky"
+
+# @ default
+#: dw-question-answer.php:68
+msgid "View Question"
+msgstr "Zobraziť otázku"
+
+# @ default
+#: dw-question-answer.php:69
+msgid "Search Question"
+msgstr "Hľadať otázku"
+
+# @ default
+#: dw-question-answer.php:70
+msgid "No questions found"
+msgstr "Žiadne otázky nenájdené"
+
+# @ default
+#: dw-question-answer.php:71
+msgid "No questions found in Trash"
+msgstr "V koši nie sú žiadne otázky"
+
+# @ default
+#: dw-question-answer.php:73
+msgid "DW Q&A"
+msgstr ""
+
+# @ default
+# @ dwqa
+#: dw-question-answer.php:105 dw-question-answer.php:106
+#: dw-question-answer.php:117 dw-question-answer.php:534 inc/settings.php:428
+#: inc/templates/default/question-list.php:111
+msgid "Answer"
+msgstr "Odpoveď"
+
+# @ default
+#: dw-question-answer.php:108
+msgid "Add new answer"
+msgstr "Pridať novú otázku"
+
+# @ default
+#: dw-question-answer.php:109
+msgid "Edit answer"
+msgstr "Upraviť odpoveď"
+
+# @ default
+# @ dwqa
+#: dw-question-answer.php:110 inc/settings.php:972
+msgid "New Answer"
+msgstr "Nová odpoveď"
+
+# @ default
+#: dw-question-answer.php:111
+msgid "All Answers"
+msgstr "Všetky otázky"
+
+# @ default
+#: dw-question-answer.php:112
+msgid "View Answer"
+msgstr "Zobraziť otázku"
+
+# @ default
+#: dw-question-answer.php:113
+msgid "Search Answer"
+msgstr "Hľadať otázku"
+
+# @ default
+#: dw-question-answer.php:114
+msgid "No Answers found"
+msgstr "Žiadne odpovede sa nenašli"
+
+# @ default
+#: dw-question-answer.php:115
+msgid "No Answers found in Trash"
+msgstr ""
+
+# @ default
+#: dw-question-answer.php:147
+msgctxt "taxonomy general name"
+msgid "Categories"
+msgstr ""
+
+# @ default
+#: dw-question-answer.php:148
+msgctxt "taxonomy singular name"
+msgid "Category"
+msgstr "Kategória"
+
+# @ default
+#: dw-question-answer.php:149
+msgid "Search Categories"
+msgstr ""
+
+# @ default
+#: dw-question-answer.php:150
+msgid "All Categories"
+msgstr "Všetky kategórie"
+
+# @ default
+#: dw-question-answer.php:151
+msgid "Parent Category"
+msgstr "Rodičovská kategória"
+
+# @ default
+#: dw-question-answer.php:152
+msgid "Parent Category:"
+msgstr "Rodičovská kategória:"
+
+# @ default
+#: dw-question-answer.php:153
+msgid "Edit Category"
+msgstr "Upraviť kategóriu"
+
+# @ default
+#: dw-question-answer.php:154
+msgid "Update Category"
+msgstr "Aktualizovať kategóriu"
+
+# @ default
+#: dw-question-answer.php:155
+msgid "Add New Category"
+msgstr "Pridať novú kategóriu"
+
+# @ default
+#: dw-question-answer.php:156
+msgid "New Category Name"
+msgstr "Meno novej kategórie"
+
+# @ default
+#: dw-question-answer.php:157
+msgid "Question Categories"
+msgstr "Kategórie otázok"
+
+# @ default
+#: dw-question-answer.php:174
+msgctxt "taxonomy general name"
+msgid "Tags"
+msgstr ""
+
+# @ default
+#: dw-question-answer.php:175
+msgctxt "taxonomy singular name"
+msgid "Tag"
+msgstr ""
+
+# @ default
+#: dw-question-answer.php:176
+msgid "Search Tags"
+msgstr ""
+
+# @ default
+#: dw-question-answer.php:177
+msgid "Popular Tags"
+msgstr ""
+
+# @ default
+#: dw-question-answer.php:178
+msgid "All Tags"
+msgstr ""
+
+# @ default
+#: dw-question-answer.php:181
+msgid "Edit Tag"
+msgstr ""
+
+# @ default
+#: dw-question-answer.php:182
+msgid "Update Tag"
+msgstr ""
+
+# @ default
+#: dw-question-answer.php:183
+msgid "Add New Tag"
+msgstr ""
+
+# @ default
+#: dw-question-answer.php:184
+msgid "New Tag Name"
+msgstr ""
+
+# @ default
+#: dw-question-answer.php:185
+msgid "Separate tags with commas"
+msgstr ""
+
+# @ default
+#: dw-question-answer.php:186
+msgid "Add or remove tags"
+msgstr ""
+
+# @ default
+#: dw-question-answer.php:187
+msgid "Choose from the most used tags"
+msgstr ""
+
+# @ default
+# @ dwqa
+#: dw-question-answer.php:188
+#: inc/templates/default/question-submit-form.php:36
+msgid "Question Tags"
+msgstr "Štítky otázky"
+
+# @ dwqa
+#: dw-question-answer.php:233 dw-question-answer.php:476 inc/filter.php:83
+#: inc/templates/default/navigation-archive.php:70
+msgid "Next"
+msgstr "Ďalšie"
+
+# @ dwqa
+#: dw-question-answer.php:234 dw-question-answer.php:477
+#: inc/templates/default/navigation-archive.php:34
+msgid "Prev"
+msgstr "Predchadzajúce"
+
+# @ dwqa
+#: dw-question-answer.php:236 dw-question-answer.php:479
+msgid "Please enter your question"
+msgstr "Prosím zadajte vašu otázku"
+
+# @ dwqa
+#: dw-question-answer.php:237
+msgid "Your question must be at least 2 characters in length"
+msgstr "Vaša otázka musí byť minimálne 2 znaky dlhá"
+
+# @ dwqa
+#: dw-question-answer.php:238
+msgid "Enter a valid email address"
+msgstr "Zadajte platný email"
+
+# @ dwqa
+#: dw-question-answer.php:239
+msgid "Enter a question title"
+msgstr "Zadajte nadpis odpovede"
+
+# @ dwqa
+#: dw-question-answer.php:240
+msgid "Please add your name"
+msgstr "Zadajte vaše meno"
+
+# @ dwqa
+#: dw-question-answer.php:241 dw-question-answer.php:480
+msgid "Please enter your answer"
+msgstr "Zadajte vašu odpoveď"
+
+# @ dwqa
+#: dw-question-answer.php:242 dw-question-answer.php:481 inc/actions.php:970
+msgid "Please enter your comment content"
+msgstr "Zadejte obsah komentáře"
+
+# @ dwqa
+#: dw-question-answer.php:243 dw-question-answer.php:482
+msgid "Comment must have more than 2 characters"
+msgstr "Komentář musí být delší než 2 znaky"
+
+# @ dwqa
+#: dw-question-answer.php:244
+msgid "Not found! Try another keyword."
+msgstr "Nenájdené. Skúste iné slovo"
+
+# @ dwqa
+#: dw-question-answer.php:245
+msgid "Or press <strong>ENTER</strong> to get more questions"
+msgstr "Alebo stlačte <strong>ENTER</strong> k zobrazeniu viacerých otázok"
+
+# @ dwqa
+#: dw-question-answer.php:246 dw-question-answer.php:483 inc/actions.php:833
+#: inc/actions.php:936
+msgid "Update"
+msgstr "Aktualizácia"
+
+# @ dwqa
+# @ edd-dw-membersip
+#: dw-question-answer.php:247 dw-question-answer.php:484
+#: dw-question-answer.php:576 inc/settings.php:399
+#: inc/template-functions.php:611 inc/templates/default/content-answer.php:36
+#: inc/templates/default/content-comment.php:47
+msgid "Edit"
+msgstr "Upraviť"
+
+# @ dwqa
+#: dw-question-answer.php:248 dw-question-answer.php:485 inc/actions.php:834
+#: inc/actions.php:937
+msgid "Cancel"
+msgstr "Zrušiť"
+
+# @ dwqa
+#: dw-question-answer.php:249 dw-question-answer.php:486
+msgid "Do you want to delete this comment?"
+msgstr "Chcete zmazať tento komentár?"
+
+# @ dwqa
+#: dw-question-answer.php:250 dw-question-answer.php:487
+msgid "Do you want to delete this answer?"
+msgstr "Chcete zmazať túto odpoveď?"
+
+# @ dwqa
+#: dw-question-answer.php:251
+msgid "Do you want to update this answer?"
+msgstr "Chcete aktualizovať túto odpoveď?"
+
+# @ dwqa
+#: dw-question-answer.php:252
+msgid "Do you want to report this answer?"
+msgstr "Chcete nahlásit tuto odpověď?"
+
+# @ dwqa
+#: dw-question-answer.php:254
+msgid "Report"
+msgstr "Nahlásiť"
+
+# @ dwqa
+#: dw-question-answer.php:255
+msgid "Undo"
+msgstr "Späť"
+
+# @ dwqa
+#: dw-question-answer.php:256
+msgid "This answer will be marked as spam and hidden. Do you want to flag it?"
+msgstr "Táto odpoveď bude označená ako spam a skrytá. Chcete ju označiť?"
+
+# @ dwqa
+#: dw-question-answer.php:257
+msgid "This answer was flagged as spam. Do you want to show it"
+msgstr "Táto odpoveď bola označená ako spam. Chcete ju zobraziť?"
+
+# @ dwqa
+#: dw-question-answer.php:258
+msgid "This answer was flagged as spam"
+msgstr "Táto odpoveď bola označená ako spam"
+
+# @ dwqa
+#: dw-question-answer.php:259 dw-question-answer.php:493
+msgid "hide"
+msgstr "schovať"
+
+# @ dwqa
+#: dw-question-answer.php:260 dw-question-answer.php:494
+#: inc/templates/default/content-answer.php:103
+msgid "show"
+msgstr "zobraziť"
+
+# @ dwqa
+#: dw-question-answer.php:262 inc/template-functions.php:739
+msgid "Follow This Question"
+msgstr "Sledovať túto otázku"
+
+# @ dwqa
+#: dw-question-answer.php:263 inc/template-functions.php:739
+msgid "Unfollow This Question"
+msgstr "Zrušiť sledovanie tejto otázky"
+
+# @ dwqa
+#: dw-question-answer.php:264
+msgid "Pin this question to top"
+msgstr "Pripichnúť túto otázku navrch"
+
+# @ dwqa
+#: dw-question-answer.php:265
+msgid "Unpin this question from top"
+msgstr "Odpichnúť túto otázku z vrchu"
+
+# @ dwqa
+#: dw-question-answer.php:268
+msgid "Do you want to delete this question?"
+msgstr "Chcete zmazať túto otázku?"
+
+# @ dwqa
+#: dw-question-answer.php:284
+msgid "DWQA Questions"
+msgstr ""
+
+# @ dwqa
+#: dw-question-answer.php:301
+msgid "DWQA Ask Question"
+msgstr "Spýtaj sa otázku"
+
+# @ default
+#: dw-question-answer.php:396
+#, php-format
+msgid "%s second"
+msgid_plural "%s seconds"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+# @ default
+#. translators: min=minute
+#: dw-question-answer.php:405
+#, php-format
+msgid "about %s min"
+msgid_plural "%s mins"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+# @ default
+#: dw-question-answer.php:411
+#, php-format
+msgid "about %s hour"
+msgid_plural "%s hours"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+# @ default
+#: dw-question-answer.php:417
+#, php-format
+msgid "%s day"
+msgid_plural "%s days"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+# @ dwqa
+#: dw-question-answer.php:421
+#, php-format
+msgid "%1$s ago"
+msgstr "pred %1$s"
+
+# @ dwqa
+#: dw-question-answer.php:489 inc/templates/default/content-answer.php:41
+msgid "Flag"
+msgstr "Označiť"
+
+# @ dwqa
+#: dw-question-answer.php:490 inc/templates/default/content-answer.php:41
+msgid "Unflag"
+msgstr "Odznačiť"
+
+# @ dwqa
+#: dw-question-answer.php:491
+msgid ""
+"This answer will be hidden when flagged. Are you sure you want to flag it?"
+msgstr "Táto odpoveď bude skrytá keď ju označíte. Chcete ju označiť?"
+
+# @ dwqa
+#: dw-question-answer.php:492
+msgid "This answer was flagged as spam. Do you want to show it?"
+msgstr "Táto odpoveď bola označená ako spam. Chcete ju označiť?"
+
+# @ dwqa
+#: dw-question-answer.php:535 inc/class-answers-list-table.php:81
+msgid "Author"
+msgstr "Autor"
+
+# @ dwqa
+#: dw-question-answer.php:537
+msgid "In Response To"
+msgstr "V reakcii na"
+
+# @ dwqa
+#: dw-question-answer.php:541
+msgid "Info"
+msgstr "Info"
+
+# @ edd-dw-membersip
+# @ dwqa
+#: dw-question-answer.php:577 inc/settings.php:400
+#: inc/template-functions.php:614 inc/templates/default/content-answer.php:39
+#: inc/templates/default/content-comment.php:50
+msgid "Delete"
+msgstr "Zmazať"
+
+# @ edd-dw-membersip
+# @ dwqa
+#: dw-question-answer.php:578 inc/templates/default/question-list.php:108
+msgid "View"
+msgstr "Zobraziť"
+
+# @ dwqa
+#: dw-question-answer.php:582
+msgid "Submitted"
+msgstr "Odoslané"
+
+# @ dwqa
+#: dw-question-answer.php:583
+msgid "on"
+msgstr "na"
+
+# @ dwqa
+#: dw-question-answer.php:610
+msgid "Reset all changes to default"
+msgstr "Resetovať všetky zmeny"
+
+# @ dwqa
+#: dw-question-answer.php:624
+msgid "answered"
+msgstr "zodpovedané"
+
+# @ dwqa
+#: dw-question-answer.php:625
+msgid "voted"
+msgstr "odhlasované"
+
+# @ dwqa
+#: dw-question-answer.php:626
+msgid "views"
+msgstr "zobrazení"
+
+# @ dwqa
+#: dw-question-answer.php:734 inc/shortcodes.php:124
+#: inc/widgets/latest-question.php:40 inc/widgets/list-closed-question.php:48
+#: inc/widgets/popular-question.php:40
+msgid "asked by"
+msgstr "otázka od"
+
+# @ dwqa
+#: inc/actions-question.php:14 inc/actions.php:1670
+#: inc/class-answers-list-table.php:92 inc/notification.php:146
+#: inc/notification.php:148 inc/settings.php:416 inc/settings.php:452
+#: inc/settings.php:487 inc/templates/default/content-answer.php:83
+#: inc/templates/default/content-comment.php:15
+#: inc/templates/default/single-question.php:24
+#: inc/widgets/latest-question.php:40
+msgid "Anonymous"
+msgstr "Anonym"
+
+# @ default
+#: inc/actions-question.php:20
+#, php-format
+msgid "Posts by %s"
+msgstr ""
+
+#: inc/actions-question.php:28
+#, php-format
+msgid "%s answered <span class=\"dwqa-date\">%s</span>"
+msgstr ""
+
+#: inc/actions-question.php:30
+#, php-format
+msgid "%s asked <span class=\"dwqa-date\">%s</span>"
+msgstr "%s pridané <span class=\"dwqa-date\">%s</span>"
+
+# @ dwqa
+#: inc/actions-vote.php:6
+msgid "Are you cheating, huh?"
+msgstr ""
+
+#: inc/actions-vote.php:19
+msgid "What "
+msgstr "Čo"
+
+# @ dwqa
+#: inc/actions-vote.php:47
+msgid "You voted for this "
+msgstr "Hlasovali ste pre túto"
+
+# @ dwqa
+#: inc/actions.php:50
+msgid "Delete draft"
+msgstr "Zmazať koncept"
+
+# @ dwqa
+#: inc/actions.php:80
+msgid "Answer for "
+msgstr "Odpoveď pre"
+
+# @ dwqa
+#: inc/actions.php:94 inc/template-functions.php:217
+msgid "Save draft"
+msgstr "Uložiť koncept"
+
+# @ dwqa
+#: inc/actions.php:108 inc/actions.php:415 inc/shortcodes.php:84
+msgid "You do not have permission to submit question."
+msgstr "Nemáte práva pre položenie otázky."
+
+# @ dwqa
+#: inc/actions.php:134 inc/actions.php:427
+msgid "Captcha is not correct"
+msgstr "Captcha nie je správne!"
+
+# @ dwqa
+#: inc/actions.php:141
+msgid "Answer is missing"
+msgstr "Chýba odpoveď"
+
+# @ dwqa
+#: inc/actions.php:152 inc/actions.php:258
+msgid "You do not have permission to edit this post"
+msgstr "Nemáte práva k zmazaniu tejto otázky"
+
+# @ dwqa
+#: inc/actions.php:157 inc/actions.php:263
+msgid "This post is not an answer"
+msgstr "Toto nie je odpoveď"
+
+# @ dwqa
+# @ default
+#: inc/actions.php:245 inc/actions.php:430 inc/actions.php:651
+#: inc/actions.php:673 inc/actions.php:691 inc/actions.php:1401
+#: inc/filter.php:425 inc/status.php:287
+msgid "Are you cheating huh?"
+msgstr ""
+
+# @ dwqa
+#: inc/actions.php:250
+msgid "Missing answer ID"
+msgstr "Chýba ID otázky"
+
+# @ dwqa
+#: inc/actions.php:371
+msgid "User Registration was disabled."
+msgstr "Registrácia je zakázaná"
+
+# @ dwqa
+#: inc/actions.php:374
+msgid "This email is already registered, please choose another one."
+msgstr "Tento email je už registrovaný, zadajte prosím iný."
+
+# @ dwqa
+#: inc/actions.php:377
+msgid "This username is already registered. Please use another one."
+msgstr "Toto uživateľské meno je už zaregistrované, zvoľte si prosím iné."
+
+# @ dwqa
+#: inc/actions.php:577
+msgid "You do not have permission to edit question status"
+msgstr "Nemáte práva k úprave statusu otázky"
+
+#: inc/actions.php:644
+msgid "Comment is missing"
+msgstr "Chýba komentár"
+
+# @ dwqa
+#: inc/actions.php:654
+msgid "Comment content must not be empty."
+msgstr "Obsah komentára nesmie byť prázdny."
+
+# @ dwqa
+#: inc/actions.php:678
+msgid "Comment ID must be showed."
+msgstr ""
+
+# @ dwqa
+#: inc/actions.php:694
+msgid "Missing id of answer"
+msgstr ""
+
+# @ dwqa
+#: inc/actions.php:837 inc/actions.php:940
+msgid "Publish"
+msgstr "Odoslať"
+
+# @ dwqa
+#: inc/actions.php:844 inc/actions.php:852 inc/template-functions.php:224
+#: inc/template-functions.php:232 inc/template-functions.php:637
+#: inc/template-functions.php:645 inc/template-functions.php:651
+#: inc/templates/default/content-answer.php:55
+#: inc/templates/default/content-answer.php:63
+#: inc/templates/default/content-answer.php:69
+msgid "Private"
+msgstr "Súkromné"
+
+# @ dwqa
+#: inc/actions.php:844 inc/actions.php:851 inc/template-functions.php:224
+#: inc/template-functions.php:231 inc/template-functions.php:637
+#: inc/template-functions.php:644 inc/template-functions.php:651
+#: inc/templates/default/content-answer.php:55
+#: inc/templates/default/content-answer.php:62
+#: inc/templates/default/content-answer.php:69
+msgid "Public"
+msgstr "Verejné"
+
+# @ dwqa
+#: inc/actions.php:851 inc/template-functions.php:231
+#: inc/template-functions.php:644 inc/templates/default/content-answer.php:62
+msgid "Everyone can see"
+msgstr "Všetci môžu zobraziť"
+
+# @ dwqa
+#: inc/actions.php:852 inc/template-functions.php:232
+#: inc/template-functions.php:645 inc/templates/default/content-answer.php:63
+msgid "Only Author and Administrator can see"
+msgstr "Zobraziť môže byť autor, alebo administrátor"
+
+# @ dwqa
+#: inc/actions.php:869 inc/actions.php:1596
+msgid "Hello, Are you cheating huh?"
+msgstr ""
+
+# @ dwqa
+#: inc/actions.php:877
+msgid "The question is missing"
+msgstr "Chýba otázka"
+
+# @ dwqa
+#: inc/actions.php:884 inc/status.php:318
+msgid "You do not have permission to edit question"
+msgstr "Nemáte práva k úprave otázky"
+
+# @ dwqa
+#: inc/actions.php:965
+msgid "You can't post comment"
+msgstr "Nemôžete vkladať komentáre"
+
+# @ dwqa
+#: inc/actions.php:984
+msgid "Missing email information"
+msgstr ""
+
+# @ dwqa
+#: inc/actions.php:989
+msgid "Missing name information"
+msgstr ""
+
+# @ dwqa
+#: inc/actions.php:1251
+msgid "Choose as the best answer"
+msgstr "vyberte najlepšiu odpoveď"
+
+# @ dwqa
+#: inc/actions.php:1447 inc/actions.php:1471
+msgid "Invalid Post"
+msgstr ""
+
+# @ dwqa
+#: inc/actions.php:1566
+msgid "Sticky Questions"
+msgstr "Zvýraznená otázka"
+
+# @ dwqa
+#: inc/actions.php:1602
+msgid "Question is not valid"
+msgstr ""
+
+# @ dwqa
+#: inc/actions.php:1623
+msgid "Delete Action was failed"
+msgstr ""
+
+# @ dwqa
+#: inc/actions.php:1628
+msgid "You do not have permission to delete this question"
+msgstr "Nemáte práva k zmazaniu tejto otázky"
+
+# @ dwqa
+#: inc/class-answers-list-table.php:82
+msgid "Detail"
+msgstr "Detail"
+
+# @ dwqa
+#: inc/class-answers-list-table.php:101
+msgid "Answered on "
+msgstr "Zodpovedané"
+
+# @ dwqa
+#: inc/class-answers-list-table.php:112 inc/contextual-helper.php:201
+msgid "Read more"
+msgstr "Zobraziť viac"
+
+# @ default
+#: inc/class-walker-category.php:20 inc/class-walker-tag-dropdown.php:19
+#, php-format
+msgid "View all posts filed under %s"
+msgstr ""
+
+# @ default
+#: inc/class-walker-category.php:35 inc/class-walker-tag-dropdown.php:34
+#, php-format
+msgid "Feed for all posts filed under %s"
+msgstr ""
+
+# @ dwqa
+#: inc/contextual-helper.php:47
+msgid "Overview"
+msgstr "Prehľad"
+
+# @ dwqa
+#: inc/contextual-helper.php:48
+msgid "DW Question Answer Plugin"
+msgstr ""
+
+# @ dwqa
+#: inc/contextual-helper.php:49
+msgid ""
+"DW Question Answer is a WordPress Plugin which helps you build a Question & "
+"Answer system on your WordPress sites. The plugin is easy to install and set "
+"up. Let start building up your community with this WordPress question & "
+"answer system."
+msgstr ""
+
+# @ dwqa
+#: inc/contextual-helper.php:52
+msgid "Setup Question List Page"
+msgstr ""
+
+# @ dwqa
+#: inc/contextual-helper.php:56
+msgid "Setup Ask Question Page"
+msgstr ""
+
+# @ dwqa
+#: inc/contextual-helper.php:60
+msgid "Shortcode"
+msgstr ""
+
+# @ dwqa
+#: inc/contextual-helper.php:64
+msgid "Style integration"
+msgstr ""
+
+# @ default
+#: inc/contextual-helper.php:221
+msgid "For more information:"
+msgstr "Pre viac informácií"
+
+# @ default
+#: inc/contextual-helper.php:222
+msgid "DW Question Answer Guide"
+msgstr ""
+
+# @ default
+#: inc/contextual-helper.php:223
+msgid "Community"
+msgstr "Komunita"
+
+# @ default
+#: inc/contextual-helper.php:224
+msgid "DesignWall Wordpress Themes"
+msgstr ""
+
+# @ default
+#: inc/contextual-helper.php:225
+msgid "DesignWall Wordpress Plugins"
+msgstr ""
+
+# @ dwqa
+#: inc/filter.php:100 inc/templates/default/archive-question-notfound.php:5
+msgid "You do not have permission to view questions"
+msgstr "Nemáte práva k zobrazeniu otázok"
+
+# @ dwqa
+#: inc/filter.php:103
+msgid "Sorry, but nothing matched your filter. "
+msgstr "Nič k zobrazeniu "
+
+# @ dwqa
+#: inc/filter.php:111
+msgid "You can ask question"
+msgstr "Môžete položiť otázku"
+
+# @ dwqa
+#: inc/filter.php:113
+msgid "here"
+msgstr "tu"
+
+# @ dwqa
+#: inc/filter.php:119 inc/templates/default/archive-question-notfound.php:22
+msgid "Please"
+msgstr "Prosíme"
+
+# @ dwqa
+#: inc/filter.php:121 inc/templates/default/archive-question-notfound.php:24
+msgid "Login"
+msgstr "prihlásiť sa"
+
+# @ dwqa
+#: inc/filter.php:125 inc/templates/default/archive-question-notfound.php:25
+msgid " or"
+msgstr "alebo"
+
+# @ dwqa
+#: inc/filter.php:127 inc/templates/default/archive-question-notfound.php:26
+msgid " to submit question."
+msgstr "k položeniu otázky."
+
+# @ dwqa
+#: inc/filter.php:433
+msgid "Search query is empty"
+msgstr "Nič nezadané"
+
+# @ dwqa
+#: inc/metaboxes.php:5
+msgid "Answers"
+msgstr "Odpovede"
+
+# @ dwqa
+#: inc/metaboxes.php:29
+msgid "Question Meta Data"
+msgstr "Metadata otázky"
+
+# @ dwqa
+#: inc/metaboxes.php:44
+msgid "Status"
+msgstr "Status"
+
+# @ dwqa
+#: inc/metaboxes.php:46 inc/status.php:278
+#: inc/templates/default/question-list.php:17
+msgid "Open"
+msgstr "Otvorený"
+
+# @ dwqa
+#: inc/metaboxes.php:47 inc/status.php:265 inc/template-functions.php:693
+#: inc/templates/default/content-question.php:6
+msgid "Pending"
+msgstr "Čakajúci"
+
+# @ dwqa
+#: inc/metaboxes.php:48 inc/status.php:262 inc/template-functions.php:698
+#: inc/templates/default/question-list.php:23
+msgid "Resolved"
+msgstr "Vyriešená"
+
+# @ dwqa
+#: inc/metaboxes.php:49 inc/status.php:268 inc/template-functions.php:683
+msgid "Re-Open"
+msgstr "Znovuotvorený"
+
+# @ dwqa
+#: inc/metaboxes.php:50 inc/status.php:271 inc/template-functions.php:688
+#: inc/templates/default/question-list.php:26
+msgid "Closed"
+msgstr "Uzatvorená"
+
+# @ dwqa
+#: inc/metaboxes.php:56
+msgid "Sticky"
+msgstr "Zvýraznený"
+
+# @ dwqa
+#: inc/metaboxes.php:60
+msgid "Pin question to top of archive page."
+msgstr "Pripichnúť otázku nahor"
+
+# @ dwqa
+#: inc/notification.php:27
+msgid "A new question was posted on {site_name}"
+msgstr ""
+
+# @ dwqa
+#: inc/notification.php:118
+msgid "A new answer for \"{question_title}\" was posted on {site_name}"
+msgstr ""
+
+# @ dwqa
+#: inc/notification.php:186
+msgid "You have a new answer for your followed question"
+msgstr ""
+
+# @ dwqa
+#: inc/notification.php:282 inc/notification.php:328
+msgid "[{site_name}] You have a new comment for question {question_title}"
+msgstr ""
+
+# @ dwqa
+#: inc/notification.php:287 inc/notification.php:333
+msgid "[{site_name}] You have a new comment for answer"
+msgstr ""
+
+# @ dwqa
+#: inc/pointer-helper.php:57
+msgid "How to use DW Question Answer"
+msgstr ""
+
+# @ dwqa
+#: inc/pointer-helper.php:58
+msgid "Documents, Support From DesignWall (help)"
+msgstr ""
+
+# @ dwqa
+#: inc/pointer-helper.php:67
+msgid "Config your support channel"
+msgstr ""
+
+# @ dwqa
+#: inc/pointer-helper.php:68
+msgid "Change comment settings, and create the Submit question page."
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:9
+msgid "Login required. No anonymous post allowed"
+msgstr "Prihláste sa! Anonnýmne otázky nie sú povolené"
+
+# @ dwqa
+#: inc/settings.php:21
+msgid "Select Archive Question Page"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:25
+msgid "A page where displays all questions"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:32
+msgid "hours"
+msgstr "hodín"
+
+# @ dwqa
+#: inc/settings.php:32
+msgid ""
+"A period of time in which new questions are highlighted and marked as New"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:37
+msgid "days"
+msgstr "dni"
+
+# @ dwqa
+#: inc/settings.php:37
+msgid ""
+"A Question will be marked as overdue if it passes this period of time, "
+"starting from the time the question was submitted"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:48
+msgid "Select Submit Question Page"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:53
+msgid "A page where users can submit questions."
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:66
+msgid "Select 404 DWQA Page"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:71
+msgid ""
+"This page will be redirected when users without authority click on a private "
+"question. You can customize the message of this page in.If not, a default "
+"404 page will be used."
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:87
+msgid "Upload"
+msgstr "Nahrať"
+
+# @ dwqa
+#: inc/settings.php:87
+msgid "Upload or choose a logo to be displayed at the top of the email"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:126
+msgid "Enable notification for new question"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:131 inc/settings.php:165 inc/settings.php:200
+#: inc/settings.php:235 inc/settings.php:270 inc/settings.php:305
+#: inc/settings.php:340
+msgid "Email subject"
+msgstr "Predmet emailu"
+
+# @ dwqa
+#: inc/settings.php:136 inc/settings.php:170 inc/settings.php:205
+#: inc/settings.php:240 inc/settings.php:275 inc/settings.php:310
+#: inc/settings.php:345
+msgid "Email Content"
+msgstr "Obsah emailu"
+
+# @ dwqa
+#: inc/settings.php:160
+msgid "Enable notification for new answer"
+msgstr ""
+
+#: inc/settings.php:195
+msgid "Enable notification for new answer (to Followers )"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:230 inc/settings.php:265
+msgid "Enable notification for new comment of question"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:300 inc/settings.php:335
+msgid "Enable notification for new comment of answer"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:397
+msgid "Read"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:398
+msgid "Post"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:426 inc/settings.php:462 inc/settings.php:497
+msgid "Reset Default"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:464
+msgid "Comment"
+msgstr "Komentár"
+
+# @ dwqa
+#: inc/settings.php:506
+msgid "Enable/Disable captcha on submit question page"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:512
+msgid "Enable/Disable captcha on single question page"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:530
+msgid "questions"
+msgstr "otázky"
+
+# @ dwqa
+#: inc/settings.php:536
+msgid "Allow members to post private question"
+msgstr "Povoliť používateľom pridávať súkromné otázky"
+
+# @ dwqa
+#: inc/settings.php:542
+msgid "Question must be manually approved"
+msgstr ""
+
+#: inc/settings.php:553
+msgid "Select template for Single Quesiton page"
+msgstr ""
+
+#: inc/settings.php:559
+msgid ""
+"By default, your single.php template file will be used if you do not choose "
+"any template"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:641
+msgid "Plugin Settings"
+msgstr "Nastavenia pluginu"
+
+# @ dwqa
+#: inc/settings.php:641
+msgid "Settings"
+msgstr "Nastavenia"
+
+# @ dwqa
+#: inc/settings.php:667
+msgid "Question List Page"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:675
+msgid "Archive page show at most"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:683
+msgid "Ask Question Page"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:690
+msgid "Private Question"
+msgstr "Súkromná otázka"
+
+# @ dwqa
+#: inc/settings.php:697
+msgid "Review Question"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:705
+msgid "DWQA 404 Page"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:713
+msgid "Single Question Template"
+msgstr "Šablóna pre jednu otázku"
+
+# @ dwqa
+#: inc/settings.php:722
+msgid "Time settings"
+msgstr "nastavenia času"
+
+# @ dwqa
+#: inc/settings.php:729
+msgid "New Question Time Frame"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:737
+msgid "Question Overdue - Time Frame"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:747
+msgid "Captcha settings"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:754
+msgid "Captcha on Submit Question Page"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:762
+msgid "Captcha on Single Question Page"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:770
+msgid "Google Captcha Public Key"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:778
+msgid "Google Captcha Private Key"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:788
+msgid "Permalink Settings"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:795
+msgid "Single Question"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:803
+msgid "Single Category"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:811
+msgid "Single Tag"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:860
+msgid "From Email"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:924 inc/settings.php:931
+msgid "Group Permission"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:944
+msgid "DWQA Settings"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:948
+msgid "General"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:949
+msgid "Notification"
+msgstr "Notifikácia"
+
+# @ dwqa
+#: inc/settings.php:950
+msgid "Permission"
+msgstr "Práva"
+
+# @ dwqa
+#: inc/settings.php:957
+msgid "Email setup"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:961
+msgid "Email Logo"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:973
+msgid "New Comment to Question"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:974
+msgid "New Comment to Answer"
+msgstr ""
+
+#: inc/settings.php:975
+msgid "New Answer (to Followers )"
+msgstr ""
+
+#: inc/settings.php:976
+msgid "New Comment to Question (to Followers )"
+msgstr ""
+
+#: inc/settings.php:977
+msgid "New Comment to Answer (to Followers )"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:984
+msgid "New Question Notification"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:991 inc/settings.php:1000 inc/settings.php:1009
+#: inc/settings.php:1018 inc/settings.php:1028 inc/settings.php:1036
+#: inc/settings.php:1046
+msgid "Save all changes"
+msgstr "Uložiť všetky zmeny"
+
+# @ dwqa
+#: inc/settings.php:996
+msgid "New Answer Notification"
+msgstr ""
+
+#: inc/settings.php:1005
+msgid "New Answer Notification (to Followers )"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:1014
+msgid "New Comment to Question Notification"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:1024
+msgid "New Comment to Answer Notification"
+msgstr ""
+
+#: inc/settings.php:1032
+msgid "New Comment to Question Notification (to Followers )"
+msgstr ""
+
+#: inc/settings.php:1042
+msgid "New Comment to Answer Notification (to Followers )"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:1071
+msgid "Send to"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:1076
+msgid "Cc"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:1081
+msgid "Bcc"
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:1086
+msgid "This address will be used as the sender of the outgoing emails."
+msgstr ""
+
+# @ dwqa
+#: inc/settings.php:1092
+msgid "Send A Copy Of Every Email To Admin"
+msgstr ""
+
+# @ dwqa
+#: inc/shortcodes.php:101 inc/widgets/popular-question.php:18
+msgid "Popular Questions"
+msgstr "Populárne otázky"
+
+# @ dwqa
+#: inc/shortcodes.php:138
+msgid "Latest Answers"
+msgstr "Posledné odpovede"
+
+# @ dwqa
+#: inc/shortcodes.php:164
+msgid "Answer at"
+msgstr "Odpoveď na"
+
+# @ dwqa
+#: inc/shortcodes.php:164 inc/templates/default/single-question.php:38
+msgid "Link to"
+msgstr "Link k"
+
+# @ dwqa
+#: inc/shortcodes.php:192
+msgid "% person who is following this question"
+msgid_plural "% people who are following this question"
+msgstr[0] "% lidí sledujících tento dotaz"
+msgstr[1] "% člověk sledující tento dotaz"
+msgstr[2] "% lidí sledujících tento dotaz"
+
+# @ dwqa
+#: inc/status.php:274
+msgid "New"
+msgstr "Nový"
+
+# @ dwqa
+#: inc/status.php:292
+msgid "Missing post ID"
+msgstr ""
+
+# @ dwqa
+#: inc/status.php:308
+msgid "Post does not exist"
+msgstr ""
+
+# @ dwqa
+#: inc/status.php:313
+msgid "Invalid post status"
+msgstr ""
+
+# @ dwqa
+#: inc/template-functions.php:90
+msgid "You need an account to submit question and get answers. Create one:"
+msgstr "Potrebujete účet pre položenie otázky. Vytvorte si ho:"
+
+# @ dwqa
+#: inc/template-functions.php:92 inc/template-functions.php:129
+msgid "Type your email"
+msgstr "Zadajte váš email"
+
+# @ dwqa
+#: inc/template-functions.php:97
+msgid "Already a member?"
+msgstr "Už registrovaný?"
+
+# @ dwqa
+#: inc/template-functions.php:97
+msgid "Log In"
+msgstr "Prihláste sa"
+
+# @ dwqa
+#: inc/template-functions.php:101
+msgid "Login to submit your question"
+msgstr "Príhláste sa k položeniu otázky"
+
+# @ dwqa
+#: inc/template-functions.php:103
+msgid "Type your username"
+msgstr "Zadajte vaše uživateľské meno"
+
+# @ dwqa
+#: inc/template-functions.php:106
+msgid "Type your password"
+msgstr "Zadajte vaše heslo"
+
+# @ dwqa
+#: inc/template-functions.php:108
+msgid "Not yet a member?"
+msgstr "Neregistrovaný?"
+
+# @ dwqa
+#: inc/template-functions.php:108 inc/templates/default/answers.php:109
+msgid "Register"
+msgstr "Registrujte"
+
+# @ dwqa
+#: inc/template-functions.php:112
+msgid ""
+"Enter your email to receive notification regarding your question. Your email "
+"is safe with us and will not be published."
+msgstr ""
+"Zadajte váš email, k dostávaniu notifikacíí. Nebojte sa, váš email "
+"nezobrazujeme."
+
+# @ dwqa
+#: inc/template-functions.php:112
+msgid "Your email *"
+msgstr "Váš email *"
+
+# @ dwqa
+#: inc/template-functions.php:113
+msgid "Email address ..."
+msgstr "Email ..."
+
+# @ dwqa
+#: inc/template-functions.php:114
+#, php-format
+msgid "or <strong><a href=\"%s\">login</a></strong> to submit question"
+msgstr ""
+"alebo <strong><a href=\"%s\">se přihlašte</a></strong> k pridaniu otázky"
+
+# @ default
+#: inc/template-functions.php:141
+#, php-format
+msgid "Private: %s"
+msgstr ""
+
+# @ dwqa
+#: inc/template-functions.php:176
+msgid "Answer this Question"
+msgstr "Odpovedať na túto otázku"
+
+# @ dwqa
+#: inc/template-functions.php:214
+msgid "Add answer"
+msgstr "Pridať odpoveď"
+
+# @ dwqa
+#: inc/template-functions.php:273
+msgid "You do not have permission to submit a question"
+msgstr "Nemáte práva k položeniu otázky"
+
+# @ default
+#: inc/template-functions.php:356
+msgid "Email"
+msgstr "Email"
+
+# @ default
+#: inc/template-functions.php:360
+#, php-format
+msgid "Required fields are marked %s"
+msgstr ""
+
+# @ default
+#: inc/template-functions.php:372
+msgctxt "noun"
+msgid "Comment"
+msgstr ""
+
+# @ dwqa
+#: inc/template-functions.php:373
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr "Musíte být <a href=\"%s\">přihlášen</a> k napsání komentáře."
+
+# @ default
+#: inc/template-functions.php:374
+#, php-format
+msgid ""
+"Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of "
+"this account\">Log out?</a>"
+msgstr ""
+
+# @ dwqa
+#: inc/template-functions.php:375
+msgid "Your email address will not be published."
+msgstr "Váš email nebude zobrazený."
+
+# @ dwqa
+#: inc/template-functions.php:376
+#, php-format
+msgid ""
+"You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
+"and attributes: %s"
+msgstr ""
+"Môžete použiť tieto <abbr title=\"HyperText Markup Language\">HTML</abbr> "
+"tagy a atribúty: %s"
+
+# @ dwqa
+#: inc/template-functions.php:379
+msgid "Leave a Reply"
+msgstr "Pridajte odpoveď"
+
+# @ dwqa
+#: inc/template-functions.php:380
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr "Přidejte odpověď k %s"
+
+# @ dwqa
+#: inc/template-functions.php:381
+msgid "Cancel reply"
+msgstr "Zrušit odpověď"
+
+# @ dwqa
+#: inc/template-functions.php:382
+msgid "Post Comment"
+msgstr "Odeslat komentář"
+
+# @ dwqa
+#: inc/template-functions.php:561
+msgid "Sticky Question"
+msgstr "Zvýrazněný dotaz"
+
+# @ dwqa
+#: inc/template-functions.php:575
+msgid "Ask a question"
+msgstr "Položiť otázku"
+
+# @ dwqa
+#: inc/template-functions.php:577
+msgid "Login to ask a question"
+msgstr "Prihláste sa k položeniu vašej otázky"
+
+# @ dwqa
+#: inc/template-functions.php:719 inc/templates/default/content-answer.php:19
+msgid "Vote Up"
+msgstr "Palec nahor"
+
+# @ dwqa
+#: inc/template-functions.php:721 inc/templates/default/content-answer.php:21
+msgid "Vote Down"
+msgstr "Palec nadol"
+
+# @ dwqa
+#: inc/template-functions.php:732
+msgid "All questions from"
+msgstr "Všetky otázky z"
+
+#: inc/template-functions.php:740
+msgid "follow"
+msgstr "sledovať"
+
+#: inc/template-functions.php:741
+msgid "following"
+msgstr "sledované"
+
+#: inc/template-functions.php:742
+msgid "unfollow"
+msgstr "nesledovať"
+
+# @ dwqa
+#: inc/template-functions.php:747
+msgid "Unpin this Question from the top"
+msgstr "Zrušit zvýraznění tohoto dotazu"
+
+# @ dwqa
+#: inc/template-functions.php:747
+msgid "Pin this Question to top"
+msgstr "Zvýrazniť túto otázku"
+
+# @ dwqa
+#: inc/templates/default/answers.php:42
+#: inc/templates/default/content-question.php:38
+#: inc/templates/default/content-question.php:41
+msgid "answer"
+msgid_plural "answers"
+msgstr[0] "odpoveď"
+msgstr[1] "odpovede"
+msgstr[2] "odpovedí"
+
+# @ dwqa
+#: inc/templates/default/answers.php:90
+msgid "You do not have permission to view answers"
+msgstr "Nemáte práva k zobrazeniu odpovede"
+
+# @ dwqa
+#: inc/templates/default/answers.php:97
+msgid "This question is now closed"
+msgstr "Táto otázka je uzatvorená"
+
+# @ dwqa
+#: inc/templates/default/answers.php:105
+msgid "You do not have permission to submit answer."
+msgstr "Nemáte právo odpovedať"
+
+# @ dwqa
+#: inc/templates/default/answers.php:109
+msgid "Please login or"
+msgstr "Prosíme, prihláste sa, alebo"
+
+# @ dwqa
+#: inc/templates/default/answers.php:109
+msgid "to Submit Answer"
+msgstr "k odoslaniu odpovede"
+
+# @ dwqa
+#: inc/templates/default/archive-question-notfound.php:14
+msgid "Sorry, but nothing matched your filter."
+msgstr "Nič k zobrazeniu"
+
+# @ dwqa
+#: inc/templates/default/comments.php:16
+msgid "View previous comments"
+msgstr "Zobrazit předchozí komentáře"
+
+# @ dwqa
+#: inc/templates/default/comments.php:17
+msgid "of"
+msgstr "z"
+
+# @ dwqa
+#: inc/templates/default/comments.php:36
+msgid "Write a reply..."
+msgstr "Napište odpoveď..."
+
+# @ dwqa
+#: inc/templates/default/content-answer.php:79
+#: inc/templates/default/content-comment.php:12
+msgid "Staff"
+msgstr ""
+
+# @ dwqa
+#: inc/templates/default/content-answer.php:88
+msgid "Link to answer"
+msgstr "Link k odpovedi"
+
+# @ dwqa
+#: inc/templates/default/content-answer.php:92
+msgid "Draft"
+msgstr "Koncept"
+
+# @ dwqa
+#: inc/templates/default/content-answer.php:102
+msgid "This answer was flagged as spam."
+msgstr "Tato odpověď bola označena jako spam."
+
+# @ dwqa
+#: inc/templates/default/content-answer.php:117
+msgid "This is the best answer"
+msgstr "Toto je najlepšia odpoveď"
+
+# @ dwqa
+#: inc/templates/default/content-answer.php:121
+msgid "The answer link"
+msgstr "Link odpovede"
+
+# @ dwqa
+#: inc/templates/default/content-comment.php:10
+msgid "Post by"
+msgstr "Napísal"
+
+# @ dwqa
+#: inc/templates/default/content-comment.php:24
+msgid "Link to comment"
+msgstr "Odkaz komentáru"
+
+# @ dwqa
+#: inc/templates/default/content-question.php:10
+#, php-format
+msgid "Permalink to %s"
+msgstr "Permalink k %s"
+
+# @ default
+#: inc/templates/default/content-question.php:14
+#, fuzzy
+msgid "Category"
+msgstr "Kategória"
+
+# @ dwqa
+#: inc/templates/default/content-question.php:25
+#: inc/templates/default/content-question.php:28
+msgid "view"
+msgid_plural "views"
+msgstr[0] "zobrazený"
+msgstr[1] "zobrazení"
+msgstr[2] "zobrazení"
+
+# @ dwqa
+#: inc/templates/default/content-question.php:51
+#: inc/templates/default/content-question.php:54
+msgid "vote"
+msgid_plural "votes"
+msgstr[0] "hlasov"
+msgstr[1] "hlas"
+msgstr[2] "hlasov"
+
+# @ default
+#: inc/templates/default/question-list.php:11
+msgid "Status:"
+msgstr "Status:"
+
+# @ dwqa
+#: inc/templates/default/question-list.php:13
+#: inc/templates/default/question-list.php:66
+msgid "All"
+msgstr "Všetky"
+
+# @ dwqa
+#: inc/templates/default/question-list.php:17
+msgid "Need Answer"
+msgstr "Bez odpovede"
+
+# @ dwqa
+#: inc/templates/default/question-list.php:20
+msgid "Answered"
+msgstr "Zodpovedaná"
+
+# @ dwqa
+#: inc/templates/default/question-list.php:29
+msgid "Overdue"
+msgstr "Expirovaná"
+
+# @ dwqa
+#: inc/templates/default/question-list.php:30
+msgid "Queue"
+msgstr "Vo fronte"
+
+# @ dwqa
+#: inc/templates/default/question-list.php:54
+msgid "Select a category"
+msgstr "Vyberte kategóriu"
+
+# @ dwqa
+#: inc/templates/default/question-list.php:67
+msgid "Empty"
+msgstr "Prázdne"
+
+# @ dwqa
+#: inc/templates/default/question-list.php:114
+msgid "Vote"
+msgstr "Hlasovať"
+
+# @ dwqa
+#: inc/templates/default/question-submit-form.php:22
+msgid "Question Category"
+msgstr "Kategória otázky"
+
+# @ dwqa
+#: inc/templates/default/question-submit-form.php:28
+msgid "Select question category"
+msgstr "Vyberte kategóriu"
+
+# @ dwqa
+#: inc/templates/default/question-submit-form.php:37
+msgid "tag 1, tag 2,..."
+msgstr "štítok 1, štítok 2,..."
+
+# @ dwqa
+#: inc/templates/default/question-submit-form.php:42
+msgid "Your question"
+msgstr "Nadpis"
+
+# @ dwqa
+#: inc/templates/default/question-submit-form.php:43
+msgid "How to..."
+msgstr "Ako na to..."
+
+# @ dwqa
+#: inc/templates/default/question-submit-form.php:50
+msgid "Question details"
+msgstr "Otázka"
+
+# @ dwqa
+#: inc/templates/default/question-submit-form.php:63
+msgid "Post this Question as Private."
+msgstr "Odeslat tento dotaz jako soukromý."
+
+# @ dwqa
+#: inc/templates/default/question-submit-form.php:63
+msgid "Only you as Author and Admin can see the question"
+msgstr "Iba autor a administrátor môžu vidieť otázku"
+
+# @ dwqa
+#: inc/templates/default/question-submit-form.php:83
+msgid "Ask Question"
+msgstr "Položiť otázku"
+
+# @ dwqa
+#: inc/templates/default/search-question.php:4
+msgid "Search"
+msgstr "Hľadať"
+
+# @ dwqa
+#: inc/templates/default/single-question.php:17
+msgid "Your question has been submitted and is currently awaiting approval"
+msgstr "Vaša otázka bola odoslaná, teraz čaká na schválenie"
+
+# @ dwqa
+#: inc/templates/default/single-question.php:17
+msgid "This question is currently awaiting approval"
+msgstr "Táto otázka čaká na schválenie"
+
+# @ dwqa
+#: inc/templates/default/single-question.php:30
+msgid "Posts by"
+msgstr "Napísal"
+
+# @ dwqa
+#: inc/templates/default/single-question.php:38
+msgid "asked"
+msgstr "otázka"
+
+# @ dwqa
+#: inc/widgets/latest-question.php:11 inc/widgets/list-closed-question.php:11
+msgid "Show a list of questions that was ordered by views."
+msgstr "Zobraziť zoznam otázok podľa zobrazení"
+
+# @ dwqa
+#: inc/widgets/latest-question.php:12
+msgid "DWQA Latest Questions"
+msgstr "Posledné otázky"
+
+# @ dwqa
+#: inc/widgets/latest-question.php:18
+msgid "Latest Questions"
+msgstr "Posledné otázky"
+
+# @ default
+#: inc/widgets/latest-question.php:64 inc/widgets/list-closed-question.php:71
+#: inc/widgets/popular-question.php:63 inc/widgets/related-question.php:48
+msgid "Widget title"
+msgstr ""
+
+# @ default
+#: inc/widgets/latest-question.php:67 inc/widgets/list-closed-question.php:74
+#: inc/widgets/popular-question.php:66 inc/widgets/related-question.php:51
+msgid "Number of posts"
+msgstr "Počet príspevkov"
+
+# @ dwqa
+#: inc/widgets/list-closed-question.php:12
+msgid "DWQA Closed Questions"
+msgstr "Uzatvorené otázky"
+
+# @ dwqa
+#: inc/widgets/list-closed-question.php:18
+msgid "Closed Questions"
+msgstr "Uzatvorené otázky"
+
+# @ dwqa
+#: inc/widgets/popular-question.php:11
+msgid "Show a list of questions that ordered by views."
+msgstr "Zobraziť zoznam otázok, podľa počtu zobrazení"
+
+# @ dwqa
+#: inc/widgets/popular-question.php:12
+msgid "DWQA Popular Questions"
+msgstr "Obľúbené otázky"
+
+# @ dwqa
+#: inc/widgets/related-question.php:11
+msgid ""
+"Show a list of questions that related to a question. Just show in single "
+"question page"
+msgstr "Zobraziť zoznam otázok podobných tejto"
+
+# @ dwqa
+#: inc/widgets/related-question.php:12
+msgid "DWQA Related Questions"
+msgstr "Podobné otázky"

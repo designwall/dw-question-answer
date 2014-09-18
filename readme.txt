@@ -1,9 +1,9 @@
-=== DW Question & Answer ===
+﻿=== DW Question & Answer ===
 Contributors: designwall, Farid-Gh, scheunemann, gciprian, Ahmet Kolcu, Astrotenko Roman, David Robles, Nidhal Naji, developez, markhall1971
 Tags: question, answer, support, quora, stackoverflow
 Requires at least: 3.0.1
 Tested up to: 3.9.1
-Stable tag: 1.2.7
+Stable tag: 1.3.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -44,13 +44,17 @@ We provide support both on support forum on WordPress.org and our [support page]
 * Persian (fa_IR) - by [Farid-Gh](https://github.com/Farid-Gh)
 * Polish (pl_PL) - by Karol Pergot
 * Romanian (ro_RO) - by [gciprian](https://github.com/gciprian)
-* Russian (ru_RU) - by [Roman Astrotenko](http://www.designwall.com/profile/shtirlitz/)
+* Russian (ru_RU) - by [Roman Astrotenko](http://www.designwall.com/profile/shtirlitz/),[shalomanov](https://github.com/shalomanov)
 * Spanish (es_ES) - by David Robles, [Developez](https://github.com/developez)
 * Turkish (tr_TR) - by Ahmet Kolcu
 * Thai (th) - by [Varut Vutipongsatorn](http://www.arika.co/questions)
 * Hindi (hi_IN) - by [Gaurav Tiwari](http://gauravtiwari.org)
 * Catalan (ca) - by [dactil](http://www.dactil.net/sag/)
 * Vietnamese (vi_VN) - by [Le Nghia](http://www.designwall.com/profile/delatdecatsini/)
+* Czech ( cs_CZ ) - by [Karel Baláč](karel.balac@gmail.com)
+* Italian ( it_IT ) - by [Alberto Lusoli](alberto.lusoli@gmail.com)
+* Croatian ( hr ) - by [Tammara Bugg](tammara.bugg@gmail.com)
+* Slovakia ( sk_SK ) - by [Mário Halás](majox21@gmail.com)
 
 The plugin is frequently updated and more and more features added based on all the feedback from our users. This means you are welcome to give us feedback and suggestion on how you would want to have in the plugin.
 Visit our [Github](https://github.com/designwall/dw-question-answer) project or follow us at [@designwall_com](https://twitter.com/designwall_com) to get update of our next release.
@@ -72,6 +76,59 @@ Visit our [Github](https://github.com/designwall/dw-question-answer) project or 
 5. Back-end settings
 
 == Changelog ==
+
+= 1.3.2 = 
+
+* Tweak: Czech language updated
+* New: Slovakia languages supported
+* Fix: Can't update answer.
+* Fix: Updated reCaptcha library
+* Fix: Ask Question Form still showed when users cannot post questions
+* Fix: Some strings are not available for translation
+* Fix: DWQA 404 Page setting cannot apply
+* Fix: Category, Tags Rewrite Rules don't work
+
+= 1.3.1 =
+
+* Fix: All comments' authors were changed to anonymous
+* Fix: Template for Archive List Question page was not displayed
+* Fix: Paging does not work properly
+* Fix: Subscribers cannot edit their own answers
+* Fix: Wrongly use flush_rewrite_rules() function
+* Fix: Label of flag answer is not correct
+* Fix: Wordpress post filters were duplicated when displayed DWQA single question
+* Update: vi_VN language file
+* Update: default languages file
+* New: Add setting to choose a page template for Single Question page
+
+
+= 1.3.0 =
+
+* New: apply shortcodes in creating Question list & Question submit page
+* New: Czech language supported
+* New: Polish language supported
+* New: Italian language supported
+* Fix: Question & answers disappear in backend
+
+= 1.2.10 =
+
+* Fix: Security issue in editing/ deleting answers
+
+= 1.2.9 =
+
+* Fix: Link to shortcode page does not overwrite the 404 page
+* Fix: Submit form content lost when providing error captcha
+* Fix: Recaptcha conflict
+* Fix: unauthorized users can edit questions/answers from back-end
+* New: Update single question UI
+
+= 1.2.8 =
+
+* Order questions by latest answer post
+* Support custom user's roles
+* Czech Languages Supported
+* Italian Languages Supported
+* Fix bugs
 
 = 1.2.6 =
 * New: Allow Anonymous post question

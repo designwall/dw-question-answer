@@ -1,10 +1,10 @@
 <?php
 
-add_action( 'bp_setup_nav', 'nex_bp_nav_adder' );
-function nex_bp_nav_adder() {
+add_action( 'bp_setup_nav', 'dwqa_bp_nav_adder' );
+function dwqa_bp_nav_adder() {
    bp_core_new_nav_item(
     array(
-      'name' => __('Questions', 'nex'),
+      'name' => __('Questions', 'dwqa'),
       'slug' => 'questions',
       'position' => 21,
       'show_for_displayed_user' => true,
@@ -13,9 +13,6 @@ function nex_bp_nav_adder() {
       'default_subnav_slug' => 'public'
     ));
 }
-
-
-
 
 
 
@@ -66,19 +63,11 @@ function profile_questions_loop() {
  
 
 
-
-
 /*-----------------------------------------------------------------------------------*/
 /*  Redirect author to profile page
 /*-----------------------------------------------------------------------------------*/
-if ( ! function_exists('is_plugin_active')) {
-    require_once( ABSPATH . '/wp-admin/includes/plugin.php' );
-}
 
-if ( is_plugin_active( 'buddypress/bp-loader.php' ) ) {
 add_action( 'template_redirect', 'authorblog_template_redirect' );
-}
-
 
 function authorblog_template_redirect(){
   if(is_author()){
@@ -91,105 +80,90 @@ function authorblog_template_redirect(){
 /*  Record Activities
 /*-----------------------------------------------------------------------------------*/
 // Question
-function nex_record_question_activity( $post_id ) {
-  $post = get_post($post_id);
-  if(($post->post_status != 'publish') && ($post->post_status != 'private'))
-    return;
+  /*-----------------------------------------------------------------------------------*/
+  /*  Record Activities
+  /*-----------------------------------------------------------------------------------*/
+  // Question
+  function dwqa_record_question_activity( $post_id ) {
+    $post = get_post($post_id);
+    if(($post->post_status != 'publish') && ($post->post_status != 'private'))
+      return;
 
-  $user_id = get_current_user_id();
-  $post_permalink = get_permalink( $post_id );
-  $post_title = get_the_title( $post_id );
-  $activity_action = sprintf( __( '%s asked a new question: %s', 'nex' ), bp_core_get_userlink( $user_id ), '<a href="' . $post_permalink . '">' . $post->post_title . '</a>' );
-  $content = $post->post_content;
-  $hide_sitewide = ($post->post_status == 'private') ? true : false;
-
-  if( function_exists('bp_activity_add') ) {
-    bp_activity_add( array(
-      'action' => $activity_action,
-      'content' => $content,
-      'primary_link' => $post_permalink,
-      'user_id' => $user_id,
-      'item_id' => $post_id,
-      'recorded_time' => $post->post_date_gmt,
-      'hide_sitewide' => $hide_sitewide
-    ) );
-  }
-
-  if(function_exists('mycred_add')) {
-    if($post->post_status == 'private') {
-      mycred_add( 'new_question', $user_id, '-20', '%plural% for Ask a Question', $post_id, array( 'ref_type' => 'post' ) );
-    } else {
-      mycred_add( 'new_question', $user_id, '-10', '%plural% for Ask a Question', $post_id, array( 'ref_type' => 'post' ) );
-    }
-  }
-}
-add_action( 'dwqa_add_question', 'nex_record_question_activity' );
-add_action( 'draft_to_publish', 'nex_record_question_activity' );
-
-//Answer
-function nex_record_answer_activity( $post_id ) {
-  $post = get_post($post_id);
-
-  if($post->post_status != 'publish')
-    return;
-
-  $user_id = $post->post_author;
-
-  $question_id = get_post_meta( $post_id, '_question', true );
-  $question = get_post( $question_id );
-
-  $post_permalink = get_permalink($question_id);
-  $activity_action = sprintf( __( '%s answered the question: %s', 'nex' ), bp_core_get_userlink( $user_id ), '<a href="' . $post_permalink . '">' . $question->post_title . '</a>' );
-  $content = $post->post_content;
-
-  $hide_sitewide = ($question->post_status == 'private') ? true : false;
-  if( function_exists('bp_blogs_record_activity') ) {
+    $user_id = get_current_user_id();
+    $post_permalink = get_permalink( $post_id );
+    $post_title = get_the_title( $post_id );
+    $activity_action = sprintf( __( '%s asked a new question: %s', 'dwqa' ), bp_core_get_userlink( $user_id ), '<a href="' . $post_permalink . '">' . $post->post_title . '</a>' );
+    $content = $post->post_content;
+    $hide_sitewide = ($post->post_status == 'private') ? true : false;
+    apply_filters( 'bp_blogs_record_activity_action', $action );
     bp_blogs_record_activity( array(
       'user_id' => $user_id,
       'action' => $activity_action,
       'content' => $content,
       'primary_link' => $post_permalink,
       'type' => 'new_blog_post',
-      'item_id' => $question_id,
+      'item_id' => 0,
+      'secondary_item_id' => $post_id,
+      'recorded_time' => $post->post_date_gmt,
+      'hide_sitewide' => $hide_sitewide
+    ));
+  }
+  add_action( 'dwqa_add_question', 'dwqa_record_question_activity');
+
+  //Answer
+  function dwqa_record_answer_activity( $post_id ) {
+    $post = get_post($post_id);
+
+    if($post->post_status != 'publish')
+      return;
+
+    $user_id = $post->post_author;
+
+    $question_id = get_post_meta( $post_id, '_question', true );
+    $question = get_post( $question_id );
+
+    $post_permalink = get_permalink($question_id);
+    $activity_action = sprintf( __( '%s answered the question: %s', 'dwqa' ), bp_core_get_userlink( $user_id ), '<a href="' . $post_permalink . '">' . $question->post_title . '</a>' );
+    $content = $post->post_content;
+
+    $hide_sitewide = ($question->post_status == 'private') ? true : false;
+
+    bp_blogs_record_activity( array(
+      'user_id' => $user_id,
+      'action' => $activity_action,
+      'content' => $content,
+      'primary_link' => $post_permalink,
+      'type' => 'new_blog_post',
+      'item_id' => 0,
       'secondary_item_id' => $post_id,
       'recorded_time' => $post->post_date_gmt,
       'hide_sitewide' => $hide_sitewide,
     ));
   }
+  add_action( 'dwqa_add_answer', 'dwqa_record_answer_activity');
+  add_action( 'dwqa_update_answer', 'dwqa_record_answer_activity');
 
-  if(function_exists('mycred_add')) mycred_add( 'new_answer', $user_id, '20', '%plural% for Answer a Question', $post_id, array( 'ref_type' => 'post' ) );
-}
-add_action( 'dwqa_add_answer', 'nex_record_answer_activity');
+  //Comment
+  function dwqa_record_comment_activity( $comment_id ) {
+    $comment = get_comment($comment_id);
+    $user_id = get_current_user_id();
+    $post_id = $comment->comment_post_ID;
+    $content = $comment->comment_content;
 
-function nex_record_answer_update_activity( $post_id, $old_post, $new_post ){
-  if( $old_post->post_status == 'draft' && ( $new_post->post_status == 'publish' || $new_post->post_status == 'private' ) ) {
-    nex_record_answer_activity( $post_id );
-  }
-}
-add_action( 'dwqa_update_answer', 'nex_record_answer_update_activity',10, 3);
+    if(get_post_type($post_id) == 'dwqa-question') {
+      $post = get_post( $post_id );
+      $post_permalink = get_permalink( $post_id );
+      $activity_action = sprintf( __( '%s commented on the question: %s', 'dwqa' ), bp_core_get_userlink( $user_id ), '<a href="' . $post_permalink . '">' . $post->post_title . '</a>' );
+      $hide_sitewide = ($post->post_status == 'private') ? true : false;
+    } else {
+      $post = get_post( $post_id );
+      $question_id = get_post_meta( $post_id, '_question', true );
+      $question = get_post( $question_id );
+      $post_permalink = get_permalink( $question_id );
+      $activity_action = sprintf( __( '%s commented on the answer at: %s', 'dwqa' ), bp_core_get_userlink( $user_id ), '<a href="' . $post_permalink . '">' . $question->post_title . '</a>' );
+      $hide_sitewide = ($question->post_status == 'private') ? true : false;
+    }
 
-//Comment
-function nex_record_comment_activity( $comment_id ) {
-  $comment = get_comment($comment_id);
-  $user_id = get_current_user_id();
-  $post_id = $comment->comment_post_ID;
-  $content = $comment->comment_content;
-
-  if(get_post_type($post_id) == 'dwqa-question') {
-    $post = get_post( $post_id );
-    $post_permalink = get_permalink( $post_id );
-    $activity_action = sprintf( __( '%s commented on the question: %s', 'nex' ), bp_core_get_userlink( $user_id ), '<a href="' . $post_permalink . '">' . $post->post_title . '</a>' );
-    $hide_sitewide = ($post->post_status == 'private') ? true : false;
-  } else {
-    $post = get_post( $post_id );
-    $question_id = get_post_meta( $post_id, '_question', true );
-    $question = get_post( $question_id );
-    $post_permalink = get_permalink( $question_id );
-    $activity_action = sprintf( __( '%s commented on the answer at: %s', 'nex' ), bp_core_get_userlink( $user_id ), '<a href="' . $post_permalink . '">' . $question->post_title . '</a>' );
-    $hide_sitewide = ($question->post_status == 'private') ? true : false;
-  }
-
-  if( function_exists('bp_blogs_record_activity') ) {
     bp_blogs_record_activity( array(
       'user_id' => $user_id,
       'action' => $activity_action,
@@ -202,26 +176,23 @@ function nex_record_comment_activity( $comment_id ) {
       'hide_sitewide' => $hide_sitewide,
     ));
   }
+  add_action( 'dwqa_add_comment', 'dwqa_record_comment_activity');
 
-  if(function_exists('mycred_add')) mycred_add( 'new_comment', $user_id, '10', '%plural% for a Comment', $post_id, array( 'ref_type' => 'comment' ) );
-}
-add_action( 'dwqa_add_comment', 'nex_record_comment_activity');
-
-//User Counter
-function dwqa_user_counter(){
-  
-$dwqa_user_question_count = dwqa_user_question_count(bp_displayed_user_id());
-$dwqa_user_answer_count = dwqa_user_answer_count(bp_displayed_user_id());
-$dwqa_user_comment_count = dwqa_user_comment_count(bp_displayed_user_id());
+  //User Counter
+  function dwqa_user_counter(){
+    $dwqa_user_question_count = dwqa_user_question_count( bp_displayed_user_id() );
+    $dwqa_user_answer_count = dwqa_user_answer_count( bp_displayed_user_id() );
+    $dwqa_user_comment_count = dwqa_user_comment_count( bp_displayed_user_id() );
 
 ?>
-
-  <div>
-    <strong><?php echo $dwqa_user_question_count; ?></strong> <span class="activity"><?php echo ($dwqa_user_question_count == 0) ? 'Question' : 'Questions'; ?></span><br>
-    <strong><?php echo $dwqa_user_answer_count; ?></strong> <span class="activity"><?php echo ($dwqa_user_answer_count == 0) ? 'Answer' : 'Answers'; ?></span><br>
-    <strong><?php echo $dwqa_user_comment_count; ?></strong> <span class="activity"><?php echo ($dwqa_user_comment_count == 0) ? 'Comment' : 'Comments'; ?></span>
-  </div>
+    <div>
+      <strong><?php echo $dwqa_user_question_count; ?></strong> <span class="activity"><?php echo ( $dwqa_user_question_count == 0 ) ? __( 'Question', 'dwqa' ) : __( 'Questions', 'dwqa' ); ?></span><br>
+      <strong><?php echo $dwqa_user_answer_count; ?></strong> <span class="activity"><?php echo ( $dwqa_user_answer_count == 0 ) ? __( 'Answer', 'dwqa' ) : __( 'Answers', 'dwqa' ); ?></span><br>
+      <strong><?php echo $dwqa_user_comment_count; ?></strong> <span class="activity"><?php echo ( $dwqa_user_comment_count == 0 ) ? __( 'Comment', 'dwqa' ) : __( 'Comments', 'dwqa' ); ?></span>
+   </div>
 <?php
 }
 
 add_action( 'bp_profile_header_meta', 'dwqa_user_counter' );
+
+

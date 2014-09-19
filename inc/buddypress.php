@@ -92,20 +92,17 @@ function authorblog_template_redirect(){
     $user_id = get_current_user_id();
     $post_permalink = get_permalink( $post_id );
     $post_title = get_the_title( $post_id );
-    $activity_action = sprintf( __( '%s asked a new question: %s', 'dwqa' ), bp_core_get_userlink( $user_id ), '<a href="' . $post_permalink . '">' . $post->post_title . '</a>' );
     $content = $post->post_content;
     $hide_sitewide = ($post->post_status == 'private') ? true : false;
-    apply_filters( 'bp_blogs_record_activity_action', $action );
     bp_blogs_record_activity( array(
       'user_id' => $user_id,
-      'action' => $activity_action,
       'content' => $content,
       'primary_link' => $post_permalink,
-      'type' => 'new_blog_post',
+      'type' => 'new_question',
       'item_id' => 0,
       'secondary_item_id' => $post_id,
       'recorded_time' => $post->post_date_gmt,
-      'hide_sitewide' => $hide_sitewide
+      'hide_sitewide' => $hide_sitewide 
     ));
   }
   add_action( 'dwqa_add_question', 'dwqa_record_question_activity');
@@ -118,23 +115,16 @@ function authorblog_template_redirect(){
       return;
 
     $user_id = $post->post_author;
-
-    $question_id = get_post_meta( $post_id, '_question', true );
-    $question = get_post( $question_id );
-
     $post_permalink = get_permalink($question_id);
-    $activity_action = sprintf( __( '%s answered the question: %s', 'dwqa' ), bp_core_get_userlink( $user_id ), '<a href="' . $post_permalink . '">' . $question->post_title . '</a>' );
     $content = $post->post_content;
-
     $hide_sitewide = ($question->post_status == 'private') ? true : false;
 
     bp_blogs_record_activity( array(
       'user_id' => $user_id,
-      'action' => $activity_action,
       'content' => $content,
       'primary_link' => $post_permalink,
-      'type' => 'new_blog_post',
-      'item_id' => 0,
+      'type' => 'new_answer',
+      'item_id' =>0,
       'secondary_item_id' => $post_id,
       'recorded_time' => $post->post_date_gmt,
       'hide_sitewide' => $hide_sitewide,
@@ -145,33 +135,32 @@ function authorblog_template_redirect(){
 
   //Comment
   function dwqa_record_comment_activity( $comment_id ) {
-    $comment = get_comment($comment_id);
-    $user_id = get_current_user_id();
-    $post_id = $comment->comment_post_ID;
-    $content = $comment->comment_content;
+  $comment = get_comment($comment_id);
+  $user_id = get_current_user_id();
+  $post_id = $comment->comment_post_ID;
+  $content = $comment->comment_content;
+  $post = get_post( $post_id );
+  $hide_sitewide = ( $post->post_status == 'private') ? true : false;
 
-    if(get_post_type($post_id) == 'dwqa-question') {
-      $post = get_post( $post_id );
-      $post_permalink = get_permalink( $post_id );
-      $activity_action = sprintf( __( '%s commented on the question: %s', 'dwqa' ), bp_core_get_userlink( $user_id ), '<a href="' . $post_permalink . '">' . $post->post_title . '</a>' );
-      $hide_sitewide = ($post->post_status == 'private') ? true : false;
-    } else {
-      $post = get_post( $post_id );
-      $question_id = get_post_meta( $post_id, '_question', true );
-      $question = get_post( $question_id );
-      $post_permalink = get_permalink( $question_id );
-      $activity_action = sprintf( __( '%s commented on the answer at: %s', 'dwqa' ), bp_core_get_userlink( $user_id ), '<a href="' . $post_permalink . '">' . $question->post_title . '</a>' );
-      $hide_sitewide = ($question->post_status == 'private') ? true : false;
-    }
+  if ( get_post_type($post_id) == 'dwqa-question' ) {
+    $type = 'comment_question';
+    $post_permalink = get_permalink( $post_id );
+  } else {
+    $type = 'comment_answer';
+    $question_id = get_post_meta( $post_id, '_question', true );
+    $question = get_post( $question_id );
+    $post_permalink = get_permalink( $question_id );
+  }
+
 
     bp_blogs_record_activity( array(
       'user_id' => $user_id,
       'action' => $activity_action,
       'content' => $content,
       'primary_link' => $post_permalink,
-      'type' => 'new_blog_comment',
+      'type' =>  $type,
       'item_id' => 0,
-      'secondary_item_id' => $comment_id,
+      'secondary_item_id' => $post_id,
       'recorded_time' => $comment->comment_date_gmt,
       'hide_sitewide' => $hide_sitewide,
     ));
@@ -191,8 +180,91 @@ function authorblog_template_redirect(){
       <strong><?php echo $dwqa_user_comment_count; ?></strong> <span class="activity"><?php echo ( $dwqa_user_comment_count == 0 ) ? __( 'Comment', 'dwqa' ) : __( 'Comments', 'dwqa' ); ?></span>
    </div>
 <?php
-}
+
+  }
 
 add_action( 'bp_profile_header_meta', 'dwqa_user_counter' );
 
 
+  function dwqa_replace_activity_meta() {
+    global $activities_template;
+
+    //Get question, answer, comment url activity
+
+  $blog_url  = bp_blogs_get_blogmeta( $activity->item_id, 'url' );
+  $blog_name = bp_blogs_get_blogmeta( $activity->item_id, 'name' );
+
+  if ( empty( $blog_url ) || empty( $blog_name ) ) {
+    $blog_url  = get_home_url( $activity->item_id );
+    $blog_name = get_blog_option( $activity->item_id, 'blogname' );
+
+    bp_blogs_update_blogmeta( $activity->item_id, 'url', $blog_url );
+    bp_blogs_update_blogmeta( $activity->item_id, 'name', $blog_name );
+  }
+
+  $post_url = add_query_arg( 'p', $activities_template->activity->secondary_item_id, trailingslashit( $blog_url ) );
+
+  $post_title = bp_activity_get_meta( $activities_template->activity->id, 'post_title' );
+
+  if ( empty( $post_title ) ) {
+
+    $post = get_post( $activities_template->activity->secondary_item_id );
+    if ( is_a( $post, 'WP_Post' ) ) {
+      $post_title = $post->post_title;
+      bp_activity_update_meta( $activities_template->activity->id, 'post_title', $post_title );
+    }
+
+  }
+
+
+
+     $post_link  = '<a href="' . $post_url . '">' . $post_title . '</a>';
+
+ 
+
+  $user_link = bp_core_get_userlink( $activities_template->activity->user_id );
+
+  if ( $activities_template->activity->type=='new_question' ){
+
+    $action  = sprintf( __( '%1$s asked a new question: %2$s', 'dwqa' ), $user_link, $post_link );
+
+  }else if ( $activities_template->activity->type=='new_answer' ){
+
+     $action  = sprintf( __( '%1$s answered the question: %2$s', 'dwqa' ), $user_link, $post_link );
+
+  }else if ( $activities_template->activity->type=='comment_question' ){
+
+     $action  = sprintf( __( '%1$s commented on the question: %2$s', 'dwqa' ), $user_link, $post_link );
+
+  }else if ( $activities_template->activity->type=='comment_answer' ){
+
+     $action  = sprintf( __( '%1$s commented on the answer at: %2$s', 'dwqa' ), $user_link, $post_link );
+
+  }else {
+
+     $action = $activities_template->activity->action;
+  }
+    
+  
+
+  // Strip any legacy time since placeholders from BP 1.0-1.1
+    $content = str_replace( '<span class="time-since">%s</span>', '', $content );
+
+  // Insert the time since.
+    $time_since = apply_filters_ref_array( 'bp_activity_time_since', array( '<span class="time-since">' . bp_core_time_since( $activities_template->activity->date_recorded ) . '</span>', &$activities_template->activity ) );
+
+  // Insert the permalink
+    if ( !bp_is_single_activity() )
+    $content = apply_filters_ref_array( 'bp_activity_permalink', array( sprintf( '%1$s <a href="%2$s" class="view activity-time-since" title="%3$s">%4$s</a>', $content, bp_activity_get_permalink( $activities_template->activity->id, $activities_template->activity ), esc_attr__( 'View Discussion', 'buddypress' ), $time_since ), &$activities_template->activity ) );
+    else
+    $content .= str_pad( $time_since, strlen( $time_since ) + 2, ' ', STR_PAD_BOTH );
+
+  echo $action.' '.$content;
+
+  }
+
+add_filter( 'bp_insert_activity_meta', 'dwqa_replace_activity_meta' );
+
+
+
+?>

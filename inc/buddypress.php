@@ -33,7 +33,7 @@ function profile_questions_loop() {
       <div class="dwqa-container">
         <div class="dwqa-list-question">
           <div class="dw-question" id="archive-question">
-            <?php foreach ( $questions as $q } { ?>
+            <?php foreach ( $questions as $q ) { ?>
             <article id="question-18267" class="dwqa-question">
                 <header class="dwqa-header">
                     <a class="dwqa-title" href="<?php echo get_post_permalink( $q->ID ); ?>" title="Permalink to <?php echo $q->post_title ?>" rel="bookmark"><?php echo $q->post_title ?></a>
@@ -214,23 +214,14 @@ add_action( 'bp_profile_header_meta', 'dwqa_user_counter' );
   $user_link = bp_core_get_userlink( $activities_template->activity->user_id );
 
   if ( $activities_template->activity->type == 'new_question' ){
-
     $action  = sprintf( __( '%1$s asked a new question: %2$s', 'dwqa' ), $user_link, $post_link );
-
   }else if ( $activities_template->activity->type == 'new_answer' ){
-
      $action  = sprintf( __( '%1$s answered the question: %2$s', 'dwqa' ), $user_link, $post_link );
-
   }else if ( $activities_template->activity->type == 'comment_question' ){
-
      $action  = sprintf( __( '%1$s commented on the question: %2$s', 'dwqa' ), $user_link, $post_link );
-
   }else if ( $activities_template->activity->type == 'comment_answer' ){
-
      $action  = sprintf( __( '%1$s commented on the answer at: %2$s', 'dwqa' ), $user_link, $post_link );
-
   }else {
-
      $action = $activities_template->activity->action;
   }
     

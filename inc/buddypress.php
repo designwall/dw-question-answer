@@ -29,7 +29,7 @@ function profile_questions_loop() {
       'author'         => bp_displayed_user_id(),
       'post_type'      => 'dwqa-question',
     ));
-    if( ! empty( $questions ) ) { ?>
+    if ( ! empty( $questions ) ) { ?>
       <div class="dwqa-container">
         <div class="dwqa-list-question">
           <div class="dw-question" id="archive-question">
@@ -51,7 +51,7 @@ function profile_questions_loop() {
       </div>
     <?php } else { ?>
     <div class="info" id="message">
-      <?php if( get_current_user_id() == bp_displayed_user_id() ) { ?>
+      <?php if ( get_current_user_id() == bp_displayed_user_id() ) { ?>
         Why don't you have question for us. <a href="<?php echo $submit_question_link ?>">Start asking</a>!
       <?php } else { ?>
         <p><strong><?php bp_displayed_user_fullname(); ?></strong> has not asked any question.</p>
@@ -70,7 +70,7 @@ function profile_questions_loop() {
 add_action( 'template_redirect', 'authorblog_template_redirect' );
 
 function authorblog_template_redirect(){
-  if( is_author() ){
+  if ( is_author() ) {
     $user_id = get_query_var( 'author' );
     wp_redirect( bp_core_get_user_domain( $user_id ) );
   }
@@ -86,8 +86,9 @@ function authorblog_template_redirect(){
   // Question
   function dwqa_record_question_activity( $post_id ) {
     $post = get_post( $post_id );
-    if( ( $post->post_status != 'publish' ) && ( $post->post_status != 'private' ) )
-      return;
+    if( ( $post->post_status != 'publish' ) && ( $post->post_status != 'private' ) ) {
+        return;
+    }
 
     $user_id = get_current_user_id();
     $post_permalink = get_permalink( $post_id );
@@ -111,8 +112,9 @@ function authorblog_template_redirect(){
   function dwqa_record_answer_activity( $post_id ) {
     $post = get_post( $post_id );
 
-    if( $post->post_status != 'publish' )
+    if ( $post->post_status != 'publish' ) {
       return;
+    }
 
     $user_id = $post->post_author;
     $post_permalink = get_permalink( $question_id );
@@ -184,7 +186,7 @@ add_action( 'bp_profile_header_meta', 'dwqa_user_counter' );
 
 
   function dwqa_replace_activity_meta() {
-    global $activities_template;
+  global $activities_template;
 
   $blog_url  = bp_blogs_get_blogmeta( $activity->item_id, 'url' );
   $blog_name = bp_blogs_get_blogmeta( $activity->item_id, 'name' );
@@ -228,16 +230,16 @@ add_action( 'bp_profile_header_meta', 'dwqa_user_counter' );
   
 
   // Strip any legacy time since placeholders from BP 1.0-1.1
-    $content = str_replace( '<span class="time-since">%s</span>', '', $content );
+  $content = str_replace( '<span class="time-since">%s</span>', '', $content );
 
   // Insert the time since.
-    $time_since = apply_filters_ref_array( 'bp_activity_time_since', array( '<span class="time-since">' . bp_core_time_since( $activities_template->activity->date_recorded ) . '</span>', &$activities_template->activity ) );
+  $time_since = apply_filters_ref_array( 'bp_activity_time_since', array( '<span class="time-since">' . bp_core_time_since( $activities_template->activity->date_recorded ) . '</span>', &$activities_template->activity ) );
 
   // Insert the permalink
-    if ( ! bp_is_single_activity() )
-    $content = apply_filters_ref_array( 'bp_activity_permalink', array( sprintf( '%1$s <a href="%2$s" class="view activity-time-since" title="%3$s">%4$s</a>', $content, bp_activity_get_permalink( $activities_template->activity->id, $activities_template->activity ), esc_attr__( 'View Discussion', 'buddypress' ), $time_since ), &$activities_template->activity ) );
-    else
-    $content .= str_pad( $time_since, strlen( $time_since ) + 2, ' ', STR_PAD_BOTH );
+  if ( ! bp_is_single_activity() )
+  $content = apply_filters_ref_array( 'bp_activity_permalink', array( sprintf( '%1$s <a href="%2$s" class="view activity-time-since" title="%3$s">%4$s</a>', $content, bp_activity_get_permalink( $activities_template->activity->id, $activities_template->activity ), esc_attr__( 'View Discussion', 'buddypress' ), $time_since ), &$activities_template->activity ) );
+  else
+  $content .= str_pad( $time_since, strlen( $time_since ) + 2, ' ', STR_PAD_BOTH );
 
   echo $action.' '.$content;
   // echo 'abc';
@@ -245,7 +247,7 @@ add_action( 'bp_profile_header_meta', 'dwqa_user_counter' );
   }
 
   function dwqa_remove_activity_meta(){
-    echo '';
+    return '';
   }
 
 
@@ -253,11 +255,12 @@ add_action( 'bp_profile_header_meta', 'dwqa_user_counter' );
 
 // add_filter( 'bp_activity_permalink', 'dwqa_remove_activity_meta' );
 
-add_filter( 'bp_activity_time_since', 'dwqa_replace_activity_meta' );
+// add_filter( 'bp_activity_time_since', 'dwqa_replace_activity_meta' );
 // add_filter( 'bp_activity_delete_link', 'dwqa_remove_activity_meta' );
 
 // add_filter( 'bp_insert_activity_meta', 'dwqa_remove_activity_meta' );
-// add_filter( 'bp_insert_activity_meta', 'dwqa_replace_activity_meta' );
+add_filter( 'bp_insert_activity_meta', 'dwqa_replace_activity_meta' );
+
 
 
 

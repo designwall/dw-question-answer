@@ -34,7 +34,9 @@ include_once DWQA_DIR  . 'inc/beta.php';
 include_once DWQA_DIR  . 'inc/shortcodes.php';
 include_once DWQA_DIR  . 'inc/status.php';
 include_once DWQA_DIR  . 'inc/roles.php';
+//function support bp user
 include_once DWQA_DIR  . 'inc/buddypress.php';
+
 
 
 include_once DWQA_DIR  . 'inc/widgets/related-question.php';
@@ -55,9 +57,8 @@ function dwqa_include_recaptcha_library() {
 add_action( 'plugins_loaded', 'dwqa_include_recaptcha_library' );
 
 
-global $dwqa_permission, $dwqa_db_version;
+global $dwqa_permission;
 $dwqa_permission = new DWQA_Permission();
-$dwqa_db_version = '1.3.3';
 
 function dwqa_posttype_init() {
 	global $dwqa_options;
@@ -337,13 +338,6 @@ function dwqa_activate() {
 			'post_content'	=> $submit_question_content . '[dwqa-submit-question-form]',
 		) );
 	}
-	if ( is_plugin_active( 'buddypress/bp-loader.php' ) ) {
-  //plugin is activated
-		create_bbcustom();
-		append_string_2_functions();
-	}
-	
-
 
 	update_option( 'dwqa_options', $options );
 
@@ -358,18 +352,13 @@ function dwqa_deactivate_hook() {
 	$dwqa_permission->remove_permision_caps();
 
 	wp_clear_scheduled_hook( 'dwqa_hourly_event' );
-	
-	if ( is_plugin_active( 'buddypress/bp-loader.php' ) ) {
-	remove_bbcustom();
-	replace_string_functions();
-	}
-
 
 	flush_rewrite_rules();
 }
 register_deactivation_hook( __FILE__, 'dwqa_deactivate_hook' );
 
 /* Flush rewrite rules for custom post types. */
+
 add_action( 'after_switch_theme', 'dwqa_flush_rewrite_rules' );
 function dwqa_flush_rewrite_rules() {
      flush_rewrite_rules();

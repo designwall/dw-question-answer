@@ -34,8 +34,6 @@ include_once DWQA_DIR  . 'inc/beta.php';
 include_once DWQA_DIR  . 'inc/shortcodes.php';
 include_once DWQA_DIR  . 'inc/status.php';
 include_once DWQA_DIR  . 'inc/roles.php';
-//function support bp user
-include_once DWQA_DIR  . 'inc/buddypress.php';
 
 
 

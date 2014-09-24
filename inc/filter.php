@@ -241,6 +241,7 @@ class DWQA_Filter {
 		}
 
 		$questions = new WP_Query( $args );
+		file_put_contents( DWQA_DIR . 'bin/request.sql', $questions->request );
 		return $questions;
 	}
 
@@ -250,9 +251,13 @@ class DWQA_Filter {
 				$order = ( $this->filter['order'] && $this->filter['order'] != 'ASC' ? 'DESC' : 'ASC' );
 				$orderby_statement = 'count_answer.dwqa_answers '. $order;
 				break;
-			case 'views':
-			case 'votes':
+			case 'views';
+			case 'votes';
+				break;
+			
 			default:
+				// $order = ( $this->filter['order'] && $this->filter['order'] != 'ASC' ? 'DESC' : 'ASC' );
+				// $orderby_statement = $this->order_filter_default( $orderby_statement, $order );
 				break;
 		}
 		return $orderby_statement;
@@ -271,9 +276,11 @@ class DWQA_Filter {
 						ON $wpdb->posts.ID = count_answer.question
 					";
 				break;
-			case 'views':
-			case 'votes':
+			case 'views';
+			case 'votes';
+				break;
 			default:
+				// $join = $this->join_filter_default( $join );
 				break;
 		}
 		return $join;
@@ -282,7 +289,7 @@ class DWQA_Filter {
 
 	public function join_filter_default( $join ) {
 		global $wpdb;
-	
+		
 		$join .= "LEFT JOIN 
 				( SELECT $wpdb->postmeta.meta_value as question, max( $wpdb->posts.post_modified) as post_modified 
 					FROM $wpdb->posts, $wpdb->postmeta
@@ -323,28 +330,28 @@ class DWQA_Filter {
 	public function posts_where( $where ) {
 		global $wpdb, $dwqa_general_settings;
 		$get_question_answered_query = "SELECT `dw_latest_answer_date`.question
-			FROM `{$wpdb->prefix}posts`, 
-				( SELECT `{$wpdb->prefix}postmeta`.meta_value as question, max( `{$wpdb->prefix}posts`.post_date) as post_date 
-					FROM `{$wpdb->prefix}posts`, `{$wpdb->prefix}postmeta` 
-					WHERE `{$wpdb->prefix}posts`.post_type = 'dwqa-answer' 
-					AND ( `{$wpdb->prefix}posts`.post_status = 'publish'
-						OR `{$wpdb->prefix}posts`.post_status = 'private' ) 
-					AND `{$wpdb->prefix}postmeta`.post_id = `{$wpdb->prefix}posts`.ID 
-					AND `{$wpdb->prefix}postmeta`.meta_key = '_question' 
+			FROM `{$wpdb->posts}`, 
+				( SELECT `{$wpdb->postmeta}`.meta_value as question, max( `{$wpdb->posts}`.post_date) as post_date 
+					FROM `{$wpdb->posts}`, `{$wpdb->postmeta}` 
+					WHERE `{$wpdb->posts}`.post_type = 'dwqa-answer' 
+					AND ( `{$wpdb->posts}`.post_status = 'publish'
+						OR `{$wpdb->posts}`.post_status = 'private' ) 
+					AND `{$wpdb->postmeta}`.post_id = `{$wpdb->posts}`.ID 
+					AND `{$wpdb->postmeta}`.meta_key = '_question' 
 					GROUP BY question ) AS dw_latest_answer_date,
-				{$wpdb->prefix}users,
-				{$wpdb->prefix}usermeta
+				{$wpdb->users},
+				{$wpdb->usermeta}
 
-			WHERE `{$wpdb->prefix}posts`.post_status = 'publish' 
-			AND `{$wpdb->prefix}posts`.post_type = 'dwqa-answer' 
-			AND `{$wpdb->prefix}posts`.post_date = `dw_latest_answer_date`.post_date
-			AND `{$wpdb->prefix}users`.ID = `{$wpdb->prefix}posts`.post_author
-			AND `{$wpdb->prefix}usermeta`.user_id = `{$wpdb->prefix}users`.ID
-			AND `{$wpdb->prefix}usermeta`.meta_key = '{$wpdb->prefix}capabilities'
+			WHERE `{$wpdb->posts}`.post_status = 'publish' 
+			AND `{$wpdb->posts}`.post_type = 'dwqa-answer' 
+			AND `{$wpdb->posts}`.post_date = `dw_latest_answer_date`.post_date
+			AND `{$wpdb->users}`.ID = `{$wpdb->posts}`.post_author
+			AND `{$wpdb->usermeta}`.user_id = `{$wpdb->users}`.ID
+			AND `{$wpdb->usermeta}`.meta_key = '{$wpdb->prefix}capabilities'
 			AND ( 
-				`{$wpdb->prefix}usermeta`.meta_value LIKE '%administrator%' 
-				OR `{$wpdb->prefix}usermeta`.meta_value LIKE '%editor%' 
-				OR `{$wpdb->prefix}usermeta`.meta_value LIKE '%author%' 
+				`{$wpdb->usermeta}`.meta_value LIKE '%administrator%' 
+				OR `{$wpdb->usermeta}`.meta_value LIKE '%editor%' 
+				OR `{$wpdb->usermeta}`.meta_value LIKE '%author%' 
 			)";
 
 		switch ( $this->filter['filter_plus'] ) {
@@ -354,7 +361,6 @@ class DWQA_Filter {
 			case 'open':
 				// answered
 				$where .= ' AND ID NOT IN (' . $get_question_answered_query . ' )';
-
 				break;
 			case 'replied':
 				// answered
@@ -363,21 +369,21 @@ class DWQA_Filter {
 			case 'new-comment':
 				if ( current_user_can( 'edit_posts' ) ) {
 					$where .= " AND ID IN (
-									SELECT `{$wpdb->prefix}postmeta`.meta_value FROM 
-										`{$wpdb->prefix}comments` 
+									SELECT `{$wpdb->postmeta}`.meta_value FROM 
+										`{$wpdb->comments}` 
 									JOIN 
-										( SELECT `{$wpdb->prefix}comments`.comment_ID, `{$wpdb->prefix}comments`.comment_post_ID, max( `{$wpdb->prefix}comments`.comment_date ) as comment_time FROM `{$wpdb->prefix}comments` 
-										 JOIN `{$wpdb->prefix}posts` ON `{$wpdb->prefix}comments`.comment_post_ID = `{$wpdb->prefix}posts`.ID 
-										 WHERE `{$wpdb->prefix}comments`.comment_approved = 1 AND `{$wpdb->prefix}posts`.post_type = 'dwqa-answer'
-										 GROUP BY `{$wpdb->prefix}comments`.comment_post_ID ) as t1 
-									ON `{$wpdb->prefix}comments`.comment_post_ID = t1.comment_post_ID AND `{$wpdb->prefix}comments`.comment_date = t1.comment_time 
-									JOIN `{$wpdb->prefix}usermeta` ON `{$wpdb->prefix}comments`.user_id = `{$wpdb->prefix}usermeta`.user_id
-									JOIN `{$wpdb->prefix}postmeta` ON `{$wpdb->prefix}postmeta`.post_id = `{$wpdb->prefix}comments`.comment_post_ID
-									WHERE 1=1 AND `{$wpdb->prefix}usermeta`.meta_key = '{$wpdb->prefix}capabilities' 
-										AND `{$wpdb->prefix}usermeta`.meta_value NOT LIKE '%administrator%'
-										AND `{$wpdb->prefix}usermeta`.meta_value NOT LIKE '%editor%' 
-										AND `{$wpdb->prefix}usermeta`.meta_value NOT LIKE '%author%'
-										AND `{$wpdb->prefix}postmeta`.meta_key = '_question'
+										( SELECT `{$wpdb->comments}`.comment_ID, `{$wpdb->comments}`.comment_post_ID, max( `{$wpdb->comments}`.comment_date ) as comment_time FROM `{$wpdb->comments}` 
+										 JOIN `{$wpdb->posts}` ON `{$wpdb->comments}`.comment_post_ID = `{$wpdb->posts}`.ID 
+										 WHERE `{$wpdb->comments}`.comment_approved = 1 AND `{$wpdb->posts}`.post_type = 'dwqa-answer'
+										 GROUP BY `{$wpdb->comments}`.comment_post_ID ) as t1 
+									ON `{$wpdb->comments}`.comment_post_ID = t1.comment_post_ID AND `{$wpdb->comments}`.comment_date = t1.comment_time 
+									JOIN `{$wpdb->usermeta}` ON `{$wpdb->comments}`.user_id = `{$wpdb->usermeta}`.user_id
+									JOIN `{$wpdb->postmeta}` ON `{$wpdb->postmeta}`.post_id = `{$wpdb->comments}`.comment_post_ID
+									WHERE 1=1 AND `{$wpdb->usermeta}`.meta_key = '{$wpdb->prefix}capabilities' 
+										AND `{$wpdb->usermeta}`.meta_value NOT LIKE '%administrator%'
+										AND `{$wpdb->usermeta}`.meta_value NOT LIKE '%editor%' 
+										AND `{$wpdb->usermeta}`.meta_value NOT LIKE '%author%'
+										AND `{$wpdb->postmeta}`.meta_key = '_question'
 								) ";
 				}
 				# code...
@@ -481,6 +487,7 @@ class DWQA_Filter {
 			wp_send_json_error( array( 'error' => 'not found' ) );
 		}
 	}
+
 	public function __construct(){
 		global $wpdb;
 		//Init
@@ -497,12 +504,9 @@ class DWQA_Filter {
 
 		add_action( 'wp_ajax_dwqa-auto-suggest-search-result', array( $this, 'auto_suggest_for_seach' ) );
 		add_action( 'wp_ajax_nopriv_dwqa-auto-suggest-search-result', array( $this, 'auto_suggest_for_seach' ) );
-
 	}
 }
 global $dwqa_filter;
 $dwqa_filter = new DWQA_Filter();
-
-
 
 ?>

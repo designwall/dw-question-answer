@@ -35,8 +35,6 @@ include_once DWQA_DIR  . 'inc/shortcodes.php';
 include_once DWQA_DIR  . 'inc/status.php';
 include_once DWQA_DIR  . 'inc/roles.php';
 
-
-
 include_once DWQA_DIR  . 'inc/widgets/related-question.php';
 include_once DWQA_DIR  . 'inc/widgets/popular-question.php';
 include_once DWQA_DIR  . 'inc/widgets/latest-question.php';

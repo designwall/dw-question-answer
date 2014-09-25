@@ -3,7 +3,6 @@
 /**
  *  Inlucde all funtion for filter of dw question answer plugin
  */
-
 class DWQA_Filter {
 
 	//Properties 
@@ -241,7 +240,6 @@ class DWQA_Filter {
 		}
 
 		$questions = new WP_Query( $args );
-		file_put_contents( DWQA_DIR . 'bin/request.sql', $questions->request );
 		return $questions;
 	}
 

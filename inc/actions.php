@@ -1060,13 +1060,14 @@ function dwqa_get_the_best_answer( $question_id = false ) {
 	
 	if ( false == $answer_id ) {
 		global $wpdb;
-		$query = "SELECT `post_id` FROM `{$wpdb->prefix}postmeta` LEFT JOIN `{$wpdb->prefix}posts` 
-					ON `{$wpdb->prefix}postmeta`.post_id = `{$wpdb->prefix}posts`.ID   
-					WHERE `post_id` 
-						IN ( SELECT  `post_id` FROM `{$wpdb->prefix}postmeta` 
-								WHERE `meta_key` = '_question' AND `meta_value` = {$question_id} ) 
-						AND `meta_key` = '_dwqa_votes'
-						ORDER BY CAST( `meta_value` as DECIMAL ) DESC LIMIT 0,1";
+		$query = "SELECT `post_id` FROM `{$wpdb->postmeta}`
+					WHERE `post_id` IN ( 
+							SELECT  `post_id` FROM `{$wpdb->postmeta}` 
+							WHERE `meta_key` = '_question' AND `meta_value` = {$question_id} 
+					) 
+					AND `meta_key` = '_dwqa_votes'
+					ORDER BY CAST( `meta_value` as DECIMAL ) DESC LIMIT 0,1";
+
 		$answer_id = $wpdb->get_var( $query );
 
 		wp_cache_set( 'dwqa-best-answer-for-'.$question_id, $answer_id, 'dwqa', 21600 );
@@ -1099,7 +1100,6 @@ function dwqa_user_get_draft( $question_id = false ) {
 
 	$answers = get_posts(  array(
 	   'post_type' => 'dwqa-answer',
-	   'posts_per_page' => 40,
 	   'meta_query' => array(
 			array(
 				'key' => '_question',
@@ -1709,8 +1709,8 @@ function dwqa_question_answer_count( $answer_id, $question_id ) {
 		'meta_query' => array(
 			array(
 				'key'	=> '_question',
-				'value' => $question_id
-			)
+				'value' => $question_id,
+			),
 		),
 	) );
 	update_post_meta( $question_id, '_dwqa_answers_count', $query->found_posts );

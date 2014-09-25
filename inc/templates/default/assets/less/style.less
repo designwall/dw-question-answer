@@ -809,6 +809,46 @@
 			display: none;
 		}
 	}
+
+	// dwqa answers page navigation
+
+	.dwqa-answers-page-navigation-head {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		margin: -1px;
+		padding: 0;
+		overflow: hidden;
+		clip: rect(0,0,0,0);
+		border: 0;
+	}
+
+	.dwqa-answers-page-navigation {
+		list-style: none;
+		margin: 0;
+		padding: 10px 0 13px;
+		border-top: 1px solid #e5e5e5;
+		text-align: center;
+
+		li {
+			display: inline-block;
+			margin: 1px 0 -1px -1px;
+		}
+
+		a {
+			padding: 6px 12px;
+			display: block;
+			border: 1px solid #e5e5e5;
+
+			&:hover {
+				background: #e6e6e6;
+			}
+		}
+
+		.active a {
+			background: #f5f5f5;
+		}
+	}
 	
 	// dwqa author name
 	.author {

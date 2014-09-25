@@ -82,7 +82,7 @@ if ( $answers->max_num_pages > 1 ) {
 	for ( $i = 1; $i <= $answers->max_num_pages; $i++ ) { 
 		echo '<li class="'.( $ans_cur_page == $i ? 'active' : '' ).'"><a href="'.add_query_arg( 'ans-page', $i, $question_url ).'">'.$i.'</a></li>';
 	}
-	echo '<ul>';
+	echo '</ul>';
 }
 
 //Create answer form

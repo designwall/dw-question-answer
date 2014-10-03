@@ -1682,7 +1682,7 @@ add_filter( 'get_comment', 'dwqa_comment_author_link_anonymous' );
  */
 //add_action( 'dwqa_add_answer', 'dwqa_add_answer_logs', 10, 2 );
 function dwqa_add_answer_logs( $answer_id, $question_id ) {
-	dwqa_question_answer_count( $answer_id, $question_id );
+	// dwqa_question_answer_count( $answer_id, $question_id );
 	$date = get_post_field( 'post_date', $answer_id );
 	dwqa_log_last_activity_on_question( $question_id, 'Add new answer', $date );
 }
@@ -1692,7 +1692,7 @@ function dwqa_add_answer_logs( $answer_id, $question_id ) {
  */
 //add_action( 'dwqa_delete_answer', 'dwqa_delete_answer_logs', 10, 2 );
 function dwqa_delete_answer_logs( $answer_id, $question_id ) {
-	dwqa_question_answer_count( $answer_id, $question_id );
+	// dwqa_question_answer_count( $answer_id, $question_id );
 	$date = get_post_field( 'post_date', $answer_id );
 	dwqa_log_last_activity_on_question( $question_id, 'Delete answer', $date );
 }
@@ -1702,19 +1702,25 @@ function dwqa_delete_answer_logs( $answer_id, $question_id ) {
  * @param  int $answer_id   new answer id
  * @param  int $question_id question id
  */
-function dwqa_question_answer_count( $answer_id, $question_id ) {
+function dwqa_question_answer_count( $question_id ) {
+	return dwqa_question_answer_count_by_status( $question_id, array( 'publish', 'private') );
+}
+
+function dwqa_question_answer_count_by_status( $question_id, $status = 'publish' ) {
 	$query = new WP_Query( array(
 		'post_type' => 'dwqa-answer',
-		'post_status' => 'publish,private',
+		'post_status' => $status,
 		'meta_query' => array(
 			array(
 				'key'	=> '_question',
 				'value' => $question_id,
 			),
 		),
+		'fields' => 'ids'
 	) );
-	update_post_meta( $question_id, '_dwqa_answers_count', $query->found_posts );
+	return $query->found_posts;
 }
+
 
 function dwqa_log_last_activity_on_question( $question_id, $message, $date ) {
 	//log activity date

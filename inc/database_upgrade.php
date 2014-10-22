@@ -215,6 +215,6 @@ class DWQA_Database_Upgrade {
 		<?php
 	}
 }
-$GLOBALS['dwqa_database_upgrade'] = new DWQA_Database_Upgrade();
+// $GLOBALS['dwqa_database_upgrade'] = new DWQA_Database_Upgrade();
 
 ?>

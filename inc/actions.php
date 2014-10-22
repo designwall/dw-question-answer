@@ -827,7 +827,7 @@ function dwqa_ajax_create_update_answer_editor() {
 		<?php 
 			$answer = get_post( $answer_id );
 			dwqa_init_tinymce_editor( array(
-				'content'       => htmlentities( $answer->post_content, ENT_COMPAT | ENT_HTML5, get_option( 'blog_charset' ) ), 
+				'content'       => wpautop( $answer->post_content ), 
 				'textarea_name' => 'answer-content',
 				'wpautop'       => false,
 			) ); 
@@ -930,7 +930,7 @@ function dwqa_ajax_create_update_question_editor() {
 		<input type="text" style="width:100%" name="dwqa-question-title" id="dwqa-question-title" value="<?php echo $question->post_title; ?>">
 		<?php 
 			dwqa_init_tinymce_editor( array(
-				'content'       => htmlentities( $question->post_content, ENT_COMPAT | ENT_HTML5, get_option( 'blog_charset' ) ), 
+				'content'       => wpautop( $question->post_content ), 
 				'textarea_name' => 'dwqa-question-content',
 				'wpautop'       => false,
 			) ); 

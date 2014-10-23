@@ -1,6 +1,5 @@
 <?php  
 global $dwqa_db_version;
-
 class DWQA_Database_Upgrade {
 	public $db_version = '1.3.3';
 	public $questions_index = 'dwqa_questions_index';
@@ -44,9 +43,28 @@ class DWQA_Database_Upgrade {
 
 		$query_create_table = "CREATE TABLE IF NOT EXISTS {$dwqa_table} (
 			`ID` bigint(20) unsigned NOT NULL,
-			`title` text NOT NULL,
-			`author` bigint(20) unsigned NOT NULL,
-			`status` varchar(20) NOT NULL DEFAULT 'publish',
+			`post_author` bigint(20) NOT NULL DEFAULT 0,
+			`post_date` datetime  NOT NULL DEFAULT '0000-00-00 00:00:00',
+			`post_date_gmt` datetime  NOT NULL DEFAULT '0000-00-00 00:00:00',
+			`post_content` longtext NOT NULL DEFAULT '',
+			`post_title` text NOT NULL DEFAULT '',
+			`post_excerpt` text NOT NULL DEFAULT '',
+			`post_status` varchar(20) NOT NULL DEFAULT 'publish',
+			`comment_status` varchar(20) NOT NULL DEFAULT 'open',
+			`ping_status` varchar(20) NOT NULL DEFAULT 'open',
+			`post_password` varchar(20) NOT NULL,
+			`post_name` varchar(200) NOT NULL,
+			`to_ping` text NOT NULL DEFAULT '',
+			`pinged` text NOT NULL DEFAULT '',
+			`post_modified` datetime  NOT NULL DEFAULT '0000-00-00 00:00:00',
+			`post_modified_gmt` datetime  NOT NULL DEFAULT '0000-00-00 00:00:00',
+			`post_content_filtered` longtext NOT NULL DEFAULT '',
+			`post_parent` bigint(20) NOT NULL DEFAULT 0,
+			`guid` varchar(255) NOT NULL,
+			`menu_order` int(11)  NOT NULL DEFAULT 0,
+			`post_type` varchar(20) NOT NULL DEFAULT 'dwqa-question',
+			`post_mime_type` varchar(100) NOT NULL,
+			`comment_count` bigint(20)  NOT NULL DEFAULT 0,
 			`last_activity_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
 			`last_activity_author` bigint(20) unsigned NOT NULL DEFAULT '0',
 			`last_activity_type` varchar(255) NOT NULL DEFAULT 'create',
@@ -60,6 +78,7 @@ class DWQA_Database_Upgrade {
 			PRIMARY KEY (`ID`)
 		);";
 		$table = $wpdb->query( $query_create_table );
+
 		if ( $table ) {
 			if ( $offset == 0 ) {
 				$clear_table = "DELETE FROM {$dwqa_table}";
@@ -69,7 +88,8 @@ class DWQA_Database_Upgrade {
 			$query_questions = "SELECT ID " . $query_questions_table;
 
 			// Insert Question ID, title
-			$query_insert_questions = "INSERT INTO {$dwqa_table} ( ID, title, author ) SELECT ID, post_title, post_author " . $query_questions_table;
+			$query_insert_questions = "INSERT INTO {$dwqa_table} ( ID, post_author, post_date, post_date_gmt, post_content, post_title, post_excerpt, post_status, comment_status, ping_status, post_password, post_name, to_ping, pinged, post_modified, post_modified_gmt, post_content_filtered, post_parent, guid, menu_order, post_type, post_mime_type, comment_count ) SELECT * " . $query_questions_table;
+
 			$wpdb->query( $query_insert_questions );
 
 			// Update View Count
@@ -84,19 +104,7 @@ class DWQA_Database_Upgrade {
 								SET `new_table`.view_count = `view`.meta_value";
 			$wpdb->query( $query_view_count );
 
-			// //Update Status
-			$query_status = "UPDATE {$dwqa_table} as new_table 
-								JOIN ( SELECT `insert_questions`.ID, `meta`.meta_value 
-										FROM {$wpdb->postmeta} as meta 
-										JOIN ( {$query_questions} ) as insert_questions 
-											ON `meta`.post_id = `insert_questions`.ID  
-										WHERE `meta`.meta_key = '_dwqa_status' 
-								) as status 
-									ON `new_table`.ID = `status`.ID
-							SET `new_table`.status = `status`.meta_value";
-			$wpdb->query( $query_status );
-
-			// //Update Vote
+			// Update Vote
 			$query_vote_count = "UPDATE {$dwqa_table} as new_table 
 								JOIN ( SELECT ID, `meta`.meta_value 
 										FROM {$wpdb->postmeta} as meta 
@@ -108,7 +116,7 @@ class DWQA_Database_Upgrade {
 							SET `new_table`.vote_count = `vote`.meta_value";
 			$wpdb->query( $query_vote_count );
 
-			// // Publish Answer count
+			// Publish Answer count
 			$query_answer_count ="UPDATE {$dwqa_table} as new_table 
 									JOIN ( SELECT 
 											Q.ID as question, 
@@ -134,9 +142,9 @@ class DWQA_Database_Upgrade {
 			$query_update_last_activity = "UPDATE {$dwqa_table} as new_table 
 											JOIN ( 
 												SELECT question.ID, 
-													max( if(question.last_activity_date = answer.post_modified, answer.post_author, question.author)) as last_activity_author,
-													max(if( question.last_activity_date = answer.post_modified,answer.ID,question.ID)) last_activity_id  
-												FROM {$dwqa_table} question 
+													max( if(`question`.last_activity_date = `answer`.post_modified, `answer`.post_author, `question`.post_author)) as last_activity_author,
+													max(if( `question`.last_activity_date = `answer`.post_modified, `answer`.ID,`question`.ID)) last_activity_id  
+												FROM ( SELECT * FROM {$dwqa_table} LIMIT {$offset},{$posts_per_round} ) question 
 													JOIN {$wpdb->postmeta} meta on `meta`.meta_value = `question`.ID and `meta`.meta_key = '_question' 
 													JOIN {$wpdb->posts} answer on `meta`.post_id = `answer`.ID 
 												GROUP BY `question`.ID
@@ -144,6 +152,26 @@ class DWQA_Database_Upgrade {
 											SET new_table.last_activity_author = last_activity.last_activity_author, new_table.last_activity_id = last_activity.last_activity_id
 										";
 			$wpdb->query( $query_update_last_activity );
+
+			// Update Status : 
+			// IF Have lastest action is admin answer -> answered, while open 
+			// If have meta resolved or closed -> answered / closed
+			$query_column_exists = "SHOW COLUMNS FROM {$dwqa_table} LIKE 'question_status'";
+			if( ! $wpdb->query( $query_column_exists ) ) {
+				$wpdb->query( "ALTER TABLE {$dwqa_table} ADD COLUMN question_status varchar(20) NOT NULL DEFAULT 'open' AFTER post_status" );
+			} 
+
+			$query_status = "UPDATE {$dwqa_table} as new_table 
+								JOIN ( 
+										SELECT `question`.ID, IF( `meta`.meta_value = 'resolved' OR `meta`.meta_value = 'closed', `meta`.meta_value, IF( `usermeta`.meta_value LIKE '%editor%' OR `usermeta`.meta_value LIKE '%administrator%', 'answered', 'open' )  ) as status
+										FROM ( SELECT ID, last_activity_author, last_activity_type FROM {$dwqa_table} LIMIT {$offset},{$posts_per_round} ) question
+										LEFT JOIN {$wpdb->usermeta} usermeta ON `question`.last_activity_author = `usermeta`.user_id AND `usermeta`.meta_key = '{$wpdb->prefix}capabilities'
+										JOIN {$wpdb->postmeta} as meta
+											ON `meta`.post_id = `question`.ID AND `meta`.meta_key = '_dwqa_status'
+								) as status 
+									ON `new_table`.ID = `status`.ID
+							SET `new_table`.question_status = `status`.status";
+			$wpdb->query( $query_status );
 		}
 
 		//Executime for single loop
@@ -215,6 +243,6 @@ class DWQA_Database_Upgrade {
 		<?php
 	}
 }
-// $GLOBALS['dwqa_database_upgrade'] = new DWQA_Database_Upgrade();
+$GLOBALS['dwqa_database_upgrade'] = new DWQA_Database_Upgrade();
 
 ?>

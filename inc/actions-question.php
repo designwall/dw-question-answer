@@ -4,11 +4,26 @@ function dwqa_get_latest_action_date( $question = false, $before = '<span>', $af
 	if ( ! $question ) {
 		$question = get_the_ID();
 	}
-	$message = '';
-	$latest_answer = dwqa_get_latest_answer( $question );
-	$post_id = $latest_answer ? $latest_answer->ID : $question;
+	global $post;
 
-	$author_id = get_post_field( 'post_author', $post_id );
+	$message = '';
+
+	if ( isset( $post->last_activity_date ) ) {
+		$last_activity_date = $post->last_activity_date;
+
+		if ( $post->last_activity_type == 'answer' ) {
+			$post_id = $post->last_activity_id;
+			$author_id = $post->last_activity_author;
+		} else {
+			$post_id = $post->ID;
+			$author_id = $post->post_author;
+		}
+	} else {
+		$latest_answer = dwqa_get_latest_answer( $question );
+		$last_activity_date = $latest_answer->post_date;
+		$post_id = $latest_answer ? $latest_answer->ID : $question;
+		$author_id = $post->post_author;
+	}
 
 	if ( $author_id == 0 || dwqa_is_anonymous( $post_id ) ) {
 		$author_link = __( 'Anonymous', 'dwqa' );
@@ -23,8 +38,8 @@ function dwqa_get_latest_action_date( $question = false, $before = '<span>', $af
 		);
 	}
 	
-	if ( $latest_answer ) {
-		$date = dwqa_human_time_diff( strtotime( $latest_answer->post_date ), false, get_option( 'date_format' ) );
+	if ( $last_activity_date && $post->last_activity_type == 'answer' ) {
+		$date = dwqa_human_time_diff( strtotime( $last_activity_date ), false, get_option( 'date_format' ) );
 		return sprintf( __( '%s answered <span class="dwqa-date">%s</span>', 'dwqa' ), $author_link, $date );
 	}
 	return sprintf( __( '%s asked <span class="dwqa-date">%s</span>', 'dwqa' ), $author_link, get_the_date() );

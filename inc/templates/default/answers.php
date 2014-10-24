@@ -1,5 +1,4 @@
 <?php  
-$start = microtime(true);
 global $current_user, $post, $dwqa_options;
 $ans_cur_page = isset( $_GET['ans-page'] ) ? intval( $_GET['ans-page'] ) : 1;
 $question_id = $post->ID;
@@ -108,6 +107,3 @@ if ( dwqa_current_user_can( 'post_answer' ) ) {
 	<?php
 	}
 }
-
-$time_elapsed_us = microtime(true) - $start;
-var_dump( $time_elapsed_us );

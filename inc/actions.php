@@ -483,6 +483,13 @@ function dwqa_question_answers_count( $question_id = null ) {
 	if ( ! $question_id ) {
 		global $post;
 		$question_id = $post->ID;
+		if ( isset($post->answer_count ) ) {
+			if( dwqa_current_user_can('edit_question') ) {
+				return $post->answer_count;
+			} else {
+				return $post->publish_answer_count;
+			}
+		}
 	}
 
 	$args = array(
@@ -541,6 +548,9 @@ function dwqa_question_views_count( $question_id = null ) {
 	if ( ! $question_id ) {
 		global $post;
 		$question_id = $post->ID;
+		if ( isset( $post->view_count) ) {
+			return $post->view_count;
+		}
 	}
 	$views = get_post_meta( $question_id, '_dwqa_views', true );
 

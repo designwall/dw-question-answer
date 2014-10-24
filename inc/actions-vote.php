@@ -136,6 +136,9 @@ function dwqa_vote_count( $post_id = false, $echo = false ) {
 	if ( ! $post_id ) {
 		global $post;
 		$post_id = $post->ID;
+		if( isset( $post->vote_count ) ) {
+			return $post->vote_count;
+		}
 	}
 	$votes = get_post_meta( $post_id, '_dwqa_votes', true );
 	if ( empty( $votes ) ) {

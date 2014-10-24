@@ -2,10 +2,16 @@
 global $dwqa_db_version;
 class DWQA_Database_Upgrade {
 	public $db_version = '1.3.3';
-	public $questions_index = 'dwqa_questions_index';
+	public $table = 'dwqa_question_index';
 
 	public function __construct() {
 		add_action( 'admin_menu', array( $this, 'add_menu' ) );
+
+		// Replace old data by new table
+		if ( $this->table_exists( $this->table ) ) {
+			remove_filter( 'dwqa-prepare-archive-posts', 'dwqa_prepare_archive_posts' );
+			add_action( 'dwqa-prepare-archive-posts', array( $this, 'prepare_archive_posts'), 99 );
+		}
 
 		add_action( 'wp_ajax_dwqa_upgrade_database', array( $this, 'create_table' ) );
 		if ( $this->db_version != get_option( 'dwqa_db_version' ) ) {
@@ -33,7 +39,7 @@ class DWQA_Database_Upgrade {
 	public function create_table(){
 		global $wpdb;
 		$offset = isset( $_GET['offset'] ) ? intval( $_GET['offset'] ) : 0;
-		$posts_per_round = 10;
+		$posts_per_round = 100;
 
 		$dwqa_table = 'dwqa_question_index';
 
@@ -84,8 +90,15 @@ class DWQA_Database_Upgrade {
 				$clear_table = "DELETE FROM {$dwqa_table}";
 				$wpdb->query( $clear_table );
 			}
-			$query_questions_table = "FROM {$wpdb->posts} WHERE post_type = 'dwqa-question' AND post_status IN ( 'publish', 'private' ) ORDER BY post_modified DESC LIMIT {$offset},{$posts_per_round}";
+			$query_questions_table = "FROM {$wpdb->posts} WHERE post_type = 'dwqa-question' AND post_status IN ( 'publish', 'private' ) ORDER BY post_date DESC LIMIT {$offset},{$posts_per_round}";
 			$query_questions = "SELECT ID " . $query_questions_table;
+
+			$import_ids = $wpdb->get_results( "SELECT ID {$query_questions_table}" );
+			$posts__in = array();
+			foreach ( $import_ids as $id ) {
+				$posts__in[] = $id->ID;
+			}
+			$posts__in = implode(',', $posts__in );
 
 			// Insert Question ID, title
 			$query_insert_questions = "INSERT INTO {$dwqa_table} ( ID, post_author, post_date, post_date_gmt, post_content, post_title, post_excerpt, post_status, comment_status, ping_status, post_password, post_name, to_ping, pinged, post_modified, post_modified_gmt, post_content_filtered, post_parent, guid, menu_order, post_type, post_mime_type, comment_count ) SELECT * " . $query_questions_table;
@@ -119,20 +132,20 @@ class DWQA_Database_Upgrade {
 			// Publish Answer count
 			$query_answer_count ="UPDATE {$dwqa_table} as new_table 
 									JOIN ( SELECT 
-											Q.ID as question, 
-											IF( ISNULL( A.post_modified ), Q.post_modified, 
-											max( A.post_modified ) ) as post_modified, 
-											IF( ISNULL( A.ID ), 'create', 'answer' ) as last_activity_type,
-											GROUP_CONCAT(DISTINCT A.ID SEPARATOR ',') AS answers, 
-											count(distinct A.ID) as total, 
-											count(distinct (case when A.post_status = 'publish' then A.ID end)) as publish_count, 
-											count(distinct (case when A.post_status = 'private' then A.ID end)) as private_count 
-										FROM ( SELECT * {$query_questions_table} ) AS Q 
+											`Q`.ID as question, 
+											IF( ISNULL( `A`.post_date ), `Q`.post_date, 
+											max( `A`.post_date ) ) as post_modified, 
+											IF( ISNULL( `A`.ID ), 'create', 'answer' ) as last_activity_type,
+											GROUP_CONCAT(DISTINCT `A`.ID SEPARATOR ',') AS answers, 
+											count(distinct `A`.ID) as total, 
+											count(distinct (case when `A`.post_status = 'publish' then `A`.ID end)) as publish_count, 
+											count(distinct (case when `A`.post_status = 'private' then `A`.ID end)) as private_count 
+										FROM ( SELECT * FROM {$dwqa_table} WHERE ID IN ( {$posts__in} ) ) AS Q 
 										LEFT JOIN {$wpdb->postmeta} AS N 
-											ON Q.ID = N.meta_value AND N.meta_key = '_question' 
+											ON `Q`.ID = `N`.meta_value AND `N`.meta_key = '_question' 
 										LEFT JOIN {$wpdb->posts} AS A 
-											ON N.post_id = A.ID AND A.post_type = 'dwqa-answer' AND A.post_status IN ( 'publish', 'private' ) 
-										WHERE Q.post_status IN ( 'publish', 'private' ) AND Q.post_type = 'dwqa-question' GROUP BY Q.ID 
+											ON `N`.post_id = `A`.ID AND `A`.post_type = 'dwqa-answer' AND `A`.post_status IN ( 'publish', 'private' ) 
+										WHERE `Q`.post_status IN ( 'publish', 'private' ) AND `Q`.post_type = 'dwqa-question' GROUP BY `Q`.ID 
 									) as count_table ON `count_table`.question = `new_table`.ID 
 								SET `new_table`.private_answer_count = `count_table`.private_count, `new_table`.publish_answer_count = `count_table`.publish_count, `new_table`.answer_count = `count_table`.total,
 									`new_table`.answers = `count_table`.answers, `new_table`.last_activity_date = `count_table`.post_modified, `new_table`.last_activity_type = `count_table`.last_activity_type";
@@ -141,15 +154,15 @@ class DWQA_Database_Upgrade {
 			// get last activity author and id
 			$query_update_last_activity = "UPDATE {$dwqa_table} as new_table 
 											JOIN ( 
-												SELECT question.ID, 
-													max( if(`question`.last_activity_date = `answer`.post_modified, `answer`.post_author, `question`.post_author)) as last_activity_author,
-													max(if( `question`.last_activity_date = `answer`.post_modified, `answer`.ID,`question`.ID)) last_activity_id  
-												FROM ( SELECT * FROM {$dwqa_table} LIMIT {$offset},{$posts_per_round} ) question 
+												SELECT `question`.ID, 
+													max( if(`question`.last_activity_date = `answer`.post_date, `answer`.post_author, `question`.post_author)) as last_activity_author,
+													max(if( `question`.last_activity_date = `answer`.post_date, `answer`.ID,`question`.ID)) last_activity_id  
+												FROM ( SELECT * FROM {$dwqa_table} WHERE ID IN ( {$posts__in} ) ) question 
 													JOIN {$wpdb->postmeta} meta on `meta`.meta_value = `question`.ID and `meta`.meta_key = '_question' 
-													JOIN {$wpdb->posts} answer on `meta`.post_id = `answer`.ID 
+													JOIN {$wpdb->posts} answer on `meta`.post_id = `answer`.ID AND `answer`.post_type = 'dwqa-answer' AND `answer`.post_date >= `question`.last_activity_date
 												GROUP BY `question`.ID
-											) as last_activity ON new_table.ID = last_activity.ID
-											SET new_table.last_activity_author = last_activity.last_activity_author, new_table.last_activity_id = last_activity.last_activity_id
+											) as last_activity ON `new_table`.ID = `last_activity`.ID
+											SET `new_table`.last_activity_author = `last_activity`.last_activity_author, `new_table`.last_activity_id = `last_activity`.last_activity_id
 										";
 			$wpdb->query( $query_update_last_activity );
 
@@ -164,7 +177,11 @@ class DWQA_Database_Upgrade {
 			$query_status = "UPDATE {$dwqa_table} as new_table 
 								JOIN ( 
 										SELECT `question`.ID, IF( `meta`.meta_value = 'resolved' OR `meta`.meta_value = 'closed', `meta`.meta_value, IF( `usermeta`.meta_value LIKE '%editor%' OR `usermeta`.meta_value LIKE '%administrator%', 'answered', 'open' )  ) as status
-										FROM ( SELECT ID, last_activity_author, last_activity_type FROM {$dwqa_table} LIMIT {$offset},{$posts_per_round} ) question
+										FROM ( 
+											SELECT ID, last_activity_author, last_activity_type 
+											FROM {$dwqa_table} 
+											WHERE ID IN ( {$posts__in} ) 
+										) question
 										LEFT JOIN {$wpdb->usermeta} usermeta ON `question`.last_activity_author = `usermeta`.user_id AND `usermeta`.meta_key = '{$wpdb->prefix}capabilities'
 										JOIN {$wpdb->postmeta} as meta
 											ON `meta`.post_id = `question`.ID AND `meta`.meta_key = '_dwqa_status'
@@ -241,6 +258,36 @@ class DWQA_Database_Upgrade {
 		});
 		</script>
 		<?php
+	}
+
+	public function prepare_archive_posts() {
+		global $wpdb, $wp_query,$dwqa_general_settings;
+		
+		$query['posts_per_page'] = isset( $dwqa_general_settings['posts-per-page'] ) ?  $dwqa_general_settings['posts-per-page'] : 5;
+		$paged = get_query_var( 'paged' );
+		$query['offset'] = $paged ? ( $paged - 1 ) * $query['posts_per_page'] : 0;
+
+		// if ( is_tax( 'dwqa-question_category' ) ) {
+		// 	$query['dwqa-question_category'] = get_query_var( 'dwqa-question_category' );
+		// } 
+		// if ( is_tax( 'dwqa-question_tag' ) ) {
+		// 	$query['dwqa-question_tag'] = get_query_var( 'dwqa-question_tag' );
+		// } 
+		 
+		$sticky_questions = get_option( 'dwqa_sticky_questions' );
+		if ( is_array( $sticky_questions ) ) {
+			$sticky_questions = implode(',', $sticky_questions );
+		}
+		if ( is_user_logged_in() ) {
+			$query['post_status'] = "'publish', 'private', 'pending'";
+		} else {
+			$query['post_status'] = "'publish'";
+		}
+		
+		$questions = $wpdb->get_results( "SELECT * FROM dwqa_question_index WHERE 1=1 AND post_status IN ( ".$query['post_status']." ) AND ID NOT IN ( {$sticky_questions} ) ORDER BY last_activity_date DESC LIMIT ".$query['offset'].", ".$query['posts_per_page'] );
+		
+		$wp_query->posts = $questions;
+		$wp_query->post_count = count( $questions );
 	}
 }
 $GLOBALS['dwqa_database_upgrade'] = new DWQA_Database_Upgrade();

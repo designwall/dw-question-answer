@@ -668,8 +668,14 @@ class DWQA_Filter {
 
 		$this->tb_posts = $prefix . 'posts';
 		$this->tb_postmeta = $prefix . 'postmeta';
-		add_action( 'wp_ajax_dwqa-filter-question', array( $this, 'filter_question_width_index_table' ) );
-		add_action( 'wp_ajax_nopriv_dwqa-filter-question', array( $this, 'filter_question_width_index_table' ) );
+		
+		if ( dwqa_table_exists( 'dwqa_question_index') ) {
+			$filter = array( $this, 'filter_question_width_index_table' );
+		} else {
+			$filter = array( $this, 'filter_question' );
+		}
+		add_action( 'wp_ajax_dwqa-filter-question', $filter );
+		add_action( 'wp_ajax_nopriv_dwqa-filter-question', $filter );
 
 		add_action( 'wp_ajax_dwqa-auto-suggest-search-result', array( $this, 'auto_suggest_for_seach' ) );
 		add_action( 'wp_ajax_nopriv_dwqa-auto-suggest-search-result', array( $this, 'auto_suggest_for_seach' ) );

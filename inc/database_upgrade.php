@@ -1,5 +1,22 @@
 <?php  
 global $dwqa_db_version;
+
+
+function dwqa_table_exists( $name ) {
+	global $wpdb;
+	$check = wp_cache_get( 'table_exists_' . $name );
+	if ( ! $check ) {
+		$check = $wpdb->get_var( 'SHOW TABLES LIKE "'. $name .'"' );
+		wp_cache_set( 'table_exists_', $check );
+	}
+
+	if ( $check == $name ) {
+		return true;
+	}
+	return false;
+}
+
+
 class DWQA_Database_Upgrade {
 	public $db_version = '1.3.3';
 	public $table = 'dwqa_question_index';
@@ -8,7 +25,7 @@ class DWQA_Database_Upgrade {
 		add_action( 'admin_menu', array( $this, 'add_menu' ) );
 
 		// Replace old data by new table
-		if ( $this->table_exists( $this->table ) ) {
+		if ( dwqa_table_exists( $this->table ) ) {
 			remove_filter( 'dwqa-prepare-archive-posts', 'dwqa_prepare_archive_posts' );
 			add_action( 'dwqa-prepare-archive-posts', array( $this, 'prepare_archive_posts'), 99 );
 		}
@@ -17,20 +34,6 @@ class DWQA_Database_Upgrade {
 		if ( $this->db_version != get_option( 'dwqa_db_version' ) ) {
 			update_option( 'dwqa_db_version', $this->db_version );
 		}
-	}
-
-	public function table_exists( $name ) {
-		global $wpdb;
-		$check = wp_cache_get( 'table_exists_' . $name );
-		if ( ! $check ) {
-			$check = $wpdb->get_var( 'SHOW TABLES LIKE "'. $name .'"' );
-			wp_cache_set( 'table_exists_', $check );
-		}
-
-		if ( $check == $name ) {
-			return true;
-		}
-		return false;
 	}
 
 	/**

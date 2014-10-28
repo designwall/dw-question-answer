@@ -6,7 +6,9 @@ class DWQA_Database_Upgrade {
 	public $table = 'dwqa_question_index';
 
 	public function __construct() {
+		global $wpdb;
 		add_action( 'admin_menu', array( $this, 'add_menu' ) );
+		$this->table = $wpdb->prefix . $this->table;
 
 		// Replace old data by new table
 		if ( dwqa_table_exists( $this->table ) ) {
@@ -35,8 +37,7 @@ class DWQA_Database_Upgrade {
 		global $wpdb;
 		$offset = isset( $_GET['offset'] ) ? intval( $_GET['offset'] ) : 0;
 		$posts_per_round = 100;
-
-		$dwqa_table = 'dwqa_question_index';
+		$dwqa_table = $this->table; 
 
 		$questions_count = wp_count_posts( 'dwqa-question' );
 		$total = $questions_count->publish + $questions_count->private;
@@ -178,7 +179,7 @@ class DWQA_Database_Upgrade {
 											WHERE ID IN ( {$posts__in} ) 
 										) question
 										LEFT JOIN {$wpdb->usermeta} usermeta ON `question`.last_activity_author = `usermeta`.user_id AND `usermeta`.meta_key = '{$wpdb->prefix}capabilities'
-										JOIN {$wpdb->postmeta} as meta
+										LEFT JOIN {$wpdb->postmeta} as meta
 											ON `meta`.post_id = `question`.ID AND `meta`.meta_key = '_dwqa_status'
 								) as status 
 									ON `new_table`.ID = `status`.ID
@@ -326,7 +327,7 @@ class DWQA_Database_Upgrade {
 			$query['post_status'] = "'publish'";
 		}
 		
-		$questions = $wpdb->get_results( "SELECT * FROM dwqa_question_index WHERE 1=1 AND post_status IN ( ".$query['post_status']." ) ".( $sticky_questions ? "AND ID NOT IN ( {$sticky_questions} )" : "" )." ORDER BY last_activity_date DESC LIMIT ".$query['offset'].", ".$query['posts_per_page'] );
+		$questions = $wpdb->get_results( "SELECT * FROM {$this->table} WHERE 1=1 AND post_status IN ( ".$query['post_status']." ) ".( $sticky_questions ? "AND ID NOT IN ( {$sticky_questions} )" : "" )." ORDER BY last_activity_date DESC LIMIT ".$query['offset'].", ".$query['posts_per_page'] );
 		$wp_query->posts = $questions;
 		$wp_query->post_count = count( $questions );
 	}

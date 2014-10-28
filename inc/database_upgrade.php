@@ -326,8 +326,7 @@ class DWQA_Database_Upgrade {
 			$query['post_status'] = "'publish'";
 		}
 		
-		$questions = $wpdb->get_results( "SELECT * FROM dwqa_question_index WHERE 1=1 AND post_status IN ( ".$query['post_status']." ) AND ID NOT IN ( {$sticky_questions} ) ORDER BY last_activity_date DESC LIMIT ".$query['offset'].", ".$query['posts_per_page'] );
-		
+		$questions = $wpdb->get_results( "SELECT * FROM dwqa_question_index WHERE 1=1 AND post_status IN ( ".$query['post_status']." ) ".( $sticky_questions ? "AND ID NOT IN ( {$sticky_questions} )" : "" )." ORDER BY last_activity_date DESC LIMIT ".$query['offset'].", ".$query['posts_per_page'] );
 		$wp_query->posts = $questions;
 		$wp_query->post_count = count( $questions );
 	}

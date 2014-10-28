@@ -72,6 +72,9 @@ class DWQA_Filter {
 			$where .= " AND ID NOT IN ( " . implode( ',', $sticky_questions ) . " )";
 		}
 
+		if ( isset( $this->filter['title'] ) && $this->filter['title'] && $this->filter['title'] !== 'Search'  ) {
+			$where .= " AND post_title LIKE '%{$this->filter['title']}%'";
+		}
 		$sort = isset( $this->filter['order'] ) && $this->filter['order'] != 'ASC' ? 'DESC' : 'ASC';
 		switch ( $this->filter['type'] ) {
 			case 'answers':

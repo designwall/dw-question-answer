@@ -343,7 +343,7 @@ class DWQA_Database_Upgrade {
 		$wp_query->posts = $this->temp['posts'];
 		$wp_query->post_count = $this->temp['post_count'];
 		$this->temp = false;
-		if ( have_posts() ) the_post();
+		wp_reset_postdata();
 	}
 	/**
 	 * Update table index when have new question, question was update or have new answer

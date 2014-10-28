@@ -336,6 +336,7 @@ class DWQA_Database_Upgrade {
 		);
 		$wp_query->posts = $questions;
 		$wp_query->post_count = count( $questions );
+		rewind_posts();
 	}
 
 	public function after_archive_posts() {

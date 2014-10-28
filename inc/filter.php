@@ -33,7 +33,7 @@ class DWQA_Filter {
 		global $wpdb, $dwqa_general_settings;
 		$this->filter = wp_parse_args( $_POST,$this->filter );
 
-		$table = 'dwqa_question_index';
+		$table = $wpdb->prefix . 'dwqa_question_index';
 
 		// Write query
 		$query = "SELECT * FROM {$table} ";
@@ -668,8 +668,8 @@ class DWQA_Filter {
 
 		$this->tb_posts = $prefix . 'posts';
 		$this->tb_postmeta = $prefix . 'postmeta';
-
-		if ( dwqa_table_exists( 'dwqa_question_index') ) {
+		$table = $prefix . 'dwqa_question_index';
+		if ( dwqa_table_exists( $table ) ) {
 			$filter = array( $this, 'filter_question_width_index_table' );
 		} else {
 			$filter = array( $this, 'filter_question' );

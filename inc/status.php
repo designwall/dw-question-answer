@@ -1,10 +1,10 @@
 <?php  
 
 function dwqa_question_print_status( $question_id, $echo = true ) {
-
-	if ( dwqa_table_exists( 'dwqa_question_index' ) ) {
-		global $wpdb;
-		$status = $wpdb->get_var( $wpdb->prepare( "SELECT question_status FROM dwqa_question_index WHERE ID = %d" , $question_id ) );
+	global $wpdb;
+	$table = $wpdb->prefix . 'dwqa_question_index';
+	if ( dwqa_table_exists( $table ) ) {
+		$status = $wpdb->get_var( $wpdb->prepare( "SELECT question_status FROM {$table} WHERE ID = %d" , $question_id ) );
 	} else {
 		$status_meta = get_post_meta( $question_id, '_dwqa_status', true );
 		if ( 'open' == $status_meta || 're-open' == $status_meta || ! $status_meta ) {

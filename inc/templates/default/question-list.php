@@ -129,7 +129,7 @@
 		<?php if ( have_posts() ) : ?>
 		<div class="loading"></div>
 		<div class="questions-list">
-		<?php while ( have_posts() ) : the_post( ); ?>
+		<?php while ( have_posts() ) : the_post(); ?>
 			<?php dwqa_load_template( 'content', 'question' ); ?>
 		<?php endwhile; ?>
 		</div>

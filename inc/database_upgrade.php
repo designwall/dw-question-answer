@@ -4,6 +4,7 @@ global $dwqa_db_version;
 class DWQA_Database_Upgrade {
 	public $db_version = '1.3.3';
 	public $table = 'dwqa_question_index';
+	public $temp = false;
 
 	public function __construct() {
 		global $wpdb;
@@ -12,7 +13,9 @@ class DWQA_Database_Upgrade {
 		// Replace old data by new table
 		if ( dwqa_table_exists( $this->table ) ) {
 			remove_filter( 'dwqa-prepare-archive-posts', 'dwqa_prepare_archive_posts' );
-			add_action( 'dwqa-prepare-archive-posts', array( $this, 'prepare_archive_posts'), 99 );
+			remove_filter( 'dwqa-after-archive-posts', 'dwqa-after-archive-posts' );
+			add_action( 'dwqa-prepare-archive-posts', array( $this, 'prepare_archive_posts') );
+			add_action( 'dwqa-after-archive-posts', array( $this, 'after_archive_posts' ) );
 		}
 
 		add_action( 'wp_ajax_dwqa_upgrade_database', array( $this, 'create_table' ) );
@@ -327,8 +330,20 @@ class DWQA_Database_Upgrade {
 		}
 		
 		$questions = $wpdb->get_results( "SELECT * FROM {$this->table} WHERE 1=1 AND post_status IN ( ".$query['post_status']." ) ".( $sticky_questions ? "AND ID NOT IN ( {$sticky_questions} )" : "" )." ORDER BY last_activity_date DESC LIMIT ".$query['offset'].", ".$query['posts_per_page'] );
+		$this->temp = array( 
+			'posts' => $wp_query->posts,
+			'post_count' => $wp_query->post_count
+		);
 		$wp_query->posts = $questions;
 		$wp_query->post_count = count( $questions );
+	}
+
+	public function after_archive_posts() {
+		global $wp_query, $post;
+		$wp_query->posts = $this->temp['posts'];
+		$wp_query->post_count = $this->temp['post_count'];
+		$this->temp = false;
+		if ( have_posts() ) the_post();
 	}
 	/**
 	 * Update table index when have new question, question was update or have new answer

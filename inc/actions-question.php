@@ -79,6 +79,7 @@ add_action( 'dwqa-prepare-archive-posts', 'dwqa_prepare_archive_posts' );
 function dwqa_after_archive_posts() {
 	wp_reset_query();
 	wp_reset_postdata();
+	if ( have_posts() ) the_post();
 }
 add_action( 'dwqa-after-archive-posts', 'dwqa_after_archive_posts' );
 

@@ -803,7 +803,7 @@ class DWQA_Template {
 					'is_archive'     => true,
 					'comment_status' => 'closed',
 				) );
-
+				
 				$this->remove_all_filters( 'the_content' );
 				return dwqa_get_template( 'page.php' );
 			}

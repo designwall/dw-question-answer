@@ -67,6 +67,11 @@ class DWQA_Filter {
 		}
 
 
+		$sticky_questions = get_option( 'dwqa_sticky_questions', array() );
+		if ( ! empty( $sticky_questions ) ) {
+			$where .= " AND ID NOT IN ( " . implode( ',', $sticky_questions ) . " )";
+		}
+
 		$sort = isset( $this->filter['order'] ) && $this->filter['order'] != 'ASC' ? 'DESC' : 'ASC';
 		switch ( $this->filter['type'] ) {
 			case 'answers':

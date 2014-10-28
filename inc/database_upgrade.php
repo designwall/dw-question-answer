@@ -7,7 +7,6 @@ class DWQA_Database_Upgrade {
 
 	public function __construct() {
 		add_action( 'admin_menu', array( $this, 'add_menu' ) );
-
 		// Replace old data by new table
 		if ( dwqa_table_exists( $this->table ) ) {
 			remove_filter( 'dwqa-prepare-archive-posts', 'dwqa_prepare_archive_posts' );

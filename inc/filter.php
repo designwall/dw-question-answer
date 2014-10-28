@@ -668,7 +668,7 @@ class DWQA_Filter {
 
 		$this->tb_posts = $prefix . 'posts';
 		$this->tb_postmeta = $prefix . 'postmeta';
-		
+
 		if ( dwqa_table_exists( 'dwqa_question_index') ) {
 			$filter = array( $this, 'filter_question_width_index_table' );
 		} else {
@@ -683,5 +683,4 @@ class DWQA_Filter {
 }
 global $dwqa_filter;
 $dwqa_filter = new DWQA_Filter();
-
 ?>

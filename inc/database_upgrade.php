@@ -1,22 +1,6 @@
 <?php  
 global $dwqa_db_version;
 
-
-function dwqa_table_exists( $name ) {
-	global $wpdb;
-	$check = wp_cache_get( 'table_exists_' . $name );
-	if ( ! $check ) {
-		$check = $wpdb->get_var( 'SHOW TABLES LIKE "'. $name .'"' );
-		wp_cache_set( 'table_exists_', $check );
-	}
-
-	if ( $check == $name ) {
-		return true;
-	}
-	return false;
-}
-
-
 class DWQA_Database_Upgrade {
 	public $db_version = '1.3.3';
 	public $table = 'dwqa_question_index';
@@ -34,6 +18,14 @@ class DWQA_Database_Upgrade {
 		if ( $this->db_version != get_option( 'dwqa_db_version' ) ) {
 			update_option( 'dwqa_db_version', $this->db_version );
 		}
+
+		//Filter update table
+		add_action( 'save_post', array( $this, 'update_question' ) );
+		add_action( 'before_delete_post', array( $this, 'delete_question') );
+		add_action( 'before_delete_post', array( $this, 'delete_answer') );
+		add_action( 'dwqa_add_answer', array( $this, 'answers_change' ) );
+		add_action( 'dwqa_update_answer', array( $this, 'answers_change') );
+		add_action( 'update_postmeta', array( $this, 'update_question_view' ), 10, 4  );
 	}
 
 	/**
@@ -192,6 +184,53 @@ class DWQA_Database_Upgrade {
 									ON `new_table`.ID = `status`.ID
 							SET `new_table`.question_status = `status`.status";
 			$wpdb->query( $query_status );
+
+			// Update Question Category ( category id) : 
+			$query_column_exists = "SHOW COLUMNS FROM {$dwqa_table} LIKE 'question_categories'";
+			if( ! $wpdb->query( $query_column_exists ) ) {
+				$wpdb->query( "ALTER TABLE {$dwqa_table} ADD COLUMN question_categories varchar(255) NOT NULL DEFAULT '' AFTER last_activity_id" );
+			} 
+
+			$query_cat = "UPDATE {$this->table} new_table 
+						JOIN ( 
+							SELECT 
+								`TR`.object_id ID, 
+								GROUP_CONCAT( `T`.term_id SEPARATOR ',' ) question_categories 
+							FROM `{$wpdb->term_taxonomy}` T 
+								JOIN `{$wpdb->term_relationships}` TR 
+									ON `T`.term_taxonomy_id = `TR`.term_taxonomy_id 
+							WHERE `T`.taxonomy = 'dwqa-question_category'
+								AND `TR`.object_id IN ( {$posts__in} )
+							GROUP BY `TR`.object_id 
+						) as cat ON `new_table`.ID = `cat`.ID
+						SET `new_table`.question_categories = `cat`.question_categories
+						WHERE `new_table`.ID IN ( {$posts__in} )
+						";
+			$wpdb->query( $query_cat );
+
+
+			// Update Question Tags ( tag id ) : 
+			$query_column_exists = "SHOW COLUMNS FROM {$dwqa_table} LIKE 'question_tags'";
+			if( ! $wpdb->query( $query_column_exists ) ) {
+				$wpdb->query( "ALTER TABLE {$dwqa_table} ADD COLUMN question_tags varchar(255) NOT NULL DEFAULT '' AFTER question_categories" );
+			} 
+
+			$query_cat = "UPDATE {$this->table} new_table 
+						JOIN ( 
+							SELECT 
+								`TR`.object_id ID, 
+								GROUP_CONCAT( `T`.term_id SEPARATOR ',' ) question_tags 
+							FROM `{$wpdb->term_taxonomy}` T 
+								JOIN `{$wpdb->term_relationships}` TR 
+									ON `T`.term_taxonomy_id = `TR`.term_taxonomy_id 
+							WHERE `T`.taxonomy = 'dwqa-question_tag'
+								AND `TR`.object_id IN ( {$posts__in} )
+							GROUP BY `TR`.object_id 
+						) as cat ON `new_table`.ID = `cat`.ID
+						SET `new_table`.question_tags = `cat`.question_tags
+						WHERE `new_table`.ID IN ( {$posts__in} )
+						";
+			$wpdb->query( $query_cat );
 		}
 
 		//Executime for single loop
@@ -292,6 +331,181 @@ class DWQA_Database_Upgrade {
 		$wp_query->posts = $questions;
 		$wp_query->post_count = count( $questions );
 	}
+	/**
+	 * Update table index when have new question, question was update or have new answer
+	 * @param int $question_id Updated question ID
+	 */
+	public function update_question( $id ) {
+		global $wpdb;
+		// Just update with question post type
+		$post_type = get_post_type( $id );
+		if ( $post_type == 'dwqa-question' ) {
+			$question_exists = $wpdb->get_row( $wpdb->prepare( "SELECT ID FROM {$this->table} WHERE ID = %d", $id ) );
+			if ( $question_exists ) { // Update
+				$query = $wpdb->prepare( "UPDATE {$this->table} as new_table
+							JOIN ( SELECT * FROM {$wpdb->posts} WHERE post_type = 'dwqa-question' AND ID = %d ) as question
+							ON `new_table`.ID = `question`.ID
+							SET `new_table`.post_author = `question`.post_author, `new_table`.post_date = `question`.post_date, `new_table`.post_date_gmt = `question`.post_date_gmt, `new_table`.post_content = `question`.post_content, `new_table`.post_title = `question`.post_title, `new_table`.post_excerpt = `question`.post_excerpt, `new_table`.post_status = `question`.post_status, `new_table`.comment_status = `question`.comment_status, `new_table`.ping_status = `question`.ping_status, `new_table`.post_password = `question`.post_password, `new_table`.post_name = `question`.post_name, `new_table`.to_ping = `question`.to_ping, `new_table`.pinged = `question`.pinged, `new_table`.post_modified = `question`.post_modified, `new_table`.post_modified_gmt = `question`.post_modified_gmt, `new_table`.post_content_filtered = `question`.post_content_filtered, `new_table`.post_parent = `question`.post_parent, `new_table`.guid = `question`.guid, `new_table`.menu_order = `question`.menu_order, `new_table`.post_type = `question`.post_type, `new_table`.post_mime_type = `question`.post_mime_type, `new_table`.comment_count = `question`.comment_count", $id );
+				$wpdb->query( $query );
+			} else { // Insert
+				$query = $wpdb->prepare( "INSERT INTO {$this->table} ( ID, post_author, post_date, post_date_gmt, post_content, post_title, post_excerpt, post_status, comment_status, ping_status, post_password, post_name, to_ping, pinged, post_modified, post_modified_gmt, post_content_filtered, post_parent, guid, menu_order, post_type, post_mime_type, comment_count ) SELECT * FROM {$wpdb->posts} WHERE ID = %d", $id );
+				$wpdb->query( $query );
+
+				//Update last activity
+				$question = get_post( $id );
+				$query = $wpdb->prepare( "UPDATE {$this->table} SET last_activity_date = '{$question->post_date}', last_activity_author = $question->post_author, last_activity_id = {$question->ID} WHERE ID = %d", $id );
+				$wpdb->query( $query );
+			}
+		}
+	}
+
+	public function delete_question( $id ) {
+		global $wpdb;
+
+		$post_type = get_post_type( $id );
+		if ( 'dwqa-question' == $post_type ) {
+			$query = $wpdb->prepare( "DELETE FROM {$this->table} WHERE ID = %d", $id );
+			$wpdb->query( $query );
+		}
+	}
+
+	public function delete_answer( $id ) {
+		global $wpdb;
+		$post_type = get_post_type( $id );
+		if ( 'dwqa-answer' == $post_type && get_post_status( $id ) != 'draft' ) {
+			$question_id = get_post_meta( $id, '_question', true );
+
+			$query = "UPDATE {$this->table} as new_table
+						JOIN ( 
+							SELECT `M`.meta_value as question,
+								count(*) answer_count, 
+								sum( if( `A`.post_status = 'private', 1, 0 ) ) private_answer_count, 
+								sum( if( `A`.post_status = 'publish', 1, 0 ) ) publish_answer_count,
+								max( `A`.post_date ) last_activity_date,
+								if( count(*) > 0, 'answer', 'create' ) last_activity_type,
+								GROUP_CONCAT( ID SEPARATOR ',') answers
+							FROM `{$wpdb->posts}` A
+							JOIN `{$wpdb->postmeta}` M ON `A`.ID = `M`.post_id
+							WHERE `M`.meta_value = {$question_id} 
+								AND `A`.ID <> {$id}
+								AND `A`.post_type = 'dwqa-answer' 
+								AND `M`.meta_key = '_question' 
+								AND ( `A`.post_status = 'publish' OR `A`.post_status = 'private' )
+							ORDER BY `A`.post_date DESC 
+						) as calculated ON `new_table`.ID = `calculated`.question 
+						SET `new_table`.answer_count = `calculated`.answer_count,
+							`new_table`.private_answer_count = `calculated`.private_answer_count,
+							`new_table`.publish_answer_count = `calculated`.publish_answer_count,
+							`new_table`.last_activity_type = `calculated`.last_activity_type,
+							`new_table`.last_activity_date = `calculated`.last_activity_date,
+							`new_table`.answers = `calculated`.answers
+						WHERE `new_table`.ID = {$question_id}
+					";
+			$wpdb->query( $query );
+
+			$question = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM {$this->table} WHERE ID = %d", $question_id ) );
+
+			//update question_status, last_activity_author, last_activity_id
+			if ( $question->last_activity_type == 'answer' ) {
+				$query = $wpdb->query( "UPDATE {$this->table} new_table
+					JOIN (
+						SELECT {$question_id} qID, 
+							`answers`.post_author last_activity_author,
+							`answers`.ID last_activity_id,
+							IF( `usermeta`.meta_value LIKE '%administrator%' OR `usermeta`.meta_value LIKE '%editor%', 'answered', 're-open' ) question_status
+						FROM {$wpdb->posts} answers 
+							JOIN {$wpdb->usermeta} usermeta ON `answers`.post_author = `usermeta`.user_id
+						WHERE `answers`.ID IN ( {$question->answers} )
+							AND `answers`.post_date = '{$question->last_activity_date}'
+							AND `usermeta`.meta_key = '{$wpdb->prefix}capabilities'
+						LIMIT 0, 1 ) latest_answer ON `new_table`.ID = `latest_answer`.qID
+					SET `new_table`.last_activity_author = `latest_answer`.last_activity_author,`new_table`.last_activity_id = `latest_answer`.last_activity_id,`new_table`.question_status = `latest_answer`.question_status
+					WHERE `new_table`.ID = {$question_id}
+				" );
+			} elseif ( $question->last_activity_type == 'create' ) {
+				$query = $wpdb->query( "UPDATE {$this->table} new_table 
+					JOIN ( SELECT ID, post_author, post_date FROM {$this->table} WHERE ID = {$question_id} ) question ON `new_table`.ID = `question`.ID 
+					SET `new_table`.last_activity_author = `question`.post_author,
+						`new_table`.last_activity_id = `question`.ID,
+						`new_table`.last_activity_date = `question`.post_date
+					" );
+			}
+		}
+	}	
+	public function answers_change( $id ) {
+		global $wpdb;
+		$post_type = get_post_type( $id );
+		if ( 'dwqa-answer' == $post_type && get_post_status( $id ) != 'draft' ) {
+			$question_id = get_post_meta( $id, '_question', true );
+
+			$query = "UPDATE {$this->table} as new_table
+						JOIN ( 
+							SELECT `M`.meta_value as question,
+								count(*) answer_count, 
+								sum( if( `A`.post_status = 'private', 1, 0 ) ) private_answer_count, 
+								sum( if( `A`.post_status = 'publish', 1, 0 ) ) publish_answer_count,
+								max( `A`.post_date ) last_activity_date,
+								if( count(*) > 0, 'answer', 'create' ) last_activity_type,
+								GROUP_CONCAT( ID SEPARATOR ',') answers
+							FROM `{$wpdb->posts}` A
+							JOIN `{$wpdb->postmeta}` M ON `A`.ID = `M`.post_id
+							WHERE `M`.meta_value = {$question_id} 
+								AND `A`.post_type = 'dwqa-answer' 
+								AND `M`.meta_key = '_question' 
+								AND ( `A`.post_status = 'publish' OR `A`.post_status = 'private' )
+							ORDER BY `A`.post_date DESC 
+						) as calculated ON `new_table`.ID = `calculated`.question 
+						SET `new_table`.answer_count = `calculated`.answer_count,
+							`new_table`.private_answer_count = `calculated`.private_answer_count,
+							`new_table`.publish_answer_count = `calculated`.publish_answer_count,
+							`new_table`.last_activity_type = `calculated`.last_activity_type,
+							`new_table`.last_activity_date = `calculated`.last_activity_date,
+							`new_table`.answers = `calculated`.answers
+						WHERE `new_table`.ID = {$question_id}
+					";
+			$wpdb->query( $query );
+
+			$question = $wpdb->get_row( $wpdb->prepare( "SELECT * FROM {$this->table} WHERE ID = %d", $question_id ) );
+
+			//update question_status, last_activity_author, last_activity_id
+			if ( $question->last_activity_type == 'answer' ) {
+				$query = $wpdb->query( "UPDATE {$this->table} new_table
+					JOIN (
+						SELECT {$question_id} qID, 
+							`answers`.post_author last_activity_author,
+							`answers`.ID last_activity_id,
+							IF( `usermeta`.meta_value LIKE '%administrator%' OR `usermeta`.meta_value LIKE '%editor%', 'answered', 're-open' ) question_status
+						FROM {$wpdb->posts} answers 
+							JOIN {$wpdb->usermeta} usermeta ON `answers`.post_author = `usermeta`.user_id
+						WHERE `answers`.ID IN ( {$question->answers} )
+							AND `answers`.post_date = '{$question->last_activity_date}'
+							AND `usermeta`.meta_key = '{$wpdb->prefix}capabilities'
+						LIMIT 0, 1 ) latest_answer ON `new_table`.ID = `latest_answer`.qID
+					SET `new_table`.last_activity_author = `latest_answer`.last_activity_author,`new_table`.last_activity_id = `latest_answer`.last_activity_id,`new_table`.question_status = `latest_answer`.question_status
+					WHERE `new_table`.ID = {$question_id}
+				" );
+			} elseif ( $question->last_activity_type == 'create' ) {
+				$query = $wpdb->query( "UPDATE {$this->table} new_table 
+					JOIN ( SELECT ID, post_author, post_date FROM {$this->table} WHERE ID = {$question_id} ) question ON `new_table`.ID = `question`.ID 
+					SET `new_table`.last_activity_author = `question`.post_author,
+						`new_table`.last_activity_id = `question`.ID,
+						`new_table`.last_activity_date = `question`.post_date
+					" );
+			}
+		}
+	}
+
+	public function update_question_view( $meta_id, $object_id, $meta_key, $meta_value ){
+		global $wpdb;
+		if ( $meta_key == '_dwqa_views' ) {
+			$query = $wpdb->prepare( "UPDATE {$this->table} SET view_count = {$meta_value} WHERE ID = %d", $object_id );
+			$wpdb->query( $query );
+		} elseif ( '_dwqa_votes' == $meta_key ) {
+			$query = $wpdb->prepare( "UPDATE {$this->table} SET vote_count = {$meta_value} WHERE ID = %d", $object_id );
+			$wpdb->query( $query );
+		}
+	}
+
 }
 $GLOBALS['dwqa_database_upgrade'] = new DWQA_Database_Upgrade();
 

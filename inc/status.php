@@ -1,27 +1,34 @@
 <?php  
 
 function dwqa_question_print_status( $question_id, $echo = true ) {
-	$status_meta = get_post_meta( $question_id, '_dwqa_status', true );
-	if ( 'open' == $status_meta || 're-open' == $status_meta || ! $status_meta ) {
-		if ( dwqa_is_answered( $question_id ) ) {
-			$status = 'answered';
-		} elseif ( dwqa_is_new( $question_id ) ) {
-			$status = 'new';
-		} elseif ( dwqa_is_overdue( $question_id ) ) {
-			$status = 'open';
-			if ( current_user_can( 'edit_posts' ) ) {
-				$status .= ' status-overdue';
-			}
-		} else {
-			$status = 'open';
-		}
-	} elseif ( 'resolved' == $status_meta ) {
-		$status = 'resolved';
-	} elseif ( 'pending' == $status_meta ) {
-		$status = 'open';
+
+	if ( dwqa_table_exists( 'dwqa_question_index' ) ) {
+		global $wpdb;
+		$status = $wpdb->get_var( $wpdb->prepare( "SELECT question_status FROM dwqa_question_index WHERE ID = %d" , $question_id ) );
 	} else {
-		$status = 'closed';
+		$status_meta = get_post_meta( $question_id, '_dwqa_status', true );
+		if ( 'open' == $status_meta || 're-open' == $status_meta || ! $status_meta ) {
+			if ( dwqa_is_answered( $question_id ) ) {
+				$status = 'answered';
+			} elseif ( dwqa_is_new( $question_id ) ) {
+				$status = 'new';
+			} elseif ( dwqa_is_overdue( $question_id ) ) {
+				$status = 'open';
+				if ( current_user_can( 'edit_posts' ) ) {
+					$status .= ' status-overdue';
+				}
+			} else {
+				$status = 'open';
+			}
+		} elseif ( 'resolved' == $status_meta ) {
+			$status = 'resolved';
+		} elseif ( 'pending' == $status_meta ) {
+			$status = 'open';
+		} else {
+			$status = 'closed';
+		}
 	}
+	
 
 	if ( $echo ) {
 		echo '<span  data-toggle="tooltip" data-placement="left" title="'.strtoupper( $status ).'" class="dwqa-status status-'.$status.'">'.strtoupper( $status ).'</span>';    

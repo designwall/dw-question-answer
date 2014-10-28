@@ -23,7 +23,7 @@ $pages = ceil( $number_questions / $number );
 
 if ( $pages > 1 ) :
 	echo '<div class="pagination">';
-	echo '<ul data-pages="<?php echo $pages; ?>" >';
+	echo '<ul data-pages="'.$pages.'" >';
 
 	$paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
 	$i = 0;

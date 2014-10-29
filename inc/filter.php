@@ -72,6 +72,10 @@ class DWQA_Filter {
 			$where .= " AND ID NOT IN ( " . implode( ',', $sticky_questions ) . " )";
 		}
 
+		if ( $this->filter['category'] != 'all' ) {
+			$where .= " AND question_categories = {$this->filter['category']}";
+		}
+
 		if ( isset( $this->filter['title'] ) && $this->filter['title'] && $this->filter['title'] !== 'Search'  ) {
 			$where .= " AND post_title LIKE '%{$this->filter['title']}%'";
 		}

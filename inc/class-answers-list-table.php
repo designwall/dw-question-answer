@@ -65,7 +65,7 @@ class DWQA_answer_list_table extends WP_List_Table {
 	 * @access public
 	 */
 	function display() {
-		extract( $this->_args );
+		extract( wp_parse_args( $this->_args,  array( 'dev' => false ) ) );
 		$this->prepare_items();
 		?>
 		<table class="wp-list-table dwqa-answer-list-table <?php echo implode( ' ', $this->get_table_classes() ); ?>" cellspacing="0">

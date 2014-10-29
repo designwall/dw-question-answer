@@ -518,11 +518,12 @@ function dwqa_question_view() {
 		$refer = wp_get_referer();
 		if ( is_user_logged_in() ) {
 			global $current_user;
-			if ( user_can( $current_user->ID, 'edit_posts' ) ) {
-				update_post_meta( $post->ID, '_dwqa_admin_checked', date( 'H:i:s Y-m-d' ) );
-				update_post_meta( $post->ID, '_dwqa_admin_checked_id', $current_user->ID );
-			}
+			//save who see this post
+			$viewed = get_post_meta( $post->ID, '_dwqa_who_viewed', true );
+			$viewed = ! is_array( $viewed ) ? array() : $viewed;
+			$viewed[$current_user->ID] = current_time( 'timestamp' );
 		}
+
 		if ( ( $refer && $refer != get_permalink( $post->ID ) ) || ! $refer ) {
 			if ( is_single() && 'dwqa-question' == get_post_type() ) {
 				$views = get_post_meta( $post->ID, '_dwqa_views', true );
@@ -782,6 +783,7 @@ function dwqa_is_anonymous( $post_id ) {
 }
 
 function dwqa_init_tinymce_editor( $args = array() ) {
+	global $editor_styles;
 	extract( wp_parse_args( $args, array(
 			'content'       => '',
 			'id'            => 'dwqa-custom-content-editor',
@@ -790,7 +792,14 @@ function dwqa_init_tinymce_editor( $args = array() ) {
 			'wpautop'       => false,
 			'media_buttons' => false,
 	) ) );
-
+	$editor_styles = (array) $editor_styles;
+	$dwqa_tinymce_css = apply_filters( 'dwqa_editor_style', array( DWQA_URI . 'assets/css/tinymce.css' ) );
+	$dwqa_tinymce_css = array_merge( $editor_styles, $dwqa_tinymce_css );
+	if ( ! empty( $dwqa_tinymce_css ) ) {
+		$dwqa_tinymce_css = implode( ',', $dwqa_tinymce_css );
+	} else {
+		$dwqa_tinymce_css = implode( ',', $editor_styles );
+	}
 	
 	wp_editor( $content, $id, array(
 		'wpautop'       => $wpautop,
@@ -800,20 +809,12 @@ function dwqa_init_tinymce_editor( $args = array() ) {
 		'tinymce' => array(
 				'theme_advanced_buttons1' => 'bold,italic,underline,|,' . 'bullist,numlist,blockquote,|,' . 'link,unlink,|,' . 'image,code,|,'. 'spellchecker,wp_fullscreen,dwqaCodeEmbed,|,',
 				'theme_advanced_buttons2'   => '',
-				'content_css'   => apply_filters( 'dwqa_editor_style', DWQA_URI . 'assets/css/tinymce.css' ),
+				'content_css' => $dwqa_tinymce_css
 		),
-		'quicktags'     => false,
+		'quicktags'     => true,
 	) );
 }
 
-function dwqa_editor_stylesheet( $plugin_style ) {
-	$stylesheet_directory = get_stylesheet_directory();
-	if ( file_exists( $stylesheet_directory . '/editor-style.css' ) ) {
-		return get_stylesheet_directory_uri() . '/editor-style.css';
-	}
-	return $plugin_style;
-}
-add_filter( 'dwqa_editor_style', 'dwqa_editor_stylesheet' );
 
 function dwqa_ajax_create_update_answer_editor() {
 
@@ -835,9 +836,9 @@ function dwqa_ajax_create_update_answer_editor() {
 		<input type="hidden" name="answer-id" value="<?php echo $answer_id; ?>">
 		<input type="hidden" name="question" value="<?php echo $question; ?>">
 		<?php 
-			$answer = get_post( $answer_id );
+			$answer_content = get_post_field( 'post_content', $answer_id );
 			dwqa_init_tinymce_editor( array(
-				'content'       => wpautop( $answer->post_content ), 
+				'content'       => wpautop( $answer_content ), 
 				'textarea_name' => 'answer-content',
 				'wpautop'       => false,
 			) ); 

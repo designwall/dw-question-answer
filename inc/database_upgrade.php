@@ -29,7 +29,7 @@ class DWQA_Database_Upgrade {
 		add_action( 'before_delete_post', array( $this, 'delete_answer') );
 		add_action( 'dwqa_add_answer', array( $this, 'answers_change' ) );
 		add_action( 'dwqa_update_answer', array( $this, 'answers_change') );
-		add_action( 'update_postmeta', array( $this, 'update_question_view' ), 10, 4  );
+		add_action( 'update_postmeta', array( $this, 'update_question_metadata' ), 10, 4  );
 	}
 
 	/**
@@ -307,29 +307,42 @@ class DWQA_Database_Upgrade {
 
 	public function prepare_archive_posts() {
 		global $wpdb, $wp_query,$dwqa_general_settings;
-		
-		$query['posts_per_page'] = isset( $dwqa_general_settings['posts-per-page'] ) ?  $dwqa_general_settings['posts-per-page'] : 5;
-		$paged = get_query_var( 'paged' );
-		$query['offset'] = $paged ? ( $paged - 1 ) * $query['posts_per_page'] : 0;
-
-		// if ( is_tax( 'dwqa-question_category' ) ) {
-		// 	$query['dwqa-question_category'] = get_query_var( 'dwqa-question_category' );
-		// } 
-		// if ( is_tax( 'dwqa-question_tag' ) ) {
-		// 	$query['dwqa-question_tag'] = get_query_var( 'dwqa-question_tag' );
-		// } 
 		 
+		if ( is_user_logged_in() ) {
+			$post_status = "'publish', 'private', 'pending'";
+		} else {
+			$post_status = "'publish'";
+		}
+		$query = "SELECT * FROM {$this->table} WHERE 1=1 AND post_status IN ( {$post_status} )";
+
+
 		$sticky_questions = get_option( 'dwqa_sticky_questions' );
 		if ( is_array( $sticky_questions ) ) {
 			$sticky_questions = implode(',', $sticky_questions );
 		}
-		if ( is_user_logged_in() ) {
-			$query['post_status'] = "'publish', 'private', 'pending'";
-		} else {
-			$query['post_status'] = "'publish'";
+		if ( $sticky_questions ) {
+			$query .= " AND ID NOT IN ( {$sticky_questions} )";
 		}
+
+		if ( is_tax( 'dwqa-question_category' ) ) {
+			$category = get_query_var( 'dwqa-question_category' );
+			$term = get_term_by( 'slug', $category, 'dwqa-question_category' );
+			$query .= " AND question_categories REGEXP '^{$term->term_id},|,{$term->term_id},|,{$term->term_id}$|^{$term->term_id}$' ";
+		}
+		if ( is_tax( 'dwqa-question_category' ) ) {
+			$tag = get_query_var( 'dwqa-question_tag' );
+			$term = get_term_by( 'slug', $tag, 'dwqa-question_tag' );
+			$query .= " AND question_tags REGEXP '^{$term->term_id},|,{$term->term_id},|,{$term->term_id}$|^{$term->term_id}$' ";
+		} 
+
+		$posts_per_page = isset( $dwqa_general_settings['posts-per-page'] ) ?  $dwqa_general_settings['posts-per-page'] : 5;
+		$paged = get_query_var( 'paged' );
+		$offset = $paged ? ( $paged - 1 ) * $posts_per_page : 0;
+		$query .= " ORDER BY last_activity_date DESC LIMIT {$offset}, {$posts_per_page}";
 		
-		$questions = $wpdb->get_results( "SELECT * FROM {$this->table} WHERE 1=1 AND post_status IN ( ".$query['post_status']." ) ".( $sticky_questions ? "AND ID NOT IN ( {$sticky_questions} )" : "" )." ORDER BY last_activity_date DESC LIMIT ".$query['offset'].", ".$query['posts_per_page'] );
+
+
+		$questions = $wpdb->get_results( $query );
 		$this->temp = array( 
 			'posts' => $wp_query->posts,
 			'post_count' => $wp_query->post_count
@@ -372,6 +385,55 @@ class DWQA_Database_Upgrade {
 				$query = $wpdb->prepare( "UPDATE {$this->table} SET last_activity_date = '{$question->post_date}', last_activity_author = $question->post_author, last_activity_id = {$question->ID} WHERE ID = %d", $id );
 				$wpdb->query( $query );
 			}
+
+			//Update question category
+			$posts__in = $id;
+			// Update Question Category ( category id) : 
+			$query_column_exists = "SHOW COLUMNS FROM {$this->table} LIKE 'question_categories'";
+			if( ! $wpdb->query( $query_column_exists ) ) {
+				$wpdb->query( "ALTER TABLE {$this->table} ADD COLUMN question_categories varchar(255) NOT NULL DEFAULT '' AFTER last_activity_id" );
+			} 
+
+			$query_cat = "UPDATE {$this->table} new_table 
+						JOIN ( 
+							SELECT 
+								`TR`.object_id ID, 
+								GROUP_CONCAT( `T`.term_id SEPARATOR ',' ) question_categories 
+							FROM `{$wpdb->term_taxonomy}` T 
+								JOIN `{$wpdb->term_relationships}` TR 
+									ON `T`.term_taxonomy_id = `TR`.term_taxonomy_id 
+							WHERE `T`.taxonomy = 'dwqa-question_category'
+								AND `TR`.object_id IN ( {$posts__in} )
+							GROUP BY `TR`.object_id 
+						) as cat ON `new_table`.ID = `cat`.ID
+						SET `new_table`.question_categories = `cat`.question_categories
+						WHERE `new_table`.ID IN ( {$posts__in} )
+						";
+			$wpdb->query( $query_cat );
+
+
+			// Update Question Tags ( tag id ) : 
+			$query_column_exists = "SHOW COLUMNS FROM {$this->table} LIKE 'question_tags'";
+			if( ! $wpdb->query( $query_column_exists ) ) {
+				$wpdb->query( "ALTER TABLE {$this->table} ADD COLUMN question_tags varchar(255) NOT NULL DEFAULT '' AFTER question_categories" );
+			} 
+
+			$query_cat = "UPDATE {$this->table} new_table 
+						JOIN ( 
+							SELECT 
+								`TR`.object_id ID, 
+								GROUP_CONCAT( `T`.term_id SEPARATOR ',' ) question_tags 
+							FROM `{$wpdb->term_taxonomy}` T 
+								JOIN `{$wpdb->term_relationships}` TR 
+									ON `T`.term_taxonomy_id = `TR`.term_taxonomy_id 
+							WHERE `T`.taxonomy = 'dwqa-question_tag'
+								AND `TR`.object_id IN ( {$posts__in} )
+							GROUP BY `TR`.object_id 
+						) as cat ON `new_table`.ID = `cat`.ID
+						SET `new_table`.question_tags = `cat`.question_tags
+						WHERE `new_table`.ID IN ( {$posts__in} )
+						";
+			$wpdb->query( $query_cat );
 		}
 	}
 
@@ -511,13 +573,16 @@ class DWQA_Database_Upgrade {
 		}
 	}
 
-	public function update_question_view( $meta_id, $object_id, $meta_key, $meta_value ){
+	public function update_question_metadata( $meta_id, $object_id, $meta_key, $meta_value ){
 		global $wpdb;
 		if ( $meta_key == '_dwqa_views' ) {
 			$query = $wpdb->prepare( "UPDATE {$this->table} SET view_count = {$meta_value} WHERE ID = %d", $object_id );
 			$wpdb->query( $query );
 		} elseif ( '_dwqa_votes' == $meta_key ) {
 			$query = $wpdb->prepare( "UPDATE {$this->table} SET vote_count = {$meta_value} WHERE ID = %d", $object_id );
+			$wpdb->query( $query );
+		} elseif ( '_dwqa_status' == $meta_key ) {
+			$query = $wpdb->prepare( "UPDATE {$this->table} SET question_status = '{$meta_value}' WHERE ID = %d", $object_id );
 			$wpdb->query( $query );
 		}
 	}

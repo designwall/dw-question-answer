@@ -72,12 +72,16 @@ class DWQA_Filter {
 			$where .= " AND ID NOT IN ( " . implode( ',', $sticky_questions ) . " )";
 		}
 
-		if ( $this->filter['category'] != 'all' ) {
-			$where .= " AND question_categories = {$this->filter['category']}";
+		if ( $this->filter['category'] && $this->filter['category'] != 'all' ) {
+			$where .= " AND question_categories REGEXP '^".$this->filter['category'].",|,".$this->filter['category'].",|,".$this->filter['category']."$|^".$this->filter['category']."$' ";
+		}
+
+		if ( $this->filter['tags'] && $this->filter['tags'] != 'all' ) {
+			$where .= " AND question_tags REGEXP '^".$this->filter['tags'].",|,".$this->filter['tags'].",|,".$this->filter['tags']."$|^".$this->filter['tags']."$' ";
 		}
 
 		if ( isset( $this->filter['title'] ) && $this->filter['title'] && $this->filter['title'] !== 'Search'  ) {
-			$where .= " AND post_title LIKE '%{$this->filter['title']}%'";
+			$where .= " AND post_title LIKE '%".$this->filter['title']."%'";
 		}
 		$sort = isset( $this->filter['order'] ) && $this->filter['order'] != 'ASC' ? 'DESC' : 'ASC';
 		switch ( $this->filter['type'] ) {

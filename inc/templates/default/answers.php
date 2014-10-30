@@ -9,6 +9,7 @@ $draft_answer_id = dwqa_user_get_draft( $question_id );
 $status = dwqa_current_user_can( 'edit_question', $question_id ) ? array( 'publish', 'private' ) : 'publish';
 $args = array(
 	'post_type' 		=> 'dwqa-answer',
+	'posts_per_page'    => 10,
 	'order'      		=> 'ASC',
 	'page'				=> $ans_cur_page,
 	'paged'				=> $ans_cur_page,

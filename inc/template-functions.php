@@ -456,15 +456,15 @@ function dwqa_display_sticky_questions(){
 			'post__in' => $sticky_questions,
 			'posts_per_page' => 40,
 		);
-		query_posts( $query );
+		$sticky_questions = new WP_Query( $query );
 		?>
 		<div class="sticky-questions">
-			<?php while ( have_posts() ) : the_post(); ?>
+			<?php while ( $sticky_questions->have_posts() ) : $sticky_questions->the_post(); ?>
 				<?php dwqa_load_template( 'content', 'question' ); ?>
 			<?php endwhile; ?>
 		</div>
 		<?php   
-		wp_reset_query();
+		wp_reset_postdata();
 	}
 }
 add_action( 'dwqa-before-question-list', 'dwqa_display_sticky_questions' );
@@ -777,20 +777,13 @@ class DWQA_Template {
 		}
 		if ( is_tax( 'dwqa-question_category' ) || is_tax( 'dwqa-question_tag' ) || is_post_type_archive( 'dwqa-question' ) || is_post_type_archive( 'dwqa-answer' ) ) {
 
-			ob_start();
-			echo '<div class="dwqa-container" >';
-			dwqa_load_template( 'question', 'list' );
-			echo '</div>';
-			$content = ob_get_contents();
-			ob_end_clean();
-
+			global $wp_query;
 			$post_id = isset( $dwqa_options['pages']['archive-question'] ) ? $dwqa_options['pages']['archive-question'] : 0;
 			if ( $post_id ) {
-				$post = query_posts( array( 
+				query_posts( array( 
 					'post_type' => 'page',
 					'post__in' => array( $post_id ) 
 				) );
-				
 				return dwqa_get_template( 'page.php' );
 			}
 		}

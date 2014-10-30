@@ -448,9 +448,6 @@ add_filter( 'get_comment_date', 'dwqa_comment_human_time_diff_for_date', 10, 2 )
 
 
 function dwqa_tinymce_addbuttons() {
-	if ( ! current_user_can( 'edit_posts' ) && ! current_user_can( 'edit_pages' ) )
-		return;
-
 	if ( get_user_option( 'rich_editing' ) == 'true' && ! is_admin() ) {
 		add_filter( 'mce_external_plugins', 'dwqa_add_custom_tinymce_plugin' );
 		add_filter( 'mce_buttons', 'dwqa_register_custom_button' );

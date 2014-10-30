@@ -118,8 +118,9 @@ function dwqa_require_field_submit_question(){
 add_action( 'dwqa_submit_question_ui', 'dwqa_require_field_submit_question' );
 
 function dwqa_require_field_submit_answer( $question_id ){
+	// Nonce field for Sercure Answer Submit
+	wp_nonce_field( '_dwqa_add_new_answer' );
 	?>
-	<?php wp_nonce_field( '_dwqa_add_new_answer' ); ?>
 	<input type="hidden" name="question" value="<?php echo $question_id; ?>" />
 	<input type="hidden" name="answer-id" value="0" >
 	<input type="hidden" name="dwqa-action" value="add-answer" />
@@ -177,19 +178,13 @@ function dwqa_paged_query(){
 add_action( 'dwqa-prepare-archive-posts', 'dwqa_paged_query' );
 
 
+/**
+ * Add Icon for DW Question Answer Menu In Dashboard
+ */
 function dwqa_add_guide_menu_icons_styles(){
-	?>
-	<style type="text/css">
-	#adminmenu .menu-icon-dwqa-question div.wp-menu-image:before {
-	  content: "\f468";
-	}
-	</style>
-	<?php
+	echo '<style type="text/css">#adminmenu .menu-icon-dwqa-question div.wp-menu-image:before {content: "\f468";}</style>';
 }
 add_action( 'admin_head', 'dwqa_add_guide_menu_icons_styles' );
-
-
-
 
 function dwqa_load_template( $name, $extend = false, $include = true ){
 	global $dwqa_template;
@@ -788,23 +783,14 @@ class DWQA_Template {
 			echo '</div>';
 			$content = ob_get_contents();
 			ob_end_clean();
+
 			$post_id = isset( $dwqa_options['pages']['archive-question'] ) ? $dwqa_options['pages']['archive-question'] : 0;
 			if ( $post_id ) {
-				$post = get_post( $post_id );
-
-				$this->reset_content( array(
-					'ID'             => $post_id,
-					'post_title'     => $post->post_title,
-					'post_author'    => 0,
-					'post_date'      => $post->post_date,
-					'post_content'   => $content,
-					'post_type'      => 'dwqa-question',
-					'post_status'    => $post->post_status,
-					'is_archive'     => true,
-					'comment_status' => 'closed',
+				$post = query_posts( array( 
+					'post_type' => 'page',
+					'post__in' => array( $post_id ) 
 				) );
 				
-				$this->remove_all_filters( 'the_content' );
 				return dwqa_get_template( 'page.php' );
 			}
 		}

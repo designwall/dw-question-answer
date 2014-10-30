@@ -23,18 +23,24 @@ $args = array(
 );
 $answers = new WP_Query( $args );
 
-if ( $answers->found_posts > 0 || ! empty( $draft_answer_id ) ) { 
-// Display answers
+$answer_count = dwqa_get_question_field( 'answer_count, publish_answer_count, private_answer_count', $question_id );
+
+if ( $answer_count->answer_count > 0 ) {
 ?>
 	<h3 class="dwqa-headline">
 	<?php 
-		printf( '<span class="answer-count"><span class="digit">%d</span> %s</span>',
-			$answers->found_posts,
-			_n( 'answer', 'answers', $answers->found_posts, 'dwqa' )
+		printf( '<span class="answer-count"><span class="digit">%d</span> %s</span> %s',
+			$answer_count->answer_count,
+			_n( 'answer', 'answers', $answer_count->answer_count, 'dwqa' ),
+			( $answer_count->private_answer_count > 0 ? sprintf('<small>( %2$d %3$s )</small>', __( 'with', 'dwqa' ), $answer_count->private_answer_count, _n( 'private', 'privates', $answer_count->private_answer_count, 'dwqa' ) ): '')
 		);
 	?>
 	</h3>
-	
+<?php
+}
+if ( $answers->found_posts > 0 || ! empty( $draft_answer_id ) ) { 
+// Display answers
+?>
 	<div class="dwqa-list-answers">
 	<?php
 	// Display best answer

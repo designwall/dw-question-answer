@@ -480,15 +480,13 @@ function dwqa_insert_question( $args ) {
  * @return int      Number of answer
  */
 function dwqa_question_answers_count( $question_id = null ) {
+	global $wpdb;
+
 	if ( ! $question_id ) {
 		global $post;
 		$question_id = $post->ID;
 		if ( isset($post->answer_count ) ) {
-			if( dwqa_current_user_can('edit_question') ) {
-				return $post->answer_count;
-			} else {
-				return $post->publish_answer_count;
-			}
+			return $post->answer_count;
 		}
 	}
 
@@ -836,6 +834,7 @@ function dwqa_ajax_create_update_answer_editor() {
 		<input type="hidden" name="answer-id" value="<?php echo $answer_id; ?>">
 		<input type="hidden" name="question" value="<?php echo $question; ?>">
 		<?php 
+			$answer = get_post( $answer_id );
 			$answer_content = get_post_field( 'post_content', $answer_id );
 			dwqa_init_tinymce_editor( array(
 				'content'       => wpautop( $answer_content ), 

@@ -1,6 +1,14 @@
 <?php  
 global $dwqa_db_version;
 
+function dwqa_get_question_field( $field, $question_id = false ) {
+	global $dwqa_database_upgrade;
+	if ( ! $question_id ) {
+		$question_id = get_the_ID();
+	}
+	return $dwqa_database_upgrade->get_question_field( $field, $question_id );
+}
+
 class DWQA_Database_Upgrade {
 	public $db_version = '1.3.3';
 	public $table = 'dwqa_question_index';
@@ -329,10 +337,12 @@ class DWQA_Database_Upgrade {
 			$term = get_term_by( 'slug', $category, 'dwqa-question_category' );
 			$query .= " AND question_categories REGEXP '^{$term->term_id},|,{$term->term_id},|,{$term->term_id}$|^{$term->term_id}$' ";
 		}
-		if ( is_tax( 'dwqa-question_category' ) ) {
+		if ( is_tax( 'dwqa-question_tag' ) ) {
 			$tag = get_query_var( 'dwqa-question_tag' );
 			$term = get_term_by( 'slug', $tag, 'dwqa-question_tag' );
-			$query .= " AND question_tags REGEXP '^{$term->term_id},|,{$term->term_id},|,{$term->term_id}$|^{$term->term_id}$' ";
+			if ( $term ) {
+				$query .= " AND question_tags REGEXP '^{$term->term_id},|,{$term->term_id},|,{$term->term_id}$|^{$term->term_id}$' ";
+			}
 		} 
 
 		$posts_per_page = isset( $dwqa_general_settings['posts-per-page'] ) ?  $dwqa_general_settings['posts-per-page'] : 5;
@@ -585,6 +595,20 @@ class DWQA_Database_Upgrade {
 			$query = $wpdb->prepare( "UPDATE {$this->table} SET question_status = '{$meta_value}' WHERE ID = %d", $object_id );
 			$wpdb->query( $query );
 		}
+	}
+
+	public function get_question_field( $field, $question_id ) {
+		global $wpdb;
+		if ( strpos( $field, ',') === false ) {
+			$field = $wpdb->get_var( $wpdb->prepare( "SELECT {$field} FROM {$this->table} WHERE ID = %d LIMIT 0,1", $question_id ) );
+		} else {
+			$field = $wpdb->get_row( $wpdb->prepare( "SELECT {$field} FROM {$this->table} WHERE ID = %d LIMIT 0,1", $question_id ) );
+		}
+
+		if ( $field && ! is_wp_error( $field ) ) {
+			return $field;
+		}
+		return false;
 	}
 
 }

@@ -780,10 +780,8 @@ class DWQA_Template {
 			global $wp_query;
 			$post_id = isset( $dwqa_options['pages']['archive-question'] ) ? $dwqa_options['pages']['archive-question'] : 0;
 			if ( $post_id ) {
-				query_posts( array( 
-					'post_type' => 'page',
-					'post__in' => array( $post_id ) 
-				) );
+				$page = get_page( $post_id );
+				$this->reset_content( $page );
 				return dwqa_get_template( 'page.php' );
 			}
 		}

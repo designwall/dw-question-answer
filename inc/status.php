@@ -280,6 +280,10 @@ function dwqa_question_get_status_name( $status ) {
 		case 'new':
 			$message = __( 'New', 'dwqa' );
 			break;
+
+		case 'answered':
+			$message = __( 'Answered', 'dwqa' );
+			break;
 		
 		default:
 			$message = __( 'Open', 'dwqa' );

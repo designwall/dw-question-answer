@@ -809,7 +809,7 @@ function dwqa_init_tinymce_editor( $args = array() ) {
 				'theme_advanced_buttons2'   => '',
 				'content_css' => $dwqa_tinymce_css
 		),
-		'quicktags'     => true,
+		'quicktags'     => false,
 	) );
 }
 
@@ -877,6 +877,8 @@ function dwqa_ajax_create_update_answer_editor() {
 add_action( 'wp_ajax_dwqa-editor-update-answer-init', 'dwqa_ajax_create_update_answer_editor' ); 
 
 function dwqa_update_question() {
+	global $post_submit_filter, $dwqa_options;
+	
 	if ( ! isset( $_POST['_wpnonce'] ) 
 		|| ! wp_verify_nonce( sanitize_text_field( $_POST['_wpnonce'] ), '_dwqa_update_question' ) ) {
 		wp_send_json_error( array( 'message' => __( 'Hello, Are you cheating huh?', 'dwqa' ) ) );
@@ -897,7 +899,11 @@ function dwqa_update_question() {
 			wp_send_json_error( array( 'message' => __( 'You do not have permission to edit question', 'dwqa' ) ) );
 		}
 
-		$question_content = isset( $_POST['dwqa-question-content'] ) ? dwqa_pre_content_filter( wp_kses( $_POST['dwqa-question-content'] , $post_submit_filter ) ): '';
+		$question_content = '';
+		if ( isset( $_POST['dwqa-question-content'] ) ) {
+			$question_content = wp_kses( $_POST['dwqa-question-content'], $post_submit_filter );
+			$question_content = dwqa_pre_content_filter( $question_content );
+		} 
 		$question_update = array(
 			'ID'    => $question_id,
 			'post_content'   => $question_content,

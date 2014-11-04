@@ -318,14 +318,15 @@ class DWQA_Database_Upgrade {
 	public function prepare_archive_posts() {
 		global $wpdb, $wp_query,$dwqa_general_settings;
 		 
-		if ( is_user_logged_in() ) {
-			$post_status = "'publish', 'private', 'pending'";
-		} else {
-			$post_status = "'publish'";
-		}
+		$post_status = "'publish', 'private', 'pending'";
+
 		$query = "SELECT * FROM {$this->table} WHERE 1=1 AND post_status IN ( {$post_status} )";
 
-
+		//Permisson
+		if ( ! dwqa_current_user_can( 'edit_question' ) ) {
+			global $current_user;
+			$query .= " AND IF( post_author = {$current_user->ID}, 1, 0 ) = 1";
+		}
 		$sticky_questions = get_option( 'dwqa_sticky_questions' );
 		if ( is_array( $sticky_questions ) ) {
 			$sticky_questions = implode(',', $sticky_questions );

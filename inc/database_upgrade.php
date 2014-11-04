@@ -24,20 +24,22 @@ class DWQA_Database_Upgrade {
 			remove_filter( 'dwqa-after-archive-posts', 'dwqa-after-archive-posts' );
 			add_action( 'dwqa-prepare-archive-posts', array( $this, 'prepare_archive_posts') );
 			add_action( 'dwqa-after-archive-posts', array( $this, 'after_archive_posts' ) );
+
+
+			add_action( 'wp_ajax_dwqa_upgrade_database', array( $this, 'create_table' ) );
+			if ( $this->db_version != get_option( 'dwqa_db_version' ) ) {
+				update_option( 'dwqa_db_version', $this->db_version );
+			}
+			
+			//Filter update table
+			add_action( 'save_post', array( $this, 'update_question' ) );
+			add_action( 'before_delete_post', array( $this, 'delete_question') );
+			add_action( 'before_delete_post', array( $this, 'delete_answer') );
+			add_action( 'dwqa_add_answer', array( $this, 'answers_change' ) );
+			add_action( 'dwqa_update_answer', array( $this, 'answers_change') );
+			add_action( 'update_postmeta', array( $this, 'update_question_metadata' ), 10, 4  );
 		}
 
-		add_action( 'wp_ajax_dwqa_upgrade_database', array( $this, 'create_table' ) );
-		if ( $this->db_version != get_option( 'dwqa_db_version' ) ) {
-			update_option( 'dwqa_db_version', $this->db_version );
-		}
-
-		//Filter update table
-		add_action( 'save_post', array( $this, 'update_question' ) );
-		add_action( 'before_delete_post', array( $this, 'delete_question') );
-		add_action( 'before_delete_post', array( $this, 'delete_answer') );
-		add_action( 'dwqa_add_answer', array( $this, 'answers_change' ) );
-		add_action( 'dwqa_update_answer', array( $this, 'answers_change') );
-		add_action( 'update_postmeta', array( $this, 'update_question_metadata' ), 10, 4  );
 	}
 
 	/**

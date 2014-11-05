@@ -26,7 +26,12 @@ function dwqa_get_latest_action_date( $question = false, $before = '<span>', $af
 	}
 
 	if ( $author_id == 0 || dwqa_is_anonymous( $post_id ) ) {
-		$author_link = __( 'Anonymous', 'dwqa' );
+		$anonymous_name = get_post_meta( $post_id, '_dwqa_anonymous_name', true );
+		if ( $anonymous_name ) {
+			$author_link = $anonymous_name . ' ';
+		} else {
+			$author_link = __( 'Anonymous', 'dwqa' )  . ' ';
+		}
 	} else {
 		$display_name = get_the_author_meta( 'display_name', $author_id );
 		$author_link = sprintf(

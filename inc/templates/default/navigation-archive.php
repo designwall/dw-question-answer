@@ -11,11 +11,12 @@ if ( function_exists('dwqa_table_exists') && dwqa_table_exists( $wpdb->prefix . 
 	if ( ! $total_question ) {
 
 		$sticky_questions = get_option( 'dwqa_sticky_questions', array() );
+		$where = ' WHERE 1=1';
 		if ( ! empty( $sticky_questions ) ) {
-			$where = " AND ID NOT IN ( " . implode( ',', $sticky_questions ) . " )";
+			$where .= " AND ID NOT IN ( " . implode( ',', $sticky_questions ) . " )";
 		}
-
-		$total = $wpdb->get_var( "SELECT count(*) FROM ".($wpdb->prefix . 'dwqa_question_index')." " . $where );
+		$query = "SELECT count(*) FROM ".($wpdb->prefix . 'dwqa_question_index')." " . $where;
+		$total = $wpdb->get_var( $query  );
 		wp_cache_add( 'dwqa_total_questions_new_table', $total, 'dwqa' );
 	}
 } else {
@@ -33,7 +34,7 @@ if ( function_exists('dwqa_table_exists') && dwqa_table_exists( $wpdb->prefix . 
 
 $number_questions = $total;
 
-$number = get_query_var( 'posts_per_page' );
+$number = $dwqa_options[ 'posts-per-page' ];
 
 $pages = ceil( $number_questions / $number );
 

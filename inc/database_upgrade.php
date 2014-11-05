@@ -18,6 +18,12 @@ class DWQA_Database_Upgrade {
 		global $wpdb;
 		add_action( 'admin_menu', array( $this, 'add_menu' ) );
 		$this->table = $wpdb->prefix . $this->table;
+
+		add_action( 'wp_ajax_dwqa_upgrade_database', array( $this, 'create_table' ) );
+		if ( $this->db_version != get_option( 'dwqa_db_version' ) ) {
+			update_option( 'dwqa_db_version', $this->db_version );
+		}
+		
 		// Replace old data by new table
 		if ( dwqa_table_exists( $this->table ) ) {
 			remove_filter( 'dwqa-prepare-archive-posts', 'dwqa_prepare_archive_posts' );
@@ -25,12 +31,6 @@ class DWQA_Database_Upgrade {
 			add_action( 'dwqa-prepare-archive-posts', array( $this, 'prepare_archive_posts') );
 			add_action( 'dwqa-after-archive-posts', array( $this, 'after_archive_posts' ) );
 
-
-			add_action( 'wp_ajax_dwqa_upgrade_database', array( $this, 'create_table' ) );
-			if ( $this->db_version != get_option( 'dwqa_db_version' ) ) {
-				update_option( 'dwqa_db_version', $this->db_version );
-			}
-			
 			//Filter update table
 			add_action( 'save_post', array( $this, 'update_question' ) );
 			add_action( 'before_delete_post', array( $this, 'delete_question') );

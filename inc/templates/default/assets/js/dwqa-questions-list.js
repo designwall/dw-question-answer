@@ -267,11 +267,13 @@ jQuery(function($) {
         filter_bar.find('.filter-by-category').removeClass('open');
 
         category = 'all';
+        
+        filter_bar.find('.filter-by-category .category-list li').removeClass('selected');
+        $(this).addClass('selected');
         if ($(this).data('cat')) {
             category = $(this).data('cat');
         }
         category_select.data('selected', category);
-
         start_filter();
 
     });
@@ -291,11 +293,12 @@ jQuery(function($) {
         filter_bar.find('.filter-by-tags').removeClass('open');
 
         tags = 0;
+        filter_bar.find('.filter-by-tags .category-list li').removeClass('selected');
+        $(this).addClass('selected');
         if ($(this).data('cat')) {
             tags = $(this).data('cat');
         }
         tag_select.data('selected', tags);
-
         start_filter();
 
     });

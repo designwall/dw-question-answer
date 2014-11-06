@@ -6,7 +6,6 @@ $question = $post;
 $best_answer_id = dwqa_get_the_best_answer( $question_id );
 $draft_answer_id = dwqa_user_get_draft( $question_id );
 // get all answers for this posts
-$status = dwqa_current_user_can( 'edit_question', $question_id ) ? array( 'publish', 'private' ) : 'publish';
 $args = array(
 	'post_type' 		=> 'dwqa-answer',
 	'posts_per_page'    => 10,
@@ -20,20 +19,18 @@ $args = array(
 			'compare' => 'IN',
 		),
 	),
-	'post_status' => $status,
+	'post_status' => array( 'publish', 'private' ),
+	'perm' => 'readable',
 );
 $answers = new WP_Query( $args );
 
-$answer_count = dwqa_get_question_field( 'answer_count, publish_answer_count, private_answer_count', $question_id );
-
-if ( $answer_count->answer_count > 0 ) {
+if ( $answers->found_posts > 0 ) {
 ?>
 	<h3 class="dwqa-headline">
 	<?php 
-		printf( '<span class="answer-count"><span class="digit">%d</span> %s</span> %s',
-			$answer_count->answer_count,
-			_n( 'answer', 'answers', $answer_count->answer_count, 'dwqa' ),
-			( $answer_count->private_answer_count > 0 ? sprintf('<small>( %2$d %3$s )</small>', __( 'with', 'dwqa' ), $answer_count->private_answer_count, _n( 'private', 'privates', $answer_count->private_answer_count, 'dwqa' ) ): '')
+		printf( '<span class="answer-count"><span class="digit">%d</span> %s</span>',
+			$answers->found_posts,
+			_n( 'answer', 'answers', $answers->found_posts, 'dwqa' )
 		);
 	?>
 	</h3>

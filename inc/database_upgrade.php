@@ -18,6 +18,12 @@ class DWQA_Database_Upgrade {
 		global $wpdb;
 		add_action( 'admin_menu', array( $this, 'add_menu' ) );
 		$this->table = $wpdb->prefix . $this->table;
+
+		add_action( 'wp_ajax_dwqa_upgrade_database', array( $this, 'create_table' ) );
+		if ( $this->db_version != get_option( 'dwqa_db_version' ) ) {
+			update_option( 'dwqa_db_version', $this->db_version );
+		}
+		
 		// Replace old data by new table
 		if ( dwqa_table_exists( $this->table ) ) {
 			remove_filter( 'dwqa-prepare-archive-posts', 'dwqa_prepare_archive_posts' );
@@ -25,12 +31,6 @@ class DWQA_Database_Upgrade {
 			add_action( 'dwqa-prepare-archive-posts', array( $this, 'prepare_archive_posts') );
 			add_action( 'dwqa-after-archive-posts', array( $this, 'after_archive_posts' ) );
 
-
-			add_action( 'wp_ajax_dwqa_upgrade_database', array( $this, 'create_table' ) );
-			if ( $this->db_version != get_option( 'dwqa_db_version' ) ) {
-				update_option( 'dwqa_db_version', $this->db_version );
-			}
-			
 			//Filter update table
 			add_action( 'save_post', array( $this, 'update_question' ) );
 			add_action( 'before_delete_post', array( $this, 'delete_question') );
@@ -317,15 +317,19 @@ class DWQA_Database_Upgrade {
 
 	public function prepare_archive_posts() {
 		global $wpdb, $wp_query,$dwqa_general_settings;
-		 
-		if ( is_user_logged_in() ) {
+		if ( is_user_logged_in() ) { 
 			$post_status = "'publish', 'private', 'pending'";
 		} else {
 			$post_status = "'publish'";
 		}
+
 		$query = "SELECT * FROM {$this->table} WHERE 1=1 AND post_status IN ( {$post_status} )";
 
-
+		//Permisson
+		if ( is_user_logged_in() && ! dwqa_current_user_can( 'edit_question' ) ) {
+			global $current_user;
+			$query .= " AND IF( post_author = {$current_user->ID}, 1, 0 ) = 1";
+		}
 		$sticky_questions = get_option( 'dwqa_sticky_questions' );
 		if ( is_array( $sticky_questions ) ) {
 			$sticky_questions = implode(',', $sticky_questions );

@@ -1,6 +1,6 @@
 <?php 
 
-global $dwqa_options;
+global $dwqa_options, $wpdb;
 $taxonomy = get_query_var( 'taxonomy' );
 $term_name = get_query_var( $taxonomy );
 

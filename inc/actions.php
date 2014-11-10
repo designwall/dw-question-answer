@@ -1330,7 +1330,7 @@ function dwqa_user_most_answer( $number = 10, $from = false, $to = false ) {
 		$query .= " AND `{$wpdb->prefix}posts`.post_date < '{$to}'";
 	}
 
-	$prefix = '';
+	$prefix = '-all';
 	if ( $from && $to ) {
 		$prefix = '-' . ( $form - $to );
 	}

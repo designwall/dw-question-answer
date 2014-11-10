@@ -8,7 +8,7 @@ function dwqa_question_print_status( $question_id, $echo = true ) {
 	} else {
 		$status_meta = get_post_meta( $question_id, '_dwqa_status', true );
 	}
-	if ( 'open' == $status_meta || 're-open' == $status_meta || ! $status_meta ) {
+	if ( 'open' == $status_meta || 're-open' == $status_meta || $status_meta == 'answered' || ! $status_meta ) {
 		if ( dwqa_is_answered( $question_id ) ) {
 			$status = 'answered';
 		} elseif ( dwqa_is_new( $question_id ) ) {

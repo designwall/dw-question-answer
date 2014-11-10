@@ -3,7 +3,7 @@
 function dwqa_question_print_status( $question_id, $echo = true ) {
 	global $wpdb;
 	$table = $wpdb->prefix . 'dwqa_question_index';
-	if ( dwqa_table_exists( $table ) ) {
+	if ( false ) {
 		$status = $wpdb->get_var( $wpdb->prepare( "SELECT question_status FROM {$table} WHERE ID = %d" , $question_id ) );
 	} else {
 		$status_meta = get_post_meta( $question_id, '_dwqa_status', true );

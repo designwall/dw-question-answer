@@ -1330,9 +1330,14 @@ function dwqa_user_most_answer( $number = 10, $from = false, $to = false ) {
 		$query .= " AND `{$wpdb->prefix}posts`.post_date < '{$to}'";
 	}
 
+	$prefix = '';
+	if ( $from && $to ) {
+		$prefix = '-' . ( $form - $to );
+	}
+
 	$query .= " GROUP BY post_author 
 				ORDER BY `answer_count` DESC LIMIT 0,{$number}";
-	$users = wp_cache_get( 'dwqa-most-answered' );
+	$users = wp_cache_get( 'dwqa-most-answered' . $prefix );
 	if ( false == $users ) {
 		$users = $wpdb->get_results( $query, ARRAY_A  );
 		wp_cache_set( 'dwqa-most-answered', $users );

@@ -8,7 +8,7 @@ $term_name = get_query_var( $taxonomy );
 if ( function_exists('dwqa_table_exists') && dwqa_table_exists( $wpdb->prefix . 'dwqa_question_index' ) ) {
 	// Page navigation
 	$total = wp_cache_get( 'dwqa_total_questions_new_table', 'dwqa' );
-	if ( ! $total_question ) {
+	if ( ! $total ) {
 
 		$sticky_questions = get_option( 'dwqa_sticky_questions', array() );
 		$where = ' WHERE 1=1';

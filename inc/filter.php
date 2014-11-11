@@ -36,7 +36,13 @@ class DWQA_Filter {
 		$table = $wpdb->prefix . 'dwqa_question_index';
 
 		// Write query
-		$query = "SELECT * FROM {$table} ";
+		$query = apply_filters( 'dwqa-filter-fields', "SELECT {$table}.*" );
+
+		$query .= " FROM {$table} ";
+
+		//Join filter
+		$join = apply_filters( 'dwqa-filter-join', '' );
+		$query .= $join;
 
 		// Where 
 		$where = "WHERE 1=1 ";
@@ -83,6 +89,9 @@ class DWQA_Filter {
 		if ( isset( $this->filter['title'] ) && $this->filter['title'] && $this->filter['title'] !== 'Search'  ) {
 			$where .= " AND post_title LIKE '%".$this->filter['title']."%'";
 		}
+
+		$where = apply_filters( 'dwqa-filter-where', $where );
+
 		$sort = isset( $this->filter['order'] ) && $this->filter['order'] != 'ASC' ? 'DESC' : 'ASC';
 		switch ( $this->filter['type'] ) {
 			case 'answers':
@@ -102,8 +111,10 @@ class DWQA_Filter {
 				$order = " ORDER BY last_activity_date {$sort}";
 				break;
 		}
-		// Limit
 
+		$order = apply_filters( 'dwqa-filter-order', $order );
+
+		// Limit
 		$posts_per_page = $this->filter['posts_per_page'] ;
 		$paged = $this->filter['paged'];
 		$offset = ($paged - 1) * $posts_per_page;
@@ -117,7 +128,7 @@ class DWQA_Filter {
 			// Page navigation
 			$total_question = wp_cache_get( 'dwqa_total_question', 'dwqa' );
 			if ( ! $total_question ) {
-				$total_question = $wpdb->get_var( "SELECT count(*) FROM {$table} " . $where . $order );
+				$total_question = $wpdb->get_var( "SELECT count(*) FROM {$table} " . $join . $where . $order );
 				wp_cache_add( 'dwqa_total_question', $total_question, 'dwqa' );
 			}
 			$pages_total = $total_question;

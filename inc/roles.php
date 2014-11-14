@@ -25,9 +25,6 @@ function dwqa_current_user_can( $perm, $post_id = false ) {
 
 function dwqa_restrict_single_question( $posts ) {
 	global $wp_query, $wpdb, $dwqa_options;
-	if ( is_user_logged_in() ) 
-		return $posts;
-	//user is not logged
 	if ( ! is_single() ) 
 		return $posts;
 	//this is a single post
@@ -116,7 +113,6 @@ function dwqa_read_permission_apply( $posts, $query ) {
 		}
 		return $availables;
 	}
-
 	return $posts;
 }
 add_filter( 'the_posts', 'dwqa_read_permission_apply', 10, 2 );

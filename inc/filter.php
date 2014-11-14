@@ -61,7 +61,7 @@ class DWQA_Filter {
 				$where  .=  " AND question_status <> 'closed' AND last_activity_type = 'comment' ";
 				break;
 			case 'open' :
-				$where  .=  " AND question_status = 'open'";
+				$where  .=  " AND ( question_status = 'open' OR question_status = 're-open' )";
 				//not have answered by admin
 				break;
 			case 'pending-review':

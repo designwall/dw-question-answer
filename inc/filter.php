@@ -72,6 +72,11 @@ class DWQA_Filter {
 				break;
 		}
 
+		$where .= " AND ( post_status = 'publish'";
+		if ( is_user_logged_in() && dwqa_current_user_can( 'edit_question' ) ) {
+			$where .= " OR post_status = 'private'";
+		}
+		$where .= " ) ";
 
 		$sticky_questions = get_option( 'dwqa_sticky_questions', array() );
 		if ( ! empty( $sticky_questions ) ) {

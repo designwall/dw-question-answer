@@ -39,7 +39,7 @@
 		<div class="form-buttons">
 			<input type="submit" name="submit-answer" id="submit-answer" value="<?php _e( 'Add answer','dwqa' ); ?>" class="dwqa-btn dwqa-btn-primary" />
 
-			<?php if ( current_user_can( 'manage_options' ) ) { ?>
+			<?php if ( current_user_can( 'edit_posts' ) ) { ?>
 			<input type="submit" name="submit-answer" id="save-draft-answer" value="<?php _e( 'Save draft','dwqa' ); ?>" class="dwqa-btn dwqa-btn-default" />
 			<?php } ?>
 		</div>

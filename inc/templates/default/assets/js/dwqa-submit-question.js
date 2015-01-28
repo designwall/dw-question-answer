@@ -81,11 +81,25 @@ jQuery(function($) {
             if ($('#question-title').val().length == 0) {
                 $('#question-title').addClass('required').attr('placeholder', dwqa.error_missing_question_content);
             } else {
-                $('#question-title').addClass('required').after('<span class="description required">* ' + dwqa.error_question_length + '</span>');
+                $('#question-title').addClass('required');
+                if ( !$('#question-title').siblings('span.required').length ){
+                    $('#question-title').after('<span class="description required">* ' + dwqa.error_question_length + '</span>');
+                }
             }
             returnDefault($('#question-title'), placeholder);
             flag = false;
         }
+
+        //check required question-category
+        if ( $('#question-category').val() == '-1') {
+            $('#question-category').addClass("required");
+            if ( !$('#question-category').siblings('span.required').length ){
+                $('#question-category').after('<span class="description required">* ' + dwqa.error_question_category + '</span>');
+            }
+            $('#question-category').focus();
+            flag = false;
+        }
+
         var email_field = t.find('[name="user-email"]');
         var username_signup = t.find('#user-name-signup');
         var password = t.find('#user-password');

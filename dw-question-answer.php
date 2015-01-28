@@ -219,6 +219,7 @@ function dwqa_plugin_init() {
 		'questions_archive_link'    => get_post_type_archive_link( 'dwqa-question' ),
 		'error_missing_question_content'    => __( 'Please enter your question', 'dwqa' ),
 		'error_question_length' => __( 'Your question must be at least 2 characters in length', 'dwqa' ),
+        'error_question_category' => __('Please select a question category.', 'dwqa' ),
 		'error_valid_email'    => __( 'Enter a valid email address', 'dwqa' ),
 		'error_valid_user'    => __( 'Enter a question title', 'dwqa' ),
 		'error_valid_name'    => __( 'Please add your name', 'dwqa' ),

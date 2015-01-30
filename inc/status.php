@@ -118,15 +118,22 @@ function dwqa_is_new( $question_id = null ) {
  */
 // detect overdue question
 function dwqa_is_overdue( $question_id ) {
-	global  $dwqa_general_settings;
-	$created_date = get_post_time( 'U', false, $question_id );
+    global  $dwqa_general_settings;
 
-	$days = isset( $dwqa_general_settings['question-overdue-time-frame'] ) ? (int) $dwqa_general_settings['question-new-time-frame'] : 2;
-	$days = - $days;
-	if ( $created_date < strtotime( $days.' days' ) && ! dwqa_is_answered( $question_id )  ) {
-		return true;
-	}
-	return false;
+    $latest_answer = dwqa_get_latest_answer( $question_id );
+    if ($latest_answer) {
+        $latest_answer_time = strtotime($latest_answer->post_date);
+    } else {
+        $latest_answer_time = get_post_time( 'U', false, $question_id );
+    }
+
+    $days = isset( $dwqa_general_settings['question-overdue-time-frame'] ) ? (int) $dwqa_general_settings['question-overdue-time-frame'] : 2;
+    $days = - $days;
+    if( $latest_answer_time < strtotime( $days.' days') && ! dwqa_is_answered( $question_id )  ) {
+        return true;
+    }
+    
+    return false;
 }
 
 

@@ -129,10 +129,10 @@ function dwqa_is_overdue( $question_id ) {
 
     $days = isset( $dwqa_general_settings['question-overdue-time-frame'] ) ? (int) $dwqa_general_settings['question-overdue-time-frame'] : 2;
     $days = - $days;
-    if( $latest_answer_time < strtotime( $days.' days') && ! dwqa_is_answered( $question_id )  ) {
+    if( $latest_answer_time < strtotime( $days.' days') && ! dwqa_is_closed($question_id) && ! dwqa_is_answered( $question_id )  ) {
         return true;
     }
-    
+
     return false;
 }
 

@@ -328,7 +328,7 @@ class DWQA_Database_Upgrade {
 		//Permisson
 		if ( is_user_logged_in() && ! dwqa_current_user_can( 'edit_question' ) ) {
 			global $current_user;
-			$query .= " AND IF( post_author = {$current_user->ID}, 1, 0 ) = 1";
+			$query .= " AND IF( post_author = {$current_user->ID}, 1, IF( post_status = 'private', 0, 1 ) ) = 1";
 		}
 		$sticky_questions = get_option( 'dwqa_sticky_questions' );
 		if ( is_array( $sticky_questions ) ) {

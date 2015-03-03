@@ -4,7 +4,7 @@ $ans_cur_page = isset( $_GET['ans-page'] ) ? intval( $_GET['ans-page'] ) : 1;
 $question_id = $post->ID;
 $question = $post;
 $best_answer_id = dwqa_get_the_best_answer( $question_id );
-$draft_answer_id = dwqa_user_get_draft( $question_id );
+$draft_answers = dwqa_user_get_draft( $question_id );
 // get all answers for this posts
 $args = array(
 	'post_type' 		=> 'dwqa-answer',
@@ -19,7 +19,7 @@ $args = array(
 			'compare' => 'IN',
 		),
 	),
-	'post_status' => array( 'publish', 'private' ),
+	'post_status' => array( 'publish', 'private', 'draft' ),
 	'perm' => 'readable',
 );
 $answers = new WP_Query( $args );
@@ -36,7 +36,7 @@ if ( $answers->found_posts > 0 ) {
 	</h3>
 <?php
 }
-if ( $answers->found_posts > 0 || ! empty( $draft_answer_id ) ) { 
+if ( $answers->found_posts > 0 || ! empty( $draft_answers ) ) { 
 // Display answers
 ?>
 	<div class="dwqa-list-answers">
@@ -61,10 +61,12 @@ if ( $answers->found_posts > 0 || ! empty( $draft_answer_id ) ) {
 	} 
 	unset( $position );
 	//Drafts
-	if ( current_user_can( 'edit_posts' ) && $draft_answer_id ) {
-		$post = get_post( $draft_answer_id );
-		setup_postdata( $post );
-		dwqa_load_template( 'content', 'answer' );
+	if ( current_user_can( 'edit_posts' ) && ! empty( $draft_answers ) ) {
+		foreach ($draft_answers as $draft) {
+			$post = get_post( $draft );
+			setup_postdata( $post );
+			dwqa_load_template( 'content', 'answer' );
+		}
 	} 
 	?>
 	</div>

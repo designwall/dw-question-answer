@@ -1114,8 +1114,7 @@ function dwqa_user_get_draft( $question_id = false ) {
 		return false;
 	}
 	global $current_user;
-
-	$answers = get_posts(  array(
+	$args = array(
 	   'post_type' => 'dwqa-answer',
 	   'meta_query' => array(
 			array(
@@ -1125,11 +1124,16 @@ function dwqa_user_get_draft( $question_id = false ) {
 			),
 		),
 		'post_status' => 'draft',
-		'author' => $current_user->ID,
-	) );
+	);
+
+	if ( ! current_user_can( 'edit_posts' ) ) {
+		$args['author'] = $current_user->ID;
+	}
+
+	$answers = get_posts( $args );
 
 	if ( ! empty( $answers ) ) {
-		return $answers[0];
+		return $answers;
 	}
 	return false;
 }

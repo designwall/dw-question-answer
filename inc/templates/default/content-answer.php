@@ -92,7 +92,6 @@
 					<strong>&sdot; </strong> <?php _e( 'Draft', 'dwqa' ); ?>
 				<?php } ?>
 			</div><!-- Answer Author -->
-			
 		</header>
 		<div class="dwqa-content">
 			<?php if ( dwqa_is_answer_flag( $answer_id ) ) { ?>

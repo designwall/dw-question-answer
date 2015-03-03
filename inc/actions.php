@@ -1073,8 +1073,8 @@ function dwqa_get_the_best_answer( $question_id = false ) {
 	}
 
 	$answer_id = wp_cache_get( 'dwqa-best-answer-for-' . $question_id, 'dwqa' );
-	
-	if ( false == $answer_id ) {
+
+	if ( ! $answer_id ) {
 		global $wpdb;
 		$query = "SELECT `post_id` FROM `{$wpdb->postmeta}`
 					WHERE `post_id` IN ( 
@@ -1085,10 +1085,11 @@ function dwqa_get_the_best_answer( $question_id = false ) {
 					ORDER BY CAST( `meta_value` as DECIMAL ) DESC LIMIT 0,1";
 
 		$answer_id = $wpdb->get_var( $query );
-
+		if ( ! $answer_id ) {
+			$answer_id = -1;
+		}
 		wp_cache_set( 'dwqa-best-answer-for-'.$question_id, $answer_id, 'dwqa', 21600 );
 	}
-
 
 	if ( $answer_id && ( int ) dwqa_vote_count( $answer_id ) > 2 ) {
 		return $answer_id;

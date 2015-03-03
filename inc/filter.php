@@ -127,7 +127,7 @@ class DWQA_Filter {
 
 			// Page navigation
 			$total_question = wp_cache_get( 'dwqa_total_question', 'dwqa' );
-			if ( ! $total_question ) {
+			if ( ! $total_question && $total_question != 0 ) {
 				$total_question = $wpdb->get_var( "SELECT count(*) FROM {$table} " . $join . $where . $order );
 				wp_cache_add( 'dwqa_total_question', $total_question, 'dwqa' );
 			}

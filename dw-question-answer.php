@@ -40,7 +40,9 @@ include_once DWQA_DIR  . 'inc/widgets/popular-question.php';
 include_once DWQA_DIR  . 'inc/widgets/latest-question.php';
 include_once DWQA_DIR  . 'inc/widgets/list-closed-question.php';
 
-include_once DWQA_DIR  . 'inc/database_upgrade.php';
+// include_once DWQA_DIR  . 'inc/database_upgrade.php';
+
+include_once DWQA_DIR  . 'inc/cache.php';
 
 include_once DWQA_DIR  . 'inc/deprecated.php';
 

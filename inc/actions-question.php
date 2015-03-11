@@ -8,23 +8,10 @@ function dwqa_get_latest_action_date( $question = false, $before = '<span>', $af
 
 	$message = '';
 
-	if ( isset( $post->last_activity_date ) ) {
-		$last_activity_date = $post->last_activity_date;
-
-		if ( $post->last_activity_type == 'answer' ) {
-			$post_id = $post->last_activity_id;
-			$author_id = $post->last_activity_author;
-		} else {
-			$post_id = $post->ID;
-			$author_id = $post->post_author;
-		}
-	} else {
-		$latest_answer = dwqa_get_latest_answer( $question );
-		$last_activity_date = $latest_answer ? $latest_answer->post_date : get_post_field( 'post_date', $question );
-		$post_id = $latest_answer ? $latest_answer->ID : $question;
-		$author_id = $post->post_author;
-	}
-
+	$latest_answer = dwqa_get_latest_answer( $question );
+	$last_activity_date = $latest_answer ? $latest_answer->post_date : get_post_field( 'post_date', $question );
+	$post_id = $latest_answer ? $latest_answer->ID : $question;
+	$author_id = $post->post_author;
 	if ( $author_id == 0 || dwqa_is_anonymous( $post_id ) ) {
 		$anonymous_name = get_post_meta( $post_id, '_dwqa_anonymous_name', true );
 		if ( $anonymous_name ) {
@@ -34,12 +21,18 @@ function dwqa_get_latest_action_date( $question = false, $before = '<span>', $af
 		}
 	} else {
 		$display_name = get_the_author_meta( 'display_name', $author_id );
+		$author_url = get_author_posts_url( $author_id );
+		$author_avatar = wp_cache_get( 'avatar_of_' . $author_id, 'dwqa' );
+		if ( false === $author_avatar ) {
+			$author_avatar = get_avatar( $author_id, 12 );
+			wp_cache_set( 'avatar_of_'. $author_id, $author_avatar, 'dwqa', 60*60*24*7 );
+		}
 		$author_link = sprintf(
 			'<span class="dwqa-author"><span class="dwqa-user-avatar">%4$s</span> <a href="%1$s" title="%2$s" rel="author">%3$s</a></span>',
-			get_author_posts_url( $author_id ),
+			$author_url,
 			esc_attr( sprintf( __( 'Posts by %s' ), $display_name ) ),
 			$display_name,
-			get_avatar( $author_id, 12 )
+			$author_avatar
 		);
 	}
 	

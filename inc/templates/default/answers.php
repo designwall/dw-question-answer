@@ -8,7 +8,7 @@ $draft_answers = dwqa_user_get_draft( $question_id );
 // get all answers for this posts
 $args = array(
 	'post_type' 		=> 'dwqa-answer',
-	'posts_per_page'    => 10,
+	'posts_per_page'    => 99,
 	'order'      		=> 'ASC',
 	'page'				=> $ans_cur_page,
 	'paged'				=> $ans_cur_page,

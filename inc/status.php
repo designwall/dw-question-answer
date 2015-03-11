@@ -1,32 +1,17 @@
 <?php  
 
 function dwqa_question_print_status( $question_id, $echo = true ) {
-	global $wpdb;
-	$table = $wpdb->prefix . 'dwqa_question_index';
-	if ( dwqa_table_exists( $table ) ) {
-		$status_meta = $wpdb->get_var( $wpdb->prepare( "SELECT question_status FROM {$table} WHERE ID = %d" , $question_id ) );
-	} else {
-		$status_meta = get_post_meta( $question_id, '_dwqa_status', true );
-	}
-	if ( 'open' == $status_meta || 're-open' == $status_meta || $status_meta == 'answered' || ! $status_meta ) {
-		if ( dwqa_is_answered( $question_id ) ) {
+	$status = get_post_meta( $question_id, '_dwqa_status', true );
+	if ( $status == 'open' || $status == 're-open' ) {
+		if ( dwqa_is_answered( $question_id, $status ) ) {
 			$status = 'answered';
-		} elseif ( dwqa_is_new( $question_id ) ) {
-			$status = 'new';
-		} elseif ( dwqa_is_overdue( $question_id ) ) {
-			$status = 'open';
-			if ( current_user_can( 'edit_posts' ) ) {
-				$status .= ' status-overdue';
-			}
-		} else {
-			$status = 'open';
+			update_post_meta( $question_id, '_dwqa_status', 'answered' );
+		} elseif ( dwqa_is_new( $question_id, $status ) ) {
+			$status .= ' status-new';
+		} elseif ( dwqa_current_user_can( 'edit_question' ) && dwqa_is_overdue( $question_id ) ) { 
+			// Add overdue alert for admin
+			$status .= ' status-overdue';
 		}
-	} elseif ( 'resolved' == $status_meta ) {
-		$status = 'resolved';
-	} elseif ( 'pending' == $status_meta ) {
-		$status = 'open';
-	} else {
-		$status = 'closed';
 	}
 
 	if ( $echo ) {
@@ -36,11 +21,13 @@ function dwqa_question_print_status( $question_id, $echo = true ) {
 }
 
 // Detect resolved question
-function dwqa_is_resolved( $question_id = false ) {
+function dwqa_is_resolved( $question_id = false, $status = false ) {
 	if ( ! $question_id ) {
 	   $question_id = get_the_ID();
 	}
-	$status = get_post_meta( $question_id, '_dwqa_status', true );
+	if ( ! $status ) {
+		$status = get_post_meta( $question_id, '_dwqa_status', true );
+	}
 	if ( $status == 'resolved' ) {
 		return true;
 	}
@@ -60,12 +47,14 @@ function dwqa_is_closed( $question_id = false ) {
 }
 
 // Detect open question
-function dwqa_is_open( $question_id = false ) {
+function dwqa_is_open( $question_id = false, $status = false ) {
 	if ( ! $question_id ) {
 	   $question_id = get_the_ID();
 	}
-	$status = get_post_meta( $question_id, '_dwqa_status', true );
-	if ( $status == 'open' ) {
+	if ( ! $status ) {
+		$status = get_post_meta( $question_id, '_dwqa_status', true );
+	}
+	if ( $status == 'open' || $status == 're-open' ) {
 		return true;
 	}
 	return false;
@@ -84,14 +73,15 @@ function dwqa_is_pending( $question_id = false ) {
 }
 
 // Detect answered question ( have an answer that was posted by supporter and still open )
-function dwqa_is_answered( $question_id ) {
+function dwqa_is_answered( $question_id, $status = false ) {
 	if ( ! $question_id ) {
 		$question_id = get_the_ID();
 	}
-	if ( dwqa_is_resolved( $question_id ) ) {
+	if ( dwqa_is_resolved( $question_id, $status ) ) {
 		return true;
 	}
 	$latest_answer = dwqa_get_latest_answer( $question_id );
+
 	if ( $latest_answer && dwqa_is_staff_answer( $latest_answer ) ) {
 		return true;
 	}
@@ -101,12 +91,13 @@ function dwqa_is_answered( $question_id ) {
 
 
 // Detect new question
-function dwqa_is_new( $question_id = null ) {
+function dwqa_is_new( $question_id = null, $status = false ) {
 	global  $dwqa_general_settings;
 	$hours = isset( $dwqa_general_settings['question-new-time-frame'] ) ? (int) $dwqa_general_settings['question-new-time-frame'] : 4;
 	$created_date = get_post_time( 'U', false, $question_id );
-	$hours = - $hours;
-	if ( $created_date > strtotime( $hours.' hours' ) && dwqa_is_open() ) {
+	$hours = $hours * 60 * 60 * 1000;
+
+	if ( $created_date + $hours > current_time('U') && dwqa_is_open( $question_id, $status ) ) {
 		return true;
 	}
 	return false;
@@ -122,11 +113,11 @@ function dwqa_is_overdue( $question_id ) {
 	$created_date = get_post_time( 'U', false, $question_id );
 
 	$days = isset( $dwqa_general_settings['question-overdue-time-frame'] ) ? (int) $dwqa_general_settings['question-overdue-time-frame'] : 2;
-	$days = - $days;
-	if ( $created_date < strtotime( $days.' days' ) && ! dwqa_is_answered( $question_id )  ) {
-		return true;
+	$days = $days * 24 * 60 * 60 * 1000;
+	if ( $created_date + $days > current_time('U') ) {
+		return false;
 	}
-	return false;
+	return true;
 }
 
 
@@ -220,22 +211,30 @@ function dwqa_have_new_comment( $question_id = false ) {
 
 // Get new reply
 function dwqa_get_latest_answer( $question_id ) {
-	$args = array(
-		'post_type' => 'dwqa-answer',
-		'meta_query' => array(
-			array(
-				'key' => '_question',
-				'value' => array( $question_id ),
-				'compare' => 'IN',
+	// When we get latest answer by normal query it take a long time to query into database so i will try to setup transien here to improve it. Of course we will use another cache plugin for QA site in additional
+	$latest = get_transient( 'dwqa_latest_answer_for_' . $question_id );
+	if ( false === $latest ) {
+		$args = array(
+			'post_type' => 'dwqa-answer',
+			'meta_query' => array(
+				array(
+					'key' => '_question',
+					'value' => array( $question_id ),
+					'compare' => 'IN',
+				),
 			),
-		),
-		'post_status'    => 'publish,private',
-	);
-	$recent_answers = wp_get_recent_posts( $args, 'OBJECT' );
-	if ( count( $recent_answers ) > 0 ) {
-		return $recent_answers[0];    
+			'post_status'    => 'publish,private',
+	    	'numberposts' => 1,
+		);
+		$recent_answers = wp_get_recent_posts( $args, 'OBJECT' );
+		if ( count( $recent_answers ) > 0 ) {
+			$latest = $recent_answers[0];
+			// This cache need to be update when new answer is added
+			set_transient( 'dwqa_latest_answer_for_' . $question_id, $latest, 60*60*6 );
+		}
 	}
-	return false;
+	
+	return $latest;
 }
 
 /**
@@ -250,7 +249,7 @@ function dwqa_is_staff_answer( $answer ) {
 			return false;
 		}
 	}
-	if ( user_can( $answer->post_author, 'edit_posts' ) ) {
+	if ( dwqa_current_user_can( 'edit_question') ) {
 		return true;
 	}
 	return false;
@@ -332,5 +331,26 @@ function dwqa_update_privacy() {
 	
 }
 add_action( 'wp_ajax_dwqa-update-privacy', 'dwqa_update_privacy' );
+
+/**
+ * Update question status when have new answer
+ */
+add_action( 'dwqa_add_answer', 'dwqa_auto_change_question_status' );
+function dwqa_auto_change_question_status( $answer_id ){
+	if ( ! is_wp_error( $answer_id ) ) {
+		$question_id = get_post_meta( $answer_id, '_question', true );
+		$answer = get_post( $answer_id );
+		if ( $question_id && $answer->post_author ) {
+			$question_status = get_post_meta( $question_id, '_dwqa_status', true );
+			if ( dwqa_current_user_can( 'edit_question' ) ) {
+				update_post_meta( $question_id, '_dwqa_status', 'answered' );
+			} else {
+				if ( $question_status == 'resolved' || $question_status == 'answered' ) {
+					update_post_meta( $question_id, '_dwqa_status', 're-open' );
+				}
+			}
+		}
+	}
+}
 
 ?>

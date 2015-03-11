@@ -264,6 +264,7 @@ function dwqa_remove_answer() {
 		) );
 	}
 	$question_id = get_post_meta( $answer_id, '_question', true );
+
 	do_action( 'dwqa_delete_answer', $answer_id, $question_id );
 
 	wp_delete_post( $answer_id );
@@ -485,25 +486,23 @@ function dwqa_question_answers_count( $question_id = null ) {
 	if ( ! $question_id ) {
 		global $post;
 		$question_id = $post->ID;
-		if ( isset($post->answer_count ) ) {
-			return $post->answer_count;
+	}
+	
+	$answer_count = get_transient( 'dwqa_answer_count_for_' . $question_id );
+
+	if ( false === $answer_count ) {
+		$sql = "SELECT COUNT( DISTINCT `P`.ID ) FROM {$wpdb->postmeta} PM JOIN {$wpdb->posts} P ON `PM`.post_id = `P`.ID WHERE `PM`.meta_key = '_question' AND meta_value = {$question_id} AND `P`.post_type = 'dwqa-answer' AND `P`.post_status = 'publish'";
+		$sql .= " AND ( `P`.post_status = 'publish' ";
+		if ( dwqa_current_user_can( 'edit_question', $question_id ) ) {
+			$sql .= " OR `P`.post_status = 'private'";
 		}
+		$sql .= " )";
+		$answer_count = $wpdb->get_var( $sql );
+
+		set_transient( 'dwqa_answer_count_for_' . $question_id, $answer_count, 60*60*6 );
 	}
 
-	$args = array(
-	   'post_type' => 'dwqa-answer',
-	   'post_status' => 'publish',
-	   'meta_query' => array(
-			array(
-				'key' => '_question',
-				'value' => array( $question_id ),
-				'compare' => 'IN',
-			),
-	   ),
-	   'fields' => 'ids',
-	);
-	$answers = new WP_Query( $args );
-	return $answers->found_posts;
+	return $answer_count;
 }
 
 /**

@@ -1,4 +1,4 @@
-<?php $post_id = get_the_ID(); ?>
+	<?php $post_id = get_the_ID(); ?>
 	<article id="question-<?php echo $post_id; ?>" class="dwqa-question <?php echo dwqa_is_sticky( $post_id ) ? 'dwqa-sticky-question' : ''; ?>">
 		<header class="dwqa-header">
 			<?php if ( current_user_can( 'edit_posts' ) ) { ?>
@@ -9,11 +9,12 @@
 			<?php if ( dwqa_is_sticky( $post_id ) ) { echo '<i class="fa fa-bookmark"></i>'; } ?>
 			&nbsp;<a class="dwqa-title" href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'dwqa' ), the_title_attribute( 'echo=0' ) ) ); ?>" rel="bookmark"><?php the_title(); ?></a>
 			<div class="dwqa-meta">
-				<?php dwqa_question_print_status( $post_id ); ?>               
-				<?php echo dwqa_get_latest_action_date(); ?>
-				<?php echo get_the_term_list( $post_id, 'dwqa-question_category', '&nbsp;&nbsp;<strong>&sdot;</strong>&nbsp;&nbsp;<span>'.__( 'Category', 'dwqa' ).': ', ', ', '</span>' ); ?>    
-
-				<?php do_action( 'dwqa_question_meta' ); ?>  
+				<?php 
+					dwqa_question_print_status( $post_id );
+					echo dwqa_get_latest_action_date(); 
+					echo get_the_term_list( $post_id, 'dwqa-question_category', '&nbsp;&nbsp;<strong>&sdot;</strong>&nbsp;&nbsp;<span>'.__( 'Category', 'dwqa' ).': ', ', ', '</span>' );
+					do_action( 'dwqa_question_meta' ); 
+				?>  
 			</div>
 		</header>
 		<footer class="dwqa-footer-meta">

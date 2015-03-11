@@ -1,23 +1,4 @@
 <?php  
-function dwqa_auto_change_question_status( $answer_id ){
-	if ( ! is_wp_error( $answer_id ) ) {
-		$question_id = get_post_meta( $answer_id, '_question', true );
-		$answer = get_post( $answer_id );
-		if ( $question_id && $answer->post_author ) {
-			$question_status = get_post_meta( $question_id, '_dwqa_status', true );
-			if ( ! user_can( $answer->post_author, 'edit_posts' ) ) {
-				if ( $question_status == 'resolved' ) {
-					update_post_meta( $question_id, '_dwqa_status', 're-open' );
-				}
-			} else {
-				if ( $question_status == 're-open' ) {
-					update_post_meta( $question_id, '_dwqa_status', 'open' );
-				}
-			}
-		}
-	}
-}
-add_action( 'dwqa_add_answer', 'dwqa_auto_change_question_status' );
 
 //Update question status when have new comment
 function dwqa_reopen_question_have_new_comment( $comment_ID ){

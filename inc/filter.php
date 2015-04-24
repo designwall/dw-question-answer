@@ -150,7 +150,7 @@ class DWQA_Filter {
 				echo '<li class="prev' .( $this->filter['paged'] == 1 ? ' dwqa-hide' : '' ).'"><a href="javascript:void( 0 );">Prev</a></li>';
 				
 				if ( $start_page > 1 ) {
-					echo '<li><a href="'.add_query_arg( 'paged',1,$link ).'">1</a></li><li class="dot"><span>...</span></li>';
+					echo '<li><a href="'.esc_url( add_query_arg( 'paged',1,$link ) ).'">1</a></li><li class="dot"><span>...</span></li>';
 				}
 				for ( $i = $start_page; $i < $start_page + 5; $i++ ) { 
 					if ( $pages_number < $i ) {
@@ -159,12 +159,12 @@ class DWQA_Filter {
 					if ( $i == $this->filter['paged'] ) {
 						echo '<li class="active"><a href="'.$link.'">'.$i.'</a></li>';
 					} else {
-						echo '<li><a href="'.add_query_arg( 'paged',$i,$link ).'">'.$i.'</a></li>';
+						echo '<li><a href="'.esc_url(add_query_arg( 'paged',$i,$link )).'">'.$i.'</a></li>';
 					}
 				}
 
 				if ( $i - 1 < $pages_number ) {
-					echo '<li class="dot"><span>...</span></li><li><a href="'.add_query_arg( 'paged',$pages_number,$link ).'"> '.$pages_number.'</a></li>';
+					echo '<li class="dot"><span>...</span></li><li><a href="'.esc_url( add_query_arg( 'paged',$pages_number,$link ) ).'"> '.$pages_number.'</a></li>';
 				}
 				echo '<li class="next'.( $this->filter['paged'] == $pages_number ? ' dwqa-hide' : '' ).'"><a href="javascript:void( 0 );">'.__( 'Next','dwqa' ).'</a></li>';
 
@@ -269,7 +269,7 @@ class DWQA_Filter {
 				echo '<li class="prev' .( $this->filter['paged'] == 1 ? ' dwqa-hide' : '' ).'"><a href="javascript:void( 0 );">Prev</a></li>';
 				
 				if ( $start_page > 1 ) {
-					echo '<li><a href="'.add_query_arg( 'paged',1,$link ).'">1</a></li><li class="dot"><span>...</span></li>';
+					echo '<li><a href="'.esc_url(add_query_arg( 'paged',1,$link ) ).'">1</a></li><li class="dot"><span>...</span></li>';
 				}
 				for ( $i = $start_page; $i < $start_page + 5; $i++ ) { 
 					if ( $pages_number < $i ) {
@@ -278,12 +278,12 @@ class DWQA_Filter {
 					if ( $i == $this->filter['paged'] ) {
 						echo '<li class="active"><a href="'.$link.'">'.$i.'</a></li>';
 					} else {
-						echo '<li><a href="'.add_query_arg( 'paged',$i,$link ).'">'.$i.'</a></li>';
+						echo '<li><a href="'.esc_url( add_query_arg( 'paged',$i,$link ) ).'">'.$i.'</a></li>';
 					}
 				}
 
 				if ( $i - 1 < $pages_number ) {
-					echo '<li class="dot"><span>...</span></li><li><a href="'.add_query_arg( 'paged',$pages_number,$link ).'"> '.$pages_number.'</a></li>';
+					echo '<li class="dot"><span>...</span></li><li><a href="'.esc_url( add_query_arg( 'paged',$pages_number,$link ) ).'"> '.$pages_number.'</a></li>';
 				}
 				echo '<li class="next'.( $this->filter['paged'] == $pages_number ? ' dwqa-hide' : '' ).'"><a href="javascript:void( 0 );">'.__( 'Next','dwqa' ).'</a></li>';
 

@@ -85,7 +85,7 @@ if ( $answers->max_num_pages > 1 ) {
 	echo '<h3 class="dwqa-answers-page-navigation-head">'.sprintf( __( 'Answer page %d', 'dwqa' ), $ans_cur_page ).'</h3>';
 	echo '<ul class="dwqa-answers-page-navigation">';
 	for ( $i = 1; $i <= $answers->max_num_pages; $i++ ) { 
-		echo '<li class="'.( $ans_cur_page == $i ? 'active' : '' ).'"><a href="'.add_query_arg( 'ans-page', $i, $question_url ).'">'.$i.'</a></li>';
+		echo '<li class="'.( $ans_cur_page == $i ? 'active' : '' ).'"><a href="'.esc_url( add_query_arg( 'ans-page', $i, $question_url ) ).'">'.$i.'</a></li>';
 	}
 	echo '</ul>';
 }

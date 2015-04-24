@@ -182,7 +182,7 @@ function dwqa_add_answer() {
 	$url = get_permalink( $question_id );
 	$error_messages = $dwqa_add_answer_errors->get_error_messages();
 	foreach ( $error_messages as $value ) {
-		$url = add_query_arg( 'errors', urlencode( $value ), $url );
+		$url = esc_url( add_query_arg( 'errors', urlencode( $value ), $url ) );
 	}
 
 	wp_safe_redirect( $url );
@@ -1407,7 +1407,7 @@ function dwqa_get_questions_permalink() {
 
 
 			if ( $url ) {
-				$url = add_query_arg( $args, $url );
+				$url = esc_url( add_query_arg( $args, $url ) );
 				wp_send_json_success( array( 'url' => $url ) );
 			} else {
 				wp_send_json_error( array( 'error' => 'missing_questions_archive_page' ) );

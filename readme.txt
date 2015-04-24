@@ -77,6 +77,11 @@ Visit our [Github](https://github.com/designwall/dw-question-answer) project or 
 
 == Changelog ==
 
+= 1.3.3 =
+
+* Fix: Fixed add_query_arg() and remove_query_arg() usage that mentioned in the following link:
+https://make.wordpress.org/plugins/2015/04/20/fixing-add_query_arg-and-remove_query_arg-usage/
+
 = 1.3.2 = 
 
 * Tweak: Czech language updated

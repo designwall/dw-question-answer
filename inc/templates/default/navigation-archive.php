@@ -66,7 +66,7 @@ if ( $pages > 1 ) :
 		}
 	}
 	if ( $start > 1 ) {
-		echo '<li><a href="'.esc_url(add_query_arg( 'paged',1,$link ) );.'">1</a></li><li class="dot"><span>...</span></li>';
+		echo '<li><a href="'.esc_url(add_query_arg( 'paged',1,$link ) ).'">1</a></li><li class="dot"><span>...</span></li>';
 	}
 	for ( $i = $start; $i <= $end; $i++ ) { 
 		$current = $i == $paged ? 'class="active"' : '';

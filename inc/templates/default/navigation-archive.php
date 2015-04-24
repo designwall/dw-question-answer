@@ -34,7 +34,7 @@ if ( function_exists('dwqa_table_exists') && dwqa_table_exists( $wpdb->prefix . 
 
 $number_questions = $total;
 
-$number = $dwqa_options[ 'posts-per-page' ];
+$number = isset( $dwqa_options[ 'posts-per-page' ] ) ? $dwqa_options[ 'posts-per-page' ] : 5;
 
 $pages = ceil( $number_questions / $number );
 

@@ -36,3 +36,9 @@ body.rtl .dwqa-single-question .dwqa-comment {
 body.rtl .dwqa-single-question .dwqa-dropdown-menu{
   right: auto;
 }
+
+body.rtl .dwqa-single-question .dwqa-answer .dwqa-actions{
+  float: right;
+  margin-left: 0;
+  margin-right: 5px;
+}

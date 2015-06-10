@@ -9,9 +9,10 @@ body.rtl .dwqa-submit-question .input-title .dwqa-search-clear, .dwqa-submit-que
 }
 
 body.rtl .dwqa-single-question .dwqa-comment-actions{
-  
+  right: auto;
+  left: 20px;
 }
-body.rtl .dwqa-single-question .dropdown-toggle.circle+.dwqa-dropdown-menu {
+body.rtl .dwqa-single-question .dropdown-toggle.circle .dwqa-dropdown-menu {
   left: -5px;
   right: auto;
 }

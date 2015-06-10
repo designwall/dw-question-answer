@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: DW Question Answer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-06-10 15:09+0200\n"
-"PO-Revision-Date: 2015-06-10 18:56+0200\n"
+"PO-Revision-Date: 2015-06-10 19:06+0200\n"
 "Last-Translator: Yehuda Korotkin <yehuda@korotkin.co.il>\n"
 "Language-Team: DesignWall <webmaster@designwall.com>\n"
 "Language: he_IL\n"
@@ -1599,7 +1599,7 @@ msgstr "פוסטים של"
 
 #: ../inc/templates/default/single-question.php:38
 msgid "asked"
-msgstr "נשאלו"
+msgstr "נשאל"
 
 #: ../inc/widgets/latest-question.php:11
 #: ../inc/widgets/list-closed-question.php:11

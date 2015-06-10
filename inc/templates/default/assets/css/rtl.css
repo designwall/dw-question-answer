@@ -12,7 +12,7 @@ body.rtl .dwqa-single-question .dwqa-comment-actions{
   right: auto;
   left: 20px;
 }
-body.rtl .dwqa-single-question .dropdown-toggle.circle .dwqa-dropdown-menu {
+body.rtl .dwqa-single-question .dropdown-toggle.circle+.dwqa-dropdown-menu {
   left: -5px;
   right: auto;
 }
@@ -31,4 +31,8 @@ body.rtl .dwqa-single-question .dwqa-comment {
   padding-right: 70px;
   padding-left: 20px;
 }
+}
+
+body.rtl .dwqa-single-question .dwqa-dropdown-menu{
+  right: auto;
 }

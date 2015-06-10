@@ -18,7 +18,6 @@
 			
 			<span class="dwqa-date">
 				<?php  
-					echo get_avatar( $comment->user_id, 0 );
 					printf( '<strong>&sdot;</strong> <a href="#comment-%1$d" title="%2$s #%1$d">%3$s</a>',
 						$comment->comment_ID,
 						__( 'Link to comment', 'dwqa' ),

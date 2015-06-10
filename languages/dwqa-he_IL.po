@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: DW Question Answer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-06-10 15:09+0200\n"
-"PO-Revision-Date: 2015-06-10 18:35+0200\n"
+"PO-Revision-Date: 2015-06-10 18:56+0200\n"
 "Last-Translator: Yehuda Korotkin <yehuda@korotkin.co.il>\n"
 "Language-Team: DesignWall <webmaster@designwall.com>\n"
 "Language: he_IL\n"
@@ -1559,7 +1559,7 @@ msgstr "תג 1, תג 2 ..."
 
 #: ../inc/templates/default/question-submit-form.php:42
 msgid "Your question"
-msgstr "תשובתך"
+msgstr "שאלה שלך"
 
 #: ../inc/templates/default/question-submit-form.php:43
 msgid "How to..."

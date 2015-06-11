@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: DW Question Answer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-06-10 15:09+0200\n"
-"PO-Revision-Date: 2015-06-11 07:58+0200\n"
+"PO-Revision-Date: 2015-06-11 09:06+0200\n"
 "Last-Translator: Yehuda <yehuda@korotkin.co.il>\n"
 "Language-Team: DesignWall <webmaster@designwall.com>\n"
 "Language: he_IL\n"
@@ -1266,7 +1266,7 @@ msgstr "עדיין לא משתמש?"
 
 #: ../inc/template-functions.php:108 ../inc/templates/default/answers.php:107
 msgid "Register"
-msgstr "רשמה"
+msgstr "הרשם"
 
 #: ../inc/template-functions.php:112
 msgid ""

@@ -1,0 +1,14 @@
+.dwqa-container img{ 
+  position: absolute; 
+  right: 20px
+} 
+.dwqa-header .dwqa-author img{
+  position: initial;
+}
+@media (min-width: 768px){
+.dwqa-header .dwqa-author img{
+  position: absolute;
+  right: 0;  
+}
+}
+ 

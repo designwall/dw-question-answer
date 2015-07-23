@@ -1,5 +1,5 @@
 jQuery(function($) {
-    
+
     var BrowserDetect = {
         init: function () {
             this.browser = this.searchString(this.dataBrowser) || "Other";
@@ -7,7 +7,7 @@ jQuery(function($) {
         },
 
         searchString: function (data) {
-            for (var i=0 ; i < data.length ; i++)   
+            for (var i=0 ; i < data.length ; i++)
             {
                 var dataString = data[i].string;
                 this.versionSearchString = data[i].subString;
@@ -25,7 +25,7 @@ jQuery(function($) {
             return parseFloat(dataString.substring(index+this.versionSearchString.length+1));
         },
 
-        dataBrowser: 
+        dataBrowser:
         [
             { string: navigator.userAgent, subString: "Chrome",  identity: "Chrome" },
             { string: navigator.userAgent, subString: "MSIE",    identity: "Explorer" },
@@ -85,6 +85,12 @@ jQuery(function($) {
             }
             returnDefault($('#question-title'), placeholder);
             flag = false;
+        }
+        if( $('#dwqa-question-content-editor').val().length == 0 ) {
+          $('#dwqa-question-content-editor').addClass('required');
+          $('.input-content').append('<span class="content-required" style="color:#e8b3b3">*Please enter question content.</span>');
+          returnDefault($('#dwqa-question-content-editor'));
+          flag = false;
         }
         var email_field = t.find('[name="user-email"]');
         var username_signup = t.find('#user-name-signup');

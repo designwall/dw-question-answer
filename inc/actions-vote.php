@@ -26,27 +26,26 @@ function dwqa_action_vote( ) {
 	//vote
 	if ( is_user_logged_in( ) ) {
 		global $current_user;
-
+		$votes = maybe_unserialize(  get_post_meta( $post_id, '_dwqa_votes_log', true ) );
 		if ( ! dwqa_is_user_voted( $post_id, $point ) ) {
-			$votes = maybe_unserialize(  get_post_meta( $post_id, '_dwqa_votes_log', true ) );
-
 			$votes[$current_user->ID] = $point;
-			//update
-			do_action( 'dwqa_vote_'.$vote_for, $post_id, ( int ) $point );
-			update_post_meta( $post_id, '_dwqa_votes_log', serialize( $votes ) );
-			// Update vote point
-			dwqa_update_vote_count( $post_id );
+		}
+		else {
+			unset($votes[$current_user->ID]);
+		}
 
-			$point = dwqa_vote_count( $post_id );
-			if ( $point > 0 ) {
-				$point = '+' . $point;
-			}
-			wp_send_json_success( array( 'vote' => $point ) );
-		} else {
-			$result['error_code'] = 'voted';
-			$result['error_message'] = __( 'You voted for this ' . $vote_for, 'dwqa' );
-			wp_send_json_error( $result );
-		}		
+		//update
+		//do_action( 'dwqa_vote_'.$vote_for, $post_id, ( int ) $point ); // doesn't seem to have a matching function anywhere.
+		update_post_meta( $post_id, '_dwqa_votes_log', serialize( $votes ) );
+		// Update vote point
+		dwqa_update_vote_count( $post_id );
+
+		$point = dwqa_vote_count( $post_id );
+		if ( $point > 0 ) {
+			$point = '+' . $point;
+		}
+		wp_send_json_success( array( 'vote' => $point ) );
+		
 	} elseif ( 'question' == $vote_for ) {
 		// useful of question with meta field is "_dwqa_question_useful", point of this question
 		$useful = get_post_meta( $post_id, '_dwqa_'.$vote_for.'_useful', true );
@@ -113,10 +112,6 @@ function dwqa_update_vote_count( $post_id ) {
 		$post_id = $post->ID;
 	}
 	$votes = maybe_unserialize(  get_post_meta( $post_id, '_dwqa_votes_log', true ) );
-	
-	if ( empty( $votes ) ) {
-		return 0;
-	}
 
 	$total = 0;
 	foreach ( $votes as $user => $vote ) {

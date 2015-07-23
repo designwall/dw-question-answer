@@ -72,6 +72,13 @@ jQuery(function($) {
                 })
                 .done(function(resp) {
                     if (resp.success) {
+											  if(t.hasClass('current-vote')) {
+													parent.find('.dwqa-vote-dwqa-btn').removeClass('current-vote');
+												}
+												else {
+													parent.find('.dwqa-vote-dwqa-btn').removeClass('current-vote');
+													t.addClass('current-vote');
+												}
                         parent.find('.dwqa-vote-count').text(resp.data.vote);
                     }
                 });
@@ -97,6 +104,13 @@ jQuery(function($) {
                 })
                 .done(function(resp) {
                     if (resp.success) {
+											  if(t.hasClass('current-vote')) {
+													parent.find('.dwqa-vote-dwqa-btn').removeClass('current-vote');
+												}
+												else {
+													parent.find('.dwqa-vote-dwqa-btn').removeClass('current-vote');
+													t.addClass('current-vote');
+												}
                         parent.find('.dwqa-vote-count').text(resp.data.vote);
                     }
                 });

@@ -11,14 +11,21 @@
 	setup_postdata( $answer );
 	$post_class = 'dwqa-answer';
 	$vote = dwqa_vote_count();
+	
+	$usersVote = false;
+	
+	if ( is_user_logged_in( ) ) {
+		$usersVote = dwqa_get_user_vote( $answer_id );
+	}
+	
 ?>
 	<div id="answer-<?php echo $answer_id; ?>" <?php post_class(); ?>>
 		<header class="dwqa-header">
 			<div class="dwqa-meta">
 				<div class="dwqa-vote" data-type="answer" data-nonce="<?php echo wp_create_nonce( '_dwqa_answer_vote_nonce' ) ?>" data-answer="<?php the_ID(); ?>" >
-					<a data-vote="up" class="dwqa-vote-dwqa-btn dwqa-vote-up" href="#" title="<?php _e( 'Vote Up','dwqa' ) ?>"><?php _e( 'Vote Up', 'dwqa' ) ?> </a>
+					<a data-vote="up" class="dwqa-vote-dwqa-btn dwqa-vote-up<?php if ($usersVote == 'up') { echo ' current-vote'; } ?>" href="#" title="<?php _e( 'Vote Up','dwqa' ) ?>"><?php _e( 'Vote Up', 'dwqa' ) ?> </a>
 					<div class="dwqa-vote-count"><?php echo $vote > 0 ? '+' . $vote : $vote; ?></div>
-					<a data-vote="down" class="dwqa-vote-dwqa-btn dwqa-vote-down" href="#"  title="<?php _e( 'Vote Down', 'dwqa' ) ?>"><?php _e( 'Vote Down', 'dwqa' ) ?> </a>
+					<a data-vote="down" class="dwqa-vote-dwqa-btn dwqa-vote-down<?php if ($usersVote == 'down') { echo ' current-vote'; } ?>" href="#"  title="<?php _e( 'Vote Down', 'dwqa' ) ?>"><?php _e( 'Vote Down', 'dwqa' ) ?> </a>
 				</div>
 				
 				<?php if ( is_user_logged_in() ) { ?>

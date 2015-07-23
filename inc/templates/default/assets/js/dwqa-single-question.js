@@ -141,7 +141,7 @@ jQuery(function($) {
 
     function append_comment(html, submitForm) {
         var commentList = submitForm.parent().find('.dwqa-comment-list'),
-            contentField = submitForm.find('textarea[name="comment"]');
+            contentField = submitForm.find('#comment');
         var comment = $(html);
         if (commentList.length > 0) {
             commentList.append(comment);
@@ -157,7 +157,7 @@ jQuery(function($) {
     $('[id^=comment_form_]').on('submit', function(event) {
         event.preventDefault();
         var t = $(this),
-            contentField = t.find('textarea[name="comment"]'),
+            contentField = t.find('#comment'),
             content = contentField.val().trim().replace(/\n/g, '<br>');
 
         var name = '',

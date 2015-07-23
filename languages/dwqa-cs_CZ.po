@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: DW Question Answer v1.2.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-06 15:37+0700\n"
-"PO-Revision-Date: 2014-08-06 15:37+0700\n"
+"PO-Revision-Date: 2015-07-06 23:06+0100\n"
 "Last-Translator: DesignWall <webmaster@designwall.com>\n"
 "Language-Team: \n"
 "Language: cs_CZ\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Poedit 1.6.4\n"
+"X-Generator: Poedit 1.7.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
 "_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
@@ -22,21 +22,21 @@ msgstr ""
 # @ dwqa
 #: dw-question-answer.php:61 dw-question-answer.php:62 inc/settings.php:392
 msgid "Question"
-msgstr ""
+msgstr "Dotaz"
 
 #: dw-question-answer.php:63 dw-question-answer.php:107
 msgid "Add New"
-msgstr ""
+msgstr "Přidat nový"
 
 # @ default
 #: dw-question-answer.php:64
 msgid "Add New Question"
-msgstr ""
+msgstr "Přidat nový dotaz"
 
 # @ default
 #: dw-question-answer.php:65
 msgid "Edit Question"
-msgstr ""
+msgstr "Upravit dotaz"
 
 # @ default
 # @ dwqa
@@ -47,32 +47,32 @@ msgstr "Nový dotaz"
 # @ default
 #: dw-question-answer.php:67
 msgid "All Questions"
-msgstr ""
+msgstr "Všechny dotazy"
 
 # @ default
 #: dw-question-answer.php:68
 msgid "View Question"
-msgstr ""
+msgstr "Zobrazit dotaz"
 
 # @ default
 #: dw-question-answer.php:69
 msgid "Search Question"
-msgstr ""
+msgstr "Vyhledat dotaz"
 
 # @ default
 #: dw-question-answer.php:70
 msgid "No questions found"
-msgstr ""
+msgstr "Nebyly nalezeny žádné dotazy"
 
 # @ default
 #: dw-question-answer.php:71
 msgid "No questions found in Trash"
-msgstr ""
+msgstr "V koši nebyly nalezené žádné dotazy"
 
 # @ default
 #: dw-question-answer.php:73
 msgid "DW Q&A"
-msgstr ""
+msgstr "Otázky & Odpovědi"
 
 # @ default
 # @ dwqa
@@ -85,12 +85,12 @@ msgstr "Odpověď"
 # @ default
 #: dw-question-answer.php:108
 msgid "Add new answer"
-msgstr ""
+msgstr "Přidat novou odpověď"
 
 # @ default
 #: dw-question-answer.php:109
 msgid "Edit answer"
-msgstr ""
+msgstr "Upravit odpověď"
 
 # @ default
 # @ dwqa
@@ -101,146 +101,146 @@ msgstr "Nová odpověď"
 # @ default
 #: dw-question-answer.php:111
 msgid "All Answers"
-msgstr ""
+msgstr "Všechny odpovědi"
 
 # @ default
 #: dw-question-answer.php:112
 msgid "View Answer"
-msgstr ""
+msgstr "Zobrazit odpověď"
 
 # @ default
 #: dw-question-answer.php:113
 msgid "Search Answer"
-msgstr ""
+msgstr "Vyhledat odpověď"
 
 # @ default
 #: dw-question-answer.php:114
 msgid "No Answers found"
-msgstr ""
+msgstr "Nebyly nalezeny žádné odpovědi"
 
 # @ default
 #: dw-question-answer.php:115
 msgid "No Answers found in Trash"
-msgstr ""
+msgstr "V koši nebyly nalezeny žádné odpovědi"
 
 # @ default
 #: dw-question-answer.php:147
 msgctxt "taxonomy general name"
 msgid "Categories"
-msgstr ""
+msgstr "Kategorie"
 
 # @ default
 #: dw-question-answer.php:148
 msgctxt "taxonomy singular name"
 msgid "Category"
-msgstr ""
+msgstr "Kategorie"
 
 # @ default
 #: dw-question-answer.php:149
 msgid "Search Categories"
-msgstr ""
+msgstr "Vyhledat kategorie"
 
 # @ default
 #: dw-question-answer.php:150
 msgid "All Categories"
-msgstr ""
+msgstr "Všechny kategorie"
 
 # @ default
 #: dw-question-answer.php:151
 msgid "Parent Category"
-msgstr ""
+msgstr "Nadřazná kategorie"
 
 # @ default
 #: dw-question-answer.php:152
 msgid "Parent Category:"
-msgstr ""
+msgstr "Nadřazená kategorie:"
 
 # @ default
 #: dw-question-answer.php:153
 msgid "Edit Category"
-msgstr ""
+msgstr "Upravit kategorii"
 
 # @ default
 #: dw-question-answer.php:154
 msgid "Update Category"
-msgstr ""
+msgstr "Aktualizovat kategorii"
 
 # @ default
 #: dw-question-answer.php:155
 msgid "Add New Category"
-msgstr ""
+msgstr "Přidat novou kategorii"
 
 # @ default
 #: dw-question-answer.php:156
 msgid "New Category Name"
-msgstr ""
+msgstr "Název nové kategorie"
 
 # @ default
 #: dw-question-answer.php:157
 msgid "Question Categories"
-msgstr ""
+msgstr "Kategorie dotazů"
 
 # @ default
 #: dw-question-answer.php:174
 msgctxt "taxonomy general name"
 msgid "Tags"
-msgstr ""
+msgstr "Štítky"
 
 # @ default
 #: dw-question-answer.php:175
 msgctxt "taxonomy singular name"
 msgid "Tag"
-msgstr ""
+msgstr "Štítek"
 
 # @ default
 #: dw-question-answer.php:176
 msgid "Search Tags"
-msgstr ""
+msgstr "Vyhledat štítky"
 
 # @ default
 #: dw-question-answer.php:177
 msgid "Popular Tags"
-msgstr ""
+msgstr "Oblíbené štítky"
 
 # @ default
 #: dw-question-answer.php:178
 msgid "All Tags"
-msgstr ""
+msgstr "Všechny štítky"
 
 # @ default
 #: dw-question-answer.php:181
 msgid "Edit Tag"
-msgstr ""
+msgstr "Upravit štítek"
 
 # @ default
 #: dw-question-answer.php:182
 msgid "Update Tag"
-msgstr ""
+msgstr "Aktualizovat štítek"
 
 # @ default
 #: dw-question-answer.php:183
 msgid "Add New Tag"
-msgstr ""
+msgstr "Přidat nový štítek"
 
 # @ default
 #: dw-question-answer.php:184
 msgid "New Tag Name"
-msgstr ""
+msgstr "Nový název štítku"
 
 # @ default
 #: dw-question-answer.php:185
 msgid "Separate tags with commas"
-msgstr ""
+msgstr "Oddělte štítky čárkami"
 
 # @ default
 #: dw-question-answer.php:186
 msgid "Add or remove tags"
-msgstr ""
+msgstr "Přidat nebo odebrat štítky"
 
 # @ default
 #: dw-question-answer.php:187
 msgid "Choose from the most used tags"
-msgstr ""
+msgstr "Vyberte z nejpoužívanějších štítků"
 
 # @ default
 # @ dwqa
@@ -416,21 +416,21 @@ msgstr "Chcete smazat tento dotaz?"
 # @ dwqa
 #: dw-question-answer.php:284
 msgid "DWQA Questions"
-msgstr ""
+msgstr "Dotazy"
 
 # @ dwqa
 #: dw-question-answer.php:301
 msgid "DWQA Ask Question"
-msgstr ""
+msgstr "Položit dotaz"
 
 # @ default
 #: dw-question-answer.php:396
 #, php-format
 msgid "%s second"
 msgid_plural "%s seconds"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%s sekunda"
+msgstr[1] "%s sekund"
+msgstr[2] "%s sekund"
 
 # @ default
 #. translators: min=minute
@@ -438,27 +438,27 @@ msgstr[2] ""
 #, php-format
 msgid "about %s min"
 msgid_plural "%s mins"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "přibližně %s minuta"
+msgstr[1] "%s minut"
+msgstr[2] "%s minut"
 
 # @ default
 #: dw-question-answer.php:411
 #, php-format
 msgid "about %s hour"
 msgid_plural "%s hours"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "přibližně %s hodina"
+msgstr[1] "%s hodin"
+msgstr[2] "%s hodin"
 
 # @ default
 #: dw-question-answer.php:417
 #, php-format
 msgid "%s day"
 msgid_plural "%s days"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%s den"
+msgstr[1] "%s dní"
+msgstr[2] "%s dní"
 
 # @ dwqa
 #: dw-question-answer.php:421
@@ -562,32 +562,32 @@ msgstr "dotaz od"
 #: inc/templates/default/single-question.php:24
 #: inc/widgets/latest-question.php:40
 msgid "Anonymous"
-msgstr ""
+msgstr "Anonymní"
 
 # @ default
 #: inc/actions-question.php:20
 #, php-format
 msgid "Posts by %s"
-msgstr ""
+msgstr "Příspěvky od %s"
 
 #: inc/actions-question.php:28
 #, php-format
 msgid "%s answered <span class=\"dwqa-date\">%s</span>"
-msgstr ""
+msgstr "%s odpověděl(a) <span class=\"dwqa-date\">%s</span>"
 
 #: inc/actions-question.php:30
 #, php-format
 msgid "%s asked <span class=\"dwqa-date\">%s</span>"
-msgstr ""
+msgstr "%s se zeptal(a) na <span class=\"dwqa-date\">%s</span>"
 
 # @ dwqa
 #: inc/actions-vote.php:6
 msgid "Are you cheating, huh?"
-msgstr ""
+msgstr "Nepodvádíte?"
 
 #: inc/actions-vote.php:19
 msgid "What "
-msgstr ""
+msgstr "Co"
 
 # @ dwqa
 #: inc/actions-vote.php:47
@@ -621,21 +621,18 @@ msgstr "Captcha není správně"
 
 # @ dwqa
 #: inc/actions.php:141
-#, fuzzy
 msgid "Answer is missing"
-msgstr "Odpovědět na tento dotaz"
+msgstr "Odpověď chybí"
 
 # @ dwqa
 #: inc/actions.php:152 inc/actions.php:258
-#, fuzzy
 msgid "You do not have permission to edit this post"
-msgstr "Nemáte práva ke smazání tohoto dotazu"
+msgstr "Nemáte oprávnění k úpravám tohoto příspěvku"
 
 # @ dwqa
 #: inc/actions.php:157 inc/actions.php:263
-#, fuzzy
 msgid "This post is not an answer"
-msgstr "Toto je nejlepší odpověď"
+msgstr "Tento příspěvek není odpověď"
 
 # @ dwqa
 # @ default
@@ -643,17 +640,17 @@ msgstr "Toto je nejlepší odpověď"
 #: inc/actions.php:673 inc/actions.php:691 inc/actions.php:1401
 #: inc/filter.php:425 inc/status.php:287
 msgid "Are you cheating huh?"
-msgstr ""
+msgstr "Nepodvádíte?"
 
 # @ dwqa
 #: inc/actions.php:250
 msgid "Missing answer ID"
-msgstr ""
+msgstr "Chybějící ID odpovědi"
 
 # @ dwqa
 #: inc/actions.php:371
 msgid "User Registration was disabled."
-msgstr ""
+msgstr "Registrace uživatelů byla zakázána."
 
 # @ dwqa
 #: inc/actions.php:374
@@ -667,13 +664,12 @@ msgstr "Toto uživatelské jméno již bylo registrováno. Prosíme, zvolte si j
 
 # @ dwqa
 #: inc/actions.php:577
-#, fuzzy
 msgid "You do not have permission to edit question status"
-msgstr "Nemáte práva k zobrazení dotazů"
+msgstr "Nemáte dostatečná práva k úpravě stavu dotazu"
 
 #: inc/actions.php:644
 msgid "Comment is missing"
-msgstr ""
+msgstr "Poznámka chybí"
 
 # @ dwqa
 #: inc/actions.php:654
@@ -683,12 +679,12 @@ msgstr "Obsah komentáře nesmí být prázdný."
 # @ dwqa
 #: inc/actions.php:678
 msgid "Comment ID must be showed."
-msgstr ""
+msgstr "ID komentáře musí být zobrazeno."
 
 # @ dwqa
 #: inc/actions.php:694
 msgid "Missing id of answer"
-msgstr ""
+msgstr "Chybí ID odpovědi"
 
 # @ dwqa
 #: inc/actions.php:837 inc/actions.php:940
@@ -730,19 +726,17 @@ msgstr "Pouze autor a administrátor mohou zobrazit"
 # @ dwqa
 #: inc/actions.php:869 inc/actions.php:1596
 msgid "Hello, Are you cheating huh?"
-msgstr ""
+msgstr "Dobrý den, nepodvádíte náhodou?"
 
 # @ dwqa
 #: inc/actions.php:877
-#, fuzzy
 msgid "The question is missing"
-msgstr "Tento dotaz je nyní uzavřen"
+msgstr "Tento dotaz chybí"
 
 # @ dwqa
 #: inc/actions.php:884 inc/status.php:318
-#, fuzzy
 msgid "You do not have permission to edit question"
-msgstr "Nemáte práva pro položení dotazu."
+msgstr "Nemáte práva pro úpravu dotazu."
 
 # @ dwqa
 #: inc/actions.php:965
@@ -752,12 +746,12 @@ msgstr "Nemůžete vkládat komentáře"
 # @ dwqa
 #: inc/actions.php:984
 msgid "Missing email information"
-msgstr ""
+msgstr "Chybí email"
 
 # @ dwqa
 #: inc/actions.php:989
 msgid "Missing name information"
-msgstr ""
+msgstr "Chybí jméno"
 
 # @ dwqa
 #: inc/actions.php:1251
@@ -767,7 +761,7 @@ msgstr "Vyberte nejlepší odpověď"
 # @ dwqa
 #: inc/actions.php:1447 inc/actions.php:1471
 msgid "Invalid Post"
-msgstr ""
+msgstr "Neplatný příspěvek"
 
 # @ dwqa
 #: inc/actions.php:1566
@@ -777,12 +771,12 @@ msgstr "Zvýrazněný dotaz"
 # @ dwqa
 #: inc/actions.php:1602
 msgid "Question is not valid"
-msgstr ""
+msgstr "Neplatná otázka"
 
 # @ dwqa
 #: inc/actions.php:1623
 msgid "Delete Action was failed"
-msgstr ""
+msgstr "Odstranění se nezdařilo"
 
 # @ dwqa
 #: inc/actions.php:1628
@@ -792,7 +786,7 @@ msgstr "Nemáte práva ke smazání tohoto dotazu"
 # @ dwqa
 #: inc/class-answers-list-table.php:82
 msgid "Detail"
-msgstr ""
+msgstr "Podrobnosti"
 
 # @ dwqa
 #: inc/class-answers-list-table.php:101
@@ -808,13 +802,13 @@ msgstr "Zobrazit celé"
 #: inc/class-walker-category.php:20 inc/class-walker-tag-dropdown.php:19
 #, php-format
 msgid "View all posts filed under %s"
-msgstr ""
+msgstr "Zobrazit všechny příspěvky zařazené pod %s"
 
 # @ default
 #: inc/class-walker-category.php:35 inc/class-walker-tag-dropdown.php:34
 #, php-format
 msgid "Feed for all posts filed under %s"
-msgstr ""
+msgstr "Feed pro všechny zařazené pod %s"
 
 # @ dwqa
 #: inc/contextual-helper.php:47
@@ -824,7 +818,7 @@ msgstr "Přehled"
 # @ dwqa
 #: inc/contextual-helper.php:48
 msgid "DW Question Answer Plugin"
-msgstr ""
+msgstr "Plugin DW Otázky & Odpovědi"
 
 # @ dwqa
 #: inc/contextual-helper.php:49
@@ -834,51 +828,55 @@ msgid ""
 "up. Let start building up your community with this WordPress question & "
 "answer system."
 msgstr ""
+"DW Otázky & Odpovědi je WordPressový plugin, který vám umožní vytvořit "
+"systém otázek a odpovědí na vaší prezentaci. Plugin je snadné nainstalovat a "
+"nastavit. Začněte budovat svou komunitu s tímto systémem pro otázky a "
+"odpovědi."
 
 # @ dwqa
 #: inc/contextual-helper.php:52
 msgid "Setup Question List Page"
-msgstr ""
+msgstr "Nastavit stránku se seznamem dotazů"
 
 # @ dwqa
 #: inc/contextual-helper.php:56
 msgid "Setup Ask Question Page"
-msgstr ""
+msgstr "Nastavit stránku pro položení dotazu"
 
 # @ dwqa
 #: inc/contextual-helper.php:60
 msgid "Shortcode"
-msgstr ""
+msgstr "Shortcode"
 
 # @ dwqa
 #: inc/contextual-helper.php:64
 msgid "Style integration"
-msgstr ""
+msgstr "Integrace stylu"
 
 # @ default
 #: inc/contextual-helper.php:221
 msgid "For more information:"
-msgstr ""
+msgstr "Pro více informací:"
 
 # @ default
 #: inc/contextual-helper.php:222
 msgid "DW Question Answer Guide"
-msgstr ""
+msgstr "Průvodce po DW Otázky & Odpovědi"
 
 # @ default
 #: inc/contextual-helper.php:223
 msgid "Community"
-msgstr ""
+msgstr "Komunita"
 
 # @ default
 #: inc/contextual-helper.php:224
 msgid "DesignWall Wordpress Themes"
-msgstr ""
+msgstr "DesignWall Wordpress témata"
 
 # @ default
 #: inc/contextual-helper.php:225
 msgid "DesignWall Wordpress Plugins"
-msgstr ""
+msgstr "DesignWall Wordpress pluginy"
 
 # @ dwqa
 #: inc/filter.php:100 inc/templates/default/archive-question-notfound.php:5
@@ -938,7 +936,7 @@ msgstr "Metadata dotazu"
 # @ dwqa
 #: inc/metaboxes.php:44
 msgid "Status"
-msgstr ""
+msgstr "Stav"
 
 # @ dwqa
 #: inc/metaboxes.php:46 inc/status.php:278
@@ -982,47 +980,47 @@ msgstr "Připíchnout dotaz nahoru.."
 # @ dwqa
 #: inc/notification.php:27
 msgid "A new question was posted on {site_name}"
-msgstr ""
+msgstr "Nový dotaz byl zaslán na {site_name}"
 
 # @ dwqa
 #: inc/notification.php:118
 msgid "A new answer for \"{question_title}\" was posted on {site_name}"
-msgstr ""
+msgstr "Nová odpověď pro \"{question_title}\" byl zaslána na {site_name}"
 
 # @ dwqa
 #: inc/notification.php:186
 msgid "You have a new answer for your followed question"
-msgstr ""
+msgstr "Máte novou odpověd na sledovanou otázku"
 
 # @ dwqa
 #: inc/notification.php:282 inc/notification.php:328
 msgid "[{site_name}] You have a new comment for question {question_title}"
-msgstr ""
+msgstr "[{site_name}] Máte nový komentář k otázce {question_title}"
 
 # @ dwqa
 #: inc/notification.php:287 inc/notification.php:333
 msgid "[{site_name}] You have a new comment for answer"
-msgstr ""
+msgstr "[{site_name}] Máte nový komentář pro odpověď"
 
 # @ dwqa
 #: inc/pointer-helper.php:57
 msgid "How to use DW Question Answer"
-msgstr ""
+msgstr "Jak používat DW Otázky & Odpovědi"
 
 # @ dwqa
 #: inc/pointer-helper.php:58
 msgid "Documents, Support From DesignWall (help)"
-msgstr ""
+msgstr "Dokumenty a podpora od DesignWall (nápověda)"
 
 # @ dwqa
 #: inc/pointer-helper.php:67
 msgid "Config your support channel"
-msgstr ""
+msgstr "Nastavit kanál s podporou"
 
 # @ dwqa
 #: inc/pointer-helper.php:68
 msgid "Change comment settings, and create the Submit question page."
-msgstr ""
+msgstr "Upravit nastavení komentářů a vytvořit stránku pro zaslání dotazu."
 
 # @ dwqa
 #: inc/settings.php:9
@@ -1032,12 +1030,12 @@ msgstr "Vyžadováno přihlášení"
 # @ dwqa
 #: inc/settings.php:21
 msgid "Select Archive Question Page"
-msgstr ""
+msgstr "Vybrat stránku s archivem dotazů"
 
 # @ dwqa
 #: inc/settings.php:25
 msgid "A page where displays all questions"
-msgstr ""
+msgstr "Stránka, kde se zobrazí všechny dotazy"
 
 # @ dwqa
 #: inc/settings.php:32
@@ -1048,7 +1046,7 @@ msgstr "hodin"
 #: inc/settings.php:32
 msgid ""
 "A period of time in which new questions are highlighted and marked as New"
-msgstr ""
+msgstr "Časové období, po které bude dotaz zvýrazněn a označen jako Nový"
 
 # @ dwqa
 #: inc/settings.php:37
@@ -1061,21 +1059,23 @@ msgid ""
 "A Question will be marked as overdue if it passes this period of time, "
 "starting from the time the question was submitted"
 msgstr ""
+"Dotaz bude označen jako zastaralý, pokud od zadáni uplyne nastavené časové "
+"období-"
 
 # @ dwqa
 #: inc/settings.php:48
 msgid "Select Submit Question Page"
-msgstr ""
+msgstr "Vybrat stránku pro odslání dotazu"
 
 # @ dwqa
 #: inc/settings.php:53
 msgid "A page where users can submit questions."
-msgstr ""
+msgstr "Stránka, kde mohou návštěvníci odeslat své dotazy."
 
 # @ dwqa
 #: inc/settings.php:66
 msgid "Select 404 DWQA Page"
-msgstr ""
+msgstr "Vybrat 404 stránku"
 
 # @ dwqa
 #: inc/settings.php:71
@@ -1084,341 +1084,344 @@ msgid ""
 "question. You can customize the message of this page in.If not, a default "
 "404 page will be used."
 msgstr ""
+"Na tuto stránku budou přesměrováni uživatelé bez dostatečných práv pro "
+"zobrazení soukromých dotazů. Na této stránce můžete upravit zobrazenou "
+"zprávu. Pokud tak neučiníte, použije se výchozí 404 stránka."
 
 # @ dwqa
 #: inc/settings.php:87
 msgid "Upload"
-msgstr ""
+msgstr "Nahrát"
 
 # @ dwqa
 #: inc/settings.php:87
 msgid "Upload or choose a logo to be displayed at the top of the email"
-msgstr ""
+msgstr "Nahrát nebo vybrat logo, které se zobrazí v zápatí emailu."
 
 # @ dwqa
 #: inc/settings.php:126
 msgid "Enable notification for new question"
-msgstr ""
+msgstr "Povolit upozornění na nové dotazy"
 
 # @ dwqa
 #: inc/settings.php:131 inc/settings.php:165 inc/settings.php:200
 #: inc/settings.php:235 inc/settings.php:270 inc/settings.php:305
 #: inc/settings.php:340
 msgid "Email subject"
-msgstr ""
+msgstr "Předmět emailu"
 
 # @ dwqa
 #: inc/settings.php:136 inc/settings.php:170 inc/settings.php:205
 #: inc/settings.php:240 inc/settings.php:275 inc/settings.php:310
 #: inc/settings.php:345
 msgid "Email Content"
-msgstr ""
+msgstr "Obsah emailu"
 
 # @ dwqa
 #: inc/settings.php:160
 msgid "Enable notification for new answer"
-msgstr ""
+msgstr "Povolit upozornění na novou odpověď"
 
 #: inc/settings.php:195
 msgid "Enable notification for new answer (to Followers )"
 msgstr ""
+"Povolit upozornění na novou odpověď (návštěvníkům, kteří sledují dotaz)"
 
 # @ dwqa
 #: inc/settings.php:230 inc/settings.php:265
 msgid "Enable notification for new comment of question"
-msgstr ""
+msgstr "Povolit upozornění na nový komentář nebo dotaz"
 
 # @ dwqa
 #: inc/settings.php:300 inc/settings.php:335
 msgid "Enable notification for new comment of answer"
-msgstr ""
+msgstr "Povolit upozornění na nový komentář nebo odpověď"
 
 # @ dwqa
 #: inc/settings.php:397
 msgid "Read"
-msgstr ""
+msgstr "Číst"
 
 # @ dwqa
 #: inc/settings.php:398
 msgid "Post"
-msgstr ""
+msgstr "Napsat"
 
 # @ dwqa
 #: inc/settings.php:426 inc/settings.php:462 inc/settings.php:497
 msgid "Reset Default"
-msgstr ""
+msgstr "Obnovit výchozí"
 
 # @ dwqa
 #: inc/settings.php:464
 msgid "Comment"
-msgstr ""
+msgstr "Komentáře"
 
 # @ dwqa
 #: inc/settings.php:506
 msgid "Enable/Disable captcha on submit question page"
-msgstr ""
+msgstr "Povolit/zakázat Captchu na stránce s odesláním dotazu"
 
 # @ dwqa
 #: inc/settings.php:512
 msgid "Enable/Disable captcha on single question page"
-msgstr ""
+msgstr "Povolit/zakázat Captchu na stránce s jedním dotazem"
 
 # @ dwqa
 #: inc/settings.php:530
 msgid "questions"
-msgstr ""
+msgstr "otázky"
 
 # @ dwqa
 #: inc/settings.php:536
 msgid "Allow members to post private question"
-msgstr ""
+msgstr "Povolit návštěvníkům pokládat soukromé dotazy"
 
 # @ dwqa
 #: inc/settings.php:542
 msgid "Question must be manually approved"
-msgstr ""
+msgstr "Dotazy musí být ručně schváleny"
 
 #: inc/settings.php:553
 msgid "Select template for Single Quesiton page"
-msgstr ""
+msgstr "Vyberte šablonu pro stránku s jedním dotazem"
 
 #: inc/settings.php:559
 msgid ""
 "By default, your single.php template file will be used if you do not choose "
 "any template"
-msgstr ""
+msgstr "Jako výchozí se použije šablona single.php, pokud nezvolíte jinak"
 
 # @ dwqa
 #: inc/settings.php:641
 msgid "Plugin Settings"
-msgstr ""
+msgstr "Nastavení pluginu"
 
 # @ dwqa
 #: inc/settings.php:641
 msgid "Settings"
-msgstr ""
+msgstr "Nastavení"
 
 # @ dwqa
 #: inc/settings.php:667
 msgid "Question List Page"
-msgstr ""
+msgstr "Stránka se seznamem dotazů"
 
 # @ dwqa
 #: inc/settings.php:675
 msgid "Archive page show at most"
-msgstr ""
+msgstr "Stránka z archive zobrazí nejvíce"
 
 # @ dwqa
 #: inc/settings.php:683
 msgid "Ask Question Page"
-msgstr ""
+msgstr "Stránka s formulářem dotazu"
 
 # @ dwqa
 #: inc/settings.php:690
 msgid "Private Question"
-msgstr ""
+msgstr "Soukromý dotaz"
 
 # @ dwqa
 #: inc/settings.php:697
 msgid "Review Question"
-msgstr ""
+msgstr "Zhodnotit dotaz"
 
 # @ dwqa
 #: inc/settings.php:705
 msgid "DWQA 404 Page"
-msgstr ""
+msgstr "Stránka 404"
 
 # @ dwqa
 #: inc/settings.php:713
-#, fuzzy
 msgid "Single Question Template"
-msgstr "Vyberte kategorii"
+msgstr "Šablona stránky s jedním dotazem"
 
 # @ dwqa
 #: inc/settings.php:722
 msgid "Time settings"
-msgstr ""
+msgstr "Nastavení času"
 
 # @ dwqa
 #: inc/settings.php:729
 msgid "New Question Time Frame"
-msgstr ""
+msgstr "Časové období nového dotazu"
 
 # @ dwqa
 #: inc/settings.php:737
 msgid "Question Overdue - Time Frame"
-msgstr ""
+msgstr "Zastaralý dotaz - časové období"
 
 # @ dwqa
 #: inc/settings.php:747
 msgid "Captcha settings"
-msgstr ""
+msgstr "Nastavení Captcha"
 
 # @ dwqa
 #: inc/settings.php:754
 msgid "Captcha on Submit Question Page"
-msgstr ""
+msgstr "Captcha na stránce s odesláním dotazu"
 
 # @ dwqa
 #: inc/settings.php:762
 msgid "Captcha on Single Question Page"
-msgstr ""
+msgstr "Captcha na stránce s jedním dotazem"
 
 # @ dwqa
 #: inc/settings.php:770
 msgid "Google Captcha Public Key"
-msgstr ""
+msgstr "Veřejný klíč Google Captcha"
 
 # @ dwqa
 #: inc/settings.php:778
 msgid "Google Captcha Private Key"
-msgstr ""
+msgstr "Privátní klíč Google Captcha"
 
 # @ dwqa
 #: inc/settings.php:788
 msgid "Permalink Settings"
-msgstr ""
+msgstr "Nastavení permalinků"
 
 # @ dwqa
 #: inc/settings.php:795
 msgid "Single Question"
-msgstr ""
+msgstr "Jeden dotaz"
 
 # @ dwqa
 #: inc/settings.php:803
 msgid "Single Category"
-msgstr ""
+msgstr "Jedna kategorie"
 
 # @ dwqa
 #: inc/settings.php:811
 msgid "Single Tag"
-msgstr ""
+msgstr "Jeden štítek"
 
 # @ dwqa
 #: inc/settings.php:860
 msgid "From Email"
-msgstr ""
+msgstr "Od (email)"
 
 # @ dwqa
 #: inc/settings.php:924 inc/settings.php:931
 msgid "Group Permission"
-msgstr ""
+msgstr "Oprávnění skupiny"
 
 # @ dwqa
 #: inc/settings.php:944
 msgid "DWQA Settings"
-msgstr ""
+msgstr "Nastavení DWQA"
 
 # @ dwqa
 #: inc/settings.php:948
 msgid "General"
-msgstr ""
+msgstr "Obecné"
 
 # @ dwqa
 #: inc/settings.php:949
 msgid "Notification"
-msgstr ""
+msgstr "Upozornění"
 
 # @ dwqa
 #: inc/settings.php:950
 msgid "Permission"
-msgstr ""
+msgstr "Oprávnění"
 
 # @ dwqa
 #: inc/settings.php:957
 msgid "Email setup"
-msgstr ""
+msgstr "Nastavení emailu"
 
 # @ dwqa
 #: inc/settings.php:961
 msgid "Email Logo"
-msgstr ""
+msgstr "Logo emailu"
 
 # @ dwqa
 #: inc/settings.php:973
 msgid "New Comment to Question"
-msgstr ""
+msgstr "Nový komentář k otázce"
 
 # @ dwqa
 #: inc/settings.php:974
 msgid "New Comment to Answer"
-msgstr ""
+msgstr "Nový komentář k dotazu"
 
 #: inc/settings.php:975
 msgid "New Answer (to Followers )"
-msgstr ""
+msgstr "Nová odpověď (followerům)"
 
 #: inc/settings.php:976
 msgid "New Comment to Question (to Followers )"
-msgstr ""
+msgstr "Nový komentář k dotazu (followerům)"
 
 #: inc/settings.php:977
 msgid "New Comment to Answer (to Followers )"
-msgstr ""
+msgstr "Nový komentář k odpovědi (followerům)"
 
 # @ dwqa
 #: inc/settings.php:984
 msgid "New Question Notification"
-msgstr ""
+msgstr "Upozornění na nový dotaz"
 
 # @ dwqa
 #: inc/settings.php:991 inc/settings.php:1000 inc/settings.php:1009
 #: inc/settings.php:1018 inc/settings.php:1028 inc/settings.php:1036
 #: inc/settings.php:1046
 msgid "Save all changes"
-msgstr ""
+msgstr "Uložit změny"
 
 # @ dwqa
 #: inc/settings.php:996
 msgid "New Answer Notification"
-msgstr ""
+msgstr "Upozornění na novou odpověď"
 
 #: inc/settings.php:1005
 msgid "New Answer Notification (to Followers )"
-msgstr ""
+msgstr "Upozornění na novou odpověď (followerům)"
 
 # @ dwqa
 #: inc/settings.php:1014
 msgid "New Comment to Question Notification"
-msgstr ""
+msgstr "Nový komentář na upozornění na dotaz"
 
 # @ dwqa
 #: inc/settings.php:1024
 msgid "New Comment to Answer Notification"
-msgstr ""
+msgstr "Nový komentář na upozornění na odpověď"
 
 #: inc/settings.php:1032
 msgid "New Comment to Question Notification (to Followers )"
-msgstr ""
+msgstr "Nový komentář na upozornění na dotaz (followerům)"
 
 #: inc/settings.php:1042
 msgid "New Comment to Answer Notification (to Followers )"
-msgstr ""
+msgstr "Nový komentář na upozornění na odpověď (followerům)"
 
 # @ dwqa
 #: inc/settings.php:1071
 msgid "Send to"
-msgstr ""
+msgstr "Poslat komu"
 
 # @ dwqa
 #: inc/settings.php:1076
 msgid "Cc"
-msgstr ""
+msgstr "Kopie"
 
 # @ dwqa
 #: inc/settings.php:1081
 msgid "Bcc"
-msgstr ""
+msgstr "Skrytá kopie"
 
 # @ dwqa
 #: inc/settings.php:1086
 msgid "This address will be used as the sender of the outgoing emails."
-msgstr ""
+msgstr "Tato adresa bude použita jako odesílatel odchozích emailů"
 
 # @ dwqa
 #: inc/settings.php:1092
 msgid "Send A Copy Of Every Email To Admin"
-msgstr ""
+msgstr "Odeslat kopii každého emailu adminovi"
 
 # @ dwqa
 #: inc/shortcodes.php:101 inc/widgets/popular-question.php:18
@@ -1456,17 +1459,17 @@ msgstr "Nový"
 # @ dwqa
 #: inc/status.php:292
 msgid "Missing post ID"
-msgstr ""
+msgstr "Chybí ID příspěvku"
 
 # @ dwqa
 #: inc/status.php:308
 msgid "Post does not exist"
-msgstr ""
+msgstr "Příspěvek neexistuje"
 
 # @ dwqa
 #: inc/status.php:313
 msgid "Invalid post status"
-msgstr ""
+msgstr "Neplatný stav příspěvku"
 
 # @ dwqa
 #: inc/template-functions.php:90
@@ -1543,7 +1546,7 @@ msgstr ""
 #: inc/template-functions.php:141
 #, php-format
 msgid "Private: %s"
-msgstr ""
+msgstr "Soukromý: %s"
 
 # @ dwqa
 #: inc/template-functions.php:176
@@ -1557,26 +1560,25 @@ msgstr "Přidat odpověď"
 
 # @ dwqa
 #: inc/template-functions.php:273
-#, fuzzy
 msgid "You do not have permission to submit a question"
-msgstr "Nemáte práva pro položení dotazu."
+msgstr "Nemáte oprávnění k položení dotazu."
 
 # @ default
 #: inc/template-functions.php:356
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 # @ default
 #: inc/template-functions.php:360
 #, php-format
 msgid "Required fields are marked %s"
-msgstr ""
+msgstr "Povinné položky jsou označeny %s"
 
 # @ default
 #: inc/template-functions.php:372
 msgctxt "noun"
 msgid "Comment"
-msgstr ""
+msgstr "Komentovat"
 
 # @ dwqa
 #: inc/template-functions.php:373
@@ -1591,6 +1593,8 @@ msgid ""
 "Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of "
 "this account\">Log out?</a>"
 msgstr ""
+"Přihlášen jako <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Odhlásit "
+"se z účtu\">Odhlásit?</a>"
 
 # @ dwqa
 #: inc/template-functions.php:375
@@ -1640,7 +1644,6 @@ msgstr "Položit dotaz"
 
 # @ dwqa
 #: inc/template-functions.php:577
-#, fuzzy
 msgid "Login to ask a question"
 msgstr "Přihlašte se k položení vašeho dotazu"
 
@@ -1661,15 +1664,15 @@ msgstr "Všechny dotazy z"
 
 #: inc/template-functions.php:740
 msgid "follow"
-msgstr ""
+msgstr "sledovat"
 
 #: inc/template-functions.php:741
 msgid "following"
-msgstr ""
+msgstr "sledujete"
 
 #: inc/template-functions.php:742
 msgid "unfollow"
-msgstr ""
+msgstr "zrušit sledování"
 
 # @ dwqa
 #: inc/template-functions.php:747
@@ -1740,7 +1743,7 @@ msgstr "Napište odpověď..."
 #: inc/templates/default/content-answer.php:79
 #: inc/templates/default/content-comment.php:12
 msgid "Staff"
-msgstr ""
+msgstr "Personál"
 
 # @ dwqa
 #: inc/templates/default/content-answer.php:88
@@ -1785,7 +1788,6 @@ msgstr "Permalink k %s"
 
 # @ dwqa
 #: inc/templates/default/content-question.php:14
-#, fuzzy
 msgid "Category"
 msgstr "Kategorie dotazu"
 
@@ -1810,7 +1812,7 @@ msgstr[2] "hlasů"
 # @ default
 #: inc/templates/default/question-list.php:11
 msgid "Status:"
-msgstr ""
+msgstr "Stav:"
 
 # @ dwqa
 #: inc/templates/default/question-list.php:13
@@ -1942,13 +1944,13 @@ msgstr "Poslední dotazy"
 #: inc/widgets/latest-question.php:64 inc/widgets/list-closed-question.php:71
 #: inc/widgets/popular-question.php:63 inc/widgets/related-question.php:48
 msgid "Widget title"
-msgstr ""
+msgstr "Nadpis widgetu"
 
 # @ default
 #: inc/widgets/latest-question.php:67 inc/widgets/list-closed-question.php:74
 #: inc/widgets/popular-question.php:66 inc/widgets/related-question.php:51
 msgid "Number of posts"
-msgstr ""
+msgstr "Počet příspěvků"
 
 # @ dwqa
 #: inc/widgets/list-closed-question.php:12

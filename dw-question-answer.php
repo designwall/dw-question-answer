@@ -572,8 +572,10 @@ function dwqa_answer_columns_content( $column_name, $post_ID ) {
 			break;
 		case 'dwqa-question':
 			$question_id = get_post_meta( $post_ID, '_question', true );
-			$question = get_post( $question_id );
-			echo '<a href="' . get_permalink( $question_id ) . '" >' . $question->post_title . '</a><br>'; 
+			if ( $question_id ) {
+				$question = get_post( $question_id );
+				echo '<a href="' . get_permalink( $question_id ) . '" >' . $question->post_title . '</a><br>';
+			} 
 			break;
 	}
 } 

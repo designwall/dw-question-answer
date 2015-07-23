@@ -118,12 +118,9 @@ function dwqa_update_vote_count( $post_id ) {
 		return 0;
 	}
 
-	$total = 0;
-	foreach ( $votes as $user => $vote ) {
-		$total += $vote;
-	}
-
+	$total = array_sum( $votes );
 	update_post_meta( $post_id, '_dwqa_votes', $total );
+	return $total;
 }
 
 /**

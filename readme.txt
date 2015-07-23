@@ -2,8 +2,8 @@
 Contributors: designwall, Farid-Gh, scheunemann, gciprian, Ahmet Kolcu, Astrotenko Roman, David Robles, Nidhal Naji, developez, markhall1971
 Tags: question, answer, support, quora, stackoverflow
 Requires at least: 3.0.1
-Tested up to: 3.9.1
-Stable tag: 1.3.2
+Tested up to: 4+
+Stable tag: 1.3.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -76,6 +76,11 @@ Visit our [Github](https://github.com/designwall/dw-question-answer) project or 
 5. Back-end settings
 
 == Changelog ==
+
+= 1.3.3 =
+
+* Fix: Fixed add_query_arg() and remove_query_arg() usage that mentioned in the following link:
+https://make.wordpress.org/plugins/2015/04/20/fixing-add_query_arg-and-remove_query_arg-usage/
 
 = 1.3.2 = 
 

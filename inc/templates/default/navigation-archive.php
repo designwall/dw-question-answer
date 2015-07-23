@@ -34,7 +34,7 @@ if ( function_exists('dwqa_table_exists') && dwqa_table_exists( $wpdb->prefix . 
 
 $number_questions = $total;
 
-$number = $dwqa_options[ 'posts-per-page' ];
+$number = isset( $dwqa_options[ 'posts-per-page' ] ) ? $dwqa_options[ 'posts-per-page' ] : 5;
 
 $pages = ceil( $number_questions / $number );
 
@@ -66,19 +66,19 @@ if ( $pages > 1 ) :
 		}
 	}
 	if ( $start > 1 ) {
-		echo '<li><a href="'.add_query_arg( 'paged',1,$link ).'">1</a></li><li class="dot"><span>...</span></li>';
+		echo '<li><a href="'.esc_url(add_query_arg( 'paged',1,$link ) ).'">1</a></li><li class="dot"><span>...</span></li>';
 	}
 	for ( $i = $start; $i <= $end; $i++ ) { 
 		$current = $i == $paged ? 'class="active"' : '';
 		if ( $i == 1 ) {
 			echo '<li '.$current.'><a href="'.$link.'">'.$i.'</a></li>';
 		} else {
-			echo '<li '.$current.'><a href="'.add_query_arg( 'paged', $i, $link ).'">'.$i.'</a></li>';
+			echo '<li '.$current.'><a href="'.esc_url( add_query_arg( 'paged', $i, $link ) ).'">'.$i.'</a></li>';
 		}
 	}
 
 	if ( $i - 1 < $pages ) {
-		echo '<li class="dot"><span>...</span></li><li><a href="'.add_query_arg( 'paged', $pages, $link ).'">'.$pages.'</a></li>';
+		echo '<li class="dot"><span>...</span></li><li><a href="'.esc_url(add_query_arg( 'paged', $pages, $link ) ).'">'.$pages.'</a></li>';
 	}
 	echo '<li class="next';
 	if ( $paged == $pages ) {

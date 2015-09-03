@@ -1,0 +1,1733 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: DW Question Answer\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-08-06 15:39+0700\n"
+"PO-Revision-Date: 2015-09-03 12:59+0800\n"
+"Last-Translator: DesignWall <webmaster@designwall.com>\n"
+"Language-Team: DesignWall <webmaster@designwall.com>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.4\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../dw-question-answer.php:61 ../dw-question-answer.php:62
+#: ../inc/settings.php:392
+msgid "Question"
+msgstr "問題"
+
+#: ../dw-question-answer.php:63 ../dw-question-answer.php:107
+#, fuzzy
+msgid "Add New"
+msgstr "添加問題"
+
+#: ../dw-question-answer.php:64
+msgid "Add New Question"
+msgstr "添加新問題"
+
+#: ../dw-question-answer.php:65
+msgid "Edit Question"
+msgstr "編輯問題"
+
+#: ../dw-question-answer.php:66 ../inc/settings.php:971
+msgid "New Question"
+msgstr "最新問題"
+
+#: ../dw-question-answer.php:67
+msgid "All Questions"
+msgstr "所有問題"
+
+#: ../dw-question-answer.php:68
+msgid "View Question"
+msgstr "查看問題"
+
+#: ../dw-question-answer.php:69
+msgid "Search Question"
+msgstr "搜索問題"
+
+#: ../dw-question-answer.php:70
+msgid "No questions found"
+msgstr "還沒有發現問題"
+
+#: ../dw-question-answer.php:71
+msgid "No questions found in Trash"
+msgstr "沒有找到結果"
+
+#: ../dw-question-answer.php:73
+msgid "DW Q&A"
+msgstr "問答中心"
+
+#: ../dw-question-answer.php:105 ../dw-question-answer.php:106
+#: ../dw-question-answer.php:117 ../dw-question-answer.php:5​​34
+#: ../inc/settings.php:428 ../inc/templates/default/question-list.php:111
+msgid "Answer"
+msgstr "答案"
+
+#: ../dw-question-answer.php:108
+msgid "Add new answer"
+msgstr "添加新答案"
+
+#: ../dw-question-answer.php:109
+msgid "Edit answer"
+msgstr "編輯答案"
+
+#: ../dw-question-answer.php:110 ../inc/settings.php:972
+msgid "New Answer"
+msgstr "新答案"
+
+#: ../dw-question-answer.php:111
+msgid "All Answers"
+msgstr "所有答案"
+
+#: ../dw-question-answer.php:112
+msgid "View Answer"
+msgstr "查看答案"
+
+#: ../dw-question-answer.php:113
+msgid "Search Answer"
+msgstr "搜索答案"
+
+#: ../dw-question-answer.php:114
+msgid "No Answers found"
+msgstr "沒有找到答案"
+
+#: ../dw-question-answer.php:115
+msgid "No Answers found in Trash"
+msgstr "沒有在回收站中找到答案"
+
+#: ../dw-question-answer.php:147
+msgctxt "taxonomy general name"
+msgid "Categories"
+msgstr "分類"
+
+#: ../dw-question-answer.php:148
+msgctxt "taxonomy singular name"
+msgid "Category"
+msgstr "分類"
+
+#: ../dw-question-answer.php:149
+msgid "Search Categories"
+msgstr "搜索分類"
+
+#: ../dw-question-answer.php:150
+msgid "All Categories"
+msgstr "所有分類"
+
+#: ../dw-question-answer.php:151
+msgid "Parent Category"
+msgstr "頂級分類"
+
+#: ../dw-question-answer.php:152
+msgid "Parent Category:"
+msgstr "頂級分類："
+
+#: ../dw-question-answer.php:153
+msgid "Edit Category"
+msgstr "編輯分類"
+
+#: ../dw-question-answer.php:154
+msgid "Update Category"
+msgstr "更新分類"
+
+#: ../dw-question-answer.php:155
+msgid "Add New Category"
+msgstr "添加新分類"
+
+#: ../dw-question-answer.php:156
+msgid "New Category Name"
+msgstr "新分類名字"
+
+#: ../dw-question-answer.php:157
+msgid "Question Categories"
+msgstr "問題分類"
+
+#: ../dw-question-answer.php:174
+msgctxt "taxonomy general name"
+msgid "Tags"
+msgstr "標籤"
+
+#: ../dw-question-answer.php:175
+msgctxt "taxonomy singular name"
+msgid "Tag"
+msgstr "標籤"
+
+#: ../dw-question-answer.php:176
+msgid "Search Tags"
+msgstr "搜索標籤"
+
+#: ../dw-question-answer.php:177
+msgid "Popular Tags"
+msgstr "熱門標籤"
+
+#: ../dw-question-answer.php:178
+msgid "All Tags"
+msgstr "搜索標籤"
+
+#: ../dw-question-answer.php:181
+msgid "Edit Tag"
+msgstr "編輯標籤"
+
+#: ../dw-question-answer.php:182
+msgid "Update Tag"
+msgstr "更新標籤"
+
+#: ../dw-question-answer.php:183
+msgid "Add New Tag"
+msgstr "添加新標籤"
+
+#: ../dw-question-answer.php:184
+msgid "New Tag Name"
+msgstr "新標籤名字"
+
+#: ../dw-question-answer.php:185
+msgid "Separate tags with commas"
+msgstr "用逗號隔開"
+
+#: ../dw-question-answer.php:186
+msgid "Add or remove tags"
+msgstr "添加或者移除標籤"
+
+#: ../dw-question-answer.php:187
+msgid "Choose from the most used tags"
+msgstr "選擇最多使用的標籤"
+
+#: ../dw-question-answer.php:188
+#: ../inc/templates/default/question-submit-form.php:36
+msgid "Question Tags"
+msgstr "問題標籤"
+
+#: ../dw-question-answer.php:233 ../dw-question-answer.php:476
+#: ../inc/filter.php:83 ../inc/templates/default/navigation-archive.php:70
+msgid "Next"
+msgstr "下一個"
+
+#: ../dw-question-answer.php:234 ../dw-question-answer.php:477
+#: ../inc/templates/default/navigation-archive.php:34
+msgid "Prev"
+msgstr "上一個"
+
+#: ../dw-question-answer.php:236 ../dw-question-answer.php:479
+msgid "Please enter your question"
+msgstr "請輸入你的問題"
+
+#: ../dw-question-answer.php:237
+msgid "Your question must be at least 2 characters in length"
+msgstr "你的問題至少需要兩個字符"
+
+#: ../dw-question-answer.php:238
+msgid "Enter a valid email address"
+msgstr "輸入正確的E-mail地址"
+
+#: ../dw-question-answer.php:239
+msgid "Enter a question title"
+msgstr "輸入一個問題的標題"
+
+#: ../dw-question-answer.php:240
+msgid "Please add your name"
+msgstr "請添加你的名字"
+
+#: ../dw-question-answer.php:241 ../dw-question-answer.php:480
+msgid "Please enter your answer"
+msgstr "請輸入你的問題"
+
+#: ../dw-question-answer.php:242 ../dw-question-answer.php:481
+#: ../inc/actions.php:970
+msgid "Please enter your comment content"
+msgstr "請輸入你的評論內容"
+
+#: ../dw-question-answer.php:243 ../dw-question-answer.php:482
+msgid "Comment must have more than 2 characters"
+msgstr "評論至少要大於2個字符"
+
+#: ../dw-question-answer.php:244
+msgid "Not found! Try another keyword."
+msgstr "沒發現！試用另一個關鍵字"
+
+#: ../dw-question-answer.php:245
+msgid "Or press <strong>ENTER</strong> to get more questions"
+msgstr "或者按下<strong>ENTER</strong>來獲取更多問題"
+
+#: ../dw-question-answer.php:246 ../dw-question-answer.php:483
+#: ../inc/actions.php:833 ../inc/actions.php:936
+msgid "Update"
+msgstr "更新"
+
+#: ../dw-question-answer.php:247 ../dw-question-answer.php:484
+#: ../dw-question-answer.php:5​​76 ../inc/settings.php:399
+#: ../inc/template-functions.php:611
+#: ../inc/templates/default/content-answer.php:36
+#: ../inc/templates/default/content-comment.php:47
+msgid "Edit"
+msgstr "編輯"
+
+#: ../dw-question-answer.php:248 ../dw-question-answer.php:485
+#: ../inc/actions.php:834 ../inc/actions.php:937
+msgid "Cancel"
+msgstr "取消"
+
+#: ../dw-question-answer.php:249 ../dw-question-answer.php:486
+msgid "Do you want to delete this comment?"
+msgstr "你想刪除這條評論嗎？"
+
+#: ../dw-question-answer.php:250 ../dw-question-answer.php:487
+msgid "Do you want to delete this answer?"
+msgstr "你想刪除這個答案嗎？"
+
+#: ../dw-question-answer.php:251
+#, fuzzy
+msgid "Do you want to update this answer?"
+msgstr "你想更新這個答案嗎？"
+
+#: ../dw-question-answer.php:252
+#, fuzzy
+msgid "Do you want to report this answer?"
+msgstr "你想報告這個答案嗎？"
+
+#: ../dw-question-answer.php:254
+msgid "Report"
+msgstr "報告"
+
+#: ../dw-question-answer.php:255
+msgid "Undo"
+msgstr "撤銷"
+
+#: ../dw-question-answer.php:256
+msgid "This answer will be marked as spam and hidden. Do you want to flag it?"
+msgstr "這個答案將會標記為垃圾信息並且隱藏。你要這樣子做嗎？"
+
+#: ../dw-question-answer.php:257
+msgid "This answer was flagged as spam. Do you want to show it"
+msgstr "這個答案已經被標記為垃圾信息，你想要顯示出來嗎？"
+
+#: ../dw-question-answer.php:258
+msgid "This answer was flagged as spam"
+msgstr "這個答案已經被標記為垃圾信息"
+
+#: ../dw-question-answer.php:259 ../dw-question-answer.php:493
+msgid "hide"
+msgstr "隱藏"
+
+#: ../dw-question-answer.php:260 ../dw-question-answer.php:494
+#: ../inc/templates/default/content-answer.php:103
+msgid "show"
+msgstr "顯示"
+
+#: ../dw-question-answer.php:262 ../inc/template-functions.php:739
+msgid "Follow This Question"
+msgstr "關注這個問題"
+
+#: ../dw-question-answer.php:263 ../inc/template-functions.php:739
+msgid "Unfollow This Question"
+msgstr "不關注這個問題"
+
+#: ../dw-question-answer.php:264
+#, fuzzy
+msgid "Pin this question to top"
+msgstr "置頂這個問題"
+
+#: ../dw-question-answer.php:265
+#, fuzzy
+msgid "Unpin this question from top"
+msgstr "不置頂這個問題到首頁"
+
+#: ../dw-question-answer.php:268
+msgid "Do you want to delete this question?"
+msgstr "你想要刪除這個問題嗎？"
+
+#: ../dw-question-answer.php:284
+msgid "DWQA Questions"
+msgstr "問答中心"
+
+#: ../dw-question-answer.php:301
+msgid "DWQA Ask Question"
+msgstr "提出問題"
+
+#: ../dw-question-answer.php:396
+#, php-format
+msgid "%s second"
+msgid_plural "%s seconds"
+msgstr[0] "%s 秒"
+msgstr[1] "%s 秒"
+
+#. translators: min=minute
+#: ../dw-question-answer.php:405
+#, php-format
+msgid "about %s min"
+msgid_plural "%s mins"
+msgstr[0] "大約 %s 分"
+msgstr[1] "%s 分"
+
+#: ../dw-question-answer.php:411
+#, php-format
+msgid "about %s hour"
+msgid_plural "%s hours"
+msgstr[0] "大約 %s 小時"
+msgstr[1] "%s 小時"
+
+#: ../dw-question-answer.php:417
+#, php-format
+msgid "%s day"
+msgid_plural "%s days"
+msgstr[0] "%s 天"
+msgstr[1] "%s 天"
+
+#: ../dw-question-answer.php:421
+#, php-format
+msgid "%1$s ago"
+msgstr "%1$s 之前"
+
+#: ../dw-question-answer.php:489 ../inc/templates/default/content-answer.php:41
+msgid "Flag"
+msgstr "標記"
+
+#: ../dw-question-answer.php:490 ../inc/templates/default/content-answer.php:41
+msgid "Unflag"
+msgstr "不標記"
+
+#: ../dw-question-answer.php:491
+#, fuzzy
+msgid ""
+"This answer will be hidden when flagged. Are you sure you want to flag it?"
+msgstr "當標記這個答案時，它將會被刪除。你確定要這麼做嗎？"
+
+#: ../dw-question-answer.php:492
+#, fuzzy
+msgid "This answer was flagged as spam. Do you want to show it?"
+msgstr "這個答案已經被標記為垃圾信息，你想要顯示出來嗎？"
+
+#: ../dw-question-answer.php:5​​35 ../inc/class-answers-list-table.php:81
+msgid "Author"
+msgstr "作者"
+
+#: ../dw-question-answer.php:5​​37
+msgid "In Response To"
+msgstr "相應"
+
+#: ../dw-question-answer.php:5​​41
+msgid "Info"
+msgstr "信息"
+
+#: ../dw-question-answer.php:5​​77 ../inc/settings.php:400
+#: ../inc/template-functions.php:614
+#: ../inc/templates/default/content-answer.php:39
+#: ../inc/templates/default/content-comment.php:5​​0
+msgid "Delete"
+msgstr "刪除"
+
+#: ../dw-question-answer.php:5​​78
+#: ../inc/templates/default/question-list.php:108
+msgid "View"
+msgstr "瀏覽"
+
+#: ../dw-question-answer.php:5​​82
+msgid "Submitted"
+msgstr "提交"
+
+#: ../dw-question-answer.php:5​​83
+msgid "on"
+msgstr "在"
+
+#: ../dw-question-answer.php:610
+#, fuzzy
+msgid "Reset all changes to default"
+msgstr "重置所有改變為默認"
+
+#: ../dw-question-answer.php:624
+msgid "answered"
+msgstr "回答"
+
+#: ../dw-question-answer.php:625
+msgid "voted"
+msgstr "投票"
+
+#: ../dw-question-answer.php:626
+msgid "views"
+msgstr "瀏覽數"
+
+#: ../dw-question-answer.php:734 ../inc/shortcodes.php:124
+#: ../inc/widgets/latest-question.php:40
+#: ../inc/widgets/list-closed-question.php:48
+#: ../inc/widgets/popular-question.php:40
+msgid "asked by"
+msgstr "提問人"
+
+#: ../inc/actions-question.php:14 ../inc/actions.php:1670
+#: ../inc/class-answers-list-table.php:92 ../inc/notification.php:146
+#: ../inc/notification.php:148 ../inc/settings.php:416 ../inc/settings.php:452
+#: ../inc/settings.php:487 ../inc/templates/default/content-answer.php:83
+#: ../inc/templates/default/content-comment.php:15
+#: ../inc/templates/default/single-question.php:24
+#: ../inc/widgets/latest-question.php:40
+msgid "Anonymous"
+msgstr "匿名用戶"
+
+#: ../inc/actions-question.php:20
+#, php-format
+msgid "Posts by %s"
+msgstr "發表人：%s"
+
+#: ../inc/actions-question.php:28
+#, php-format
+msgid "%s answered <span class=\"dwqa-date\">%s</span>"
+msgstr ""
+
+#: ../inc/actions-question.php:30
+#, php-format
+msgid "%s asked <span class=\"dwqa-date\">%s</span>"
+msgstr ""
+
+#: ../inc/actions-vote.php:6
+msgid "Are you cheating, huh?"
+msgstr "你被騙了，呵呵"
+
+#: ../inc/actions-vote.php:19
+msgid "What "
+msgstr "What "
+
+#: ../inc/actions-vote.php:47
+msgid "You voted for this "
+msgstr "你贊成這個"
+
+#: ../inc/actions.php:5​​0
+msgid "Delete draft"
+msgstr "刪除草稿"
+
+#: ../inc/actions.php:80
+msgid "Answer for "
+msgstr "回答"
+
+#: ../inc/actions.php:94 ../inc/template-functions.php:217
+msgid "Save draft"
+msgstr "保存草稿"
+
+#: ../inc/actions.php:108 ../inc/actions.php:415 ../inc/shortcodes.php:84
+msgid "You do not have permission to submit question."
+msgstr "你沒有權限來提交問題"
+
+#: ../inc/actions.php:134 ../inc/actions.php:427
+msgid "Captcha is not correct"
+msgstr "驗證碼不正確"
+
+#: ../inc/actions.php:141
+#, fuzzy
+msgid "Answer is missing"
+msgstr "回答這個問題"
+
+#: ../inc/actions.php:152 ../inc/actions.php:258
+#, fuzzy
+msgid "You do not have permission to edit this post"
+msgstr "你沒有權限刪除這個問題"
+
+#: ../inc/actions.php:157 ../inc/actions.php:263
+#, fuzzy
+msgid "This post is not an answer"
+msgstr "這是最好的答案"
+
+#: ../inc/actions.php:245 ../inc/actions.php:430 ../inc/actions.php:651
+#: ../inc/actions.php:673 ../inc/actions.php:691 ../inc/actions.php:1401
+#: ../inc/filter.php:425 ../inc/status.php:287
+msgid "Are you cheating huh?"
+msgstr "Are you cheating huh?"
+
+#: ../inc/actions.php:250
+msgid "Missing answer ID"
+msgstr "消失的答案編號"
+
+#: ../inc/actions.php:371
+msgid "User Registration was disabled."
+msgstr "未開放註冊用戶"
+
+#: ../inc/actions.php:374
+msgid "This email is already registered, please choose another one."
+msgstr "這個郵箱已經被註冊，請選擇另一個"
+
+#: ../inc/actions.php:377
+#, fuzzy
+msgid "This username is already registered. Please use another one."
+msgstr "這個用戶名字已經被註冊，請選擇另一個"
+
+#: ../inc/actions.php:5​​77
+#, fuzzy
+msgid "You do not have permission to edit question status"
+msgstr "你沒有權限查看問題"
+
+#: ../inc/actions.php:644
+msgid "Comment is missing"
+msgstr ""
+
+#: ../inc/actions.php:654
+msgid "Comment content must not be empty."
+msgstr "評論內容必須不為空"
+
+#: ../inc/actions.php:678
+#, fuzzy
+msgid "Comment ID must be showed."
+msgstr "評論編號必須顯示"
+
+#: ../inc/actions.php:694
+msgid "Missing id of answer"
+msgstr "消失的答案編號"
+
+#: ../inc/actions.php:837 ../inc/actions.php:940
+msgid "Publish"
+msgstr "發布"
+
+#: ../inc/actions.php:844 ../inc/actions.php:852
+#: ../inc/template-functions.php:224 ../inc/template-functions.php:232
+#: ../inc/template-functions.php:637 ../inc/template-functions.php:645
+#: ../inc/template-functions.php:651
+#: ../inc/templates/default/content-answer.php:5​​5
+#: ../inc/templates/default/content-answer.php:63
+#: ../inc/templates/default/content-answer.php:69
+msgid "Private"
+msgstr "私人的"
+
+#: ../inc/actions.php:844 ../inc/actions.php:851
+#: ../inc/template-functions.php:224 ../inc/template-functions.php:231
+#: ../inc/template-functions.php:637 ../inc/template-functions.php:644
+#: ../inc/template-functions.php:651
+#: ../inc/templates/default/content-answer.php:5​​5
+#: ../inc/templates/default/content-answer.php:62
+#: ../inc/templates/default/content-answer.php:69
+msgid "Public"
+msgstr "發布"
+
+#: ../inc/actions.php:851 ../inc/template-functions.php:231
+#: ../inc/template-functions.php:644
+#: ../inc/templates/default/content-answer.php:62
+msgid "Everyone can see"
+msgstr "任何人都能看"
+
+#: ../inc/actions.php:852 ../inc/template-functions.php:232
+#: ../inc/template-functions.php:645
+#: ../inc/templates/default/content-answer.php:63
+msgid "Only Author and Administrator can see"
+msgstr "只要作者和管理員能看"
+
+#: ../inc/actions.php:869 ../inc/actions.php:1596
+msgid "Hello, Are you cheating huh?"
+msgstr "你好，你是作弊嗎？"
+
+#: ../inc/actions.php:877
+msgid "The question is missing"
+msgstr ""
+
+#: ../inc/actions.php:884 ../inc/status.php:318
+#, fuzzy
+msgid "You do not have permission to edit question"
+msgstr "你沒有權限來提交問題"
+
+#: ../inc/actions.php:965
+msgid "You can't post comment"
+msgstr "你不能發表評論"
+
+#: ../inc/actions.php:984
+#, fuzzy
+msgid "Missing email information"
+msgstr "差郵箱信息"
+
+#: ../inc/actions.php:989
+#, fuzzy
+msgid "Missing name information"
+msgstr "差名字信息"
+
+#: ../inc/actions.php:1251
+#, fuzzy
+msgid "Choose as the best answer"
+msgstr "選為最好答案"
+
+#: ../inc/actions.php:1447 ../inc/actions.php:1471
+msgid "Invalid Post"
+msgstr "無效的內容"
+
+#: ../inc/actions.php:1566
+msgid "Sticky Questions"
+msgstr "置頂問答"
+
+#: ../inc/actions.php:1602
+msgid "Question is not valid"
+msgstr "問題是無效"
+
+#: ../inc/actions.php:1623
+msgid "Delete Action was failed"
+msgstr "刪除動作失敗"
+
+#: ../inc/actions.php:1628
+msgid "You do not have permission to delete this question"
+msgstr "你沒有權限刪除這個問題"
+
+#: ../inc/class-answers-list-table.php:82
+msgid "Detail"
+msgstr "數據"
+
+#: ../inc/class-answers-list-table.php:101
+msgid "Answered on "
+msgstr "回答了"
+
+#: ../inc/class-answers-list-table.php:112 ../inc/contextual-helper.php:201
+msgid "Read more"
+msgstr "閱讀更多"
+
+#: ../inc/class-walker-category.php:20 ../inc/class-walker-tag-dropdown.php:19
+#, php-format
+msgid "View all posts filed under %s"
+msgstr "查看 %s 下的所有文章"
+
+#: ../inc/class-walker-category.php:35 ../inc/class-walker-tag-dropdown.php:34
+#, php-format
+msgid "Feed for all posts filed under %s"
+msgstr "訂閱 %s 下的所有文章"
+
+#: ../inc/contextual-helper.php:47
+msgid "Overview"
+msgstr "預覽"
+
+#: ../inc/contextual-helper.php:48
+msgid "DW Question Answer Plugin"
+msgstr "DW問答插件"
+
+#: ../inc/contextual-helper.php:49
+msgid ""
+"DW Question Answer is a WordPress Plugin which helps you build a Question & "
+"Answer system on your WordPress sites. The plugin is easy to install and set "
+"up. Let start building up your community with this WordPress question & "
+"answer system."
+msgstr ""
+"DW問答是一個幫助你在wordpress上建立一個問答系統的插件。這個插件容易安裝和設"
+"計。讓我們開始使用這個wordpress問答系統建立你的社區吧。"
+
+#: ../inc/contextual-helper.php:5​​2
+msgid "Setup Question List Page"
+msgstr "設置問題列表頁"
+
+#: ../inc/contextual-helper.php:5​​6
+msgid "Setup Ask Question Page"
+msgstr "設置提問也"
+
+#: ../inc/contextual-helper.php:60
+msgid "Shortcode"
+msgstr "短代碼"
+
+#: ../inc/contextual-helper.php:64
+msgid "Style integration"
+msgstr "集成式"
+
+#: ../inc/contextual-helper.php:221
+msgid "For more information:"
+msgstr "欲了解更多信息："
+
+#: ../inc/contextual-helper.php:222
+msgid "DW Question Answer Guide"
+msgstr "DW問答指南"
+
+#: ../inc/contextual-helper.php:223
+msgid "Community"
+msgstr "社區"
+
+#: ../inc/contextual-helper.php:224
+msgid "DesignWall Wordpress Themes"
+msgstr "DesignWall Wordpress主題"
+
+#: ../inc/contextual-helper.php:225
+msgid "DesignWall Wordpress Plugins"
+msgstr "DesignWall Wordpress插件"
+
+#: ../inc/filter.php:100
+#: ../inc/templates/default/archive-question-notfound.php:5
+msgid "You do not have permission to view questions"
+msgstr "你沒有權限查看問題"
+
+#: ../inc/filter.php:103
+msgid "Sorry, but nothing matched your filter. "
+msgstr "抱歉，沒有符合你的問題"
+
+#: ../inc/filter.php:111
+msgid "You can ask question"
+msgstr "你可以提問"
+
+#: ../inc/filter.php:113
+msgid "here"
+msgstr "這裡"
+
+#: ../inc/filter.php:119
+#: ../inc/templates/default/archive-question-notfound.php:22
+msgid "Please"
+msgstr "請"
+
+#: ../inc/filter.php:121
+#: ../inc/templates/default/archive-question-notfound.php:24
+msgid "Login"
+msgstr "登錄"
+
+#: ../inc/filter.php:125
+#: ../inc/templates/default/archive-question-notfound.php:25
+msgid " or"
+msgstr "或者"
+
+#: ../inc/filter.php:127
+#: ../inc/templates/default/archive-question-notfound.php:26
+msgid " to submit question."
+msgstr "提交問題。"
+
+#: ../inc/filter.php:433
+#, fuzzy
+msgid "Search query is empty"
+msgstr "搜索查詢是空的"
+
+#: ../inc/metaboxes.php:5
+msgid "Answers"
+msgstr "答案"
+
+#: ../inc/metaboxes.php:29
+msgid "Question Meta Data"
+msgstr "問題元數據"
+
+#: ../inc/metaboxes.php:44
+msgid "Status"
+msgstr "狀態"
+
+#: ../inc/metaboxes.php:46 ../inc/status.php:278
+#: ../inc/templates/default/question-list.php:17
+msgid "Open"
+msgstr "開放"
+
+#: ../inc/metaboxes.php:47 ../inc/status.php:265
+#: ../inc/template-functions.php:693
+#: ../inc/templates/default/content-question.php:6
+msgid "Pending"
+msgstr "有待解決"
+
+#: ../inc/metaboxes.php:48 ../inc/status.php:262
+#: ../inc/template-functions.php:698
+#: ../inc/templates/default/question-list.php:23
+msgid "Resolved"
+msgstr "已解決"
+
+#: ../inc/metaboxes.php:49 ../inc/status.php:268
+#: ../inc/template-functions.php:683
+msgid "Re-Open"
+msgstr "重新開放"
+
+#: ../inc/metaboxes.php:5​​0 ../inc/status.php:271
+#: ../inc/template-functions.php:688
+#: ../inc/templates/default/question-list.php:26
+msgid "Closed"
+msgstr "關閉"
+
+#: ../inc/metaboxes.php:5​​6
+msgid "Sticky"
+msgstr "置頂"
+
+#: ../inc/metaboxes.php:60
+#, fuzzy
+msgid "Pin question to top of archive page."
+msgstr "在存檔頁面頂部置頂"
+
+#: ../inc/notification.php:27
+msgid "A new question was posted on {site_name}"
+msgstr "一個新的問題發表在{site_name}"
+
+#: ../inc/notification.php:118
+msgid "A new answer for \"{question_title}\" was posted on {site_name}"
+msgstr "一個新答案是\"{question_title}\" 發表在{site_name}"
+
+#: ../inc/notification.php:186
+#, fuzzy
+msgid "You have a new answer for your followed question"
+msgstr "你關注的問題有了新答案"
+
+#: ../inc/notification.php:282 ../inc/notification.php:328
+msgid "[{site_name}] You have a new comment for question {question_title}"
+msgstr "[{site_name}]你有一個新的評論在問題{question_title}"
+
+#: ../inc/notification.php:287 ../inc/notification.php:333
+msgid "[{site_name}] You have a new comment for answer"
+msgstr "[{site_name}]在答案中你有一個新的評論"
+
+#: ../inc/pointer-helper.php:5​​7
+msgid "How to use DW Question Answer"
+msgstr "如何使用DW問答"
+
+#: ../inc/pointer-helper.php:5​​8
+msgid "Documents, Support From DesignWall (help)"
+msgstr "文檔，來自DesignWall"
+
+#: ../inc/pointer-helper.php:67
+msgid "Config your support channel"
+msgstr "配置你的支持通道"
+
+#: ../inc/pointer-helper.php:68
+#, fuzzy
+msgid "Change comment settings, and create the Submit question page."
+msgstr "改變評論設置，並且創建問題頁"
+
+#: ../inc/settings.php:9
+#, fuzzy
+msgid "Login required. No anonymous post allowed"
+msgstr "不允許匿名用戶，必須登錄"
+
+#: ../inc/settings.php:21
+msgid "Select Archive Question Page"
+msgstr "選擇問題頁面存檔"
+
+#: ../inc/settings.php:25
+msgid "A page where displays all questions"
+msgstr "一個顯示所有問題的頁面"
+
+#: ../inc/settings.php:32
+msgid "hours"
+msgstr "小時"
+
+#: ../inc/settings.php:32
+msgid ""
+"A period of time in which new questions are highlighted and marked as New"
+msgstr "一個時期以來中的新問題被突出顯示，並標記為最新"
+
+#: ../inc/settings.php:37
+msgid "days"
+msgstr "天"
+
+#: ../inc/settings.php:37
+#, fuzzy
+msgid ""
+"A Question will be marked as overdue if it passes this period of time, "
+"starting from the time the question was submitted"
+msgstr "從一個問題提交之日開始，如果過了一段時間，它將會標記為過期"
+
+#: ../inc/settings.php:48
+msgid "Select Submit Question Page"
+msgstr "選擇一個提問頁"
+
+#: ../inc/settings.php:5​​3
+msgid "A page where users can submit questions."
+msgstr "一個用戶可以提問題的頁面"
+
+#: ../inc/settings.php:66
+msgid "Select 404 DWQA Page"
+msgstr ""
+
+#: ../inc/settings.php:71
+msgid ""
+"This page will be redirected when users without authority click on a private "
+"question. You can customize the message of this page in.If not, a default "
+"404 page will be used."
+msgstr ""
+
+#: ../inc/settings.php:87
+msgid "Upload"
+msgstr "上傳"
+
+#: ../inc/settings.php:87
+msgid "Upload or choose a logo to be displayed at the top of the email"
+msgstr "上傳或者選擇一個logo來顯示在郵件的頂部"
+
+#: ../inc/settings.php:126
+msgid "Enable notification for new question"
+msgstr "啟用通知新問題"
+
+#: ../inc/settings.php:131 ../inc/settings.php:165 ../inc/settings.php:200
+#: ../inc/settings.php:235 ../inc/settings.php:270 ../inc/settings.php:305
+#: ../inc/settings.php:340
+msgid "Email subject"
+msgstr "郵件主題"
+
+#: ../inc/settings.php:136 ../inc/settings.php:170 ../inc/settings.php:205
+#: ../inc/settings.php:240 ../inc/settings.php:275 ../inc/settings.php:310
+#: ../inc/settings.php:345
+msgid "Email Content"
+msgstr "郵件內容"
+
+#: ../inc/settings.php:160
+msgid "Enable notification for new answer"
+msgstr "啟用通知信的答案"
+
+#: ../inc/settings.php:195
+#, fuzzy
+msgid "Enable notification for new answer (to Followers )"
+msgstr "啟用通知信的答案給關注用戶"
+
+#: ../inc/settings.php:230 ../inc/settings.php:265
+msgid "Enable notification for new comment of question"
+msgstr "啟用通知新的問題評論"
+
+#: ../inc/settings.php:300 ../inc/settings.php:335
+msgid "Enable notification for new comment of answer"
+msgstr "啟用通知新的答案評論"
+
+#: ../inc/settings.php:397
+msgid "Read"
+msgstr "閱讀"
+
+#: ../inc/settings.php:398
+msgid "Post"
+msgstr "發表"
+
+#: ../inc/settings.php:426 ../inc/settings.php:462 ../inc/settings.php:497
+msgid "Reset Default"
+msgstr "重置為默認"
+
+#: ../inc/settings.php:464
+msgid "Comment"
+msgstr "評論"
+
+#: ../inc/settings.php:5​​06
+msgid "Enable/Disable captcha on submit question page"
+msgstr "啟用/禁用驗證碼在提交問題頁"
+
+#: ../inc/settings.php:5​​12
+msgid "Enable/Disable captcha on single question page"
+msgstr "啟用/禁用驗證碼在問題頁面"
+
+#: ../inc/settings.php:5​​30
+msgid "questions"
+msgstr "問題"
+
+#: ../inc/settings.php:5​​36
+msgid "Allow members to post private question"
+msgstr "允許會員發表私有問題"
+
+#: ../inc/settings.php:5​​42
+msgid "Question must be manually approved"
+msgstr ""
+
+#: ../inc/settings.php:5​​53
+#, fuzzy
+msgid "Select template for Single Quesiton page"
+msgstr "選擇問題頁面存檔"
+
+#: ../inc/settings.php:5​​59
+msgid ""
+"By default, your single.php template file will be used if you do not choose "
+"any template"
+msgstr ""
+
+#: ../inc/settings.php:641
+msgid "Plugin Settings"
+msgstr "插件設置"
+
+#: ../inc/settings.php:641
+msgid "Settings"
+msgstr "設置"
+
+#: ../inc/settings.php:667
+msgid "Question List Page"
+msgstr "問題列表頁"
+
+#: ../inc/settings.php:675
+msgid "Archive page show at most"
+msgstr "存檔頁面顯示最多"
+
+#: ../inc/settings.php:683
+msgid "Ask Question Page"
+msgstr "提出問題頁"
+
+#: ../inc/settings.php:690
+msgid "Private Question"
+msgstr "私人問題"
+
+#: ../inc/settings.php:697
+#, fuzzy
+msgid "Review Question"
+msgstr "查看問題"
+
+#: ../inc/settings.php:705
+msgid "DWQA 404 Page"
+msgstr ""
+
+#: ../inc/settings.php:713
+#, fuzzy
+msgid "Single Question Template"
+msgstr "問題內容頁"
+
+#: ../inc/settings.php:722
+msgid "Time settings"
+msgstr "時間設置"
+
+#: ../inc/settings.php:729
+msgid "New Question Time Frame"
+msgstr "新問題時限"
+
+#: ../inc/settings.php:737
+msgid "Question Overdue - Time Frame"
+msgstr "逾期問題 - 時限"
+
+#: ../inc/settings.php:747
+msgid "Captcha settings"
+msgstr "驗證碼設置"
+
+#: ../inc/settings.php:754
+#, fuzzy
+msgid "Captcha on Submit Question Page"
+msgstr "提交問題頁驗證碼"
+
+#: ../inc/settings.php:762
+#, fuzzy
+msgid "Captcha on Single Question Page"
+msgstr "問題內容頁驗證碼"
+
+#: ../inc/settings.php:770
+msgid "Google Captcha Public Key"
+msgstr "谷歌驗證碼公鑰"
+
+#: ../inc/settings.php:778
+msgid "Google Captcha Private Key"
+msgstr "谷歌驗證碼私鑰"
+
+#: ../inc/settings.php:788
+msgid "Permalink Settings"
+msgstr "固定連接設置"
+
+#: ../inc/settings.php:795
+msgid "Single Question"
+msgstr "問題內容頁"
+
+#: ../inc/settings.php:803
+msgid "Single Category"
+msgstr "內容分類"
+
+#: ../inc/settings.php:811
+msgid "Single Tag"
+msgstr "內容標籤"
+
+#: ../inc/settings.php:860
+msgid "From Email"
+msgstr "來自郵箱"
+
+#: ../inc/settings.php:924 ../inc/settings.php:931
+msgid "Group Permission"
+msgstr "用戶組權限"
+
+#: ../inc/settings.php:944
+msgid "DWQA Settings"
+msgstr "DWQA設置"
+
+#: ../inc/settings.php:948
+msgid "General"
+msgstr "一般"
+
+#: ../inc/settings.php:949
+msgid "Notification"
+msgstr "通知"
+
+#: ../inc/settings.php:950
+msgid "Permission"
+msgstr "權限"
+
+#: ../inc/settings.php:957
+msgid "Email setup"
+msgstr "郵件設置"
+
+#: ../inc/settings.php:961
+msgid "Email Logo"
+msgstr "郵件Logo"
+
+#: ../inc/settings.php:973
+msgid "New Comment to Question"
+msgstr "問題新的評論"
+
+#: ../inc/settings.php:974
+msgid "New Comment to Answer"
+msgstr "答案新評論"
+
+#: ../inc/settings.php:975
+#, fuzzy
+msgid "New Answer (to Followers )"
+msgstr "新的答案"
+
+#: ../inc/settings.php:976
+#, fuzzy
+msgid "New Comment to Question (to Followers )"
+msgstr "問題新的評論"
+
+#: ../inc/settings.php:977
+#, fuzzy
+msgid "New Comment to Answer (to Followers )"
+msgstr "答案新的評論（到關注者）"
+
+#: ../inc/settings.php:984
+msgid "New Question Notification"
+msgstr "新的問題通知"
+
+#: ../inc/settings.php:991 ../inc/settings.php:1000 ../inc/settings.php:1009
+#: ../inc/settings.php:1018 ../inc/settings.php:1028 ../inc/settings.php:1036
+#: ../inc/settings.php:1046
+msgid "Save all changes"
+msgstr "保存所有修改"
+
+#: ../inc/settings.php:996
+msgid "New Answer Notification"
+msgstr "新的答案通知"
+
+#: ../inc/settings.php:1005
+#, fuzzy
+msgid "New Answer Notification (to Followers )"
+msgstr "新的答案通知（到關注者）"
+
+#: ../inc/settings.php:1014
+msgid "New Comment to Question Notification"
+msgstr "新評論到問題通知"
+
+#: ../inc/settings.php:1024
+msgid "New Comment to Answer Notification"
+msgstr "新評論到答案通知"
+
+#: ../inc/settings.php:1032
+#, fuzzy
+msgid "New Comment to Question Notification (to Followers )"
+msgstr "新的評論到問題通知（到關注者）"
+
+#: ../inc/settings.php:1042
+#, fuzzy
+msgid "New Comment to Answer Notification (to Followers )"
+msgstr "新的評論到答案通知（到關注者）"
+
+#: ../inc/settings.php:1071
+msgid "Send to"
+msgstr "發送到"
+
+#: ../inc/settings.php:1076
+msgid "Cc"
+msgstr "Cc"
+
+#: ../inc/settings.php:1081
+msgid "Bcc"
+msgstr "Bcc"
+
+#: ../inc/settings.php:1086
+msgid "This address will be used as the sender of the outgoing emails."
+msgstr "該地址將被用作外發電子郵件的發送者。"
+
+#: ../inc/settings.php:1092
+msgid "Send A Copy Of Every Email To Admin"
+msgstr "發送抄送每份郵件給管理員"
+
+#: ../inc/shortcodes.php:101 ../inc/widgets/popular-question.php:18
+msgid "Popular Questions"
+msgstr "熱門問題"
+
+#: ../inc/shortcodes.php:138
+msgid "Latest Answers"
+msgstr "最近問題"
+
+#: ../inc/shortcodes.php:164
+msgid "Answer at"
+msgstr "回答在"
+
+#: ../inc/shortcodes.php:164 ../inc/templates/default/single-question.php:38
+msgid "Link to"
+msgstr "鏈接到"
+
+#: ../inc/shortcodes.php:192
+#, fuzzy
+msgid "% person who is following this question"
+msgid_plural "% people who are following this question"
+msgstr[0] "關注這個問題的人"
+msgstr[1] "關注這個問題的人"
+
+#: ../inc/status.php:274
+msgid "New"
+msgstr "新"
+
+#: ../inc/status.php:292
+msgid "Missing post ID"
+msgstr "丟失了文章編號"
+
+#: ../inc/status.php:308
+msgid "Post does not exist"
+msgstr "文章不存在"
+
+#: ../inc/status.php:313
+msgid "Invalid post status"
+msgstr "無效文章狀態"
+
+#: ../inc/template-functions.php:90
+msgid "You need an account to submit question and get answers. Create one:"
+msgstr "你需要一個賬號來提交問題和得到答案。創建一個："
+
+#: ../inc/template-functions.php:92 ../inc/template-functions.php:129
+msgid "Type your email"
+msgstr "輸入你的郵箱"
+
+#: ../inc/template-functions.php:97
+msgid "Already a member?"
+msgstr "已經是會員？"
+
+#: ../inc/template-functions.php:97
+msgid "Log In"
+msgstr "登陸"
+
+#: ../inc/template-functions.php:101
+msgid "Login to submit your question"
+msgstr "登陸提交你的問題"
+
+#: ../inc/template-functions.php:103
+#, fuzzy
+msgid "Type your username"
+msgstr "輸入你的郵箱"
+
+#: ../inc/template-functions.php:106
+#, fuzzy
+msgid "Type your password"
+msgstr "輸入你的郵箱"
+
+#: ../inc/template-functions.php:108
+msgid "Not yet a member?"
+msgstr "還不是會員？"
+
+#: ../inc/template-functions.php:108 ../inc/templates/default/answers.php:109
+msgid "Register"
+msgstr "註冊"
+
+#: ../inc/template-functions.php:112
+msgid ""
+"Enter your email to receive notification regarding your question. Your email "
+"is safe with us and will not be published."
+msgstr ""
+
+#: ../inc/template-functions.php:112
+#, fuzzy
+msgid "Your email *"
+msgstr "輸入你的郵箱"
+
+#: ../inc/template-functions.php:113
+msgid "Email address ..."
+msgstr ""
+
+#: ../inc/template-functions.php:114
+#, php-format
+msgid "or <strong><a href=\"%s\">login</a></strong> to submit question"
+msgstr ""
+
+#: ../inc/template-functions.php:141
+#, php-format
+msgid "Private: %s"
+msgstr "私人：%s"
+
+#: ../inc/template-functions.php:176
+msgid "Answer this Question"
+msgstr "回答這個問題"
+
+#: ../inc/template-functions.php:214
+msgid "Add answer"
+msgstr "添加答案"
+
+#: ../inc/template-functions.php:273
+#, fuzzy
+msgid "You do not have permission to submit a question"
+msgstr "你沒有權限來提交問題"
+
+#: ../inc/template-functions.php:356
+msgid "Email"
+msgstr "郵箱"
+
+#: ../inc/template-functions.php:360
+#, php-format
+msgid "Required fields are marked %s"
+msgstr "必填項標記為%s"
+
+#: ../inc/template-functions.php:372
+msgctxt "noun"
+msgid "Comment"
+msgstr "評論"
+
+#: ../inc/template-functions.php:373
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr "你必須<a href=\"%s\">登陸</a> 來發表評論."
+
+#: ../inc/template-functions.php:374
+#, php-format
+msgid ""
+"Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of "
+"this account\">Log out?</a>"
+msgstr ""
+"以<a href=\"%1$s\">%2$s</a>登陸. <a href=\"%3$s\" title=\"退出這個賬號\">退"
+"出?</a>"
+
+#: ../inc/template-functions.php:375
+msgid "Your email address will not be published."
+msgstr "你的郵箱地址將不會被公開"
+
+#: ../inc/template-functions.php:376
+#, php-format
+msgid ""
+"You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
+"and attributes: %s"
+msgstr ""
+"你可以使用這些<abbr title=\"HyperText Markup Language\">HTML</abbr>標籤和屬"
+"性: %s"
+
+#: ../inc/template-functions.php:379
+msgid "Leave a Reply"
+msgstr "留下回复"
+
+#: ../inc/template-functions.php:380
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr "在%s上留下回复"
+
+#: ../inc/template-functions.php:381
+msgid "Cancel reply"
+msgstr "取消回复"
+
+#: ../inc/template-functions.php:382
+msgid "Post Comment"
+msgstr "發表評論"
+
+#: ../inc/template-functions.php:5​​61
+msgid "Sticky Question"
+msgstr "置頂問題"
+
+#: ../inc/template-functions.php:5​​75
+msgid "Ask a question"
+msgstr "問一個問題"
+
+#: ../inc/template-functions.php:5​​77
+#, fuzzy
+msgid "Login to ask a question"
+msgstr "登陸提交你的問題"
+
+#: ../inc/template-functions.php:719
+#: ../inc/templates/default/content-answer.php:19
+msgid "Vote Up"
+msgstr "支持"
+
+#: ../inc/template-functions.php:721
+#: ../inc/templates/default/content-answer.php:21
+msgid "Vote Down"
+msgstr "反對"
+
+#: ../inc/template-functions.php:732
+msgid "All questions from"
+msgstr "所有問題來自"
+
+#: ../inc/template-functions.php:740
+msgid "follow"
+msgstr ""
+
+#: ../inc/template-functions.php:741
+msgid "following"
+msgstr ""
+
+#: ../inc/template-functions.php:742
+msgid "unfollow"
+msgstr ""
+
+#: ../inc/template-functions.php:747
+#, fuzzy
+msgid "Unpin this Question from the top"
+msgstr "不置頂這個問題到首頁"
+
+#: ../inc/template-functions.php:747
+#, fuzzy
+msgid "Pin this Question to top"
+msgstr "置頂這個問題"
+
+#: ../inc/templates/default/answers.php:42
+#: ../inc/templates/default/content-question.php:38
+#: ../inc/templates/default/content-question.php:41
+msgid "answer"
+msgid_plural "answers"
+msgstr[0] "答案"
+msgstr[1] "答案"
+
+#: ../inc/templates/default/answers.php:90
+msgid "You do not have permission to view answers"
+msgstr "你沒有權限訪問答案"
+
+#: ../inc/templates/default/answers.php:97
+#, fuzzy
+msgid "This question is now closed"
+msgstr "這個問題已經關閉"
+
+#: ../inc/templates/default/answers.php:105
+msgid "You do not have permission to submit answer."
+msgstr "你沒有權限提交答案"
+
+#: ../inc/templates/default/answers.php:109
+msgid "Please login or"
+msgstr "請登錄或者"
+
+#: ../inc/templates/default/answers.php:109
+msgid "to Submit Answer"
+msgstr "來提交答案"
+
+#: ../inc/templates/default/archive-question-notfound.php:14
+msgid "Sorry, but nothing matched your filter."
+msgstr "抱歉，沒有符合你的內容"
+
+#: ../inc/templates/default/comments.php:16
+msgid "View previous comments"
+msgstr "查看上一個評論"
+
+#: ../inc/templates/default/comments.php:17
+msgid "of"
+msgstr "of"
+
+#: ../inc/templates/default/comments.php:36
+msgid "Write a reply..."
+msgstr "發表回复…"
+
+#: ../inc/templates/default/content-answer.php:79
+#: ../inc/templates/default/content-comment.php:12
+msgid "Staff"
+msgstr "管理員"
+
+#: ../inc/templates/default/content-answer.php:88
+msgid "Link to answer"
+msgstr "答案固定鏈接"
+
+#: ../inc/templates/default/content-answer.php:92
+msgid "Draft"
+msgstr "草稿"
+
+#: ../inc/templates/default/content-answer.php:102
+msgid "This answer was flagged as spam."
+msgstr "這個答案被標記為垃圾信息"
+
+#: ../inc/templates/default/content-answer.php:117
+msgid "This is the best answer"
+msgstr "這是最好的答案"
+
+#: ../inc/templates/default/content-answer.php:121
+msgid "The answer link"
+msgstr "答案鏈接"
+
+#: ../inc/templates/default/content-comment.php:10
+msgid "Post by"
+msgstr "發表"
+
+#: ../inc/templates/default/content-comment.php:24
+msgid "Link to comment"
+msgstr "評論鏈接"
+
+#: ../inc/templates/default/content-question.php:10
+#, php-format
+msgid "Permalink to %s"
+msgstr "%s 的固定鏈接"
+
+#: ../inc/templates/default/content-question.php:14
+msgid "Category"
+msgstr "分類"
+
+#: ../inc/templates/default/content-question.php:25
+#: ../inc/templates/default/content-question.php:28
+msgid "view"
+msgid_plural "views"
+msgstr[0] "瀏覽數"
+msgstr[1] "瀏覽數"
+
+#: ../inc/templates/default/content-question.php:5​​1
+#: ../inc/templates/default/content-question.php:5​​4
+msgid "vote"
+msgid_plural "votes"
+msgstr[0] "投票"
+msgstr[1] "投票"
+
+#: ../inc/templates/default/question-list.php:11
+msgid "Status:"
+msgstr "狀態:"
+
+#: ../inc/templates/default/question-list.php:13
+#: ../inc/templates/default/question-list.php:66
+msgid "All"
+msgstr "所有"
+
+#: ../inc/templates/default/question-list.php:17
+msgid "Need Answer"
+msgstr "需要回答"
+
+#: ../inc/templates/default/question-list.php:20
+msgid "Answered"
+msgstr "已解答"
+
+#: ../inc/templates/default/question-list.php:29
+msgid "Overdue"
+msgstr "已過期"
+
+#: ../inc/templates/default/question-list.php:30
+msgid "Queue"
+msgstr "等待回答"
+
+#: ../inc/templates/default/question-list.php:5​​4
+msgid "Select a category"
+msgstr "選擇一個分類"
+
+#: ../inc/templates/default/question-list.php:67
+msgid "Empty"
+msgstr "空白"
+
+#: ../inc/templates/default/question-list.php:114
+msgid "Vote"
+msgstr "投票"
+
+#: ../inc/templates/default/question-submit-form.php:22
+msgid "Question Category"
+msgstr "問題分類"
+
+#: ../inc/templates/default/question-submit-form.php:28
+msgid "Select question category"
+msgstr "選擇問題分類"
+
+#: ../inc/templates/default/question-submit-form.php:37
+msgid "tag 1, tag 2,..."
+msgstr "標籤1,標籤2,…"
+
+#: ../inc/templates/default/question-submit-form.php:42
+msgid "Your question"
+msgstr "你的問題"
+
+#: ../inc/templates/default/question-submit-form.php:43
+msgid "How to..."
+msgstr "有什麼疑問…"
+
+#: ../inc/templates/default/question-submit-form.php:5​​0
+msgid "Question details"
+msgstr "問題詳細內容"
+
+#: ../inc/templates/default/question-submit-form.php:63
+msgid "Post this Question as Private."
+msgstr "作為私人為題發表"
+
+#: ../inc/templates/default/question-submit-form.php:63
+msgid "Only you as Author and Admin can see the question"
+msgstr "只有你作為作者和管理員才能看到這個問題"
+
+#: ../inc/templates/default/question-submit-form.php:83
+msgid "Ask Question"
+msgstr "提出問題"
+
+#: ../inc/templates/default/search-question.php:4
+msgid "Search"
+msgstr "搜索"
+
+#: ../inc/templates/default/single-question.php:17
+msgid "Your question has been submitted and is currently awaiting approval"
+msgstr ""
+
+#: ../inc/templates/default/single-question.php:17
+msgid "This question is currently awaiting approval"
+msgstr ""
+
+#: ../inc/templates/default/single-question.php:30
+msgid "Posts by"
+msgstr "發表人"
+
+#: ../inc/templates/default/single-question.php:38
+msgid "asked"
+msgstr "提問於"
+
+#: ../inc/widgets/latest-question.php:11
+#: ../inc/widgets/list-closed-question.php:11
+msgid "Show a list of questions that was ordered by views."
+msgstr "顯示最多瀏覽的問題列表"
+
+#: ../inc/widgets/latest-question.php:12
+#, fuzzy
+msgid "DWQA Latest Questions"
+msgstr "DWQA相關問題"
+
+#: ../inc/widgets/latest-question.php:18
+#, fuzzy
+msgid "Latest Questions"
+msgstr "私人問題"
+
+#: ../inc/widgets/latest-question.php:64
+#: ../inc/widgets/list-closed-question.php:71
+#: ../inc/widgets/popular-question.php:63
+#: ../inc/widgets/related-question.php:48
+msgid "Widget title"
+msgstr "小工具標題"
+
+#: ../inc/widgets/latest-question.php:67
+#: ../inc/widgets/list-closed-question.php:74
+#: ../inc/widgets/popular-question.php:66
+#: ../inc/widgets/related-question.php:5​​1
+msgid "Number of posts"
+msgstr "文章數量"
+
+#: ../inc/widgets/list-closed-question.php:12
+#, fuzzy
+msgid "DWQA Closed Questions"
+msgstr "DWQA相關問題"
+
+#: ../inc/widgets/list-closed-question.php:18
+#, fuzzy
+msgid "Closed Questions"
+msgstr "所有問題"
+
+#: ../inc/widgets/popular-question.php:11
+#, fuzzy
+msgid "Show a list of questions that ordered by views."
+msgstr "顯示最多瀏覽的問題列表"
+
+#: ../inc/widgets/popular-question.php:12
+msgid "DWQA Popular Questions"
+msgstr "DWQA熱門問題"
+
+#: ../inc/widgets/related-question.php:11
+msgid ""
+"Show a list of questions that related to a question. Just show in single "
+"question page"
+msgstr "顯示相關問題列表。只顯示在問題內容頁"
+
+#: ../inc/widgets/related-question.php:12
+msgid "DWQA Related Questions"
+msgstr "DWQA相關問題"
+
+#~ msgctxt "post type general name"
+#~ msgid "Question"
+#~ msgstr "問答中心"
+
+#~ msgctxt "post type singular name"
+#~ msgid "Question"
+#~ msgstr "問答中心"
+
+#~ msgctxt "post type general name"
+#~ msgid "Answer"
+#~ msgstr "答案"
+
+#~ msgctxt "post type singular name"
+#~ msgid "Answer"
+#~ msgstr "答案"
+
+#~ msgid "Stick This Question on Frontpage"
+#~ msgstr "置頂這個問題"
+
+#~ msgid "Untick This Question on Frontpage"
+#~ msgstr "不置頂這個問題"
+
+#~ msgid "Name"
+#~ msgstr "名字"
+
+#~ msgid "Website"
+#~ msgstr "網站"
+
+#~ msgid "by"
+#~ msgstr "提問人"
+
+#~ msgid "DW Q&A Box"
+#~ msgstr "DW Q$A盒子"
+
+#~ msgid "Container Padding"
+#~ msgstr "包含邊距"
+
+#~ msgid "Container padding size"
+#~ msgstr "包含邊距尺寸"
+
+#~ msgid ""
+#~ "By default,The container is not have gutter. You can set padding width to "
+#~ "make a gutter. You make it by update setting here."
+#~ msgstr ""
+#~ "默認，這個容器是沒有間隔，你可以設置padding，你可以在這里通過更新設置。"
+
+#~ msgid "You can ask question <a href=\""
+#~ msgstr "你可以提問 <a href=\""
+
+#~ msgid "Please <a href=\""
+#~ msgstr "請 <a href=\""

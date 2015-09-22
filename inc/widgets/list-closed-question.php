@@ -9,7 +9,7 @@ class DWQA_Closed_Question_Widget extends WP_Widget {
 	 **/
 	function __construct() {
 		$widget_ops = array( 'classname' => 'dwqa-widget dwqa-closed-questions', 'description' => __( 'Show a list of questions that was ordered by views.', 'dwqa' ) );
-		$this->WP_Widget( 'dwqa-closed-question', __( 'DWQA Closed Questions', 'dwqa' ), $widget_ops );
+		parent::__construct( 'dwqa-closed-question', __( 'DWQA Closed Questions', 'dwqa' ), $widget_ops );
 	}
 
 	function widget( $args, $instance ) {

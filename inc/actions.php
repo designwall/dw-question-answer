@@ -779,40 +779,6 @@ function dwqa_is_anonymous( $post_id ) {
 	return false;
 }
 
-function dwqa_init_tinymce_editor( $args = array() ) {
-	global $editor_styles;
-	extract( wp_parse_args( $args, array(
-			'content'       => '',
-			'id'            => 'dwqa-custom-content-editor',
-			'textarea_name' => 'custom-content',
-			'rows'          => 5,
-			'wpautop'       => false,
-			'media_buttons' => false,
-	) ) );
-	$editor_styles = (array) $editor_styles;
-	$dwqa_tinymce_css = apply_filters( 'dwqa_editor_style', array( DWQA_URI . 'assets/css/tinymce.css' ) );
-	$dwqa_tinymce_css = array_merge( $editor_styles, $dwqa_tinymce_css );
-	if ( ! empty( $dwqa_tinymce_css ) ) {
-		$dwqa_tinymce_css = implode( ',', $dwqa_tinymce_css );
-	} else {
-		$dwqa_tinymce_css = implode( ',', $editor_styles );
-	}
-	
-	wp_editor( $content, $id, array(
-		'wpautop'       => $wpautop,
-		'media_buttons' => $media_buttons,
-		'textarea_name' => $textarea_name,
-		'textarea_rows' => $rows,
-		'tinymce' => array(
-				'theme_advanced_buttons1' => 'bold,italic,underline,|,' . 'bullist,numlist,blockquote,|,' . 'link,unlink,|,' . 'image,code,|,'. 'spellchecker,wp_fullscreen,dwqaCodeEmbed,|,',
-				'theme_advanced_buttons2'   => '',
-				'content_css' => $dwqa_tinymce_css
-		),
-		'quicktags'     => false,
-	) );
-}
-
-
 function dwqa_ajax_create_update_answer_editor() {
 
 	if ( ! isset( $_POST['answer_id'] ) || ! isset( $_POST['question'] ) ) {
@@ -1550,37 +1516,6 @@ function dwqa_valid_captcha( $type ) {
 	}
 	return false;
 }
-
-function dwqa_is_captcha_enable() {
-	global $dwqa_general_settings;
-	$public_key = isset( $dwqa_general_settings['captcha-google-public-key'] ) ?  $dwqa_general_settings['captcha-google-public-key'] : '';
-	$private_key = isset( $dwqa_general_settings['captcha-google-private-key'] ) ?  $dwqa_general_settings['captcha-google-private-key'] : '';
-
-	if ( ! $public_key || ! $private_key ) {
-		return false;
-	}
-	return true;
-}
-
-function dwqa_is_captcha_enable_in_submit_question() {
-	global $dwqa_general_settings;
-	$captcha_in_question = isset( $dwqa_general_settings['captcha-in-question'] ) ? $dwqa_general_settings['captcha-in-question'] : false;
-	
-	if ( $captcha_in_question && dwqa_is_captcha_enable() ) {
-		return true;
-	}
-	return false;
-}
-
-function dwqa_is_captcha_enable_in_single_question() {
-	global $dwqa_general_settings;
-	$captcha_in_single_question = isset( $dwqa_general_settings['captcha-in-single-question'] ) ? $dwqa_general_settings['captcha-in-single-question'] : false;
-	if ( $captcha_in_single_question && dwqa_is_captcha_enable() ) {
-		return true;
-	} 
-	return false;
-}
-
 
 function dwqa_admin_posts_filter_restrict_manage_posts() {
 	$type = 'post';

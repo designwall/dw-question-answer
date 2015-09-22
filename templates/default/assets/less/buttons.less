@@ -1,0 +1,152 @@
+//
+// Buttons
+// --------------------------------------------------
+
+
+// Base styles
+// --------------------------------------------------
+
+.dwqa-container .dwqa-btn,
+.dwqa-container .login-box input[type="submit"] {
+  display: inline-block;
+  margin-bottom: 0; // For input.dwqa-btn
+  font-weight: @dwqa-btn-font-weight;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  border: 1px solid transparent;
+  white-space: nowrap;
+  .button-size(@padding-base-vertical; @padding-base-horizontal; @font-size-base; @line-height-base; 0);
+  .user-select(none);
+  .box-shadow(none);
+
+  &:focus {
+    .tab-focus();
+  }
+
+  &:hover,
+  &:focus {
+    color: @dwqa-btn-default-color;
+    text-decoration: none;
+    background-image: none;
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: not-allowed;
+    pointer-events: none; // Future-proof disabling of clicks
+    .opacity(.65);
+    .box-shadow(none);
+  }
+}
+
+
+// Alternate buttons
+// --------------------------------------------------
+
+.dwqa-container .dwqa-btn-default, {
+  .button-variant(@dwqa-btn-default-color; @dwqa-btn-default-bg; @dwqa-btn-default-border);
+}
+.dwqa-container .dwqa-btn-primary,
+.dwqa-container .login-box input[type="submit"] {
+  .button-variant(@dwqa-btn-primary-color; @dwqa-btn-primary-bg; @dwqa-btn-primary-border);
+}
+// Warning appears as orange
+.dwqa-container .dwqa-btn-warning {
+  .button-variant(@dwqa-btn-warning-color; @dwqa-btn-warning-bg; @dwqa-btn-warning-border);
+}
+// Danger and error appear as red
+.dwqa-container .dwqa-btn-danger {
+  .button-variant(@dwqa-btn-danger-color; @dwqa-btn-danger-bg; @dwqa-btn-danger-border);
+}
+// Success appears as green
+.dwqa-container .dwqa-btn-success {
+  .button-variant(@dwqa-btn-success-color; @dwqa-btn-success-bg; @dwqa-btn-success-border);
+}
+// Info appears as blue-green
+.dwqa-container .dwqa-btn-info {
+  .button-variant(@dwqa-btn-info-color; @dwqa-btn-info-bg; @dwqa-btn-info-border);
+}
+
+
+// Link buttons
+// -------------------------
+
+// Make a button look and behave like a link
+.dwqa-container .dwqa-btn-link {
+  color: @link-color;
+  font-weight: normal;
+  cursor: pointer;
+  border-radius: 0;
+
+  &,
+  &:active,
+  &[disabled],
+  fieldset[disabled] & {
+    background-color: transparent;
+    .box-shadow(none);
+  }
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+    border-color: transparent;
+  }
+  &:hover,
+  &:focus {
+    color: @link-hover-color;
+    text-decoration: underline;
+    background-color: transparent;
+  }
+  &[disabled],
+  fieldset[disabled] & {
+    &:hover,
+    &:focus {
+      color: @dwqa-btn-link-disabled-color;
+      text-decoration: none;
+    }
+  }
+}
+
+
+// Button Sizes
+// --------------------------------------------------
+
+.dwqa-btn-lg {
+  // line-height: ensure even-numbered height of button next to large input
+  .button-size(@padding-large-vertical; @padding-large-horizontal; @font-size-large; @line-height-large; @border-radius-large);
+}
+.dwqa-btn-sm {
+  // line-height: ensure proper height of button next to small input
+  .button-size(@padding-small-vertical; @padding-small-horizontal; @font-size-small; @line-height-small; @border-radius-small);
+}
+.dwqa-btn-xs {
+  .button-size(@padding-xs-vertical; @padding-xs-horizontal; @font-size-small; @line-height-small; @border-radius-small);
+}
+
+
+// Block button
+// --------------------------------------------------
+
+.dwqa-btn-block {
+  display: block;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+// Vertically space out multiple block buttons
+.dwqa-btn-block + .dwqa-btn-block {
+  margin-top: 5px;
+}
+
+// Specificity overrides
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  &.dwqa-btn-block {
+    width: 100%;
+  }
+}

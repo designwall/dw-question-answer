@@ -1,4 +1,5 @@
 <?php  
+
 /**
  * Print class for question detail container
  */
@@ -187,31 +188,8 @@ function dwqa_add_guide_menu_icons_styles(){
 add_action( 'admin_head', 'dwqa_add_guide_menu_icons_styles' );
 
 function dwqa_load_template( $name, $extend = false, $include = true ){
-	global $dwqa_template;
-	
-	$check = true;
-	if ( $extend ) {
-		$name .= '-' . $extend;
-	}
-
-	if ( $name == 'submit-question-form' && is_user_logged_in() && ! dwqa_current_user_can( 'post_question' ) ) {
-		echo '<div class="alert">'.__( 'You do not have permission to submit a question','dwqa' ).'</div>';
-		return false;
-	}
-
-	$template = get_stylesheet_directory() . '/dwqa-templates/'.$name.'.php';
-	if ( ! file_exists( $template ) ) {
-		$template = DWQA_DIR . 'inc/templates/'.$dwqa_template.'/' .$name.'.php';
-	}
-
-	$template = apply_filters( 'dwqa-load-template', $template, $name );
-	if ( ! $template ) {
-		return false;
-	}
-	if ( ! $include ) {
-		return $template;
-	}
-	include $template;
+	global $dwqa;
+	$dwqa->template->load_template( $name, $extend, $include );
 }
 
 
@@ -702,7 +680,7 @@ function dwqa_get_template( $template = false ) {
 }
 
 class DWQA_Template {
-
+	private $active = 'default';
 	public $filters;
 
 	public function __construct() {
@@ -965,5 +943,34 @@ class DWQA_Template {
 
 		return true;
 	}
+
+	public function get_template() {
+		return $this->active;
+	}
+
+	public function load_template( $name, $extend = false, $include = false ) {
+		$check = true;
+		if ( $extend ) {
+			$name .= '-' . $extend;
+		}
+
+		if ( $name == 'submit-question-form' && is_user_logged_in() && ! dwqa_current_user_can( 'post_question' ) ) {
+			echo '<div class="alert">'.__( 'You do not have permission to submit a question','dwqa' ).'</div>';
+			return false;
+		}
+
+		$template = get_stylesheet_directory() . '/dwqa-templates/'.$name.'.php';
+		if ( ! file_exists( $template ) ) {
+			$template = DWQA_DIR . 'templates/'.$this->active.'/' .$name.'.php';
+		}
+		$template = apply_filters( 'dwqa-load-template', $template, $name );
+
+		if ( ! $template ) {
+			return false;
+		}
+		if ( ! $include ) {
+			return $template;
+		}
+		include $template;
+	}
 }
-$GLOBALS['dwqa_template_compat'] = new DWQA_Template();

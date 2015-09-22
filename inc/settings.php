@@ -598,6 +598,37 @@ function dwqa_get_rewrite_slugs() {
 	return $rewrite_slugs;
 }
 
+
+function dwqa_is_captcha_enable() {
+	global $dwqa_general_settings;
+	$public_key = isset( $dwqa_general_settings['captcha-google-public-key'] ) ?  $dwqa_general_settings['captcha-google-public-key'] : '';
+	$private_key = isset( $dwqa_general_settings['captcha-google-private-key'] ) ?  $dwqa_general_settings['captcha-google-private-key'] : '';
+
+	if ( ! $public_key || ! $private_key ) {
+		return false;
+	}
+	return true;
+}
+
+function dwqa_is_captcha_enable_in_submit_question() {
+	global $dwqa_general_settings;
+	$captcha_in_question = isset( $dwqa_general_settings['captcha-in-question'] ) ? $dwqa_general_settings['captcha-in-question'] : false;
+	
+	if ( $captcha_in_question && dwqa_is_captcha_enable() ) {
+		return true;
+	}
+	return false;
+}
+
+function dwqa_is_captcha_enable_in_single_question() {
+	global $dwqa_general_settings;
+	$captcha_in_single_question = isset( $dwqa_general_settings['captcha-in-single-question'] ) ? $dwqa_general_settings['captcha-in-single-question'] : false;
+	if ( $captcha_in_single_question && dwqa_is_captcha_enable() ) {
+		return true;
+	} 
+	return false;
+}
+
 class DWQA_Settings {
 	public function __construct(){
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
@@ -1109,7 +1140,5 @@ class DWQA_Settings {
 		echo '</label></p>';
 	}
 }
-$GLOBAL['dwqa-settings'] = new DWQA_Settings();
-
 
 ?>

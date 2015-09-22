@@ -1,0 +1,240 @@
+//
+// Dropdown menus
+// ----------------------------------------------------------------------------------------------------
+
+
+// Dropdown arrow/caret
+.caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 2px;
+  vertical-align: middle;
+  border-top:   @caret-width-base solid;
+  border-right: @caret-width-base solid transparent;
+  border-left:  @caret-width-base solid transparent;
+}
+
+// The dropdown wrapper (div)
+.dropdown {
+  position: relative;
+}
+
+// Prevent the focus on the dropdown toggle when closing dropdowns
+.dropdown-toggle:focus {
+  outline: 0;
+}
+
+// The dropdown menu (ul)
+.dwqa-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: auto;
+  right: -9px;
+  z-index: @zindex-dropdown;
+  display: none; // none by default, but block on "open" of the menu
+  float: left;
+  min-width: 90px;
+  padding: 5px 0;
+  margin: -1px 0 0; // override default ul
+  list-style: none;
+  font-size: 13px;
+  background-color: @dropdown-bg;
+  border-color: @gray-light;
+  border-color: rgba(0,0,0,0.1);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+  //.box-shadow(0 5px 10px rgba(0,0,0,0.1));
+  background-clip: padding-box;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: -1px 0 0 !important;
+  }
+
+  li {
+    list-style: none;
+    margin: 0 !important;
+    list-style: none !important;
+  }
+
+  // Aligns the dropdown menu to right
+  &.pull-right {
+    right: 0;
+    left: auto;
+  }
+
+  // Dividers (basically an hr) within the dropdown
+  .divider {
+    .nav-divider(@dropdown-divider-bg);
+  }
+
+  // Links within the dropdown menu
+  li a {
+    display: block;
+    padding: 3px 10px;
+    clear: both;
+    font-weight: normal;
+    line-height: @line-height-base;
+    color: @dropdown-link-color;
+    white-space: nowrap; // prevent links from randomly breaking onto new lines
+  }
+
+  i {
+    padding-right: 5px;
+  }
+
+  .dwqa-dropdown-caret {
+    position: absolute;
+    left: auto;
+    right: 10px;
+    top: -7px;
+    width: 12px;
+    height: 7px;
+    float: left;
+    overflow: hidden;
+
+    .dwqa-caret-outer, 
+    .dwqa-caret-inner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: inline-block;
+      margin-left: -1px;
+    }
+
+    .dwqa-caret-outer {
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+      border-bottom: 7px solid #aaa;
+      border-bottom-color: rgba(0,0,0,0.2);
+    }
+    .dwqa-caret-inner {
+      top: 1px;
+      left: 1px;
+      display: inline-block;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-bottom: 6px solid #fff;
+    }
+  }
+}
+
+// Hover/Focus state
+.dwqa-dropdown-menu li a {
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    color: @dropdown-link-hover-color;
+    background-color: @dropdown-link-hover-bg;
+  }
+}
+
+// Active state
+.dwqa-dropdown-menu .active a {
+  &,
+  &:hover,
+  &:focus {
+    color: @dropdown-link-active-color;
+    text-decoration: none;
+    outline: 0;
+    background-color: @dropdown-link-active-bg;
+  }
+}
+
+// Disabled state
+//
+// Gray out text and ensure the hover/focus state remains gray
+
+.dwqa-dropdown-menu .disabled a {
+  &,
+  &:hover,
+  &:focus {
+    color: @dropdown-link-disabled-color;
+  }
+}
+// Nuke hover/focus effects
+.dwqa-dropdown-menu .disabled a {
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    background-color: transparent;
+    background-image: none; // Remove CSS gradient
+    .reset-filter();
+    cursor: not-allowed;
+  }
+}
+
+// Open state for the dropdown
+.open {
+  // Show the menu
+  > .dwqa-dropdown-menu {
+    display: block;
+  }
+
+  // Remove the outline when :focus is triggered
+  > a {
+    outline: 0;
+  }
+}
+
+// Dropdown section headers
+.dropdown-header {
+  display: block;
+  padding: 3px 20px;
+  font-size: @font-size-small;
+  line-height: @line-height-base;
+  color: @dropdown-header-color;
+}
+
+// Backdrop to catch body clicks on mobile, etc.
+.dropdown-backdrop {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: @zindex-dropdown - 10;
+}
+
+// Right aligned dropdowns
+.pull-right > .dwqa-dropdown-menu {
+  right: 0;
+  left: auto;
+}
+
+// Allow for dropdowns to go bottom up (aka, dropup-menu)
+//
+// Just add .dropup after the standard .dropdown class and you're set, bro.
+// TODO: abstract this so that the navbar fixed styles are not placed here?
+
+.dropup,
+.navbar-fixed-bottom .dropdown {
+  // Reverse the caret
+  .caret {
+    border-top: 0;
+    border-bottom: @caret-width-base solid;
+    content: "";
+  }
+  // Different positioning for bottom up menu
+  .dwqa-dropdown-menu {
+    top: auto;
+    bottom: 100%;
+    margin-bottom: 1px;
+  }
+}
+
+
+// Component alignment
+//
+// Reiterate per navbar.less and the modified component alignment there.
+
+@media (min-width: @grid-float-breakpoint) {
+  .navbar-right {
+    .dwqa-dropdown-menu {
+      .pull-right > .dwqa-dropdown-menu();
+    }
+  }
+}

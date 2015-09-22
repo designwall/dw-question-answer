@@ -9,7 +9,7 @@ class DWQA_Related_Question_Widget extends WP_Widget {
 	 **/
 	function __construct() {
 		$widget_ops = array( 'classname' => 'dwqa-widget dwqa-related-questions', 'description' => __( 'Show a list of questions that related to a question. Just show in single question page', 'dwqa' ) );
-		$this->WP_Widget( 'dwqa-related-question', __( 'DWQA Related Questions', 'dwqa' ), $widget_ops );
+		parent::__construct( 'dwqa-related-question', __( 'DWQA Related Questions', 'dwqa' ), $widget_ops );
 	}
 
 	function widget( $args, $instance ) {

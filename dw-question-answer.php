@@ -42,6 +42,7 @@ class DW_Question_Answer {
 		// All init action of plugin will be included in
 		add_action( 'init', array( $this, 'init' ) );
 		register_activation_hook( __FILE__, array( $this, 'activate_hook' ) );
+		register_deactivation_hook( __FILE__, array( $this, 'deactivate_hook' ) );
 	}
 
 	public function include_recaptcha_library() {
@@ -104,8 +105,7 @@ class DW_Question_Answer {
 
 	// Update rewrite url when active plugin
 	public function activate_hook() {
-		global $dwqa;
-		$dwqa->permission->prepare_permission_caps();
+		$this->permission->prepare_permission_caps();
 		
 		//Auto create question page
 		$options = get_option( 'dwqa_options' );
@@ -166,6 +166,14 @@ class DW_Question_Answer {
 		update_option( 'dwqa_options', $options );
 
 		// dwqa_posttype_init();
+		flush_rewrite_rules();
+	}
+
+	public function deactivate_hook() {
+		$this->permission->remove_permision_caps();
+
+		wp_clear_scheduled_hook( 'dwqa_hourly_event' );
+
 		flush_rewrite_rules();
 	}
 

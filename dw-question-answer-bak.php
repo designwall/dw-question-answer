@@ -255,24 +255,6 @@ function dwqa_plugin_init() {
 }
 add_action( 'init', 'dwqa_plugin_init' );
 
-
-function dwqa_deactivate_hook() {
-	global $dwqa_permission;
-	$dwqa_permission->remove_permision_caps();
-
-	wp_clear_scheduled_hook( 'dwqa_hourly_event' );
-
-	flush_rewrite_rules();
-}
-register_deactivation_hook( __FILE__, 'dwqa_deactivate_hook' );
-
-/* Flush rewrite rules for custom post types. */
-
-add_action( 'after_switch_theme', 'dwqa_flush_rewrite_rules' );
-function dwqa_flush_rewrite_rules() {
-     flush_rewrite_rules();
-}
-
 function dwqa_update_term_rewrite_rules() {
 	//add rewrite for question taxonomy
 	global $wp_rewrite;

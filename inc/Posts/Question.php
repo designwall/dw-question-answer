@@ -95,6 +95,9 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 		if ( empty( $cats ) ) {
 			wp_insert_term( __( 'Questions', 'dwqa' ), $this->get_slug() . '_category' );
 		}
+
+		global $dwqa;
+		$dwqa->rewrite->update_term_rewrite_rules();
 	}
 }
 

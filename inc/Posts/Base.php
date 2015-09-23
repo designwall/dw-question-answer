@@ -13,10 +13,14 @@ class DWQA_Posts_Base {
 		add_action( 'init', array( $this, 'register' ) );
 		// Do any init by it self
 		add_action( 'init', array( $this, 'init' ) );
+		// Custom Admin List Table
+		add_filter( 'manage_posts_columns', array( $this, 'columns_head' ) );
 	}
 
 	// Abstract, do all init actions for itself
 	public function init(){}
+
+	public function columns_head( $default ){ return $default; }
 
 	public function get_slug() {
 		return $this->slug;
@@ -85,6 +89,8 @@ class DWQA_Posts_Base {
 
 		register_post_type( $this->get_slug(), $args );
 	}
+
+	
 
 }
 

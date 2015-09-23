@@ -65,4 +65,22 @@ function dwqa_comment_human_time_diff_for_date( $the_date, $d ) {
 	return $the_date;
 }
 
+/** 
+ * Array
+ */
+function dwqa_array_insert( &$array, $element, $position = null ) {
+	if ( is_array( $element ) ) {
+		$part = $element;
+	} else {
+		$part = array( $position => $element );
+	}
+
+	$len = count( $array );
+
+	$firsthalf = array_slice( $array, 0, $len / 2 );
+	$secondhalf = array_slice( $array, $len / 2 );
+
+	$array = array_merge( $firsthalf, $part, $secondhalf );
+	return $array;
+}
 ?>

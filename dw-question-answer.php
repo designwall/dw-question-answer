@@ -23,6 +23,7 @@ if ( ! defined( 'DWQA_URI' ) ) {
 
 // Add autoload class
 require_once DWQA_DIR . 'inc/autoload.php';
+require_once DWQA_DIR . 'inc/helper/functions.php';
 
 class DW_Question_Answer {
 	private $last_update = 220920151030; //last update time of the plugin

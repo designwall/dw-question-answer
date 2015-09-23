@@ -95,57 +95,7 @@ function dwqa_add_js_variable_for_admin_page() {
 }
 add_action( 'admin_print_scripts', 'dwqa_add_js_variable_for_admin_page' );
 
-function dwqa_array_insert( &$array, $element, $position = null ) {
-	if ( is_array( $element ) ) {
-		$part = $element;
-	} else {
-		$part = array( $position => $element );
-	}
 
-	$len = count( $array );
-
-	$firsthalf = array_slice( $array, 0, $len / 2 );
-	$secondhalf = array_slice( $array, $len / 2 );
-
-	$array = array_merge( $firsthalf, $part, $secondhalf );
-	return $array;
-}
-// ADD NEW COLUMN  
-function dwqa_columns_head( $defaults ) {  
-	if ( isset( $_GET['post_type'] ) && $_GET['post_type'] == 'dwqa-answer' ) {
-		$defaults = array(
-			'cb'            => '<input type="checkbox">',
-			'info'          => __( 'Answer', 'dwqa' ),
-			'author'        => __( 'Author', 'dwqa' ),
-			'comment'       => '<span><span class="vers"><div title="Comments" class="comment-grey-bubble"></div></span></span>',
-			'dwqa-question' => __( 'In Response To', 'dwqa' ),
-		);
-	}
-	if ( $_GET['post_type'] == 'dwqa-question' ) {
-		$defaults['info'] = __( 'Info', 'dwqa' );
-		$defaults = dwqa_array_insert( $defaults, array( 'question-category' => 'Category', 'question-tag' => 'Tags' ), 1 );
-	}
-	return $defaults;  
-} 
-add_filter( 'manage_posts_columns', 'dwqa_columns_head' );  
-
-function dwqa_answer_row_actions( $actions, $always_visible = false ) {
-	$action_count = count( $actions );
-	$i = 0;
-
-	if ( ! $action_count )
-		return '';
-
-	$out = '<div class="' . ( $always_visible ? 'row-actions visible' : 'row-actions' ) . '">';
-	foreach ( $actions as $action => $link ) {
-		++$i;
-		( $i == $action_count ) ? $sep = '' : $sep = ' | ';
-		$out .= "<span class='$action'>$link$sep</span>";
-	}
-	$out .= '</div>';
-
-	return $out;
-}
 
 function dwqa_answer_columns_content( $column_name, $post_ID ) {  
 	$answer = get_post( $post_ID );

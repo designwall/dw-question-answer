@@ -99,6 +99,15 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 		global $dwqa;
 		$dwqa->rewrite->update_term_rewrite_rules();
 	}
+
+	// ADD NEW COLUMN  
+	public function columns_head( $defaults ) {  
+		if ( isset( $_GET['post_type'] ) && esc_html( $_GET['post_type'] ) == $this->get_slug() ) {
+			$defaults['info'] = __( 'Info', 'dwqa' );
+			$defaults = dwqa_array_insert( $defaults, array( 'question-category' => 'Category', 'question-tag' => 'Tags' ), 1 );
+		}
+		return $defaults;  
+	}
 }
 
 ?>

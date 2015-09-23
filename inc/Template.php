@@ -166,12 +166,6 @@ function dwqa_body_class( $classes ) {
 }
 add_filter( 'body_class', 'dwqa_body_class' );
 
-
-function dwqa_paste_srtip_disable( $mceInit ){
-	$mceInit['paste_strip_class_attributes'] = 'none';
-	return $mceInit;
-}
-
 function dwqa_paged_query(){
 	$paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
 	echo '<div><input type="hidden" name="dwqa-paged" id="dwqa-paged" value="'.$paged.'" ></div>';
@@ -198,43 +192,43 @@ function dwqa_load_template( $name, $extend = false, $include = true ){
  * @return void
  */     
 function dwqa_enqueue_scripts(){
-    global $dwqa_options, $script_version, $dwqa_template, $dwqa_sript_vars;
+    global $dwqa, $dwqa_options, $script_version, $dwqa_sript_vars;
+    $template_name = $dwqa->template->get_template(); 
 
     $question_category_rewrite = get_option( 'dwqa-question-category-rewrite', 'question-category' );
     $question_category_rewrite = $question_category_rewrite ? $question_category_rewrite : 'question-category';
     $question_tag_rewrite = get_option( 'dwqa-question-tag-rewrite', 'question-tag' );
     $question_tag_rewrite = $question_tag_rewrite ? $question_tag_rewrite : 'question-tag';
 
-    $assets_folder = DWQA_URI . 'inc/templates/' . $dwqa_template . '/assets/';
+    $assets_folder = DWQA_URI . 'templates/' . $template_name . '/assets/';
     wp_enqueue_script( 'jquery' );   
     if( is_singular( 'dwqa-question' ) ) {
         wp_enqueue_script( 'jquery-effects-core' );
         wp_enqueue_script( 'jquery-effects-highlight' );
     }
-    $version = $script_version;
-    
+    $script_version = $dwqa->get_last_update();
 
     // Register font
     wp_register_style( 'font-awesome', $assets_folder . 'font/font-awesome/css/font-awesome.min.css', array(), '4.0.3' );
     // Enqueue style
-    wp_enqueue_style( 'dwqa-style', $assets_folder . 'css/style.css', array( 'font-awesome' ), $version );
+    wp_enqueue_style( 'dwqa-style', $assets_folder . 'css/style.css', array( 'font-awesome' ), $script_version );
     // Enqueue for single question page
     if( is_single() && 'dwqa-question' == get_post_type() ) {
         // js
-        wp_enqueue_script( 'dwqa-single-question', $assets_folder . 'js/dwqa-single-question.js', array('jquery'), $version, true );
+        wp_enqueue_script( 'dwqa-single-question', $assets_folder . 'js/dwqa-single-question.js', array('jquery'), $script_version, true );
         $single_script_vars = $dwqa_sript_vars;
         $single_script_vars['question_id'] = get_the_ID();
         wp_localize_script( 'dwqa-single-question', 'dwqa', $single_script_vars );
     }
 
     if( (is_archive() && 'dwqa-question' == get_post_type()) || ( isset( $dwqa_options['pages']['archive-question'] ) && is_page( $dwqa_options['pages']['archive-question'] ) ) ) {
-        wp_enqueue_script( 'dwqa-questions-list', $assets_folder . 'js/dwqa-questions-list.js', array( 'jquery' ), $version, true );
+        wp_enqueue_script( 'dwqa-questions-list', $assets_folder . 'js/dwqa-questions-list.js', array( 'jquery' ), $script_version, true );
         wp_localize_script( 'dwqa-questions-list', 'dwqa', $dwqa_sript_vars );
     }
 
     if( isset($dwqa_options['pages']['submit-question']) 
         && is_page( $dwqa_options['pages']['submit-question'] ) ) {
-        wp_enqueue_script( 'dwqa-submit-question', $assets_folder . 'js/dwqa-submit-question.js', array( 'jquery' ), $version, true );
+        wp_enqueue_script( 'dwqa-submit-question', $assets_folder . 'js/dwqa-submit-question.js', array( 'jquery' ), $script_version, true );
         wp_localize_script( 'dwqa-submit-question', 'dwqa', $dwqa_sript_vars );
     }
 }

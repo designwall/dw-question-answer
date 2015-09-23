@@ -15,4 +15,10 @@ function dwqa_user_answer_number( $user_id ) {
 	dwqa_user_answer_count( $user_id );
 }
 
+function dwqa_add_answer() {
+	global $dwqa;
+	_deprecated_function( __FUNCTION__, '1.3.4', 'DWQA_Answer::insert' );
+	$dwqa->insert();
+}
+
 ?>

@@ -180,6 +180,10 @@ class DW_Question_Answer {
 		flush_rewrite_rules();
 	}
 
+	public function get_last_update() {
+		return $this->last_update;
+	}
+
 }
 $GLOBALS['dwqa'] = new DW_Question_Answer();
 

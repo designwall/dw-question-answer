@@ -5,6 +5,11 @@ function dwqa_init_tinymce_editor( $args = array() ) {
 	$dwqa->editor->display( $args );
 }
 
+function dwqa_paste_srtip_disable( $mceInit ){
+	$mceInit['paste_strip_class_attributes'] = 'none';
+	return $mceInit;
+}
+
 class DWQA_Editor {
 
 	public function __construct() {
@@ -14,7 +19,7 @@ class DWQA_Editor {
 	
 	public function tinymce_addbuttons() {
 		if ( get_user_option( 'rich_editing' ) == 'true' && ! is_admin() ) {
-			add_filter( 'mce_external_plugins', 'dwqa_add_custom_tinymce_plugin' );
+			add_filter( 'mce_external_plugins', array( $this, 'add_custom_tinymce_plugin' ) );
 			add_filter( 'mce_buttons', array( $this, 'register_custom_button' ) );
 		}
 	}

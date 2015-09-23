@@ -166,6 +166,7 @@ function dwqa_body_class( $classes ) {
 }
 add_filter( 'body_class', 'dwqa_body_class' );
 
+
 function dwqa_paged_query(){
 	$paged = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
 	echo '<div><input type="hidden" name="dwqa-paged" id="dwqa-paged" value="'.$paged.'" ></div>';
@@ -1000,5 +1001,46 @@ class DWQA_Template {
 			return $template;
 		}
 		include $template;
+	}
+}
+
+function dwqa_get_mail_template( $option, $name = '' ) {
+	if ( ! $name ) {
+		return '';
+	}
+	$template = get_option( $option );
+	if ( $template ) {
+		return $template;
+	} else {
+		if ( file_exists( DWQA_DIR . 'templates/email/'.$name.'.html' ) ) {
+			ob_start();
+			load_template( DWQA_DIR . 'templates/email/'.$name.'.html', false );
+			$template = ob_get_contents();
+			ob_end_clean();
+			return $template;
+		} else {
+			return '';
+		}
+	}
+}
+
+function dwqa_vote_best_answer_button() {
+	global $current_user;
+	$question_id = get_post_meta( get_the_ID(), '_question', true );
+	$question = get_post( $question_id );
+		$best_answer = dwqa_get_the_best_answer( $question_id );
+		$data = is_user_logged_in() && ( $current_user->ID == $question->post_author || current_user_can( 'edit_posts' ) ) ? 'data-answer="'.get_the_ID().'" data-nonce="'.wp_create_nonce( '_dwqa_vote_best_answer' ).'" data-ajax="true"' : 'data-ajax="false"';
+	if ( get_post_status( get_the_ID() ) != 'publish' ) {
+		return false;
+	}
+	if ( $best_answer == get_the_ID() || ( is_user_logged_in() && ( $current_user->ID == $question->post_author || current_user_can( 'edit_posts' ) ) ) ) {
+		?>
+		<div class="entry-vote-best <?php echo $best_answer == get_the_ID() ? 'active' : ''; ?>" <?php echo $data ?> >
+			<a href="javascript:void( 0 );" title="<?php _e( 'Choose as the best answer','dwqa' ) ?>">
+				<div class="entry-vote-best-bg"></div>
+				<i class="icon-thumbs-up"></i>
+			</a>
+		</div>
+		<?php
 	}
 }

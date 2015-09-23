@@ -34,6 +34,7 @@ class DW_Question_Answer {
 		// load posttype
 		$this->question = new DWQA_Posts_Question();
 		$this->answer = new DWQA_Posts_Answer();
+		$this->answer = new DWQA_Posts_Comment();
 		$this->shortcode = new DWQA_Shortcode();
 		$this->template = new DWQA_Template();
 		$this->permission = new DWQA_Permission();

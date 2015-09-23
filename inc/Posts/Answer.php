@@ -1,4 +1,200 @@
 <?php  
+/**
+ * Return number of answer for a question
+ * @param  int $question_id Question ID ( if null get ID of current post )
+ * @return int      Number of answer
+ */
+function dwqa_question_answers_count( $question_id = null ) {
+	global $wpdb;
+
+	if ( ! $question_id ) {
+		global $post;
+		$question_id = $post->ID;
+	}
+	
+	$answer_count = get_transient( 'dwqa_answer_count_for_' . $question_id );
+
+	if ( false === $answer_count ) {
+		$sql = "SELECT COUNT( DISTINCT `P`.ID ) FROM {$wpdb->postmeta} PM JOIN {$wpdb->posts} P ON `PM`.post_id = `P`.ID WHERE `PM`.meta_key = '_question' AND meta_value = {$question_id} AND `P`.post_type = 'dwqa-answer' AND `P`.post_status = 'publish'";
+		$sql .= " AND ( `P`.post_status = 'publish' ";
+		if ( dwqa_current_user_can( 'edit_question', $question_id ) ) {
+			$sql .= " OR `P`.post_status = 'private'";
+		}
+		$sql .= " )";
+		$answer_count = $wpdb->get_var( $sql );
+
+		set_transient( 'dwqa_answer_count_for_' . $question_id, $answer_count, 15*60 );
+	}
+
+	return $answer_count;
+}
+
+function dwqa_is_answer_flag( $post_id ) {
+	if ( dwqa_is_user_flag( $post_id ) ) {
+		return true;
+	} else {
+		$flag = get_post_meta( $post_id, '_flag', true );
+		if ( empty( $flag ) || ! is_array( $flag ) ) {
+			return false;
+		} 
+		$flag = unserialize( $flag );
+		$flag_point = array_sum( $flag );
+		if ( $flag_point > 5 ) {
+			return true;
+		}
+	}
+	return false; //showing
+}
+
+function dwqa_is_the_best_answer( $answer_id, $question_id = false ) {
+	if ( ! $question_id ) {
+		$question_id = get_the_ID();
+	}
+
+	$best_answer = dwqa_get_the_best_answer( $question_id );
+	if ( $best_answer && $best_answer == $answer_id ) {
+		return true;
+	}
+	return false;
+}
+
+function dwqa_get_the_best_answer( $question_id = false ) {
+	if ( ! $question_id ) {
+		$question_id = get_the_ID();
+	}
+	if ( 'dwqa-question' != get_post_type( $question_id ) ) {
+		return false;
+	}
+
+	$user_vote = get_post_meta( $question_id, '_dwqa_best_answer', true );
+
+	if ( $user_vote && get_post( $user_vote ) ) {
+		return $user_vote;
+	}
+
+	$answer_id = wp_cache_get( 'dwqa-best-answer-for-' . $question_id, 'dwqa' );
+
+	if ( ! $answer_id ) {
+		global $wpdb;
+		$query = "SELECT `post_id` FROM `{$wpdb->postmeta}`
+					WHERE `post_id` IN ( 
+							SELECT  `post_id` FROM `{$wpdb->postmeta}` 
+							WHERE `meta_key` = '_question' AND `meta_value` = {$question_id} 
+					) 
+					AND `meta_key` = '_dwqa_votes'
+					ORDER BY CAST( `meta_value` as DECIMAL ) DESC LIMIT 0,1";
+
+		$answer_id = $wpdb->get_var( $query );
+		if ( ! $answer_id ) {
+			$answer_id = -1;
+		}
+		wp_cache_set( 'dwqa-best-answer-for-'.$question_id, $answer_id, 'dwqa', 21600 );
+	}
+
+	if ( $answer_id && ( int ) dwqa_vote_count( $answer_id ) > 2 ) {
+		return $answer_id;
+	}
+	return false;
+}
+
+/**
+ * Draft answer
+ */
+
+function dwqa_user_get_draft( $question_id = false ) {
+	if ( ! $question_id ) {
+		$question_id = get_the_ID();
+	}
+
+	if ( ! $question_id || 'dwqa-question' != get_post_type( $question_id ) ) {
+		return false;
+	}
+
+	if ( ! is_user_logged_in() ) {
+		return false;
+	}
+	global $current_user;
+	$args = array(
+	   'post_type' => 'dwqa-answer',
+	   'meta_query' => array(
+			array(
+				'key' => '_question',
+				'value' => array( $question_id ),
+				'compare' => 'IN',
+			),
+		),
+		'post_status' => 'draft',
+	);
+
+	if ( ! current_user_can( 'edit_posts' ) ) {
+		$args['author'] = $current_user->ID;
+	}
+
+	$answers = get_posts( $args );
+
+	if ( ! empty( $answers ) ) {
+		return $answers;
+	}
+	return false;
+}
+
+
+function dwqa_get_drafts( $question_id = false ) {
+	if ( ! $question_id ) {
+		$question_id = get_the_ID();
+	}
+
+	if ( ! $question_id || 'dwqa-question' != get_post_type( $question_id ) ) {
+		return false;
+	}
+
+	if ( ! is_user_logged_in() ) {
+		return false;
+	}
+	global $current_user;
+
+	$answers = get_posts(  array(
+		'post_type' => 'dwqa-answer',
+		'posts_per_page' => 40,
+		'meta_query' => array(
+			array(
+				'key' => '_question',
+				'value' => array( $question_id ),
+				'compare' => 'IN',
+			),
+		),
+		'post_status' => 'draft',
+	) );
+
+	if ( ! empty( $answers ) ) {
+		return $answers;
+	}
+	return false;
+}
+
+/**
+ * Update answers count for question when new answer was added
+ * @param  int $answer_id   new answer id
+ * @param  int $question_id question id
+ */
+function dwqa_question_answer_count( $question_id ) {
+	return dwqa_question_answer_count_by_status( $question_id, array( 'publish', 'private') );
+}
+
+function dwqa_question_answer_count_by_status( $question_id, $status = 'publish' ) {
+	$query = new WP_Query( array(
+		'post_type' => 'dwqa-answer',
+		'post_status' => $status,
+		'meta_query' => array(
+			array(
+				'key'	=> '_question',
+				'value' => $question_id,
+			),
+		),
+		'fields' => 'ids'
+	) );
+	return $query->found_posts;
+}
 
 class DWQA_Posts_Answer extends DWQA_Posts_Base {
 
@@ -15,7 +211,13 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 		// Ajax add answer
 		add_action( 'wp_ajax_dwqa-add-answer', array( $this, 'insert') );
 		add_action( 'wp_ajax_nopriv_dwqa-add-answer', array( $this, 'insert') );
-
+		// Ajax remove Answer
+		add_action( 'wp_ajax_dwqa-action-remove-answer', array( $this, 'remove_answer' ) );
+		// Ajax flag answer spam
+		add_action( 'wp_ajax_dwqa-action-flag-answer', array( $this, 'flag' ) );
+		//Ajax vote best answer
+		add_action( 'wp_ajax_dwqa-vote-best-answer', array( $this, 'vote_best_answer' ) );
+		add_action( 'wp_ajax_dwqa-unvote-best-answer', array( $this, 'unvote_best_answer' ) );
 		//Cache
 		add_action( 'dwqa_add_answer', array( $this, 'update_transient_when_add_answer' ), 10, 2 );
 		add_action( 'dwqa_delete_answer', array( $this, 'update_transient_when_remove_answer' ), 10, 2 );
@@ -105,7 +307,7 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 	} 
 
 	public function insert() {
-		global $post_submit_filter, $dwqa_options;
+		global $dwqa_options;
 		if ( ! isset( $_POST['dwqa-action'] ) || ! isset( $_POST['submit-answer'] ) ) {
 			return false;
 		}
@@ -146,8 +348,8 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 
 			$answer_title = __( 'Answer for ', 'dwqa' ) . $question->post_title;
 
-			$answ_content = wp_kses( $_POST['answer-content'], $post_submit_filter );
-			$answ_content = dwqa_pre_content_filter( $answ_content );
+			$answ_content = wp_kses( $_POST['answer-content'], $this->filter );
+			$answ_content = $this->pre_content_filter( $answ_content );
 			
 			$post_status = ( isset( $_POST['private-message'] ) && esc_html( $_POST['private-message'] ) ) ? 'private' : 'publish';
 			$answers = array(
@@ -156,7 +358,7 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 				'post_content'   => $answ_content,
 				'post_status'    => $post_status,
 				'post_title'     => $answer_title,
-				'post_type'      => 'dwqa-answer',
+				'post_type'      => $this->slug,
 			);
 			if ( $_POST['submit-answer'] == __( 'Save draft','dwqa' ) ) {
 				$answers['post_status'] = 'draft';
@@ -192,7 +394,8 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 								}
 							}
 							do_action( 'dwqa_add_answer', $answer_id, $question_id );
-							wp_redirect( get_permalink( $question_id ) );
+							// wp_redirect( get_permalink( $question_id ) );
+							wp_send_json_success( array( 'url' => get_permalink( $question_id ) ) );
 							return true;
 						} else {
 							$dwqa_add_answer_errors = $answer_id;
@@ -240,8 +443,7 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 					$new_post = get_post( $answer_id );
 					do_action( 'dwqa_update_answer', $answer_id, $old_post, $new_post );
 					if ( $answer_id ) {
-						wp_safe_redirect( get_permalink( $question_id ) );
-						return true;
+						wp_send_json_success( array( 'url' => get_permalink( $question_id ) ) );
 					}
 					break;
 			}
@@ -251,10 +453,43 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 		foreach ( $error_messages as $value ) {
 			$url = esc_url( add_query_arg( 'errors', urlencode( $value ), $url ) );
 		}
-
 		wp_safe_redirect( $url );
+		exit(0);
 	}
 
+	function remove_answer() {
+		if ( ! isset( $_POST['wpnonce'] ) || ! wp_verify_nonce( esc_html( $_POST['wpnonce'] ), '_dwqa_action_remove_answer_nonce' ) || ! is_user_logged_in() ) {
+			wp_send_json_error( array( 'message' => __( 'Are you cheating huh?', 'dwqa' ) ) );
+		}
+		if ( isset( $_POST['answer_id'] ) ) {
+			$answer_id = intval( $_POST['answer_id'] );
+		} else {
+			wp_send_json_error( array( 'message' => __( 'Missing answer ID', 'dwqa' ) ) );
+		}
+
+		global $current_user;
+		$answer_author = get_post_field( 'post_author', $answer_id );
+
+		if ( ! ( dwqa_current_user_can( 'delete_answer' ) || ( is_user_logged_in() && $answer_author == $current_user->ID ) ) ) {
+			wp_send_json_error( array(
+				'message'   => __( 'You do not have permission to edit this post', 'dwqa' )
+			) );
+		}
+		if ( get_post_type( $answer_id ) != 'dwqa-answer' ) {
+			wp_send_json_error( array(
+				'message'   => __( 'This post is not an answer', 'dwqa' )
+			) );
+		}
+		$question_id = get_post_meta( $answer_id, '_question', true );
+
+		do_action( 'dwqa_delete_answer', $answer_id, $question_id );
+
+		wp_delete_post( $answer_id );
+
+		wp_send_json_success( array( 'question' => $question_id, 'answer' => $answer_id ) );
+	}
+
+	//Cache
 	public function update_transient_when_add_answer( $answer_id, $question_id ) {
 		// Update cache for latest answer of this question 
 		$answer = get_post( $answer_id );
@@ -266,6 +501,69 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 		// Remove Cached Latest Answer
 		delete_transient( 'dwqa_latest_answer_for_' . $question_id );
 		delete_transient( 'dwqa_answer_count_for_' . $question_id );
+	}
+
+	/**
+	 * Flag as spam answer
+	 */
+	public function flag() {
+		if ( ! isset( $_POST['wpnonce'] ) || ! wp_verify_nonce( sanitize_text_field( $_POST['wpnonce'] ), '_dwqa_action_flag_answer_nonce' ) ) {
+			wp_send_json_error( array( 'message' => __( 'Are you cheating huh?', 'dwqa' ) ) );
+		}
+		if ( ! isset( $_POST['answer_id'] ) ) {
+			wp_send_json_error( array( 'message' => __( 'Missing id of answer', 'dwqa' ) ) );
+		}
+		global $current_user;
+		$answer_id = intval( $_POST['answer_id'] );
+		$flag = get_post_meta( $answer_id, '_flag', true );
+		if ( ! $flag ) {
+			$flag = array();
+		} else {
+			$flag = unserialize( $flag );
+		}
+		// _flag[ user_id => flag_bool , ...]
+		$flag_score = 0; 
+		if ( dwqa_is_user_flag( $answer_id, $current_user->ID ) ) {
+			//unflag
+			$flag[$current_user->ID] = $flag_score = 0;
+		} else {
+			$flag[$current_user->ID] = $flag_score = 1;
+
+		}
+		$flag = serialize( $flag );
+		update_post_meta( $answer_id, '_flag', $flag );
+		wp_send_json_success( array( 'status' => $flag_score ) );
+	}
+
+	public function vote_best_answer() {
+		global $current_user;
+		check_ajax_referer( '_dwqa_vote_best_answer', 'nonce' );
+		if ( ! isset( $_POST['answer'] ) ) {
+			exit( 0 );
+		}
+		$answer_id = intval( $_POST['answer'] );
+		$q = get_post_meta( $answer_id, '_question', true );
+		$question = get_post( $q );
+		if ( $current_user->ID == $question->post_author || current_user_can( 'edit_posts' ) ) {
+			do_action( 'dwqa_vote_best_answer', $answer_id );
+			update_post_meta( $q, '_dwqa_best_answer', $answer_id );
+		}
+	}
+
+	public function unvote_best_answer() {
+		global $current_user;
+		check_ajax_referer( '_dwqa_vote_best_answer', 'nonce' );
+		if ( ! isset( $_POST['answer'] ) ) {
+			exit( 0 );
+		}
+		$answer_id = intval( $_POST['answer'] );
+		$q = get_post_meta( $answer_id, '_question', true );
+		$question = get_post( $q );
+		if ( $current_user->ID == $question->post_author || current_user_can( 'edit_posts' ) ) {
+			do_action( 'dwqa_unvote_best_answer', $answer_id );
+			delete_post_meta( $q, '_dwqa_best_answer' );
+		}
+		
 	}
 }
 

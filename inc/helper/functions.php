@@ -83,4 +83,50 @@ function dwqa_array_insert( &$array, $element, $position = null ) {
 	$array = array_merge( $firsthalf, $part, $secondhalf );
 	return $array;
 }
+
+if ( ! function_exists( 'dw_strip_email_to_display' ) ) { 
+	/**
+	 * Strip email for display in front end
+	 * @param  string  $text name
+	 * @param  boolean $echo Display or just return
+	 * @return string        New text that was stripped
+	 */
+	function dw_strip_email_to_display( $text, $echo = false ) {
+		preg_match( '/( [^\@]* )\@( .* )/i', $text, $matches );
+		if ( ! empty( $matches ) ) {
+			$text = $matches[1] . '@...';
+		}
+		if ( $echo ) {
+			echo $text;
+		}
+		return $text;
+	}
+}  
+
+// CAPTCHA
+function dwqa_valid_captcha( $type ) {
+	if ( 'question' == $type && ! dwqa_is_captcha_enable_in_submit_question() ) {
+		return true;
+	}
+
+	if ( 'single-question' == $type && ! dwqa_is_captcha_enable_in_single_question() ) {
+		return true;
+	}
+	
+	global  $dwqa_general_settings;
+	$private_key = isset( $dwqa_general_settings['captcha-google-private-key'] ) ?  $dwqa_general_settings['captcha-google-private-key'] : '';
+	if ( ! isset( $_POST['recaptcha_challenge_field'] ) || ! isset( $_POST['recaptcha_response_field'] ) ) {
+		return false;
+	}
+	$resp = recaptcha_check_answer(
+		$private_key,
+		( isset( $_SERVER['REMOTE_ADDR'] ) ? esc_url( $_SERVER['REMOTE_ADDR'] ) : '' ),
+		sanitize_text_field( $_POST['recaptcha_challenge_field'] ),
+		sanitize_text_field( $_POST['recaptcha_response_field'] )
+	);
+	if ( $resp->is_valid ) {
+		return true;
+	}
+	return false;
+}
 ?>

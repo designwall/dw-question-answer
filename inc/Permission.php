@@ -1,7 +1,7 @@
 <?php  
 
 function dwqa_current_user_can( $perm, $post_id = false ) {
-	global $dwqa_permission, $current_user;
+	global $dwqa, $current_user;
 	if ( is_user_logged_in() ) {
 		if ( $post_id && $current_user->ID == get_post_field( 'post_author', $post_id ) ) {
 			return true;
@@ -12,7 +12,7 @@ function dwqa_current_user_can( $perm, $post_id = false ) {
 		}
 		return false;
 	} else {
-		$anonymous = $dwqa_permission->perms['anonymous'];
+		$anonymous = $dwqa->permission->perms['anonymous'];
 		$type = explode( '_', $perm );
 		if ( isset( $anonymous[$type[1]][$type[0]] ) && $anonymous[$type[1]][$type[0]] ) {
 			return true;
@@ -270,6 +270,8 @@ class DWQA_Permission {
 		add_action( 'update_option_dwqa_permission', array( $this, 'update_caps' ), 10, 2 );
 
 		add_filter( 'user_has_cap', array( $this, 'allow_user_view_their_draft_post' ), 10, 4 );
+
+		add_action( 'wp_ajax_dwqa-reset-permission-default', array( $this, 'reset_permission_default' ) );
 	}
 
 	public function prepare_permission() {
@@ -361,6 +363,23 @@ class DWQA_Permission {
 			}
 		}
 		return $all_caps;
+	}
+
+	function reset_permission_default() {
+		global $dwqa;
+		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( $_POST['nonce'] ), '_dwqa_reset_permission' ) ) {
+			wp_send_json_error( array( 'message' => __( 'Are you cheating huh?', 'dwqa' ) ) );
+		}
+		if ( isset( $_POST['type'] ) ) {
+			$old = $dwqa->permission->perms;
+			$type = sanitize_text_field( $_POST['type'] );
+			foreach ( $dwqa->permission->defaults as $role => $perms ) {
+				$dwqa->permission->perms[$role][$type] = $perms[$type];
+			}
+			$dwqa->permission->reset_caps( $old, $dwqa->permission->perms );
+			wp_send_json_success();
+		}
+		wp_send_json_error();
 	}
 }
 

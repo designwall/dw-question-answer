@@ -38,6 +38,7 @@ class DW_Question_Answer {
 		$this->permission = new DWQA_Permission();
 		$this->settings = new DWQA_Settings();
 		$this->editor = new DWQA_Editor();
+		$this->rewrite = new DWQA_Rewrite();
 
 		// All init action of plugin will be included in
 		add_action( 'init', array( $this, 'init' ) );

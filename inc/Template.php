@@ -679,6 +679,24 @@ function dwqa_get_template( $template = false ) {
 	return false;
 }
 
+function dwqa_has_sidebar_template() {
+	global $dwqa_options, $dwqa_template;
+	$template = get_stylesheet_directory() . '/dwqa-templates/';
+	if ( is_single() && file_exists( $template . '/sidebar-single.php' ) ) {
+		include $template . '/sidebar-single.php';
+		return;
+	} elseif ( is_single() ) { 
+		if ( file_exists( DWQA_DIR . 'inc/templates/'.$dwqa_template.'/sidebar-single.php' ) ) {
+			include DWQA_DIR . 'inc/templates/'.$dwqa_template.'/sidebar-single.php';
+		} else {
+			get_sidebar();
+		}
+		return;
+	}
+
+	return;
+}
+
 class DWQA_Template {
 	private $active = 'default';
 	public $filters;
@@ -692,7 +710,23 @@ class DWQA_Template {
 		//Template Include Hook
 		add_filter( 'single_template', array( $this, 'redirect_answer_to_question' ), 20 );
 		add_filter( 'comments_template', array( $this, 'generate_template_for_comment_form' ), 20 );
+
+		//Wrapper
+		add_action( 'dwqa_before_page', array( $this, 'start_wrapper_content' ) );
+		add_action( 'dwqa_after_page', array( $this, 'end_wrapper_content' ) );
 	}
+
+	public function start_wrapper_content() {
+		dwqa_load_template( 'content', 'start-wrapper' );
+		echo '<div class="dwqa-container" >';
+	}
+
+	public function end_wrapper_content() {
+		echo '</div>';
+		dwqa_load_template( 'content', 'end-wrapper' );
+		wp_reset_query();
+	}
+
 
 	public function redirect_answer_to_question( $template ) {
 		global $post, $dwqa_options;

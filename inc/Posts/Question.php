@@ -1,5 +1,70 @@
 <?php  
 
+/**
+ * Get related questions            [description]
+ */
+function dwqa_related_question( $question_id = false, $number = 5, $echo = true ) {
+	if ( ! $question_id ) {
+		$question_id = get_the_ID();
+	}
+	$tag_in = $cat_in = array();
+	$tags = wp_get_post_terms( $question_id, 'dwqa-question_tag' );
+	if ( ! empty($tags) ) {
+		foreach ( $tags as $tag ) {
+			$tag_in[] = $tag->term_id;
+		}   
+	}
+	
+	$category = wp_get_post_terms( $question_id, 'dwqa-question_category' );
+	if ( ! empty($category) ) {
+		foreach ( $category as $cat ) {
+			$cat_in[] = $cat->term_id;
+		}    
+	}
+	$args = array(
+		'orderby'       => 'rand',
+		'post__not_in'  => array($question_id),
+		'showposts'     => $number,
+		'ignore_sticky_posts' => 1,
+		'post_type'     => 'dwqa-question',
+	);
+
+	$args['tax_query']['relation'] = 'OR';
+	if ( ! empty( $cat_in ) ) {
+		$args['tax_query'][] = array(
+			'taxonomy'  => 'dwqa-question_category',
+			'field'     => 'id',
+			'terms'     => $cat_in,
+			'operator'  => 'IN',
+		);
+	}
+	if ( ! empty( $tag_in ) ) {
+		$args['tax_query'][] = array(
+			'taxonomy'  => 'dwqa-question_tag',
+			'field'     => 'id',
+			'terms'     => $tag_in,
+			'operator'  => 'IN',
+		);
+	}
+
+	$related_questions = new WP_Query( $args );
+	
+	if ( $related_questions->have_posts() ) {
+		if ( $echo ) {
+			echo '<ul>';
+			while ( $related_questions->have_posts() ) { $related_questions->the_post();
+				echo '<li><a href="'.get_permalink().'" class="question-title">'.get_the_title().'</a> '.__( 'asked by', 'dwqa' ).' ';
+				the_author_posts_link();
+				echo '</li>';
+			}
+			echo '</ul>';
+		}
+	}
+	$posts = $related_questions->posts;
+	wp_reset_postdata();
+	return $posts;
+}
+
 class DWQA_Posts_Question extends DWQA_Posts_Base {
 
 	public function __construct() {
@@ -9,6 +74,7 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 			'menu'	 => __( 'DWQA', 'dwqa' )
 		) );
 
+		add_action( 'manage_dwqa-question_posts_custom_column', array( $this, 'columns_content' ), 10, 2 );
 	}
 
 	public function init() {
@@ -108,6 +174,40 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 		}
 		return $defaults;  
 	}
+
+	// SHOW THE FEATURED IMAGE  
+	function columns_content( $column_name, $post_ID ) {  
+		switch ( $column_name ) {
+			case 'info':
+				echo ucfirst( get_post_meta( $post_ID, '_dwqa_status', true ) ) . '<br>';
+				echo '<strong>'.dwqa_question_answers_count( $post_ID ) . '</strong> '.__( 'answered', 'dwqa' ) . '<br>';
+				echo '<strong>'.dwqa_vote_count( $post_ID ).'</strong> '.__( 'voted', 'dwqa' ) . '<br>';
+				echo '<strong>'.dwqa_question_views_count( $post_ID ).'</strong> '.__( 'views', 'dwqa' ) . '<br>';
+				break;
+			case 'question-category':
+				$terms = wp_get_post_terms( $post_ID, 'dwqa-question_category' );
+				$i = 0;
+				foreach ( $terms as $term ) {
+					if ( $i > 0 ) {
+						echo ', ';
+					}
+					echo '<a href="'.get_term_link( $term, 'dwqa-question_category' ).'">'.$term->name . '</a> ';
+					$i++;
+				}
+				break;
+			case 'question-tag':
+				$terms = wp_get_post_terms( $post_ID, 'dwqa-question_tag' );
+				$i = 0;
+				foreach ( $terms as $term ) {
+					if ( $i > 0 ) {
+						echo ', ';
+					}
+					echo '<a href="'.get_term_link( $term, 'dwqa-question_tag' ).'">' . $term->name . '</a> ';
+					$i++;
+				}
+				break;
+		}
+	} 
 }
 
 ?>

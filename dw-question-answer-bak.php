@@ -19,21 +19,21 @@ if ( ! defined( 'DWQA_URI' ) ) {
 
 require_once DWQA_DIR  . 'inc/template-functions.php'; // Template
 require_once DWQA_DIR  . 'inc/settings.php'; // Settings
-require_once DWQA_DIR  . 'inc/actions.php';
-require_once DWQA_DIR  . 'inc/actions-question.php';
-require_once DWQA_DIR  . 'inc/actions-vote.php';
+require_once DWQA_DIR  . 'inc/actions.php'; //removed
+require_once DWQA_DIR  . 'inc/actions-question.php'; //removed
+require_once DWQA_DIR  . 'inc/actions-vote.php'; //removed
 require_once DWQA_DIR  . 'inc/filter.php'; 
 require_once DWQA_DIR  . 'inc/metaboxes.php';
-include_once DWQA_DIR  . 'inc/notification.php';
+include_once DWQA_DIR  . 'inc/notification.php';//Notification
 require_once DWQA_DIR  . 'inc/class-answers-list-table.php';
 require_once DWQA_DIR  . 'inc/class-walker-category.php';
 require_once DWQA_DIR  . 'inc/class-walker-tag-dropdown.php';
 include_once DWQA_DIR  . 'inc/contextual-helper.php'; 
-include_once DWQA_DIR  . 'inc/pointer-helper.php'; 
-include_once DWQA_DIR  . 'inc/beta.php'; 
+include_once DWQA_DIR  . 'inc/pointer-helper.php'; // Pointer_Helper
+include_once DWQA_DIR  . 'inc/beta.php'; //removed
 include_once DWQA_DIR  . 'inc/shortcodes.php'; // Shortcode
 include_once DWQA_DIR  . 'inc/status.php';
-include_once DWQA_DIR  . 'inc/roles.php';
+include_once DWQA_DIR  . 'inc/roles.php'; // Permission
 
 include_once DWQA_DIR  . 'inc/widgets/related-question.php';
 include_once DWQA_DIR  . 'inc/widgets/popular-question.php';

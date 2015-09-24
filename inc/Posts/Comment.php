@@ -19,6 +19,8 @@ class DWQA_Post_Comment {
 		add_action( 'wp_ajax_dwqa-get-comments', array( $this, 'get_comments' ) );
 		add_action( 'wp_ajax_nopriv_dwqa-get-comments', array( $this, 'get_comments' ) );
 		add_filter( 'get_comment', array( $this, 'comment_author_link_anonymous' ) );
+
+		add_action( 'wp_insert_comment', array( $this, 'reopen_question_have_new_comment' ) );
 	}
 	/**
 	 * Change redirect link when comment for answer finished
@@ -214,6 +216,27 @@ class DWQA_Post_Comment {
 			$comment->comment_author = __( 'Anonymous','dwqa' );
 		}
 		return $comment;
+	}
+
+	//Update question status when have new comment
+	public function reopen_question_have_new_comment( $comment_ID ){
+		$comment = get_comment( $comment_ID );
+		$comment_post_type = get_post_type( $comment->comment_post_ID );
+		$question = false;
+		if ( 'dwqa-answer' == $comment_post_type ) {
+			$question = get_post_meta( $comment->comment_post_ID, '_question', true );
+		} elseif ( 'dwqa-question' == $comment_post_type ) {
+			$question = $comment->comment_post_ID;
+		}
+
+		if ( $question ) {
+			$question_status = get_post_meta( $question, '_dwqa_status', true );
+			if ( ! user_can( $comment->user_id, 'edit_posts' ) ) {
+				if ( 'resolved' == $question_status ) {
+					update_post_meta( $question, '_dwqa_status', 're-open' );
+				}
+			}
+		}
 	}
 }
 ?>

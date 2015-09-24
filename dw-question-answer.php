@@ -24,6 +24,7 @@ if ( ! defined( 'DWQA_URI' ) ) {
 // Add autoload class
 require_once DWQA_DIR . 'inc/autoload.php';
 require_once DWQA_DIR . 'inc/helper/functions.php';
+require_once DWQA_DIR . 'inc/deprecated.php';
 
 class DW_Question_Answer {
 	private $last_update = 220920151030; //last update time of the plugin
@@ -42,11 +43,22 @@ class DW_Question_Answer {
 		$this->editor = new DWQA_Editor();
 		$this->rewrite = new DWQA_Rewrite();
 		$this->user = new DWQA_User();
+		$this->notifications = new DWQA_Notifications();
+
+		$this->metaboxes = new DWQA_Metaboxes();
+
+		$this->helptab = new DWQA_Help_Tab();
+		$this->pointer_helper = new DWQA_Pointer_Helper();
 
 		// All init action of plugin will be included in
 		add_action( 'init', array( $this, 'init' ) );
 		register_activation_hook( __FILE__, array( $this, 'activate_hook' ) );
 		register_deactivation_hook( __FILE__, array( $this, 'deactivate_hook' ) );
+
+		//Widgets
+		add_action( 'widgets_init', create_function( '', "register_widget( 'DWQA_Widgets_Latest_Question' );" ) 
+		add_action( 'widgets_init', create_function( '', "register_widget( 'DWQA_Widgets_Closed_Question' );" ) );
+		// add_action( 'widgets_init', create_function( '', "register_widget( 'DWQA_Qidget->Popular_Question_Widget' );" ) );
 	}
 
 	public function include_recaptcha_library() {

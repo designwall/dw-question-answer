@@ -129,4 +129,5 @@ function dwqa_valid_captcha( $type ) {
 	}
 	return false;
 }
+
 ?>

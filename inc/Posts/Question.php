@@ -125,7 +125,9 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 		// Ajax Update question status
 		add_action( 'wp_ajax_dwqa-update-question-status', array( $this, 'update_status' ) ); 
 		add_filter( 'parse_query', array( $this, 'posts_filter' ) );  
-
+		
+		add_action( 'wp', array( $this, 'schedule_events' ) );
+		add_action( 'dwqa_hourly_event', array( $this, 'do_this_hourly' ) );
 		add_action( 'before_delete_post', array( $this, 'hook_on_remove_question' ) );
 
 	}
@@ -751,6 +753,33 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 				}
 			}   
 		}
+	}
+
+	//Auto close question when question was resolved longtime
+	public function schedule_events() {
+		if ( ! wp_next_scheduled( 'dwqa_hourly_event' ) ) {
+			wp_schedule_event( time(), 'hourly', 'dwqa_hourly_event' );
+		}
+	}
+
+	public function do_this_hourly() {
+		$closed_questions = wp_cache_get( 'dwqa-closed-question' );
+		if ( false == $closed_questions ) {
+			global $wpdb;
+			$query = "SELECT `{$wpdb->posts}`.ID FROM `{$wpdb->posts}` JOIN `{$wpdb->postmeta}` ON `{$wpdb->posts}`.ID = `{$wpdb->postmeta}`.post_id WHERE 1=1 AND `{$wpdb->postmeta}`.meta_key = '_dwqa_status' AND `{$wpdb->postmeta}`.meta_value = 'closed' AND `{$wpdb->posts}`.post_status = 'publish' AND `{$wpdb->posts}`.post_type = 'dwqa-question'";
+			$closed_questions = $wpdb->get_results( $query );
+			
+			wp_cache_set( 'dwqa-closed-question', $closed_questions );
+		}
+
+		if ( ! empty( $closed_questions ) ) {
+			foreach ( $closed_questions as $q ) {
+				$resolved_time = get_post_meta( $q->ID, '_dwqa_resolved_time', true );
+				if ( dwqa_is_resolved( $q->ID ) && ( time() - $resolved_time > (3 * 24 * 60 * 60 ) ) ) {
+					update_post_meta( $q->ID, '_dwqa_status', 'resolved' );
+				}
+			}
+		} 
 	}
 }
 

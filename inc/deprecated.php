@@ -21,4 +21,18 @@ function dwqa_add_answer() {
 	$dwqa->insert();
 }
 
+class Walker_Category_DWQA {
+	public function __construct() {
+		_deprecated_function( __FUNCTION__, '1.3.4', 'DWQA_Walker_Category' );
+		new DWQA_Walker_Category();
+	}
+}
+
+class Walker_Tag_DWQA {
+	public function __construct() {
+		_deprecated_function( __FUNCTION__, '1.3.4', 'DWQA_Walker_Tag' );
+		new DWQA_Walker_Tag();
+	}
+}
+
 ?>

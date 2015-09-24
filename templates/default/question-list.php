@@ -69,7 +69,7 @@
 							'hide_empty'        => 0,
 							'show_count'		=> 0,
 							'title_li'			=> '',
-							'walker'			=> new Walker_Category_DWQA,
+							'walker'			=> new DWQA_Walker_Category,
 						) );
 					?>	
 					</ul>

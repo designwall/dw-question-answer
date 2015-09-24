@@ -66,7 +66,7 @@ class DW_Question_Answer {
 
 	public function include_recaptcha_library() {
 		if ( ! defined( 'RECAPTCHA_VERIFY_SERVER' ) ) {
-			require_once DWQA_DIR  . 'inc/lib/recaptcha-php/recaptchalib.php';
+			require_once DWQA_DIR  . 'lib/recaptcha-php/recaptchalib.php';
 		}
 	}
 

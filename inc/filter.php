@@ -504,6 +504,4 @@ class DWQA_Filter {
 		add_action( 'wp_ajax_nopriv_dwqa-auto-suggest-search-result', array( $this, 'auto_suggest_for_seach' ) );
 	}
 }
-global $dwqa_filter;
-$dwqa_filter = new DWQA_Filter();
 ?>

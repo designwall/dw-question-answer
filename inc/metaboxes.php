@@ -37,7 +37,7 @@ class DWQA_Metaboxes {
 		add_action( 'add_meta_boxes', array( $this, 'answers_metabox' ) );
 		add_filter( 'postbox_classes_dwqa-question_dwqa-answers', array( $this, 'add_css_class_metabox' ) );
 		add_action( 'admin_init', array( $this, 'add_status_metabox' ) );
-		add_action( 'save_post', array( $this, 'question_status_save' );
+		add_action( 'save_post', array( $this, 'question_status_save' ) );
 	}
 
 	//Add a metabox that was used for display list of answers of a questions
@@ -49,9 +49,9 @@ class DWQA_Metaboxes {
 	 * generate html for metabox that was used for display list of answers of a questions
 	 */
 	public function metabox_answers_list(){
-		$answer_list_table = new DWQA_answer_list_table();
+		$answer_list_table = new DWQA_Answer_List_Table();
 		$answer_list_table->display();
-	},
+	}
 
 	public function add_css_class_metabox( $classes ){
 		$classes[] = 'dwqa-answer-list';

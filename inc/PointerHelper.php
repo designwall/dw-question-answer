@@ -1,6 +1,6 @@
 <?php  
 
-class DWQA_Pointer_Helper {
+class DWQA_PointerHelper {
 	public function __construct() {
 		add_action( 'admin_enqueue_scripts', array( $this, 'pointer_load' ), 1000 );
 		add_filter( 'dwqa_admin_pointers-edit-dwqa-question', array( $this, 'register_pointer_testing' ) );

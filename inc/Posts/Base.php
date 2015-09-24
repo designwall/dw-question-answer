@@ -348,10 +348,6 @@ class DWQA_Posts_Base {
 		return preg_replace_callback( '/<( code )( [^>]* )>( .* )<\/( code )[^>]*>/isU' , array( $this, 'convert_pre_entities' ),  $content );
 	}
 
-	public function pre_content_filter( $content ) {
-		return preg_replace_callback( '/<( code )( [^>]* )>( .* )<\/( code )[^>]*>/isU' , array( $this, 'convert_pre_entities' ),  $content );
-	}
-
 	public function convert_pre_entities( $matches ) {
 		$string = $matches[0];
 		preg_match( '/class=\\\"( [^\\\"]* )\\\"/', $matches[2], $sub_match );
@@ -422,7 +418,6 @@ class DWQA_Posts_Base {
 		if ( is_user_logged_in() ) {
 			$query['post_status'] = array( 'publish', 'private', 'pending' );
 		}
-		global $dwqa_filter;
 		query_posts( $query );
 	}
 

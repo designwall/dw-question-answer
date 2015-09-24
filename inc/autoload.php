@@ -8,8 +8,13 @@ spl_autoload_register(
 			return;
 		}
 		// Drop 'Google', and maximum class file path depth in this project is 3.
-		$classPath = array_slice($classPath, 1, 2);
-		$filePath = DWQA_DIR . 'inc/' . implode('/', $classPath) . '.php';
+		$classPathSlice = array_slice($classPath, 1, 2);
+		if ( count( $classPath ) > 3 ) {
+			for ($i=3; $i < count( $classPath ); $i++) { 
+				$classPathSlice[1] .= '_' . $classPath[$i];
+			}
+		}
+		$filePath = DWQA_DIR . 'inc/' . implode('/', $classPathSlice) . '.php';
 		if (file_exists($filePath)) {
 			require_once($filePath);
 		}

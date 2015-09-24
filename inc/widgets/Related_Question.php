@@ -1,6 +1,6 @@
 <?php  
 
-class DWQA_Related_Question_Widget extends WP_Widget {
+class DWQA_Widgets_Related_Question extends WP_Widget {
 
 	/**
 	 * Constructor
@@ -54,6 +54,5 @@ class DWQA_Related_Question_Widget extends WP_Widget {
 		<?php
 	}
 }
-add_action( 'widgets_init', create_function( '', "register_widget( 'DWQA_Related_Question_Widget' );" ) );
 
 ?>

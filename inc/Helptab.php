@@ -4,7 +4,7 @@
  * Plugin URI:  http://unserkaiser.com
  * Description: Add Help Tab test case
  */
-class DWQA_Help_Tab {
+class DWQA_Helptab {
 	public $tabs;
 
 	public function __construct() {
@@ -220,7 +220,6 @@ class DWQA_Help_Tab {
 			'<p><a href="http://www.designwall.com/wordpress/plugins/" target="_blank">' . __( 'DesignWall Wordpress Plugins' ) . '</a></p>'
 		);
 	}
-
 }
 
 

@@ -35,20 +35,22 @@ class DW_Question_Answer {
 		// load posttype
 		$this->question = new DWQA_Posts_Question();
 		$this->answer = new DWQA_Posts_Answer();
-		$this->answer = new DWQA_Posts_Comment();
+		$this->comment = new DWQA_Posts_Comment();
+		$this->permission = new DWQA_Permission();
+		$this->status = new DWQA_Status();
 		$this->shortcode = new DWQA_Shortcode();
 		$this->template = new DWQA_Template();
-		$this->permission = new DWQA_Permission();
 		$this->settings = new DWQA_Settings();
 		$this->editor = new DWQA_Editor();
 		$this->rewrite = new DWQA_Rewrite();
 		$this->user = new DWQA_User();
 		$this->notifications = new DWQA_Notifications();
+		$this->filter = new DWQA_Filter();
 
 		$this->metaboxes = new DWQA_Metaboxes();
 
-		$this->helptab = new DWQA_Help_Tab();
-		$this->pointer_helper = new DWQA_Pointer_Helper();
+		$this->helptab = new DWQA_Helptab();
+		$this->pointer_helper = new DWQA_PointerHelper();
 
 		// All init action of plugin will be included in
 		add_action( 'init', array( $this, 'init' ) );
@@ -56,9 +58,10 @@ class DW_Question_Answer {
 		register_deactivation_hook( __FILE__, array( $this, 'deactivate_hook' ) );
 
 		//Widgets
-		add_action( 'widgets_init', create_function( '', "register_widget( 'DWQA_Widgets_Latest_Question' );" ) 
+		add_action( 'widgets_init', create_function( '', "register_widget( 'DWQA_Widgets_Latest_Question' );" ) );
 		add_action( 'widgets_init', create_function( '', "register_widget( 'DWQA_Widgets_Closed_Question' );" ) );
-		// add_action( 'widgets_init', create_function( '', "register_widget( 'DWQA_Qidget->Popular_Question_Widget' );" ) );
+		add_action( 'widgets_init', create_function( '', "register_widget( 'DWQA_Widgets_Popular_Question' );" ) );
+		add_action( 'widgets_init', create_function( '', "register_widget( 'DWQA_Widgets_Related_Question' );" ) );
 	}
 
 	public function include_recaptcha_library() {

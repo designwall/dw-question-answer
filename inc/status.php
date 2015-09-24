@@ -120,8 +120,6 @@ function dwqa_is_overdue( $question_id ) {
 	return true;
 }
 
-
-
 // Detect new answer from an other user
 function dwqa_have_new_reply( $question_id = false ) {
 	//if latest answer is not administrator 
@@ -206,7 +204,6 @@ function dwqa_have_new_comment( $question_id = false ) {
 		return false;
 	}
 }
-
 // End statuses of admin
 
 // Get new reply
@@ -291,66 +288,70 @@ function dwqa_question_get_status_name( $status ) {
 }   
 
 
-function dwqa_update_privacy() {
-	if ( ! isset( $_POST['nonce'] ) ) {
-		wp_send_json_error( array( 'message' => __( 'Are you cheating huh?', 'dwqa' ) ) );
-	}
-	check_ajax_referer( '_dwqa_update_privacy_nonce', 'nonce' );
-
-	if ( ! isset( $_POST['post'] ) ) {
-		wp_send_json_error( array( 'message' => __( 'Missing post ID', 'dwqa' ) ) );
+class DWQA_Status {
+	public function __construct() {
+		add_action( 'wp_ajax_dwqa-update-privacy', array( $this, 'update_privacy' ) );
+		add_action( 'dwqa_add_answer', array( $this, 'auto_change_question_status' ) );
 	}
 
-	global $current_user;
-	$post_author = get_post_field( 'post_author', esc_html( $_POST['post'] ) );
-	if ( dwqa_current_user_can( 'edit_question' ) || $current_user->ID == $post_author ) {
-		$status = 'publish';
-		if ( isset( $_POST['status'] ) && in_array( $_POST['status'], array( 'draft', 'publish', 'pending', 'future', 'private' ) ) ) {
-			$update = wp_update_post( array(
-				'ID'    => intval( $_POST['post'] ),
-				'post_status'   => esc_html( $_POST['status'] ),
-			) );
-			if ( $update ) {
-				wp_send_json_success( array( 'ID' => $update ) );
+	public function update_privacy() {
+		if ( ! isset( $_POST['nonce'] ) ) {
+			wp_send_json_error( array( 'message' => __( 'Are you cheating huh?', 'dwqa' ) ) );
+		}
+		check_ajax_referer( '_dwqa_update_privacy_nonce', 'nonce' );
+
+		if ( ! isset( $_POST['post'] ) ) {
+			wp_send_json_error( array( 'message' => __( 'Missing post ID', 'dwqa' ) ) );
+		}
+
+		global $current_user;
+		$post_author = get_post_field( 'post_author', esc_html( $_POST['post'] ) );
+		if ( dwqa_current_user_can( 'edit_question' ) || $current_user->ID == $post_author ) {
+			$status = 'publish';
+			if ( isset( $_POST['status'] ) && in_array( $_POST['status'], array( 'draft', 'publish', 'pending', 'future', 'private' ) ) ) {
+				$update = wp_update_post( array(
+					'ID'    => intval( $_POST['post'] ),
+					'post_status'   => esc_html( $_POST['status'] ),
+				) );
+				if ( $update ) {
+					wp_send_json_success( array( 'ID' => $update ) );
+				} else {
+					wp_send_json_error(  array(
+						'message'   => __( 'Post does not exist','dwqa' )
+					) );
+				}
 			} else {
-				wp_send_json_error(  array(
-					'message'   => __( 'Post does not exist','dwqa' )
+				wp_send_json_error( array(
+					'message'   => __( 'Invalid post status','dwqa' )
 				) );
 			}
 		} else {
 			wp_send_json_error( array(
-				'message'   => __( 'Invalid post status','dwqa' )
+				'message'   => __( 'You do not have permission to edit question', 'dwqa' )
 			) );
-		}
-	} else {
-		wp_send_json_error( array(
-			'message'   => __( 'You do not have permission to edit question', 'dwqa' )
-		) );
+		}	
 	}
-
-	
-}
-add_action( 'wp_ajax_dwqa-update-privacy', 'dwqa_update_privacy' );
-
-/**
- * Update question status when have new answer
- */
-add_action( 'dwqa_add_answer', 'dwqa_auto_change_question_status' );
-function dwqa_auto_change_question_status( $answer_id ){
-	if ( ! is_wp_error( $answer_id ) ) {
-		$question_id = get_post_meta( $answer_id, '_question', true );
-		$answer = get_post( $answer_id );
-		if ( $question_id && $answer->post_author ) {
-			$question_status = get_post_meta( $question_id, '_dwqa_status', true );
-			if ( dwqa_current_user_can( 'edit_question' ) ) {
-				update_post_meta( $question_id, '_dwqa_status', 'answered' );
-			} else {
-				if ( $question_status == 'resolved' || $question_status == 'answered' ) {
-					update_post_meta( $question_id, '_dwqa_status', 're-open' );
+	/**
+	 * Update question status when have new answer
+	 */
+	public function dwqa_auto_change_question_status( $answer_id ){
+		if ( ! is_wp_error( $answer_id ) ) {
+			$question_id = get_post_meta( $answer_id, '_question', true );
+			$answer = get_post( $answer_id );
+			if ( $question_id && $answer->post_author ) {
+				$question_status = get_post_meta( $question_id, '_dwqa_status', true );
+				if ( dwqa_current_user_can( 'edit_question' ) ) {
+					update_post_meta( $question_id, '_dwqa_status', 'answered' );
+				} else {
+					if ( $question_status == 'resolved' || $question_status == 'answered' ) {
+						update_post_meta( $question_id, '_dwqa_status', 're-open' );
+					}
 				}
 			}
 		}
 	}
 }
+
+
 
 ?>

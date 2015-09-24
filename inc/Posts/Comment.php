@@ -1,6 +1,6 @@
 <?php  
 
-class DWQA_Post_Comment {
+class DWQA_Posts_Comment {
 	public function __construct() {
 		add_filter( 'comment_post_redirect', array( $this, 'hook_redirect_comment_for_answer'), 10, 2 );
 

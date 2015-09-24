@@ -1,6 +1,6 @@
 <?php  
 
-class DWQA_Widget_Popular_Question extends WP_Widget {
+class DWQA_Widgets_Popular_Question extends WP_Widget {
 
 	/**
 	 * Constructor

@@ -65,12 +65,12 @@ function dwqa_related_question( $question_id = false, $number = 5, $echo = true 
 	return $posts;
 }
 
-public function dwqa_submit_question() {
+function dwqa_submit_question() {
 	global $dwqa;
 	$dwqa->question->submit_question();
 }
 
-public function dwqa_insert_question( $args ) {
+function dwqa_insert_question( $args ) {
 	global $dwqa;
 	$dwqa->insert( $args );
 }
@@ -103,12 +103,12 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 		parent::__construct( 'dwqa-question', array(
 			'plural' => __( 'Questions', 'dwqa' ),
 			'singular' => __( 'Question', 'dwqa' ),
-			'menu'	 => __( 'DWQA', 'dwqa' )
+			'menu'	 => __( 'DW Q&A', 'dwqa' )
 		) );
 
 		add_action( 'manage_dwqa-question_posts_custom_column', array( $this, 'columns_content' ), 10, 2 );
 
-		add_action( 'init', array( $this, 'dwqa_submit_question' ), 11 );
+		add_action( 'init', array( $this, 'submit_question' ), 11 );
 		// Ajax update question
 		add_action( 'wp_ajax_dwqa-update-question', array( $this, 'update' ) );
 		// Update view count of question, if we change single question template into shortcode, this function will need to be rewrite

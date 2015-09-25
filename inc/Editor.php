@@ -49,7 +49,7 @@ class DWQA_Editor {
 				'media_buttons' => false,
 		) ) );
 
-		$dwqa_tinymce_css = apply_filters( 'dwqa_editor_style', array( DWQA_URI . 'assets/css/tinymce.css' ) );
+		$dwqa_tinymce_css = apply_filters( 'dwqa_editor_style', DWQA_URI . 'assets/css/tinymce.css' );
 		
 		wp_editor( $content, $id, array(
 			'wpautop'       => $wpautop,

@@ -140,6 +140,13 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 		return array( 'title', 'editor', 'comments', 'author', 'page-attributes' );
 	}
 
+	public function set_rewrite() {
+		return array(
+			'slug' => 'question',
+			'with_front' => false,
+		);
+	}
+
 	public function register_taxonomy() {
 		$labels = array(
 			'name'					=> _x( 'Categories', 'Taxonomy question categories', 'dwqa' ),
@@ -167,7 +174,9 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 			'show_tagcloud'     => true,
 			'show_ui'           => true,
 			'query_var'         => true,
-			'rewrite'           => true,
+			'rewrite'           => array(
+				'slug' => 'question-category'
+			),
 			'query_var'         => true,
 			'capabilities'      => array(),
 		);
@@ -200,7 +209,9 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 			'show_tagcloud'     => true,
 			'show_ui'           => true,
 			'query_var'         => true,
-			'rewrite'           => true,
+			'rewrite'           => array(
+				'slug' => 'question-tag'
+			),
 			'query_var'         => true,
 			'capabilities'      => array(),
 		);
@@ -493,36 +504,6 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 		}
 	}
 
-	/**
-	 * AJAX: update post status
-	 * @return void 
-	 */
-	public function update_status() {
-		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( $_POST['nonce'] ), '_dwqa_update_question_status_nonce' ) ) {
-		} 
-		if ( ! isset( $_POST['question'] ) ) {
-			wp_die( 0 );
-		}
-		if ( ! isset( $_POST['status'] ) || ! in_array( sanitize_text_field( $_POST['status'] ), array( 'open', 're-open', 'resolved', 'closed', 'pending' ) ) ) {
-			wp_die( 0 );
-		}
-
-		global $current_user;
-		$question_id = intval( $_POST['question'] );
-		$question = get_post( $question_id );
-
-		if ( dwqa_current_user_can( 'edit_question' ) || $current_user->ID == $question->post_author ) {
-			$status = sanitize_text_field( $_POST['status'] );
-			update_post_meta( $question_id, '_dwqa_status', $status );
-			if ( $status == 'resolved' ) {
-				update_post_meta( $question_id, '_dwqa_resolved_time', time() );
-			}
-		} else {
-			wp_send_json_error( array(
-				'message'   => __( 'You do not have permission to edit question status', 'dwqa' )
-			) );
-		}
-	}
 
 	public function update() {
 		global $dwqa_options;
@@ -568,6 +549,36 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 				return true;
 			}
 			break;
+		}
+	}
+	/**
+	 * AJAX: update post status
+	 * @return void 
+	 */
+	public function update_status() {
+		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( $_POST['nonce'] ), '_dwqa_update_question_status_nonce' ) ) {
+		} 
+		if ( ! isset( $_POST['question'] ) ) {
+			wp_die( 0 );
+		}
+		if ( ! isset( $_POST['status'] ) || ! in_array( sanitize_text_field( $_POST['status'] ), array( 'open', 're-open', 'resolved', 'closed', 'pending' ) ) ) {
+			wp_die( 0 );
+		}
+
+		global $current_user;
+		$question_id = intval( $_POST['question'] );
+		$question = get_post( $question_id );
+
+		if ( dwqa_current_user_can( 'edit_question' ) || $current_user->ID == $question->post_author ) {
+			$status = sanitize_text_field( $_POST['status'] );
+			update_post_meta( $question_id, '_dwqa_status', $status );
+			if ( $status == 'resolved' ) {
+				update_post_meta( $question_id, '_dwqa_resolved_time', time() );
+			}
+		} else {
+			wp_send_json_error( array(
+				'message'   => __( 'You do not have permission to edit question status', 'dwqa' )
+			) );
 		}
 	}
 

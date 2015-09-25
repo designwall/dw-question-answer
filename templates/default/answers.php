@@ -8,15 +8,13 @@ $draft_answers = dwqa_user_get_draft( $question_id );
 // get all answers for this posts
 $args = array(
 	'post_type' 		=> 'dwqa-answer',
-	'posts_per_page'    => 99,
+	'posts_per_page'    => get_option( 'posts_per_page' ),
 	'order'      		=> 'ASC',
-	'page'				=> $ans_cur_page,
 	'paged'				=> $ans_cur_page,
 	'meta_query' 		=> array(
 		array(
 			'key' => '_question',
-			'value' => array( $question_id ),
-			'compare' => 'IN',
+			'value' => $question_id
 		),
 	),
 	'post_status' => array( 'publish', 'private', 'draft' ),
@@ -83,11 +81,14 @@ wp_reset_query(); //End answer listing
 if ( $answers->max_num_pages > 1 ) {
 	$question_url = get_permalink( $question_id );
 	echo '<h3 class="dwqa-answers-page-navigation-head">'.sprintf( __( 'Answer page %d', 'dwqa' ), $ans_cur_page ).'</h3>';
-	echo '<ul class="dwqa-answers-page-navigation">';
-	for ( $i = 1; $i <= $answers->max_num_pages; $i++ ) { 
-		echo '<li class="'.( $ans_cur_page == $i ? 'active' : '' ).'"><a href="'.esc_url( add_query_arg( 'ans-page', $i, $question_url ) ).'">'.$i.'</a></li>';
-	}
-	echo '</ul>';
+	echo '<div class="dwqa-answers-page-navigation">';
+	echo paginate_links( array(
+		'base' => esc_url( add_query_arg( 'ans-page', '%#%', $question_url ) ),
+		'format'             => '',
+		'current' => $ans_cur_page,
+		'total' => $answers->max_num_pages,
+	) );
+	echo '</div>';
 }
 
 //Create answer form

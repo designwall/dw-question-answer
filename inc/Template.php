@@ -692,6 +692,11 @@ function dwqa_has_sidebar_template() {
 	return;
 }
 
+function dwqa_load_answers() {
+	global $dwqa;
+	$dwqa->template->load_template( 'answers' );
+}
+
 class DWQA_Template {
 	private $active = 'default';
 	public $filters;
@@ -712,13 +717,13 @@ class DWQA_Template {
 	}
 
 	public function start_wrapper_content() {
-		dwqa_load_template( 'content', 'start-wrapper' );
+		$this->load_template( 'content', 'start-wrapper' );
 		echo '<div class="dwqa-container" >';
 	}
 
 	public function end_wrapper_content() {
 		echo '</div>';
-		dwqa_load_template( 'content', 'end-wrapper' );
+		$this->load_template( 'content', 'end-wrapper' );
 		wp_reset_query();
 	}
 
@@ -737,7 +742,7 @@ class DWQA_Template {
 
 	public function generate_template_for_comment_form( $comment_template ) {
 		if (  is_single() && ('dwqa-question' == get_post_type() || 'dwqa-answer' == get_post_type() ) ) {
-			return dwqa_load_template( 'comments', false, false );
+			return $this->load_template( 'comments', false, false );
 		}
 		return $comment_template;
 	}
@@ -745,14 +750,13 @@ class DWQA_Template {
 	public function question_content( $template ) {
 		global $dwqa_options;
 		$template_folder = trailingslashit( get_template_directory() );
-
 		if ( is_singular( 'dwqa-question' ) ) {
 			ob_start();
 
 			remove_filter( 'comments_open', array( $this, 'close_default_comment' ) );
 
 			echo '<div class="dwqa-container" >';
-			dwqa_load_template( 'single', 'question' );
+			$this->load_template( 'single', 'question' );
 			echo '</div>';
 
 			$content = ob_get_contents();
@@ -779,7 +783,7 @@ class DWQA_Template {
 
 			$this->remove_all_filters( 'the_content' );
 			if ( $single_template && file_exists( $template_folder . $single_template ) ) {
-				return  $template_folder . $single_template;
+				return $template_folder . $single_template;
 			} else {
 				return dwqa_get_template( 'single.php' );
 			}
@@ -871,7 +875,6 @@ class DWQA_Template {
 		if ( empty( $dummy ) ) {
 			return;
 		}
-
 		// Set the $post global
 		$post = new WP_Post( (object ) $dummy );
 
@@ -977,7 +980,7 @@ class DWQA_Template {
 		return $this->active;
 	}
 
-	public function load_template( $name, $extend = false, $include = false ) {
+	public function load_template( $name, $extend = false, $include = true ) {
 		$check = true;
 		if ( $extend ) {
 			$name .= '-' . $extend;

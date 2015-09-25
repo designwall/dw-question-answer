@@ -58,7 +58,7 @@
 				</div><!-- end question -->
 
 				<div id="dwqa-answers">
-					<?php dwqa_load_template( 'answers' ); ?>
+					<?php dwqa_load_answers(); ?>
 				</div><!-- end dwqa-add-answers -->
 			</div><!-- end dwqa-single-question -->
 		<?php endwhile; // end of the loop. ?>  

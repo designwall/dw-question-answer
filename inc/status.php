@@ -1,5 +1,7 @@
 <?php  
-
+/**
+ * Control all status 
+ */
 function dwqa_question_print_status( $question_id, $echo = true ) {
 	$status = get_post_meta( $question_id, '_dwqa_status', true );
 	if ( $status == 'open' || $status == 're-open' ) {

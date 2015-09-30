@@ -65,6 +65,7 @@ function dwqa_get_the_best_answer( $question_id = false ) {
 	if ( 'dwqa-question' != get_post_type( $question_id ) ) {
 		return false;
 	}
+	global $dwqa, $wpdb;
 
 	$user_vote = get_post_meta( $question_id, '_dwqa_best_answer', true );
 
@@ -72,23 +73,26 @@ function dwqa_get_the_best_answer( $question_id = false ) {
 		return $user_vote;
 	}
 
-	$answer_id = wp_cache_get( 'dwqa-best-answer-for-' . $question_id, 'dwqa' );
-
+	$answer_id = get_transient( 'dwqa-best-answer-for-' . $question_id );
 	if ( ! $answer_id ) {
-		global $wpdb;
-		$query = "SELECT `post_id` FROM `{$wpdb->postmeta}`
-					WHERE `post_id` IN ( 
-							SELECT  `post_id` FROM `{$wpdb->postmeta}` 
-							WHERE `meta_key` = '_question' AND `meta_value` = {$question_id} 
-					) 
-					AND `meta_key` = '_dwqa_votes'
-					ORDER BY CAST( `meta_value` as DECIMAL ) DESC LIMIT 0,1";
-
-		$answer_id = $wpdb->get_var( $query );
-		if ( ! $answer_id ) {
-			$answer_id = -1;
-		}
-		wp_cache_set( 'dwqa-best-answer-for-'.$question_id, $answer_id, 'dwqa', 21600 );
+		$answers = get_posts( array(
+			'post_type' => $dwqa->answer->get_slug(),
+			'posts_per_page' => 1,
+			'meta_key' => '_dwqa_votes',
+			'meta_query' 		=> array(
+				'relation' => 'AND',
+				array(
+					'key' => '_question',
+					'value' => $question_id . '',
+					'compare' => '=',
+				)
+			),
+			'fields' => 'ids',
+			'orderby' => 'meta_value_num',
+			'order' => 'DESC'
+		) );
+		$answer_id = ! empty( $answers ) ? $answers[0] : false;
+		set_transient( 'dwqa-best-answer-for-'.$question_id, $answer_id, 21600 );
 	}
 
 	if ( $answer_id && ( int ) dwqa_vote_count( $answer_id ) > 2 ) {
@@ -221,6 +225,8 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 		//Cache
 		add_action( 'dwqa_add_answer', array( $this, 'update_transient_when_add_answer' ), 10, 2 );
 		add_action( 'dwqa_delete_answer', array( $this, 'update_transient_when_remove_answer' ), 10, 2 );
+		//Prepare answers for single questions
+		add_action( 'the_posts', array( $this, 'prepare_answers' ), 10, 2 );
 	}
 
 	// Remove default menu and change it to submenu of questions
@@ -564,6 +570,34 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 			delete_post_meta( $q, '_dwqa_best_answer' );
 		}
 		
+	}
+
+	public function prepare_answers( $posts, $query ) {
+		global $dwqa;
+		$query->test = 'rambu';
+
+		if ( is_main_query() && $query->is_single() && $query->query_vars['post_type'] == $dwqa->question->get_slug() ) {
+			$question = $posts[0];
+			$ans_cur_page = isset( $_GET['ans-page'] ) ? intval( $_GET['ans-page'] ) : 1;
+			// We will include the all answers of this question here;
+			$args = array(
+				'post_type' 		=> 'dwqa-answer',
+				'posts_per_page'    => get_option( 'posts_per_page' ),
+				'order'      		=> 'ASC',
+				'paged'				=> $ans_cur_page,
+				'meta_query' 		=> array(
+					array(
+						'key' => '_question',
+						'value' => $question->ID
+					),
+				),
+				'post_status' => array( 'publish', 'private', 'draft' ),
+				'perm' => 'readable',
+			);
+			$query->dwqa_answers = new WP_Query( $args );
+			$query->dwqa_answers->best_answer = dwqa_get_the_best_answer( $question->ID );
+		}
+		return $posts;
 	}
 }
 

@@ -1,28 +1,11 @@
 <?php  
-global $current_user, $post, $dwqa_options;
-$ans_cur_page = isset( $_GET['ans-page'] ) ? intval( $_GET['ans-page'] ) : 1;
-$question_id = $post->ID;
-$question = $post;
-$best_answer_id = dwqa_get_the_best_answer( $question_id );
+global $post, $dwqa_options, $wp_query;
+$current_user = wp_get_current_user();
+$question_id = get_the_ID();
 $draft_answers = dwqa_user_get_draft( $question_id );
-// get all answers for this posts
-$args = array(
-	'post_type' 		=> 'dwqa-answer',
-	'posts_per_page'    => get_option( 'posts_per_page' ),
-	'order'      		=> 'ASC',
-	'paged'				=> $ans_cur_page,
-	'meta_query' 		=> array(
-		array(
-			'key' => '_question',
-			'value' => $question_id
-		),
-	),
-	'post_status' => array( 'publish', 'private', 'draft' ),
-	'perm' => 'readable',
-);
-$answers = new WP_Query( $args );
+$answers =  $wp_query->dwqa_answers;
 
-if ( $answers->found_posts > 0 ) {
+if (  $answers->have_posts() ) {
 ?>
 	<h3 class="dwqa-headline">
 	<?php 
@@ -40,24 +23,23 @@ if ( $answers->found_posts > 0 || ! empty( $draft_answers ) ) {
 	<div class="dwqa-list-answers">
 	<?php
 	// Display best answer
-	if ( $best_answer_id ) {
-		$post = get_post( $best_answer_id );
-		setup_postdata( $post );
+	if ( $answers->best_answer ) {
+		$post = get_post( $answers->best_answer ); setup_postdata( $post );
 		dwqa_load_template( 'content', 'answer' );
+		wp_reset_postdata();
 	}
 	// Display other answers
 	global $position; $position = 1;
 	while ( $answers->have_posts() ) { $answers->the_post();
 		$answer = $post;
-		if ( $best_answer_id && $best_answer_id == $answer->ID ) {
-			continue;
-		}
 		if ( ( $answer->post_status == 'private' && ( dwqa_current_user_can( 'edit_answer', $answer->ID ) || dwqa_current_user_can( 'edit_question', $question_id ) ) ) || $answer->post_status == 'publish' ) {
 				dwqa_load_template( 'content', 'answer' );
 		}
 		$position++;
 	} 
-	unset( $position );
+	wp_reset_postdata(); // We do not replace the main query so reset query is no need
+	unset( $position ); // Remove global variable
+
 	//Drafts
 	if ( current_user_can( 'edit_posts' ) && ! empty( $draft_answers ) ) {
 		foreach ($draft_answers as $draft) {
@@ -65,31 +47,35 @@ if ( $answers->found_posts > 0 || ! empty( $draft_answers ) ) {
 			setup_postdata( $post );
 			dwqa_load_template( 'content', 'answer' );
 		}
+		wp_reset_postdata();
 	} 
-	?>
-	</div>
 
+	// Answer Page Naving
+	if ( $answers->max_num_pages > 1 ) {
+		$question_url = get_permalink();
+		$ans_cur_page = isset( $_GET['ans-page'] ) ? intval( $_GET['ans-page'] ) : 1;
+
+		echo '<h3 class="dwqa-answers-page-navigation-head">'.sprintf( __( 'Answer page %d', 'dwqa' ), $ans_cur_page ).'</h3>';
+		echo '<div class="dwqa-answers-page-navigation">';
+		echo paginate_links( array(
+			'base' => esc_url( add_query_arg( 'ans-page', '%#%', $question_url ) ),
+			'format'             => '',
+			'current' => $ans_cur_page,
+			'total' => $answers->max_num_pages,
+		) );
+		echo '</div>';
+	}
+	?>
+
+	</div>
+	
 	<?php 
 } else {
 	if ( ! dwqa_current_user_can( 'read_answer' ) ) {
 		echo '<div class="alert">'.__( 'You do not have permission to view answers','dwqa' ).'</div>';
 	}
 }
-wp_reset_query(); //End answer listing
 
-// Answer Page Naving
-if ( $answers->max_num_pages > 1 ) {
-	$question_url = get_permalink( $question_id );
-	echo '<h3 class="dwqa-answers-page-navigation-head">'.sprintf( __( 'Answer page %d', 'dwqa' ), $ans_cur_page ).'</h3>';
-	echo '<div class="dwqa-answers-page-navigation">';
-	echo paginate_links( array(
-		'base' => esc_url( add_query_arg( 'ans-page', '%#%', $question_url ) ),
-		'format'             => '',
-		'current' => $ans_cur_page,
-		'total' => $answers->max_num_pages,
-	) );
-	echo '</div>';
-}
 
 //Create answer form
 if ( dwqa_is_closed( $question_id ) ) {

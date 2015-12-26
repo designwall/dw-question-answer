@@ -64,9 +64,9 @@ class DWQA_Shortcode {
 
 		ob_end_clean();
 
-		wp_enqueue_script( 'dwqa-questions-list', DWQA_URI . 'inc/templates/default/assets/js/dwqa-questions-list.js', array( 'jquery' ), $script_version, true );
+		wp_enqueue_script( 'dwqa-questions-list', DWQA_URI . 'templates/default/assets/js/dwqa-questions-list.js', array( 'jquery' ), $script_version, true );
 		wp_localize_script( 'dwqa-questions-list', 'dwqa', $dwqa_sript_vars );
-		return $this->sanitize_output( $html );
+		return apply_filters( 'dwqa-shortcode-question-list-content', $this->sanitize_output( $html ) );
 	}
 
 	public function submit_question_form_shortcode() {
@@ -76,11 +76,7 @@ class DWQA_Shortcode {
 		$dwqa->template->remove_all_filters( 'the_content' );
 
 		echo '<div class="dwqa-container" >';
-		if ( dwqa_current_user_can( 'post_question' ) ) {
-			dwqa_load_template( 'question', 'submit-form' );
-		} else {
-			echo '<p class="alert alert-error">'.__( 'You do not have permission to submit question.', 'dwqa' ).'</p>';
-		}
+		dwqa_load_template( 'question', 'submit-form' );
 		echo '</div>';
 		$html = ob_get_contents();
 

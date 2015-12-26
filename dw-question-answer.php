@@ -24,12 +24,16 @@ if ( ! defined( 'DWQA_URI' ) ) {
 // Add autoload class
 require_once DWQA_DIR . 'inc/autoload.php';
 require_once DWQA_DIR . 'inc/helper/functions.php';
+require_once DWQA_DIR . 'upgrades/upgrades.php';
 require_once DWQA_DIR . 'inc/deprecated.php';
 
 class DW_Question_Answer {
-	private $last_update = 220920151030; //last update time of the plugin
+	private $last_update = 151220151200; //last update time of the plugin
 
 	public function __construct() {
+		$this->dir = DWQA_DIR;
+		$this->uri = DWQA_URI;
+		
 		// Add recaptcha library from google, 99 to sure that the library was not include if any other plugins use same library
 		add_action( 'plugins_loaded', array( $this, 'include_recaptcha_library' ), 99 );
 		// load posttype
@@ -71,12 +75,17 @@ class DW_Question_Answer {
 	}
 
 	public function init() {
-		global $dwqa_sript_vars, $dwqa_template;
+		global $dwqa_sript_vars, $dwqa_template, $dwqa_general_settings;
 
 		$active_template = $this->template->get_template();
 		//Load translate text domain
 		load_plugin_textdomain( 'dwqa', false, DWQA_DIR . 'languages/' );
 		//Scripts var
+		
+		$question_category_rewrite = $dwqa_general_settings['question-category-rewrite'];
+		$question_category_rewrite = $question_category_rewrite ? $question_category_rewrite : 'question-category';
+		$question_tag_rewrite = $dwqa_general_settings['question-tag-rewrite'];
+		$question_tag_rewrite = $question_tag_rewrite ? $question_tag_rewrite : 'question-tag';
 		$dwqa_sript_vars = array(
 			'is_logged_in'  => is_user_logged_in(),
 			'plugin_dir_url' => DWQA_URI,
@@ -115,10 +124,9 @@ class DW_Question_Answer {
 			'unfollow_tooltip'  => __( 'Unfollow This Question', 'dwqa' ),
 			'stick_tooltip'    => __( 'Pin this question to top', 'dwqa' ),
 			'unstick_tooltip'  => __( 'Unpin this question from top', 'dwqa' ),
-			'question_category_rewrite' => 'question-category',//$question_category_rewrite,
-			'question_tag_rewrite'      => 'question-tag', //$question_tag_rewrite,
+			'question_category_rewrite' => $question_category_rewrite,//$question_category_rewrite,
+			'question_tag_rewrite'      => $question_tag_rewrite, //$question_tag_rewrite,
 			'delete_question_confirm' => __( 'Do you want to delete this question?', 'dwqa' )
-			  
 		);
 	}
 
@@ -202,5 +210,3 @@ class DW_Question_Answer {
 
 }
 $GLOBALS['dwqa'] = new DW_Question_Answer();
-
-

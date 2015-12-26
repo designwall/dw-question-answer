@@ -364,7 +364,7 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 				'post_content'   => $answ_content,
 				'post_status'    => $post_status,
 				'post_title'     => $answer_title,
-				'post_type'      => $this->slug,
+				'post_type'      => $this->get_slug(),
 			);
 			if ( $_POST['submit-answer'] == __( 'Save draft','dwqa' ) ) {
 				$answers['post_status'] = 'draft';
@@ -401,8 +401,8 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 							}
 							do_action( 'dwqa_add_answer', $answer_id, $question_id );
 							// wp_redirect( get_permalink( $question_id ) );
-							wp_send_json_success( array( 'url' => get_permalink( $question_id ) ) );
-							return true;
+							// wp_send_json_success( array( 'url' => get_permalink( $question_id ) ) );
+							// return true;
 						} else {
 							$dwqa_add_answer_errors = $answer_id;
 						}

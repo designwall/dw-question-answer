@@ -293,7 +293,7 @@ function dwqa_question_get_status_name( $status ) {
 class DWQA_Status {
 	public function __construct() {
 		add_action( 'wp_ajax_dwqa-update-privacy', array( $this, 'update_privacy' ) );
-		add_action( 'dwqa_add_answer', array( $this, 'auto_change_question_status' ) );
+		add_action( 'dwqa_add_answer', array( $this, 'dwqa_auto_change_question_status' ) );
 	}
 
 	public function update_privacy() {

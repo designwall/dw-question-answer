@@ -1,3 +1,4 @@
+<?php global $dwqa_general_settings; ?>
 <div id="archive-question" class="dw-question">
 	<div class="dwqa-list-question">
 		<?php dwqa_load_template( 'search', 'question' ); ?>
@@ -47,7 +48,7 @@
 							$selected = $term->term_id;
 				?>
 				<?php else :
-					    $question_category_rewrite = get_option( 'dwqa-question-category-rewrite', 'question-category' );
+						$question_category_rewrite = $dwqa_general_settings['question-category-rewrite'];
 					    $question_category_rewrite = $question_category_rewrite ? $question_category_rewrite : 'question-category';
 						$selected = isset( $_GET[$question_category_rewrite] ) ? esc_html( $_GET[$question_category_rewrite] ) : 'all'; 
 					endif;
@@ -85,7 +86,7 @@
 							$selected = $term->term_id; ?>
 					
 					<?php elseif ( 'dwqa-question_category' == $taxonomy ) :
-						    $question_tag_rewrite = get_option( 'dwqa-question-tag-rewrite', 'question-tag' );
+							$question_tag_rewrite = $dwqa_general_settings['question-tag-rewrite'];
 						    $question_tag_rewrite = $question_tag_rewrite ? $question_tag_rewrite : 'question-tag';
 							$selected = isset( $_GET[$question_tag_rewrite] ) ? esc_html( $_GET[$question_tag_rewrite] ) : 'all'; 
 						endif;

@@ -141,7 +141,11 @@ jQuery(function($) {
             delete($url_args['paged']);
         }
         var $paramString = '';
-        
+        // Check for question category
+        console.log( dwqa.question_category_rewrite);
+        if ( dwqa.taxonomy[dwqa.question_category_rewrite] && ( 'undefined' == typeof $url_args[dwqa.question_category_rewrite] || !$url_args[dwqa.question_category_rewrite] )) {
+            $url_args[dwqa.question_category_rewrite] = dwqa.taxonomy[dwqa.question_category_rewrite];
+        }
         if( $url_args ) {
             for (var i in $url_args) {
                 if (!i) {

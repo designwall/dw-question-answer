@@ -86,7 +86,9 @@ jQuery(function($) {
             returnDefault($('#question-title'), placeholder);
             flag = false;
         }
-        if( $('#dwqa-question-content-editor').val().length == 0 ) {
+        var content = tinyMCE && tinyMCE.get('dwqa-question-content-editor') ? tinyMCE.get('dwqa-question-content-editor').getContent() : $('#dwqa-question-content-editor').val();
+
+        if( content.length <= 0 ) {
           $('#dwqa-question-content-editor').addClass('required');
           $('.input-content').append('<span class="content-required" style="color:#e8b3b3">*Please enter question content.</span>');
           returnDefault($('#dwqa-question-content-editor'));

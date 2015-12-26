@@ -1,6 +1,5 @@
 <?php  
 
-
 // Callback for dwqa-general-settings Option
 function dwqa_question_registration_setting_display() {
 	global  $dwqa_general_settings;
@@ -384,8 +383,8 @@ function dwqa_question_tag_rewrite_display(){
 }
 
 function dwqa_permission_display(){
-	global $dwqa_permission;
-	$perms = $dwqa_permission->perms;
+	global $dwqa;
+	$perms = $dwqa->permission->perms;
 	$roles = get_editable_roles();
 	?>
 	<input type="hidden" id="reset-permission-nonce" name="reset-permission-nonce" value="<?php echo wp_create_nonce( '_dwqa_reset_permission' ); ?>">
@@ -578,7 +577,7 @@ function dwqa_get_rewrite_slugs() {
 
 	$rewrite_slugs['question_rewrite'] = $question_rewrite;
 
-	$question_category_rewrite = get_option( 'dwqa-question-category-rewrite', 'question-category' );
+	$question_category_rewrite = $dwqa_general_settings['question-category-rewrite'];
 	$question_category_rewrite = $question_category_rewrite ? $question_category_rewrite : 'question-category';
 	if ( isset( $dwqa_general_settings['question-category-rewrite'] ) && $dwqa_general_settings['question-category-rewrite'] && $dwqa_general_settings['question-category-rewrite'] != $question_category_rewrite ) {
 		$question_category_rewrite = $dwqa_general_settings['question-category-rewrite'];
@@ -587,7 +586,7 @@ function dwqa_get_rewrite_slugs() {
 
 	$rewrite_slugs['question_category_rewrite'] = $question_category_rewrite;
 
-	$question_tag_rewrite = get_option( 'dwqa-question-tag-rewrite', 'question-tag' );
+	$question_tag_rewrite = $dwqa_general_settings['question-tag-rewrite'];
 	$question_tag_rewrite = $question_tag_rewrite ? $question_tag_rewrite : 'question-tag';
 	if ( isset( $dwqa_general_settings['question-tag-rewrite'] ) && $dwqa_general_settings['question-tag-rewrite'] && $dwqa_general_settings['question-tag-rewrite'] != $question_tag_rewrite ) {
 		$question_tag_rewrite = $dwqa_general_settings['question-tag-rewrite'];
@@ -632,7 +631,7 @@ function dwqa_is_captcha_enable_in_single_question() {
 class DWQA_Settings {
 	public function __construct(){
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
-		add_action( 'init', array( $this, 'init_options' ) );
+		add_action( 'init', array( $this, 'init_options' ), 9 );
 		add_action( 'admin_init', array( $this, 'register_settings' ) );
 		add_action( 'updated_option', array( $this, 'update_options' ), 10, 3 );
 	}
@@ -673,8 +672,8 @@ class DWQA_Settings {
 	}   
 
 	public function init_options(){
-		global $dwqa_options;
-		$dwqa_options = wp_parse_args( get_option( 'dwqa_options' ), array( 
+		global $dwqa_options, $dwqa_general_settings;
+		$dwqa_general_settings = $dwqa_options = wp_parse_args( get_option( 'dwqa_options' ), array( 
 			'pages'     => array(
 					'submit-question'   => 0,
 					'archive-question'  => 0,

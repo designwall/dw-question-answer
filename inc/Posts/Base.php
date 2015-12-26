@@ -426,6 +426,9 @@ class DWQA_Posts_Base {
 		wp_reset_postdata();
 	}
 
+	public function rewrite() {
+		return true;
+	}
 }
 
 ?>

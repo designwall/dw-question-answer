@@ -24,8 +24,8 @@ class DWQA_Rewrite {
 				add_rewrite_rule( $regex, $redirect, 'bottom' );
 			}
 			// Add permastruct for pretty link
-			add_permastruct( 'dwqa-question_category', "{$question_list_page->post_name}/{$rewrite_category}/%dwqa-question_category%" );
-			add_permastruct( 'dwqa-question_tag', "{$question_list_page->post_name}/{$rewrite_tag}/%dwqa-question_tag%" );
+			add_permastruct( 'dwqa-question_category', "{$question_list_page->post_name}/{$rewrite_category}/%dwqa-question_category%", array( 'with_front' => false ) );
+			add_permastruct( 'dwqa-question_tag', "{$question_list_page->post_name}/{$rewrite_tag}/%dwqa-question_tag%", array( 'with_front' => false ) );
 		}
 	}
 

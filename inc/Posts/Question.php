@@ -141,6 +141,13 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 	}
 
 	public function set_rewrite() {
+		global $dwqa_general_settings;
+		if( isset( $dwqa_general_settings['question-rewrite'] ) ) {
+			return array(
+				'slug' => $dwqa_general_settings['question-rewrite'],
+				'with_front' => false,
+			);
+		}
 		return array(
 			'slug' => 'question',
 			'with_front' => false,
@@ -411,7 +418,7 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 						)
 					);  
 
-					if ( dwqa_current_user_can( 'post_question' ) ) {
+					if ( apply_filters( 'dwqa-current-user-can-add-question', dwqa_current_user_can( 'post_question' ), $postarr ) ) {
 						$new_question = $this->insert( $postarr );
 					} else {
 						$dwqa_submit_question_errors->add( 'submit_question',  __( 'You do not have permission to submit question.', 'dwqa' ) );
@@ -595,12 +602,12 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 					}
 				}
 			}
+
 			if ( ! empty( $args ) ) {
 				$url = get_permalink( $dwqa_options['pages']['archive-question'] );
 				$url = $url ? $url : get_post_type_archive_link( 'dwqa-question' );
-				
 
-				$question_tag_rewrite = get_option( 'dwqa-question-tag-rewrite', 'question-tag' );
+				$question_tag_rewrite = $dwqa_options['question-tag-rewrite'];
 				$question_tag_rewrite = $question_tag_rewrite ? $question_tag_rewrite : 'question-tag';
 				if ( isset( $args[$question_tag_rewrite] ) ) {
 					if ( isset( $args['dwqa-question_tag'] ) ) {
@@ -608,26 +615,26 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 					}
 				}
 
-				$question_category_rewrite = get_option( 'dwqa-question-category-rewrite', 'question-category' );
+				$question_category_rewrite = $dwqa_options['question-category-rewrite'];
 				$question_category_rewrite = $question_category_rewrite ? $question_category_rewrite : 'question-category';
 
 				if ( isset( $args[$question_category_rewrite] ) ) {
 					if ( isset( $args['dwqa-question_category'] ) ) {
 						unset( $args['dwqa-question_category'] );
 					}
-					$term = get_term( $args[$question_category_rewrite], 'dwqa-question_category' );
+					$term = get_term_by( 'slug', $args[$question_category_rewrite], 'dwqa-question_category' );
 					unset( $args[$question_category_rewrite] );
 					$url = get_term_link( $term, 'dwqa-question_category' );
 				} else {
 					if ( isset( $args[$question_tag_rewrite] ) ) {
-						$term = get_term( $args[$question_tag_rewrite], 'dwqa-question_tag' );
+						$term = get_term_by( 'slug', $args[$question_tag_rewrite], 'dwqa-question_tag' );
 						unset( $args[$question_tag_rewrite] );
 						$url = get_term_link( $term, 'dwqa-question_tag' );
 					}
 				}
 
 
-				if ( $url ) {
+				if ( $url && ! is_wp_error( $url ) ) {
 					$url = esc_url( add_query_arg( $args, $url ) );
 					wp_send_json_success( array( 'url' => $url ) );
 				} else {

@@ -57,14 +57,17 @@ class DWQA_Editor {
 			'textarea_name' => $textarea_name,
 			'textarea_rows' => $rows,
 			'tinymce' => array(
-					'theme_advanced_buttons1' => 'bold,italic,underline,|,' . 'bullist,numlist,blockquote,|,' . 'link,unlink,|,' . 'image,code,|,'. 'spellchecker,wp_fullscreen,dwqaCodeEmbed,|,',
-					'theme_advanced_buttons2'   => '',
+					'toolbar1' => 'bold,italic,underline,|,' . 'bullist,numlist,blockquote,|,' . 'link,unlink,|,' . 'image,code,|,'. 'spellchecker,wp_fullscreen,dwqaCodeEmbed,|,',
+					'toolbar2'   => '',
 					'content_css' => $dwqa_tinymce_css
 			),
 			'quicktags'     => false,
 		) );
 	}
 
+	public function toolbar_buttons() {
+
+	}
 
 	public function ajax_create_update_answer_editor() {
 

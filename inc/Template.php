@@ -80,9 +80,8 @@ add_action( 'post_class', 'dwqa_single_postclass' );
 function dwqa_require_field_submit_question(){
 	?>
 	<input type="hidden" name="dwqa-action" value="dwqa-submit-question" />
-	<?php wp_nonce_field( 'dwqa-submit-question-nonce-#!' ); ?>
-	
-	<?php  
+	<?php 
+		wp_nonce_field( 'dwqa-submit-question-nonce-#!' );
 		$subscriber = get_role( 'subscriber' );
 	?>
 	<?php if ( ! is_user_logged_in() && ! dwqa_current_user_can( 'post_question' ) ) { ?>
@@ -193,12 +192,12 @@ function dwqa_load_template( $name, $extend = false, $include = true ){
  * @return void
  */     
 function dwqa_enqueue_scripts(){
-    global $dwqa, $dwqa_options, $script_version, $dwqa_sript_vars;
+    global $dwqa, $dwqa_options, $script_version, $dwqa_sript_vars, $dwqa_general_settings;
     $template_name = $dwqa->template->get_template(); 
 
-    $question_category_rewrite = get_option( 'dwqa-question-category-rewrite', 'question-category' );
+	$question_category_rewrite = $dwqa_general_settings['question-category-rewrite'];
     $question_category_rewrite = $question_category_rewrite ? $question_category_rewrite : 'question-category';
-    $question_tag_rewrite = get_option( 'dwqa-question-tag-rewrite', 'question-tag' );
+	$question_tag_rewrite = $dwqa_general_settings['question-tag-rewrite'];
     $question_tag_rewrite = $question_tag_rewrite ? $question_tag_rewrite : 'question-tag';
 
     $assets_folder = DWQA_URI . 'templates/' . $template_name . '/assets/';
@@ -221,7 +220,17 @@ function dwqa_enqueue_scripts(){
         $single_script_vars['question_id'] = get_the_ID();
         wp_localize_script( 'dwqa-single-question', 'dwqa', $single_script_vars );
     }
-
+    
+    $question_category = get_query_var( 'dwqa-question_category' );
+    if ( $question_category ) {
+		$question_category_rewrite = $dwqa_options['question-category-rewrite'] ? $dwqa_options['question-category-rewrite'] : 'question-category';
+    	$dwqa_sript_vars['taxonomy'][$question_category_rewrite] = $question_category;
+    }
+    $question_tag = get_query_var( 'dwqa-question_tag' );
+    if ( $question_tag ) {
+		$question_tag_rewrite = $dwqa_options['question-tag-rewrite'] ? $dwqa_options['question-tag-rewrite'] : 'question-category';
+    	$dwqa_sript_vars['taxonomy'][$question_tag_rewrite] = $question_tag;
+    }
     if( (is_archive() && 'dwqa-question' == get_post_type()) || ( isset( $dwqa_options['pages']['archive-question'] ) && is_page( $dwqa_options['pages']['archive-question'] ) ) ) {
         wp_enqueue_script( 'dwqa-questions-list', $assets_folder . 'js/dwqa-questions-list.js', array( 'jquery' ), $script_version, true );
         wp_localize_script( 'dwqa-questions-list', 'dwqa', $dwqa_sript_vars );
@@ -789,7 +798,7 @@ class DWQA_Template {
 			}
 		}
 		if ( is_tax( 'dwqa-question_category' ) || is_tax( 'dwqa-question_tag' ) || is_post_type_archive( 'dwqa-question' ) || is_post_type_archive( 'dwqa-answer' ) ) {
-
+			
 			global $wp_query;
 			$post_id = isset( $dwqa_options['pages']['archive-question'] ) ? $dwqa_options['pages']['archive-question'] : 0;
 			if ( $post_id ) {
@@ -802,7 +811,7 @@ class DWQA_Template {
 	}
 
 	public function reset_content( $args ) {
-		global $wp_query;
+		global $wp_query, $post;
 		if ( isset( $wp_query->post ) ) {
 			$dummy = wp_parse_args( $args, array(
 				'ID'                    => $wp_query->post->ID,
@@ -870,14 +879,13 @@ class DWQA_Template {
 				'is_tax'                => false,
 			) );
 		}
-
 		// Bail if dummy post is empty
 		if ( empty( $dummy ) ) {
 			return;
 		}
 		// Set the $post global
 		$post = new WP_Post( (object ) $dummy );
-
+		setup_postdata( $post );
 		// Copy the new post global into the main $wp_query
 		$wp_query->post       = $post;
 		$wp_query->posts      = array( $post );
@@ -889,6 +897,7 @@ class DWQA_Template {
 		$wp_query->is_single  = $dummy['is_single'];
 		$wp_query->is_archive = $dummy['is_archive'];
 		$wp_query->is_tax     = $dummy['is_tax'];
+
 	}
 
 	public function close_default_comment( $open ) {

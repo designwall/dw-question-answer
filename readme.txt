@@ -3,7 +3,7 @@ Contributors: designwall, Farid-Gh, scheunemann, gciprian, Ahmet Kolcu, Astroten
 Tags: question, answer, support, quora, stackoverflow
 Requires at least: 3.0.1
 Tested up to: 4+
-Stable tag: 1.3.3
+Stable tag: 1.3.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -76,6 +76,15 @@ Visit our [Github](https://github.com/designwall/dw-question-answer) project or 
 5. Back-end settings
 
 == Changelog ==
+
+= 1.3.4 =
+
+* New: Add upgrades database functions
+* New: Update Templates Directory
+* Fix: Buttons for tinymce 
+* Fix: Remove Widget warning
+* Fix: remove front of rewrite rule for question taxonomy
+* Fix: question archive url
 
 = 1.3.3 =
 

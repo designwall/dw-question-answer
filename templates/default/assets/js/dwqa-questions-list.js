@@ -142,8 +142,7 @@ jQuery(function($) {
         }
         var $paramString = '';
         // Check for question category
-        console.log( dwqa.question_category_rewrite);
-        if ( dwqa.taxonomy[dwqa.question_category_rewrite] && ( 'undefined' == typeof $url_args[dwqa.question_category_rewrite] || !$url_args[dwqa.question_category_rewrite] )) {
+        if ( 'undefined' != typeof dwqa.taxonomy && dwqa.taxonomy[dwqa.question_category_rewrite] && ( 'undefined' == typeof $url_args[dwqa.question_category_rewrite] || !$url_args[dwqa.question_category_rewrite] )) {
             $url_args[dwqa.question_category_rewrite] = dwqa.taxonomy[dwqa.question_category_rewrite];
         }
         if( $url_args ) {

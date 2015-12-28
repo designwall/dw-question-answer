@@ -678,6 +678,10 @@ class DWQA_Settings {
 					'submit-question'   => 0,
 					'archive-question'  => 0,
 				),
+			'question-category-rewrite' => '',
+			'question-tag-rewrite' => '',
+			'captcha-in-single-question' => false,
+			'question-new-time-frame' => 4,
 		) );
 	}
 

@@ -3,6 +3,7 @@
  * Plugin Name: Help Tab Test Case
  * Plugin URI:  http://unserkaiser.com
  * Description: Add Help Tab test case
+ * @since 1.3.5 
  */
 class DWQA_Helptab {
 	public $tabs;
@@ -67,54 +68,6 @@ class DWQA_Helptab {
 		?>
 		<h3>Who is DesignWall?</h3>
 		<p>We are the professional WordPress themes and plugins provider. We commit to deliver high quality WordPress products which not only focus on the design but User Experience</p>
-		<table>
-			<tbody>
-				<tr>
-					<td width="33.33333%">
-						<div class="thumbnail">
-							<a href="http://demo.designwall.com/#dw-trendy" alt="Wordpress Theme Preview - DW Trendy"><img width="100%" src="http://www.designwall.com/wp-content/uploads/dw-trendy-5.jpg" alt="DesignWall Wordpress Theme - DW Trendy"></a><br>
-							<a href="hhttp://www.designwall.com/wordpress/themes/dw-trendy/" alt="Wordpress Theme Preview"><strong>DW Trendy ( Woocomerce Theme )</strong></a>
-						</div>
-					</td>
-					<td width="33.33333%">
-						<div class="thumbnail">
-							<a href="http://demo.designwall.com/#dw-timeline-pro" alt="Wordpress Theme Preview - DW Timeline Pro"><img width="100%" src="http://www.designwall.com/wp-content/uploads/2014/02/dw-timeline-pro-product-1.jpg" alt="DesignWall Wordpress Theme - DW Timeline Pro"></a><br>
-							<a href="http://www.designwall.com/wordpress/themes/dw-timeline-pro/" alt="Wordpress Theme Preview"><strong>DW Timeline Pro</strong></a>
-						</div>
-					</td>
-					<td width="33.33333%">
-						<div class="thumbnail">
-							<a href="http://demo.designwall.com/#wallpress" alt="Wordpress Theme Preview"><img width="100%" src="http://www.designwall.com/wp-content/uploads/dw-wallpress-slide-12.jpg" alt="DesignWall Wordpress Theme"></a><br>
-							<a href="http://www.designwall.com/wordpress/themes/wallpress/" alt="Wordpress Theme Preview"><strong>WallPress</strong> <span class="pull-right">FREE</span></a>
-						</div>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-		<table>
-			<tbody>
-				<tr>
-					<td width="33.33333%">
-						<div class="thumbnail">
-							<a href="http://demo.designwall.com/#dw-fixel" alt="Wordpress Theme Preview - DW Fixel"><img width="100%" src="http://www.designwall.com/wp-content/uploads/12.jpg" alt="DesignWall Wordpress Theme"></a><br>
-							<a href="http://www.designwall.com/wordpress/themes/dw-fixel/" alt="Wordpress Theme Preview - DW Fixel"><strong>DW Fixel</strong></a>
-						</div>
-					</td>
-					<td width="33.33333%">
-						<div class="thumbnail">
-							<a href="http://demo.designwall.com/#dw-minion" alt="Wordpress Theme Preview"><img width="100%" src="http://www.designwall.com/wp-content/uploads/dw-minion-product-1.jpg" alt="DesignWall Wordpress Theme"></a><br>
-							<a href="http://www.designwall.com/wordpress/themes/dw-minion/" alt="Wordpress Theme Preview"><strong>DW Minion</strong> <span class="pull-right">FREE</span></a>
-						</div>
-					</td>
-					<td width="33.33333%">
-						<div class="thumbnail">
-							<a href="http://demo.designwall.com/#dw-focus" alt="Wordpress Theme Preview"><img width="100%" src="http://www.designwall.com/wp-content/uploads/dw-focus-screenshot13.jpg" alt="DesignWall Wordpress Theme"></a><br>
-							<a href="http://www.designwall.com/wordpress/themes/dw-focus/" alt="Wordpress Theme Preview"><strong>DW Focus</strong></a>
-						</div>
-					</td>
-				</tr>
-			</tbody>
-		</table>
 		<?php
 		$content = ob_get_contents();
 		ob_end_clean();

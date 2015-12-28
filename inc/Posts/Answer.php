@@ -1,5 +1,8 @@
 <?php  
 /**
+ * @since 1.3.5 
+ */
+/**
  * Return number of answer for a question
  * @param  int $question_id Question ID ( if null get ID of current post )
  * @return int      Number of answer

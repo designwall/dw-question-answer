@@ -79,7 +79,7 @@ class DW_Question_Answer {
 
 		$active_template = $this->template->get_template();
 		//Load translate text domain
-		load_plugin_textdomain( 'dwqa', false, DWQA_DIR . 'languages/' );
+		load_plugin_textdomain( 'dwqa', false,  plugin_basename( dirname( __FILE__ ) )  . '/languages' );
 		//Scripts var
 		
 		$question_category_rewrite = $dwqa_general_settings['question-category-rewrite'];

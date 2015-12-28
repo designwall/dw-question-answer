@@ -38,6 +38,7 @@ We provide support both on support forum on WordPress.org and our [support page]
 * English (default) 
 * Arabic (ar_AR) - by Nidhal Naji
 * Chinese (zh_CN) - by Jack Cai
+* Traditional Chinese ( zh_TW ) - by Andy ( im@andy-cheung.me )
 * French (fr_FR) - by [Kanzari Haithem](http://www.designwall.com/profile/kanzari/)
 * German (de_DE) - by [scheunemann](https://github.com/scheunemann)
 * Indonesian (id_ID) - by Ruby Aperta

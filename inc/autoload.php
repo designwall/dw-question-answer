@@ -14,7 +14,10 @@ spl_autoload_register(
 				$classPathSlice[1] .= '_' . $classPath[$i];
 			}
 		}
-		$filePath = DWQA_DIR . 'inc/' . implode('/', $classPathSlice) . '.php';
+		$filePath = DWQA_DIR . 'inc/' . implode('_', $classPathSlice) . '.php';
+		if ( ! file_exists( $filePath ) ) {
+			$filePath = DWQA_DIR . 'inc/' . implode('/', $classPathSlice) . '.php';
+		}
 		if (file_exists($filePath)) {
 			require_once($filePath);
 		}

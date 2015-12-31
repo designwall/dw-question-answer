@@ -262,14 +262,13 @@ class DWQA_Permission {
 		}
 	}
 
-	public function allow_user_view_their_draft_post( $all_caps, $caps, $name, $user ) {
+	public function allow_user_view_their_draft_post( $all_caps, $caps, $name ) {
 		if ( is_user_logged_in() ) {
-			global $wp_query, $current_user;
-			if ( $wp_query->is_single && $wp_query->query_vars['post_type'] == 'dwqa-question' && $name[0] == 'edit_post' ) {
+			if ( is_single() && get_post_type() == 'dwqa-question' && $name[0] == 'edit_post' ) {
 				if ( isset( $name[2] ) ) {
 					$post_id = $name[2];
 					$author = get_post_field( 'post_author', $post_id );
-					if ( $author == $current_user->ID ) {
+					if ( $author == get_current_user_id() ) {
 						foreach ( $caps as $cap ) {
 							$all_caps[$cap] = true;
 						}

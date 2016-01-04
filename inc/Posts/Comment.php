@@ -21,6 +21,9 @@ class DWQA_Posts_Comment {
 		add_filter( 'get_comment', array( $this, 'comment_author_link_anonymous' ) );
 
 		add_action( 'wp_insert_comment', array( $this, 'reopen_question_have_new_comment' ) );
+
+		// Prepare comment content
+		add_filter( 'dwqa_pre_comment_content', 'wp_kses_data', 10 );
 	}
 	/**
 	 * Change redirect link when comment for answer finished
@@ -73,6 +76,7 @@ class DWQA_Posts_Comment {
 		}
 		$comment_id = intval( $_POST['comment_id'] );
 		$comment_content = isset( $_POST['comment'] ) ? esc_html( $_POST['comment'] ) : '';
+		$comment_content = apply_filters( 'dwqa_pre_update_comment_content', $comment_content );
 
 		if ( ! isset( $_POST['wpnonce'] ) || ! wp_verify_nonce( sanitize_text_field( $_POST['wpnonce'] ), '_dwqa_action_comment_edit_nonce' ) ) {
 			wp_send_json_error( array( 'message' => __( 'Are you cheating huh?', 'dwqa' ) ) );
@@ -130,9 +134,12 @@ class DWQA_Posts_Comment {
 				'message'   => __( 'Please enter your comment content', 'dwqa' )
 			) );
 		}
+		$comment_content = isset( $_POST['content'] ) ? $_POST['content'] : '';
+		$comment_content = apply_filters( 'dwqa_pre_comment_content', $comment_content );
+
 		$args = array(
 			'comment_post_ID'   => intval( $_POST['comment_post_ID'] ),
-			'comment_content'   => isset( $_POST['content'] ) ? wp_kses_data( $_POST['content'] ) : '',
+			'comment_content'   => $comment_content,
 			'comment_parent'    => isset( $_POST['comment_parent']) ? intval( $_POST['comment_parent'] ) : 0,
 		);
 		if ( is_user_logged_in() ) {

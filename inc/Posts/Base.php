@@ -348,6 +348,10 @@ class DWQA_Posts_Base {
 		return preg_replace_callback( '/<( code )( [^>]* )>( .* )<\/( code )[^>]*>/isU' , array( $this, 'convert_pre_entities' ),  $content );
 	}
 
+	public function pre_content_kses( $content ) {
+		return wp_kses( $content, $this->filter );
+	}
+
 	public function convert_pre_entities( $matches ) {
 		$string = $matches[0];
 		preg_match( '/class=\\\"( [^\\\"]* )\\\"/', $matches[2], $sub_match );

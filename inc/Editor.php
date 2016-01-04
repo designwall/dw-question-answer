@@ -50,14 +50,14 @@ class DWQA_Editor {
 		) ) );
 
 		$dwqa_tinymce_css = apply_filters( 'dwqa_editor_style', DWQA_URI . 'assets/css/tinymce.css' );
-		
+		$toolbar1 = apply_filters( 'dwqa_tinymce_toolbar1', 'bold,italic,underline,|,' . 'bullist,numlist,blockquote,|,' . 'link,unlink,|,' . 'image,code,|,'. 'spellchecker,fullscreen,dwqaCodeEmbed,|,' );
 		wp_editor( $content, $id, array(
 			'wpautop'       => $wpautop,
 			'media_buttons' => $media_buttons,
 			'textarea_name' => $textarea_name,
 			'textarea_rows' => $rows,
 			'tinymce' => array(
-					'toolbar1' => 'bold,italic,underline,|,' . 'bullist,numlist,blockquote,|,' . 'link,unlink,|,' . 'image,code,|,'. 'spellchecker,wp_fullscreen,dwqaCodeEmbed,|,',
+					'toolbar1' => $toolbar1,
 					'toolbar2'   => '',
 					'content_css' => $dwqa_tinymce_css
 			),
@@ -91,8 +91,10 @@ class DWQA_Editor {
 			<?php 
 				$answer = get_post( $answer_id );
 				$answer_content = get_post_field( 'post_content', $answer_id );
+				$answer_content = apply_filters( 'dwqa_prepare_edit_answer_content', $answer_content );
+				add_filter( 'dwqa_prepare_edit_answer_content', 'wpautop' );
 				dwqa_init_tinymce_editor( array(
-					'content'       => wpautop( $answer_content ), 
+					'content'       => $answer_content, 
 					'textarea_name' => 'answer-content',
 					'wpautop'       => false,
 				) ); 
@@ -149,9 +151,11 @@ class DWQA_Editor {
 			<input type="hidden" name="question" value="<?php echo $question; ?>">
 			<?php $question = get_post( $question ); ?>
 			<input type="text" style="width:100%" name="dwqa-question-title" id="dwqa-question-title" value="<?php echo $question->post_title; ?>">
-			<?php 
+			<?php
+				$question_content = apply_filters( 'dwqa_prepare_edit_question_content', $question->post_content );
+				add_filter( 'dwqa_prepare_edit_question_content', 'wpautop' );
 				dwqa_init_tinymce_editor( array(
-					'content'       => wpautop( $question->post_content ), 
+					'content'       => $question_content, 
 					'textarea_name' => 'dwqa-question-content',
 					'wpautop'       => false,
 				) ); 

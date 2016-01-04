@@ -230,6 +230,10 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 		add_action( 'dwqa_delete_answer', array( $this, 'update_transient_when_remove_answer' ), 10, 2 );
 		//Prepare answers for single questions
 		add_action( 'the_posts', array( $this, 'prepare_answers' ), 10, 2 );
+
+		// Prepare answers content
+		add_filter( 'dwqa_prepare_answer_content', array( $this, 'pre_content_kses' ), 10 );
+		add_filter( 'dwqa_prepare_answer_content', array( $this, 'pre_content_filter' ), 20 );
 	}
 
 	// Remove default menu and change it to submenu of questions
@@ -356,9 +360,7 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 			$question = get_post( $question_id );
 
 			$answer_title = __( 'Answer for ', 'dwqa' ) . $question->post_title;
-
-			$answ_content = wp_kses( $_POST['answer-content'], $this->filter );
-			$answ_content = $this->pre_content_filter( $answ_content );
+			$answ_content = apply_filters( 'dwqa_prepare_answer_content', $_POST['answer-content'] );
 			
 			$post_status = ( isset( $_POST['private-message'] ) && esc_html( $_POST['private-message'] ) ) ? 'private' : 'publish';
 			$answers = array(

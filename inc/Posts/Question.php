@@ -130,6 +130,12 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 		add_action( 'dwqa_hourly_event', array( $this, 'do_this_hourly' ) );
 		add_action( 'before_delete_post', array( $this, 'hook_on_remove_question' ) );
 
+		//Prepare question content
+		add_filter( 'dwqa_prepare_question_content', array( $this, 'pre_content_kses' ), 10 );
+		add_filter( 'dwqa_prepare_question_content', array( $this, 'pre_content_filter'), 20 );
+		add_filter( 'dwqa_prepare_question_update_content', array( $this, 'pre_content_kses'), 10 );
+		add_filter( 'dwqa_prepare_question_update_content', array( $this, 'pre_content_filter'), 20 );
+
 	}
 
 	public function init() {
@@ -314,8 +320,8 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 					$tags = isset( $_POST['question-tag'] ) ? 
 								esc_html( $_POST['question-tag'] ): '';
 
-					$content = isset( $_POST['question-content'] ) ? 
-								 $this->pre_content_filter( wp_kses( $_POST['question-content'] , $this->filter ) ) : '';
+					$content = isset( $_POST['question-content'] ) ? $_POST['question-content'] : '';
+					$content = apply_filters( 'dwqa_prepare_question_content', $content );
 					
 					$user_id = 0;
 					$is_anonymous = false;
@@ -537,8 +543,9 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 
 			$question_content = '';
 			if ( isset( $_POST['dwqa-question-content'] ) ) {
-				$question_content = wp_kses( $_POST['dwqa-question-content'], $$this->filter );
-				$question_content = $this->pre_content_filter( $question_content );
+				$question_content = apply_filters( 'dwqa_prepare_question_update_content', $_POST['dwqa-question-content'] );
+				// $question_content = wp_kses( $_POST['dwqa-question-content'], $this->filter );
+				// $question_content = $this->pre_content_filter( $question_content );
 			} 
 			$question_update = array(
 				'ID'    => $question_id,

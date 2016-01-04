@@ -972,7 +972,7 @@ class DWQA_Settings {
 	}
 
 	public function settings_display(){
-		global $dwqa_options;
+		global $dwqa_general_settings;
 		?>
 		<div class="wrap">
 			<h2><?php _e( 'DWQA Settings', 'dwqa' ) ?></h2>
@@ -981,121 +981,134 @@ class DWQA_Settings {
 			<h2 class="nav-tab-wrapper">  
 				<a href="?post_type=dwqa-question&amp;page=dwqa-settings&amp;tab=general" class="nav-tab <?php echo $active_tab == 'general' ? 'nav-tab-active' : ''; ?>"><?php _e( 'General','dwqa' ); ?></a> 
 				<a href="?post_type=dwqa-question&amp;page=dwqa-settings&amp;tab=email" class="nav-tab <?php echo $active_tab == 'email' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Notification','dwqa' ); ?></a> 
-				<a href="?post_type=dwqa-question&amp;page=dwqa-settings&amp;tab=permission" class="nav-tab <?php echo $active_tab == 'permission' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Permission','dwqa' ); ?></a> 
+				<a href="?post_type=dwqa-question&amp;page=dwqa-settings&amp;tab=permission" class="nav-tab <?php echo $active_tab == 'permission' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Permission','dwqa' ); ?></a>
+
+				<a href="?post_type=dwqa-question&amp;page=dwqa-settings&amp;tab=addons" class="nav-tab <?php echo $active_tab == 'addons' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Addons','dwqa' ); ?></a> 
 			</h2>  
 			  
 			<form method="post" action="options.php">  
-			<?php if ( 'email' == $active_tab ) {
-				echo '<div class="dwqa-notification-settings">';
+			<?php 
 
-				echo '<h3>'.__( 'Email setup','dwqa' ).'</h3>';
-				settings_fields( 'dwqa-subscribe-settings' );
+			switch ($active_tab) {
+				case 'email':
+					echo '<div class="dwqa-notification-settings">';
 
-				echo '<table class="form-table"><tr>';
-				echo '<th scope="row">'.__( 'Email Logo','dwqa' ).'</th><td>';
-				dwqa_subscrible_email_logo_display();
-				echo '</td></tr></table>';
+					echo '<h3>'.__( 'Email setup','dwqa' ).'</h3>';
+					settings_fields( 'dwqa-subscribe-settings' );
 
-				do_settings_sections( 'dwqa-email' );
+					echo '<table class="form-table"><tr>';
+					echo '<th scope="row">'.__( 'Email Logo','dwqa' ).'</th><td>';
+					dwqa_subscrible_email_logo_display();
+					echo '</td></tr></table>';
 
-				echo '<div class="dwqa-mail-templates">';
-				echo '<div class="progress-bar"><div class="progress-bar-inner"></div></div>';
-				echo '<ul class="nav-tabs">';
+					do_settings_sections( 'dwqa-email' );
 
-				echo '<li class="active"><a href="#new-question">'.__( 'New Question', 'dwqa' ).'</a></li>';
-				echo '<li><a href="#new-answer">'.__( 'New Answer', 'dwqa' ).'</a></li>';
-				echo '<li><a href="#new-comment-question">'.__( 'New Comment to Question', 'dwqa' ).'</a></li>';
-				echo '<li><a href="#new-comment-answer">'.__( 'New Comment to Answer', 'dwqa' ).'</a></li>';
-				echo '<li><a href="#new-answer-followers">'.__( 'New Answer (to Followers )', 'dwqa' ).'</a></li>';
-				echo '<li><a href="#new-comment-question-followers">'.__( 'New Comment to Question (to Followers )', 'dwqa' ).'</a></li>';
-				echo '<li><a href="#new-comment-answer-followers">'.__( 'New Comment to Answer (to Followers )', 'dwqa' ).'</a></li>';
+					echo '<div class="dwqa-mail-templates">';
+					echo '<div class="progress-bar"><div class="progress-bar-inner"></div></div>';
+					echo '<ul class="nav-tabs">';
 
-				echo '</ul>'; // Create default email template
+					echo '<li class="active"><a href="#new-question">'.__( 'New Question', 'dwqa' ).'</a></li>';
+					echo '<li><a href="#new-answer">'.__( 'New Answer', 'dwqa' ).'</a></li>';
+					echo '<li><a href="#new-comment-question">'.__( 'New Comment to Question', 'dwqa' ).'</a></li>';
+					echo '<li><a href="#new-comment-answer">'.__( 'New Comment to Answer', 'dwqa' ).'</a></li>';
+					echo '<li><a href="#new-answer-followers">'.__( 'New Answer (to Followers )', 'dwqa' ).'</a></li>';
+					echo '<li><a href="#new-comment-question-followers">'.__( 'New Comment to Question (to Followers )', 'dwqa' ).'</a></li>';
+					echo '<li><a href="#new-comment-answer-followers">'.__( 'New Comment to Answer (to Followers )', 'dwqa' ).'</a></li>';
 
-				echo '<div class="tab-content">'; 
+					echo '</ul>'; // Create default email template
 
-				echo '<div id="new-question" class="tab-pane active">';
-				echo '<h3>'.__( 'New Question Notification','dwqa' ) . '</h3>';
-				$this->email_sendto_address_display();
-				$this->email_cc_address_display();
-				$this->email_bcc_address_display();
-				dwqa_subscrible_enable_new_question_notification();
-				dwqa_subscrible_new_question_email_subject_display();
-				dwqa_subscrible_new_question_email_display();
-				submit_button( __( 'Save all changes','dwqa' ) );
-				echo '<hr>';
-				echo '</div>'; //End tab for New Question Notification
+					echo '<div class="tab-content">'; 
 
-				echo '<div id="new-answer" class="tab-pane">';
-				echo '<h3>'.__( 'New Answer Notification','dwqa' ). '</h3>';
-				dwqa_subscrible_enable_new_answer_notification();
-				dwqa_subscrible_new_answer_email_subject_display();
-				dwqa_subscrible_new_answer_email_display();
-				submit_button( __( 'Save all changes','dwqa' ) );
-				echo '<hr>';
-				echo '</div>';//End tab for New Answer Notification
+					echo '<div id="new-question" class="tab-pane active">';
+					echo '<h3>'.__( 'New Question Notification','dwqa' ) . '</h3>';
+					$this->email_sendto_address_display();
+					$this->email_cc_address_display();
+					$this->email_bcc_address_display();
+					dwqa_subscrible_enable_new_question_notification();
+					dwqa_subscrible_new_question_email_subject_display();
+					dwqa_subscrible_new_question_email_display();
+					submit_button( __( 'Save all changes','dwqa' ) );
+					echo '<hr>';
+					echo '</div>'; //End tab for New Question Notification
 
-				echo '<div id="new-answer-followers" class="tab-pane">';
-				echo '<h3>'.__( 'New Answer Notification (to Followers )','dwqa' ). '</h3>';
-				dwqa_subscrible_enable_new_answer_followers_notification();
-				dwqa_subscrible_new_answer_followers_email_subject_display();
-				dwqa_subscrible_new_answer_followers_email_display();
-				submit_button( __( 'Save all changes','dwqa' ) );
-				echo '<hr>';
-				echo '</div>';//End tab for New Answer Notification To Followers
+					echo '<div id="new-answer" class="tab-pane">';
+					echo '<h3>'.__( 'New Answer Notification','dwqa' ). '</h3>';
+					dwqa_subscrible_enable_new_answer_notification();
+					dwqa_subscrible_new_answer_email_subject_display();
+					dwqa_subscrible_new_answer_email_display();
+					submit_button( __( 'Save all changes','dwqa' ) );
+					echo '<hr>';
+					echo '</div>';//End tab for New Answer Notification
 
-				echo '<div id="new-comment-question" class="tab-pane">';
-				echo '<h3>'.__( 'New Comment to Question Notification','dwqa' ). '</h3>';
-				dwqa_subscrible_enable_new_comment_question_notification();
-				dwqa_subscrible_new_comment_question_email_subject_display();
-				dwqa_subscrible_new_comment_question_email_display();
-				submit_button( __( 'Save all changes','dwqa' ) );
-				echo '<hr>';
-				echo '</div>'; //End tab for New Comment to Question Notification
+					echo '<div id="new-answer-followers" class="tab-pane">';
+					echo '<h3>'.__( 'New Answer Notification (to Followers )','dwqa' ). '</h3>';
+					dwqa_subscrible_enable_new_answer_followers_notification();
+					dwqa_subscrible_new_answer_followers_email_subject_display();
+					dwqa_subscrible_new_answer_followers_email_display();
+					submit_button( __( 'Save all changes','dwqa' ) );
+					echo '<hr>';
+					echo '</div>';//End tab for New Answer Notification To Followers
 
-
-				echo '<div id="new-comment-answer" class="tab-pane">';
-				echo '<h3>'.__( 'New Comment to Answer Notification','dwqa' ). '</h3>';
-				dwqa_subscrible_enable_new_comment_answer_notification();
-				dwqa_subscrible_new_comment_answer_email_subject_display();
-				dwqa_subscrible_new_comment_answer_email_display();
-				submit_button( __( 'Save all changes','dwqa' ) );
-				echo '</div>'; //End tab for New Comment to Answer Notification
-
-				echo '<div id="new-comment-question-followers" class="tab-pane">';
-				echo '<h3>'.__( 'New Comment to Question Notification (to Followers )','dwqa' ). '</h3>';
-				dwqa_subscrible_enable_new_comment_question_followers_notification();
-				dwqa_subscrible_new_comment_question_followers_email_subject_display();
-				dwqa_subscrible_new_comment_question_followers_email_display();
-				submit_button( __( 'Save all changes','dwqa' ) );
-				echo '<hr>';
-				echo '</div>'; //End tab for New Comment to Question Notification
+					echo '<div id="new-comment-question" class="tab-pane">';
+					echo '<h3>'.__( 'New Comment to Question Notification','dwqa' ). '</h3>';
+					dwqa_subscrible_enable_new_comment_question_notification();
+					dwqa_subscrible_new_comment_question_email_subject_display();
+					dwqa_subscrible_new_comment_question_email_display();
+					submit_button( __( 'Save all changes','dwqa' ) );
+					echo '<hr>';
+					echo '</div>'; //End tab for New Comment to Question Notification
 
 
-				echo '<div id="new-comment-answer-followers" class="tab-pane">';
-				echo '<h3>'.__( 'New Comment to Answer Notification (to Followers )','dwqa' ). '</h3>';
-				dwqa_subscrible_enable_new_comment_answer_followers_notification();
-				dwqa_subscrible_new_comment_answer_followers_email_subject_display();
-				dwqa_subscrible_new_comment_answer_followers_email_display();
-				submit_button( __( 'Save all changes','dwqa' ) );
-				echo '</div>'; //End tab for New Comment to Answer Notification
+					echo '<div id="new-comment-answer" class="tab-pane">';
+					echo '<h3>'.__( 'New Comment to Answer Notification','dwqa' ). '</h3>';
+					dwqa_subscrible_enable_new_comment_answer_notification();
+					dwqa_subscrible_new_comment_answer_email_subject_display();
+					dwqa_subscrible_new_comment_answer_email_display();
+					submit_button( __( 'Save all changes','dwqa' ) );
+					echo '</div>'; //End tab for New Comment to Answer Notification
 
-				echo '</div>'; //End wrap mail template settings
+					echo '<div id="new-comment-question-followers" class="tab-pane">';
+					echo '<h3>'.__( 'New Comment to Question Notification (to Followers )','dwqa' ). '</h3>';
+					dwqa_subscrible_enable_new_comment_question_followers_notification();
+					dwqa_subscrible_new_comment_question_followers_email_subject_display();
+					dwqa_subscrible_new_comment_question_followers_email_display();
+					submit_button( __( 'Save all changes','dwqa' ) );
+					echo '<hr>';
+					echo '</div>'; //End tab for New Comment to Question Notification
 
-				echo '</div>'; //End wrap tab content
 
-				echo '</div>'; //The End
-			?>
-			<?php } elseif ( 'permission' == $active_tab ) {
+					echo '<div id="new-comment-answer-followers" class="tab-pane">';
+					echo '<h3>'.__( 'New Comment to Answer Notification (to Followers )','dwqa' ). '</h3>';
+					dwqa_subscrible_enable_new_comment_answer_followers_notification();
+					dwqa_subscrible_new_comment_answer_followers_email_subject_display();
+					dwqa_subscrible_new_comment_answer_followers_email_display();
+					submit_button( __( 'Save all changes','dwqa' ) );
+					echo '</div>'; //End tab for New Comment to Answer Notification
+
+					echo '</div>'; //End wrap mail template settings
+
+					echo '</div>'; //End wrap tab content
+
+					echo '</div>'; //The End
+					break;
+				case 'permission':
 					settings_fields( 'dwqa-permission-settings' );
 					dwqa_permission_display();
-					submit_button(); ?>
-
-			<?php } else {
+					submit_button();
+					break;
+				case 'addons':
+					settings_fields( 'dwqa-addons' );
+					do_settings_sections( 'dwqa-addons-settings' );
+					submit_button();
+					break;
+				default:
 					settings_fields( 'dwqa-settings' );
 					do_settings_sections( 'dwqa-settings' );
 					submit_button();
-				} ?>
+					break;
+			}
+
+			?>
 			</form>  
 		</div>
 		<?php

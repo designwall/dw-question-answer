@@ -3,7 +3,7 @@ Contributors: designwall, Farid-Gh, scheunemann, gciprian, Ahmet Kolcu, Astroten
 Tags: question, answer, support, quora, stackoverflow
 Requires at least: 3.0.1
 Tested up to: 4+
-Stable tag: 1.3.5
+Stable tag: 1.3.6
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -77,6 +77,14 @@ Visit our [Github](https://github.com/designwall/dw-question-answer) project or 
 5. Back-end settings
 
 == Changelog ==
+
+= 1.3.6 =
+* New: Add extensions and license manager
+* Update: Auto load for older version of php
+* Fix: answered filter
+* Fix: wrong direct after update answer
+* Fix: Add template captcha, add fields captcha setting
+* Fix issues about recaptcha in ssl protocol
 
 = 1.3.5 =
 * Fix: Languages not working

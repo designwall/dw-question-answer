@@ -43,6 +43,7 @@ class DWQA_Filter {
 		add_filter( 'posts_where', array( $this, 'posts_where') );
 
 		$questions = $this->get_questions();
+
 		//remove query post filter 
 		remove_filter( 'posts_join', array( $this, 'join_postmeta_count_answers') );
 		remove_filter( 'posts_orderby', array( $this, 'edit_posts_orderby') );
@@ -189,6 +190,14 @@ class DWQA_Filter {
 				); 
 				break;
 			case 'replied':
+
+				$args['meta_query'][] = array(
+				   'key' => '_dwqa_status',
+				   'value' => array( 'open', 're-open', 'pending', 'answered' ),
+				   'compare' => 'IN',
+				);
+				//not have answered by admin
+				break;
 			case 'overdue':
 			case 'new-comment':
 			case 'open' :

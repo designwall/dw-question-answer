@@ -871,8 +871,7 @@ class DWQA_Settings {
 		);
 
 		register_setting( 'dwqa-settings', 'dwqa_options' );
-
-
+		
 		add_settings_section( 
 			'dwqa-subscribe-settings', 
 			false,

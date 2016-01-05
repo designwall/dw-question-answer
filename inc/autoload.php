@@ -20,5 +20,6 @@ function dwqa_autoload_function($className) {
 		require_once($filePath);
 	}
 }
-spl_autoload_register('dwqa_autoload_function');  
+spl_autoload_register('dwqa_autoload_function'); 
+
 ?>

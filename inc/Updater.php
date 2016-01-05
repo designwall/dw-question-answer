@@ -12,6 +12,7 @@ class DWQA_Updater {
 	protected $current_version = '1.0.0';
 	protected $license_option_key;
 	protected $license_status_key;
+	protected $description = '';
 
 
 	public function __construct() {
@@ -90,11 +91,16 @@ class DWQA_Updater {
 	}
 
 	public function register_option() {
-		add_settings_section( 'dwqa-addons', $this->name, false, 'dwqa-addons-settings' );
+		add_settings_section( $this->slug, $this->name, array( $this, 'display_description' ), 'dwqa-addons-settings' );
 		// creates our settings in the options table
 		register_setting( 'dwqa-addons', $this->license_option_key, array( $this, 'sanitize_license' ) );
+		add_settings_field( $this->license_option_key, __( 'License Key', 'dwqa' ), array( $this, 'license_setting_field' ), 'dwqa-addons-settings', $this->slug );
+	}
 
-		add_settings_field( $this->license_option_key, __( 'License Key', 'dwqa' ), array( $this, 'license_setting_field' ), 'dwqa-addons-settings', 'dwqa-addons' );
+	public function display_description() {
+		if( $this->description ) {
+			echo '<p class="description">'.$this->description.'</p>';
+		}
 	}
 
 	public function sanitize_license( $new ) {
@@ -128,12 +134,8 @@ class DWQA_Updater {
 					},
 				})
 				.done(function() {
-					console.log("success");
-				})
-				.always(function() {
-					console.log("complete");
+					document.location.href = document.location.href;
 				});
-				
 			});
 			</script>
 			<?php

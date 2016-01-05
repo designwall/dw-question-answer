@@ -1004,7 +1004,7 @@ class DWQA_Settings {
 				<a href="?post_type=dwqa-question&amp;page=dwqa-settings&amp;tab=email" class="nav-tab <?php echo $active_tab == 'email' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Notification','dwqa' ); ?></a> 
 				<a href="?post_type=dwqa-question&amp;page=dwqa-settings&amp;tab=permission" class="nav-tab <?php echo $active_tab == 'permission' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Permission','dwqa' ); ?></a>
 
-				<a href="?post_type=dwqa-question&amp;page=dwqa-settings&amp;tab=addons" class="nav-tab <?php echo $active_tab == 'addons' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Addons','dwqa' ); ?></a> 
+				<a href="?post_type=dwqa-question&amp;page=dwqa-settings&amp;tab=licenses" class="nav-tab <?php echo $active_tab == 'licenses' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Licenses','dwqa' ); ?></a> 
 			</h2>  
 			  
 			<form method="post" action="options.php">  
@@ -1117,7 +1117,7 @@ class DWQA_Settings {
 					dwqa_permission_display();
 					submit_button();
 					break;
-				case 'addons':
+				case 'licenses':
 					settings_fields( 'dwqa-addons' );
 					do_settings_sections( 'dwqa-addons-settings' );
 					submit_button();

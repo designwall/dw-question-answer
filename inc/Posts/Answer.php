@@ -418,9 +418,8 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 					break;
 				case 'update-answer':
 					if ( ! isset( $_POST['answer-id'] ) ) {
-						wp_send_json_error( array(
-							'message'   => __( 'Answer is missing', 'dwqa' )
-						) );
+						$dwqa_add_answer_errors->add( 'missing-content', __( 'Answer is missing', 'dwqa' ) );
+						break;
 					}
 
 					$answer_id = intval( $_POST['answer-id'] );
@@ -429,14 +428,12 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 					global $current_user;
 
 					if ( ! ( dwqa_current_user_can( 'edit_answer' ) || ( is_user_logged_in() && $answer_author == $current_user->ID ) ) ) {
-						wp_send_json_error( array(
-							'message'   => __( 'You do not have permission to edit this post', 'dwqa' )
-						) );
+						$dwqa_add_answer_errors->add( 'permission-denided', __( 'You do not have permission to edit this post', 'dwqa' ) );
+						break;
 					}
 					if ( get_post_type( $answer_id  ) != 'dwqa-answer' ) {
-						wp_send_json_error( array(
-							'message'   => __( 'This post is not an answer', 'dwqa' )
-						) );
+						$dwqa_add_answer_errors->add( 'posttype-error', __( 'This post is not an answer', 'dwqa' ) );
+						break;
 					}
 
 					$answer_update = array(
@@ -454,7 +451,8 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 					$new_post = get_post( $answer_id );
 					do_action( 'dwqa_update_answer', $answer_id, $old_post, $new_post );
 					if ( $answer_id ) {
-						wp_send_json_success( array( 'url' => get_permalink( $question_id ) ) );
+						wp_safe_redirect( get_permalink( $question_id ) );
+						exit(0);
 					}
 					break;
 			}

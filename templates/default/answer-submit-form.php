@@ -23,7 +23,6 @@
 	
 	<?php dwqa_load_template( 'captcha', 'form' ) ?>
 
-	?>
 		<div class="form-buttons">
 			<input type="submit" name="submit-answer" id="submit-answer" value="<?php _e( 'Add answer','dwqa' ); ?>" class="dwqa-btn dwqa-btn-primary" />
 

@@ -9,7 +9,7 @@ class DWQA_Updater {
 	protected $name = '';
 	protected $slug = '';
 	protected $file = __FILE__;
-	protected $current_version = '1.0.0';
+	protected $version = '1.0.0';
 	protected $license_option_key;
 	protected $license_status_key;
 	protected $description = '';
@@ -43,7 +43,7 @@ class DWQA_Updater {
 
 		// setup the updater
 		$edd_updater = new EDD_SL_Plugin_Updater( $this->store, $this->file, array(
-				'version' 	=> $this->current_version, 				// current version number
+				'version' 	=> $this->version, 				// current version number
 				'license' 	=> $license_key, 		// license key (used get_option above to retrieve from DB)
 				'item_name' => $this->name, 	// name of this plugin
 				'author' 	=> 'DesignWall'  // author of this plugin

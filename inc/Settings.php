@@ -523,6 +523,18 @@ function dwqa_captcha_google_private_key_display() {
 	echo '<p><input type="text" name="dwqa_options[captcha-google-private-key]" value="'.$private_key.'" class="regular-text"></p>';
 }
 
+function dwqa_captcha_select_type_display() {
+	global $dwqa_general_settings;
+
+	$types = apply_filters( 'dwqa_captcha_type', array( 'google-recaptcha' => __( 'Google reCaptcha', 'dwqa' ) ) );
+	$type_selected = isset( $dwqa_general_settings['captcha-type'] ) ? $dwqa_general_settings['captcha-type'] : 'google-recaptcha';
+	echo '<select name="dwqa_options[captcha-type]">';
+	foreach( $types as $key => $name ) {
+		echo '<option '.selected( $key, $type_selected, false ).' value="'.$key.'">'.$name.'</option>';
+	}
+	echo '</select>';
+}
+
 function dwqa_posts_per_page_display(){
 	global $dwqa_general_settings;
 	$posts_per_page = isset( $dwqa_general_settings['posts-per-page'] ) ?  $dwqa_general_settings['posts-per-page'] : 5;
@@ -800,6 +812,14 @@ class DWQA_Settings {
 		);
 
 		add_settings_field( 
+			'dwqa_options[captcha-type]', 
+			__( 'Captcha Type', 'dwqa' ), 
+			'dwqa_captcha_select_type_display',
+			'dwqa-settings', 
+			'dwqa-captcha-settings'
+		);
+
+		add_settings_field( 
 			'dwqa_options[captcha-google-public-key]', 
 			__( 'Google Captcha Public Key', 'dwqa' ), 
 			'dwqa_captcha_google_pubic_key_display', 
@@ -814,6 +834,8 @@ class DWQA_Settings {
 			'dwqa-settings', 
 			'dwqa-captcha-settings'
 		);
+
+		do_action( 'dwqa_captcha_setting_field' );
 
 
 		//Permalink

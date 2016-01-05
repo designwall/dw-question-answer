@@ -8,6 +8,7 @@ class DWQA_Updater {
 	protected $store = 'http://dwqa.local/';
 	protected $name = '';
 	protected $slug = '';
+	protected $file = __FILE__;
 	protected $license_option_key;
 	protected $license_status_key;
 
@@ -39,7 +40,7 @@ class DWQA_Updater {
 		$license_key = trim( get_option( $this->license_option_key ) );
 
 		// setup the updater
-		$edd_updater = new EDD_SL_Plugin_Updater( $this->store, __FILE__, array(
+		$edd_updater = new EDD_SL_Plugin_Updater( $this->store, $this->file, array(
 				'version' 	=> '1.0', 				// current version number
 				'license' 	=> $license_key, 		// license key (used get_option above to retrieve from DB)
 				'item_name' => $this->name, 	// name of this plugin

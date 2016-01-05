@@ -66,18 +66,7 @@ if ( is_wp_error( $dwqa_current_error ) ) {
 			<div class="question-signin">
 				<?php do_action( 'dwqa_submit_question_ui' ); ?>
 			</div>
-			<script type="text/javascript">
-			 var RecaptchaOptions = {
-				theme : 'clean'
-			 };
-			 </script>
-			<?php if ( dwqa_is_captcha_enable_in_submit_question() ) {
-				$public_key = isset( $dwqa_general_settings['captcha-google-public-key'] ) ?  $dwqa_general_settings['captcha-google-public-key'] : '';
-				echo '<div class="google-recaptcha">';
-				$is_ssl = is_ssl();
-				echo recaptcha_get_html( $public_key, null, $is_ssl );
-				echo '<br></div>';
-			} ?>
+			<?php dwqa_load_template( 'captcha', 'form' ); ?>
 			
 		</div>
 		<div class="form-submit">

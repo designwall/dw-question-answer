@@ -21,20 +21,7 @@
 	<?php dwqa_init_tinymce_editor( $editor ); ?>
 	<?php do_action( 'dwqa_submit_answer_ui', get_the_ID() ); ?>
 	
-	<script type="text/javascript">
-	 var RecaptchaOptions = {
-		theme : 'clean'
-	 };
-	 </script>
-	<?php  
-	global  $dwqa_general_settings;
-	if ( dwqa_is_captcha_enable_in_single_question() ) {
-		$public_key = isset( $dwqa_general_settings['captcha-google-public-key'] ) ?  $dwqa_general_settings['captcha-google-public-key'] : '';
-		echo '<div class="google-recaptcha">';
-		$is_ssl = is_ssl();
-		echo recaptcha_get_html( $public_key, null, $is_ssl );
-		echo '<br></div>';
-	}
+	<?php dwqa_load_template( 'captcha', 'form' ) ?>
 
 	?>
 		<div class="form-buttons">

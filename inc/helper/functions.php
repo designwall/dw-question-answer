@@ -105,6 +105,8 @@ if ( ! function_exists( 'dw_strip_email_to_display' ) ) {
 
 // CAPTCHA
 function dwqa_valid_captcha( $type ) {
+	global $dwqa_general_settings;
+
 	if ( 'question' == $type && ! dwqa_is_captcha_enable_in_submit_question() ) {
 		return true;
 	}
@@ -113,7 +115,18 @@ function dwqa_valid_captcha( $type ) {
 		return true;
 	}
 	
-	global  $dwqa_general_settings;
+	return apply_filters( 'dwqa_valid_captcha', false );
+}
+
+add_filter( 'dwqa_valid_captcha', 'dwqa_recaptcha_check' );
+function dwqa_recaptcha_check( $res ) {
+	global $dwqa_general_settings;
+	$type_selected = isset( $dwqa_general_settings['captcha-type'] ) ? $dwqa_general_settings['captcha-type'] : 'google-recaptcha';
+
+	if ( 'google-recaptcha' !== $type_selected ) {
+		return true;
+	}
+
 	$private_key = isset( $dwqa_general_settings['captcha-google-private-key'] ) ?  $dwqa_general_settings['captcha-google-private-key'] : '';
 	if ( ! isset( $_POST['recaptcha_challenge_field'] ) || ! isset( $_POST['recaptcha_response_field'] ) ) {
 		return false;

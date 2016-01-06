@@ -562,7 +562,7 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 				wp_safe_redirect( get_permalink( $question_id ) );
 				return true;
 			}
-			break;
+			return false;
 		}
 	}
 	/**

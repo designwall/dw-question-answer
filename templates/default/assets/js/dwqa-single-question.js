@@ -485,9 +485,12 @@ jQuery(function($) {
         }
         current_answer_editor = answer_container;
 
-        if (getUserSetting('editor', 'tmce') == 'html') {
-            setUserSetting('editor', 'tmce');
+        if ( typeof getUserSetting == 'function' && $.isFunction( getUserSetting ) ) {
+            if (getUserSetting('editor', 'tmce') == 'html') {
+                setUserSetting('editor', 'tmce');
+            }
         }
+        
         answer_container.find('.answer-edit-link .loading').css('display', 'inline-block');
 
         $.ajax({
@@ -514,18 +517,6 @@ jQuery(function($) {
                 answer_content.html(editor);
                 $('#' + id).data('current-content', escape(current_content));
 
-
-                var settings = tinyMCEPreInit.mceInit['dwqa-answer-question-editor'];
-
-                settings.elements = id;
-                settings.body_class = id + ' post-type-dwqa-answer';
-                //settings.editor_selector = id; // deprecated in TinyMCE 4.x
-                settings.selector = '#' + id;
-                //init tinymce
-                if( tinyMCE.get(id) ) {
-                    tinymce.remove('#'+id);   
-                }
-                tinyMCE.init(settings);
                 editor.slideDown();
                 t.data('on-editor', true);
             }
@@ -878,8 +869,10 @@ jQuery(function($) {
         }
         current_answer_editor = question;
 
-        if (getUserSetting('editor', 'tmce') == 'html') {
-            setUserSetting('editor', 'tmce');
+        if ( typeof getUserSetting == 'function' && $.isFunction( getUserSetting ) ) {
+            if (getUserSetting('editor', 'tmce') == 'html') {
+                setUserSetting('editor', 'tmce');
+            }
         }
 
         //question.data('old', old_content);
@@ -902,18 +895,6 @@ jQuery(function($) {
                     question_content.html(editor);
                     $('#' + id).data('current-content', escape(old_content));
 
-
-                    var settings = tinyMCEPreInit.mceInit['dwqa-answer-question-editor'];
-
-                    settings.elements = id;
-                    settings.body_class = id + ' post-type-dwqa-question';
-                    settings.editor_selector = id; // deprecated in TinyMCE 4.x
-                    settings.selector = '#' + id;
-                    //init tinymce
-                    if( tinyMCE.get(id) ) {
-                        tinymce.remove('#'+id);   
-                    }
-                    tinyMCE.init(settings);
                     editor.slideDown();
                     t.data('on-editor', true);
 

@@ -99,6 +99,20 @@ class DWQA_Editor {
 					'wpautop'       => false,
 				) ); 
 			?>
+			<script type="text/javascript">
+				var id = 'dwqa-custom-content-editor';
+				var settings = tinyMCEPreInit.mceInit['dwqa-answer-question-editor'];
+
+                settings.elements = id;
+                settings.body_class = id + ' post-type-dwqa-answer';
+                //settings.editor_selector = id; // deprecated in TinyMCE 4.x
+                settings.selector = '#' + id;
+                //init tinymce
+                if( tinyMCE.get(id) ) {
+                    tinymce.remove('#'+id);   
+                }
+                tinyMCE.init(settings);
+			</script>
 			<p class="dwqa-answer-form-btn">
 				<input type="submit" name="submit-answer" class="dwqa-btn dwqa-btn-default" value="<?php _e( 'Update','dwqa' ) ?>">
 				<a type="button" class="answer-edit-cancel dwqa-btn dwqa-btn-link" ><?php _e( 'Cancel','dwqa' ) ?></a>
@@ -127,7 +141,7 @@ class DWQA_Editor {
 			</div>
 		</form>
 		<?php
-		$editor = ob_get_contents();
+		$editor = apply_filters( 'dwqa_answer_edit_content_editor', ob_get_contents(), $_POST );
 		ob_end_clean();
 		wp_send_json_success( array( 'editor' => $editor ) );
 	}
@@ -160,6 +174,20 @@ class DWQA_Editor {
 					'wpautop'       => false,
 				) ); 
 			?>
+			<script type="text/javascript">
+				var id = 'dwqa-custom-content-editor';
+				var settings = tinyMCEPreInit.mceInit['dwqa-answer-question-editor'];
+
+                    settings.elements = id;
+                    settings.body_class = id + ' post-type-dwqa-question';
+                    settings.editor_selector = id; // deprecated in TinyMCE 4.x
+                    settings.selector = '#' + id;
+                    //init tinymce
+                    if( tinyMCE.get(id) ) {
+                        tinymce.remove('#'+id);   
+                    }
+                    tinyMCE.init(settings);
+			</script>
 			<p class="dwqa-question-form-btn">
 				<input type="submit" name="submit-question" class="dwqa-btn dwqa-btn-default" value="<?php _e( 'Update','dwqa' ) ?>">
 				<a type="button" class="question-edit-cancel dwqa-btn dwqa-btn-link" ><?php _e( 'Cancel','dwqa' ) ?></a>
@@ -170,7 +198,7 @@ class DWQA_Editor {
 			</p>
 		</form>
 		<?php
-		$editor = ob_get_contents();
+		$editor = apply_filters( 'dwqa_question_edit_content_editor', ob_get_contents(), $_POST );
 		ob_end_clean();
 		wp_send_json_success( array( 'editor' => $editor ) );
 	}

@@ -57,7 +57,20 @@ if ( is_wp_error( $dwqa_current_error ) ) {
 					) ); 
 				?>
 			</div>
-			
+			<script type="text/javascript">
+				var id = 'dwqa-question-content-editor';
+				var settings = tinyMCEPreInit.mceInit['dwqa-answer-question-editor'];
+
+                    settings.elements = id;
+                    settings.body_class = id + ' post-type-dwqa-question';
+                    settings.editor_selector = id; // deprecated in TinyMCE 4.x
+                    settings.selector = '#' + id;
+                    //init tinymce
+                    if( tinyMCE.get(id) ) {
+                        tinymce.remove('#'+id);   
+                    }
+                    tinyMCE.init(settings);
+			</script>
 			<?php if ( isset( $dwqa_options['enable-private-question'] ) && $dwqa_options['enable-private-question'] ) : ?>
 			<div class="checkbox-private">
 				<label for="private-message"><input type="checkbox" name="private-message" id="private-message" value="true"> <?php _e( 'Post this Question as Private.', 'dwqa' ) ?> <i class="fa fa-question-circle" title="<?php _e( 'Only you as Author and Admin can see the question', 'dwqa' ) ?>"></i></label>

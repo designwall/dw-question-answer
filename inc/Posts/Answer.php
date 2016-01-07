@@ -460,7 +460,7 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 		$url = get_permalink( $question_id );
 		$error_messages = $dwqa_add_answer_errors->get_error_messages();
 		foreach ( $error_messages as $value ) {
-			$url = esc_url( add_query_arg( 'errors', urlencode( $value ), $url ) );
+			$url = esc_url_raw( add_query_arg( 'errors', urlencode( $value ), $url ) );
 		}
 		wp_safe_redirect( $url );
 		exit(0);

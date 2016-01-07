@@ -3,7 +3,7 @@
 	<?php  
 	if ( isset( $_GET['errors'] ) ) {
 		echo '<p class="alert">';
-		echo urldecode( esc_url( $_GET['errors'] ) ) . '<br>';
+		echo urldecode( $_GET['errors'] ) . '<br>';
 		echo '</p>';
 	}
 	?>

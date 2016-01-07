@@ -221,35 +221,6 @@ class DWQA_Posts_Base {
 	private $slug;
 	private $labels;
 
-	// tags allowed for post content
-	protected $filter = array(
-		'a'             => array(
-			'href'  => array(),
-			'title' => array()
-		),
-		'br'            => array(),
-		'em'            => array(),
-		'strong'        => array(),
-		'code'          => array(
-				'class'     => array()
-			),
-		'blockquote'    => array(),
-		'quote'         => array(),
-		'span'          => array(
-			'style' => array()
-		),
-		'img'            => array(
-				'src'    => array(),
-				'alt'    => array(),
-				'width'  => array(),
-				'height' => array(),
-				'style'  => array()
-			),
-		'ul'            => array(),
-		'li'            => array(),
-		'ol'            => array(),
-		'pre'            => array(),
-	);
 
 	public function __construct( $slug, $labels ) {
 		$this->slug = $slug;
@@ -349,7 +320,37 @@ class DWQA_Posts_Base {
 	}
 
 	public function pre_content_kses( $content ) {
-		return wp_kses( $content, $this->filter );
+		// tags allowed for post content
+		$filter = apply_filters( 'dwqa_filter_kses', array(
+			'a'             => array(
+				'href'  => array(),
+				'title' => array()
+			),
+			'br'            => array(),
+			'em'            => array(),
+			'strong'        => array(),
+			'code'          => array(
+					'class'     => array()
+				),
+			'blockquote'    => array(),
+			'quote'         => array(),
+			'span'          => array(
+				'style' => array()
+			),
+			'img'            => array(
+					'src'    => array(),
+					'alt'    => array(),
+					'width'  => array(),
+					'height' => array(),
+					'style'  => array()
+				),
+			'ul'            => array(),
+			'li'            => array(),
+			'ol'            => array(),
+			'pre'            => array(),
+		));
+
+		return wp_kses( $content, $filter );
 	}
 
 	public function convert_pre_entities( $matches ) {

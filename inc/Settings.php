@@ -762,6 +762,8 @@ class DWQA_Settings {
 			'dwqa-general-settings' 
 		);
 
+		do_action( 'dwqa_register_setting_section' );
+
 		//Time setting
 		add_settings_section( 
 			'dwqa-time-settings', 

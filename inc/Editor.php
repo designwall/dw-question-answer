@@ -18,6 +18,9 @@ class DWQA_Editor {
 		//Ajaxs
 		add_action( 'wp_ajax_dwqa-editor-update-answer-init', array( $this, 'ajax_create_update_answer_editor' ) );
 		add_action( 'wp_ajax_dwqa-editor-update-question-init', array( $this, 'ajax_create_update_question_editor' ) );
+
+		add_filter( 'dwqa_prepare_edit_answer_content', 'wpautop' );
+		add_filter( 'dwqa_prepare_edit_question_content', 'wpautop' );
 	}
 	
 	public function tinymce_addbuttons() {
@@ -92,7 +95,6 @@ class DWQA_Editor {
 				$answer = get_post( $answer_id );
 				$answer_content = get_post_field( 'post_content', $answer_id );
 				$answer_content = apply_filters( 'dwqa_prepare_edit_answer_content', $answer_content );
-				add_filter( 'dwqa_prepare_edit_answer_content', 'wpautop' );
 				dwqa_init_tinymce_editor( array(
 					'content'       => $answer_content, 
 					'textarea_name' => 'answer-content',
@@ -167,7 +169,7 @@ class DWQA_Editor {
 			<input type="text" style="width:100%" name="dwqa-question-title" id="dwqa-question-title" value="<?php echo $question->post_title; ?>">
 			<?php
 				$question_content = apply_filters( 'dwqa_prepare_edit_question_content', $question->post_content );
-				add_filter( 'dwqa_prepare_edit_question_content', 'wpautop' );
+				
 				dwqa_init_tinymce_editor( array(
 					'content'       => $question_content, 
 					'textarea_name' => 'dwqa-question-content',

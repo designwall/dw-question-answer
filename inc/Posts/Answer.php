@@ -214,6 +214,7 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 
 
 		add_action( 'manage_' . $this->get_slug() . '_posts_custom_column', array( $this, 'columns_content' ), 10, 2 );
+		add_action( 'post_row_actions', array( $this, 'unset_old_actions' ) );
 
 		// Ajax add answer
 		add_action( 'wp_ajax_dwqa-add-answer', array( $this, 'insert') );
@@ -264,6 +265,16 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 			);
 		}
 		return $defaults;
+	}
+
+	public function unset_old_actions( $actions ) {
+		global $post;
+
+		if ( $post->post_type == 'dwqa-answer' ) {
+			$actions = array();
+		}
+
+		return $actions;
 	}
 
 	public function row_actions( $actions, $always_visible = false ) {

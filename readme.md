@@ -1,7 +1,7 @@
 # [DW Question & Answer](https://www.designwall.com/wordpress/plugins/dw-question-answer/) #
 [![Build Status](https://secure.travis-ci.org/designwall/dw-question-answer.png?branch=master)](https://travis-ci.org/designwall/dw-question-answer)
 
-Build a complete Question & Answer system on WordPress like Quora and Stack Overflow. Packed with powerful features, yet easy to use.
+A WordPress plugin to build a complete Question & Answer system on WordPress like Quora and Stack Overflow. Packed with powerful features, yet easy to use.
 
 More information can be found at [designwall.com](https://www.designwall.com/wordpress/plugins/dw-question-answer/).
 
@@ -21,9 +21,7 @@ If you find an issue, let us know [here](https://github.com/designwall/dw-questi
 This is a developer's portal for DW Question & Answer and should _not_ be used for support. Please visit the [Support section](https://www.designwall.com/question/).
 
 ## Contributions ##
-Anyone is welcome to contribute to Easy Digital Downloads. Please read the [guidelines for contributing](https://github.com/designwall/dw-question-answer/blob/master/CONTRIBUTING.md) to this repository.
-
-There are various ways you can contribute:
+Anyone is welcome to contribute to DW Question & Answer. There are various ways you can contribute:
 
 1. Raise an [Issue](https://github.com/designwall/dw-question-answer/issues) on GitHub
 2. Send us a Pull Request with your bug fixes and/or new features

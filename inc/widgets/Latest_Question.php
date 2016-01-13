@@ -7,7 +7,7 @@ class DWQA_Widgets_Latest_Question extends WP_Widget {
 	 * @return void
 	 **/
 	function __construct() {
-		$widget_ops = array( 'classname' => 'dwqa-widget dwqa-latest-questions', 'description' => __( 'Show a list of questions that was ordered by views.', 'dwqa' ) );
+		$widget_ops = array( 'classname' => 'dwqa-widget dwqa-latest-questions', 'description' => __( 'Show a list of latest questions.', 'dwqa' ) );
 		parent::__construct( 'dwqa-latest-question', __( 'DWQA Latest Questions', 'dwqa' ), $widget_ops );
 	}
 

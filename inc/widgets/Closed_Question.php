@@ -8,7 +8,7 @@ class DWQA_Widgets_Closed_Question extends WP_Widget {
 	 * @return void
 	 **/
 	function __construct() {
-		$widget_ops = array( 'classname' => 'dwqa-widget dwqa-closed-questions', 'description' => __( 'Show a list of questions that was ordered by views.', 'dwqa' ) );
+		$widget_ops = array( 'classname' => 'dwqa-widget dwqa-closed-questions', 'description' => __( 'Show a list of questions marked as closed.', 'dwqa' ) );
 		parent::__construct( 'dwqa-closed-question', __( 'DWQA Closed Questions', 'dwqa' ), $widget_ops );
 	}
 
@@ -25,6 +25,7 @@ class DWQA_Widgets_Closed_Question extends WP_Widget {
 		echo $after_title;
 		$args = array(
 			'post_type' => 'dwqa-question',
+			'posts_per_page' => $instance['number'],
 			'meta_query' => array(
 				'relation' => 'OR',
 				array(

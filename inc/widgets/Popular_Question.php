@@ -10,7 +10,7 @@ class DWQA_Widgets_Popular_Question extends WP_Widget {
 	function __construct() {
 		$widget_ops = array( 
 			'classname' => 'dwqa-widget dwqa-popular-question', 
-			'description' => __( 'Show a list of questions that ordered by views.', 'dwqa' ) 
+			'description' => __( 'Show a list of popular questions.', 'dwqa' ) 
 		);
 		parent::__construct( 'dwqa-popular-question', __( 'DWQA Popular Questions', 'dwqa' ), $widget_ops );
 	}

@@ -63,6 +63,14 @@ function dwqa_action_vote( ) {
 add_action( 'wp_ajax_dwqa-action-vote', 'dwqa_action_vote' );
 add_action( 'wp_ajax_nopriv_dwqa-action-vote', 'dwqa_action_vote' );
 
+function dwqa_get_content( $post_id = 0 ) {
+	if ( empty( $post_id ) ) {
+		$post_id = get_the_ID();
+	}
+
+	return apply_filters( 'dwqa_get_content', get_post_field( 'post_content', $post_id ), $post_id );
+}
+
 /**
  * Check for current user can vote for the question
  * @param  int  $post_id ID of object ( question /answer ) post
@@ -330,24 +338,24 @@ class DWQA_Posts_Base {
 			'em'            => array(),
 			'strong'        => array(),
 			'code'          => array(
-					'class'     => array()
-				),
+				'class' => array()
+			),
 			'blockquote'    => array(),
 			'quote'         => array(),
 			'span'          => array(
-				'style' => array()
+				'style' 	=> array()
 			),
-			'img'            => array(
-					'src'    => array(),
-					'alt'    => array(),
-					'width'  => array(),
-					'height' => array(),
-					'style'  => array()
-				),
+			'img'           => array(
+				'src'    	=> array(),
+				'alt'    	=> array(),
+				'width'  	=> array(),
+				'height' 	=> array(),
+				'style'  	=> array()
+			),
 			'ul'            => array(),
 			'li'            => array(),
 			'ol'            => array(),
-			'pre'            => array(),
+			'pre'           => array()
 		));
 
 		return wp_kses( $content, $filter );

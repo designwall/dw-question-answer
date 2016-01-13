@@ -42,7 +42,7 @@
 					</header>
 
 					<div class="dwqa-content">
-						<?php the_content(); ?>
+						<?php echo dwqa_get_content(); ?>
 					</div>
 					<?php $tags = get_the_term_list( $post_id, 'dwqa-question_tag', '<span class="dwqa-tag">', '</span><span class="dwqa-tag">', '</span>' ); ?>
 					<?php if ( ! empty( $tags ) ) : ?>

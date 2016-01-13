@@ -3,7 +3,7 @@ Contributors: designwall, Farid-Gh, scheunemann, gciprian, Ahmet Kolcu, Astroten
 Tags: question, answer, support, quora, stackoverflow
 Requires at least: 3.0.1
 Tested up to: 4+
-Stable tag: 1.3.7
+Stable tag: 1.3.7.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -56,6 +56,7 @@ We provide support both on support forum on WordPress.org and our [support page]
 * Italian ( it_IT ) - by [Alberto Lusoli](alberto.lusoli@gmail.com)
 * Croatian ( hr ) - by [Tammara Bugg](tammara.bugg@gmail.com)
 * Slovakia ( sk_SK ) - by [Mário Halás](majox21@gmail.com)
+* Norwegian ( nb_NO ) - by [Tobias Andersen](turbolego@gmail.com)
 
 The plugin is frequently updated and more and more features added based on all the feedback from our users. This means you are welcome to give us feedback and suggestion on how you would want to have in the plugin.
 Visit our [Github](https://github.com/designwall/dw-question-answer) project or follow us at [@designwall_com](https://twitter.com/designwall_com) to get update of our next release.
@@ -77,6 +78,9 @@ Visit our [Github](https://github.com/designwall/dw-question-answer) project or 
 5. Back-end settings
 
 == Changelog ==
+
+= 1.3.7.1 =
+* Remove Widget
 
 = 1.3.7 =
 * Tweak: Add Widget

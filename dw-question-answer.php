@@ -4,9 +4,9 @@
  *  Description: A WordPress plugin was make by DesignWall.com to build an Question Answer system for support, asking and comunitcate with your customer 
  *  Author: DesignWall
  *  Author URI: http://www.designwall.com
- *  Version: 1.3.6
+ *  Version: 1.3.7
  *  Text Domain: dwqa
- *  @since 1.3.5
+ *  @since 1.3.6
  */
 
 // DWQA plugin dir path

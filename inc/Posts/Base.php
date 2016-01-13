@@ -70,6 +70,7 @@ function dwqa_get_content( $post_id = 0 ) {
 
 	return apply_filters( 'dwqa_get_content', get_post_field( 'post_content', $post_id ), $post_id );
 }
+add_filter( 'dwqa_get_content', 'make_clickable' );
 
 /**
  * Check for current user can vote for the question

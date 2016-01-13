@@ -1,4 +1,4 @@
-<?php  
+<?php
 
 /**
  * Get related questions            [description]
@@ -12,14 +12,14 @@ function dwqa_related_question( $question_id = false, $number = 5, $echo = true 
 	if ( ! empty($tags) ) {
 		foreach ( $tags as $tag ) {
 			$tag_in[] = $tag->term_id;
-		}   
+		}
 	}
-	
+
 	$category = wp_get_post_terms( $question_id, 'dwqa-question_category' );
 	if ( ! empty($category) ) {
 		foreach ( $category as $cat ) {
 			$cat_in[] = $cat->term_id;
-		}    
+		}
 	}
 	$args = array(
 		'orderby'       => 'rand',
@@ -48,7 +48,7 @@ function dwqa_related_question( $question_id = false, $number = 5, $echo = true 
 	}
 
 	$related_questions = new WP_Query( $args );
-	
+
 	if ( $related_questions->have_posts() ) {
 		if ( $echo ) {
 			echo '<ul>';
@@ -79,7 +79,7 @@ function dwqa_insert_question( $args ) {
  * Count number of views for a questions
  * @param  int $question_id Question Post ID
  * @return int Number of views
- */ 
+ */
 function dwqa_question_views_count( $question_id = null ) {
 	if ( ! $question_id ) {
 		global $post;
@@ -91,7 +91,7 @@ function dwqa_question_views_count( $question_id = null ) {
 	$views = get_post_meta( $question_id, '_dwqa_views', true );
 
 	if ( ! $views ) {
-		return 0; 
+		return 0;
 	} else {
 		return ( int ) $views;
 	}
@@ -103,7 +103,7 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 		parent::__construct( 'dwqa-question', array(
 			'plural' => __( 'Questions', 'dwqa' ),
 			'singular' => __( 'Question', 'dwqa' ),
-			'menu'	 => __( 'DW Q&A', 'dwqa' )
+			'menu'	 => __( 'Questions', 'dwqa' )
 		) );
 
 		add_action( 'manage_dwqa-question_posts_custom_column', array( $this, 'columns_content' ), 10, 2 );
@@ -114,7 +114,7 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 		// Update view count of question, if we change single question template into shortcode, this function will need to be rewrite
 		add_action( 'wp_head', array( $this, 'update_view' ) );
 		//Ajax Get Questions Archive link
-		
+
 		add_action( 'wp_ajax_dwqa-get-questions-permalink', array( $this, 'get_questions_permalink') );
 		add_action( 'wp_ajax_nopriv_dwqa-get-questions-permalink', array( $this, 'get_questions_permalink') );
 		//Ajax stick question
@@ -123,9 +123,9 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 
 		add_action( 'wp_ajax_dwqa-delete-question', array( $this, 'delete_question' ) );
 		// Ajax Update question status
-		add_action( 'wp_ajax_dwqa-update-question-status', array( $this, 'update_status' ) ); 
-		add_filter( 'parse_query', array( $this, 'posts_filter' ) );  
-		
+		add_action( 'wp_ajax_dwqa-update-question-status', array( $this, 'update_status' ) );
+		add_filter( 'parse_query', array( $this, 'posts_filter' ) );
+
 		add_action( 'wp', array( $this, 'schedule_events' ) );
 		add_action( 'dwqa_hourly_event', array( $this, 'do_this_hourly' ) );
 		add_action( 'before_delete_post', array( $this, 'hook_on_remove_question' ) );
@@ -162,22 +162,19 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 
 	public function register_taxonomy() {
 		$labels = array(
-			'name'					=> _x( 'Categories', 'Taxonomy question categories', 'dwqa' ),
-			'singular_name'			=> _x( 'Category', 'Taxonomy question category', 'dwqa' ),
-			'search_items'			=> __( 'Search categories', 'dwqa' ),
-			'popular_items'			=> __( 'Popular categories', 'dwqa' ),
-			'all_items'				=> __( 'All categories', 'dwqa' ),
-			'parent_item'			=> __( 'Parent category', 'dwqa' ),
-			'parent_item_colon'		=> __( 'Parent category', 'dwqa' ),
-			'edit_item'				=> __( 'Edit category', 'dwqa' ),
-			'update_item'			=> __( 'Update category', 'dwqa' ),
-			'add_new_item'			=> __( 'Add New category', 'dwqa' ),
-			'new_item_name'			=> __( 'New category Name', 'dwqa' ),
-			'add_or_remove_items'	=> __( 'Add or remove categories', 'dwqa' ),
-			'choose_from_most_used'	=> __( 'Choose from most used dwqa', 'dwqa' ),
-			'menu_name'				=> __( 'Category', 'dwqa' ),
+			'name'              => _x( 'Question Categories', 'taxonomy general name', 'dwqa' ),
+			'singular_name'     => _x( 'Question Category', 'taxonomy singular name', 'dwqa' ),
+			'search_items'      => __( 'Search Question Categories', 'dwqa' ),
+			'all_items'         => __( 'All Question Categories', 'dwqa' ),
+			'parent_item'       => __( 'Parent Question Category', 'dwqa' ),
+			'parent_item_colon' => __( 'Parent Question Category:', 'dwqa' ),
+			'edit_item'         => __( 'Edit Question Category', 'dwqa' ),
+			'update_item'       => __( 'Update Question Category', 'dwqa' ),
+			'add_new_item'      => __( 'Add New Question Category', 'dwqa' ),
+			'new_item_name'     => __( 'New Question Category Name', 'dwqa' ),
+			'menu_name'         => __( 'Question Category', 'dwqa' ),
 		);
-	
+
 		$args = array(
 			'labels'            => $labels,
 			'public'            => true,
@@ -195,24 +192,25 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 		);
 		register_taxonomy( $this->get_slug() . '_category', array( $this->get_slug() ), $args );
 
-		// Question Tags
 		$labels = array(
-			'name'					=> _x( 'Tags', 'Taxonomy question tags', 'dwqa' ),
-			'singular_name'			=> _x( 'Tag', 'Taxonomy question tag', 'dwqa' ),
-			'search_items'			=> __( 'Search tags', 'dwqa' ),
-			'popular_items'			=> __( 'Popular tags', 'dwqa' ),
-			'all_items'				=> __( 'All tags', 'dwqa' ),
-			'parent_item'			=> __( 'Parent tag', 'dwqa' ),
-			'parent_item_colon'		=> __( 'Parent tag', 'dwqa' ),
-			'edit_item'				=> __( 'Edit tag', 'dwqa' ),
-			'update_item'			=> __( 'Update tag', 'dwqa' ),
-			'add_new_item'			=> __( 'Add New tag', 'dwqa' ),
-			'new_item_name'			=> __( 'New tag Name', 'dwqa' ),
-			'add_or_remove_items'	=> __( 'Add or remove tags', 'dwqa' ),
-			'choose_from_most_used'	=> __( 'Choose from most used dwqa', 'dwqa' ),
-			'menu_name'				=> __( 'Tag', 'dwqa' ),
+			'name'                       => _x( 'Question Tags', 'taxonomy general name', 'dwqa' ),
+			'singular_name'              => _x( 'Question Tag', 'taxonomy singular name', 'dwqa' ),
+			'search_items'               => __( 'Search Question Tags', 'dwqa' ),
+			'popular_items'              => __( 'Popular Question Tags', 'dwqa' ),
+			'all_items'                  => __( 'All Question Tags', 'dwqa' ),
+			'parent_item'                => null,
+			'parent_item_colon'          => null,
+			'edit_item'                  => __( 'Edit Question Tag', 'dwqa' ),
+			'update_item'                => __( 'Update Question Tag', 'dwqa' ),
+			'add_new_item'               => __( 'Add New Question Tag', 'dwqa' ),
+			'new_item_name'              => __( 'New Question Tag Name', 'dwqa' ),
+			'separate_items_with_commas' => __( 'Separate question tags with commas', 'dwqa' ),
+			'add_or_remove_items'        => __( 'Add or remove question tags', 'dwqa' ),
+			'choose_from_most_used'      => __( 'Choose from the most used question tags', 'dwqa' ),
+			'not_found'                  => __( 'No question tags found.', 'dwqa' ),
+			'menu_name'                  => __( 'Question Tags', 'dwqa' ),
 		);
-	
+
 		$args = array(
 			'labels'            => $labels,
 			'public'            => true,
@@ -230,7 +228,7 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 		);
 		register_taxonomy( $this->get_slug() . '_tag', array( $this->get_slug() ), $args );
 
-		// Create default category for dwqa question type when dwqa plugin is actived 
+		// Create default category for dwqa question type when dwqa plugin is actived
 		$cats = get_categories( array(
 			'type'                     => $this->get_slug(),
 			'hide_empty'               => 0,
@@ -245,17 +243,17 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 		$dwqa->rewrite->update_term_rewrite_rules();
 	}
 
-	// ADD NEW COLUMN  
-	public function columns_head( $defaults ) {  
+	// ADD NEW COLUMN
+	public function columns_head( $defaults ) {
 		if ( isset( $_GET['post_type'] ) && esc_html( $_GET['post_type'] ) == $this->get_slug() ) {
 			$defaults['info'] = __( 'Info', 'dwqa' );
 			$defaults = dwqa_array_insert( $defaults, array( 'question-category' => 'Category', 'question-tag' => 'Tags' ), 1 );
 		}
-		return $defaults;  
+		return $defaults;
 	}
 
-	// SHOW THE FEATURED IMAGE  
-	public function columns_content( $column_name, $post_ID ) {  
+	// SHOW THE FEATURED IMAGE
+	public function columns_content( $column_name, $post_ID ) {
 		switch ( $column_name ) {
 			case 'info':
 				echo ucfirst( get_post_meta( $post_ID, '_dwqa_status', true ) ) . '<br>';
@@ -286,7 +284,7 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 				}
 				break;
 		}
-	} 
+	}
 
 	/**
 	 * Save question submitted
@@ -311,18 +309,18 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 
 					$title = esc_html( $_POST['question-title'] );
 
-					$category = isset( $_POST['question-category'] ) ? 
+					$category = isset( $_POST['question-category'] ) ?
 								intval( $_POST['question-category'] ) : 0;
 					if ( ! term_exists( $category, 'dwqa-question_category' ) ) {
 						$category = 0;
 					}
 
-					$tags = isset( $_POST['question-tag'] ) ? 
+					$tags = isset( $_POST['question-tag'] ) ?
 								esc_html( $_POST['question-tag'] ): '';
 
 					$content = isset( $_POST['question-content'] ) ? $_POST['question-content'] : '';
 					$content = apply_filters( 'dwqa_prepare_question_content', $content );
-					
+
 					$user_id = 0;
 					$is_anonymous = false;
 					if ( is_user_logged_in() ) {
@@ -345,10 +343,10 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 								return false;
 							}
 						} elseif ( isset( $_POST['login-type'] ) && $_POST['login-type'] == 'sign-up' ) {
-							//Create new user 
+							//Create new user
 							$users_can_register = get_option( 'users_can_register' );
-							if ( isset( $_POST['user-email'] ) && isset( $_POST['user-name-signup'] ) 
-									&& $users_can_register && ! email_exists( $_POST['user-email'] ) 
+							if ( isset( $_POST['user-email'] ) && isset( $_POST['user-name-signup'] )
+									&& $users_can_register && ! email_exists( $_POST['user-email'] )
 										&& ! username_exists( $_POST['user-name-signup'] ) ) {
 
 								if ( isset( $_POST['password-signup'] ) ) {
@@ -357,9 +355,9 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 									$password = wp_generate_password( 12, false );
 								}
 
-								$user_id = wp_create_user( 
-									esc_html( $_POST['user-name-signup'] ), 
-									$password, 
+								$user_id = wp_create_user(
+									esc_html( $_POST['user-name-signup'] ),
+									$password,
 									sanitize_email( $_POST['user-email'] )
 								);
 								if ( is_wp_error( $user_id ) ) {
@@ -396,7 +394,7 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 							}
 						} else {
 							$is_anonymous = true;
-							$question_author_email = isset( $_POST['_dwqa_anonymous_email'] ) && is_email( $_POST['_dwqa_anonymous_email'] ) ? sanitize_email( $_POST['_dwqa_anonymous_email'] ) : false; 
+							$question_author_email = isset( $_POST['_dwqa_anonymous_email'] ) && is_email( $_POST['_dwqa_anonymous_email'] ) ? sanitize_email( $_POST['_dwqa_anonymous_email'] ) : false;
 							$user_id = 0;
 						}
 					}
@@ -405,8 +403,8 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 
 					//Enable review mode
 					global $dwqa_general_settings;
-					if ( isset( $dwqa_general_settings['enable-review-question'] ) 
-						&& $dwqa_general_settings['enable-review-question'] 
+					if ( isset( $dwqa_general_settings['enable-review-question'] )
+						&& $dwqa_general_settings['enable-review-question']
 						&& $post_status != 'private' && ! current_user_can( 'manage_options' ) ) {
 						 $post_status = 'pending';
 					}
@@ -422,7 +420,7 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 							'dwqa-question_category'    => array( $category ),
 							'dwqa-question_tag'         => explode( ',', $tags )
 						)
-					);  
+					);
 
 					if ( apply_filters( 'dwqa-current-user-can-add-question', dwqa_current_user_can( 'post_question' ), $postarr ) ) {
 						$new_question = $this->insert( $postarr );
@@ -465,7 +463,7 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 			'post_title'     => '',
 			'post_type'      => 'dwqa-question',
 		) );
-			
+
 		$new_question = wp_insert_post( $args, true );
 
 		if ( ! is_wp_error( $new_question ) ) {
@@ -483,13 +481,13 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 			// dwqa_log_last_activity_on_question( $new_question, 'Create question', $date );
 			//Call action when add question successfull
 			do_action( 'dwqa_add_question', $new_question, $user_id );
-		} 
+		}
 		return $new_question;
 	}
 	/**
-	 * Init or increase views count for single question 
-	 * @return void 
-	 */ 
+	 * Init or increase views count for single question
+	 * @return void
+	 */
 	public function update_view() {
 		global $post;
 		if ( is_singular( 'dwqa-question' ) ) {
@@ -520,8 +518,8 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 
 	public function update() {
 		global $dwqa_options;
-		
-		if ( ! isset( $_POST['_wpnonce'] ) 
+
+		if ( ! isset( $_POST['_wpnonce'] )
 			|| ! wp_verify_nonce( sanitize_text_field( $_POST['_wpnonce'] ), '_dwqa_update_question' ) ) {
 			wp_send_json_error( array( 'message' => __( 'Hello, Are you cheating huh?', 'dwqa' ) ) );
 		}
@@ -530,7 +528,7 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 		if ( isset( $_POST['dwqa-action'] ) && sanitize_text_field( $_POST['dwqa-action'] ) == 'update-question' ) {
 			//Start update question
 			if ( ! isset( $_POST['question'] ) ) {
-				wp_send_json_error( array( 
+				wp_send_json_error( array(
 					'message'	=> __( 'The question is missing', 'dwqa' )
 				) );
 			}
@@ -546,7 +544,7 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 				$question_content = apply_filters( 'dwqa_prepare_question_update_content', $_POST['dwqa-question-content'] );
 				// $question_content = wp_kses( $_POST['dwqa-question-content'], $this->filter );
 				// $question_content = $this->pre_content_filter( $question_content );
-			} 
+			}
 			$question_update = array(
 				'ID'    => $question_id,
 				'post_content'   => $question_content,
@@ -567,11 +565,11 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 	}
 	/**
 	 * AJAX: update post status
-	 * @return void 
+	 * @return void
 	 */
 	public function update_status() {
 		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( $_POST['nonce'] ), '_dwqa_update_question_status_nonce' ) ) {
-		} 
+		}
 		if ( ! isset( $_POST['question'] ) ) {
 			wp_die( 0 );
 		}
@@ -666,7 +664,7 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 		if ( is_user_logged_in() ) {
 			global $current_user;
 			$sticky_questions = get_option( 'dwqa_sticky_questions', array() );
-			
+
 			if ( ! dwqa_is_sticky( $question->ID )  ) {
 				$sticky_questions[] = $question->ID;
 				update_option( 'dwqa_sticky_questions', $sticky_questions );
@@ -776,7 +774,7 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 				foreach ( $answers as $answer ) {
 					wp_trash_post( $answer->ID );
 				}
-			}   
+			}
 		}
 	}
 
@@ -793,7 +791,7 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 			global $wpdb;
 			$query = "SELECT `{$wpdb->posts}`.ID FROM `{$wpdb->posts}` JOIN `{$wpdb->postmeta}` ON `{$wpdb->posts}`.ID = `{$wpdb->postmeta}`.post_id WHERE 1=1 AND `{$wpdb->postmeta}`.meta_key = '_dwqa_status' AND `{$wpdb->postmeta}`.meta_value = 'closed' AND `{$wpdb->posts}`.post_status = 'publish' AND `{$wpdb->posts}`.post_type = 'dwqa-question'";
 			$closed_questions = $wpdb->get_results( $query );
-			
+
 			wp_cache_set( 'dwqa-closed-question', $closed_questions );
 		}
 
@@ -804,7 +802,7 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 					update_post_meta( $q->ID, '_dwqa_status', 'resolved' );
 				}
 			}
-		} 
+		}
 	}
 }
 

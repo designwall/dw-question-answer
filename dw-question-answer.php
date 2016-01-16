@@ -13,7 +13,7 @@
 if ( ! defined( 'DWQA_DIR' ) ) {
 	define( 'DWQA_DIR', plugin_dir_path( __FILE__ ) );
 }
-// DWQA plguin dir URI
+// DWQA plugin dir URI
 if ( ! defined( 'DWQA_URI' ) ) {
 	define( 'DWQA_URI', plugin_dir_url( __FILE__ ) );
 }
@@ -34,6 +34,7 @@ class DW_Question_Answer {
 	public function __construct() {
 		$this->dir = DWQA_DIR;
 		$this->uri = DWQA_URI;
+		$this->version = '1.3.7.1';
 		
 		// Add recaptcha library from google, 99 to sure that the library was not include if any other plugins use same library
 		add_action( 'plugins_loaded', array( $this, 'include_recaptcha_library' ), 99 );
@@ -57,16 +58,19 @@ class DW_Question_Answer {
 		$this->helptab = new DWQA_Helptab();
 		$this->pointer_helper = new DWQA_PointerHelper();
 
+		new DWQA_Admin_Extensions();
+		new DWQA_Admin_Welcome();
+
 		// All init action of plugin will be included in
 		add_action( 'init', array( $this, 'init' ) );
 		register_activation_hook( __FILE__, array( $this, 'activate_hook' ) );
 		register_deactivation_hook( __FILE__, array( $this, 'deactivate_hook' ) );
 
 		//Widgets
-		// add_action( 'widgets_init', create_function( '', "register_widget( 'DWQA_Widgets_Latest_Question' );" ) );
-		// add_action( 'widgets_init', create_function( '', "register_widget( 'DWQA_Widgets_Closed_Question' );" ) );
-		// add_action( 'widgets_init', create_function( '', "register_widget( 'DWQA_Widgets_Popular_Question' );" ) );
-		// add_action( 'widgets_init', create_function( '', "register_widget( 'DWQA_Widgets_Related_Question' );" ) );
+		add_action( 'widgets_init', create_function( '', "register_widget( 'DWQA_Widgets_Latest_Question' );" ) );
+		add_action( 'widgets_init', create_function( '', "register_widget( 'DWQA_Widgets_Closed_Question' );" ) );
+		add_action( 'widgets_init', create_function( '', "register_widget( 'DWQA_Widgets_Popular_Question' );" ) );
+		add_action( 'widgets_init', create_function( '', "register_widget( 'DWQA_Widgets_Related_Question' );" ) );
 	}
 
 	public function include_recaptcha_library() {

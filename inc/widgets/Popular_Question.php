@@ -1,4 +1,9 @@
-<?php  
+<?php
+
+add_action( 'widgets_init', 'dwqa_popular_question_widget_init' );
+function dwqa_popular_question_widget_init() {
+	register_widget( 'DWQA_Widgets_Popular_Question' );
+}
 
 class DWQA_Widgets_Popular_Question extends WP_Widget {
 

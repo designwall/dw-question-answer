@@ -1,4 +1,9 @@
-<?php  
+<?php
+
+add_action( 'widgets_init', 'dwqa_closed_question_widget_init' );
+function dwqa_closed_question_widget_init() {
+	register_widget( 'DWQA_Widgets_Closed_Question' );
+}
 
 class DWQA_Widgets_Closed_Question extends WP_Widget {
 

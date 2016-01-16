@@ -104,7 +104,7 @@
 			</p>
 			<?php } ?>
 			<div class="dwqa-content-inner <?php echo dwqa_is_answer_flag( $answer_id ) ? 'dwqa-hide' : ''; ?>">
-				<?php echo dwqa_get_content(); ?>
+				<?php the_content(); ?>
 			</div>
 
 			<span class="dwqa-anchor">

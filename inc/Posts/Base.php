@@ -63,16 +63,6 @@ function dwqa_action_vote( ) {
 add_action( 'wp_ajax_dwqa-action-vote', 'dwqa_action_vote' );
 add_action( 'wp_ajax_nopriv_dwqa-action-vote', 'dwqa_action_vote' );
 
-function dwqa_get_content( $post_id = 0 ) {
-	if ( empty( $post_id ) ) {
-		$post_id = get_the_ID();
-	}
-
-	return apply_filters( 'dwqa_get_content', get_post_field( 'post_content', $post_id ), $post_id );
-}
-add_filter( 'dwqa_get_content', 'make_clickable' );
-add_filter( 'dwqa_get_content', 'wpautop' );
-
 /**
  * Check for current user can vote for the question
  * @param  int  $post_id ID of object ( question /answer ) post

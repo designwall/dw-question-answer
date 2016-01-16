@@ -1,6 +1,6 @@
-<?php  
+<?php
 /**
- * @since 1.3.5 
+ * @since 1.3.5
  */
 /**
  * Return number of answer for a question
@@ -14,7 +14,7 @@ function dwqa_question_answers_count( $question_id = null ) {
 		global $post;
 		$question_id = $post->ID;
 	}
-	
+
 	$answer_count = get_transient( 'dwqa_answer_count_for_' . $question_id );
 
 	if ( false === $answer_count ) {
@@ -39,7 +39,7 @@ function dwqa_is_answer_flag( $post_id ) {
 		$flag = get_post_meta( $post_id, '_flag', true );
 		if ( empty( $flag ) || ! is_array( $flag ) ) {
 			return false;
-		} 
+		}
 		$flag = unserialize( $flag );
 		$flag_point = array_sum( $flag );
 		if ( $flag_point > 5 ) {
@@ -209,7 +209,7 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 		parent::__construct( 'dwqa-answer', array(
 			'plural' => __( 'Answers', 'dwqa' ),
 			'singular' => __( 'Answer', 'dwqa' ),
-			'menu' => __( 'All answers', 'dwqa' ),
+			'menu' => __( 'Answers', 'dwqa' ),
 		) );
 
 
@@ -244,8 +244,8 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 	}
 
 	public function set_supports() {
-		return array( 
-			'title', 'editor', 'comments', 
+		return array(
+			'title', 'editor', 'comments',
 			'custom-fields', 'author', 'page-attributes',
 		);
 	}
@@ -295,7 +295,7 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 		return $out;
 	}
 
-	public function columns_content( $column_name, $post_ID ) {  
+	public function columns_content( $column_name, $post_ID ) {
 		$answer = get_post( $post_ID );
 		switch ( $column_name ) {
 			case 'comment' :
@@ -325,10 +325,10 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 				if ( $question_id ) {
 					$question = get_post( $question_id );
 					echo '<a href="' . get_permalink( $question_id ) . '" >' . $question->post_title . '</a><br>';
-				} 
+				}
 				break;
 		}
-	} 
+	}
 
 	public function insert() {
 		global $dwqa_options;
@@ -342,7 +342,7 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 
 		if ( $_POST['submit-answer'] == __( 'Delete draft', 'dwqa' ) ) {
 			$draft = isset( $_POST['answer-id'] ) ? intval( $_POST['answer-id'] ) : 0;
-			if ( $draft ) 
+			if ( $draft )
 				wp_delete_post( $draft );
 			return false;
 		}
@@ -350,7 +350,7 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 		if ( empty( $_POST['answer-content'] ) ||  empty( $_POST['question'] ) ) {
 			if ( empty( $_POST['answer-content'] ) ) {
 				$dwqa_add_answer_errors->add( 'answer_question','answer content is empty' );
-			} 
+			}
 			if ( empty( $_POST['question'] ) ) {
 				$dwqa_add_answer_errors->add( 'answer_question','question is empty' );
 			}
@@ -372,7 +372,7 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 
 			$answer_title = __( 'Answer for ', 'dwqa' ) . $question->post_title;
 			$answ_content = apply_filters( 'dwqa_prepare_answer_content', $_POST['answer-content'] );
-			
+
 			$post_status = ( isset( $_POST['private-message'] ) && esc_html( $_POST['private-message'] ) ) ? 'private' : 'publish';
 			$answers = array(
 				'comment_status' => 'open',
@@ -398,7 +398,7 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 						} else {
 							$answer_id = new WP_Error( 'permission', __( 'You do not have permission to submit question.', 'dwqa' ) );
 						}
-						
+
 						if ( ! is_wp_error( $answer_id ) ) {
 							//Send email alert for author of question about this answer
 							$question_author = $question->post_author;
@@ -425,7 +425,7 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 					} else {
 						$dwqa_add_answer_errors->add( 'in_valid_captcha', __( 'Captcha is not correct','dwqa' ) );
 					}
-					
+
 					break;
 				case 'update-answer':
 					if ( ! isset( $_POST['answer-id'] ) ) {
@@ -435,7 +435,7 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 
 					$answer_id = intval( $_POST['answer-id'] );
 					$answer_author = get_post_field( 'post_author', $answer_id  );
-					
+
 					global $current_user;
 
 					if ( ! ( dwqa_current_user_can( 'edit_answer' ) || ( is_user_logged_in() && $answer_author == $current_user->ID ) ) ) {
@@ -456,7 +456,7 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 					if ( ( $post_status == 'draft' && strtolower( $_POST['submit-answer'] ) == 'publish' ) || ( $post_status != 'draft' && strtolower( $_POST['submit-answer'] ) == 'update' ) ) {
 						$answer_update['post_status'] = isset( $_POST['privacy'] ) && 'private' == esc_html( $_POST['privacy'] ) ? 'private' : 'publish';
 						update_post_meta( $question_id, '_dwqa_status', 're-open' );
-					} 
+					}
 					$old_post = get_post( $answer_id  );
 					$answer_id = wp_update_post( $answer_update );
 					$new_post = get_post( $answer_id );
@@ -511,7 +511,7 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 
 	//Cache
 	public function update_transient_when_add_answer( $answer_id, $question_id ) {
-		// Update cache for latest answer of this question 
+		// Update cache for latest answer of this question
 		$answer = get_post( $answer_id );
 		set_transient( 'dwqa_latest_answer_for_' . $question_id, $answer, 15*60 );
 		delete_transient( 'dwqa_answer_count_for_' . $question_id );
@@ -542,7 +542,7 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 			$flag = unserialize( $flag );
 		}
 		// _flag[ user_id => flag_bool , ...]
-		$flag_score = 0; 
+		$flag_score = 0;
 		if ( dwqa_is_user_flag( $answer_id, $current_user->ID ) ) {
 			//unflag
 			$flag[$current_user->ID] = $flag_score = 0;
@@ -583,7 +583,7 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 			do_action( 'dwqa_unvote_best_answer', $answer_id );
 			delete_post_meta( $q, '_dwqa_best_answer' );
 		}
-		
+
 	}
 
 	public function prepare_answers( $posts, $query ) {

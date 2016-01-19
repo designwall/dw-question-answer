@@ -434,7 +434,13 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 							update_post_meta( $new_question, '_dwqa_anonymous_email', $question_author_email );
 							update_post_meta( $new_question, '_dwqa_is_anonymous', true );
 						}
-						exit( wp_safe_redirect( get_permalink( $new_question ) ) );
+
+						$url = get_permalink( $new_question );
+						if ( isset( $dwqa_options['enable-review-question'] ) && $dwqa_options['enable-review-question'] ) {
+							$url = get_permalink( $dwqa_options['pages']['archive-question'] );
+						}
+
+						exit( wp_safe_redirect( $url ) );
 					}
 				} else {
 					$dwqa_submit_question_errors->add( 'submit_question', __( 'Captcha is not correct','dwqa' ) );

@@ -21,7 +21,7 @@ class DWQA_Rewrite {
 				'^'.$question_list_page->post_name.'/'.$rewrite_tag.'/([^/]*)' => 'index.php?page_id='.$page_id.'&taxonomy=dwqa-question_tag&dwqa-question_tag=$matches[1]',
 			);
 			foreach ( $dwqa_rewrite_rules as $regex => $redirect ) {
-				add_rewrite_rule( $regex, $redirect, 'bottom' );
+				add_rewrite_rule( $regex, $redirect, 'top' );
 			}
 			// Add permastruct for pretty link
 			add_permastruct( 'dwqa-question_category', "{$question_list_page->post_name}/{$rewrite_category}/%dwqa-question_category%", array( 'with_front' => false ) );

@@ -10,25 +10,25 @@ class DWQA_Admin_Extensions {
 		$extension = array(
 			'dwqa-markdown' => array(
 				'name' => __( 'DWQA Markdown', 'dwqa' ),
-				'url' => 'https://www.designwall.com/wordpress/dwqa-extensions/dwqa-markdown/',
+				'url' => 'http://bit.ly/dwqa-markdown',
 				'img_url' => 'https://www.designwall.com/wp-content/uploads/sites/2/edd/2016/01/dw-markdown-editor.png'
 			),
 
 			'dwqa-leaderboard' => array(
 				'name' => __( 'DWQA Leaderboard', 'dwqa' ),
-				'url' => 'https://www.designwall.com/wordpress/dwqa-extensions/dwqa-leaderboard/',
+				'url' => 'http://bit.ly/dwqa-leaderboard',
 				'img_url' => 'https://www.designwall.com/wp-content/uploads/sites/2/edd/2016/01/dw-leaderboard.png',
 			),
 
 			'dwqa-captcha' => array(
 				'name' => __( 'DWQA Captcha', 'dwqa' ),
-				'url' => 'https://www.designwall.com/wordpress/dwqa-extensions/dwqa-captcha/',
+				'url' => 'http://bit.ly/dwqa-captcha',
 				'img_url' => 'https://www.designwall.com/wp-content/uploads/sites/2/edd/2016/01/captcha.png',
 			),
 
 			'dwqa-embed-question' => array(
 				'name' => __( 'DWQA Embed Question', 'dwqa' ),
-				'url' => 'https://www.designwall.com/wordpress/plugins/dwqa-embed-question/',
+				'url' => 'http://bit.ly/dwqa-embed-questions',
 				'img_url' => 'https://www.designwall.com/wp-content/uploads/sites/2/edd/2015/11/dw-embedquestion.png'
 			),
 		);
@@ -54,16 +54,17 @@ class DWQA_Admin_Extensions {
 						<div class="theme">
 							<?php if ( !empty( $info['img_url'] ) ) : ?>
 								<div class="theme-screenshot">
-									<img src="<?php echo esc_url( $info['img_url'] ) ?>">
+									<a target="_blank" href="<?php echo esc_url( $info['url'] ) ?>"><img src="<?php echo esc_url( $info['img_url'] ) ?>"></a>
 								</div>
 							<?php else : ?>
 								<div class="theme-screenshot blank"></div>
 							<?php endif; ?>
+
 							<div class="theme-author"></div>
 
 							<h2 class="theme-name" id="<?php echo esc_attr( $slug ) ?>"><span><?php echo esc_attr( $info['name'] ) ?></span></h2>
 							<div class="theme-actions">
-								<a class="button button-primary" href="<?php echo esc_url( $info['url'] ) ?>"><?php _e( 'Get It Now!', 'dwqa' ); ?></a>
+								<a class="button button-primary" target="_blank" href="<?php echo esc_url( $info['url'] ) ?>"><?php _e( 'Get It Now!', 'dwqa' ); ?></a>
 							</div>
 						</div>
 					<?php endforeach; ?>
@@ -73,7 +74,5 @@ class DWQA_Admin_Extensions {
 		<?php
 	}
 }
-
-//new DWQA_Admin_Extensions();
 
 ?>

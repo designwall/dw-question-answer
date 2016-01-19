@@ -177,7 +177,7 @@ add_action( 'dwqa-prepare-archive-posts', 'dwqa_paged_query' );
  * Add Icon for DW Question Answer Menu In Dashboard
  */
 function dwqa_add_guide_menu_icons_styles(){
-	echo '<style type="text/css">#adminmenu .menu-icon-dwqa-question div.wp-menu-image:before {content: "\f468";}</style>';
+	echo '<style type="text/css">#adminmenu .menu-icon-dwqa-question div.wp-menu-image:before {content: "\f223";}</style>';
 }
 add_action( 'admin_head', 'dwqa_add_guide_menu_icons_styles' );
 

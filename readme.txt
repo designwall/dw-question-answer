@@ -83,7 +83,7 @@ Visit our [Github](https://github.com/designwall/dw-question-answer) project or 
 == Changelog ==
 
 = 1.3.8 =
-* New: Add-ons Page
+* New: Extensions Page
 * New: Welcome Page
 * Fix: Rewrite Category and Tag
 * Fix: Page not found when submit question

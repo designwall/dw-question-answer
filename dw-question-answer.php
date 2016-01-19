@@ -4,7 +4,7 @@
  *  Description: A WordPress plugin was make by DesignWall.com to build an Question Answer system for support, asking and comunitcate with your customer 
  *  Author: DesignWall
  *  Author URI: http://www.designwall.com
- *  Version: 1.3.8
+ *  Version: 1.3.8.1
  *  Text Domain: dwqa
  *  @since 1.3.6
  */
@@ -34,7 +34,7 @@ class DW_Question_Answer {
 	public function __construct() {
 		$this->dir = DWQA_DIR;
 		$this->uri = DWQA_URI;
-		$this->version = '1.3.8';
+		$this->version = '1.3.8.1';
 		
 		// Add recaptcha library from google, 99 to sure that the library was not include if any other plugins use same library
 		add_action( 'plugins_loaded', array( $this, 'include_recaptcha_library' ), 99 );
@@ -65,12 +65,6 @@ class DW_Question_Answer {
 		add_action( 'init', array( $this, 'init' ) );
 		register_activation_hook( __FILE__, array( $this, 'activate_hook' ) );
 		register_deactivation_hook( __FILE__, array( $this, 'deactivate_hook' ) );
-
-		//Widgets
-		add_action( 'widgets_init', create_function( '', "register_widget( 'DWQA_Widgets_Latest_Question' );" ) );
-		add_action( 'widgets_init', create_function( '', "register_widget( 'DWQA_Widgets_Closed_Question' );" ) );
-		add_action( 'widgets_init', create_function( '', "register_widget( 'DWQA_Widgets_Popular_Question' );" ) );
-		add_action( 'widgets_init', create_function( '', "register_widget( 'DWQA_Widgets_Related_Question' );" ) );
 	}
 
 	public function include_recaptcha_library() {

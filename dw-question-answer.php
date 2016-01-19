@@ -196,8 +196,7 @@ class DW_Question_Answer {
 		}
 
 		update_option( 'dwqa_options', $options );
-		set_transient( 'dwqa_activated_plugin', true, 30 );
-
+		update_option( 'dwqa_plugin_activated', true );
 		// dwqa_posttype_init();
 		flush_rewrite_rules();
 	}

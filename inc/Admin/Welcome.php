@@ -8,9 +8,11 @@ class DWQA_Admin_Welcome {
 	}
 
 	public function welcome() {
-		$activated = get_transient( 'dwqa_activated_plugin' );
+		$activated = get_option( 'dwqa_plugin_activated', false );
 		if ( $activated ) {
+			delete_option( 'dwqa_plugin_activated' );
 			wp_safe_redirect( esc_url( add_query_arg( array( 'page' => 'dwqa-about' ), admin_url( 'index.php' ) ) ) );
+			exit;
 		}
 	}
 
@@ -71,17 +73,13 @@ class DWQA_Admin_Welcome {
 		<div class="wrap about-wrap">
 			<?php $this->page_head(); ?>
 			<?php $this->tabs(); ?>
-
-			<div class="changelog point-releases">
-				<h3><?php _e( '4 New Extensions', 'dwqa' ) ?></h3>
-				<p>In recent weeks, we have been working hard to enhance our DW Question &#38; Answer (DW Q&#38;A) plugin. Apart from getting bugs fixed and providing technical assistance to our users, our team implemented some new cool features to extend functionality for DW Q&#38;A. For more info, see <a href="https://www.designwall.com/blog/hi-2016-dw-question-answer-plugin-is-back-with-4-new-extensions/">instruction</a>.</p>
-			</div>
+			<p class="about-description">In recent weeks, we have been working hard to enhance our DW Question &#38; Answer (DW Q&#38;A) plugin. Apart from getting bugs fixed and providing technical assistance to our users, our team implemented some new cool features to extend functionality for DW Q&#38;A. For more info, see <a href="https://www.designwall.com/blog/hi-2016-dw-question-answer-plugin-is-back-with-4-new-extensions/">instruction</a>.</p>
 
 			
 			<div class="feature-section two-col">
 				<div class="col">
 					<div class="media-container">
-						<img src="https://www.designwall.com/wp-content/uploads/sites/2/edd/2016/01/dw-markdown-editor.png" sizes="(max-width: 500px) calc(100vw - 40px), (max-width: 782px) calc(100vw - 70px), (max-width: 960px) calc((100vw - 116px) * .476), (max-width: 1290px) calc((100vw - 240px) * .476), 500px">
+						<img src="<?php echo esc_url( $dwqa->uri . 'assets/img/dw-markdown.png' ) ?>" sizes="(max-width: 500px) calc(100vw - 40px), (max-width: 782px) calc(100vw - 70px), (max-width: 960px) calc((100vw - 116px) * .476), (max-width: 1290px) calc((100vw - 240px) * .476), 500px">
 					</div>
 				</div>
 				<div class="col">
@@ -94,7 +92,7 @@ class DWQA_Admin_Welcome {
 			<div class="feature-section two-col">
 				<div class="col">
 					<div class="media-container">
-						<img src="https://www.designwall.com/wp-content/uploads/sites/2/edd/2016/01/dw-leaderboard.png" sizes="(max-width: 500px) calc(100vw - 40px), (max-width: 782px) calc(100vw - 70px), (max-width: 960px) calc((100vw - 116px) * .476), (max-width: 1290px) calc((100vw - 240px) * .476), 500px">
+						<img src="<?php echo esc_url( $dwqa->uri . 'assets/img/dw-leaderboard.png' ) ?>" sizes="(max-width: 500px) calc(100vw - 40px), (max-width: 782px) calc(100vw - 70px), (max-width: 960px) calc((100vw - 116px) * .476), (max-width: 1290px) calc((100vw - 240px) * .476), 500px">
 					</div>
 				</div>
 				<div class="col">
@@ -107,7 +105,7 @@ class DWQA_Admin_Welcome {
 			<div class="feature-section two-col">
 				<div class="col">
 					<div class="media-container">
-						<img src="https://www.designwall.com/wp-content/uploads/sites/2/edd/2016/01/captcha.png" sizes="(max-width: 500px) calc(100vw - 40px), (max-width: 782px) calc(100vw - 70px), (max-width: 960px) calc((100vw - 116px) * .476), (max-width: 1290px) calc((100vw - 240px) * .476), 500px">
+						<img src="<?php echo esc_url( $dwqa->uri . 'assets/img/dw-captcha.png' ) ?>" sizes="(max-width: 500px) calc(100vw - 40px), (max-width: 782px) calc(100vw - 70px), (max-width: 960px) calc((100vw - 116px) * .476), (max-width: 1290px) calc((100vw - 240px) * .476), 500px">
 					</div>
 				</div>
 				<div class="col">
@@ -121,7 +119,7 @@ class DWQA_Admin_Welcome {
 			<div class="feature-section two-col">
 				<div class="col">
 					<div class="media-container">
-						<img src="https://www.designwall.com/wp-content/uploads/sites/2/edd/2015/11/dw-embedquestion.png" sizes="(max-width: 500px) calc(100vw - 40px), (max-width: 782px) calc(100vw - 70px), (max-width: 960px) calc((100vw - 116px) * .476), (max-width: 1290px) calc((100vw - 240px) * .476), 500px">
+						<img src="<?php echo esc_url( $dwqa->uri . 'assets/img/dw-embedquestion.png' ) ?>" sizes="(max-width: 500px) calc(100vw - 40px), (max-width: 782px) calc(100vw - 70px), (max-width: 960px) calc((100vw - 116px) * .476), (max-width: 1290px) calc((100vw - 240px) * .476), 500px">
 					</div>
 				</div>
 				<div class="col">

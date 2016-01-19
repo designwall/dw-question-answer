@@ -7,29 +7,30 @@ class DWQA_Admin_Extensions {
 	}
 
 	function register_extensions() {
+		global $dwqa;
 		$extension = array(
 			'dwqa-markdown' => array(
 				'name' => __( 'DWQA Markdown', 'dwqa' ),
 				'url' => 'http://bit.ly/dwqa-markdown',
-				'img_url' => 'https://www.designwall.com/wp-content/uploads/sites/2/edd/2016/01/dw-markdown-editor.png'
+				'img_url' => $dwqa->uri . 'assets/img/dw-markdown.png'
 			),
 
 			'dwqa-leaderboard' => array(
 				'name' => __( 'DWQA Leaderboard', 'dwqa' ),
 				'url' => 'http://bit.ly/dwqa-leaderboard',
-				'img_url' => 'https://www.designwall.com/wp-content/uploads/sites/2/edd/2016/01/dw-leaderboard.png',
+				'img_url' => $dwqa->uri . 'assets/img/dw-leaderboard.png'
 			),
 
 			'dwqa-captcha' => array(
 				'name' => __( 'DWQA Captcha', 'dwqa' ),
 				'url' => 'http://bit.ly/dwqa-captcha',
-				'img_url' => 'https://www.designwall.com/wp-content/uploads/sites/2/edd/2016/01/captcha.png',
+				'img_url' => $dwqa->uri . 'assets/img/dw-captcha.png',
 			),
 
 			'dwqa-embed-question' => array(
 				'name' => __( 'DWQA Embed Question', 'dwqa' ),
 				'url' => 'http://bit.ly/dwqa-embed-questions',
-				'img_url' => 'https://www.designwall.com/wp-content/uploads/sites/2/edd/2015/11/dw-embedquestion.png'
+				'img_url' => $dwqa->uri . 'assets/img/dw-embedquestion.png'
 			),
 		);
 

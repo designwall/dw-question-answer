@@ -49,6 +49,7 @@ class DWQA_Admin_Extensions {
 				<?php echo get_admin_page_title() ?>
 				<span class="title-count theme-count"><?php echo count( $extensions ); ?></span>
 			</h1>
+			<br>
 			<div class="theme-browser">
 				<div class="themes">
 					<?php foreach( $extensions as $slug => $info ) : ?>

@@ -50,7 +50,7 @@ class DWQA_Admin_Welcome {
 		global $dwqa;
 		?>
 		<h1><?php printf( __( 'Welcome to DW Question & Answer %s', 'dwqa' ), $dwqa->version ) ?></h1>
-		<p class="about-text"><?php _e( 'Thank you for purchasing our WordPress theme. If you have any question about this theme, please submit to our <a href="https://www.designwall.com/question/">Q&A section</a>.', 'dwqa' ); ?></p>
+		<p class="about-text"><?php _e( 'Thank you for installing our WordPress plugin. If you have any question about this theme, please submit to our <a target="_blank" href="https://www.designwall.com/question/">Q&A section</a>.', 'dwqa' ); ?></p>
 		<?php
 	}
 
@@ -86,8 +86,8 @@ class DWQA_Admin_Welcome {
 				</div>
 				<div class="col">
 					<h3><?php _e( 'DWQA Markdown', 'dwqa' ) ?></h3>
-					<p>The fourth one, which is the most interesting to me is DWQA Markdown extension. As you might know, Markdown is an extremely popular markup language supported by many platforms which provides an easy way to style text without learning a lot of complicated codes and shortcuts.</p>
-					<a class="button button-primary" href="http://bit.ly/dwqa-markdown"><?php _e( 'Get It Now!', 'dwqa' ) ?></a>
+					<p>Markdown is an extremely popular markup language supported by many platforms which provides an easy way to style text without learning a lot of complicated codes and shortcuts.</p>
+					<a target="_blank" class="button button-primary" href="http://bit.ly/dwqa-markdown"><?php _e( 'Get It Now!', 'dwqa' ) ?></a>
 				</div>
 			</div>
 			<hr>
@@ -100,7 +100,7 @@ class DWQA_Admin_Welcome {
 				<div class="col">
 					<h3><?php _e( 'DWQA Leaderboard', 'dwqa' ) ?></h3>
 					<p>DWQA Leaderboard is a simple (premium) WordPress add-on for the DW Question &#38; Answer plugin. It allows you to create a list of users who have made great contributions to your community across a period of time (this week/month, last week/month, all time etc.,). You can create multiple instances of DWQA Leaderboard and easily assign to the sidebar via widget dashboard.</p>
-					<a class="button button-primary" href="http://bit.ly/dwqa-leaderboard"><?php _e( 'Get It Now!', 'dwqa' ) ?></a>
+					<a target="_blank" class="button button-primary" href="http://bit.ly/dwqa-leaderboard"><?php _e( 'Get It Now!', 'dwqa' ) ?></a>
 				</div>
 			</div>
 			<hr>
@@ -114,10 +114,10 @@ class DWQA_Admin_Welcome {
 					<h3><?php _e( 'DWQA Captcha', 'dwqa' ) ?></h3>
 					<p>Using our DWQA CAPTCHA form on your comments may be slightly tedious for you commenters’, but using it can eliminate a large chunk of those spam questions and comments from even happening in the first place. This means that you can spend more time on the good bits of running a WordPress site, and less on comment moderation — we all hate that part.</p>
 					<p>Supporting google reCaptcha version 2 and FunCaptcha.</p>
-					<a class="button button-primary" href="http://bit.ly/dwqa-captcha"><?php _e( 'Get It Now!', 'dwqa' ) ?></a>
+					<a target="_blank" class="button button-primary" href="http://bit.ly/dwqa-captcha"><?php _e( 'Get It Now!', 'dwqa' ) ?></a>
 				</div>
 			</div>
-
+			<hr>
 			<div class="feature-section two-col">
 				<div class="col">
 					<div class="media-container">
@@ -126,8 +126,8 @@ class DWQA_Admin_Welcome {
 				</div>
 				<div class="col">
 					<h3><?php _e( 'DWQA Embed Question', 'dwqa' ) ?></h3>
-					<p>A brief introduction about this free plugin for those who missed our news: DWQA Embed Question is a WordPress embed plugin (or an add-on) for our WordPress Q&#38;A DW Question and Answer plugin. This plugin helps you to embed a question content from DW Question and Answer site into your post, blog, widgets or any other site.</p>
-					<a class="button button-primary" href="http://bit.ly/dwqa-embed-questions"><?php _e( 'Get It Now!', 'dwqa' ) ?></a>
+					<p>DWQA Embed Question is a WordPress embed plugin (or an add-on) for our WordPress Q&#38;A DW Question and Answer plugin. This plugin helps you to embed a question content from DW Question and Answer site into your post, blog, widgets or any other site.</p>
+					<a target="_blank" class="button button-primary" href="http://bit.ly/dwqa-embed-questions"><?php _e( 'Get It Now!', 'dwqa' ) ?></a>
 				</div>
 			</div>
 			<hr>

@@ -29,6 +29,9 @@ DW Question and Answer is a WordPress plugin which builds a complete Question & 
 
 = Add-on for the plugin: =
 * Embed question and Social Sharing: [http://wordpress.org/plugins/dw-question-answer-embed-question/](http://wordpress.org/plugins/dw-question-answer-embed-question/)
+* DWQA Markdown: [https://www.designwall.com/wordpress/dwqa-extensions/dwqa-markdown/](https://www.designwall.com/wordpress/dwqa-extensions/dwqa-markdown/)
+* DWQA Leaderboard: [https://www.designwall.com/wordpress/dwqa-extensions/dwqa-leaderboard/](https://www.designwall.com/wordpress/dwqa-extensions/dwqa-leaderboard/)
+* DWQA Captcha: [https://www.designwall.com/wordpress/dwqa-extensions/dwqa-captcha/](https://www.designwall.com/wordpress/dwqa-extensions/dwqa-captcha/)
 
 = Documents and Support: =
 You can find [Documents](http://www.designwall.com/guide/dw-question-answer-plugin/) and more detailed information about DW Question and Answer plugin on [DesignWall.com](http://www.designwall.com/). 

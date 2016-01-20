@@ -67,7 +67,7 @@ function dwqa_is_pending( $question_id = false ) {
 	if ( ! $question_id ) {
 	   $question_id = get_the_ID();
 	}
-	$status = get_post_meta( $question_id, '_dwqa_status', true );
+	$status = get_post_field( 'post_status', $question_id );
 	if ( $status == 'pending' ) {
 		return true;
 	}

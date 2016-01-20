@@ -136,6 +136,9 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 		add_filter( 'dwqa_prepare_question_update_content', array( $this, 'pre_content_kses'), 10 );
 		add_filter( 'dwqa_prepare_question_update_content', array( $this, 'pre_content_filter'), 20 );
 
+		add_action( 'dwqa-prepare-archive-posts', array( $this, 'prepare_archive_posts' ) );
+		add_action( 'dwqa-after-archive-posts', array( $this, 'after_archive_posts' ) );
+
 	}
 
 	public function init() {
@@ -809,6 +812,96 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 				}
 			}
 		}
+	}
+
+	public function prepare_archive_posts() {
+		global $wp_query,$dwqa_general_settings;
+		
+		$posts_per_page = isset( $dwqa_general_settings['posts-per-page'] ) ?  $dwqa_general_settings['posts-per-page'] : 5;
+		$filter = isset( $_GET['filter'] ) && !empty( $_GET['filter'] ) ? $_GET['filter'] : 'all';
+		$query = array(
+			'post_type' => 'dwqa-question',
+			'posts_per_page' => $posts_per_page,
+			'orderby'	=> 'modified',
+		);
+
+		$cat = get_query_var( 'dwqa-question_category' ) ? get_query_var( 'dwqa-question_category' ) : false;
+		if ( $cat ) {
+			$query['tax_query'][] = array(
+				'taxonomy' => 'dwqa-question_category',
+				'field' => 'slug',
+				'terms' => $cat
+			);
+		}
+
+		$tag = get_query_var( 'dwqa-question_tag' ) ? get_query_var( 'dwqa-question_tag' ) : false;
+		if ( $tag ) {
+			$query['tax_query'][] = array(
+				'taxonomy' => 'dwqa-question_tag',
+				'field' => 'slug',
+				'terms' => $tag
+			);
+		} 
+		$paged = get_query_var( 'paged' );
+		$query['paged'] = $paged ? $paged : 1; 
+		$sticky_questions = get_option( 'dwqa_sticky_questions' );
+
+		if ( $sticky_questions ) {
+			$query['post__not_in'] = $sticky_questions;
+		}
+
+		$query['post_status'] = array( 'publish', 'private', 'pending' );
+
+		switch ( $filter ) {
+			case 'replied':
+				$query['meta_query'][] = array(
+				   'key' => '_dwqa_status',
+				   'value' => array( 'open', 're-open', 'pending', 'answered' ),
+				   'compare' => 'IN',
+				);
+				break;
+
+			case 'resolved':
+				$query['meta_query'][] = array(
+				   'key' => '_dwqa_status',
+				   'value' => array( 'resolved' ),
+				   'compare' => 'IN',
+				);
+				break;
+
+			case 'closed':
+				$query['meta_query'][] = array(
+				   'key' => '_dwqa_status',
+				   'value' => array( 'closed' ),
+				   'compare' => 'IN',
+				);
+				break;
+
+			case 'overdue':
+			case 'unanswered':
+			case 'new-comment':
+				$query['meta_query'][] = array(
+				   'key' => '_dwqa_status',
+				   'value' => array( 'open', 're-open', 'pending' ),
+				   'compare' => 'IN',
+				);
+				break;
+
+			case 'queue':
+				$query['meta_query'][] = array(
+				   'key' => '_dwqa_status',
+				   'value' => array( 'pending' ),
+				   'compare' => 'IN',
+				);
+				break;
+		}
+
+		query_posts( $query );
+	}
+
+	public function after_archive_posts() {
+		wp_reset_query();
+		wp_reset_postdata();
 	}
 }
 

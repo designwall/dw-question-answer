@@ -8,8 +8,17 @@
 		<a href="#"><?php _e( 'Popular', 'dwqa' ); ?></a>
 		<a href="#"><?php _e( 'Recent', 'dwqa' ); ?></a>
 		<a href="#"><?php _e( 'Unanswered', 'dwqa' ); ?></a>
+		<div class="pull-right">
+			<span>Sort by:</span>
+			<select>
+				<option>Views</option>
+				<option>Answers</option>
+				<option>Votes</option>
+			</select>
+		</div>
 	</div>
 	<div class="dwqa-questions">
+
 		<?php
 			global $wp_query;
 			$custom_query_args = array( 'post_type' => 'dwqa-question', 'posts_per_page' => 20, 'ignore_sticky_posts' => true );
@@ -29,6 +38,17 @@
 						<?php the_author_meta( 'display_name' ); ?>
 					</a>
 					<?php printf( __( ' asked %1$s ago', 'dwqa' ), esc_attr( human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) ) ); ?>
+				</div>
+				<div class="dwqa-question-stats">
+					<span class="dwqa-views-count">
+						<?php printf( __( '<strong>%1$s</strong> views', 'dwqa' ), dwqa_question_views_count() ); ?>
+					</span>
+					<span class="dwqa-answers-count">
+						<?php printf( __( '<strong>%1$s</strong> answers', 'dwqa' ), dwqa_question_answers_count() ); ?>
+					</span>
+					<span class="dwqa-votes-count">
+						<?php printf( __( '<strong>%1$s</strong> votes', 'dwqa' ), dwqa_vote_count() ); ?>
+					</span>
 				</div>
 			</div>
 		<?php endwhile; ?>

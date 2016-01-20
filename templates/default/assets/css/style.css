@@ -28,7 +28,7 @@
 
 .dwqa-questions .dwqa-question {
 	border-bottom: 1px solid #ddd;
-	padding: 15px 0 15px 80px;
+	padding: 15px 160px 15px 70px;
 	position: relative;
 }
 
@@ -38,4 +38,28 @@
 	top: 50%;
 	margin-top: -24px;
 	border-radius: 48px;
+}
+
+.dwqa-questions .dwqa-question .dwqa-question-stats {
+	position: absolute;
+	top: 50%;
+	margin-top: -24px;
+	right: 0;
+}
+
+.dwqa-questions .dwqa-question .dwqa-question-stats span {
+	width: 48px;
+	height: 48px;
+	border: 1px solid #ddd;
+	display: block;
+	float: left;
+	margin-left: 5px;
+	text-align: center;
+	font-size: 11px;
+}
+
+.dwqa-questions .dwqa-question .dwqa-question-stats strong {
+	font-size: 18px;
+	display: block;
+	font-weight: normal;
 }

@@ -1,4 +1,9 @@
 <div class="dwqa-question-list">
+	<div class="dwqa-breadcrumbs">
+		<a href="#">Questions</a>
+		<span class="dwqa-sep"> &rsaquo; </span>
+		<span class="dwqa-current">Category: Sample Category Name</span>
+	</div>
 	<form class="dwqa-search">
 		<input type="text" placeholder="<?php _e( 'What do you want to know?', 'dwqa' ); ?>">
 	</form>

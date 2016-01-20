@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  *  Template use for display a single question
  *
@@ -8,7 +8,8 @@
 ?>
 	<?php if ( have_posts() ) : ?>
 		<?php while ( have_posts() ) : the_post(); ?>
-			<?php $post_id = get_the_ID(); $post_status = get_post_status();  ?>
+			<div class="dwqa-question-content"><?php the_content(); ?></div>
+			<?php /* $post_id = get_the_ID(); $post_status = get_post_status();  ?>
 			<div class="dwqa-single-question">
 				<!-- dwqa-status-private -->
 				<div class="dwqa-question">
@@ -24,18 +25,18 @@
 									<?php _e( 'Anonymous', 'dwqa' ); ?>
 							<?php else : ?>
 								<?php
-									printf( 
+									printf(
 										'<a href="%1$s" title="%2$s %3$s">%3$s</a>',
 										get_author_posts_url( get_the_author_meta( 'ID' ) ),
 										__( 'Posts by', 'dwqa' ),
-										get_the_author_meta( 'display_name' ) 
+										get_the_author_meta( 'display_name' )
 									);
 								?>
 							<?php endif; ?>
 							</span><!-- Author Info -->
 							<span class="dwqa-date">
-								<?php 
-									printf( '<a href="%s" title="%s #%d">%s %s</a>', get_permalink(), __( 'Link to', 'dwqa' ), $post_id, __( 'asked', 'dwqa' ), get_the_date() ); 
+								<?php
+									printf( '<a href="%s" title="%s #%d">%s %s</a>', get_permalink(), __( 'Link to', 'dwqa' ), $post_id, __( 'asked', 'dwqa' ), get_the_date() );
 								?>
 							</span> <!-- Question Date -->
 						</div>
@@ -50,7 +51,7 @@
 					<?php endif; ?>  <!-- Question Tags -->
 
 					<?php do_action( 'dwqa-question-content-footer' ); ?>
-					
+
 					<!-- Question footer -->
 					<div class="dwqa-comments">
 						<?php comments_template(); ?>
@@ -61,5 +62,5 @@
 					<?php dwqa_load_answers(); ?>
 				</div><!-- end dwqa-add-answers -->
 			</div><!-- end dwqa-single-question -->
-		<?php endwhile; // end of the loop. ?>  
+		<?php */ endwhile; // end of the loop. ?>
 	<?php endif; ?>

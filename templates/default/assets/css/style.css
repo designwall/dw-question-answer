@@ -7,6 +7,11 @@
 	width: 100%;
 }
 
+/* Breadcrumbs */
+.dwqa-breadcrumbs {
+	margin-bottom: 10px;
+}
+
 /* Question Filter */
 .dwqa-question-filter {
 	margin-bottom: 10px;
@@ -40,6 +45,10 @@
 	border-radius: 48px;
 }
 
+.dwqa-questions .dwqa-question .dwqa-question-meta {
+	font-size: small;
+}
+
 .dwqa-questions .dwqa-question .dwqa-question-stats {
 	position: absolute;
 	top: 50%;
@@ -59,7 +68,7 @@
 }
 
 .dwqa-questions .dwqa-question .dwqa-question-stats strong {
-	font-size: 18px;
+	font-size: 14px;
 	display: block;
 	font-weight: normal;
 }

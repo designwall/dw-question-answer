@@ -713,6 +713,7 @@ class DWQA_Template {
 	public function __construct() {
 		$this->filters = new stdClass();
 		add_filter( 'template_include', array( $this, 'question_content' ) );
+		add_filter( 'template_redirect', array( $this, 'replace_single_question' ) );
 		//add_filter( 'term_link', array( $this, 'force_term_link_to_setting_page' ), 10, 3 );
 		add_filter( 'comments_open', array( $this, 'close_default_comment' ) );
 
@@ -723,6 +724,15 @@ class DWQA_Template {
 		//Wrapper
 		add_action( 'dwqa_before_page', array( $this, 'start_wrapper_content' ) );
 		add_action( 'dwqa_after_page', array( $this, 'end_wrapper_content' ) );
+	}
+
+	public function replace_single_question() {
+		if ( is_singular( 'dwqa-question' ) ) {
+			get_header();
+			dwqa_load_template( 'single', 'question' );
+			get_footer();
+			exit();
+		}
 	}
 
 	public function start_wrapper_content() {

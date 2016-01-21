@@ -238,8 +238,6 @@ class DWQA_Posts_Base {
 
 		add_filter( 'wp_insert_post_data', array( $this, 'hook_on_update_anonymous_post' ), 10, 2 );
 
-		add_action( 'dwqa-prepare-archive-posts', array( $this, 'prepare_archive_posts' ) );
-		add_action( 'dwqa-after-archive-posts', array( $this, 'after_archive_posts' ) );
 	}
 
 	// Abstract, do all init actions for itself
@@ -396,39 +394,6 @@ class DWQA_Posts_Base {
 			$data['post_author'] = 0;
 		} 
 		return $data;
-	}
-
-	public function prepare_archive_posts() {
-		global $wp_query,$dwqa_general_settings;
-		
-		$posts_per_page = isset( $dwqa_general_settings['posts-per-page'] ) ?  $dwqa_general_settings['posts-per-page'] : 5;
-		$query = array(
-			'post_type' => 'dwqa-question',
-			'posts_per_page' => $posts_per_page,
-			'orderby'	=> 'modified',
-		);
-		if ( is_tax( 'dwqa-question_category' ) ) {
-			$query['dwqa-question_category'] = get_query_var( 'dwqa-question_category' );
-		} 
-		if ( is_tax( 'dwqa-question_tag' ) ) {
-			$query['dwqa-question_tag'] = get_query_var( 'dwqa-question_tag' );
-		} 
-		$paged = get_query_var( 'paged' );
-		$query['paged'] = $paged ? $paged : 1; 
-		$sticky_questions = get_option( 'dwqa_sticky_questions' );
-
-		if ( $sticky_questions ) {
-			$query['post__not_in'] = $sticky_questions;
-		}
-		if ( is_user_logged_in() ) {
-			$query['post_status'] = array( 'publish', 'private', 'pending' );
-		}
-		query_posts( $query );
-	}
-
-	public function after_archive_posts() {
-		wp_reset_query();
-		wp_reset_postdata();
 	}
 
 	public function rewrite() {

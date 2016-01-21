@@ -1,0 +1,80 @@
+/* Breadcrumbs */
+.dwqa-breadcrumbs {
+	margin-bottom: 20px;
+}
+
+/* Question Search */
+.dwqa-search {
+	margin-bottom: 20px;
+}
+
+.dwqa-search input {
+	width: 100%;
+}
+
+/* Question Filter */
+.dwqa-question-filter {
+	margin-bottom: 20px;
+}
+
+.dwqa-question-filter span,
+.dwqa-question-filter a {
+	margin-right: 10px;
+}
+
+.dwqa-question-filter a {
+	border: none !important;
+	text-decoration: none;
+}
+
+.dwqa-question-filter a.active {
+	border-bottom: 1px solid #ddd !important;
+}
+
+/* Question List */
+.dwqa-questions {
+	border-top: 1px solid #ddd;
+}
+
+.dwqa-questions .dwqa-question {
+	border-bottom: 1px solid #ddd;
+	padding: 15px 160px 15px 70px;
+	position: relative;
+}
+
+.dwqa-questions .dwqa-question .avatar {
+	position: absolute;
+	left: 0;
+	top: 50%;
+	margin-top: -24px;
+	border-radius: 48px;
+}
+
+.dwqa-questions .dwqa-question .dwqa-question-meta {
+	font-size: small;
+}
+
+.dwqa-questions .dwqa-question .dwqa-question-stats {
+	position: absolute;
+	top: 50%;
+	margin-top: -24px;
+	right: 0;
+}
+
+.dwqa-questions .dwqa-question .dwqa-question-stats span {
+	min-width: 48px;
+	height: 48px;
+	border: 1px solid #ddd;
+	display: block;
+	float: left;
+	margin-left: 5px;
+	text-align: center;
+	font-size: 11px;
+}
+
+.dwqa-questions .dwqa-question .dwqa-question-stats strong {
+	font-size: 14px;
+	line-height: 28px;
+	display: block;
+	font-weight: normal;
+}

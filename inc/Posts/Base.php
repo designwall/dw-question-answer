@@ -163,7 +163,8 @@ function dwqa_content_html_decode( $content ) {
  * @param  int $post_id question/answer id
  * @return boolean
  */
-function dwqa_is_anonymous( $post_id ) {
+function dwqa_is_anonymous( $post_id = 0 ) {
+	if ( empty( $post_id ) ) $post_id = get_the_ID();
 	$anonymous = get_post_meta( $post_id, '_dwqa_is_anonymous', true );
 	if ( $anonymous ) {
 		return true;
@@ -187,27 +188,28 @@ function dwqa_get_latest_action_date( $question = false, $before = '<span>', $af
 	$author_id = $post->post_author;
 	if ( $author_id == 0 || dwqa_is_anonymous( $post_id ) ) {
 		$anonymous_name = get_post_meta( $post_id, '_dwqa_anonymous_name', true );
+		$author_email = get_post_meta( $post_id, '_dwqa_anonymous_email', true );
 		if ( $anonymous_name ) {
-			$author_link = $anonymous_name . ' ';
+			$display_name = $anonymous_name . ' ';
 		} else {
-			$author_link = __( 'Anonymous', 'dwqa' )  . ' ';
+			$display_name = __( 'Anonymous', 'dwqa' )  . ' ';
 		}
 	} else {
 		$display_name = get_the_author_meta( 'display_name', $author_id );
 		$author_url = get_author_posts_url( $author_id );
-		$author_avatar = wp_cache_get( 'avatar_of_' . $author_id, 'dwqa' );
-		if ( false === $author_avatar ) {
-			$author_avatar = get_avatar( $author_id, 12 );
-			wp_cache_set( 'avatar_of_'. $author_id, $author_avatar, 'dwqa', 60*60*24*7 );
-		}
-		$author_link = sprintf(
-			'<span class="dwqa-author"><span class="dwqa-user-avatar">%4$s</span> <a href="%1$s" title="%2$s" rel="author">%3$s</a></span>',
-			$author_url,
-			esc_attr( sprintf( __( 'Posts by %s' ), $display_name ) ),
-			$display_name,
-			$author_avatar
-		);
+		$author_email = get_the_author_meta( 'user_email', $author_id );
 	}
+	$author_avatar = wp_cache_get( 'avatar_of_' . $author_id, 'dwqa' );
+	if ( false === $author_avatar ) {
+		$author_avatar = get_avatar( $author_email, 48 );
+		wp_cache_set( 'avatar_of_'. $author_email, $author_avatar, 'dwqa', 60*60*24*7 );
+	}
+	$author_display = dwqa_is_anonymous() ? $display_name : sprintf( '<a href="%1$s" title="%2$s" rel="author">%3$s</a>', $author_url, esc_attr( sprintf( __( 'Posts by %s' ), $display_name ) ), $display_name );
+	$author_link = sprintf(
+		'<span class="dwqa-author"><span class="dwqa-user-avatar">%2$s</span>%1$s</span>',
+		$author_display,
+		$author_avatar
+	);
 	
 	if ( $last_activity_date && $post->last_activity_type == 'answer' ) {
 		$date = dwqa_human_time_diff( strtotime( $last_activity_date ), false, get_option( 'date_format' ) );

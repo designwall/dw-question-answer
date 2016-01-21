@@ -857,8 +857,8 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 				break;
 
 			case 'votes':
-				$args['meta_key'] = '_dwqa_votes';
-				$args['orderby'] = 'meta_value_num';
+				$query['meta_key'] = '_dwqa_votes';
+				$query['orderby'] = 'meta_value_num';
 				break;
 		}
 
@@ -879,6 +879,13 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 				   'compare' => 'IN',
 				);
 				break;
+		}
+
+		$user = isset( $_GET['user-question'] ) && !empty( $_GET['user-question'] ) ? urldecode( $_GET['user-question'] ) : false;
+
+		if ( $user ) {
+			$user = get_user_by( 'login', $user );
+			$query['author'] = $user->ID;
 		}
 
 		$paged = get_query_var( 'paged' );

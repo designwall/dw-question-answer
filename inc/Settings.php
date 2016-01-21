@@ -754,13 +754,13 @@ class DWQA_Settings {
 			'dwqa-general-settings'
 		);
 
-		add_settings_field( 
-			'dwqa_options[single-template]', 
-			__( 'Single Question Template', 'dwqa' ), 
-			'dwqa_single_template_options', 
-			'dwqa-settings', 
-			'dwqa-general-settings' 
-		);
+		// add_settings_field( 
+		// 	'dwqa_options[single-template]', 
+		// 	__( 'Single Question Template', 'dwqa' ), 
+		// 	'dwqa_single_template_options', 
+		// 	'dwqa-settings', 
+		// 	'dwqa-general-settings' 
+		// );
 
 		do_action( 'dwqa_register_setting_section' );
 

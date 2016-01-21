@@ -1,3 +1,26 @@
+<div class="dwqa-question">
+	<a class="dwqa-question-title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+	<div class="dwqa-question-meta">
+		<?php echo dwqa_get_latest_action_date(); ?>
+	</div>
+	<div class="dwqa-question-stats">
+		<span class="dwqa-views-count">
+			<?php $views_count = dwqa_question_views_count() ?>
+			<?php printf( __( '<strong>%1$s</strong> views', 'dwqa' ), $views_count ); ?>
+		</span>
+		<span class="dwqa-answers-count">
+			<?php $answers_count = dwqa_question_answers_count(); ?>
+			<?php printf( __( '<strong>%1$s</strong> answers', 'dwqa' ), $answers_count ); ?>
+		</span>
+		<span class="dwqa-votes-count">
+			<?php $vote_count = dwqa_vote_count() ?>
+			<?php printf( __( '<strong>%1$s</strong> votes', 'dwqa' ), $vote_count ); ?>
+		</span>
+	</div>
+</div>
+
+	<?php
+	/*
 	<?php $post_id = get_the_ID(); ?>
 	<article id="question-<?php echo $post_id; ?>" class="dwqa-question <?php echo dwqa_is_sticky( $post_id ) ? 'dwqa-sticky-question' : ''; ?>">
 		<header class="dwqa-header">
@@ -58,3 +81,4 @@
 			</div>
 		</footer>
 	</article>
+*/ ?>

@@ -56,7 +56,7 @@ class DWQA_Shortcode {
 		$dwqa->template->remove_all_filters( 'the_content' );
 
 		echo '<div class="dwqa-container" >';
-		dwqa_load_template( 'question', 'list' );
+		dwqa_load_template( 'archive', 'question' );
 		echo '</div>';
 		$html = ob_get_contents();
 

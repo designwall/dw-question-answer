@@ -1065,7 +1065,7 @@ class DWQA_Template {
 
 		$template = get_stylesheet_directory() . '/dwqa-templates/'.$name.'.php';
 		if ( ! file_exists( $template ) ) {
-			$template = DWQA_DIR . 'templates/'.$this->active.'/' .$name.'.php';
+			$template = DWQA_DIR . 'templates/'.$name.'.php';
 		}
 		$template = apply_filters( 'dwqa-load-template', $template, $name );
 

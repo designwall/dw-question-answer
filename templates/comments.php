@@ -1,8 +1,10 @@
 <?php
 /**
- * The template for displaying a message that questions cannot be found
+ * The template for displaying answers
  *
  * @package DW Question & Answer
  * @since DW Question & Answer 1.4.0
  */
 ?>
+<div class="dwqa-comments">
+</div>

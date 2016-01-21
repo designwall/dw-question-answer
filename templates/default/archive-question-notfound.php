@@ -1,21 +1,21 @@
-<?php 
+<?php
 
-if ( ! dwqa_current_user_can( 'read_question' ) ) : 
+if ( ! dwqa_current_user_can( 'read_question' ) ) :
 	?>
 	<div class="alert"><?php _e( 'You do not have permission to view questions', 'dwqa' ) ?></div>
-	<?php 
-endif; 
+	<?php
+endif;
 
 ?>
 <p class="not-found">
-	
-<?php 
 
-_e( 'Sorry, but nothing matched your filter.', 'dwqa' ); 
+<?php
 
-if ( is_user_logged_in() ) : 
+_e( 'Sorry, but nothing matched your filter.', 'dwqa' );
+
+if ( is_user_logged_in() ) :
 	dwqa_get_ask_question_link();
-else : 
+else :
 
 	$register_link = wp_register( '', '', false );
 	printf('%s <a href="%s">%s</a> %s %s',

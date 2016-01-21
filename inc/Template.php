@@ -31,7 +31,7 @@ function dwqa_breadcrumb() {
 
 	echo '</div>';
 }
-add_action( 'dwqa_before_question_lists', 'dwqa_breadcrumb' );
+add_action( 'dwqa_before_questions_archive', 'dwqa_breadcrumb' );
 
 function dwqa_filter_layout() {
 	global $dwqa_general_settings;
@@ -54,7 +54,7 @@ function dwqa_filter_layout() {
 	</div>
 	<?php
 }
-add_action( 'dwqa_before_question_lists', 'dwqa_filter_layout', 12 );
+add_action( 'dwqa_before_questions_archive', 'dwqa_filter_layout', 12 );
 
 function dwqa_search_form() {
 	?>
@@ -64,7 +64,7 @@ function dwqa_search_form() {
 	</form>
 	<?php
 }
-add_action( 'dwqa_before_question_lists', 'dwqa_search_form', 11 );
+add_action( 'dwqa_before_questions_archive', 'dwqa_search_form', 11 );
 
 function dwqa_class_for_question_details_container(){
 	$class = array();

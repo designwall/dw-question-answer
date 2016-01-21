@@ -52,6 +52,7 @@ class DW_Question_Answer {
 		$this->user = new DWQA_User();
 		$this->notifications = new DWQA_Notifications();
 		$this->filter = new DWQA_Filter();
+		$this->session = new DWQA_Session();
 
 		$this->metaboxes = new DWQA_Metaboxes();
 

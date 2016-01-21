@@ -469,23 +469,18 @@ class DWQA_Filter {
 			$query = new WP_Query( $args_query );
 			remove_filter( 'posts_where' , array( $this, 'posts_where_suggest') );
 		}
-		
+		$results = array();
 		if ( $query->have_posts() ) {
 			$html = '';
-			while ( $query->have_posts() ) { $query->the_post();
-				$words = explode( ' ', sanitize_text_field( $_POST['title'] ) );
-				$title = get_the_title();
-				foreach ( $words as $w ) {
-					if ( ! $w ) continue;
-					$title = preg_replace( '/( '.preg_quote( $w ).' )/i', '<strong>${1}</strong>', $title );
-				}
-				$html .= '<li><a href="'.get_permalink( get_the_ID() ).'" >'.$title.'</a>';
+			while ( $query->have_posts() ) {
+				$query->the_post();
+				$results[] = array(
+					'title' => get_post_field( 'post_title', get_the_ID() ),
+					'url' => get_permalink( get_the_ID() )
+				);
 			}
 			wp_reset_query();
-			wp_send_json_success( array(
-				'number'    => $query->post_count,
-				'html'      => $html,
-			) );
+			wp_send_json_success( $results );
 		} else {
 			wp_reset_query();
 			wp_send_json_error( array( 'error' => 'not found' ) );

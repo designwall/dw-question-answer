@@ -84,7 +84,7 @@ function dwqa_question_views_count( $question_id = null ) {
 	if ( ! $question_id ) {
 		global $post;
 		$question_id = $post->ID;
-		if ( isset( $post->view_count) ) {
+		if ( isset( $post->view_count ) ) {
 			return $post->view_count;
 		}
 	}

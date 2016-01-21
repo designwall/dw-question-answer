@@ -3,6 +3,68 @@
 /**
  * Print class for question detail container
  */
+function dwqa_breadcrumb() {
+	global $dwqa_general_settings;
+	echo '<div class="dwqa-breadcrumbs">';
+	$title = get_the_title( $dwqa_general_settings['pages']['archive-question'] );
+	$term = get_query_var( 'dwqa-question_category' ) ? get_query_var( 'dwqa-question_category' ) : ( get_query_var( 'dwqa-question_tag' ) ? get_query_var( 'dwqa-question_tag' ) : false );
+	if ( !$term && !is_singular( 'dwqa-question' ) ) {
+		echo '<span class="dwqa-current">' . $title . '</span>';
+	} else {
+		echo '<a href="'. get_permalink( $dwqa_general_settings['pages']['archive-question'] ) .'">' . $title . '</a>';
+	}
+
+	if ( $term ) {
+		$term = get_term_by( 'slug', $term, get_query_var( 'taxonomy' ) );
+		echo '<span class="dwqa-sep"> &rsaquo; </span>';
+		if ( is_singular( 'dwqa-question' ) ) {
+			echo '<a href="'. esc_url( get_term_link( $term, get_query_var( 'taxonomy' ) ) ) .'">' . $term->name . '</a>';
+		} else {
+			echo '<span class="dwqa-current">' . $term->name . '</span>';
+		}
+	}
+
+	if ( is_singular( 'dwqa-question' ) ) {
+		echo '<span class="dwqa-sep"> &rsaquo; </span>';
+		echo '<span class="dwqa-current">' . the_title() . '</span>';
+	}
+
+	echo '</div>';
+}
+add_action( 'dwqa_before_question_lists', 'dwqa_breadcrumb' );
+
+function dwqa_filter_layout() {
+	global $dwqa_general_settings;
+	?>
+	<div class="dwqa-question-filter">
+		<span><?php _e( 'Filter:', 'dwqa' ); ?></span>
+		<a href="<?php echo esc_url( add_query_arg( array( 'filter' => 'all' ), get_permalink( $dwqa_general_settings['pages']['archive-question'] ) ) ) ?>" class="active"><?php _e( 'All', 'dwqa' ); ?></a>
+		<a href="<?php echo esc_url( add_query_arg( array( 'filter' => 'popular' ), get_permalink( $dwqa_general_settings['pages']['archive-question'] ) ) ) ?>"><?php _e( 'Popular', 'dwqa' ); ?></a>
+		<a href="<?php echo esc_url( add_query_arg( array( 'filter' => 'recent' ), get_permalink( $dwqa_general_settings['pages']['archive-question'] ) ) ) ?>"><?php _e( 'Recent', 'dwqa' ); ?></a>
+		<a href="<?php echo esc_url( add_query_arg( array( 'filter' => 'unanswered' ), get_permalink( $dwqa_general_settings['pages']['archive-question'] ) ) ) ?>"><?php _e( 'Unanswered', 'dwqa' ); ?></a>
+		<div class="pull-right">
+			<span>Sort by:</span>
+			<select id="dwqa-sort-by" class="dwqa-sort-by">
+				<option value="views">Views</option>
+				<option value="answers">Answers</option>
+				<option value="votes">Votes</option>
+			</select>
+		</div>
+	</div>
+	<?php
+}
+add_action( 'dwqa_before_question_lists', 'dwqa_filter_layout', 12 );
+
+function dwqa_search_form() {
+	?>
+	<form id="dwqa-search" class="dwqa-search">
+		<input type="text" placeholder="<?php _e( 'What do you want to know?', 'dwqa' ); ?>">
+		<?php wp_nonce_field( '_dwqa_filter_nonce', '_dwqa_filter_nonce' ); ?>
+	</form>
+	<?php
+}
+add_action( 'dwqa_before_question_lists', 'dwqa_search_form', 11 );
+
 function dwqa_class_for_question_details_container(){
 	$class = array();
 	$class[] = 'question-details';

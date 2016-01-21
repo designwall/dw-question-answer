@@ -1,40 +1,9 @@
 <div class="dwqa-question-list">
-	<div class="dwqa-breadcrumbs">
-		<a href="#">Questions</a>
-		<span class="dwqa-sep"> &rsaquo; </span>
-		<span class="dwqa-current">Category: Sample Category Name</span>
-	</div>
-	<form class="dwqa-search">
-		<input type="text" placeholder="<?php _e( 'What do you want to know?', 'dwqa' ); ?>">
-	</form>
-	<div class="dwqa-question-filter">
-		<span><?php _e( 'Filter:', 'dwqa' ); ?></span>
-		<a href="#" class="active"><?php _e( 'All', 'dwqa' ); ?></a>
-		<a href="#"><?php _e( 'Popular', 'dwqa' ); ?></a>
-		<a href="#"><?php _e( 'Recent', 'dwqa' ); ?></a>
-		<a href="#"><?php _e( 'Unanswered', 'dwqa' ); ?></a>
-		<div class="pull-right">
-			<span>Sort by:</span>
-			<select>
-				<option>Views</option>
-				<option>Answers</option>
-				<option>Votes</option>
-			</select>
-		</div>
-	</div>
+	<?php do_action( 'dwqa_before_question_lists' ) ?>
 	<div class="dwqa-questions">
-
-		<?php
-			global $wp_query;
-			$custom_query_args = array( 'post_type' => 'dwqa-question', 'posts_per_page' => 20, 'ignore_sticky_posts' => true );
-			$custom_query_args['paged'] = get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1;
-			$custom_query = new WP_Query( $custom_query_args );
-			$temp_query = $wp_query;
-			$wp_query = NULL;
-			$wp_query = $custom_query;
-		?>
-		<?php if ( $custom_query->have_posts() ) : ?>
-		<?php while ( $custom_query->have_posts() ) : $custom_query->the_post(); ?>
+		<?php do_action( 'dwqa-prepare-archive-posts' ) ?>
+		<?php if ( have_posts() ) : ?>
+		<?php while ( have_posts() ) : the_post(); ?>
 			<div class="dwqa-question">
 				<a class="dwqa-question-title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 				<div class="dwqa-question-meta">
@@ -59,12 +28,9 @@
 		<?php endwhile; ?>
 			<?php the_posts_pagination( array( 'mid_size' => 4 ) ); ?>
 		<?php endif; ?>
-		<?php
-			wp_reset_postdata();
-			$wp_query = NULL;
-			$wp_query = $temp_query;
-		?>
+		<?php do_action( 'dwqa-after-archive-posts' ) ?>
 	</div>
+	<?php do_action( 'dwqa_after_question_lists' ); ?>
 </div>
 
 <?php /* global $dwqa_general_settings; ?>

@@ -6,7 +6,6 @@
  * @since DW Question & Answer 1.4.0
  */
 ?>
-<?php get_header( 'dwqa' ); ?>
 <div class="dwqa-questions-archive">
 	<?php do_action( 'dwqa_before_questions_archive' ) ?>
 		<div class="dwqa-questions-list">
@@ -15,6 +14,7 @@
 			<?php while ( have_posts() ) : the_post(); ?>
 				<?php dwqa_load_template( 'content', 'question' ) ?>
 			<?php endwhile; ?>
+			<?php the_posts_pagination( array( 'mid_size' => 4 ) ); ?>
 		<?php else : ?>
 			<?php dwqa_load_template( 'content', 'none' ) ?>
 		<?php endif; ?>
@@ -22,4 +22,3 @@
 		</div>
 	<?php do_action( 'dwqa_after_questions_archive' ); ?>
 </div>
-<?php get_footer( 'dwqa' ); ?>

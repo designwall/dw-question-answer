@@ -26,4 +26,3 @@
 		</span>
 	</div>
 </article>
-<?php dwqa_load_template( 'content', 'question-comments' ) ?>

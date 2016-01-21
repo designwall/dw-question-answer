@@ -11,7 +11,7 @@
 	<?php do_action( 'dwqa_before_single_question' ) ?>
 	<?php while ( have_posts() ) : the_post(); ?>
 		<?php dwqa_load_template( 'content', 'single-question' ) ?>
-		<?php dwqa_load_template( 'content', 'answers' ) ?>
+		<?php dwqa_load_template( 'answers' ) ?>
 	<?php endwhile; ?>
 	<?php do_action( 'dwqa_after_single_question' ) ?>
 <?php endif; ?>

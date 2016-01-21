@@ -35,19 +35,20 @@ add_action( 'dwqa_before_question_lists', 'dwqa_breadcrumb' );
 
 function dwqa_filter_layout() {
 	global $dwqa_general_settings;
+	$current_sort = isset( $_GET['sort'] ) ? $_GET['sort'] : '';
 	?>
 	<div class="dwqa-question-filter">
 		<span><?php _e( 'Filter:', 'dwqa' ); ?></span>
-		<a href="<?php echo esc_url( add_query_arg( array( 'filter' => 'all' ), get_permalink( $dwqa_general_settings['pages']['archive-question'] ) ) ) ?>" class="active"><?php _e( 'All', 'dwqa' ); ?></a>
-		<a href="<?php echo esc_url( add_query_arg( array( 'filter' => 'popular' ), get_permalink( $dwqa_general_settings['pages']['archive-question'] ) ) ) ?>"><?php _e( 'Popular', 'dwqa' ); ?></a>
-		<a href="<?php echo esc_url( add_query_arg( array( 'filter' => 'recent' ), get_permalink( $dwqa_general_settings['pages']['archive-question'] ) ) ) ?>"><?php _e( 'Recent', 'dwqa' ); ?></a>
-		<a href="<?php echo esc_url( add_query_arg( array( 'filter' => 'unanswered' ), get_permalink( $dwqa_general_settings['pages']['archive-question'] ) ) ) ?>"><?php _e( 'Unanswered', 'dwqa' ); ?></a>
+		<a href="<?php echo esc_url( add_query_arg( array( 'filter' => 'all' ) ) ) ?>" class="active"><?php _e( 'All', 'dwqa' ); ?></a>
+		<a href="<?php echo esc_url( add_query_arg( array( 'filter' => 'popular' ) ) ) ?>"><?php _e( 'Popular', 'dwqa' ); ?></a>
+		<a href="<?php echo esc_url( add_query_arg( array( 'filter' => 'recent' ) ) ) ?>"><?php _e( 'Recent', 'dwqa' ); ?></a>
+		<a href="<?php echo esc_url( add_query_arg( array( 'filter' => 'unanswered' ) ) ) ?>"><?php _e( 'Unanswered', 'dwqa' ); ?></a>
 		<div class="pull-right">
-			<span>Sort by:</span>
-			<select id="dwqa-sort-by" class="dwqa-sort-by">
-				<option value="views">Views</option>
-				<option value="answers">Answers</option>
-				<option value="votes">Votes</option>
+			<select id="dwqa-sort-by" class="dwqa-sort-by" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+				<option selected disabled><?php _e( 'Sort by', 'dwqa' ); ?></option>
+				<option <?php selected( $current_sort, 'views' ) ?> value="<?php echo esc_url( add_query_arg( array( 'sort' => 'views' ) ) ) ?>"><?php _e( 'Views', 'dwqa' ) ?></option>
+				<option <?php selected( $current_sort, 'answers' ) ?> value="<?php echo esc_url( add_query_arg( array( 'sort' => 'answers' ) ) ) ?>"><?php _e( 'Answers', 'dwqa' ); ?></option>
+				<option <?php selected( $current_sort, 'votes' ) ?> value="<?php echo esc_url( add_query_arg( array( 'sort' => 'votes' ) ) ) ?>"><?php _e( 'Votes', 'dwqa' ) ?></option>
 			</select>
 		</div>
 	</div>

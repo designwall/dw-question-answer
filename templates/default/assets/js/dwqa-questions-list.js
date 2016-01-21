@@ -1,4 +1,6 @@
 jQuery(function($){
+
+	// Search form
 	$('form#dwqa-search input').autocomplete({
 		source: function( request, resp ) {
 			$.ajax({
@@ -12,7 +14,6 @@ jQuery(function($){
 				},
 				success: function( data ) {
 					resp( $.map( data.data, function( item ) {
-						console.log( item );
 						return {
 							label: item.title,
 							value: item.title,
@@ -38,4 +39,7 @@ jQuery(function($){
 			});
 		}
 	});
+
+	// Sort form
+	
 });

@@ -843,6 +843,25 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 			);
 		}
 
+		$sort = isset( $_GET['sort'] ) ? $_GET['sort'] : '';
+
+		switch ( $sort ) {
+			case 'views':
+				$query['meta_key'] = '_dwqa_views';
+				$query['orderby'] = 'meta_value_num';
+				break;
+
+			case 'answers':
+				$query['meta_key'] = '_dwqa_answers_count';
+				$query['orderby'] = 'meta_value_num';
+				break;
+
+			case 'votes':
+				$args['meta_key'] = '_dwqa_votes';
+				$args['orderby'] = 'meta_value_num';
+				break;
+		}
+
 		$filter = isset( $_GET['filter'] ) && !empty( $_GET['filter'] ) ? $_GET['filter'] : 'all';
 
 		switch ( $filter ) {

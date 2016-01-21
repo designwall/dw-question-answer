@@ -63,7 +63,7 @@ class DWQA_Shortcode {
 		$dwqa->template->restore_all_filters( 'the_content' );
 
 		ob_end_clean();
-
+		wp_enqueue_script( 'jquery-ui-autocomplete' );
 		wp_enqueue_script( 'dwqa-questions-list', DWQA_URI . 'templates/default/assets/js/dwqa-questions-list.js', array( 'jquery', 'jquery-ui-autocomplete' ), $script_version, true );
 		wp_localize_script( 'dwqa-questions-list', 'dwqa', $dwqa_sript_vars );
 		return apply_filters( 'dwqa-shortcode-question-list-content', $this->sanitize_output( $html ) );

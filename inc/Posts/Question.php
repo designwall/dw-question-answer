@@ -137,8 +137,8 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 		add_filter( 'dwqa_prepare_question_update_content', array( $this, 'pre_content_filter'), 20 );
 
 
-		add_action( 'dwqa-prepare-archive-posts', array( $this, 'prepare_archive_posts' ) );
-		add_action( 'dwqa-after-archive-posts', array( $this, 'after_archive_posts' ) );
+		add_action( 'dwqa_before_questions_list', array( $this, 'prepare_archive_posts' ) );
+		add_action( 'dwqa_after_questions_list', array( $this, 'after_archive_posts' ) );
 
 	}
 
@@ -307,7 +307,8 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 				if ( $valid_captcha ) {
 					if ( empty( $_POST['question-title'] ) ) {
 
-						$dwqa_submit_question_errors->add( 'submit_question', 'You must enter a valid question title' );
+						// $dwqa_submit_question_errors->add( 'submit_question', 'You must enter a valid question title' );
+						dwqa_add_notice( __( 'You must enter a valid question title.', 'error' ) );
 						return false;
 					}
 
@@ -393,7 +394,8 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 								if ( isset( $_POST['user-name'] ) && username_exists( esc_html( $_POST['user-name'] ) ) ) {
 									$message .= __( 'This username is already registered. Please use another one.','dwqa' ).'<br>';
 								}
-								$dwqa_current_error = new WP_Error( 'submit_question', $message );
+								// $dwqa_current_error = new WP_Error( 'submit_question', $message );
+								dwqa_add_notice( $message, 'error' );
 								return false;
 							}
 						} else {
@@ -429,30 +431,32 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 					if ( apply_filters( 'dwqa-current-user-can-add-question', dwqa_current_user_can( 'post_question' ), $postarr ) ) {
 						$new_question = $this->insert( $postarr );
 					} else {
-						$dwqa_submit_question_errors->add( 'submit_question',  __( 'You do not have permission to submit question.', 'dwqa' ) );
+						//$dwqa_submit_question_errors->add( 'submit_question',  __( 'You do not have permission to submit question.', 'dwqa' ) );
+						dwqa_add_notice( __( 'You do not have permission to submit question.', 'dwqa' ), 'error' );
 						$new_question = $dwqa_submit_question_errors;
 					}
 
-					if ( ! is_wp_error( $new_question ) ) {
+					if ( dwqa_count_notices( 'error' ) == 0 ) {
 						if ( $is_anonymous ) {
 							update_post_meta( $new_question, '_dwqa_anonymous_email', $question_author_email );
 							update_post_meta( $new_question, '_dwqa_is_anonymous', true );
 						}
 
-						$url = get_permalink( $new_question );
 						if ( isset( $dwqa_options['enable-review-question'] ) && $dwqa_options['enable-review-question'] ) {
-							$url = get_permalink( $dwqa_options['pages']['archive-question'] );
+							dwqa_add_notice( __( 'Your question is waiting moderator.', 'dwqa' ), 'success' );
+						} else {
+							exit( wp_safe_redirect( get_permalink( $new_question ) ) );
 						}
-
-						exit( wp_safe_redirect( $url ) );
 					}
 				} else {
-					$dwqa_submit_question_errors->add( 'submit_question', __( 'Captcha is not correct','dwqa' ) );
+					// $dwqa_submit_question_errors->add( 'submit_question', __( 'Captcha is not correct','dwqa' ) );
+					dwqa_add_notice( __( 'Captcha is not correct', 'dwqa' ), 'error' );
 				}
 			} else {
-				$dwqa_submit_question_errors->add( 'submit_question', __( 'Are you cheating huh?','dwqa' ) );
+				// $dwqa_submit_question_errors->add( 'submit_question', __( 'Are you cheating huh?','dwqa' ) );
+				dwqa_add_notice( __( 'Are you cheating huh?', 'dwqa' ), 'error' );
 			}
-			$dwqa_current_error = $dwqa_submit_question_errors;
+			//$dwqa_current_error = $dwqa_submit_question_errors;
 		}
 	}
 

@@ -3,17 +3,18 @@
 ?>
 <div id="submit-question" class="dwqa-submit-question">    
 <?php  
-if ( is_wp_error( $dwqa_current_error ) ) {
-	$error_messages = $dwqa_current_error->get_error_messages( );
+// if ( is_wp_error( $dwqa_current_error ) ) {
+// 	$error_messages = $dwqa_current_error->get_error_messages( );
 	
-	if ( ! empty( $error_messages ) ) {
-		echo '<div class="alert alert-error">';
-		foreach ( $error_messages as $message ) {
-			echo $message;
-		}
-		echo '</div>';
-	}
-}
+// 	if ( ! empty( $error_messages ) ) {
+// 		echo '<div class="alert alert-error">';
+// 		foreach ( $error_messages as $message ) {
+// 			echo $message;
+// 		}
+// 		echo '</div>';
+// 	}
+// }
+do_action( 'dwqa_before_question_submit_form' );
 ?>
 	<form action="" name="dwqa-submit-question-form" id="dwqa-submit-question-form" method="post">
 		<div class="question-advance">
@@ -73,3 +74,5 @@ if ( is_wp_error( $dwqa_current_error ) ) {
 		</div>  
 	</form>
 </div>
+
+<?php do_action( 'dwqa_after_question_submit_form' ); ?>

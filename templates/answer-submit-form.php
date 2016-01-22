@@ -9,7 +9,7 @@
 
 <div class="dwqa-answer-submit-form">
 	<?php do_action( 'dwqa_before_answer_submit_form' ); ?>
-	<form name="dwqa-answer-question-form" id="dwqa-answer-question-form" method="post">
+	<form name="dwqa-answer-form" id="dwqa-answer-form" method="post">
 		<textarea rows="2" id="dwqa-answer-question-editor" name="answer-content"></textarea>
 		<input type="checkbox" name="private" value="1">
 		<input type="submit" name="submit-answer" class="dwqa-btn dwqa-btn-primary" value="<?php _e( 'Add answer', 'dwqa' ) ?>">

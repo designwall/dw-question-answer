@@ -64,7 +64,7 @@ class DWQA_Shortcode {
 
 		ob_end_clean();
 		wp_enqueue_script( 'jquery-ui-autocomplete' );
-		wp_enqueue_script( 'dwqa-questions-list', DWQA_URI . 'templates/default/assets/js/dwqa-questions-list.js', array( 'jquery', 'jquery-ui-autocomplete' ), $script_version, true );
+		wp_enqueue_script( 'dwqa-questions-list', DWQA_URI . 'templates/assets/js/dwqa-questions-list.js', array( 'jquery', 'jquery-ui-autocomplete' ), $script_version, true );
 		wp_localize_script( 'dwqa-questions-list', 'dwqa', $dwqa_sript_vars );
 		return apply_filters( 'dwqa-shortcode-question-list-content', $this->sanitize_output( $html ) );
 	}
@@ -84,7 +84,7 @@ class DWQA_Shortcode {
 
 		ob_end_clean();
 
-		wp_enqueue_script( 'dwqa-submit-question', DWQA_URI . 'inc/templates/default/assets/js/dwqa-submit-question.js', array( 'jquery' ), $script_version, true );
+		wp_enqueue_script( 'dwqa-submit-question', DWQA_URI . 'inc/templates/assets/js/dwqa-submit-question.js', array( 'jquery' ), $script_version, true );
 		wp_localize_script( 'dwqa-submit-question', 'dwqa', $dwqa_sript_vars );
 		return $this->sanitize_output( $html );
 	}

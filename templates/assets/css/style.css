@@ -64,6 +64,10 @@
 	border-top-color: #999 !important;
 }
 
+.dwqa-question-item .dwqa-question-actions {
+	float: right;
+}
+
 /* Breadcrumbs */
 .dwqa-breadcrumbs {
 	margin-bottom: 20px;

@@ -6,7 +6,7 @@
  * @since DW Question & Answer 1.4.0
  */
 ?>
-<article class="dwqa-question">
+<article class="dwqa-question-item">
 	<div class="dwqa-question-vote">
 		<span class="dwqa-vote-count">0</span>
 		<a class="dwqa-vote dwqa-vote-up" href="#"><?php _e( 'Vote Up', 'dwqa' ); ?></a>

@@ -237,3 +237,12 @@
 .dwqa-answer-item .dwqa-answer-actions {
 	float: right;
 }
+
+.dwqa-answer-form form {
+	text-align: right;
+}
+
+.dwqa-answer-form textarea {
+	width: 100%;
+	margin-bottom: 20px;
+}

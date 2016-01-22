@@ -13,8 +13,8 @@ $answers = $wp_query->dwqa_answers;
 ?>
 
 <div class="dwqa-answers">
-
 	<?php do_action( 'dwqa_before_answers' ) ?>
+	<div class="dwqa-answers-title"><?php _e( '2 Answers', 'dwqa' ) ?></div>
 	<div class="dwqa-answers-list">
 	<?php do_action( 'dwqa_before_answers_list' ) ?>
 	<?php if ( $answers->have_posts() ) : ?>

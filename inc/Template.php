@@ -755,6 +755,7 @@ function dwqa_has_sidebar_template() {
 	return;
 }
 
+add_action( 'dwqa_after_single_question', 'dwqa_load_answers' );
 function dwqa_load_answers() {
 	global $dwqa;
 	$dwqa->template->load_template( 'answers' );

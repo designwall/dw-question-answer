@@ -312,15 +312,12 @@ function dwqa_comment_form( $args = array(), $post_id = null ) {
 		$post_id = get_the_ID();
 	else
 		$id = $post_id;
-
 	$commenter = wp_get_current_commenter();
 	$user = wp_get_current_user();
 	$user_identity = $user->exists() ? $user->display_name : '';
-
 	$args = wp_parse_args( $args );
 	if ( ! isset( $args['format'] ) )
 		$args['format'] = current_theme_supports( 'html5', 'comment-form' ) ? 'html5' : 'xhtml';
-
 	$req      = get_option( 'require_name_email' );
 	$aria_req = ( $req ? " aria-required='true'" : '' );
 	$html5    = 'html5' === $args['format'];
@@ -328,9 +325,7 @@ function dwqa_comment_form( $args = array(), $post_id = null ) {
 		'email'  => '<p class="comment-form-email"><label for="email">' . __( 'Email' ) . ( $req ? ' <span class="required">*</span>' : '' ) . '</label> ' .
 					'<input id="email-'.$post_id.'" name="email" ' . ( $html5 ? 'type="email"' : 'type="text"' ) . ' value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /></p>'
 	);
-
 	$required_text = sprintf( ' ' . __( 'Required fields are marked %s' ), '<span class="required">*</span>' );
-
 	/**
 	 * Filter the default comment form fields.
 	 *
@@ -354,7 +349,6 @@ function dwqa_comment_form( $args = array(), $post_id = null ) {
 		'label_submit'         => __( 'Post Comment', 'dwqa' ),
 		'format'               => 'xhtml',
 	);
-
 	/**
 	 * Filter the comment form default arguments.
 	 *
@@ -460,11 +454,8 @@ function dwqa_comment_form( $args = array(), $post_id = null ) {
 			 */
 			echo apply_filters( 'comment_form_field_comment', $args['comment_field'] );
 			?>
-			<?php echo $args['comment_notes_after']; ?>
-			<p class="dwqa-form-submit dwqa-hide">
-				<input name="submit" type="submit" id="<?php echo esc_attr( $args['id_submit'] ); ?>" value="<?php echo esc_attr( $args['label_submit'] ); ?>" class="dwqa-btn dwqa-btn-primary" />
-				<?php comment_id_fields( $post_id ); ?>
-			</p>
+			<input name="submit" type="submit" id="<?php echo esc_attr( $args['id_submit'] ); ?>" value="<?php echo esc_attr( $args['label_submit'] ); ?>" class="dwqa-btn dwqa-btn-primary" />
+			<?php comment_id_fields( $post_id ); ?>
 			<?php
 			/**
 			 * Fires at the bottom of the comment form, inside the closing </form> tag.
@@ -1069,9 +1060,11 @@ class DWQA_Template {
 		}
 		$template = apply_filters( 'dwqa-load-template', $template, $name );
 
-		if ( ! $template ) {
+		if ( ! file_exists( $template ) ) {
+			_doing_it_wrong( __FUNCTION__, sprintf( "<strong>%s</strong> does not exists in <code>%s</code>.", $name, $template ), '1.4.0' );
 			return false;
 		}
+
 		if ( ! $include ) {
 			return $template;
 		}

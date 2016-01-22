@@ -20,14 +20,6 @@
 	<footer class="dwqa-question-footer">
 		<div class="dwqa-question-meta">Question Tagged: <a href="#">Abc</a>, <a href="#">Xyz</a></div>
 	</footer>
-	<div class="dwqa-comments">
-		<div class="dwqa-comments-list">
-			<div class="dwqa-comment"><a href="#">Hung Dinh</a> Sample comment content</div>
-			<div class="dwqa-comment"><a href="#">Hung Dinh</a> Sample comment content</div>
-			<div class="dwqa-comment"><a href="#">Hung Dinh</a> Sample comment content</div>
-			<div class="dwqa-comment"><a href="#">Hung Dinh</a> Sample comment content</div>
-		</div>
-		<form class="dwqa-comment-form"><input type="text" placeholder="Write a comment ..."></form>
-	</div>
+	<?php comments_template(); ?>
 </article>
 <?php // dwqa_load_template( 'content', 'question-comments' ) ?>

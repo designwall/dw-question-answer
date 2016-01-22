@@ -6,7 +6,7 @@
  * @since DW Question & Answer 1.4.0
  */
 ?>
-<article class="dwqa-question">
+<article class="dwqa-question-item">
 	<div class="dwqa-question-vote">
 		<span class="dwqa-vote-count">0</span>
 		<a class="dwqa-vote dwqa-vote-up" href="#"><?php _e( 'Vote Up', 'dwqa' ); ?></a>
@@ -14,12 +14,11 @@
 	</div>
 	<div class="dwqa-question-meta">
 		<?php echo dwqa_get_latest_action_date(); ?>
-		<span class="pull-right"><a href="#">Follow</a> <a href="#">Edit</a> <a href="#">Delete</a></span>
+		<span class="dwqa-question-actions"><a href="#">Follow</a> <a href="#">Edit</a> <a href="#">Delete</a></span>
 	</div>
 	<div class="dwqa-question-content"><?php the_content(); ?></div>
 	<footer class="dwqa-question-footer">
-		<div class="dwqa-question-meta">Question Tagged: <a href="#">Abc</a>, <a href="#">Xyz</a></div>
+		<div class="dwqa-question-meta"><?php echo get_the_term_list( get_the_ID(), 'dwqa-question_tag', __( 'Question Tagged: ', 'dwqa' ) , ', ' ); ?></div>
 	</footer>
 	<?php comments_template(); ?>
 </article>
-<?php // dwqa_load_template( 'content', 'question-comments' ) ?>

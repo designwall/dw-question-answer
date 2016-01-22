@@ -216,9 +216,8 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 		add_action( 'manage_' . $this->get_slug() . '_posts_custom_column', array( $this, 'columns_content' ), 10, 2 );
 		add_action( 'post_row_actions', array( $this, 'unset_old_actions' ) );
 
-		// Ajax add answer
-		add_action( 'wp_ajax_dwqa-add-answer', array( $this, 'insert') );
-		add_action( 'wp_ajax_nopriv_dwqa-add-answer', array( $this, 'insert') );
+		// add answer
+		add_action( 'wp_loaded', array( $this, 'insert') );
 		// Ajax remove Answer
 		add_action( 'wp_ajax_dwqa-action-remove-answer', array( $this, 'remove_answer' ) );
 		// Ajax flag answer spam
@@ -335,146 +334,92 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 		if ( ! isset( $_POST['dwqa-action'] ) || ! isset( $_POST['submit-answer'] ) ) {
 			return false;
 		}
-		$dwqa_add_answer_errors = new WP_Error();
+
 		if ( ! isset( $_POST['_wpnonce'] ) || ! wp_verify_nonce( esc_html(  $_POST['_wpnonce'] ), '_dwqa_add_new_answer' ) ) {
-			$dwqa_add_answer_errors->add( 'answer_question', '"Helllo", Are you cheating huh?.' );
+			dwqa_add_notice( __( '&quot;Helllo&quot;, Are you cheating huh?.', 'dwqa' ), 'error' );
 		}
 
 		if ( $_POST['submit-answer'] == __( 'Delete draft', 'dwqa' ) ) {
 			$draft = isset( $_POST['answer-id'] ) ? intval( $_POST['answer-id'] ) : 0;
 			if ( $draft )
 				wp_delete_post( $draft );
+		}
+
+		if ( empty( $_POST['answer-content'] ) ) {
+			dwqa_add_notice( __( 'Answer content is empty', 'dwqa' ), 'error' );
+		}
+		if ( empty( $_POST['question_id'] ) ) {
+			dwqa_add_notice( __( 'Question is empty', 'dwqa' ), 'error' );
+		}
+
+		if ( current_user_can( 'post_answer' ) ) {
+			dwqa_add_notice( __( 'You do not have permission to submit question.', 'dwqa' ), 'error' );
+		}
+
+		$user_id = 0;
+		$is_anonymous = false;
+		if ( is_user_logged_in() ) {
+			$user_id = get_current_user_id();
+		} else {
+			$is_anonymous = true;
+			if ( isset( $_POST['user-email'] ) && is_email( $_POST['user-email'] ) ) {
+				$post_author_email = sanitize_email( $_POST['user-email'] );
+			}
+		}
+
+		$question_id = intval( $_POST['question_id'] );
+
+		$answer_title = __( 'Answer for ', 'dwqa' ) . get_post_field( 'post_title', $question_id );
+		$answ_content = apply_filters( 'dwqa_prepare_answer_content', $_POST['answer-content'] );
+
+		$answers = array(
+			'comment_status' => 'open',
+			'post_author'    => $user_id,
+			'post_content'   => $answ_content,
+			'post_title'     => $answer_title,
+			'post_type'      => $this->get_slug(),
+			'post_parent'	 => $question_id,
+		);
+
+		$answers['post_status'] = isset( $_POST['save-draft'] ) 
+									? 'draft' 
+										: ( isset( $_POST['private'] ) && $_POST['private'] ? 'private' : 'publish' );
+
+		do_action( 'dwqa_prepare_add_answer' );
+
+		if ( dwqa_count_notices( 'error' ) > 0 ) {
 			return false;
 		}
 
-		if ( empty( $_POST['answer-content'] ) ||  empty( $_POST['question'] ) ) {
-			if ( empty( $_POST['answer-content'] ) ) {
-				$dwqa_add_answer_errors->add( 'answer_question','answer content is empty' );
-			}
-			if ( empty( $_POST['question'] ) ) {
-				$dwqa_add_answer_errors->add( 'answer_question','question is empty' );
-			}
-		} else {
+		$answer_id = wp_insert_post( $answers );
 
-			$user_id = 0;
-			$is_anonymous = false;
-			if ( is_user_logged_in() ) {
-				$user_id = get_current_user_id();
-			} else {
-				$is_anonymous = true;
-				if ( isset( $_POST['user-email'] ) && is_email( $_POST['user-email'] ) ) {
-					$post_author_email = sanitize_email( $_POST['user-email'] );
+		switch ( $_POST['dwqa-action'] ) {
+			case 'add-answer':
+				if ( !is_wp_error( $answer_id ) ) {
+					if ( user_can( $user_id, 'edit_posts' ) && $answers['post_status'] != 'draft' ) {
+						update_post_meta( $question_id, '_dwqa_status', 'answered' );
+						update_post_meta( $question_id, '_dwqa_answered_time', time() );
+					}
+					update_post_meta( $answer_id, '_question', $question_id  );
+
+					if ( $is_anonymous ) {
+						update_post_meta( $answer_id, '_dwqa_is_anonymous', true );
+
+						if ( isset( $post_author_email ) && is_email( $post_author_email ) ) {
+							update_post_meta( $answer_id, '_dwqa_anonymous_email', $post_author_email );
+						}
+					}
+
+					do_action( 'dwqa_add_answer', $answer_id, $question_id );
+				} else {
+					dwqa_add_wp_error_message( $answer_id );
 				}
-			}
+				break;
+			
+			case 'update-answer':
 
-			$question_id = intval( $_POST['question'] );
-			$question = get_post( $question_id );
-
-			$answer_title = __( 'Answer for ', 'dwqa' ) . $question->post_title;
-			$answ_content = apply_filters( 'dwqa_prepare_answer_content', $_POST['answer-content'] );
-
-			$post_status = ( isset( $_POST['private-message'] ) && esc_html( $_POST['private-message'] ) ) ? 'private' : 'publish';
-			$answers = array(
-				'comment_status' => 'open',
-				'post_author'    => $user_id,
-				'post_content'   => $answ_content,
-				'post_status'    => $post_status,
-				'post_title'     => $answer_title,
-				'post_type'      => $this->get_slug(),
-			);
-			if ( $_POST['submit-answer'] == __( 'Save draft','dwqa' ) ) {
-				$answers['post_status'] = 'draft';
-			} else if ( isset( $_POST['privacy'] ) && 'private' == $_POST['privacy'] ) {
-				$answers['post_status'] = 'private';
-			}
-
-			switch ( $_POST['dwqa-action'] ) {
-				case 'add-answer':
-					$valid_captcha = dwqa_valid_captcha( 'single-question' );
-
-					if ( $valid_captcha ) {
-						if ( dwqa_current_user_can( 'post_answer' ) ) {
-							$answer_id = wp_insert_post( $answers, true );
-						} else {
-							$answer_id = new WP_Error( 'permission', __( 'You do not have permission to submit question.', 'dwqa' ) );
-						}
-
-						if ( ! is_wp_error( $answer_id ) ) {
-							//Send email alert for author of question about this answer
-							$question_author = $question->post_author;
-
-							if ( user_can( $answers['post_author'], 'edit_posts' ) && $answers['post_status'] != 'draft' ) {
-								update_post_meta( $question_id, '_dwqa_status', 'answered' );
-								update_post_meta( $question_id, '_dwqa_answered_time', time() );
-							}
-							update_post_meta( $answer_id, '_question', $question_id  );
-
-							if ( $is_anonymous ) {
-								update_post_meta( $answer_id, '_dwqa_is_anonymous', true );
-								if ( isset( $post_author_email ) && is_email( $post_author_email ) ) {
-									update_post_meta( $answer_id, '_dwqa_anonymous_email', $post_author_email );
-								}
-							}
-							do_action( 'dwqa_add_answer', $answer_id, $question_id );
-							// wp_redirect( get_permalink( $question_id ) );
-							// wp_send_json_success( array( 'url' => get_permalink( $question_id ) ) );
-							// return true;
-						} else {
-							$dwqa_add_answer_errors = $answer_id;
-						}
-					} else {
-						$dwqa_add_answer_errors->add( 'in_valid_captcha', __( 'Captcha is not correct','dwqa' ) );
-					}
-
-					break;
-				case 'update-answer':
-					if ( ! isset( $_POST['answer-id'] ) ) {
-						$dwqa_add_answer_errors->add( 'missing-content', __( 'Answer is missing', 'dwqa' ) );
-						break;
-					}
-
-					$answer_id = intval( $_POST['answer-id'] );
-					$answer_author = get_post_field( 'post_author', $answer_id  );
-
-					global $current_user;
-
-					if ( ! ( dwqa_current_user_can( 'edit_answer' ) || ( is_user_logged_in() && $answer_author == $current_user->ID ) ) ) {
-						$dwqa_add_answer_errors->add( 'permission-denided', __( 'You do not have permission to edit this post', 'dwqa' ) );
-						break;
-					}
-					if ( get_post_type( $answer_id  ) != 'dwqa-answer' ) {
-						$dwqa_add_answer_errors->add( 'posttype-error', __( 'This post is not an answer', 'dwqa' ) );
-						break;
-					}
-
-					$answer_update = array(
-						'ID'    => $answer_id,
-						'post_content'   => $answ_content,
-					);
-					$post_status = get_post_status( $answer_id );
-
-					if ( ( $post_status == 'draft' && strtolower( $_POST['submit-answer'] ) == 'publish' ) || ( $post_status != 'draft' && strtolower( $_POST['submit-answer'] ) == 'update' ) ) {
-						$answer_update['post_status'] = isset( $_POST['privacy'] ) && 'private' == esc_html( $_POST['privacy'] ) ? 'private' : 'publish';
-						update_post_meta( $question_id, '_dwqa_status', 're-open' );
-					}
-					$old_post = get_post( $answer_id  );
-					$answer_id = wp_update_post( $answer_update );
-					$new_post = get_post( $answer_id );
-					do_action( 'dwqa_update_answer', $answer_id, $old_post, $new_post );
-					if ( $answer_id ) {
-						wp_safe_redirect( get_permalink( $question_id ) );
-						exit(0);
-					}
-					break;
-			}
+				break;
 		}
-		$url = get_permalink( $question_id );
-		$error_messages = $dwqa_add_answer_errors->get_error_messages();
-		foreach ( $error_messages as $value ) {
-			$url = esc_url_raw( add_query_arg( 'errors', urlencode( $value ), $url ) );
-		}
-		wp_safe_redirect( $url );
-		exit(0);
 	}
 
 	function remove_answer() {

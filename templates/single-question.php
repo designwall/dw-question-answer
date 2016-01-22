@@ -12,6 +12,7 @@
 	<?php while ( have_posts() ) : the_post(); ?>
 		<?php dwqa_load_template( 'content', 'single-question' ) ?>
 	<?php endwhile; ?>
+	<?php dwqa_load_template( 'answer', 'submit-form' ) ?>
 	<?php do_action( 'dwqa_after_single_question' ) ?>
 <?php endif; ?>
 </div>

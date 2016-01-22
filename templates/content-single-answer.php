@@ -7,5 +7,5 @@
  */
 ?>
 <article class="dwqa-answer">
-
+	
 </article>

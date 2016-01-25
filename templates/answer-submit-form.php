@@ -12,10 +12,10 @@
 	<div class="dwqa-answer-form-title"><?php _e( 'Your Answer', 'dwqa' ) ?></div>
 	<form name="dwqa-answer-form" id="dwqa-answer-form" method="post">
 		<textarea rows="2" id="dwqa-answer-content" name="answer-content"></textarea>
-		<select>
+		<select class="dwqa-select" name="dwqa-status">
 			<optgroup label="<?php _e( 'Who can see this?', 'dwqa' ) ?>">
-				<option><?php _e( 'Public', 'dwqa' ) ?></option>
-				<option><?php _e( 'Only Me &amp; Admin', 'dwqa' ) ?></option>
+				<option value="publish"><?php _e( 'Public', 'dwqa' ) ?></option>
+				<option value="private"><?php _e( 'Only Me &amp; Admin', 'dwqa' ) ?></option>
 			</optgroup>
 		</select>
 		<!-- <input type="checkbox" name="private" value="1"> -->

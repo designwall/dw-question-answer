@@ -869,12 +869,26 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 		$filter = isset( $_GET['filter'] ) && !empty( $_GET['filter'] ) ? $_GET['filter'] : 'all';
 
 		switch ( $filter ) {
-			case 'popular':
-				$query['orderby'] = 'meta_value_num';
-				$query['meta_key'] = '_dwqa_views';
+			case 'open':
+				$args['meta_query'][] = array(
+				   'key' => '_dwqa_status',
+				   'value' => array( 'open', 're-open' ),
+				   'compare' => 'IN',
+				);
 				break;
-			case 'recent':
-				$query['orderby'] = 'date';
+			case 'resolved':
+				$args['meta_query'][] = array(
+				   'key' => '_dwqa_status',
+				   'value' => array( 'resolved' ),
+				   'compare' => 'IN',
+				);
+				break;
+			case 'closed':
+				$args['meta_query'][] = array(
+				   'key' => '_dwqa_status',
+				   'value' => array( 'closed' ),
+				   'compare' => 'IN',
+				);
 				break;
 			case 'unanswered':
 				$args['meta_query'][] = array(

@@ -123,7 +123,11 @@ function dwqa_user_most_answer_last_month( $number = 10 ) {
 	return dwqa_user_most_answer( $number, $from, $to );
 }
 
-function dwqa_is_followed( $post_id, $user_id = false ) {
+function dwqa_is_followed( $post_id = false, $user_id = false ) {
+	if ( ! $post_id ) {
+		$post_id = get_the_ID();
+	}
+
 	if ( ! $user_id ) {
 		$user = wp_get_current_user();
 		$user_id = $user->ID;

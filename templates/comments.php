@@ -6,7 +6,7 @@
  * @since DW Question & Answer 1.4.0
  */
 ?>
-<?php if ( have_comments() ) : ?>
+
 <?php do_action( 'dwqa_before_comment_form' ) ?>
 <div class="dwqa-comments">
 	<?php do_action( 'dwqa_before_comment_list' ); ?>
@@ -29,4 +29,3 @@
 	</div>
 	<?php do_action( 'dwqa_after_comment_form' ); ?>
 </div>
-<?php endif; ?>

@@ -7,21 +7,34 @@ function dwqa_breadcrumb() {
 	global $dwqa_general_settings;
 	echo '<div class="dwqa-breadcrumbs">';
 	$title = get_the_title( $dwqa_general_settings['pages']['archive-question'] );
-	$term = get_query_var( 'dwqa-question_category' ) ? get_query_var( 'dwqa-question_category' ) : ( get_query_var( 'dwqa-question_tag' ) ? get_query_var( 'dwqa-question_tag' ) : false );
+	
+	if ( !is_singular( 'dwqa-question' ) ) {
+		$term = get_query_var( 'dwqa-question_category' ) ? get_query_var( 'dwqa-question_category' ) : ( get_query_var( 'dwqa-question_tag' ) ? get_query_var( 'dwqa-question_tag' ) : false );
+		$term = get_term_by( 'slug', $term, get_query_var( 'taxonomy' ) );
+		$tax_name = 'dwqa-question_tag' == get_query_var( 'taxonomy' ) ? __( 'Tag', 'dwqa' ) : __( 'Cateogry', 'dwqa' );
+	} else {
+		$term = wp_get_post_terms( get_the_ID(), 'dwqa-question_category' );
+		$term = $term[0];
+		$tax_name = __( 'Category', 'dwqa' );
+	}
+
 	if ( $term || is_singular( 'dwqa-question' ) ) {
 		echo '<a href="'. get_permalink( $dwqa_general_settings['pages']['archive-question'] ) .'">' . $title . '</a>';
 	}
 
 	if ( $term ) {
-		$term = get_term_by( 'slug', $term, get_query_var( 'taxonomy' ) );
-		$tax_name = explode( '_', get_query_var( 'taxonomy' ) );
-		$tax_name = ucwords( $tax_name[1] );
 		echo '<span class="dwqa-sep"> &rsaquo; </span>';
 		if ( is_singular( 'dwqa-question' ) ) {
 			echo '<a href="'. esc_url( get_term_link( $term, get_query_var( 'taxonomy' ) ) ) .'">' . $tax_name . ': ' . $term->name . '</a>';
 		} else {
 			echo '<span class="dwqa-current">' . $tax_name . ': ' . $term->name . '</span>';
 		}
+	}
+
+	$search = isset( $_GET['qs'] ) ? $_GET['qs'] : false;
+
+	if ( $search ) {
+		printf( '<span class="dwqa-current">%s "%s"</span>', __( 'Showing search results for', 'dwqa' ), rawurldecode( $search ) );
 	}
 
 	if ( is_singular( 'dwqa-question' ) ) {

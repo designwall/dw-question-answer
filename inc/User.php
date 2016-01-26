@@ -161,7 +161,7 @@ function dwqa_get_author( $post_id = false ) {
 }
 
 function dwqa_get_author_link( $user_id = false ) {
-	if ( $user_id ) {
+	if ( ! $user_id ) {
 		return false;
 	}
 	global $dwqa_general_settings;

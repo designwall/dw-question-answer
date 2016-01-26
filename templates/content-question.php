@@ -10,7 +10,7 @@
 	<header class="dwqa-question-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></header>
 	<div class="dwqa-question-meta">
 		<?php $user_id = get_post_field( 'post_author', get_the_ID() ) ? get_post_field( 'post_author', get_the_ID() ) : false ?>
-		<?php printf( '<span><a href="%s">%s</a> %s</span>', dwqa_get_author_link( $user_id ), dwqa_get_author(), human_time_diff( get_post_time( 'U' ) ) ) ?>
+		<?php printf( '<span><a href="%s">%s%s</a> %s</span>', dwqa_get_author_link( $user_id ), get_avatar( $user_id, 48 ), dwqa_get_author(), human_time_diff( get_post_time( 'U' ) ) ) ?>
 	</div>
 	<div class="dwqa-question-stats">
 		<span class="dwqa-views-count">

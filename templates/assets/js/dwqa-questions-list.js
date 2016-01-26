@@ -37,6 +37,8 @@ jQuery(function($){
 					keyword = $.trim( acData.term ).split(' ').join('|');
 					$self.html( $self.text().replace( new RegExp( "(" + keyword + ")", "gi" ), '<span class="dwqa-text-highlight">$1</span>' ) );
 			});
+
+			$(this).data("ui-autocomplete").menu.element.addClass("dwqa-autocomplete");
 		}
 	});
 	

@@ -208,10 +208,11 @@ function dwqa_get_latest_action_date( $question = false, $before = '<span>', $af
 	if ( ! $question ) {
 		$question = get_the_ID();
 	}
-	global $post;
+	global $post, $dwqa_general_settings;
 
 	$message = '';
 
+	$question_list_link = isset( $dwqa_general_settings['pages']['archive-question'] ) ? get_permalink( $dwqa_general_settings['pages']['archive-question'] ) : false;
 	$latest_answer = dwqa_get_latest_answer( $question );
 	$last_activity_date = $latest_answer ? $latest_answer->post_date : get_post_field( 'post_date', $question );
 	$post_id = $latest_answer ? $latest_answer->ID : $question;
@@ -226,7 +227,7 @@ function dwqa_get_latest_action_date( $question = false, $before = '<span>', $af
 		}
 	} else {
 		$display_name = get_the_author_meta( 'display_name', $author_id );
-		$author_url = get_author_posts_url( $author_id );
+		$author_url = $question_list_link ? add_query_arg( array( 'user-question' => get_the_author_meta( 'user_login', $author_id ) ), $question_list_link ) : the_author_posts_link( $author_id );
 		$author_email = get_the_author_meta( 'user_email', $author_id );
 	}
 	$author_avatar = wp_cache_get( 'avatar_of_' . $author_id, 'dwqa' );

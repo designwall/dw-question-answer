@@ -24,15 +24,15 @@
 .dwqa-question-vote {
 	position: absolute;
 	top: 70px;
-	left: 4px;
-	min-height: 80px;
+	left: 6px;
+	min-height: 60px;
 }
 
 .dwqa-question-vote .dwqa-vote {
 	display: block;
 	width: 0;
 	height: 0;
-	border: 20px solid transparent !important;
+	border: 16px solid transparent !important;
 	border-bottom-color: #ddd !important;
 	text-indent: -9999px;
 	position: absolute;
@@ -40,13 +40,13 @@
 }
 
 .dwqa-question-vote .dwqa-vote-count {
-	width: 40px;
+	width: 32px;
 	text-align: center;
-	top: 20px;
+	top: 14px;
 	position: absolute;
 	display: block;
-	height: 40px;
-	line-height: 40px;
+	height: 32px;
+	line-height: 32px;
 }
 
 .dwqa-question-vote .dwqa-vote:hover,
@@ -55,7 +55,7 @@
 }
 
 .dwqa-question-vote .dwqa-vote-down {
-	border: 20px solid transparent !important;
+	border: 16px solid transparent !important;
 	border-bottom-color: transparent !important;
 	border-top-color: #ddd !important;
 	top: auto;
@@ -78,9 +78,16 @@
  * -----------------------------------------------------------------------------
  */
 
+.dwqa-answers-title {
+	border-bottom: 1px solid #ddd;
+	margin-bottom: 20px;
+	padding-bottom: 10px;
+}
+
 .dwqa-answer-item {
 	padding: 0 0 0 70px;
 	position: relative;
+	margin-bottom: 20px;
 }
 
 .dwqa-answer-item .avatar {
@@ -98,15 +105,15 @@
 .dwqa-answer-vote {
 	position: absolute;
 	top: 70px;
-	left: 4px;
-	min-height: 80px;
+	left: 6px;
+	min-height: 60px;
 }
 
 .dwqa-answer-vote .dwqa-vote {
 	display: block;
 	width: 0;
 	height: 0;
-	border: 20px solid transparent !important;
+	border: 16px solid transparent !important;
 	border-bottom-color: #ddd !important;
 	text-indent: -9999px;
 	position: absolute;
@@ -114,13 +121,13 @@
 }
 
 .dwqa-answer-vote .dwqa-vote-count {
-	width: 40px;
+	width: 32px;
 	text-align: center;
-	top: 20px;
+	top: 14px;
 	position: absolute;
 	display: block;
-	height: 40px;
-	line-height: 40px;
+	height: 32px;
+	line-height: 32px;
 }
 
 .dwqa-answer-vote .dwqa-vote:hover,
@@ -129,7 +136,7 @@
 }
 
 .dwqa-answer-vote .dwqa-vote-down {
-	border: 20px solid transparent !important;
+	border: 16px solid transparent !important;
 	border-bottom-color: transparent !important;
 	border-top-color: #ddd !important;
 	top: auto;
@@ -144,6 +151,11 @@
 
 .dwqa-answer-item .dwqa-answer-actions {
 	float: right;
+}
+
+.dwqa-answer-form-title {
+	border-top: 1px solid #ddd;
+	padding: 10px 0;
 }
 
 .dwqa-answer-form form {
@@ -161,14 +173,14 @@
  * -----------------------------------------------------------------------------
  */
 
-.dwqa-comments-list {
+.dwqa-comments-list .dwqa-comment:first-child {
 	border-top: 1px solid #ddd;
-	font-size: small;
 }
 
 .dwqa-comments-list .dwqa-comment {
 	border-bottom: 1px solid #ddd;
 	padding: 10px 0;
+	font-size: small;
 }
 
 .dwqa-comment-form {

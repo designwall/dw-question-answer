@@ -6,6 +6,8 @@
  * @since DW Question & Answer 1.4.0
  */
 ?>
+
+<?php do_action( 'dwqa_before_single_question_content' ); ?>
 <article class="dwqa-question-item">
 	<div class="dwqa-question-vote">
 		<span class="dwqa-vote-count">0</span>
@@ -22,3 +24,4 @@
 	</footer>
 	<?php comments_template(); ?>
 </article>
+<?php do_action( 'dwqa_after_single_question_content' ); ?>

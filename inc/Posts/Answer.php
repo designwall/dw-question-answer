@@ -218,6 +218,7 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 
 		// add answer
 		add_action( 'wp_loaded', array( $this, 'insert') );
+		add_action( 'wp_loaded', array( $this, 'update' ) );
 		// Ajax remove Answer
 		add_action( 'wp_ajax_dwqa-action-remove-answer', array( $this, 'remove_answer' ) );
 		// Ajax flag answer spam
@@ -419,7 +420,7 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 	}
 
 	public function update() {
-
+		
 	}
 
 	function remove_answer() {

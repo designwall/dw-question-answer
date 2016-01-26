@@ -1,8 +1,23 @@
-<?php  
+<?php
+
+function dwqa_is_endpoint( $endpoint = false ) {
+	global $wp_query;
+
+	if ( !$endpoint ) {
+		return false;
+	}
+
+	if ( isset( $wp_query->query[ $endpoint ] ) ) {
+		return true;
+	}
+
+	return false;
+}
 
 class DWQA_Rewrite {
 	public function __construct() {
 		add_action( 'after_switch_theme', 'flush_rewrite_rules' );
+		add_action( 'init', array( $this, 'add_endpoint' ) );
 	}
 
 	function update_term_rewrite_rules() {
@@ -29,6 +44,8 @@ class DWQA_Rewrite {
 		}
 	}
 
-
+	function add_endpoint() {
+		add_rewrite_endpoint( 'edit', EP_PERMALINK );
+	}
 }
 ?>

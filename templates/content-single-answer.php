@@ -14,7 +14,7 @@
 	</div>
 	<div class="dwqa-answer-meta">
 		<?php echo dwqa_get_latest_action_date(); ?>
-		<span class="dwqa-answer-actions"><a href="#">Edit</a> <a href="#">Delete</a></span>
+		<span class="dwqa-answer-actions"><?php dwqa_answer_button_action(); ?></span>
 	</div>
 	<div class="dwqa-answer-content"><?php the_content(); ?></div>
 	<?php comments_template(); ?>

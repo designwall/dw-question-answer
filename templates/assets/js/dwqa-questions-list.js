@@ -32,14 +32,12 @@ jQuery(function($){
 		},
 		open: function( e, ui ) {
 			var acData = $(this).data( 'uiAutocomplete' );
-			acData.menu.element.find('a').each(function(){
+			acData.menu.element.find('li').each(function(){
 				var $self = $(this),
 					keyword = $.trim( acData.term ).split(' ').join('|');
 					$self.html( $self.text().replace( new RegExp( "(" + keyword + ")", "gi" ), '<span class="dwqa-text-highlight">$1</span>' ) );
 			});
 		}
 	});
-
-	// Sort form
 	
 });

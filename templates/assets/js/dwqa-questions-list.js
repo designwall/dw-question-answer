@@ -2,6 +2,7 @@ jQuery(function($){
 
 	// Search form
 	$('form#dwqa-search input').autocomplete({
+		appendTo: 'form#dwqa-search',
 		source: function( request, resp ) {
 			$.ajax({
 				url: dwqa.ajax_url,
@@ -32,13 +33,11 @@ jQuery(function($){
 		},
 		open: function( e, ui ) {
 			var acData = $(this).data( 'uiAutocomplete' );
-			acData.menu.element.find('li').each(function(){
+			acData.menu.element.addClass('dwqa-autocomplete').find('li').each(function(){
 				var $self = $(this),
 					keyword = $.trim( acData.term ).split(' ').join('|');
 					$self.html( $self.text().replace( new RegExp( "(" + keyword + ")", "gi" ), '<span class="dwqa-text-highlight">$1</span>' ) );
 			});
-
-			$(this).data("ui-autocomplete").menu.element.addClass("dwqa-autocomplete");
 		}
 	});
 	

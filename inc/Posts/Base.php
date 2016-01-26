@@ -242,14 +242,14 @@ function dwqa_get_latest_action_date( $question = false, $before = '<span>', $af
 	);
 	
 	if ( $last_activity_date && $post->last_activity_type == 'answer' ) {
-		$date = dwqa_human_time_diff( strtotime( $last_activity_date ), false, get_option( 'date_format' ) );
-		return sprintf( __( '%s answered <span class="dwqa-date">%s</span>', 'dwqa' ), $author_link, $date );
+		$date = human_time_diff( strtotime( $last_activity_date ), current_time( 'timestamp' ) );
+		return sprintf( __( '%s answered <span class="dwqa-date">%s</span> ago', 'dwqa' ), $author_link, $date );
 	}
 
 	if ( 'dwqa-answer' == get_post_type( $question ) ) {
-		return sprintf( __( '%s answered <span class="dwqa-date">%s</span>', 'dwqa' ), $author_link, dwqa_human_time_diff( strtotime( get_the_date() ), false, get_option( 'date_format' ) ) );
+		return sprintf( __( '%s answered <span class="dwqa-date">%s</span> ago', 'dwqa' ), $author_link, human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) );
 	}
-	return sprintf( __( '%s asked <span class="dwqa-date">%s</span>', 'dwqa' ), $author_link, dwqa_human_time_diff( strtotime( get_the_date() ), false, get_option( 'date_format' ) ) );
+	return sprintf( __( '%s asked <span class="dwqa-date">%s</span> ago', 'dwqa' ), $author_link, human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) );
 }
 
 class DWQA_Posts_Base {

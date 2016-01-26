@@ -287,6 +287,7 @@
 	padding: 10px;
 	cursor: pointer;
 	border-bottom: 1px solid #ddd;
+	margin: 0;
 }
 
 .dwqa-search .dwqa-autocomplete .dwqa-text-highlight {

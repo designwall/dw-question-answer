@@ -7,6 +7,7 @@
 .dwqa-question-item {
 	padding: 0 0 0 70px;
 	position: relative;
+	margin-bottom: 0;
 }
 
 .dwqa-question-item .avatar {
@@ -74,6 +75,11 @@
 	float: right;
 }
 
+.dwqa-question-content img {
+	max-width: 100%;
+	height: auto;
+}
+
 /**
  * Answers
  *
@@ -88,6 +94,7 @@
 	padding: 20px 0 20px 70px;
 	position: relative;
 	border-top: 1px solid #ddd;
+	min-height: 140px;
 }
 
 .dwqa-answer-item .avatar {
@@ -155,6 +162,11 @@
 	float: right;
 }
 
+.dwqa-answer-content img {
+	max-width: 100%;
+	height: auto;
+}
+
 .dwqa-answer-form-title {
 	border-top: 1px solid #ddd;
 	padding: 10px 0;
@@ -164,9 +176,16 @@
 	text-align: right;
 }
 
+.dwqa-answer-form .dwqa-select {
+	float: left;
+}
+
 .dwqa-answer-form textarea {
-	width: 100%;
+	width: 100% !important;
 	margin-bottom: 20px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
 }
 
 /**
@@ -203,6 +222,9 @@
 .dwqa-comment-form .comment-form textarea {
 	background: #fff;
 	width: 100% !important;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
 }
 
 .dwqa-comment-form .comment-form input {
@@ -353,6 +375,8 @@
  * -----------------------------------------------------------------------------
  */
 
-.single .dwqa-questions-item {
-	min-height: 160px;
+.single .dwqa-question-item {
+	min-height: 140px;
+	margin-bottom: 0 !important;
+	border-bottom: none !important;
 }

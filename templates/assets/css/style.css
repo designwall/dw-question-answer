@@ -206,12 +206,12 @@
 }
 
 .dwqa-comment-form .comment-form input {
-	margin-top: 10px;
-	display: none;
+	margin-top: 10px !important;
+	display: none !important;
 }
 
 .dwqa-comment-form .comment-form textarea:focus + input {
-	display: block;
+	display: block !important;
 }
 
 .dwqa-comment-form textarea {
@@ -232,10 +232,52 @@
 /* Question Search */
 .dwqa-search {
 	margin-bottom: 20px;
+	position: relative;
 }
 
 .dwqa-search input {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	padding-right: 40px;
 	width: 100%;
+	margin-bottom: 0 !important;
+	background: url(../img/icon-search.png) no-repeat right 10px center !important;
+}
+
+.dwqa-search input.ui-autocomplete-loading {
+	background-image: url(../img/icon-loading.gif) !important;
+}
+
+.dwqa-search .dwqa-autocomplete {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	background: #f9f9f9;
+	left: 0 !important;
+	position: absolute !important;
+	right: 0 !important;
+	top: auto !important;
+	z-index: 9999;
+}
+
+.dwqa-search .dwqa-autocomplete li {
+	padding: 10px;
+	cursor: pointer;
+	border-bottom: 1px solid #ddd;
+}
+
+.dwqa-search .dwqa-autocomplete .dwqa-text-highlight {
+	font-weight: bold;
+}
+
+.dwqa-search .dwqa-autocomplete li.ui-state-focus,
+.dwqa-search .dwqa-autocomplete li:hover {
+	background: #f0f0f0;
+}
+
+.dwqa-search .dwqa-autocomplete li:last-child {
+	border-bottom: 0;
 }
 
 /* Question Filter */
@@ -255,6 +297,10 @@
 
 .dwqa-question-filter a.active {
 	border-bottom: 1px solid #ddd !important;
+}
+
+.dwqa-question-filter .dwqa-sort-by {
+	float: right;
 }
 
 /* Question List */

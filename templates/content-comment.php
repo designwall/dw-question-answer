@@ -14,5 +14,5 @@
 		<?php printf( _x( '%s ago', '%s = human-readable time difference', 'your-text-domain' ), human_time_diff( get_comment_time( 'U' ), current_time( 'timestamp' ) ) ); ?>
 		<?php edit_comment_link( __( 'Edit', 'dwqa' ), '  ', '' ); ?>
 	</div>
-	<?php comment_text(); ?>
+	<?php echo dwqa_comment_get_content(); ?>
 </div>

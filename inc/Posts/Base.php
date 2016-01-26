@@ -172,6 +172,36 @@ function dwqa_is_anonymous( $post_id = 0 ) {
 	return false;
 }
 
+function dwqa_answer_get_edit_content( $post_id = false ) {
+	if ( ! $post_id ) {
+		$post_id = get_the_ID();
+	}
+
+	$content = get_post_field( 'post_content', $post_id );
+
+	return apply_filters( 'dwqa_answer_get_edit_content', $content, $post_id );
+}
+
+function dwqa_question_get_edit_content( $post_id = false ) {
+	if ( ! $post_id ) {
+		$post_id = get_the_ID();
+	}
+
+	$content = get_post_field( 'post_content', $post_id );
+
+	return apply_filters( 'dwqa_question_get_edit_content', $content, $post_id );
+}
+
+function dwqa_question_get_edit_title( $post_id = false ) {
+	if ( $post_id ) {
+		$post_id = get_the_ID();
+	}
+
+	$title = get_the_title( $post_id );
+
+	return apply_filters( 'dwqa_question_get_edit_title', $title, $post_id );
+}
+
 
 
 function dwqa_get_latest_action_date( $question = false, $before = '<span>', $after = '</span>' ){

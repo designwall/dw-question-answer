@@ -97,6 +97,20 @@ function dwqa_question_views_count( $question_id = null ) {
 	}
 }
 
+function dwqa_question_get_tags_list( $post_id = false ) {
+	if ( ! $post_id ) {
+		$post_id = get_the_ID();
+	}
+
+	$tags = wp_get_post_terms( $post_id, 'dwqa-question_tag' );
+	$list = array();
+	foreach( $tags as $tag ) {
+		$list[] = $tag->name;
+	}
+
+	// $list = ex
+}
+
 class DWQA_Posts_Question extends DWQA_Posts_Base {
 
 	public function __construct() {

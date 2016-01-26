@@ -202,8 +202,6 @@ function dwqa_question_get_edit_title( $post_id = false ) {
 	return apply_filters( 'dwqa_question_get_edit_title', $title, $post_id );
 }
 
-
-
 function dwqa_get_latest_action_date( $question = false, $before = '<span>', $after = '</span>' ){
 	if ( ! $question ) {
 		$question = get_the_ID();

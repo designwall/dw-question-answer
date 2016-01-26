@@ -11,14 +11,22 @@ jQuery(function($){
 				data: {
 					action: 'dwqa-auto-suggest-search-result',
 					title: request.term,
-					nonce: $('form#dwqa-search #_dwqa_filter_nonce').val()
+					nonce: $('form#dwqa-search input').data('nonce')
 				},
 				success: function( data ) {
+					console.log( data );
 					resp( $.map( data.data, function( item ) {
-						return {
-							label: item.title,
-							value: item.title,
-							url: item.url,
+						if ( true == data.success ) {
+							return {
+								label: item.title,
+								value: item.title,
+								url: item.url,
+							}
+						} else {
+							return {
+								label: item.message,
+								value: item.message
+							}
 						}
 					}))
 				}

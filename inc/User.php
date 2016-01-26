@@ -139,6 +139,42 @@ function dwqa_is_followed( $post_id = false, $user_id = false ) {
 	return false;
 }
 
+function dwqa_get_author( $post_id = false ) {
+	if ( !$post_id ) {
+		$post_id = get_the_ID();
+	}
+
+	$display_name = false;
+	if ( dwqa_is_anonymous( $post_id ) ) {
+		$anonymous_name = get_post_meta( $post_id, '_dwqa_anonymous_name', true );
+		if ( $anonymous_name ) {
+			$display_name = $anonymous_name;
+		} else {
+			$display_name = __( 'Anonymous', 'dwqa' );
+		}
+	} else {
+		$user_id = get_post_field( 'post_author', $post_id );
+		$display_name = get_the_author_meta( 'display_name', $user_id );
+	}
+
+	return apply_filters( 'dwqa_get_author', $display_name, $post_id );
+}
+
+function dwqa_get_author_link( $user_id = false ) {
+	if ( $user_id ) {
+		return false;
+	}
+	global $dwqa_general_settings;
+	$user = get_user_by( 'id', $user_id );
+	$question_link = isset( $dwqa_general_settings['pages']['archive-question'] ) ? get_permalink( $dwqa_general_settings['pages']['archive-question'] ) : false;
+
+	if ( $question_link ) {
+		return add_query_arg( array( 'user' => urlencode( $user->user_login ) ), $question_link );
+	} else {
+		return get_the_author_link( $user_id );
+	}
+}
+
 class DWQA_User { 
 	public function __construct() {
 		// Do something about user roles, permission login, profile setting

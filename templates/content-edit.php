@@ -20,6 +20,7 @@
 		<?php $content = call_user_func( 'dwqa_' . $type . '_get_edit_content' ); ?>
 		<?php dwqa_init_tinymce_editor( array( 'content' => $content, 'textarea_name' => $type . '_content' ) ) ?>
 	</p>
+	<?php if ( 'dwqa-question' == get_post_type() ) : ?>
 	<p>
 		<?php $category = wp_get_post_terms( get_the_ID(), 'dwqa-question_category' ); ?>
 		<?php 
@@ -35,7 +36,8 @@
 		?>
 	</p>
 	<p>
-	
+		
 	</p>
+	<?php endif; ?>
 	<input type="submit" name="dwqa-submit" value="<?php _e( 'Save Changes', 'dwqa' ) ?>" >
 </form>

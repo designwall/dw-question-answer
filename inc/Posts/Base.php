@@ -245,7 +245,11 @@ function dwqa_get_latest_action_date( $question = false, $before = '<span>', $af
 		$date = dwqa_human_time_diff( strtotime( $last_activity_date ), false, get_option( 'date_format' ) );
 		return sprintf( __( '%s answered <span class="dwqa-date">%s</span>', 'dwqa' ), $author_link, $date );
 	}
-	return sprintf( __( '%s asked <span class="dwqa-date">%s</span>', 'dwqa' ), $author_link, get_the_date() );
+
+	if ( 'dwqa-answer' == get_post_type( $question ) ) {
+		return sprintf( __( '%s answered <span class="dwqa-date">%s</span>', 'dwqa' ), $author_link, dwqa_human_time_diff( strtotime( get_the_date() ), false, get_option( 'date_format' ) ) );
+	}
+	return sprintf( __( '%s asked <span class="dwqa-date">%s</span>', 'dwqa' ), $author_link, dwqa_human_time_diff( strtotime( get_the_date() ), false, get_option( 'date_format' ) ) );
 }
 
 class DWQA_Posts_Base {

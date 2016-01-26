@@ -8,19 +8,19 @@ function dwqa_breadcrumb() {
 	echo '<div class="dwqa-breadcrumbs">';
 	$title = get_the_title( $dwqa_general_settings['pages']['archive-question'] );
 	$term = get_query_var( 'dwqa-question_category' ) ? get_query_var( 'dwqa-question_category' ) : ( get_query_var( 'dwqa-question_tag' ) ? get_query_var( 'dwqa-question_tag' ) : false );
-	if ( !$term && !is_singular( 'dwqa-question' ) ) {
-		echo '<span class="dwqa-current">' . $title . '</span>';
-	} else {
+	if ( $term || is_singular( 'dwqa-question' ) ) {
 		echo '<a href="'. get_permalink( $dwqa_general_settings['pages']['archive-question'] ) .'">' . $title . '</a>';
 	}
 
 	if ( $term ) {
 		$term = get_term_by( 'slug', $term, get_query_var( 'taxonomy' ) );
+		$tax_name = explode( '_', get_query_var( 'taxonomy' ) );
+		$tax_name = ucwords( $tax_name[1] );
 		echo '<span class="dwqa-sep"> &rsaquo; </span>';
 		if ( is_singular( 'dwqa-question' ) ) {
-			echo '<a href="'. esc_url( get_term_link( $term, get_query_var( 'taxonomy' ) ) ) .'">' . $term->name . '</a>';
+			echo '<a href="'. esc_url( get_term_link( $term, get_query_var( 'taxonomy' ) ) ) .'">' . $tax_name . ': ' . $term->name . '</a>';
 		} else {
-			echo '<span class="dwqa-current">' . $term->name . '</span>';
+			echo '<span class="dwqa-current">' . $tax_name . ': ' . $term->name . '</span>';
 		}
 	}
 
@@ -32,6 +32,7 @@ function dwqa_breadcrumb() {
 	echo '</div>';
 }
 add_action( 'dwqa_before_questions_archive', 'dwqa_breadcrumb' );
+add_action( 'dwqa_before_single_question', 'dwqa_breadcrumb' );
 
 function dwqa_archive_question_filter_layout() {
 	global $dwqa_general_settings;
@@ -61,8 +62,7 @@ add_action( 'dwqa_before_questions_archive', 'dwqa_archive_question_filter_layou
 function dwqa_search_form() {
 	?>
 	<form id="dwqa-search" class="dwqa-search">
-		<input type="text" placeholder="<?php _e( 'What do you want to know?', 'dwqa' ); ?>">
-		<?php wp_nonce_field( '_dwqa_filter_nonce', '_dwqa_filter_nonce' ); ?>
+		<input data-nonce="<?php echo wp_create_nonce( '_dwqa_filter_nonce' ) ?>" type="text" placeholder="<?php _e( 'What do you want to know?', 'dwqa' ); ?>" name="qs" value="<?php echo isset( $_GET['qs'] ) ? $_GET['qs'] : '' ?>">
 	</form>
 	<?php
 }

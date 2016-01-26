@@ -9,7 +9,8 @@
 <div class="dwqa-question-item">
 	<header class="dwqa-question-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></header>
 	<div class="dwqa-question-meta">
-		<?php echo dwqa_get_latest_action_date(); ?>
+		<?php $user_id = get_post_field( 'post_author', get_the_ID() ) ? get_post_field( 'post_author', get_the_ID() ) : false ?>
+		<?php printf( '<span><a href="%s">%s</a> %s</span>', dwqa_get_author_link( $user_id ), dwqa_get_author(), human_time_diff( get_post_time( 'U' ) ) ) ?>
 	</div>
 	<div class="dwqa-question-stats">
 		<span class="dwqa-views-count">

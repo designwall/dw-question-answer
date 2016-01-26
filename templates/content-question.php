@@ -6,7 +6,7 @@
  * @since DW Question & Answer 1.4.0
  */
 ?>
-<article class="dwqa-question-item">
+<div class="dwqa-question-item">
 	<header class="dwqa-question-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></header>
 	<div class="dwqa-question-meta">
 		<?php echo dwqa_get_latest_action_date(); ?>
@@ -25,4 +25,4 @@
 			<?php printf( __( '<strong>%1$s</strong> votes', 'dwqa' ), $vote_count ); ?>
 		</span>
 	</div>
-</article>
+</div>

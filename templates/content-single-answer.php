@@ -6,7 +6,7 @@
  * @since DW Question & Answer 1.4.0
  */
 ?>
-<article class="dwqa-answer-item">
+<div class="dwqa-answer-item">
 	<div class="dwqa-answer-vote">
 		<span class="dwqa-vote-count">0</span>
 		<a class="dwqa-vote dwqa-vote-up" href="#"><?php _e( 'Vote Up', 'dwqa' ); ?></a>
@@ -18,4 +18,4 @@
 	</div>
 	<div class="dwqa-answer-content"><?php the_content(); ?></div>
 	<?php comments_template(); ?>
-</article>
+</div>

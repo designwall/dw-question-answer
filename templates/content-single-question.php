@@ -8,7 +8,7 @@
 ?>
 
 <?php do_action( 'dwqa_before_single_question_content' ); ?>
-<article class="dwqa-question-item">
+<div class="dwqa-question-item">
 	<div class="dwqa-question-vote">
 		<span class="dwqa-vote-count">0</span>
 		<a class="dwqa-vote dwqa-vote-up" href="#"><?php _e( 'Vote Up', 'dwqa' ); ?></a>
@@ -23,5 +23,5 @@
 		<div class="dwqa-question-meta"><?php echo get_the_term_list( get_the_ID(), 'dwqa-question_tag', __( 'Question Tagged: ', 'dwqa' ) , ', ' ); ?></div>
 	</footer>
 	<?php comments_template(); ?>
-</article>
+</div>
 <?php do_action( 'dwqa_after_single_question_content' ); ?>

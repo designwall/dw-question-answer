@@ -9,10 +9,17 @@ function dwqa_question_print_status( $question_id = false, $echo = true ) {
 
 	$status = get_post_meta( $question_id, '_dwqa_status', true );
 
-	if ( $echo ) {
-		echo '<span title="'.strtoupper( $status ).'" class="dwqa-status dwqa-status-'.$status.'">'.strtoupper( $status ).'</span>';    
+	if ( $status == 'answered' ) {
+		$status = false;
 	}
-	return '<span title="'.strtoupper( $status ).'" class="dwqa-status dwqa-status-'.$status.'">'.strtoupper( $status ).'</span>';
+
+	if ( $status ) {
+		if ( $echo ) {
+			echo '<span title="'.ucwords( $status ).'" class="dwqa-status dwqa-status-'.$status.'">'.ucwords( $status ).'</span>';
+			return;
+		}
+		return '<span title="'.ucwords( $status ).'" class="dwqa-status dwqa-status-'.$status.'">'.ucwords( $status ).'</span>';
+	}
 }
 
 // Detect resolved question

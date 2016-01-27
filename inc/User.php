@@ -228,7 +228,7 @@ function dwqa_get_user_question_subscribes( $user_id = false ) {
 add_action( 'init', 'dwqa_debug' );
 function dwqa_debug(){
 	if ( isset( $_GET['test']) ) {
-		print_r( dwqa_get_user_question_subscribes( get_current_user_id() ) );
+		print_r( get_option( 'page_on_front' ) );
 		die();
 	}
 }

@@ -12,7 +12,9 @@
 		<?php do_action( 'dwqa_before_questions_list' ) ?>
 		<?php if ( have_posts() ) : ?>
 			<?php while ( have_posts() ) : the_post(); ?>
-				<?php dwqa_load_template( 'content', 'question' ) ?>
+				<?php if ( ( ( 'private' == get_post_status() || 'pending' == get_post_status() ) && ( dwqa_current_user_can( 'edit_answer' ) || dwqa_current_user_can( 'edit_question', $question_id ) ) ) || 'publish' == get_post_status() ) : ?>
+					<?php dwqa_load_template( 'content', 'question' ) ?>
+				<?php endif; ?>
 			<?php endwhile; ?>
 			<?php the_posts_pagination( array( 'mid_size' => 4 ) ); ?>
 		<?php else : ?>

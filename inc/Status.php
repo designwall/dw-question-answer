@@ -2,24 +2,17 @@
 /**
  * Control all status 
  */
-function dwqa_question_print_status( $question_id, $echo = true ) {
-	$status = get_post_meta( $question_id, '_dwqa_status', true );
-	if ( $status == 'open' || $status == 're-open' ) {
-		if ( dwqa_is_answered( $question_id, $status ) ) {
-			$status = 'answered';
-			update_post_meta( $question_id, '_dwqa_status', 'answered' );
-		} elseif ( dwqa_is_new( $question_id, $status ) ) {
-			$status .= ' status-new';
-		} elseif ( dwqa_current_user_can( 'edit_question' ) && dwqa_is_overdue( $question_id ) ) { 
-			// Add overdue alert for admin
-			$status .= ' status-overdue';
-		}
+function dwqa_question_print_status( $question_id = false, $echo = true ) {
+	if ( !$question_id ) {
+		$question_id = get_the_ID();
 	}
 
+	$status = get_post_meta( $question_id, '_dwqa_status', true );
+
 	if ( $echo ) {
-		echo '<span  data-toggle="tooltip" data-placement="left" title="'.strtoupper( $status ).'" class="dwqa-status status-'.$status.'">'.strtoupper( $status ).'</span>';    
+		echo '<span title="'.strtoupper( $status ).'" class="dwqa-status dwqa-status-'.$status.'">'.strtoupper( $status ).'</span>';    
 	}
-	return '<span  data-toggle="tooltip" data-placement="left" class="entry-status title="'.strtoupper( $status ).'" status-'.$status.'">'.strtoupper( $status ).'</span>';
+	return '<span title="'.strtoupper( $status ).'" class="dwqa-status dwqa-status-'.$status.'">'.strtoupper( $status ).'</span>';
 }
 
 // Detect resolved question
@@ -209,30 +202,34 @@ function dwqa_have_new_comment( $question_id = false ) {
 // End statuses of admin
 
 // Get new reply
-function dwqa_get_latest_answer( $question_id ) {
+function dwqa_get_latest_answer( $question_id = false ) {
+	if ( !$question_id ) {
+		$question_id = get_the_ID();
+	}
+
 	// When we get latest answer by normal query it take a long time to query into database so i will try to setup transien here to improve it. Of course we will use another cache plugin for QA site in additional
 	$latest = get_transient( 'dwqa_latest_answer_for_' . $question_id );
 	if ( false === $latest ) {
 		$args = array(
-			'post_type' => 'dwqa-answer',
-			'meta_query' => array(
+			'post_type' 		=> 'dwqa-answer',
+			'meta_query' 		=> array(
 				array(
-					'key' => '_question',
-					'value' => array( $question_id ),
-					'compare' => 'IN',
+					'key' 		=> '_question',
+					'value' 	=> $question_id,
+					'compare' 	=> '=',
 				),
 			),
-			'post_status'    => 'publish,private',
-	    	'numberposts' => 1,
+			'post_status'    	=> 'public,private',
+	    	'numberposts' 		=> 1,
 		);
-		$recent_answers = wp_get_recent_posts( $args, 'OBJECT' );
+		$recent_answers = wp_get_recent_posts( $args, OBJECT );
 		if ( count( $recent_answers ) > 0 ) {
 			$latest = $recent_answers[0];
 			// This cache need to be update when new answer is added
-			set_transient( 'dwqa_latest_answer_for_' . $question_id, $latest, 60*60*6 );
+			set_transient( 'dwqa_latest_answer_for_' . $question_id, $latest, 450 );
 		}
 	}
-	
+
 	return $latest;
 }
 

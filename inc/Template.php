@@ -7,19 +7,22 @@ function dwqa_breadcrumb() {
 	global $dwqa_general_settings;
 	echo '<div class="dwqa-breadcrumbs">';
 	$title = get_the_title( $dwqa_general_settings['pages']['archive-question'] );
-	
+	$search = isset( $_GET['qs'] ) ? $_GET['qs'] : false;
+	$author = isset( $_GET['user'] ) ? $_GET['user'] : false;
 	if ( !is_singular( 'dwqa-question' ) ) {
 		$term = get_query_var( 'dwqa-question_category' ) ? get_query_var( 'dwqa-question_category' ) : ( get_query_var( 'dwqa-question_tag' ) ? get_query_var( 'dwqa-question_tag' ) : false );
 		$term = get_term_by( 'slug', $term, get_query_var( 'taxonomy' ) );
 		$tax_name = 'dwqa-question_tag' == get_query_var( 'taxonomy' ) ? __( 'Tag', 'dwqa' ) : __( 'Cateogry', 'dwqa' );
 	} else {
 		$term = wp_get_post_terms( get_the_ID(), 'dwqa-question_category' );
-		$term = $term[0];
-		$tax_name = __( 'Category', 'dwqa' );
+		if ( $term ) {
+			$term = $term[0];
+			$tax_name = __( 'Category', 'dwqa' );
+		}
 	}
 
-	if ( $term || is_singular( 'dwqa-question' ) ) {
-		echo '<a href="'. get_permalink( $dwqa_general_settings['pages']['archive-question'] ) .'">' . $title . '</a>';
+	if ( $term || is_singular( 'dwqa-question' ) || $search || $author ) {
+		echo '<a href="'. get_permalink( $dwqa_general_settings['pages']['archive-question'] ) .'">' . $title . '<a/a>';
 	}
 
 	if ( $term ) {
@@ -31,10 +34,14 @@ function dwqa_breadcrumb() {
 		}
 	}
 
-	$search = isset( $_GET['qs'] ) ? $_GET['qs'] : false;
-
 	if ( $search ) {
+		echo '<span class="dwqa-sep"> &rsaquo; </span>';
 		printf( '<span class="dwqa-current">%s "%s"</span>', __( 'Showing search results for', 'dwqa' ), rawurldecode( $search ) );
+	}
+
+	if ( $author ) {
+		echo '<span class="dwqa-sep"> &rsaquo; </span>';
+		printf( '<span class="dwqa-current">%s "%s"</span>', __( 'Author', 'dwqa' ), rawurldecode( $author ) );
 	}
 
 	if ( is_singular( 'dwqa-question' ) ) {
@@ -55,11 +62,14 @@ function dwqa_archive_question_filter_layout() {
 	?>
 	<div class="dwqa-question-filter">
 		<span><?php _e( 'Filter:', 'dwqa' ); ?></span>
-		<a href="<?php echo esc_url( add_query_arg( array( 'filter' => 'all' ) ) ) ?>" class="<?php echo 'all' == $filter ? 'active' : '' ?>"><?php _e( 'All', 'dwqa' ); ?></a>
-		<a href="<?php echo esc_url( add_query_arg( array( 'filter' => 'open' ) ) ) ?>" class="<?php echo 'open' == $filter ? 'active' : '' ?>"><?php _e( 'Open', 'dwqa' ); ?></a>
-		<a href="<?php echo esc_url( add_query_arg( array( 'filter' => 'resolved' ) ) ) ?>" class="<?php echo 'resolved' == $filter ? 'active' : '' ?>"><?php _e( 'Resolved', 'dwqa' ); ?></a>
-		<a href="<?php echo esc_url( add_query_arg( array( 'filter' => 'closed' ) ) ) ?>" class="<?php echo 'closed' == $filter ? 'active' : '' ?>"><?php _e( 'Closed', 'dwqa' ); ?></a>
-		<a href="<?php echo esc_url( add_query_arg( array( 'filter' => 'unanswered' ) ) ) ?>" class="<?php echo 'unanswered' == $filter ? 'active' : '' ?>"><?php _e( 'Unanswered', 'dwqa' ); ?></a>
+		<?php if ( !isset( $_GET['user'] ) ) : ?>
+			<a href="<?php echo esc_url( add_query_arg( array( 'filter' => 'open' ) ) ) ?>" class="<?php echo 'open' == $filter ? 'active' : '' ?>"><?php _e( 'Open', 'dwqa' ); ?></a>
+			<a href="<?php echo esc_url( add_query_arg( array( 'filter' => 'resolved' ) ) ) ?>" class="<?php echo 'resolved' == $filter ? 'active' : '' ?>"><?php _e( 'Resolved', 'dwqa' ); ?></a>
+			<a href="<?php echo esc_url( add_query_arg( array( 'filter' => 'closed' ) ) ) ?>" class="<?php echo 'closed' == $filter ? 'active' : '' ?>"><?php _e( 'Closed', 'dwqa' ); ?></a>
+		<?php else : ?>
+			<a href="<?php echo esc_url( add_query_arg( array( 'filter' => 'questions' ) ) ) ?>" class="<?php echo 'questions' == $filter ? 'active' : '' ?>"><?php _e( 'Questions', 'dwqa' ); ?></a>
+			<a href="<?php echo esc_url( add_query_arg( array( 'filter' => 'subscribes' ) ) ) ?>" class="<?php echo 'subscribes' == $filter ? 'active' : '' ?>"><?php _e( 'Subscribes', 'dwqa' ); ?></a>
+		<?php endif; ?>
 		<select id="dwqa-sort-by" class="dwqa-sort-by" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
 			<option selected disabled><?php _e( 'Sort by', 'dwqa' ); ?></option>
 			<option <?php selected( $sort, 'views' ) ?> value="<?php echo esc_url( add_query_arg( array( 'sort' => 'views' ) ) ) ?>"><?php _e( 'Views', 'dwqa' ) ?></option>

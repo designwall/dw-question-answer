@@ -139,6 +139,13 @@ function dwqa_is_followed( $post_id = false, $user_id = false ) {
 	return false;
 }
 
+/**
+* Get username
+*
+* @param int $post_id
+* @return string
+* @since 1.4.0
+*/
 function dwqa_get_author( $post_id = false ) {
 	if ( !$post_id ) {
 		$post_id = get_the_ID();
@@ -160,6 +167,13 @@ function dwqa_get_author( $post_id = false ) {
 	return apply_filters( 'dwqa_get_author', $display_name, $post_id );
 }
 
+/**
+* Get user's profile link
+*
+* @param int $user_id
+* @return string
+* @since 1.4.0
+*/
 function dwqa_get_author_link( $user_id = false ) {
 	if ( ! $user_id ) {
 		return false;
@@ -172,6 +186,50 @@ function dwqa_get_author_link( $user_id = false ) {
 		return add_query_arg( array( 'user' => urlencode( $user->user_login ) ), $question_link );
 	} else {
 		return get_the_author_link( $user_id );
+	}
+}
+
+
+/**
+* Get question ids user is subscribing
+*
+* @param int $user_id
+* @return array
+* @since 1.4.0
+*/
+function dwqa_get_user_question_subscribes( $user_id = false ) {
+	if ( !$user_id ) {
+		return array();
+	}
+
+	$args = array(
+		'post_type' 				=> 'dwqa-question',
+		'fields' 					=> 'ids',
+		'update_post_term_cache' 	=> false,
+		'update_post_meta_cache' 	=> false,
+		'no_found_rows' 			=> true,
+		'meta_query'				=> array(
+			'key'					=> '_dwqa_followers',
+			'value'					=> $user_id,
+			'compare'				=> '='
+		)
+	);
+
+	$question_id = wp_cache_get( '_dwqa_user_'. $user_id .'_question_subscribes' );
+
+	if ( ! $question_id ) {
+		$question_id = get_posts( $args );
+		wp_cache_set( '_dwqa_user_'. $user_id .'_question_subscribes', $question_id, false, 450 );
+	}
+
+	return $question_id;
+}
+
+add_action( 'init', 'dwqa_debug' );
+function dwqa_debug(){
+	if ( isset( $_GET['test']) ) {
+		print_r( dwqa_get_user_question_subscribes( get_current_user_id() ) );
+		die();
 	}
 }
 

@@ -487,16 +487,43 @@ class DWQA_Filter {
 		}
 	}
 
+	public function get_questions_id_from_answer_user( $user_id = false, $posts_per_page = 5, $paged = 1 ) {
+		if ( !$user_id ) {
+			return false;
+		}
+
+		$args = array(
+			'post_type' 				=> 'dwqa-answer',
+			'posts_per_page' 			=> $posts_per_page,
+			'paged' 					=> $paged,
+			'author' 					=> $user_id,
+			'fields' 					=> 'ids',
+			'update_post_term_cache' 	=> false,
+			'update_post_meta_cache' 	=> false,
+			'no_found_rows' 			=> true
+		);
+
+		return new WP_Query( $args );
+	}
+
 	public function prepare_archive_posts() {
 		global $wp_query,$dwqa_general_settings;
-		
+
 		$posts_per_page = isset( $dwqa_general_settings['posts-per-page'] ) ?  $dwqa_general_settings['posts-per-page'] : 5;
+		$user = isset( $_GET['user'] ) && !empty( $_GET['user'] ) ? urldecode( $_GET['user'] ) : false;
+		$filter = isset( $_GET['filter'] ) && !empty( $_GET['filter'] ) ? $_GET['filter'] : 'all';
+		$search_text = isset( $_GET['qs'] ) ? $_GET['qs'] : false;
+		$sort = isset( $_GET['sort'] ) ? $_GET['sort'] : '';
 		$query = array(
 			'post_type' => 'dwqa-question',
 			'posts_per_page' => $posts_per_page,
 			'orderby'	=> 'modified',
 		);
+
+		$paged = get_query_var( 'paged' );
+		$query['paged'] = $paged ? $paged : 1; 
 		
+		// filter by category
 		$cat = get_query_var( 'dwqa-question_category' ) ? get_query_var( 'dwqa-question_category' ) : false;
 		if ( $cat ) {
 			$query['tax_query'][] = array(
@@ -506,6 +533,7 @@ class DWQA_Filter {
 			);
 		}
 
+		// filter by tags
 		$tag = get_query_var( 'dwqa-question_tag' ) ? get_query_var( 'dwqa-question_tag' ) : false;
 		if ( $tag ) {
 			$query['tax_query'][] = array(
@@ -515,66 +543,72 @@ class DWQA_Filter {
 			);
 		}
 
-		$sort = isset( $_GET['sort'] ) ? $_GET['sort'] : '';
+
+		// filter by user
+		if ( $user ) {
+			$user = get_user_by( 'login', $user );
+			$query['author'] = $user->ID;
+		}
+
 
 		switch ( $sort ) {
+			// sort by views count
 			case 'views':
 				$query['meta_key'] = '_dwqa_views';
 				$query['orderby'] = 'meta_value_num';
 				break;
 
+			// sort by answers count
 			case 'answers':
 				$query['meta_key'] = '_dwqa_answers_count';
 				$query['orderby'] = 'meta_value_num';
 				break;
 
+			// sort by votes count
 			case 'votes':
 				$query['meta_key'] = '_dwqa_votes';
 				$query['orderby'] = 'meta_value_num';
 				break;
 		}
 
-		$filter = isset( $_GET['filter'] ) && !empty( $_GET['filter'] ) ? $_GET['filter'] : 'all';
-
+		// filter by status
 		switch ( $filter ) {
 			case 'open':
-				$args['meta_query'][] = array(
+				$query['meta_query'][] = array(
 				   'key' => '_dwqa_status',
 				   'value' => array( 'open', 're-open' ),
 				   'compare' => 'IN',
 				);
 				break;
 			case 'resolved':
-				$args['meta_query'][] = array(
+				$query['meta_query'][] = array(
 				   'key' => '_dwqa_status',
 				   'value' => array( 'resolved' ),
 				   'compare' => 'IN',
 				);
 				break;
 			case 'closed':
-				$args['meta_query'][] = array(
+				$query['meta_query'][] = array(
 				   'key' => '_dwqa_status',
 				   'value' => array( 'closed' ),
 				   'compare' => 'IN',
 				);
 				break;
 			case 'unanswered':
-				$args['meta_query'][] = array(
+				$query['meta_query'][] = array(
 				   'key' => '_dwqa_status',
 				   'value' => array( 'open', 'pending' ),
 				   'compare' => 'IN',
 				);
 				break;
+			case 'subscribes':
+				if ( $user ) {
+					$query['post__in'] = dwqa_get_user_question_subscribes( $user->ID );
+				}
+				break;
 		}
 
-		$user = isset( $_GET['user'] ) && !empty( $_GET['user'] ) ? urldecode( $_GET['user'] ) : false;
-
-		if ( $user ) {
-			$user = get_user_by( 'login', $user );
-			$query['author'] = $user->ID;
-		}
-
-		$search_text = isset( $_GET['qs'] ) ? $_GET['qs'] : false;
+		// search
 		if ( $search_text ) {
 			$search = sanitize_text_field( $search_text );
 			preg_match_all( '/#\S*\w/i', $search_text, $matches );
@@ -591,16 +625,17 @@ class DWQA_Filter {
 			$query['s'] = $search;
 		}
 
-		$paged = get_query_var( 'paged' );
-		$query['paged'] = $paged ? $paged : 1; 
 		$sticky_questions = get_option( 'dwqa_sticky_questions' );
 
+		// exclude sticky question
 		if ( $sticky_questions ) {
 			$query['post__not_in'] = $sticky_questions;
 		}
+
 		if ( is_user_logged_in() ) {
 			$query['post_status'] = array( 'publish', 'private', 'pending' );
 		}
+
 		query_posts( $query );
 	}
 

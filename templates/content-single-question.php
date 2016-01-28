@@ -21,7 +21,7 @@
 	</div>
 	<div class="dwqa-question-content"><?php the_content(); ?></div>
 	<footer class="dwqa-question-footer">
-		<div class="dwqa-question-meta"><?php echo get_the_term_list( get_the_ID(), 'dwqa-question_tag', __( 'Question Tagged: ', 'dwqa' ) , ', ' ); ?></div>
+		<div class="dwqa-question-meta"><?php echo get_the_term_list( get_the_ID(), 'dwqa-question_tag', __( 'Question Tags: ', 'dwqa' ) , ', ' ); ?></div>
 	</footer>
 	<?php comments_template(); ?>
 </div>

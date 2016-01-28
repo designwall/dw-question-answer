@@ -1,7 +1,7 @@
 (function($){
 
 	// Follow and Unfollow Question
-	$('span.dwqa_follow, span.dwqa_unfollow').click(function(e){
+	$('#dwqa-favorites').on('change',function(e){
 		e.preventDefault();
 		var t = $(this);
 
@@ -14,8 +14,8 @@
 
 		data = {
 			action: 'dwqa-follow-question',
-			nonce: t.parent().data('nonce'),
-			post: t.parent().data('post')
+			nonce: t.data('nonce'),
+			post: t.data('post')
 		}
 
 		$.ajax({
@@ -24,15 +24,9 @@
 			type: 'POST',
 			dataType: 'json',
 			success: function(data){
-				t.parent().addClass('processing');
+				t.parent().removeClass('processing');
 				if (true == data.success){
-					if ('followed' === data.data.code){
-						t.parent().addClass('active');
-					}
-
-					if ('unfollowed' === data.data.code){
-						t.parent().removeClass('active');
-					}
+					t.next().text(data.data.text);
 				}
 			}
 		});

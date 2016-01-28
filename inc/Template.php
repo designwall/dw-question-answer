@@ -142,13 +142,12 @@ function dwqa_question_paginate_link() {
 function dwqa_question_button_action() {
 	$html = '';
 	if ( is_user_logged_in() ) {
-		$class = dwqa_is_followed() ? 'active' : '';
-		$title = dwqa_is_followed() ? __( 'Unfollow This Question', 'dwqa' ) : __( 'Follow This Question', 'dwqa' );
-		$html .= '<span class="dwqa-favourite '. esc_html( $class ) .'" data-post="'. get_the_ID() .'" data-nonce="'. wp_create_nonce( '_dwqa_follow_question' ) .'" title="">';
-		$html .= '<span class="dwqa_follow">' . __( 'Follow', 'dwqa' ) . '</span>';
-		$html .= '<span class="dwqa_unfollow">' . __( 'Unfollow', 'dwqa' ) . '</span>';
-		$html .= '<span class="dwqa_followed">' . __( 'Followed', 'dwqa' ) . '</span>';
-		$html .= '</span>';
+		$followed = dwqa_is_followed() ? 'followed' : 'follow';
+		$text = dwqa_is_followed() ? __( 'Unsubscribe', 'dwqa' ) : __( 'Subscribe', 'dwqa' );
+		$html .= '<label for="dwqa-favorites">';
+		$html .= '<input type="checkbox" id="dwqa-favorites" data-post="'. get_the_ID() .'" data-nonce="'. wp_create_nonce( '_dwqa_follow_question' ) .'" value="'. $followed .'" '. checked( $followed, 'followed', false ) .'/>';
+		$html .= '<span>' . $text . '</span>';
+		$html .= '</label>';
 		if ( dwqa_current_user_can( 'edit_question' ) ) {
 			$html .= '<a class="dwqa_edit_question" href="'. add_query_arg( array( 'edit' => get_the_ID() ), get_permalink() ) .'">' . __( 'Edit', 'dwqa' ) . '</a> ';
 		}

@@ -12,7 +12,9 @@
 	<div class="dwqa-comment-meta">
 		<a href="<?php echo dwqa_get_author_link( $comment->user_id ); ?>"><?php the_author_meta( 'display_name', $comment->user_id ); ?></a>
 		<?php printf( _x( '%s ago', '%s = human-readable time difference', 'dwqa' ), human_time_diff( get_comment_time( 'U' ), current_time( 'timestamp' ) ) ); ?>
-		<?php edit_comment_link( __( 'Edit', 'dwqa' ), '  ', '' ); ?>
+		<div class="dwqa-comment-actions">
+			<?php edit_comment_link( __( 'Edit', 'dwqa' ), '  ', '' ); ?>
+		</div>
 	</div>
 	<?php comment_text(); ?>
 </div>

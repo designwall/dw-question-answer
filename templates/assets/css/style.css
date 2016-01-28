@@ -269,6 +269,10 @@
 	width: 100%;
 }
 
+.dwqa-comment-meta {
+	margin-bottom: 10px;
+}
+
 .dwqa-comment-actions {
 	float: right;
 }

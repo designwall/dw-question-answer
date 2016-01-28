@@ -251,6 +251,14 @@ function dwqa_get_latest_action_date( $question = false, $before = '<span>', $af
 	return sprintf( __( '%s asked <span class="dwqa-date">%s</span> ago', 'dwqa' ), $author_link, human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) );
 }
 
+function dwqa_is_edit() {
+	if ( isset( $_GET['edit'] ) && is_numeric( $_GET['edit'] ) ) {
+		return true;
+	}
+
+	return false;
+}
+
 class DWQA_Posts_Base {
 
 	private $slug;

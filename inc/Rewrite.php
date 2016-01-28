@@ -1,23 +1,8 @@
 <?php
 
-function dwqa_is_endpoint( $endpoint = false ) {
-	global $wp_query;
-
-	if ( !$endpoint ) {
-		return false;
-	}
-
-	if ( isset( $wp_query->query[ $endpoint ] ) ) {
-		return true;
-	}
-
-	return false;
-}
-
 class DWQA_Rewrite {
 	public function __construct() {
 		add_action( 'after_switch_theme', 'flush_rewrite_rules' );
-		add_action( 'init', array( $this, 'add_endpoint' ) );
 	}
 
 	function update_term_rewrite_rules() {
@@ -42,10 +27,6 @@ class DWQA_Rewrite {
 			add_permastruct( 'dwqa-question_category', "{$question_list_page->post_name}/{$rewrite_category}/%dwqa-question_category%", array( 'with_front' => false ) );
 			add_permastruct( 'dwqa-question_tag', "{$question_list_page->post_name}/{$rewrite_tag}/%dwqa-question_tag%", array( 'with_front' => false ) );
 		}
-	}
-
-	function add_endpoint() {
-		add_rewrite_endpoint( 'edit', EP_PERMALINK );
 	}
 }
 ?>

@@ -10,6 +10,7 @@ function dwqa_clear_notices() {
 	$dwqa->session->clear();
 }
 
+add_action( 'dwqa_before_edit_form', 'dwqa_print_notices' );
 add_action( 'dwqa_before_question_submit_form', 'dwqa_print_notices' );
 function dwqa_print_notices() {
 	global $dwqa;
@@ -64,7 +65,7 @@ class DWQA_Session {
 
 	public function add( $message, $type = 'success' ) {
 		if ( ! did_action( 'init' ) ) {
-			_doing_it_wrong( __FUNCTION__, __( 'This function should not be called before init.', 'dwqa' ), '1.0.0' );
+			_doing_it_wrong( __FUNCTION__, __( 'This function should not be called before init.', 'dwqa' ), '1.4.0' );
 			return;
 		}
 
@@ -79,7 +80,7 @@ class DWQA_Session {
 
 	public function clear() {
 		if ( ! did_action( 'init' ) ) {
-			_doing_it_wrong( __FUNCTION__, __( 'This function should not be called before init.', 'dwqa' ), '1.0.0' );
+			_doing_it_wrong( __FUNCTION__, __( 'This function should not be called before init.', 'dwqa' ), '1.4.0' );
 			return;
 		}
 
@@ -89,7 +90,7 @@ class DWQA_Session {
 
 	public function print_notices() {
 		if ( ! did_action( 'init' ) ) {
-			_doing_it_wrong( __FUNCTION__, __( 'This function should not be called before init.', 'dwqa' ), '1.0.0' );
+			_doing_it_wrong( __FUNCTION__, __( 'This function should not be called before init.', 'dwqa' ), '1.4.0' );
 			return;
 		}
 
@@ -101,7 +102,7 @@ class DWQA_Session {
 		foreach( $types as $type ) {
 			if ( $this->count( $type ) > 0 ) {
 				foreach( $notices[ $type ] as $message ) {
-					sprintf( '<p class="alert alert-%s">%s</p>', $type, $message );
+					return sprintf( '<p class="alert alert-%s">%s</p>', $type, $message );
 				}
 			}
 		}
@@ -111,7 +112,7 @@ class DWQA_Session {
 
 	public function count( $type = '' ) {
 		if ( ! did_action( 'init' ) ) {
-			_doing_it_wrong( __FUNCTION__, __( 'This function should not be called before init.', 'dwqa' ), '1.0.0' );
+			_doing_it_wrong( __FUNCTION__, __( 'This function should not be called before init.', 'dwqa' ), '1.4.0' );
 			return;
 		}
 

@@ -9,8 +9,8 @@ function dwqa_question_print_status( $question_id = false, $echo = true ) {
 
 	$status = get_post_meta( $question_id, '_dwqa_status', true );
 
-	if ( $status == 'answered' ) {
-		$status = false;
+	if ( $status == 'answered' || $status == 're-open' ) {
+		$status = 'open';
 	}
 
 	if ( $status ) {

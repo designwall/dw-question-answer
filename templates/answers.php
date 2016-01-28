@@ -7,18 +7,13 @@
  */
 ?>
 
-<?php
-global $wp_query;
-$answers = $wp_query->dwqa_answers;
-?>
-
 <div class="dwqa-answers">
 	<?php do_action( 'dwqa_before_answers' ) ?>
-	<?php if ( $answers->have_posts() ) : ?>
+	<?php if ( dwqa_has_answers() ) : ?>
 	<div class="dwqa-answers-title"><?php _e( '2 Answers', 'dwqa' ) ?></div>
 	<div class="dwqa-answers-list">
 		<?php do_action( 'dwqa_before_answers_list' ) ?>
-			<?php while ( $answers->have_posts() ) : $answers->the_post(); ?>
+			<?php while ( dwqa_has_answers() ) : dwqa_the_answers(); ?>
 				<?php $question_id = get_post_meta( get_the_ID(), '_question', true ) ?>
 				<?php if ( ( 'private' == get_post_status() && ( dwqa_current_user_can( 'edit_answer' ) || dwqa_current_user_can( 'edit_question', $question_id ) ) ) || 'publish' == get_post_status() ) : ?>
 					<?php dwqa_load_template( 'content', 'single-answer' ); ?>

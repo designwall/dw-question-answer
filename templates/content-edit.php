@@ -7,22 +7,25 @@
  */
 ?>
 
-<?php $type = 'dwqa-question' == get_post_type() ? 'question' : 'answer'; ?>
+<?php 
+$edit_id = isset( $_GET['edit'] ) && is_numeric( $_GET['edit'] ) ? $_GET['edit'] : false;
+if ( !$edit_id ) return;
+$type = 'dwqa-question' == get_post_type( $edit_id ) ? 'question' : 'answer';
+?>
+<?php do_action( 'dwqa_before_edit_form' ); ?>
 <form method="post">
-	<?php if ( 'dwqa-question' == get_post_type() ) : ?>
-	<?php $title = dwqa_question_get_edit_title() ?>
+	<?php if ( 'dwqa-question' == get_post_type( $edit_id ) ) : ?>
+	<?php $title = dwqa_question_get_edit_title( $edit_id ) ?>
 	<p>
 		<label><?php _e( 'Title', 'dwqa' ) ?></label>
 		<input type="text" name="question_title" value="<?php echo $title ?>" tabindex="1">
 	</p>
 	<?php endif; ?>
+	<?php $content = call_user_func( 'dwqa_' . $type . '_get_edit_content', $edit_id ); ?>
+	<?php dwqa_init_tinymce_editor( array( 'content' => $content, 'textarea_name' => $type . '_content' ) ) ?>
+	<?php if ( 'dwqa-question' == get_post_type( $edit_id ) ) : ?>
 	<p>
-		<?php $content = call_user_func( 'dwqa_' . $type . '_get_edit_content' ); ?>
-		<?php dwqa_init_tinymce_editor( array( 'content' => $content, 'textarea_name' => $type . '_content' ) ) ?>
-	</p>
-	<?php if ( 'dwqa-question' == get_post_type() ) : ?>
-	<p>
-		<?php $category = wp_get_post_terms( get_the_ID(), 'dwqa-question_category' ); ?>
+		<?php $category = wp_get_post_terms( $edit_id, 'dwqa-question_category' ); ?>
 		<?php 
 			wp_dropdown_categories( array( 
 				'name'          => 'question-category',
@@ -36,8 +39,11 @@
 		?>
 	</p>
 	<p>
-		
+		<input type="text" class="" name="question-tag" value="<?php echo dwqa_get_tag_list(); ?>" >
 	</p>
 	<?php endif; ?>
-	<input type="submit" name="dwqa-submit" value="<?php _e( 'Save Changes', 'dwqa' ) ?>" >
+	<input type="hidden" name="<?php echo $type ?>_id" value="<?php echo $edit_id ?>">
+	<?php wp_nonce_field( '_dwqa_edit_' . $type ) ?>
+	<input type="submit" name="dwqa-edit-<?php echo $type ?>-submit" value="<?php _e( 'Save Changes', 'dwqa' ) ?>" >
 </form>
+<?php do_action( 'dwqa_after_edit_form' ); ?>

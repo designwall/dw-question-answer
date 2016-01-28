@@ -81,4 +81,82 @@ function dwqa_recaptcha_check( $res ) {
 	return false;
 }
 
+/**
+* Get tags list of question
+*
+* @param int $quetion id of question
+* @param bool $echo
+* @return string
+* @since 1.4.0
+*/
+function dwqa_get_tag_list( $question = false, $echo = false ) {
+	if ( !$question ) {
+		$question = get_the_ID();
+	}
+
+	$terms = wp_get_post_terms( $question, 'dwqa-question_tag' );
+	$lists = array();
+	if ( $terms ) {
+		foreach( $terms as $term ) {
+			$lists[] = $term->name;
+		}
+	}
+
+	if ( empty( $lists ) ) {
+		$lists = '';
+	}
+
+	$lists = implode( ',', $lists );
+
+	if ( $echo ) {
+		echo $lists;
+	}
+
+	return $lists;
+}
+
+
+function dwqa_is_front_page() {
+	global $dwqa_general_settings;
+
+	if ( !$dwqa_general_settings ) {
+		$dwqa_general_settings = get_option( 'dwqa_options' );
+	}
+
+	if ( !isset( $dwqa_general_settings['pages']['archive-question'] ) ) {
+		return false;
+	}
+
+	$page_on_front = get_option( 'page_on_front' );
+
+	if ( $page_on_front === $dwqa_general_settings['pages']['archive-question'] ) {
+		return true;
+	}
+
+	return false;
+}
+
+function dwqa_has_question() {
+	global $wp_query;
+
+	return $wp_query->dwqa_questions->have_posts();
+}
+
+function dwqa_the_question() {
+	global $wp_query;
+
+	return $wp_query->dwqa_questions->the_post();
+}
+
+function dwqa_has_answers() {
+	global $wp_query;
+
+	return $wp_query->dwqa_answers->have_posts();
+}
+
+function dwqa_the_answers() {
+	global $wp_query;
+
+	return $wp_query->dwqa_answers->the_post();
+}
 ?>

@@ -203,6 +203,21 @@ function dwqa_question_answer_count_by_status( $question_id, $status = 'publish'
 	return $query->found_posts;
 }
 
+/**
+* Get question id from answer id
+*
+* @param int $answer_id
+* @return int
+* @since 1.4.0
+*/
+function dwqa_get_question_from_answer_id( $answer_id = false ) {
+	if ( !$answer_id ) {
+		$answer_id = get_the_ID();
+	}
+
+	return get_post_meta( $answer_id, '_question', true );
+}
+
 class DWQA_Posts_Answer extends DWQA_Posts_Base {
 
 	public function __construct() {
@@ -418,7 +433,55 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 	}
 
 	public function update() {
-		
+		if ( isset( $_POST['dwqa-edit-answer-submit'] ) ) {
+			if ( !dwqa_current_user_can( 'edit_answer' ) ) {
+				dwqa_add_notice( __( "You do not have permission to edit answer.", 'dwqa' ), 'error' );
+			}
+
+			if ( !isset( $_POST['_wpnonce'] ) && !wp_verify_nonce( esc_html( $_POST['_wpnonce'] ), '_dwqa_edit_answer' ) ) {
+				dwqa_add_notice( __( 'Hello, Are you cheating huh?', 'dwqa' ), 'error' );
+			}
+
+			$answer_content = apply_filters( 'dwqa_prepare_edit_answer_content', $_POST['answer_content'] );
+			if ( empty( $answer_content ) ) {
+				dwqa_add_notice( __( 'You must enter a valid answer content.', 'dwqa' ), 'error' );
+			}
+
+			$answer_id = isset( $_POST['answer_id'] ) ? $_POST['answer_id'] : false;
+
+			if ( !$answer_id ) {
+				dwqa_add_notice( __( 'Question is missing.', 'dwqa' ), 'error' );
+			}
+
+			if ( 'dwqa-answer' !== get_post_type( $answer_id ) ) {
+				dwqa_add_notice( __( 'This post is not answer.', 'dwqa' ), 'error' );
+			}
+
+			do_action( 'dwqa_prepare_update_question', $answer_id );
+
+			if ( dwqa_count_notices( 'error' ) > 0 ) {
+				return false;
+			}
+
+			$args = array(
+				'ID' => $answer_id,
+				'post_content' => $answer_content
+			);
+
+			$new_answer_id = wp_update_post( $args );
+
+			if ( !is_wp_error( $new_answer_id ) ) {
+				$old_post = get_post( $answer_id  );
+				$new_post = get_post( $new_answer_id );
+				do_action( 'dwqa_update_answer', $new_answer_id, $old_post, $new_post );
+				$question_id = get_post_meta( $new_answer_id, '_question', true );
+				wp_safe_redirect( get_permalink( $question_id ) . '#answer-' . $new_answer_id );
+			} else {
+				dwqa_add_wp_error_message( $new_answer_id );
+				return false;
+			}
+			exit();
+		}
 	}
 
 	function remove_answer() {

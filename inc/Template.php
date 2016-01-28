@@ -46,7 +46,13 @@ function dwqa_breadcrumb() {
 
 	if ( is_singular( 'dwqa-question' ) ) {
 		echo '<span class="dwqa-sep"> &rsaquo; </span>';
-		echo '<span class="dwqa-current">' . the_title() . '</span>';
+		if ( !dwqa_is_edit() ) {
+			echo '<span class="dwqa-current">' . get_the_title() . '</span>';
+		} else {
+			echo '<a href="'. get_permalink() .'">'. get_the_title() .'</a>';
+			echo '<span class="dwqa-sep"> &rsaquo; </span>';
+			echo '<span class="dwqa-current">'. __( 'Edit', 'dwqa' ) .'</span>';
+		}
 	}
 
 	echo '</div>';
@@ -63,12 +69,13 @@ function dwqa_archive_question_filter_layout() {
 	<div class="dwqa-question-filter">
 		<span><?php _e( 'Filter:', 'dwqa' ); ?></span>
 		<?php if ( !isset( $_GET['user'] ) ) : ?>
+			<a href="<?php echo esc_url( add_query_arg( array( 'filter' => 'all' ) ) ) ?>" class="<?php echo 'all' == $filter ? 'active' : '' ?>"><?php _e( 'All', 'dwqa' ); ?></a>
 			<a href="<?php echo esc_url( add_query_arg( array( 'filter' => 'open' ) ) ) ?>" class="<?php echo 'open' == $filter ? 'active' : '' ?>"><?php _e( 'Open', 'dwqa' ); ?></a>
 			<a href="<?php echo esc_url( add_query_arg( array( 'filter' => 'resolved' ) ) ) ?>" class="<?php echo 'resolved' == $filter ? 'active' : '' ?>"><?php _e( 'Resolved', 'dwqa' ); ?></a>
 			<a href="<?php echo esc_url( add_query_arg( array( 'filter' => 'closed' ) ) ) ?>" class="<?php echo 'closed' == $filter ? 'active' : '' ?>"><?php _e( 'Closed', 'dwqa' ); ?></a>
 			<a href="<?php echo esc_url( add_query_arg( array( 'filter' => 'unanswered' ) ) ) ?>" class="<?php echo 'unanswered' == $filter ? 'active' : '' ?>"><?php _e( 'Unanswered', 'dwqa' ); ?></a>
 		<?php else : ?>
-			<a href="<?php echo esc_url( add_query_arg( array( 'filter' => 'questions' ) ) ) ?>" class="<?php echo 'questions' == $filter ? 'active' : '' ?>"><?php _e( 'Questions', 'dwqa' ); ?></a>
+			<a href="<?php echo esc_url( add_query_arg( array( 'filter' => 'all' ) ) ) ?>" class="<?php echo 'all' == $filter ? 'active' : '' ?>"><?php _e( 'Questions', 'dwqa' ); ?></a>
 			<a href="<?php echo esc_url( add_query_arg( array( 'filter' => 'subscribes' ) ) ) ?>" class="<?php echo 'subscribes' == $filter ? 'active' : '' ?>"><?php _e( 'Subscribes', 'dwqa' ); ?></a>
 		<?php endif; ?>
 		<select id="dwqa-sort-by" class="dwqa-sort-by" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
@@ -115,6 +122,23 @@ function dwqa_answer_paginate_link() {
 	echo paginate_links( $args );
 }
 
+function dwqa_question_paginate_link() {
+	global $wp_query, $dwqa_general_settings;
+
+	$archive_question_url = get_permalink( $dwqa_general_settings['pages']['archive-question'] );
+	$page_text = dwqa_is_front_page() ? 'page' : 'paged';
+	$page = get_query_var( $page_text ) ? get_query_var( $page_text ) : 1;
+
+	$args = array(
+		'base' => add_query_arg( $page_text, '%#%', $archive_question_url ),
+		'format' => '',
+		'current' => $page,
+		'total' => $wp_query->dwqa_questions->max_num_pages
+	);
+
+	echo paginate_links( $args );
+}
+
 function dwqa_question_button_action() {
 	$html = '';
 	if ( is_user_logged_in() ) {
@@ -126,7 +150,7 @@ function dwqa_question_button_action() {
 		$html .= '<span class="dwqa_followed">' . __( 'Followed', 'dwqa' ) . '</span>';
 		$html .= '</span>';
 		if ( dwqa_current_user_can( 'edit_question' ) ) {
-			$html .= '<a class="dwqa_edit_question" href="'. get_permalink() .'edit/">' . __( 'Edit', 'dwqa' ) . '</a> ';
+			$html .= '<a class="dwqa_edit_question" href="'. add_query_arg( array( 'edit' => get_the_ID() ), get_permalink() ) .'">' . __( 'Edit', 'dwqa' ) . '</a> ';
 		}
 
 		if ( dwqa_current_user_can( 'delete_question' ) ) {
@@ -141,7 +165,8 @@ function dwqa_answer_button_action() {
 	$html = '';
 	if ( is_user_logged_in() ) {
 		if ( dwqa_current_user_can( 'edit_answer' ) ) {
-			$html .= '<a class="dwqa_edit_question" href="'. get_permalink() .'edit/">' . __( 'Edit', 'dwqa' ) . '</a> ';
+			$parent_id = dwqa_get_question_from_answer_id();
+			$html .= '<a class="dwqa_edit_question" href="'. add_query_arg( array( 'edit' => get_the_ID() ), get_permalink( $parent_id ) ) .'">' . __( 'Edit', 'dwqa' ) . '</a> ';
 		}
 
 		if ( dwqa_current_user_can( 'delete_answer' ) ) {
@@ -691,7 +716,7 @@ class DWQA_Template {
 		add_filter( 'comments_open', array( $this, 'close_default_comment' ) );
 
 		//Template Include Hook
-		//add_filter( 'single_template', array( $this, 'redirect_answer_to_question' ), 20 );
+		add_filter( 'single_template', array( $this, 'redirect_answer_to_question' ), 20 );
 		add_filter( 'comments_template', array( $this, 'generate_template_for_comment_form' ), 20 );
 
 		//Wrapper
@@ -778,7 +803,7 @@ class DWQA_Template {
 			}
 		}
 
-		if ( is_singular( 'dwqa-answer' ) && dwqa_is_endpoint( 'edit' ) ) {
+		if ( is_singular( 'dwqa-answer' ) && dwqa_is_edit() ) {
 			global $post;
 			ob_start();
 

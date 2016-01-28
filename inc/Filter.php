@@ -519,8 +519,8 @@ class DWQA_Filter {
 			'posts_per_page' => $posts_per_page,
 			'orderby'	=> 'modified',
 		);
-
-		$paged = get_query_var( 'paged' );
+		$page_text = dwqa_is_front_page() ? 'page' : 'paged';
+		$paged = get_query_var( $page_text );
 		$query['paged'] = $paged ? $paged : 1; 
 		
 		// filter by category
@@ -636,7 +636,7 @@ class DWQA_Filter {
 			$query['post_status'] = array( 'publish', 'private', 'pending' );
 		}
 
-		query_posts( $query );
+		$wp_query->dwqa_questions = new WP_Query( $query );
 	}
 
 	public function after_archive_posts() {

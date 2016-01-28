@@ -1,16 +1,5 @@
 <?php
 
-function dwqa_comment_get_content( $comment_id = false ) {
-	global $comment;
-	if ( !$comment_id ) {
-		$comment_id = $comment->comment_ID;
-	}
-
-	$content = get_comment_text( $comment_id );
-
-	return apply_filters( 'dwqa_comment_get_content', $content );
-}
-
 class DWQA_Posts_Comment {
 	public function __construct() {
 		add_filter( 'comment_post_redirect', array( $this, 'hook_redirect_comment_for_answer'), 10, 2 );

@@ -1,7 +1,7 @@
 (function($){
 
 	// Follow and Unfollow Question
-	$('#dwqa-favorites').change(function(e){
+	$('#dwqa-favorites').on('change',function(e){
 		e.preventDefault();
 		var t = $(this);
 
@@ -24,15 +24,9 @@
 			type: 'POST',
 			dataType: 'json',
 			success: function(data){
-				t.parent().addClass('processing');
+				t.parent().removeClass('processing');
 				if (true == data.success){
-					if ('followed' === data.data.code){
-						t.next().text(data.data.code);
-					}
-
-					if ('unfollowed' === data.data.code){
-						t.parent().removeClass('active');
-					}
+					t.next().text(data.data.text);
 				}
 			}
 		});

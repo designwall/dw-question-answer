@@ -250,11 +250,11 @@ class DWQA_User {
 			if ( ! dwqa_is_followed( $question->ID )  ) {
 				do_action( 'dwqa_follow_question', $question->ID, $current_user->ID );
 				add_post_meta( $question->ID, '_dwqa_followers', $current_user->ID );
-				wp_send_json_success( array( 'code' => 'followed' ) );
+				wp_send_json_success( array( 'code' => 'followed', 'text' => 'Unsubscribe' ) );
 			} else {
 				do_action( 'dwqa_unfollow_question', $question->ID, $current_user->ID );
 				delete_post_meta( $question->ID, '_dwqa_followers', $current_user->ID );
-				wp_send_json_success( array( 'code' => 'unfollowed' ) );
+				wp_send_json_success( array( 'code' => 'unfollowed', 'text' => 'Subscribe' ) );
 			}
 		} else {
 			wp_send_json_error( array( 'code' => 'not-logged-in' ) );

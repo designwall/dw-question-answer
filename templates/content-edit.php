@@ -7,27 +7,28 @@
  */
 ?>
 
-<?php 
+<?php
 $edit_id = isset( $_GET['edit'] ) && is_numeric( $_GET['edit'] ) ? $_GET['edit'] : false;
 if ( !$edit_id ) return;
 $type = 'dwqa-question' == get_post_type( $edit_id ) ? 'question' : 'answer';
 ?>
 <?php do_action( 'dwqa_before_edit_form' ); ?>
-<form method="post">
+<form method="post" class="dwqa-content-edit-form">
 	<?php if ( 'dwqa-question' == get_post_type( $edit_id ) ) : ?>
 	<?php $title = dwqa_question_get_edit_title( $edit_id ) ?>
 	<p>
-		<label><?php _e( 'Title', 'dwqa' ) ?></label>
+		<label for="question_title"><?php _e( 'Title', 'dwqa' ) ?></label>
 		<input type="text" name="question_title" value="<?php echo $title ?>" tabindex="1">
 	</p>
 	<?php endif; ?>
 	<?php $content = call_user_func( 'dwqa_' . $type . '_get_edit_content', $edit_id ); ?>
-	<?php dwqa_init_tinymce_editor( array( 'content' => $content, 'textarea_name' => $type . '_content' ) ) ?>
+	<p><?php dwqa_init_tinymce_editor( array( 'content' => $content, 'textarea_name' => $type . '_content' ) ) ?></p>
 	<?php if ( 'dwqa-question' == get_post_type( $edit_id ) ) : ?>
 	<p>
+		<label for="question-category"><?php _e( 'Category', 'dwqa' ) ?></label>
 		<?php $category = wp_get_post_terms( $edit_id, 'dwqa-question_category' ); ?>
-		<?php 
-			wp_dropdown_categories( array( 
+		<?php
+			wp_dropdown_categories( array(
 				'name'          => 'question-category',
 				'id'            => 'question-category',
 				'taxonomy'      => 'dwqa-question_category',
@@ -39,6 +40,7 @@ $type = 'dwqa-question' == get_post_type( $edit_id ) ? 'question' : 'answer';
 		?>
 	</p>
 	<p>
+		<label for="question-tag"><?php _e( 'Tag', 'dwqa' ) ?></label>
 		<input type="text" class="" name="question-tag" value="<?php echo dwqa_get_tag_list(); ?>" >
 	</p>
 	<?php endif; ?>

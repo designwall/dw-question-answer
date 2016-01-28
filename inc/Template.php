@@ -803,36 +803,6 @@ class DWQA_Template {
 			}
 		}
 
-		if ( is_singular( 'dwqa-answer' ) && dwqa_is_edit() ) {
-			global $post;
-			ob_start();
-
-			remove_filter( 'comments_open', array( $this, 'close_default_comment' ) );
-
-			echo '<div class="dwqa-container" >';
-			$this->load_template( 'content', 'edit' );
-			echo '</div>';
-
-			$content = ob_get_contents();
-
-			add_filter( 'comments_open', array( $this, 'close_default_comment' ) );
-			
-			ob_end_clean();
-
-			$this->reset_content( array(
-				'ID'             => $post->ID,
-				'post_title'     => $post->post_title,
-				'post_author'    => 0,
-				'post_date'      => $post->post_date,
-				'post_content'   => $content,
-				'post_type'      => 'dwqa-answer',
-				'post_status'    => $post->post_status,
-				'is_single'      => true,
-			) );
-
-			$this->remove_all_filters( 'the_content' );
-			return dwqa_get_template( 'page.php' );
-		}
 		return $template;
 	}
 

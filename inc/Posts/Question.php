@@ -114,10 +114,17 @@ function dwqa_question_get_tags_list( $post_id = false ) {
 class DWQA_Posts_Question extends DWQA_Posts_Base {
 
 	public function __construct() {
+		global $dwqa_general_settings;
+
+		if ( !$dwqa_general_settings ) {
+			$dwqa_general_settings = get_option( 'dwqa_options' );
+		}
+		$slug = isset( $dwqa_general_settings['question-rewrite'] ) ? $dwqa_general_settings['question-rewrite'] : 'question';
 		parent::__construct( 'dwqa-question', array(
 			'plural' => __( 'Questions', 'dwqa' ),
 			'singular' => __( 'Question', 'dwqa' ),
-			'menu'	 => __( 'Questions', 'dwqa' )
+			'menu'	 => __( 'Questions', 'dwqa' ),
+			'rewrite' => array( 'slug' => $slug, 'with_front' => false ),
 		) );
 
 		add_action( 'manage_dwqa-question_posts_custom_column', array( $this, 'columns_content' ), 10, 2 );
@@ -174,7 +181,46 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 		);
 	}
 
+	public function get_question_rewrite() {
+		global $dwqa_general_settings;
+
+		if ( !$dwqa_general_settings ) {
+			$dwqa_general_settings = get_option( 'dwqa_options' );
+		}
+
+		return isset( $dwqa_general_settings['question-rewrite'] ) && !empty( $dwqa_general_settings['question-rewrite'] ) ? $dwqa_general_settings['question-rewrite'] : 'question';
+	}
+
+	public function get_category_rewrite() {
+		global $dwqa_general_settings;
+
+		if ( !$dwqa_general_settings ) {
+			$dwqa_general_settings = get_option( 'dwqa_options' );
+		}
+
+		return isset( $dwqa_general_settings['question-category-rewrite'] ) && !empty( $dwqa_general_settings['question-category-rewrite'] ) ? $dwqa_general_settings['question-category-rewrite'] : 'category';
+	}
+
+	public function get_tag_rewrite() {
+		global $dwqa_general_settings;
+
+		if ( !$dwqa_general_settings ) {
+			$dwqa_general_settings = get_option( 'dwqa_options' );
+		}
+
+		return isset( $dwqa_general_settings['question-tag-rewrite'] ) && !empty( $dwqa_general_settings['question-tag-rewrite'] ) ? $dwqa_general_settings['question-tag-rewrite'] : 'tag';
+	}
+
 	public function register_taxonomy() {
+		global $dwqa_general_settings;
+
+		if ( !$dwqa_general_settings ) {
+			$dwqa_general_settings = get_option( 'dwqa_options' );
+		}
+
+		$cat_slug = $this->get_question_rewrite() . '/' . $this->get_category_rewrite();
+		$tag_slug = $this->get_question_rewrite() . '/' . $this->get_tag_rewrite();
+
 		$labels = array(
 			'name'              => _x( 'Question Categories', 'taxonomy general name', 'dwqa' ),
 			'singular_name'     => _x( 'Question Category', 'taxonomy singular name', 'dwqa' ),
@@ -198,7 +244,7 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 			'show_tagcloud'     => true,
 			'show_ui'           => true,
 			'query_var'         => true,
-			'rewrite'           => array( 'slug' => 'question/category', 'with_front' => false, 'hierarchical' => true ),
+			'rewrite'           => array( 'slug' => $cat_slug, 'with_front' => false, 'hierarchical' => true ),
 			'query_var'         => true,
 			'capabilities'      => array(),
 		);
@@ -232,7 +278,7 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 			'show_tagcloud'     => true,
 			'show_ui'           => true,
 			'query_var'         => true,
-			'rewrite'               => array( 'slug' => 'question/tag', 'with_front' => false, 'hierarchical' => true ),
+			'rewrite'               => array( 'slug' => $tag_slug, 'with_front' => false, 'hierarchical' => true ),
 			'query_var'         => true,
 			'capabilities'      => array(),
 		);

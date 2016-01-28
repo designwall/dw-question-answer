@@ -296,6 +296,7 @@ class DWQA_Posts_Base {
 		return wp_parse_args( $this->labels, array(
 			'plural' => __( 'DWQA Posts', 'dwqa' ),
 			'singular' => __( 'DWQA Post', 'dwqa' ),
+			'rewrite' => true,
 		) );
 	}
 
@@ -319,7 +320,10 @@ class DWQA_Posts_Base {
 	}
 
 	public function register() {
+		$names = $this->get_name_labels();
 		
+		$this->register_taxonomy();
+
 		$args = array(
 			'labels'              => array(),
 			'hierarchical'        => false,
@@ -337,7 +341,7 @@ class DWQA_Posts_Base {
 			'has_archive'         => true,
 			'query_var'           => true,
 			'can_export'          => true,
-			'rewrite'             => true,
+			'rewrite'             => $names['rewrite'],
 			'capability_type'     => 'post',
 			'supports'            => array(
 				'title', 'editor', 'author', 'thumbnail',
@@ -355,6 +359,8 @@ class DWQA_Posts_Base {
 
 		register_post_type( $this->get_slug(), $args );
 	}
+
+	public function register_taxonomy() {}
 
 	public function pre_content_filter( $content ) {
 		return preg_replace_callback( '/<( code )( [^>]* )>( .* )<\/( code )[^>]*>/isU' , array( $this, 'convert_pre_entities' ),  $content );

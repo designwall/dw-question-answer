@@ -96,6 +96,10 @@
 	float: right;
 }
 
+.dwqa-question-item .dwqa-question-actions a {
+	margin-left: 10px;
+}
+
 .dwqa-question-content img {
 	max-width: 100%;
 	height: auto;
@@ -183,6 +187,10 @@
 	float: right;
 }
 
+.dwqa-answer-item .dwqa-answer-actions a {
+	margin-left: 10px;
+}
+
 .dwqa-answer-content img {
 	max-width: 100%;
 	height: auto;
@@ -259,6 +267,18 @@
 
 .dwqa-comment-form textarea {
 	width: 100%;
+}
+
+.dwqa-comment-meta {
+	margin-bottom: 10px;
+}
+
+.dwqa-comment-actions {
+	float: right;
+}
+
+.dwqa-comment-actions a {
+	margin-left: 10px;
 }
 
 /**
@@ -386,7 +406,7 @@
 
 .dwqa-questions-list .dwqa-question-item .dwqa-question-stats strong {
 	font-size: 14px;
-	line-height: 28px;
+	line-height: 26px;
 	display: block;
 	font-weight: normal;
 }

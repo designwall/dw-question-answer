@@ -64,7 +64,7 @@ class DWQA_Editor {
 					'toolbar2'   => '',
 					'content_css' => $dwqa_tinymce_css
 			),
-			'quicktags'     => false,
+			'quicktags'     => true,
 		) );
 	}
 

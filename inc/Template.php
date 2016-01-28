@@ -143,7 +143,7 @@ function dwqa_question_button_action() {
 	$html = '';
 	if ( is_user_logged_in() ) {
 		$followed = dwqa_is_followed() ? 'followed' : 'follow';
-		$text = dwqa_is_followed() ? __( 'Unsubscribe', 'dwqa' ) : __( 'Subscribe', 'dwqa' );
+		$text = __( 'Subscribe', 'dwqa' );
 		$html .= '<label for="dwqa-favorites">';
 		$html .= '<input type="checkbox" id="dwqa-favorites" data-post="'. get_the_ID() .'" data-nonce="'. wp_create_nonce( '_dwqa_follow_question' ) .'" value="'. $followed .'" '. checked( $followed, 'followed', false ) .'/>';
 		$html .= '<span>' . $text . '</span>';
@@ -153,7 +153,8 @@ function dwqa_question_button_action() {
 		}
 
 		if ( dwqa_current_user_can( 'delete_question' ) ) {
-			$html .= '<a data-nonce="'. wp_create_nonce( '_dwqa_delete_question' ) .'" class="dwqa_delete_question" href="#">' . __( 'Delete', 'dwqa' ) . '</a> ';
+			$action_url = add_query_arg( array( 'action' => 'dwqa_delete_question', 'question_id' => get_the_ID() ), admin_url( 'admin-ajax.php' ) );
+			$html .= '<a class="dwqa_delete_question" href="'. wp_nonce_url( $action_url, '_dwqa_action_remove_question_nonce' ) .'">' . __( 'Delete', 'dwqa' ) . '</a> ';
 		}
 	}
 
@@ -169,7 +170,8 @@ function dwqa_answer_button_action() {
 		}
 
 		if ( dwqa_current_user_can( 'delete_answer' ) ) {
-			$html .= '<a data-nonce="'. wp_create_nonce( '_dwqa_delete_answer' ) .'" class="dwqa_delete_question" href="#">' . __( 'Delete', 'dwqa' ) . '</a> ';
+			$action_url = add_query_arg( array( 'action' => 'dwqa_delete_answer', 'answer_id' => get_the_ID() ), admin_url( 'admin-ajax.php' ) );
+			$html .= '<a class="dwqa_delete_question" href="'. wp_nonce_url( $action_url, '_dwqa_action_remove_answer_nonce' ) .'">' . __( 'Delete', 'dwqa' ) . '</a> ';
 		}
 	}
 
@@ -469,7 +471,7 @@ function dwqa_comment_form( $args = array(), $post_id = null ) {
 		do_action( 'comment_form_before' );
 		?>
 		<div id="dwqa-respond" class="dwqa-comment-form">
-		<?php if ( get_option( 'comment_registration' ) && ! is_user_logged_in() ) : ?>
+		<?php if ( !dwqa_current_user_can( 'post_comment' ) ) : ?>
 			<?php echo $args['must_log_in']; ?>
 			<?php
 			/**
@@ -839,6 +841,7 @@ class DWQA_Template {
 				'is_single'             => false,
 				'is_archive'            => false,
 				'is_tax'                => false,
+				'current_comment'		=> $wp_query->comment_count,
 			) );
 		} else {
 			$dummy = wp_parse_args( $args, array(
@@ -872,6 +875,7 @@ class DWQA_Template {
 				'is_single'             => false,
 				'is_archive'            => false,
 				'is_tax'                => false,
+				'current_comment'		=> 0,
 			) );
 		}
 		// Bail if dummy post is empty
@@ -886,12 +890,13 @@ class DWQA_Template {
 		$wp_query->posts      = array( $post );
 
 		// Prevent comments form from appearing
-		$wp_query->post_count = 1;
-		$wp_query->is_404     = $dummy['is_404'];
-		$wp_query->is_page    = $dummy['is_page'];
-		$wp_query->is_single  = $dummy['is_single'];
-		$wp_query->is_archive = $dummy['is_archive'];
-		$wp_query->is_tax     = $dummy['is_tax'];
+		$wp_query->post_count 		= 1;
+		$wp_query->is_404     		= $dummy['is_404'];
+		$wp_query->is_page    		= $dummy['is_page'];
+		$wp_query->is_single  		= $dummy['is_single'];
+		$wp_query->is_archive 		= $dummy['is_archive'];
+		$wp_query->is_tax     		= $dummy['is_tax'];
+		$wp_query->current_comment 	= $dummy['current_comment'];
 
 	}
 
@@ -990,7 +995,7 @@ class DWQA_Template {
 			$name .= '-' . $extend;
 		}
 
-		if ( $name == 'submit-question-form' && is_user_logged_in() && ! dwqa_current_user_can( 'post_question' ) ) {
+		if ( $name == 'question-submit-form' && is_user_logged_in() && ! dwqa_current_user_can( 'post_question' ) ) {
 			echo '<div class="alert">'.__( 'You do not have permission to submit a question','dwqa' ).'</div>';
 			return false;
 		}

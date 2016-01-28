@@ -41,7 +41,7 @@ $type = 'dwqa-question' == get_post_type( $edit_id ) ? 'question' : 'answer';
 	</p>
 	<p>
 		<label for="question-tag"><?php _e( 'Tag', 'dwqa' ) ?></label>
-		<input type="text" class="" name="question-tag" value="<?php echo dwqa_get_tag_list(); ?>" >
+		<input type="text" class="" name="question-tag" value="<?php dwqa_get_tag_list( get_the_ID(), true ); ?>" >
 	</p>
 	<?php endif; ?>
 	<input type="hidden" name="<?php echo $type ?>_id" value="<?php echo $edit_id ?>">

@@ -13,13 +13,13 @@ function dwqa_action_vote( ) {
 	}
 
 
-	if ( ! isset( $_POST[ $vote_for . '_id'] ) ) {
+	if ( ! isset( $_POST[ 'post' ] ) ) {
 		$result['error_code']       = 'missing ' . $vote_for;
 		$result['error_message']    = __( 'What '.$vote_for.' are you looking for?', 'dwqa' );
 		wp_send_json_error( $result );
 	}
 
-	$post_id = sanitize_text_field( $_POST[ $vote_for . '_id'] );
+	$post_id = sanitize_text_field( $_POST[ 'post' ] );
 	$point = isset( $_POST['type'] ) && sanitize_text_field( $_POST['type'] ) == 'up' ? 1 : -1;
 
 	//vote
@@ -421,21 +421,15 @@ class DWQA_Posts_Base {
 		global $post;
 		if ( is_single() && ( 'dwqa-question' == $post->post_type || 'dwqa-answer' == $post->post_type ) ) {
 			$content = make_clickable( $content );
-			$content = preg_replace_callback( '/<a[^>]*>]+/', array( $this, 'auto_nofollow_callback' ), $content );
+			$content = preg_replace_callback( '|<a (.+?)>|i', array( $this, 'auto_nofollow_callback' ), $content );
 		}
 		return $content;
 	}
 
 	public function auto_nofollow_callback( $matches ) {
-		$link = $matches[0];
-		$site_link = get_bloginfo( 'url' );
-	 
-		if ( strpos( $link, 'rel' ) === false ) {
-			$link = preg_replace( "%( href=S( ?! $site_link ))%i", 'rel="nofollow" $1', $link );
-		} elseif ( preg_match( "%href=S( ?! $site_link )%i", $link ) ) {
-			$link = preg_replace( '/rel=S( ?! nofollow )S*/i', 'rel="nofollow"', $link );
-		}
-		return $link;
+		$text = $matches[1];
+		$text = str_replace( array( ' rel="nofollow"', " rel='nofollow'" ), '', $text );
+		return "<a $text rel=\"nofollow\">";
 	}
 
 	public function hook_on_update_anonymous_post( $data, $postarr ) {

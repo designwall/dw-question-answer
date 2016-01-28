@@ -8,8 +8,9 @@
 
 ?>
 <div class="dwqa-question-item">
-	<header class="dwqa-question-title"><a href="<?php the_permalink(); ?>"><?php dwqa_question_print_status() ?><?php the_title(); ?></a></header>
+	<header class="dwqa-question-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></header>
 	<div class="dwqa-question-meta">
+		<?php dwqa_question_print_status() ?>
 		<?php
 			global $post;
 			$user_id = get_post_field( 'post_author', get_the_ID() ) ? get_post_field( 'post_author', get_the_ID() ) : false;

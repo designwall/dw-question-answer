@@ -198,9 +198,7 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 			'show_tagcloud'     => true,
 			'show_ui'           => true,
 			'query_var'         => true,
-			'rewrite'           => array(
-				'slug' => 'question-category'
-			),
+			'rewrite'           => array( 'slug' => 'question/category', 'with_front' => false, 'hierarchical' => true ),
 			'query_var'         => true,
 			'capabilities'      => array(),
 		);
@@ -234,9 +232,7 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 			'show_tagcloud'     => true,
 			'show_ui'           => true,
 			'query_var'         => true,
-			'rewrite'           => array(
-				'slug' => 'question-tag'
-			),
+			'rewrite'               => array( 'slug' => 'question/tag', 'with_front' => false, 'hierarchical' => true ),
 			'query_var'         => true,
 			'capabilities'      => array(),
 		);
@@ -253,8 +249,8 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 			wp_insert_term( __( 'Questions', 'dwqa' ), $this->get_slug() . '_category' );
 		}
 
-		global $dwqa;
-		$dwqa->rewrite->update_term_rewrite_rules();
+		// global $dwqa;
+		// $dwqa->rewrite->update_term_rewrite_rules();
 	}
 
 	// ADD NEW COLUMN
@@ -477,7 +473,7 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 				if ( !dwqa_current_user_can( 'edit_question' ) ) {
 					dwqa_add_notice( __( "You do not have permission to edit question", 'dwqa' ), 'error' );
 				}
-				
+
 				$question_title = apply_filters( 'dwqa_prepare_edit_question_title', $_POST['question_title'] );
 				if ( empty( $question_title ) ) {
 					dwqa_add_notice( __( 'You must enter a valid question title.', 'dwqa' ), 'error' );
@@ -516,9 +512,9 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 						'dwqa-question_tag'		=> explode( ',', $tags )
 					),
 				);
-				
+
 				$new_question_id = wp_update_post( $args );
-				
+
 				if ( !is_wp_error( $new_question_id ) ) {
 					$old_post = get_post( $question_id );
 					$new_post = get_post( $new_question_id );

@@ -1,7 +1,7 @@
-<?php  
+<?php
 /**
  *  Plugin Name: DW Question Answer
- *  Description: A WordPress plugin was make by DesignWall.com to build an Question Answer system for support, asking and comunitcate with your customer 
+ *  Description: A WordPress plugin was make by DesignWall.com to build an Question Answer system for support, asking and comunitcate with your customer
  *  Author: DesignWall
  *  Author URI: http://www.designwall.com
  *  Version: 1.3.8.1
@@ -35,7 +35,7 @@ class DW_Question_Answer {
 		$this->dir = DWQA_DIR;
 		$this->uri = DWQA_URI;
 		$this->version = '1.3.8.1';
-		
+
 		// Add recaptcha library from google, 99 to sure that the library was not include if any other plugins use same library
 		add_action( 'plugins_loaded', array( $this, 'include_recaptcha_library' ), 99 );
 		// load posttype
@@ -48,7 +48,7 @@ class DW_Question_Answer {
 		$this->template = new DWQA_Template();
 		$this->settings = new DWQA_Settings();
 		$this->editor = new DWQA_Editor();
-		$this->rewrite = new DWQA_Rewrite();
+		//$this->rewrite = new DWQA_Rewrite();
 		$this->user = new DWQA_User();
 		$this->notifications = new DWQA_Notifications();
 		$this->filter = new DWQA_Filter();
@@ -81,7 +81,7 @@ class DW_Question_Answer {
 		//Load translate text domain
 		load_plugin_textdomain( 'dwqa', false,  plugin_basename( dirname( __FILE__ ) )  . '/languages' );
 		//Scripts var
-		
+
 		$question_category_rewrite = $dwqa_general_settings['question-category-rewrite'];
 		$question_category_rewrite = $question_category_rewrite ? $question_category_rewrite : 'question-category';
 		$question_tag_rewrite = $dwqa_general_settings['question-tag-rewrite'];
@@ -109,7 +109,7 @@ class DW_Question_Answer {
 			'comment_edit_cancel_link'    => __( 'Cancel', 'dwqa' ),
 			'comment_delete_confirm'        => __( 'Do you want to delete this comment?', 'dwqa' ),
 			'answer_delete_confirm'     => __( 'Do you want to delete this answer?', 'dwqa' ),
-			'answer_update_privacy_confirm' => __( 'Do you want to update this answer?', 'dwqa' ), 
+			'answer_update_privacy_confirm' => __( 'Do you want to update this answer?', 'dwqa' ),
 			'report_answer_confirm' => __( 'Do you want to report this answer?', 'dwqa' ),
 			'flag'      => array(
 				'label'         => __( 'Report', 'dwqa' ),
@@ -133,7 +133,7 @@ class DW_Question_Answer {
 	// Update rewrite url when active plugin
 	public function activate_hook() {
 		$this->permission->prepare_permission_caps();
-		
+
 		//Auto create question page
 		$options = get_option( 'dwqa_options' );
 

@@ -248,6 +248,10 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 		// Prepare answers content
 		add_filter( 'dwqa_prepare_answer_content', array( $this, 'pre_content_kses' ), 10 );
 		add_filter( 'dwqa_prepare_answer_content', array( $this, 'pre_content_filter' ), 20 );
+
+		// prepare edit content
+		add_filter( 'dwqa_prepare_edit_answer_content', array( $this, 'pre_content_kses' ), 10 );
+		add_filter( 'dwqa_prepare_edit_answer_content', array( $this, 'pre_content_filter' ), 20 );
 	}
 
 	// Remove default menu and change it to submenu of questions

@@ -11,7 +11,7 @@
 <?php if ( have_posts() ) : ?>
 	<?php do_action( 'dwqa_before_single_question' ) ?>
 
-	<?php if ( dwqa_current_user_can( 'edit_question' ) || get_current_user_id() == get_post_field( 'post_author', get_the_ID() ) ) : ?>
+	<?php if ( dwqa_current_user_can( 'edit_question', get_the_ID() ) ) : ?>
 	<?php _e( 'This question is:', 'dwqa' ) ?>
 	<select id="dwqa-question-status" data-nonce="<?php echo wp_create_nonce( '_dwqa_update_privacy_nonce' ) ?>" data-post="<?php the_ID(); ?>">
 		<optgroup label="Status">

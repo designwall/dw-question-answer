@@ -154,8 +154,8 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 		//Prepare question content
 		add_filter( 'dwqa_prepare_question_content', array( $this, 'pre_content_kses' ), 10 );
 		add_filter( 'dwqa_prepare_question_content', array( $this, 'pre_content_filter'), 20 );
-		add_filter( 'dwqa_prepare_question_update_content', array( $this, 'pre_content_kses'), 10 );
-		add_filter( 'dwqa_prepare_question_update_content', array( $this, 'pre_content_filter'), 20 );
+		add_filter( 'dwqa_prepare_update_question', array( $this, 'pre_content_kses'), 10 );
+		add_filter( 'dwqa_prepare_update_question', array( $this, 'pre_content_filter'), 20 );
 
 	}
 

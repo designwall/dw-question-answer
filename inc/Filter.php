@@ -638,7 +638,7 @@ class DWQA_Filter {
 			case 'my-subscribes':
 				if ( is_user_logged_in() ) {
 					$query['author'] = get_current_user_id();
-					$query['post__in'] == dwqa_get_user_question_subscribes( get_current_user_di(), $posts_per_page, $paged );
+					$query['post__in'] = dwqa_get_user_question_subscribes( get_current_user_id(), $posts_per_page, $paged );
 				}
 				break;
 		}

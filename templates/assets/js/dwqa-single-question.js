@@ -129,9 +129,52 @@
             success: function(data) {
             	if ( data.success == false ) {
             		alert( data.data.message );
+            	} else {
+            		window.location.reload();
             	}
             }
 		})
+	});
+
+	var originHeight, current_form;
+	$('.dwqa-comment-form #comment').on('focus',function(e){
+		var t = $(this);
+
+        //Collapse all comment form
+        if (current_form && t.get(0) != current_form.get(0)) {
+            $('[id^=comment_form_]').each(function(index, el) {
+                var comment_form = $(this);
+                comment_form.find('.dwqa-form-submit').hide();
+                comment_form.find('textarea').height(comment_form.find('textarea').css('line-height').replace('px', ''));
+            });
+        }
+        current_form = t.closest('.dwqa-comment-form');
+        var lineHeight = parseInt(t.css('line-height').replace('px', '')),
+            thisPadding = parseInt(t.css('padding-top').replace('px', '')),
+            defaultHeight = (lineHeight + thisPadding) * 3;
+
+        originHeight = t.height();
+        var changeHeight = function() {
+            var matches = t.val().match(/\n/g);
+            var breaks = matches ? matches.length : 0;
+            if (breaks <= 1 || t.val().length < 0) {
+                t.height(defaultHeight);
+            }
+            if (breaks > 1) {
+                var newHeight = lineHeight * (breaks + 1) + thisPadding * 3;
+                if (t.height() < newHeight) {
+                    t.height(newHeight);
+                }
+            }
+
+        }
+
+        //changeHeight();
+        t.parent().addClass( 'dwqa-comment-show-button' );
+        current_form.find('.dwqa-form-submit').show();
+        // t.bind('keyup change', function(event) {
+        //     changeHeight();
+        // });
 	});
 	
 

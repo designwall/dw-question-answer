@@ -84,7 +84,7 @@ function dwqa_question_views_count( $question_id = null ) {
 	if ( ! $question_id ) {
 		global $post;
 		$question_id = $post->ID;
-		if ( isset( $post->view_count) ) {
+		if ( isset( $post->view_count ) ) {
 			return $post->view_count;
 		}
 	}
@@ -97,20 +97,41 @@ function dwqa_question_views_count( $question_id = null ) {
 	}
 }
 
+function dwqa_question_get_tags_list( $post_id = false ) {
+	if ( ! $post_id ) {
+		$post_id = get_the_ID();
+	}
+
+	$tags = wp_get_post_terms( $post_id, 'dwqa-question_tag' );
+	$list = array();
+	foreach( $tags as $tag ) {
+		$list[] = $tag->name;
+	}
+
+	// $list
+}
+
 class DWQA_Posts_Question extends DWQA_Posts_Base {
 
 	public function __construct() {
+		global $dwqa_general_settings;
+
+		if ( !$dwqa_general_settings ) {
+			$dwqa_general_settings = get_option( 'dwqa_options' );
+		}
+		$slug = isset( $dwqa_general_settings['question-rewrite'] ) ? $dwqa_general_settings['question-rewrite'] : 'question';
 		parent::__construct( 'dwqa-question', array(
 			'plural' => __( 'Questions', 'dwqa' ),
 			'singular' => __( 'Question', 'dwqa' ),
-			'menu'	 => __( 'Questions', 'dwqa' )
+			'menu'	 => __( 'Questions', 'dwqa' ),
+			'rewrite' => array( 'slug' => $slug, 'with_front' => false ),
 		) );
 
 		add_action( 'manage_dwqa-question_posts_custom_column', array( $this, 'columns_content' ), 10, 2 );
 
-		add_action( 'init', array( $this, 'submit_question' ), 11 );
+		add_action( 'wp_loaded', array( $this, 'submit_question' ), 11 );
 		// Ajax update question
-		add_action( 'wp_ajax_dwqa-update-question', array( $this, 'update' ) );
+		add_action( 'wp_loaded', array( $this, 'update' ) );
 		// Update view count of question, if we change single question template into shortcode, this function will need to be rewrite
 		add_action( 'wp_head', array( $this, 'update_view' ) );
 		//Ajax Get Questions Archive link
@@ -121,7 +142,7 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 		add_action( 'wp_ajax_dwqa-stick-question', array( $this, 'stick_question' ) );
 		add_action( 'restrict_manage_posts', array( $this, 'admin_posts_filter_restrict_manage_posts' ) );
 
-		add_action( 'wp_ajax_dwqa-delete-question', array( $this, 'delete_question' ) );
+		add_action( 'wp_ajax_dwqa_delete_question', array( $this, 'delete' ) );
 		// Ajax Update question status
 		add_action( 'wp_ajax_dwqa-update-question-status', array( $this, 'update_status' ) );
 		add_filter( 'parse_query', array( $this, 'posts_filter' ) );
@@ -133,8 +154,8 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 		//Prepare question content
 		add_filter( 'dwqa_prepare_question_content', array( $this, 'pre_content_kses' ), 10 );
 		add_filter( 'dwqa_prepare_question_content', array( $this, 'pre_content_filter'), 20 );
-		add_filter( 'dwqa_prepare_question_update_content', array( $this, 'pre_content_kses'), 10 );
-		add_filter( 'dwqa_prepare_question_update_content', array( $this, 'pre_content_filter'), 20 );
+		add_filter( 'dwqa_prepare_update_question', array( $this, 'pre_content_kses'), 10 );
+		add_filter( 'dwqa_prepare_update_question', array( $this, 'pre_content_filter'), 20 );
 
 		add_action( 'dwqa-prepare-archive-posts', array( $this, 'prepare_archive_posts' ) );
 		add_action( 'dwqa-after-archive-posts', array( $this, 'after_archive_posts' ) );
@@ -163,7 +184,46 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 		);
 	}
 
+	public function get_question_rewrite() {
+		global $dwqa_general_settings;
+
+		if ( !$dwqa_general_settings ) {
+			$dwqa_general_settings = get_option( 'dwqa_options' );
+		}
+
+		return isset( $dwqa_general_settings['question-rewrite'] ) && !empty( $dwqa_general_settings['question-rewrite'] ) ? $dwqa_general_settings['question-rewrite'] : 'question';
+	}
+
+	public function get_category_rewrite() {
+		global $dwqa_general_settings;
+
+		if ( !$dwqa_general_settings ) {
+			$dwqa_general_settings = get_option( 'dwqa_options' );
+		}
+
+		return isset( $dwqa_general_settings['question-category-rewrite'] ) && !empty( $dwqa_general_settings['question-category-rewrite'] ) ? $dwqa_general_settings['question-category-rewrite'] : 'category';
+	}
+
+	public function get_tag_rewrite() {
+		global $dwqa_general_settings;
+
+		if ( !$dwqa_general_settings ) {
+			$dwqa_general_settings = get_option( 'dwqa_options' );
+		}
+
+		return isset( $dwqa_general_settings['question-tag-rewrite'] ) && !empty( $dwqa_general_settings['question-tag-rewrite'] ) ? $dwqa_general_settings['question-tag-rewrite'] : 'tag';
+	}
+
 	public function register_taxonomy() {
+		global $dwqa_general_settings;
+
+		if ( !$dwqa_general_settings ) {
+			$dwqa_general_settings = get_option( 'dwqa_options' );
+		}
+
+		$cat_slug = $this->get_question_rewrite() . '/' . $this->get_category_rewrite();
+		$tag_slug = $this->get_question_rewrite() . '/' . $this->get_tag_rewrite();
+
 		$labels = array(
 			'name'              => _x( 'Question Categories', 'taxonomy general name', 'dwqa' ),
 			'singular_name'     => _x( 'Question Category', 'taxonomy singular name', 'dwqa' ),
@@ -187,9 +247,7 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 			'show_tagcloud'     => true,
 			'show_ui'           => true,
 			'query_var'         => true,
-			'rewrite'           => array(
-				'slug' => 'question-category'
-			),
+			'rewrite'           => array( 'slug' => $cat_slug, 'with_front' => false, 'hierarchical' => true ),
 			'query_var'         => true,
 			'capabilities'      => array(),
 		);
@@ -223,9 +281,7 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 			'show_tagcloud'     => true,
 			'show_ui'           => true,
 			'query_var'         => true,
-			'rewrite'           => array(
-				'slug' => 'question-tag'
-			),
+			'rewrite'               => array( 'slug' => $tag_slug, 'with_front' => false, 'hierarchical' => true ),
 			'query_var'         => true,
 			'capabilities'      => array(),
 		);
@@ -242,8 +298,8 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 			wp_insert_term( __( 'Questions', 'dwqa' ), $this->get_slug() . '_category' );
 		}
 
-		global $dwqa;
-		$dwqa->rewrite->update_term_rewrite_rules();
+		// global $dwqa;
+		// $dwqa->rewrite->update_term_rewrite_rules();
 	}
 
 	// ADD NEW COLUMN
@@ -296,17 +352,18 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 	public function submit_question() {
 		global $dwqa_options;
 
-		if ( isset( $_POST['dwqa-action'] ) && 'dwqa-submit-question' == esc_html( $_POST['dwqa-action'] ) ) {
+		if ( isset( $_POST['dwqa-question-submit'] ) ) {
 			global $dwqa_current_error;
 			$valid_captcha = dwqa_valid_captcha( 'question' );
 
 			$dwqa_submit_question_errors = new WP_Error();
 
-			if ( isset( $_POST['_wpnonce'] ) && wp_verify_nonce( esc_html( $_POST['_wpnonce'] ), 'dwqa-submit-question-nonce-#!' ) ) {
+			if ( isset( $_POST['_wpnonce'] ) && wp_verify_nonce( esc_html( $_POST['_wpnonce'] ), '_dwqa_submit_question' ) ) {
 				if ( $valid_captcha ) {
 					if ( empty( $_POST['question-title'] ) ) {
 
-						$dwqa_submit_question_errors->add( 'submit_question', 'You must enter a valid question title' );
+						// $dwqa_submit_question_errors->add( 'submit_question', 'You must enter a valid question title' );
+						dwqa_add_notice( __( 'You must enter a valid question title.', 'error' ) );
 						return false;
 					}
 
@@ -392,7 +449,8 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 								if ( isset( $_POST['user-name'] ) && username_exists( esc_html( $_POST['user-name'] ) ) ) {
 									$message .= __( 'This username is already registered. Please use another one.','dwqa' ).'<br>';
 								}
-								$dwqa_current_error = new WP_Error( 'submit_question', $message );
+								// $dwqa_current_error = new WP_Error( 'submit_question', $message );
+								dwqa_add_notice( $message, 'error' );
 								return false;
 							}
 						} else {
@@ -402,7 +460,7 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 						}
 					}
 
-					$post_status = ( isset( $_POST['private-message'] ) && esc_html( $_POST['private-message'] ) ) ? 'private' : 'publish';
+					$post_status = ( isset( $_POST['question-status'] ) && esc_html( $_POST['question-status'] ) ) ? $_POST['question-status'] : 'publish';
 
 					//Enable review mode
 					global $dwqa_general_settings;
@@ -428,31 +486,136 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 					if ( apply_filters( 'dwqa-current-user-can-add-question', dwqa_current_user_can( 'post_question' ), $postarr ) ) {
 						$new_question = $this->insert( $postarr );
 					} else {
-						$dwqa_submit_question_errors->add( 'submit_question',  __( 'You do not have permission to submit question.', 'dwqa' ) );
+						//$dwqa_submit_question_errors->add( 'submit_question',  __( 'You do not have permission to submit question.', 'dwqa' ) );
+						dwqa_add_notice( __( 'You do not have permission to submit question.', 'dwqa' ), 'error' );
 						$new_question = $dwqa_submit_question_errors;
 					}
 
-					if ( ! is_wp_error( $new_question ) ) {
+					if ( dwqa_count_notices( 'error' ) == 0 ) {
 						if ( $is_anonymous ) {
 							update_post_meta( $new_question, '_dwqa_anonymous_email', $question_author_email );
 							update_post_meta( $new_question, '_dwqa_is_anonymous', true );
 						}
 
-						$url = get_permalink( $new_question );
 						if ( isset( $dwqa_options['enable-review-question'] ) && $dwqa_options['enable-review-question'] ) {
-							$url = get_permalink( $dwqa_options['pages']['archive-question'] );
+							dwqa_add_notice( __( 'Your question is waiting moderator.', 'dwqa' ), 'success' );
+						} else {
+							exit( wp_safe_redirect( get_permalink( $new_question ) ) );
 						}
-
-						exit( wp_safe_redirect( $url ) );
 					}
 				} else {
-					$dwqa_submit_question_errors->add( 'submit_question', __( 'Captcha is not correct','dwqa' ) );
+					// $dwqa_submit_question_errors->add( 'submit_question', __( 'Captcha is not correct','dwqa' ) );
+					dwqa_add_notice( __( 'Captcha is not correct', 'dwqa' ), 'error' );
 				}
 			} else {
-				$dwqa_submit_question_errors->add( 'submit_question', __( 'Are you cheating huh?','dwqa' ) );
+				// $dwqa_submit_question_errors->add( 'submit_question', __( 'Are you cheating huh?','dwqa' ) );
+				dwqa_add_notice( __( 'Are you cheating huh?', 'dwqa' ), 'error' );
 			}
-			$dwqa_current_error = $dwqa_submit_question_errors;
+			//$dwqa_current_error = $dwqa_submit_question_errors;
 		}
+	}
+
+	public function update() {
+		if ( isset( $_POST['dwqa-edit-question-submit'] ) ) {
+			if ( isset( $_POST['_wpnonce'] ) && wp_verify_nonce( esc_html( $_POST['_wpnonce'] ), '_dwqa_edit_question' ) ) {
+
+				if ( !dwqa_current_user_can( 'edit_question' ) ) {
+					dwqa_add_notice( __( "You do not have permission to edit question", 'dwqa' ), 'error' );
+				}
+
+				$question_title = apply_filters( 'dwqa_prepare_edit_question_title', $_POST['question_title'] );
+				if ( empty( $question_title ) ) {
+					dwqa_add_notice( __( 'You must enter a valid question title.', 'dwqa' ), 'error' );
+				}
+
+				$question_id = isset( $_POST['question_id'] ) ? $_POST['question_id'] : false;
+
+				if ( !$question_id ) {
+					dwqa_add_notice( __( 'Question is missing.', 'dwqa' ), 'error' );
+				}
+
+				if ( 'dwqa-question' !== get_post_type( $question_id ) ) {
+					dwqa_add_notice( __( 'This post is not question.', 'dwqa' ), 'error' );
+				}
+
+				$question_content = apply_filters( 'dwqa_prepare_edit_question_content', $_POST['question_content'] );
+
+				$tags = isset( $_POST['question-tag'] ) ? esc_html( $_POST['question-tag'] ): '';
+				$category = isset( $_POST['question-category'] ) ? intval( $_POST['question-category'] ) : 0;
+				if ( ! term_exists( $category, 'dwqa-question_category' ) ) {
+					$category = 0;
+				}
+
+				do_action( 'dwqa_prepare_update_question', $question_id );
+
+				if ( dwqa_count_notices( 'error' ) > 0 ) {
+					return false;
+				}
+
+				$args = array(
+					'ID' => $question_id,
+					'post_content' => $question_content,
+					'post_title' => $question_title,
+					'tax_input' => array(
+						'dwqa-question_category' => array( $category ),
+						'dwqa-question_tag'		=> explode( ',', $tags )
+					),
+				);
+
+				$new_question_id = wp_update_post( $args );
+
+				if ( !is_wp_error( $new_question_id ) ) {
+					$old_post = get_post( $question_id );
+					$new_post = get_post( $new_question_id );
+					do_action( 'dwqa_update_question', $new_question_id, $old_post, $new_post );
+					wp_safe_redirect( get_permalink( $new_question_id ) );
+				} else {
+					dwqa_add_wp_error_message( $new_question_id );
+					return false;
+				}
+			} else {
+				dwqa_add_notice( __( 'Hello, Are you cheating huh?', 'dwqa' ), 'error' );
+				return false;
+			}
+			exit(0);
+		}
+	}
+
+	public function delete() {
+		global $dwqa_general_settings;
+		if ( ! isset( $_GET['_wpnonce'] ) || ! wp_verify_nonce( $_GET['_wpnonce'], '_dwqa_action_remove_question_nonce' ) || 'dwqa_delete_question' !== $_GET['action'] ) {
+			wp_die( __( 'Are you cheating huh?', 'dwqa' ) );
+		}
+
+		if ( ! isset( $_GET['question_id'] ) ) {
+			wp_die( __( 'Question is missing.', 'dwqa' ), 'error' );
+		}
+
+		if ( 'dwqa-question' !== get_post_type( $_GET['question_id'] ) ) {
+			wp_die( __( 'This post is not question.', 'dwqa' ) );
+		}
+
+		if ( !dwqa_current_user_can( 'delete_answer' ) ) {
+			wp_die( __( 'You do not have permission to delete this post.', 'dwqa' ) );
+		}
+
+		do_action( 'before_delete_post', $_GET['question_id'] );
+		
+		$id = wp_delete_post( $_GET['question_id'] );
+
+		if ( is_wp_error( $id ) ) {
+			wp_die( $id->get_error_message() );
+		}
+
+		do_action( 'dwqa_delete_question', $_GET['question_id'] );
+
+		$url = home_url();
+		if ( isset( $dwqa_general_settings['pages']['archive-question'] ) ) {
+			$url = get_permalink( $dwqa_general_settings['pages']['archive-question'] );
+		}
+
+		wp_redirect( $url );
+		exit();
 	}
 
 	public function insert( $args ) {
@@ -486,6 +649,7 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 			update_post_meta( $new_question, '_dwqa_views', 0 );
 			update_post_meta( $new_question, '_dwqa_votes', 0 );
 			update_post_meta( $new_question, '_dwqa_answers_count', 0 );
+			add_post_meta( $new_question, '_dwqa_followers', $user_id );
 			$date = get_post_field( 'post_date', $new_question );
 			// dwqa_log_last_activity_on_question( $new_question, 'Create question', $date );
 			//Call action when add question successfull
@@ -524,54 +688,6 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 		}
 	}
 
-
-	public function update() {
-		global $dwqa_options;
-
-		if ( ! isset( $_POST['_wpnonce'] )
-			|| ! wp_verify_nonce( sanitize_text_field( $_POST['_wpnonce'] ), '_dwqa_update_question' ) ) {
-			wp_send_json_error( array( 'message' => __( 'Hello, Are you cheating huh?', 'dwqa' ) ) );
-		}
-
-
-		if ( isset( $_POST['dwqa-action'] ) && sanitize_text_field( $_POST['dwqa-action'] ) == 'update-question' ) {
-			//Start update question
-			if ( ! isset( $_POST['question'] ) ) {
-				wp_send_json_error( array(
-					'message'	=> __( 'The question is missing', 'dwqa' )
-				) );
-			}
-
-			$question_id = intval( $_POST['question'] );
-
-			if ( ! dwqa_current_user_can( 'edit_question', $question_id ) ) {
-				wp_send_json_error( array( 'message' => __( 'You do not have permission to edit question', 'dwqa' ) ) );
-			}
-
-			$question_content = '';
-			if ( isset( $_POST['dwqa-question-content'] ) ) {
-				$question_content = apply_filters( 'dwqa_prepare_question_update_content', $_POST['dwqa-question-content'] );
-				// $question_content = wp_kses( $_POST['dwqa-question-content'], $this->filter );
-				// $question_content = $this->pre_content_filter( $question_content );
-			}
-			$question_update = array(
-				'ID'    => $question_id,
-				'post_content'   => $question_content,
-			);
-			if ( isset( $_POST['dwqa-question-title'] ) && $_POST['dwqa-question-title'] ) {
-				$question_update['post_title'] = sanitize_text_field( $_POST['dwqa-question-title'] );
-			}
-			$old_post = get_post( $question_id );
-			$question_id = wp_update_post( $question_update );
-			$new_post = get_post( $question_id );
-			do_action( 'dwqa_update_question', $question_id, $old_post, $new_post );
-			if ( $question_id ) {
-				wp_safe_redirect( get_permalink( $question_id ) );
-				return true;
-			}
-			return false;
-		}
-	}
 	/**
 	 * AJAX: update post status
 	 * @return void

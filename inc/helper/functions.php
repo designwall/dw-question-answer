@@ -2,68 +2,6 @@
 /** 
  * This file was used to include all functions which i can't classify, just use those for support my work
  */
-/**
- * Custom Date time format for DW Question Anwer
- */
-function dwqa_human_time_diff( $from, $to = false, $format = false ) {
-	if ( ! $format ) {
-		$format = get_option( 'date_format' );
-	}
-	if ( ! $to ) {
-		$to = current_time( 'timestamp' );
-	}
-
-	$diff = (int) abs( $to - $from );
-	if ( $diff <= 1 ) {
-		$since = '1 second';
-	} elseif ( $diff <= 60 ) {
-		$since = sprintf( _n( '%s second', '%s seconds', $diff, 'dwqa' ), $diff );
-	} elseif ( $diff <= 3600 ) {
-
-		$mins = round( $diff / 60 );
-
-		if ( $mins <= 1 ) {
-			$mins = 1;
-		}
-		/* translators: min=minute */
-		$since = sprintf( _n( 'about %s min', '%s mins', $mins, 'dwqa' ), $mins );
-	} elseif ( ( $diff <= 86400 ) && ( $diff > 3600 ) ) {
-		$hours = round( $diff / 3600 );
-		if ( $hours <= 1 ) {
-			$hours = 1;
-		}
-		$since = sprintf( _n( 'about %s hour', '%s hours', $hours, 'dwqa' ), $hours );
-	} elseif ( $diff >= 86400 && $diff <= 86400 * 7 ) {
-		$days = round( $diff / 86400 );
-		if ( $days <= 1 ) {
-			$days = 1;
-		}
-		$since = sprintf( _n( '%s day', '%s days', $days, 'dwqa' ), $days );
-	} else {
-		return date( $format, $from );
-	}
-	return sprintf( __( '%1$s ago', 'dwqa' ), $since );
-}
-
-
-add_filter( 'get_the_date', 'dwqa_human_time_diff_for_date', 10, 2 );
-function dwqa_human_time_diff_for_date( $the_date, $d ) {
-	global $post;
-	if ( $post->post_type == 'dwqa-question' || $post->post_type == 'dwqa-answer' ) {
-		return dwqa_human_time_diff( strtotime( get_the_time( 'c' ) ), false, $d );
-	}
-	return $the_date;
-}
-
-add_filter( 'get_comment_date', 'dwqa_comment_human_time_diff_for_date', 10, 2 );
-function dwqa_comment_human_time_diff_for_date( $the_date, $d ) {
-	global $comment;
-	$parent_posttype = get_post_type( $comment->comment_post_ID );
-	if ( $parent_posttype == 'dwqa-question' || $parent_posttype == 'dwqa-answer' ) {
-		return dwqa_human_time_diff( strtotime( $comment->comment_date ), false, $d );
-	}
-	return $the_date;
-}
 
 /** 
  * Array
@@ -121,26 +59,159 @@ function dwqa_valid_captcha( $type ) {
 add_filter( 'dwqa_valid_captcha', 'dwqa_recaptcha_check' );
 function dwqa_recaptcha_check( $res ) {
 	global $dwqa_general_settings;
-	$type_selected = isset( $dwqa_general_settings['captcha-type'] ) ? $dwqa_general_settings['captcha-type'] : 'google-recaptcha';
+	$type_selected = isset( $dwqa_general_settings['captcha-type'] ) ? $dwqa_general_settings['captcha-type'] : 'default-captcha';
 
-	if ( 'google-recaptcha' !== $type_selected ) {
+	$hash_md5 = $_SESSION['dwqa']['captcha-form']['verify'];
+	$captcha = isset( $_POST['dwqa-captcha'] ) ? $_POST['dwqa-captcha'] : '';
+	$captcha = md5( $captcha );
+
+	if ( $hash_md5 == $captcha ) {
 		return true;
 	}
 
-	$private_key = isset( $dwqa_general_settings['captcha-google-private-key'] ) ?  $dwqa_general_settings['captcha-google-private-key'] : '';
-	if ( ! isset( $_POST['recaptcha_challenge_field'] ) || ! isset( $_POST['recaptcha_response_field'] ) ) {
-		return false;
-	}
-	$resp = recaptcha_check_answer(
-		$private_key,
-		( isset( $_SERVER['REMOTE_ADDR'] ) ? esc_url( $_SERVER['REMOTE_ADDR'] ) : '' ),
-		sanitize_text_field( $_POST['recaptcha_challenge_field'] ),
-		sanitize_text_field( $_POST['recaptcha_response_field'] )
-	);
-	if ( $resp->is_valid ) {
-		return true;
-	}
 	return false;
 }
 
+/**
+* Get tags list of question
+*
+* @param int $quetion id of question
+* @param bool $echo
+* @return string
+* @since 1.4.0
+*/
+function dwqa_get_tag_list( $question = false, $echo = false ) {
+	if ( !$question ) {
+		$question = get_the_ID();
+	}
+
+	$terms = wp_get_post_terms( $question, 'dwqa-question_tag' );
+	$lists = array();
+	if ( $terms ) {
+		foreach( $terms as $term ) {
+			$lists[] = $term->name;
+		}
+	}
+
+	if ( empty( $lists ) ) {
+		$lists = '';
+	} else {
+		$lists = implode( ',', $lists );
+	}
+
+	if ( $echo ) {
+		echo $lists;
+	}
+
+	return $lists;
+}
+
+
+function dwqa_is_front_page() {
+	global $dwqa_general_settings;
+
+	if ( !$dwqa_general_settings ) {
+		$dwqa_general_settings = get_option( 'dwqa_options' );
+	}
+
+	if ( !isset( $dwqa_general_settings['pages']['archive-question'] ) ) {
+		return false;
+	}
+
+	$page_on_front = get_option( 'page_on_front' );
+
+	if ( $page_on_front === $dwqa_general_settings['pages']['archive-question'] ) {
+		return true;
+	}
+
+	return false;
+}
+
+function dwqa_has_question() {
+	global $wp_query;
+
+	return $wp_query->dwqa_questions->have_posts();
+}
+
+function dwqa_the_question() {
+	global $wp_query;
+
+	return $wp_query->dwqa_questions->the_post();
+}
+
+function dwqa_has_answers() {
+	global $wp_query;
+
+	return $wp_query->dwqa_answers->have_posts();
+}
+
+function dwqa_the_answers() {
+	global $wp_query;
+
+	return $wp_query->dwqa_answers->the_post();
+}
+
+function dwqa_get_answer_count( $question_id = false ) {
+
+	if ( ! $question_id ) {
+		$question_id = get_the_ID();
+	}
+
+	$answer_count = get_post_meta( $question_id, '_dwqa_answers_count', true );
+
+	if ( current_user_can( 'edit_posts' ) ) {
+		return $answer_count;
+	} else {
+		$answer_private = get_post_meta( $question_id, 'dwqa_answers_private_count', true );
+
+		if ( empty( $answer_private ) ) {
+			global $wp_query;
+			$args = array(
+				'post_type' => 'dwqa-answer',
+				'post_status' => 'private',
+				'meta_query' => array(
+					'key' => '_question',
+					'value' => array( $question_id ),
+					'compare' => 'IN'
+				),
+				'no_found_rows' => true,
+				'update_post_meta_cache' => false,
+				'update_post_term_cache' => false,
+				'fields' => 'ids'
+			);
+
+			$private_answer = new WP_Query( $args );
+
+			update_post_meta( $question_id, 'dwqa_answers_private_count', count( $private_answer ) );
+			$answer_private = count( $private_answer );
+		}
+
+		return (int) $answer_count - (int) $answer_private;
+	}
+}
+
+function dwqa_is_ask_form( $post_id = false ) {
+	global $dwqa_general_settings;
+	if ( !$post_id ) {
+		$post_id = get_the_ID();
+	}
+
+	if ( !isset( $dwqa_general_settings['pages']['submit-question'] ) ) {
+		return false;
+	}
+
+	if ( (int) $post_id === (int) $dwqa_general_settings['pages']['submit-question'] ) {
+		return true;
+	}
+
+	return false;
+}
+
+function dwqa_question_status( $question = false ) {
+	if ( !$question ) {
+		$question = get_the_ID();
+	}
+
+	return get_post_meta( $question, '_dwqa_status', true );
+}
 ?>

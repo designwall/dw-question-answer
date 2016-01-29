@@ -1,0 +1,441 @@
+/**
+ * Questions
+ *
+ * -----------------------------------------------------------------------------
+ */
+
+.dwqa-question-item {
+	padding: 0 0 0 70px;
+	position: relative;
+	margin-bottom: 0;
+}
+
+.dwqa-question-item .avatar {
+	position: absolute;
+	left: 0;
+	top: 0;
+	border-radius: 48px;
+}
+
+.dwqa-question-item .dwqa-question-meta {
+	font-size: small;
+	margin-bottom: 20px;
+}
+
+.dwqa-question-item .dwqa-question-title a {
+	border: none !important;
+	text-decoration: none !important;
+}
+
+.dwqa-question-item .dwqa-status {
+	background: #1ba1e2;
+	color: #fff;
+	padding: 1px 5px;
+	border-radius: 3px;
+	margin-right: 5px;
+}
+
+.dwqa-question-item .dwqa-status-resolved {
+	background: #578824;
+}
+
+.dwqa-question-item .dwqa-status-closed {
+	background: #333;
+}
+
+.dwqa-question-vote {
+	position: absolute;
+	top: 70px;
+	left: 6px;
+	min-height: 60px;
+}
+
+.dwqa-question-vote .dwqa-vote {
+	display: block;
+	width: 0;
+	height: 0;
+	border: 16px solid transparent !important;
+	border-bottom-color: #ddd !important;
+	text-indent: -9999px;
+	position: absolute;
+	top: -20px;
+	text-decoration: none !important;
+	box-shadow: none !important;
+}
+
+.dwqa-question-vote .dwqa-vote-count {
+	width: 32px;
+	text-align: center;
+	top: 14px;
+	position: absolute;
+	display: block;
+	height: 32px;
+	line-height: 32px;
+}
+
+.dwqa-question-vote .dwqa-vote:hover,
+.dwqa-question-vote .dwqa-vote:active {
+	border-bottom-color: #999 !important;
+}
+
+.dwqa-question-vote .dwqa-vote-down {
+	border: 16px solid transparent !important;
+	border-bottom-color: transparent !important;
+	border-top-color: #ddd !important;
+	top: auto;
+	bottom: -20px;
+}
+
+.dwqa-question-vote .dwqa-vote-down:hover,
+.dwqa-question-vote .dwqa-vote-down:active {
+	border-bottom-color: transparent !important;
+	border-top-color: #999 !important;
+}
+
+.dwqa-question-item .dwqa-question-actions {
+	float: right;
+}
+
+.dwqa-question-item .dwqa-question-actions a {
+	margin-left: 10px;
+}
+
+.dwqa-question-content img {
+	max-width: 100%;
+	height: auto;
+}
+
+/**
+ * Answers
+ *
+ * -----------------------------------------------------------------------------
+ */
+
+.dwqa-answers-title {
+	margin: 20px 0 10px;
+}
+
+.dwqa-answer-item {
+	padding: 20px 0 20px 70px;
+	position: relative;
+	border-top: 1px solid #ddd;
+	min-height: 140px;
+}
+
+.dwqa-answer-item .avatar {
+	position: absolute;
+	left: 0;
+	top: 20px;
+	border-radius: 48px;
+}
+
+.dwqa-answer-item .dwqa-answer-meta {
+	font-size: small;
+	margin-bottom: 20px;
+}
+
+.dwqa-answer-vote {
+	position: absolute;
+	top: 90px;
+	left: 6px;
+	min-height: 60px;
+}
+
+.dwqa-answer-vote .dwqa-vote {
+	display: block;
+	width: 0;
+	height: 0;
+	border: 16px solid transparent !important;
+	border-bottom-color: #ddd !important;
+	text-indent: -9999px;
+	position: absolute;
+	top: -20px;
+	text-decoration: none !important;
+	box-shadow: none !important;
+}
+
+.dwqa-answer-vote .dwqa-vote-count {
+	width: 32px;
+	text-align: center;
+	top: 14px;
+	position: absolute;
+	display: block;
+	height: 32px;
+	line-height: 32px;
+}
+
+.dwqa-answer-vote .dwqa-vote:hover,
+.dwqa-answer-vote .dwqa-vote:active {
+	border-bottom-color: #999 !important;
+}
+
+.dwqa-answer-vote .dwqa-vote-down {
+	border: 16px solid transparent !important;
+	border-bottom-color: transparent !important;
+	border-top-color: #ddd !important;
+	top: auto;
+	bottom: -20px;
+}
+
+.dwqa-answer-vote .dwqa-vote-down:hover,
+.dwqa-answer-vote .dwqa-vote-down:active {
+	border-bottom-color: transparent !important;
+	border-top-color: #999 !important;
+}
+
+.dwqa-answer-item .dwqa-answer-actions {
+	float: right;
+}
+
+.dwqa-answer-item .dwqa-answer-actions a {
+	margin-left: 10px;
+}
+
+.dwqa-answer-content img {
+	max-width: 100%;
+	height: auto;
+}
+
+.dwqa-answer-form-title {
+	border-top: 1px solid #ddd;
+	padding: 10px 0;
+}
+
+.dwqa-answer-form form {
+	text-align: right;
+}
+
+.dwqa-answer-form .dwqa-select {
+	float: left;
+}
+
+.dwqa-answer-form textarea {
+	width: 100% !important;
+	margin-bottom: 20px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+/**
+ * Comments
+ *
+ * -----------------------------------------------------------------------------
+ */
+
+.dwqa-comments-list {
+	background: #f9f9f9;
+	padding: 0 10px;
+}
+
+.dwqa-comments-list .dwqa-comment {
+	border-bottom: 1px solid #ddd;
+	padding: 10px 0;
+	font-size: small;
+}
+
+.dwqa-comments-list .dwqa-comment:last-child {
+	border-bottom: none;
+}
+
+.dwqa-comment-form {
+	padding: 10px;
+	background: #f9f9f9;
+}
+
+.dwqa-comment-form .comment-form {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.dwqa-comment-form .comment-form textarea {
+	background: #fff;
+	width: 100% !important;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
+
+.dwqa-comment-form .comment-form input {
+	margin-top: 10px !important;
+	display: none !important;
+}
+
+.dwqa-comment-form .comment-form textarea:focus + input {
+	display: block !important;
+}
+
+.dwqa-comment-form textarea {
+	width: 100%;
+}
+
+.dwqa-comment-meta {
+	margin-bottom: 10px;
+}
+
+.dwqa-comment-actions {
+	float: right;
+}
+
+.dwqa-comment-actions a {
+	margin-left: 10px;
+}
+
+/**
+ * Archive Page
+ *
+ * -----------------------------------------------------------------------------
+ */
+
+/* Breadcrumbs */
+.dwqa-breadcrumbs {
+	margin-bottom: 20px;
+}
+
+/* Question Search */
+.dwqa-search {
+	margin-bottom: 20px;
+	position: relative;
+}
+
+.dwqa-search input {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	padding-right: 40px;
+	width: 100%;
+	margin-bottom: 0 !important;
+	background: url(../img/icon-search.png) no-repeat right 10px center !important;
+}
+
+.dwqa-search input.ui-autocomplete-loading {
+	background-image: url(../img/icon-loading.gif) !important;
+}
+
+.dwqa-search .dwqa-autocomplete {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	background: #f9f9f9;
+	left: 0 !important;
+	position: absolute !important;
+	right: 0 !important;
+	top: auto !important;
+	z-index: 9999;
+}
+
+.dwqa-search .dwqa-autocomplete li {
+	padding: 10px;
+	cursor: pointer;
+	border-bottom: 1px solid #ddd;
+	margin: 0;
+}
+
+.dwqa-search .dwqa-autocomplete .dwqa-text-highlight {
+	font-weight: bold;
+}
+
+.dwqa-search .dwqa-autocomplete li.ui-state-focus,
+.dwqa-search .dwqa-autocomplete li:hover {
+	background: #f0f0f0;
+}
+
+.dwqa-search .dwqa-autocomplete li:last-child {
+	border-bottom: 0;
+}
+
+/* Question Filter */
+.dwqa-question-filter {
+	margin-bottom: 20px;
+}
+
+.dwqa-question-filter span,
+.dwqa-question-filter a {
+	margin-right: 10px;
+}
+
+.dwqa-question-filter a {
+	border: none !important;
+	text-decoration: none;
+}
+
+.dwqa-question-filter a.active {
+	border-bottom: 1px solid #ddd !important;
+}
+
+.dwqa-question-filter .dwqa-sort-by {
+	float: right;
+}
+
+/* Question List */
+.dwqa-questions-list {
+	border-top: 1px solid #ddd;
+}
+
+.dwqa-questions-list .dwqa-question-item {
+	border-bottom: 1px solid #ddd;
+	padding: 15px 160px 15px 70px;
+}
+
+.dwqa-questions-list .dwqa-question-item .avatar {
+	top: 50%;
+	margin-top: -24px;
+}
+
+.dwqa-questions-list .dwqa-question-item .dwqa-question-meta {
+	margin-bottom: 0;
+}
+
+.dwqa-questions-list .dwqa-question-item .dwqa-question-stats {
+	position: absolute;
+	top: 50%;
+	margin-top: -24px;
+	right: 0;
+}
+
+.dwqa-questions-list .dwqa-question-item .dwqa-question-stats span {
+	min-width: 48px;
+	height: 48px;
+	border: 1px solid #ddd;
+	display: block;
+	float: left;
+	margin-left: 5px;
+	text-align: center;
+	font-size: 11px;
+}
+
+.dwqa-questions-list .dwqa-question-item .dwqa-question-stats strong {
+	font-size: 14px;
+	line-height: 26px;
+	display: block;
+	font-weight: normal;
+}
+
+/**
+ * Single Question
+ *
+ * -----------------------------------------------------------------------------
+ */
+
+.single .dwqa-question-item {
+	min-height: 140px;
+}
+
+
+/**
+ * Content Edit
+ *
+ * -----------------------------------------------------------------------------
+ */
+
+.dwqa-content-edit-form .wp-editor-wrap {
+	border: 1px solid #ddd;
+}
+
+.dwqa-content-edit-form input[type=text],
+.dwqa-content-edit-form select {
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	width: 100%;
+}

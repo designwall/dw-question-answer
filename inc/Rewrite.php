@@ -1,4 +1,4 @@
-<?php  
+<?php
 
 class DWQA_Rewrite {
 	public function __construct() {
@@ -28,7 +28,5 @@ class DWQA_Rewrite {
 			add_permastruct( 'dwqa-question_tag', "{$question_list_page->post_name}/{$rewrite_tag}/%dwqa-question_tag%", array( 'with_front' => false ) );
 		}
 	}
-
-
 }
 ?>

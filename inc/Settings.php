@@ -646,6 +646,7 @@ class DWQA_Settings {
 		add_action( 'init', array( $this, 'init_options' ), 9 );
 		add_action( 'admin_init', array( $this, 'register_settings' ) );
 		add_action( 'updated_option', array( $this, 'update_options' ), 10, 3 );
+		add_action( 'wp_loaded', array( $this, 'flush_rules' ) );
 	}
 
 	public function update_options( $option, $old_value, $value ) {
@@ -695,6 +696,12 @@ class DWQA_Settings {
 			'captcha-in-single-question' => false,
 			'question-new-time-frame' => 4,
 		) );
+	}
+
+	public function flush_rules() {
+		if ( isset( $_GET['page'] ) && 'dwqa-settings' == $_GET['page'] ) {
+			flush_rewrite_rules();
+		}
 	}
 
 	public function register_settings(){
@@ -754,13 +761,13 @@ class DWQA_Settings {
 			'dwqa-general-settings'
 		);
 
-		add_settings_field( 
-			'dwqa_options[single-template]', 
-			__( 'Single Question Template', 'dwqa' ), 
-			'dwqa_single_template_options', 
-			'dwqa-settings', 
-			'dwqa-general-settings' 
-		);
+		// add_settings_field( 
+		// 	'dwqa_options[single-template]', 
+		// 	__( 'Single Question Template', 'dwqa' ), 
+		// 	'dwqa_single_template_options', 
+		// 	'dwqa-settings', 
+		// 	'dwqa-general-settings' 
+		// );
 
 		do_action( 'dwqa_register_setting_section' );
 

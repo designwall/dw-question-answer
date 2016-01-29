@@ -64,7 +64,7 @@ class DWQA_Editor {
 					'toolbar2'   => '',
 					'content_css' => $dwqa_tinymce_css
 			),
-			'quicktags'     => false,
+			'quicktags'     => true,
 		) );
 	}
 
@@ -150,54 +150,29 @@ class DWQA_Editor {
 
 	public function ajax_create_update_question_editor() {
 
-		if ( ! isset( $_POST['question'] ) ) {
+		check_ajax_referer( '_dwqa_edit_question', 'nonce' );
+
+		if ( ! isset( $_POST['post'] ) ) {
 			return false;
 		}
+
 		extract( $_POST );
+		$title = get_the_title( $post );
+		$title = apply_filters( 'dwqa_prepare_edit_question_title', $title, $post );
+		$content = get_post_field( 'post_content', $post );
+		$content = apply_filters( 'dwqa_prepare_edit_question_content', $title, $post );
+		$args = array(
+			'content' => $content,
+			'id' => 'dwqa-question-edit-form',
+			'textarea_name' => 'question-content-edit'
+		);
 
 		ob_start();
 		?>
-		<form action="<?php echo admin_url( 'admin-ajax.php?action=dwqa-update-question' ); ?>" method="post">
-			<?php wp_nonce_field( '_dwqa_update_question' ); ?>
-
-			<?php if ( 'draft' == get_post_status( $question ) && dwqa_current_user_can( 'edit_question' ) ) {  ?>
-			<input type="hidden" name="dwqa-action-draft" value="true" >
-			<?php } ?> 
-			<input type="hidden" name="dwqa-action" value="update-question" >
-			<input type="hidden" name="question" value="<?php echo $question; ?>">
-			<?php $question = get_post( $question ); ?>
-			<input type="text" style="width:100%" name="dwqa-question-title" id="dwqa-question-title" value="<?php echo $question->post_title; ?>">
-			<?php
-				$question_content = apply_filters( 'dwqa_prepare_edit_question_content', $question->post_content );
-				
-				dwqa_init_tinymce_editor( array(
-					'content'       => $question_content, 
-					'textarea_name' => 'dwqa-question-content',
-					'wpautop'       => false,
-				) ); 
-			?>
-			<script type="text/javascript">
-				var id = 'dwqa-custom-content-editor';
-				var settings = tinyMCEPreInit.mceInit['dwqa-answer-question-editor'];
-
-                    settings.elements = id;
-                    settings.body_class = id + ' post-type-dwqa-question';
-                    settings.editor_selector = id; // deprecated in TinyMCE 4.x
-                    settings.selector = '#' + id;
-                    //init tinymce
-                    if( tinyMCE.get(id) ) {
-                        tinymce.remove('#'+id);   
-                    }
-                    tinyMCE.init(settings);
-			</script>
-			<p class="dwqa-question-form-btn">
-				<input type="submit" name="submit-question" class="dwqa-btn dwqa-btn-default" value="<?php _e( 'Update','dwqa' ) ?>">
-				<a type="button" class="question-edit-cancel dwqa-btn dwqa-btn-link" ><?php _e( 'Cancel','dwqa' ) ?></a>
-				<?php if ( 'draft' == get_post_status( $question ) && current_user_can( 'manage_options' ) ) { 
-				?>
-				<input type="submit" name="submit-question" class="btn btn-primary btn-small" value="<?php _e( 'Publish','dwqa' ) ?>">
-				<?php } ?>
-			</p>
+		<form method="post" class="dwqa-answer-form">
+			<input name="question_title" value="<?php echo $title ?>">
+			<?php dwqa_init_tinymce_editor( $args ); ?>
+			<input type="hidden" name="question_id" value="<?php echo esc_attr( $post ) ?>">
 		</form>
 		<?php
 		$editor = apply_filters( 'dwqa_question_edit_content_editor', ob_get_contents(), $_POST );

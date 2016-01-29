@@ -13,13 +13,13 @@ function dwqa_action_vote( ) {
 	}
 
 
-	if ( ! isset( $_POST[ $vote_for . '_id'] ) ) {
+	if ( ! isset( $_POST[ 'post' ] ) ) {
 		$result['error_code']       = 'missing ' . $vote_for;
 		$result['error_message']    = __( 'What '.$vote_for.' are you looking for?', 'dwqa' );
 		wp_send_json_error( $result );
 	}
 
-	$post_id = sanitize_text_field( $_POST[ $vote_for . '_id'] );
+	$post_id = sanitize_text_field( $_POST[ 'post' ] );
 	$point = isset( $_POST['type'] ) && sanitize_text_field( $_POST['type'] ) == 'up' ? 1 : -1;
 
 	//vote
@@ -163,7 +163,8 @@ function dwqa_content_html_decode( $content ) {
  * @param  int $post_id question/answer id
  * @return boolean
  */
-function dwqa_is_anonymous( $post_id ) {
+function dwqa_is_anonymous( $post_id = 0 ) {
+	if ( empty( $post_id ) ) $post_id = get_the_ID();
 	$anonymous = get_post_meta( $post_id, '_dwqa_is_anonymous', true );
 	if ( $anonymous ) {
 		return true;
@@ -171,49 +172,91 @@ function dwqa_is_anonymous( $post_id ) {
 	return false;
 }
 
+function dwqa_answer_get_edit_content( $post_id = false ) {
+	if ( ! $post_id ) {
+		$post_id = get_the_ID();
+	}
 
+	$content = get_post_field( 'post_content', $post_id );
+
+	return apply_filters( 'dwqa_answer_get_edit_content', $content, $post_id );
+}
+
+function dwqa_question_get_edit_content( $post_id = false ) {
+	if ( ! $post_id ) {
+		$post_id = get_the_ID();
+	}
+
+	$content = get_post_field( 'post_content', $post_id );
+
+	return apply_filters( 'dwqa_question_get_edit_content', $content, $post_id );
+}
+
+function dwqa_question_get_edit_title( $post_id = false ) {
+	if ( $post_id ) {
+		$post_id = get_the_ID();
+	}
+
+	$title = get_the_title( $post_id );
+
+	return apply_filters( 'dwqa_question_get_edit_title', $title, $post_id );
+}
 
 function dwqa_get_latest_action_date( $question = false, $before = '<span>', $after = '</span>' ){
 	if ( ! $question ) {
 		$question = get_the_ID();
 	}
-	global $post;
+	global $post, $dwqa_general_settings;
 
 	$message = '';
 
+	$question_list_link = isset( $dwqa_general_settings['pages']['archive-question'] ) ? get_permalink( $dwqa_general_settings['pages']['archive-question'] ) : false;
 	$latest_answer = dwqa_get_latest_answer( $question );
 	$last_activity_date = $latest_answer ? $latest_answer->post_date : get_post_field( 'post_date', $question );
 	$post_id = $latest_answer ? $latest_answer->ID : $question;
 	$author_id = $post->post_author;
 	if ( $author_id == 0 || dwqa_is_anonymous( $post_id ) ) {
 		$anonymous_name = get_post_meta( $post_id, '_dwqa_anonymous_name', true );
+		$author_email = get_post_meta( $post_id, '_dwqa_anonymous_email', true );
 		if ( $anonymous_name ) {
-			$author_link = $anonymous_name . ' ';
+			$display_name = $anonymous_name . ' ';
 		} else {
-			$author_link = __( 'Anonymous', 'dwqa' )  . ' ';
+			$display_name = __( 'Anonymous', 'dwqa' )  . ' ';
 		}
 	} else {
 		$display_name = get_the_author_meta( 'display_name', $author_id );
-		$author_url = get_author_posts_url( $author_id );
-		$author_avatar = wp_cache_get( 'avatar_of_' . $author_id, 'dwqa' );
-		if ( false === $author_avatar ) {
-			$author_avatar = get_avatar( $author_id, 12 );
-			wp_cache_set( 'avatar_of_'. $author_id, $author_avatar, 'dwqa', 60*60*24*7 );
-		}
-		$author_link = sprintf(
-			'<span class="dwqa-author"><span class="dwqa-user-avatar">%4$s</span> <a href="%1$s" title="%2$s" rel="author">%3$s</a></span>',
-			$author_url,
-			esc_attr( sprintf( __( 'Posts by %s' ), $display_name ) ),
-			$display_name,
-			$author_avatar
-		);
+		$author_url = $question_list_link ? add_query_arg( array( 'user-question' => get_the_author_meta( 'user_login', $author_id ) ), $question_list_link ) : the_author_posts_link( $author_id );
+		$author_email = get_the_author_meta( 'user_email', $author_id );
 	}
+	$author_avatar = wp_cache_get( 'avatar_of_' . $author_id, 'dwqa' );
+	if ( false === $author_avatar ) {
+		$author_avatar = get_avatar( $author_email, 48 );
+		wp_cache_set( 'avatar_of_'. $author_email, $author_avatar, 'dwqa', 60*60*24*7 );
+	}
+	$author_display = dwqa_is_anonymous() ? $display_name : sprintf( '<a href="%1$s" title="%2$s" rel="author">%3$s</a>', $author_url, esc_attr( sprintf( __( 'Posts by %s' ), $display_name ) ), $display_name );
+	$author_link = sprintf(
+		'<span class="dwqa-author"><span class="dwqa-user-avatar">%2$s</span>%1$s</span>',
+		$author_display,
+		$author_avatar
+	);
 	
 	if ( $last_activity_date && $post->last_activity_type == 'answer' ) {
-		$date = dwqa_human_time_diff( strtotime( $last_activity_date ), false, get_option( 'date_format' ) );
-		return sprintf( __( '%s answered <span class="dwqa-date">%s</span>', 'dwqa' ), $author_link, $date );
+		$date = human_time_diff( strtotime( $last_activity_date ), current_time( 'timestamp' ) );
+		return sprintf( __( '%s answered <span class="dwqa-date">%s</span> ago', 'dwqa' ), $author_link, $date );
 	}
-	return sprintf( __( '%s asked <span class="dwqa-date">%s</span>', 'dwqa' ), $author_link, get_the_date() );
+
+	if ( 'dwqa-answer' == get_post_type( $question ) ) {
+		return sprintf( __( '%s answered <span class="dwqa-date">%s</span> ago', 'dwqa' ), $author_link, human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) );
+	}
+	return sprintf( __( '%s asked <span class="dwqa-date">%s</span> ago', 'dwqa' ), $author_link, human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) );
+}
+
+function dwqa_is_edit() {
+	if ( isset( $_GET['edit'] ) && is_numeric( $_GET['edit'] ) ) {
+		return true;
+	}
+
+	return false;
 }
 
 class DWQA_Posts_Base {
@@ -252,6 +295,7 @@ class DWQA_Posts_Base {
 		return wp_parse_args( $this->labels, array(
 			'plural' => __( 'DWQA Posts', 'dwqa' ),
 			'singular' => __( 'DWQA Post', 'dwqa' ),
+			'rewrite' => true,
 		) );
 	}
 
@@ -275,7 +319,10 @@ class DWQA_Posts_Base {
 	}
 
 	public function register() {
+		$names = $this->get_name_labels();
 		
+		$this->register_taxonomy();
+
 		$args = array(
 			'labels'              => array(),
 			'hierarchical'        => false,
@@ -293,7 +340,7 @@ class DWQA_Posts_Base {
 			'has_archive'         => true,
 			'query_var'           => true,
 			'can_export'          => true,
-			'rewrite'             => true,
+			'rewrite'             => $names['rewrite'],
 			'capability_type'     => 'post',
 			'supports'            => array(
 				'title', 'editor', 'author', 'thumbnail',
@@ -311,6 +358,8 @@ class DWQA_Posts_Base {
 
 		register_post_type( $this->get_slug(), $args );
 	}
+
+	public function register_taxonomy() {}
 
 	public function pre_content_filter( $content ) {
 		return preg_replace_callback( '/<( code )( [^>]* )>( .* )<\/( code )[^>]*>/isU' , array( $this, 'convert_pre_entities' ),  $content );
@@ -371,21 +420,15 @@ class DWQA_Posts_Base {
 		global $post;
 		if ( is_single() && ( 'dwqa-question' == $post->post_type || 'dwqa-answer' == $post->post_type ) ) {
 			$content = make_clickable( $content );
-			$content = preg_replace_callback( '/<a[^>]*>]+/', array( $this, 'auto_nofollow_callback' ), $content );
+			$content = preg_replace_callback( '|<a (.+?)>|i', array( $this, 'auto_nofollow_callback' ), $content );
 		}
 		return $content;
 	}
 
 	public function auto_nofollow_callback( $matches ) {
-		$link = $matches[0];
-		$site_link = get_bloginfo( 'url' );
-	 
-		if ( strpos( $link, 'rel' ) === false ) {
-			$link = preg_replace( "%( href=S( ?! $site_link ))%i", 'rel="nofollow" $1', $link );
-		} elseif ( preg_match( "%href=S( ?! $site_link )%i", $link ) ) {
-			$link = preg_replace( '/rel=S( ?! nofollow )S*/i', 'rel="nofollow"', $link );
-		}
-		return $link;
+		$text = $matches[1];
+		$text = str_replace( array( ' rel="nofollow"', " rel='nofollow'" ), '', $text );
+		return "<a $text rel=\"nofollow\">";
 	}
 
 	public function hook_on_update_anonymous_post( $data, $postarr ) {

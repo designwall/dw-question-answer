@@ -1,0 +1,138 @@
+(function($){
+
+	// Follow and Unfollow Question
+	$('#dwqa-favorites').on('change',function(e){
+		e.preventDefault();
+		var t = $(this);
+
+		// prevent action if is processing
+		if (t.parent().hasClass('processing')) {
+			return false;
+		}
+
+		t.parent().addClass('processing');
+
+		data = {
+			action: 'dwqa-follow-question',
+			nonce: t.data('nonce'),
+			post: t.data('post')
+		}
+
+		$.ajax({
+			url: dwqa.ajax_url,
+			data: data,
+			type: 'POST',
+			dataType: 'json',
+			success: function(data){
+				t.parent().removeClass('processing');
+			}
+		});
+	});
+
+
+	// Vote
+	var update_vote = false;
+	$( '.dwqa-vote-up' ).on('click', function(e){
+		e.preventDefault();
+		var t = $(this),
+			parent = t.parent(),
+			id = parent.data('post'),
+			nonce = parent.data('nonce'),
+			vote_for = 'question';
+
+		if ( parent.hasClass( 'dwqa-answer-vote' ) ) {
+			vote_for = 'answer';
+		}
+
+		var data = {
+			action: 'dwqa-action-vote',
+			vote_for: vote_for,
+			nonce: nonce,
+			post: id,
+			type: 'up'
+		}
+
+		$.ajax({
+			url: dwqa.ajax_url,
+            type: 'POST',
+            dataType: 'json',
+            data: data,
+            success: function( data ) {
+            	console.log(data);
+            	if (data.success) {
+                    parent.find('.dwqa-vote-count').text(data.data.vote);
+                }
+            }
+		});
+	});
+
+	$( '.dwqa-vote-down' ).on('click', function(e){
+		e.preventDefault();
+		var t = $(this),
+			parent = t.parent(),
+			id = parent.data('post'),
+			nonce = parent.data('nonce'),
+			vote_for = 'question';
+
+		if ( parent.hasClass( 'dwqa-answer-vote' ) ) {
+			vote_for = 'answer';
+		}
+
+		var data = {
+			action: 'dwqa-action-vote',
+			vote_for: vote_for,
+			nonce: nonce,
+			post: id,
+			type: 'down'
+		}
+
+		$.ajax({
+			url: dwqa.ajax_url,
+            type: 'POST',
+            dataType: 'json',
+            data: data,
+            success: function( data ) {
+            	if (data.success) {
+                    parent.find('.dwqa-vote-count').text(data.data.vote);
+                }
+            }
+		});
+	});
+
+	// delete question
+	$( '.dwqa_delete_question, .dwqa_delete_answer' ).on('click', function(e) {
+		var message = confirm( 'Are you sure to delete this question.' );
+
+		if ( !message ) {
+			e.preventDefault();
+		}
+	});
+
+	// change question status
+	$('#dwqa-question-status').on('change', function(e){
+		var t = $(this),
+			nonce = t.data('nonce'),
+			post = t.data('post'),
+			status = t.val(),
+			data = {
+				action: 'dwqa-update-privacy',
+				post: post,
+				nonce: nonce,
+				status: status
+			};
+
+		$.ajax({
+			url: dwqa.ajax_url,
+            type: 'POST',
+            dataType: 'json',
+            data: data,
+            success: function(data) {
+            	if ( data.success == false ) {
+            		alert( data.data.message );
+            	}
+            }
+		})
+	});
+	
+
+})(jQuery);

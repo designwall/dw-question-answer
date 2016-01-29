@@ -1,4 +1,4 @@
-<?php  
+<?php
 
 class DWQA_Posts_Comment {
 	public function __construct() {

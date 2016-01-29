@@ -12,7 +12,7 @@
 	<p>
 		<label for="question_title"><?php _e( 'Title', 'dwqa' ) ?></label>
 		<?php $title = isset( $_POST['question-title'] ) ? $_POST['question-title'] : ''; ?>
-		<input type="text" name="question-title" value="<?php echo $title ?>" tabindex="1">
+		<input type="text" data-nonce="<?php echo wp_create_nonce( '_dwqa_filter_nonce' ) ?>" id="question-title" name="question-title" value="<?php echo $title ?>" tabindex="1">
 	</p>
 	<?php $content = isset( $_POST['question-content'] ) ? $_POST['question-content'] : ''; ?>
 	<p><?php dwqa_init_tinymce_editor( array( 'content' => $content, 'textarea_name' => 'question-content', 'id' => 'question-content' ) ) ?></p>

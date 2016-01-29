@@ -404,7 +404,8 @@ function dwqa_enqueue_scripts(){
 
     if( isset($dwqa_options['pages']['submit-question'])
         && is_page( $dwqa_options['pages']['submit-question'] ) ) {
-        wp_enqueue_script( 'dwqa-submit-question', $assets_folder . 'js/dwqa-submit-question.js', array( 'jquery' ), $script_version, true );
+    	wp_enqueue_script( 'jquery-ui-autocomplete' );
+        wp_enqueue_script( 'dwqa-submit-question', $assets_folder . 'js/dwqa-submit-question.js', array( 'jquery', 'jquery-ui-autocomplete' ), $script_version, true );
         wp_localize_script( 'dwqa-submit-question', 'dwqa', $dwqa_sript_vars );
     }
 }

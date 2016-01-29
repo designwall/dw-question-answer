@@ -172,9 +172,9 @@
         //changeHeight();
         t.parent().addClass( 'dwqa-comment-show-button' );
         current_form.find('.dwqa-form-submit').show();
-        // t.bind('keyup change', function(event) {
-        //     changeHeight();
-        // });
+        t.bind('keyup change', function(event) {
+            changeHeight();
+        });
 	});
 	
 

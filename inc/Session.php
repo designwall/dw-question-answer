@@ -102,7 +102,7 @@ class DWQA_Session {
 		foreach( $types as $type ) {
 			if ( $this->count( $type ) > 0 ) {
 				foreach( $notices[ $type ] as $message ) {
-					return sprintf( '<p class="alert alert-%s">%s</p>', $type, $message );
+					return sprintf( '<p class="dwqa-alert dwqa-alert-%s">%s</p>', $type, $message );
 				}
 			}
 		}

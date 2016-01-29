@@ -60,7 +60,7 @@ add_filter( 'dwqa_valid_captcha', 'dwqa_recaptcha_check' );
 function dwqa_recaptcha_check( $res ) {
 	global $dwqa_general_settings;
 	$type_selected = isset( $dwqa_general_settings['captcha-type'] ) ? $dwqa_general_settings['captcha-type'] : 'default-captcha';
-
+	if (!isset( $_SESSION ) ) session_start();
 	$hash_md5 = $_SESSION['dwqa']['captcha-form']['verify'];
 	$captcha = isset( $_POST['dwqa-captcha'] ) ? $_POST['dwqa-captcha'] : '';
 	$captcha = md5( $captcha );

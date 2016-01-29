@@ -248,21 +248,20 @@
 	padding: 0 !important;
 }
 
+.dwqa-comment-form #submit {
+	display: none;
+}
+
+.dwqa-comment-form .dwqa-comment-show-button #submit {
+	display: block;
+}
+
 .dwqa-comment-form .comment-form textarea {
 	background: #fff;
 	width: 100% !important;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
-}
-
-.dwqa-comment-form .comment-form input {
-	margin-top: 10px !important;
-	display: none !important;
-}
-
-.dwqa-comment-form .comment-form textarea:focus + input {
-	display: block !important;
 }
 
 .dwqa-comment-form textarea {

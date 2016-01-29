@@ -151,8 +151,42 @@ function dwqa_the_answers() {
 	return $wp_query->dwqa_answers->the_post();
 }
 
-function dwqa_captcha_form() {
-	
+function dwqa_get_answer_count( $question_id = false ) {
 
+	if ( ! $question_id ) {
+		$question_id = get_the_ID();
+	}
+
+	$answer_count = get_post_meta( $question_id, '_dwqa_answers_count', true );
+
+	if ( current_user_can( 'edit_posts' ) ) {
+		return $answer_count;
+	} else {
+		$answer_private = get_post_meta( $question_id, 'dwqa_answers_private_count', true );
+
+		if ( empty( $answer_private ) ) {
+			global $wp_query;
+			$args = array(
+				'post_type' => 'dwqa-answer',
+				'post_status' => 'private',
+				'meta_query' => array(
+					'key' => '_question',
+					'value' => array( $question_id ),
+					'compare' => 'IN'
+				),
+				'no_found_rows' => true,
+				'update_post_meta_cache' => false,
+				'update_post_term_cache' => false,
+				'fields' => 'ids'
+			);
+
+			$private_answer = new WP_Query( $args );
+
+			update_post_meta( $question_id, 'dwqa_answers_private_count', count( $private_answer ) );
+			$answer_private = count( $private_answer );
+		}
+
+		return (int) $answer_count - (int) $answer_private;
+	}
 }
 ?>

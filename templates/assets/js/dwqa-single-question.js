@@ -99,7 +99,13 @@
 		});
 	});
 
+	$( '.dwqa_delete_question, .dwqa_delete_answer' ).on('click', function(e) {
+		var message = confirm( 'Are you sure to delete this question.' );
 
+		if ( !message ) {
+			e.preventDefault();
+		}
+	});
 	
 
 })(jQuery);

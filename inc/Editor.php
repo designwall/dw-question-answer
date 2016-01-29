@@ -52,7 +52,7 @@ class DWQA_Editor {
 				'media_buttons' => false,
 		) ) );
 
-		$dwqa_tinymce_css = apply_filters( 'dwqa_editor_style', DWQA_URI . 'assets/css/tinymce.css' );
+		$dwqa_tinymce_css = apply_filters( 'dwqa_editor_style', DWQA_URI . 'templates/assets/css/editor-style.css' );
 		$toolbar1 = apply_filters( 'dwqa_tinymce_toolbar1', 'bold,italic,underline,|,' . 'bullist,numlist,blockquote,|,' . 'link,unlink,|,' . 'image,code,|,'. 'spellchecker,fullscreen,dwqaCodeEmbed,|,' );
 		wp_editor( $content, $id, array(
 			'wpautop'       => $wpautop,

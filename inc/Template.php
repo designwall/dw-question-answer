@@ -119,7 +119,9 @@ function dwqa_answer_paginate_link() {
 		'total' => $wp_query->dwqa_answers->max_num_pages
 	);
 
+	echo '<div class="dwqa-pagination">';
 	echo paginate_links( $args );
+	echo '</div>';
 }
 
 function dwqa_question_paginate_link() {
@@ -136,7 +138,9 @@ function dwqa_question_paginate_link() {
 		'total' => $wp_query->dwqa_questions->max_num_pages
 	);
 
+	echo '<div class="dwqa-pagination">';
 	echo paginate_links( $args );
+	echo '</div>';
 }
 
 function dwqa_question_button_action() {

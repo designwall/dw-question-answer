@@ -1,8 +1,29 @@
+.dwqa-staff {
+	background: #1ba1e2;
+	color: #fff;
+	padding: 1px 5px;
+	border-radius: 3px;
+	margin: 0 5px;
+}
+
 /**
  * Questions
  *
  * -----------------------------------------------------------------------------
  */
+
+.dwqa-captcha img {
+	display: block;
+	margin: 0 0 10px;
+}
+
+.dwqa-captcha input {
+	width: 100%;
+	margin-bottom: 20px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}
 
 .dwqa-question-item {
 	padding: 0 0 0 70px;
@@ -98,6 +119,10 @@
 
 .dwqa-question-item .dwqa-question-actions a {
 	margin-left: 10px;
+}
+
+.dwqa-question-item .dwqa-question-actions input[type=checkbox] {
+	margin-right: 5px;
 }
 
 .dwqa-question-content img {
@@ -236,6 +261,10 @@
 	border-bottom: 1px solid #ddd;
 	padding: 10px 0;
 	font-size: small;
+}
+
+.dwqa-comments-list .dwqa-comment p:last-child {
+	margin-bottom: 0;
 }
 
 .dwqa-comments-list .dwqa-comment:last-child {

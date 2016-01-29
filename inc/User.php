@@ -197,13 +197,15 @@ function dwqa_get_author_link( $user_id = false ) {
 * @return array
 * @since 1.4.0
 */
-function dwqa_get_user_question_subscribes( $user_id = false ) {
+function dwqa_get_user_question_subscribes( $user_id = false, $posts_per_page = 5, $page = 1 ) {
 	if ( !$user_id ) {
 		return array();
 	}
 
 	$args = array(
 		'post_type' 				=> 'dwqa-question',
+		'posts_per_page'			=> $posts_per_page,
+		'paged'						=> $page,
 		'fields' 					=> 'ids',
 		'update_post_term_cache' 	=> false,
 		'update_post_meta_cache' 	=> false,

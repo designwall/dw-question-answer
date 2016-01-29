@@ -627,7 +627,7 @@ class DWQA_Filter {
 				break;
 			case 'subscribes':
 				if ( $user ) {
-					$query['post__in'] = dwqa_get_user_question_subscribes( $user->ID );
+					$query['post__in'] = dwqa_get_user_question_subscribes( $user->ID, $posts_per_page, $paged );
 				}
 				break;
 		}

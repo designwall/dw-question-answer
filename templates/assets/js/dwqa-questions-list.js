@@ -22,11 +22,6 @@ jQuery(function($){
 								value: item.title,
 								url: item.url,
 							}
-						} else {
-							return {
-								label: item.message,
-								value: item.message
-							}
 						}
 					}))
 				}

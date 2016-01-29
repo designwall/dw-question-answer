@@ -16,6 +16,8 @@
 	</p>
 	<?php $content = isset( $_POST['question-content'] ) ? $_POST['question-content'] : ''; ?>
 	<p><?php dwqa_init_tinymce_editor( array( 'content' => $content, 'textarea_name' => 'question-content', 'id' => 'question-content' ) ) ?></p>
+	<?php global $dwqa_general_settings; ?>
+	<?php if ( isset( $dwqa_general_settings['enable-private-question'] ) && $dwqa_general_settings['enable-private-question'] ) : ?>
 	<p>
 		<label for="question-status"><?php _e( 'Status', 'dwqa' ) ?></label>
 		<select class="dwqa-select" id="question-status" name="question-status">
@@ -25,6 +27,7 @@
 			</optgroup>
 		</select>
 	</p>
+	<?php endif; ?>
 	<p>
 		<label for="question-category"><?php _e( 'Category', 'dwqa' ) ?></label>
 		<?php
@@ -44,9 +47,6 @@
 		<?php $tags = isset( $_POST['question-tag'] ) ? $_POST['question-tag'] : ''; ?>
 		<input type="text" class="" name="question-tag" value="<?php echo $tags ?>" >
 	</p>
-	<div class="question-signin">
-		<?php do_action( 'dwqa_submit_question_ui' ); ?>
-	</div>
 	<?php wp_nonce_field( '_dwqa_submit_question' ) ?>
 	<?php dwqa_load_template( 'captcha', 'form' ); ?>
 	<input type="submit" name="dwqa-question-submit" value="<?php _e( 'Submit', 'dwqa' ) ?>" >

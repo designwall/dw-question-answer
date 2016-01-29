@@ -20,22 +20,10 @@
 								value: item.title,
 								url: item.url,
 							}
-						} else {
-							return {
-								label: item.message,
-								value: item.message
-							}
 						}
 					}))
 				}
 			});
-		},
-		select: function( e, ui ) {
-			if ( ui.item.url !== '#' ) {
-				window.location.href = ui.item.url;
-			} else {
-				return true;
-			}
 		},
 		open: function( e, ui ) {
 			var acData = $(this).data( 'uiAutocomplete' );

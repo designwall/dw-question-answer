@@ -25,6 +25,17 @@
 				}
 			});
 		},
+		select: function( e, ui ) {
+			keycode = e.which || e.keyCode;
+
+			if ( keycode == 13 ) {
+				return true;
+			} else {
+				if ( ui.item.url ) {
+					window.open( ui.item.url );
+				}
+			}
+		},
 		open: function( e, ui ) {
 			var acData = $(this).data( 'uiAutocomplete' );
 			acData.menu.element.addClass('dwqa-autocomplete').find('li').each(function(){

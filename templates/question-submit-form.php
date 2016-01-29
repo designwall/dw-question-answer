@@ -47,6 +47,13 @@
 		<?php $tags = isset( $_POST['question-tag'] ) ? $_POST['question-tag'] : ''; ?>
 		<input type="text" class="" name="question-tag" value="<?php echo $tags ?>" >
 	</p>
+	<?php if ( dwqa_current_user_can( 'post_question' ) && !is_user_logged_in() ) : ?>
+	<p>
+		<label for="_dwqa_anonymous_email"><?php _e( 'Your Email', 'dwqa' ) ?></label>
+		<?php $email = isset( $_POST['_dwqa_anonymous_email'] ) ? $_POST['_dwqa_anonymous_email'] : ''; ?>
+		<input type="text" class="" name="_dwqa_anonymous_email" value="<?php echo $email ?>" >
+	</p>
+	<?php endif; ?>
 	<?php wp_nonce_field( '_dwqa_submit_question' ) ?>
 	<?php dwqa_load_template( 'captcha', 'form' ); ?>
 	<input type="submit" name="dwqa-question-submit" value="<?php _e( 'Submit', 'dwqa' ) ?>" >

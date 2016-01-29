@@ -104,9 +104,9 @@ function dwqa_get_tag_list( $question = false, $echo = false ) {
 
 	if ( empty( $lists ) ) {
 		$lists = '';
+	} else {
+		$lists = implode( ',', $lists );
 	}
-
-	$lists = implode( ',', $lists );
 
 	if ( $echo ) {
 		echo $lists;

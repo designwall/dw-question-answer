@@ -7,64 +7,48 @@
  */
 ?>
 
-<div id="submit-question" class="dwqa-submit-question">
 <?php do_action( 'dwqa_before_question_submit_form' ); ?>
-<form action="" name="dwqa-submit-question-form" id="dwqa-submit-question-form" method="post">
-		<div class="question-advance">
-			<div class="question-meta">
-				<div class="select-category">
-					<label for="question-category"><?php _e( 'Question Category','dwqa' ) ?></label>
-					<?php  
-						wp_dropdown_categories( array( 
-							'name'          => 'question-category',
-							'id'            => 'question-category',
-							'taxonomy'      => 'dwqa-question_category',
-							'show_option_none' => __( 'Select question category', 'dwqa' ),
-							'hide_empty'    => 0,
-							'quicktags'     => array( 'buttons' => 'strong,em,link,block,del,ins,img,ul,ol,li,code,spell,close' ),
-							'selected'      => isset( $_POST['question-category'] ) ? esc_html( $_POST['question-category'] ) : false,
-						) );
-					?>
-				</div>   
-				<div class="input-tag">
-					<label for="question-tag"><?php _e( 'Question Tags', 'dwqa' ) ?></label>
-					<input type="text" name="question-tag" id="question-tag" placeholder="<?php _e( 'tag 1, tag 2,...', 'dwqa' ) ?>" value="<?php echo isset( $_POST['question-tag'] ) ? esc_html( $_POST['question-tag'] ) : ''; ?>" />
-				</div>
-			</div>
-		</div>
-		<div class="input-title">
-			<label for="question-title"><?php _e( 'Your question', 'dwqa' ) ?> *</label>
-			<input type="text" name="question-title" id="question-title" placeholder="<?php _e( 'How to...', 'dwqa' ) ?>" autocomplete="off" data-nonce="<?php echo wp_create_nonce( '_dwqa_filter_nonce' ) ?>" value="<?php echo isset( $_POST['question-title'] ) ? esc_html( $_POST['question-title'] ) : ''; ?>" />
-			<span class="dwqa-search-loading dwqa-hide"></span>
-			<span class="dwqa-search-clear fa fa-times dwqa-hide"></span>
-		</div>  
-			
-		<div class="question-advance">
-			<div class="input-content">
-				<label for="question-content"><?php _e( 'Question details', 'dwqa' ) ?></label>
-				<?php 
-					dwqa_init_tinymce_editor( array( 
-						'content' => ( isset( $_POST['question-content'] ) ? wp_kses_data( $_POST['question-content'] ) : '' ),
-						'id' => 'dwqa-question-content-editor', 
-						'textarea_name' => 'question-content',
-						'media_buttons' => true,
-					) ); 
-				?>
-			</div>
-			<?php if ( isset( $dwqa_options['enable-private-question'] ) && $dwqa_options['enable-private-question'] ) : ?>
-			<div class="checkbox-private">
-				<label for="private-message"><input type="checkbox" name="private-message" id="private-message" value="true"> <?php _e( 'Post this Question as Private.', 'dwqa' ) ?> <i class="fa fa-question-circle" title="<?php _e( 'Only you as Author and Admin can see the question', 'dwqa' ) ?>"></i></label>
-			</div>
-			<?php endif; ?>
-			<div class="question-signin">
-				<?php do_action( 'dwqa_submit_question_ui' ); ?>
-			</div>
-			<?php dwqa_load_template( 'captcha', 'form' ); ?>
-			
-		</div>
-		<div class="form-submit">
-			<input type="submit" value="<?php _e( 'Ask Question', 'dwqa' ) ?>" class="dwqa-btn dwqa-btn-success btn-submit-question" />
-		</div>  
-	</form>
+<form method="post" class="dwqa-content-edit-form">
+	<p>
+		<label for="question_title"><?php _e( 'Title', 'dwqa' ) ?></label>
+		<?php $title = isset( $_POST['question-title'] ) ? $_POST['question-title'] : ''; ?>
+		<input type="text" name="question-title" value="<?php echo $title ?>" tabindex="1">
+	</p>
+	<?php $content = isset( $_POST['question-content'] ) ? $_POST['question-content'] : ''; ?>
+	<p><?php dwqa_init_tinymce_editor( array( 'content' => $content, 'textarea_name' => 'question-content', 'id' => 'question-content' ) ) ?></p>
+	<p>
+		<label for="question-status"><?php _e( 'Status', 'dwqa' ) ?></label>
+		<select class="dwqa-select" id="question-status" name="question-status">
+			<optgroup label="<?php _e( 'Who can see this?', 'dwqa' ) ?>">
+				<option value="publish"><?php _e( 'Public', 'dwqa' ) ?></option>
+				<option value="private"><?php _e( 'Only Me &amp; Admin', 'dwqa' ) ?></option>
+			</optgroup>
+		</select>
+	</p>
+	<p>
+		<label for="question-category"><?php _e( 'Category', 'dwqa' ) ?></label>
+		<?php
+			wp_dropdown_categories( array(
+				'name'          => 'question-category',
+				'id'            => 'question-category',
+				'taxonomy'      => 'dwqa-question_category',
+				'show_option_none' => __( 'Select question category', 'dwqa' ),
+				'hide_empty'    => 0,
+				'quicktags'     => array( 'buttons' => 'strong,em,link,block,del,ins,img,ul,ol,li,code,spell,close' ),
+				'selected'      => isset( $_POST['question-category'] ) ? $_POST['question-category'] : false,
+			) );
+		?>
+	</p>
+	<p>
+		<label for="question-tag"><?php _e( 'Tag', 'dwqa' ) ?></label>
+		<?php $tags = isset( $_POST['question-tag'] ) ? $_POST['question-tag'] : ''; ?>
+		<input type="text" class="" name="question-tag" value="<?php echo $tags ?>" >
+	</p>
+	<div class="question-signin">
+		<?php do_action( 'dwqa_submit_question_ui' ); ?>
+	</div>
+	<?php wp_nonce_field( '_dwqa_submit_question' ) ?>
+	<?php dwqa_load_template( 'captcha', 'form' ); ?>
+	<input type="submit" name="dwqa-question-submit" value="<?php _e( 'Submit', 'dwqa' ) ?>" >
+</form>
 <?php do_action( 'dwqa_after_question_submit_form' ); ?>
-</div>

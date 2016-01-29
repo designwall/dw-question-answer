@@ -129,7 +129,7 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 
 		add_action( 'manage_dwqa-question_posts_custom_column', array( $this, 'columns_content' ), 10, 2 );
 
-		add_action( 'init', array( $this, 'submit_question' ), 11 );
+		add_action( 'wp_loaded', array( $this, 'submit_question' ), 11 );
 		// Ajax update question
 		add_action( 'wp_loaded', array( $this, 'update' ) );
 		// Update view count of question, if we change single question template into shortcode, this function will need to be rewrite
@@ -142,7 +142,7 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 		add_action( 'wp_ajax_dwqa-stick-question', array( $this, 'stick_question' ) );
 		add_action( 'restrict_manage_posts', array( $this, 'admin_posts_filter_restrict_manage_posts' ) );
 
-		add_action( 'wp_ajax_dwqa-delete-question', array( $this, 'delete_question' ) );
+		add_action( 'wp_ajax_dwqa_delete_question', array( $this, 'delete' ) );
 		// Ajax Update question status
 		add_action( 'wp_ajax_dwqa-update-question-status', array( $this, 'update_status' ) );
 		add_filter( 'parse_query', array( $this, 'posts_filter' ) );
@@ -349,13 +349,13 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 	public function submit_question() {
 		global $dwqa_options;
 
-		if ( isset( $_POST['dwqa-action'] ) && 'dwqa-submit-question' == esc_html( $_POST['dwqa-action'] ) ) {
+		if ( isset( $_POST['dwqa-question-submit'] ) ) {
 			global $dwqa_current_error;
 			$valid_captcha = dwqa_valid_captcha( 'question' );
 
 			$dwqa_submit_question_errors = new WP_Error();
 
-			if ( isset( $_POST['_wpnonce'] ) && wp_verify_nonce( esc_html( $_POST['_wpnonce'] ), 'dwqa-submit-question-nonce-#!' ) ) {
+			if ( isset( $_POST['_wpnonce'] ) && wp_verify_nonce( esc_html( $_POST['_wpnonce'] ), '_dwqa_submit_question' ) ) {
 				if ( $valid_captcha ) {
 					if ( empty( $_POST['question-title'] ) ) {
 
@@ -457,7 +457,7 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 						}
 					}
 
-					$post_status = ( isset( $_POST['private-message'] ) && esc_html( $_POST['private-message'] ) ) ? 'private' : 'publish';
+					$post_status = ( isset( $_POST['question-status'] ) && esc_html( $_POST['question-status'] ) ) ? $_POST['question-status'] : 'publish';
 
 					//Enable review mode
 					global $dwqa_general_settings;
@@ -576,6 +576,43 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 			}
 			exit(0);
 		}
+	}
+
+	public function delete() {
+		global $dwqa_general_settings;
+		if ( ! isset( $_GET['_wpnonce'] ) || ! wp_verify_nonce( $_GET['_wpnonce'], '_dwqa_action_remove_question_nonce' ) || 'dwqa_delete_question' !== $_GET['action'] ) {
+			wp_die( __( 'Are you cheating huh?', 'dwqa' ) );
+		}
+
+		if ( ! isset( $_GET['question_id'] ) ) {
+			wp_die( __( 'Question is missing.', 'dwqa' ), 'error' );
+		}
+
+		if ( 'dwqa-question' !== get_post_type( $_GET['question_id'] ) ) {
+			wp_die( __( 'This post is not question.', 'dwqa' ) );
+		}
+
+		if ( !dwqa_current_user_can( 'delete_answer' ) ) {
+			wp_die( __( 'You do not have permission to delete this post.', 'dwqa' ) );
+		}
+
+		do_action( 'before_delete_post', $_GET['question_id'] );
+		
+		$id = wp_delete_post( $_GET['question_id'] );
+
+		if ( is_wp_error( $id ) ) {
+			wp_die( $id->get_error_message() );
+		}
+
+		do_action( 'dwqa_delete_question', $_GET['question_id'] );
+
+		$url = home_url();
+		if ( isset( $dwqa_general_settings['pages']['archive-question'] ) ) {
+			$url = get_permalink( $dwqa_general_settings['pages']['archive-question'] );
+		}
+
+		wp_redirect( $url );
+		exit();
 	}
 
 	public function insert( $args ) {

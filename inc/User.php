@@ -225,12 +225,27 @@ function dwqa_get_user_question_subscribes( $user_id = false ) {
 	return $question_id;
 }
 
-add_action( 'init', 'dwqa_debug' );
-function dwqa_debug(){
-	if ( isset( $_GET['test']) ) {
-		print_r( get_option( 'page_on_front' ) );
-		die();
+function dwqa_get_user_badge( $user_id = false ) {
+	if ( !$user_id ) {
+		$user_id = get_current_user_id();
 	}
+
+	$badge = '';
+	if ( user_can( $user_id, 'edit_posts' ) ) {
+		$badge = __( 'Staff', 'dwqa' );
+	}
+
+	return apply_filters( 'dwqa_get_user_badge', $badge, $user_id );
+}
+
+function dwqa_print_user_badge( $user_id = false ) {
+	if ( !$user_id ) {
+		$user_id = get_current_user_id();
+	}
+
+	$badge = dwqa_get_user_badge( $user_id );
+
+	echo '<span class="dwqa-label dwqa-'. strtolower( $badge ) .'">'.$badge.'</span>';
 }
 
 class DWQA_User { 

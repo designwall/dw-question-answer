@@ -105,6 +105,10 @@
 	height: auto;
 }
 
+.dwqa-question-tag + .dwqa-question-status {
+	float: right;
+}
+
 /**
  * Answers
  *
@@ -427,8 +431,10 @@
  * -----------------------------------------------------------------------------
  */
 
-.dwqa-content-edit-form .wp-editor-wrap {
-	border: 1px solid #ddd;
+.dwqa-answer-form .wp-editor-container,
+.dwqa-content-edit-form .wp-editor-container {
+	border: 1px solid #e5e5e5;
+	margin-bottom: 20px;
 }
 
 .dwqa-content-edit-form input[type=text],

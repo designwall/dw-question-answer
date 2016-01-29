@@ -99,7 +99,40 @@
 		});
 	});
 
+	// delete question
+	$( '.dwqa_delete_question, .dwqa_delete_answer' ).on('click', function(e) {
+		var message = confirm( 'Are you sure to delete this question.' );
 
+		if ( !message ) {
+			e.preventDefault();
+		}
+	});
+
+	// change question status
+	$('#dwqa-question-status').on('change', function(e){
+		var t = $(this),
+			nonce = t.data('nonce'),
+			post = t.data('post'),
+			status = t.val(),
+			data = {
+				action: 'dwqa-update-privacy',
+				post: post,
+				nonce: nonce,
+				status: status
+			};
+
+		$.ajax({
+			url: dwqa.ajax_url,
+            type: 'POST',
+            dataType: 'json',
+            data: data,
+            success: function(data) {
+            	if ( data.success == false ) {
+            		alert( data.data.message );
+            	}
+            }
+		})
+	});
 	
 
 })(jQuery);

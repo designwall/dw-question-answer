@@ -83,8 +83,8 @@ class DWQA_Shortcode {
 		$dwqa->template->restore_all_filters( 'the_content' );
 
 		ob_end_clean();
-
-		wp_enqueue_script( 'dwqa-submit-question', DWQA_URI . 'inc/templates/assets/js/dwqa-submit-question.js', array( 'jquery' ), $script_version, true );
+		wp_enqueue_script( 'jquery-ui-autocomplete' );
+		wp_enqueue_script( 'dwqa-submit-question', DWQA_URI . 'templates/assets/js/dwqa-submit-question.js', array( 'jquery', 'jquery-ui-autocomplete' ), $script_version, true );
 		wp_localize_script( 'dwqa-submit-question', 'dwqa', $dwqa_sript_vars );
 		return $this->sanitize_output( $html );
 	}

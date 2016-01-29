@@ -314,11 +314,8 @@ class DWQA_Status {
 		$post_author = get_post_field( 'post_author', esc_html( $_POST['post'] ) );
 		if ( dwqa_current_user_can( 'edit_question' ) || $current_user->ID == $post_author ) {
 			$status = 'publish';
-			if ( isset( $_POST['status'] ) && in_array( $_POST['status'], array( 'draft', 'publish', 'pending', 'future', 'private' ) ) ) {
-				$update = wp_update_post( array(
-					'ID'    => intval( $_POST['post'] ),
-					'post_status'   => esc_html( $_POST['status'] ),
-				) );
+			if ( isset( $_POST['status'] ) && in_array( $_POST['status'], array( 'close', 'open', 'resolved' ) ) ) {
+				$update = update_post_meta( $_POST['post'], '_dwqa_status', $_POST['status'] );
 				if ( $update ) {
 					wp_send_json_success( array( 'ID' => $update ) );
 				} else {
@@ -350,7 +347,7 @@ class DWQA_Status {
 					update_post_meta( $question_id, '_dwqa_status', 'answered' );
 				} else {
 					if ( $question_status == 'resolved' || $question_status == 'answered' ) {
-						update_post_meta( $question_id, '_dwqa_status', 're-open' );
+						update_post_meta( $question_id, '_dwqa_status', 'open' );
 					}
 				}
 			}

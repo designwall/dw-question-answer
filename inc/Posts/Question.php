@@ -154,8 +154,8 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 		//Prepare question content
 		add_filter( 'dwqa_prepare_question_content', array( $this, 'pre_content_kses' ), 10 );
 		add_filter( 'dwqa_prepare_question_content', array( $this, 'pre_content_filter'), 20 );
-		add_filter( 'dwqa_prepare_question_update_content', array( $this, 'pre_content_kses'), 10 );
-		add_filter( 'dwqa_prepare_question_update_content', array( $this, 'pre_content_filter'), 20 );
+		add_filter( 'dwqa_prepare_update_question', array( $this, 'pre_content_kses'), 10 );
+		add_filter( 'dwqa_prepare_update_question', array( $this, 'pre_content_filter'), 20 );
 
 	}
 
@@ -646,6 +646,7 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 			update_post_meta( $new_question, '_dwqa_views', 0 );
 			update_post_meta( $new_question, '_dwqa_votes', 0 );
 			update_post_meta( $new_question, '_dwqa_answers_count', 0 );
+			add_post_meta( $new_question, '_dwqa_followers', $user_id );
 			$date = get_post_field( 'post_date', $new_question );
 			// dwqa_log_last_activity_on_question( $new_question, 'Create question', $date );
 			//Call action when add question successfull

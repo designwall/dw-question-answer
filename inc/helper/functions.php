@@ -59,25 +59,16 @@ function dwqa_valid_captcha( $type ) {
 add_filter( 'dwqa_valid_captcha', 'dwqa_recaptcha_check' );
 function dwqa_recaptcha_check( $res ) {
 	global $dwqa_general_settings;
-	$type_selected = isset( $dwqa_general_settings['captcha-type'] ) ? $dwqa_general_settings['captcha-type'] : 'google-recaptcha';
+	$type_selected = isset( $dwqa_general_settings['captcha-type'] ) ? $dwqa_general_settings['captcha-type'] : 'default-captcha';
 
-	if ( 'google-recaptcha' !== $type_selected ) {
+	$hash_md5 = $_SESSION['dwqa']['captcha-form']['verify'];
+	$captcha = isset( $_POST['dwqa-captcha'] ) ? $_POST['dwqa-captcha'] : '';
+	$captcha = md5( $captcha );
+
+	if ( $hash_md5 == $captcha ) {
 		return true;
 	}
 
-	$private_key = isset( $dwqa_general_settings['captcha-google-private-key'] ) ?  $dwqa_general_settings['captcha-google-private-key'] : '';
-	if ( ! isset( $_POST['recaptcha_challenge_field'] ) || ! isset( $_POST['recaptcha_response_field'] ) ) {
-		return false;
-	}
-	$resp = recaptcha_check_answer(
-		$private_key,
-		( isset( $_SERVER['REMOTE_ADDR'] ) ? esc_url( $_SERVER['REMOTE_ADDR'] ) : '' ),
-		sanitize_text_field( $_POST['recaptcha_challenge_field'] ),
-		sanitize_text_field( $_POST['recaptcha_response_field'] )
-	);
-	if ( $resp->is_valid ) {
-		return true;
-	}
 	return false;
 }
 
@@ -158,5 +149,69 @@ function dwqa_the_answers() {
 	global $wp_query;
 
 	return $wp_query->dwqa_answers->the_post();
+}
+
+function dwqa_get_answer_count( $question_id = false ) {
+
+	if ( ! $question_id ) {
+		$question_id = get_the_ID();
+	}
+
+	$answer_count = get_post_meta( $question_id, '_dwqa_answers_count', true );
+
+	if ( current_user_can( 'edit_posts' ) ) {
+		return $answer_count;
+	} else {
+		$answer_private = get_post_meta( $question_id, 'dwqa_answers_private_count', true );
+
+		if ( empty( $answer_private ) ) {
+			global $wp_query;
+			$args = array(
+				'post_type' => 'dwqa-answer',
+				'post_status' => 'private',
+				'meta_query' => array(
+					'key' => '_question',
+					'value' => array( $question_id ),
+					'compare' => 'IN'
+				),
+				'no_found_rows' => true,
+				'update_post_meta_cache' => false,
+				'update_post_term_cache' => false,
+				'fields' => 'ids'
+			);
+
+			$private_answer = new WP_Query( $args );
+
+			update_post_meta( $question_id, 'dwqa_answers_private_count', count( $private_answer ) );
+			$answer_private = count( $private_answer );
+		}
+
+		return (int) $answer_count - (int) $answer_private;
+	}
+}
+
+function dwqa_is_ask_form( $post_id = false ) {
+	global $dwqa_general_settings;
+	if ( !$post_id ) {
+		$post_id = get_the_ID();
+	}
+
+	if ( !isset( $dwqa_general_settings['pages']['submit-question'] ) ) {
+		return false;
+	}
+
+	if ( (int) $post_id === (int) $dwqa_general_settings['pages']['submit-question'] ) {
+		return true;
+	}
+
+	return false;
+}
+
+function dwqa_question_status( $question = false ) {
+	if ( !$question ) {
+		$question = get_the_ID();
+	}
+
+	return get_post_meta( $question, '_dwqa_status', true );
 }
 ?>

@@ -487,23 +487,47 @@ class DWQA_Filter {
 		}
 	}
 
-	public function get_questions_id_from_answer_user( $user_id = false, $posts_per_page = 5, $paged = 1 ) {
-		if ( !$user_id ) {
-			return false;
+	public function sticky_post_on_top( $posts ) {
+		if ( is_post_type_archive( 'dwcf-question' ) ) {
+			global $wp_query;
+			$page_text = dwqa_is_front_page() ? 'page' : 'paged';
+			$paged = get_query_var( $page_text ) ? get_query_var( $page_text ) : 1;
+
+			if ( $paged == 1 ) {
+				$sticky = get_option( 'dwqa_sticky_questions', 0 );
+				$sticky_posts = array( $sticky );
+				$num_posts = count( $posts );
+				$sticky_offset = 0;
+				for ( $i = 0; $i < $num_posts; $i++ ) {
+					if ( $posts[$i]->ID == $sticky ) {
+						$sticky_post = $posts[$i];
+						array_splice( $posts, $i, 1 );
+
+						array_splice( $posts, $sticky_offset, 0, array( $sticky_post ) );
+						$sticky_offset++;
+
+						$offset = array_search( $sticky_post->ID, array( $sticky ) );
+						unset( $sticky_posts[$offset] );
+					}
+				}
+
+				if ( !empty( $sticky_posts ) ) {
+					$stickies = get_posts(array(
+						'post__in' => array( $sticky ),
+						'post_type' => 'dwcf-question',
+						'post_status' => 'publish',
+						'nopaging' => true
+					));
+
+					foreach( $stickies as $sticky_post ) {
+						array_splice( $posts , $sticky_offset, 0, array( $sticky_post ) );
+						$sticky_offset++;
+					}
+				}
+			}
 		}
 
-		$args = array(
-			'post_type' 				=> 'dwqa-answer',
-			'posts_per_page' 			=> $posts_per_page,
-			'paged' 					=> $paged,
-			'author' 					=> $user_id,
-			'fields' 					=> 'ids',
-			'update_post_term_cache' 	=> false,
-			'update_post_meta_cache' 	=> false,
-			'no_found_rows' 			=> true
-		);
-
-		return new WP_Query( $args );
+		return $posts;
 	}
 
 	public function prepare_archive_posts() {
@@ -603,7 +627,7 @@ class DWQA_Filter {
 				break;
 			case 'subscribes':
 				if ( $user ) {
-					$query['post__in'] = dwqa_get_user_question_subscribes( $user->ID );
+					$query['post__in'] = dwqa_get_user_question_subscribes( $user->ID, $posts_per_page, $paged );
 				}
 				break;
 		}
@@ -697,6 +721,7 @@ class DWQA_Filter {
 
 		//Prepare answers for single questions
 		add_action( 'the_posts', array( $this, 'prepare_answers' ), 10, 2 );
+		add_action( 'the_posts', array( $this, 'sticky_post_on_top' ) );
 	}
 }
 ?>

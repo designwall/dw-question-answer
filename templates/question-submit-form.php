@@ -9,7 +9,7 @@
 
 <?php do_action( 'dwqa_before_question_submit_form' ); ?>
 <form method="post" class="dwqa-content-edit-form">
-	<p>
+	<p class="dwqa-search">
 		<label for="question_title"><?php _e( 'Title', 'dwqa' ) ?></label>
 		<?php $title = isset( $_POST['question-title'] ) ? $_POST['question-title'] : ''; ?>
 		<input type="text" data-nonce="<?php echo wp_create_nonce( '_dwqa_filter_nonce' ) ?>" id="question-title" name="question-title" value="<?php echo $title ?>" tabindex="1">

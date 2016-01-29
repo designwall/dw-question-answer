@@ -1,6 +1,6 @@
 (function($){
 	$('#question-title').autocomplete({
-		appendTo: 'form#dwqa-search',
+		appendTo: '.dwqa-search',
 		source: function( request, resp ) {
 			$.ajax({
 				url: dwqa.ajax_url,

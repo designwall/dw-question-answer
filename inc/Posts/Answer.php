@@ -374,7 +374,7 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 			dwqa_add_notice( __( 'You do not have permission to submit question.', 'dwqa' ), 'error' );
 		}
 
-		if ( !dwqa_valid_captcha( 'answer' ) ) {
+		if ( !dwqa_valid_captcha( 'single-question' ) ) {
 			dwqa_add_notice( __( 'Captcha is not correct', 'dwqa' ), 'error' );
 		}
 

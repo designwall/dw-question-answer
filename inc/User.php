@@ -227,7 +227,7 @@ function dwqa_get_user_question_subscribes( $user_id = false ) {
 
 function dwqa_get_user_badge( $user_id = false ) {
 	if ( !$user_id ) {
-		$user_id = get_current_user_id();
+		return;
 	}
 
 	$badge = '';
@@ -240,7 +240,7 @@ function dwqa_get_user_badge( $user_id = false ) {
 
 function dwqa_print_user_badge( $user_id = false ) {
 	if ( !$user_id ) {
-		$user_id = get_current_user_id();
+		return;
 	}
 
 	$badge = dwqa_get_user_badge( $user_id );

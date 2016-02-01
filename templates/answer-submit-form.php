@@ -14,12 +14,7 @@
 		<?php dwqa_print_notices(); ?>
 		<?php dwqa_init_tinymce_editor( array( 'textarea_name' => 'answer-content', 'id' => 'dwqa-answer-content' ) ) ?>
 		<?php dwqa_load_template( 'captcha', 'form' ); ?>
-		<select class="dwqa-select" name="dwqa-status">
-			<optgroup label="<?php _e( 'Who can see this?', 'dwqa' ) ?>">
-				<option value="publish"><?php _e( 'Public', 'dwqa' ) ?></option>
-				<option value="private"><?php _e( 'Only Me &amp; Admin', 'dwqa' ) ?></option>
-			</optgroup>
-		</select>
+
 		<?php if ( dwqa_current_user_can( 'post_answer' ) && !is_user_logged_in() ) : ?>
 		<p>
 			<label for="user-email"><?php _e( 'Your Email', 'dwqa' ) ?></label>
@@ -27,6 +22,14 @@
 			<input type="text" class="" name="user-email" value="<?php echo $email ?>" >
 		</p>
 		<?php endif; ?>
+
+		<select class="dwqa-select" name="dwqa-status">
+			<optgroup label="<?php _e( 'Who can see this?', 'dwqa' ) ?>">
+				<option value="publish"><?php _e( 'Public', 'dwqa' ) ?></option>
+				<option value="private"><?php _e( 'Only Me &amp; Admin', 'dwqa' ) ?></option>
+			</optgroup>
+		</select>
+		
 		<input type="submit" name="submit-answer" class="dwqa-btn dwqa-btn-primary" value="<?php _e( 'Submit', 'dwqa' ) ?>">
 		<input type="hidden" name="question_id" value="<?php the_ID(); ?>">
 		<input type="hidden" name="dwqa-action" value="add-answer">

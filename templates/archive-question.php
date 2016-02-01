@@ -30,12 +30,12 @@
 		<?php endif; ?>
 		<?php do_action( 'dwqa_after_questions_list' ) ?>
 		</div>
-		<div class=“dwqa-questions-footer”>
+		<div class="dwqa-questions-footer">
 			<?php dwqa_question_paginate_link() ?>
 			<?php if ( dwqa_current_user_can( 'post_question' ) ) : ?>
-				<div class=“dwqa-ask-question”><a href=“<?php echo dwqa_get_ask_link(); ?>”>Ask Question</a></div>
+				<div class="dwqa-ask-question"><a href="<?php echo dwqa_get_ask_link(); ?>">Ask Question</a></div>
 			<?php endif; ?>
 		</div>
-		
+
 	<?php do_action( 'dwqa_after_questions_archive' ); ?>
 </div>

@@ -25,11 +25,17 @@
 					<?php dwqa_load_template( 'content', 'question' ) ?>
 				<?php endif; ?>
 			<?php endwhile; ?>
-			<?php dwqa_question_paginate_link() //the_posts_pagination( array( 'mid_size' => 4 ) ); ?>
 		<?php else : ?>
 			<?php dwqa_load_template( 'content', 'none' ) ?>
 		<?php endif; ?>
 		<?php do_action( 'dwqa_after_questions_list' ) ?>
 		</div>
+		<div class=“dwqa-questions-footer”>
+			<?php dwqa_question_paginate_link() ?>
+			<?php if ( dwqa_current_user_can( 'post_question' ) ) : ?>
+				<div class=“dwqa-ask-question”><a href=“<?php echo dwqa_get_ask_link(); ?>”>Ask Question</a></div>
+			<?php endif; ?>
+		</div>
+		
 	<?php do_action( 'dwqa_after_questions_archive' ); ?>
 </div>

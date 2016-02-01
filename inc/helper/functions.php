@@ -234,4 +234,10 @@ function dwqa_question_status( $question = false ) {
 function dwqa_current_filter() {
 	return isset( $_GET['filter'] ) && !empty( $_GET['filter'] ) ? $_GET['filter'] : 'all';
 }
+
+function dwqa_get_ask_link() {
+	global $dwqa_general_settings;
+
+	return get_permalink( $dwqa_general_settings['pages']['submit-question'] );
+}
 ?>

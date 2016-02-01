@@ -130,9 +130,11 @@ function dwqa_answer_paginate_link() {
 	$paginate = str_replace( 'prev ', 'dwqa-prev ', $paginate );
 	$paginate = str_replace( 'dots', 'dwqa-dots', $paginate );
 
-	echo '<div class="dwqa-pagination">';
-	echo $paginate;
-	echo '</div>';
+	if ( $wp_query->dwqa_answers->max_num_pages > 1 ) {
+		echo '<div class="dwqa-pagination">';
+		echo $paginate;
+		echo '</div>';
+	}
 }
 
 function dwqa_question_paginate_link() {
@@ -156,9 +158,11 @@ function dwqa_question_paginate_link() {
 	$paginate = str_replace( 'prev ', 'dwqa-prev ', $paginate );
 	$paginate = str_replace( 'dots', 'dwqa-dots', $paginate );
 
-	echo '<div class="dwqa-pagination">';
-	echo $paginate;
-	echo '</div>';
+	if ( $wp_query->dwqa_questions->max_num_pages > 1 ) {
+		echo '<div class="dwqa-pagination">';
+		echo $paginate;
+		echo '</div>';
+	}
 }
 
 function dwqa_question_button_action() {

@@ -21,7 +21,21 @@
 	</div>
 	<div class="dwqa-question-content"><?php the_content(); ?></div>
 	<footer class="dwqa-question-footer">
-		<div class="dwqa-question-meta"><?php echo get_the_term_list( get_the_ID(), 'dwqa-question_tag', __( 'Question Tags: ', 'dwqa' ) , ', ' ); ?></div>
+		<div class="dwqa-question-meta">
+			<?php echo get_the_term_list( get_the_ID(), 'dwqa-question_tag', '<span class="dwqa-question-tag">' . __( 'Question Tags: ', 'dwqa' ), ', ', '</span>' ); ?>
+			<?php if ( dwqa_current_user_can( 'edit_question', get_the_ID() ) ) : ?>
+			<span class="dwqa-question-status">
+				<?php _e( 'This question is:', 'dwqa' ) ?>
+				<select id="dwqa-question-status" data-nonce="<?php echo wp_create_nonce( '_dwqa_update_privacy_nonce' ) ?>" data-post="<?php the_ID(); ?>">
+					<optgroup label="Status">
+						<option <?php selected( dwqa_question_status(), 'open' ) ?> value="open"><?php _e( 'Open', 'dwqa' ) ?></option>
+						<option <?php selected( dwqa_question_status(), 'close' ) ?> value="close"><?php _e( 'Closed', 'dwqa' ) ?></option>
+						<option <?php selected( dwqa_question_status(), 'resolved' ) ?> value="resolved"><?php _e( 'Resolved', 'dwqa' ) ?></option>
+					</optgroup>
+				</select>
+				</span>
+			<?php endif; ?>
+		</div>
 	</footer>
 	<?php comments_template(); ?>
 </div>

@@ -10,7 +10,7 @@
 <div class="dwqa-answers">
 	<?php do_action( 'dwqa_before_answers' ) ?>
 	<?php if ( dwqa_has_answers() ) : ?>
-	<div class="dwqa-answers-title"><?php printf( __( '%s Answers', 'dwqa' ), dwqa_get_answer_count( get_the_ID() ) ) ?></div>
+	<div class="dwqa-answers-title"><?php printf( __( '%s Answers', 'dwqa' ), dwqa_question_answers_count( get_the_ID() ) ) ?></div>
 	<div class="dwqa-answers-list">
 		<?php do_action( 'dwqa_before_answers_list' ) ?>
 			<?php while ( dwqa_has_answers() ) : dwqa_the_answers(); ?>

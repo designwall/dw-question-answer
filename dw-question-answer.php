@@ -4,7 +4,7 @@
  *  Description: A WordPress plugin was make by DesignWall.com to build an Question Answer system for support, asking and comunitcate with your customer
  *  Author: DesignWall
  *  Author URI: http://www.designwall.com
- *  Version: 1.3.8.1
+ *  Version: 1.4.0
  *  Text Domain: dwqa
  *  @since 1.3.6
  */
@@ -29,12 +29,12 @@ require_once DWQA_DIR . 'upgrades/upgrades.php';
 require_once DWQA_DIR . 'inc/deprecated.php';
 
 class DW_Question_Answer {
-	private $last_update = 151220151200; //last update time of the plugin
+	private $last_update = 010220161055; //last update time of the plugin
 
 	public function __construct() {
 		$this->dir = DWQA_DIR;
 		$this->uri = DWQA_URI;
-		$this->version = '1.3.8.1';
+		$this->version = '1.4.0';
 
 		// Add recaptcha library from google, 99 to sure that the library was not include if any other plugins use same library
 		add_action( 'plugins_loaded', array( $this, 'include_recaptcha_library' ), 99 );

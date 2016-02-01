@@ -1,6 +1,6 @@
 (function($){
 	$('#question-title').autocomplete({
-		appendTo: 'form#dwqa-search',
+		appendTo: '.dwqa-search',
 		source: function( request, resp ) {
 			$.ajax({
 				url: dwqa.ajax_url,
@@ -24,6 +24,17 @@
 					}))
 				}
 			});
+		},
+		select: function( e, ui ) {
+			keycode = e.which || e.keyCode;
+
+			if ( keycode == 13 ) {
+				return true;
+			} else {
+				if ( ui.item.url ) {
+					window.open( ui.item.url );
+				}
+			}
 		},
 		open: function( e, ui ) {
 			var acData = $(this).data( 'uiAutocomplete' );

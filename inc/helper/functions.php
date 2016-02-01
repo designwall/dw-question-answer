@@ -59,17 +59,21 @@ function dwqa_valid_captcha( $type ) {
 add_filter( 'dwqa_valid_captcha', 'dwqa_recaptcha_check' );
 function dwqa_recaptcha_check( $res ) {
 	global $dwqa_general_settings;
-	$type_selected = isset( $dwqa_general_settings['captcha-type'] ) ? $dwqa_general_settings['captcha-type'] : 'default-captcha';
+	$type_selected = isset( $dwqa_general_settings['captcha-type'] ) ? $dwqa_general_settings['captcha-type'] : 'default';
+	if ( $type_selected == 'default' ) {
+		if (!isset( $_SESSION ) ) session_start();
+		$hash_md5 = $_SESSION['dwqa']['captcha-form']['verify'];
+		$captcha = isset( $_POST['dwqa-captcha'] ) ? $_POST['dwqa-captcha'] : '';
+		$captcha = md5( $captcha );
 
-	$hash_md5 = $_SESSION['dwqa']['captcha-form']['verify'];
-	$captcha = isset( $_POST['dwqa-captcha'] ) ? $_POST['dwqa-captcha'] : '';
-	$captcha = md5( $captcha );
+		if ( $hash_md5 == $captcha ) {
+			return true;
+		}
 
-	if ( $hash_md5 == $captcha ) {
-		return true;
+		return false;
 	}
 
-	return false;
+	return $res;
 }
 
 /**
@@ -137,6 +141,18 @@ function dwqa_the_question() {
 	global $wp_query;
 
 	return $wp_query->dwqa_questions->the_post();
+}
+
+function dwqa_has_question_stickies() {
+	global $wp_query;
+
+	return isset( $wp_query->dwqa_question_stickies ) ? $wp_query->dwqa_question_stickies->have_posts() : false;
+}
+
+function dwqa_the_sticky() {
+	global $wp_query;
+
+	return $wp_query->dwqa_question_stickies->the_post();
 }
 
 function dwqa_has_answers() {
@@ -213,5 +229,9 @@ function dwqa_question_status( $question = false ) {
 	}
 
 	return get_post_meta( $question, '_dwqa_status', true );
+}
+
+function dwqa_current_filter() {
+	return isset( $_GET['filter'] ) && !empty( $_GET['filter'] ) ? $_GET['filter'] : 'all';
 }
 ?>

@@ -240,14 +240,18 @@ function dwqa_get_user_badge( $user_id = false ) {
 	return apply_filters( 'dwqa_get_user_badge', $badge, $user_id );
 }
 
-function dwqa_print_user_badge( $user_id = false ) {
+function dwqa_print_user_badge( $user_id = false, $echo = false ) {
 	if ( !$user_id ) {
 		return;
 	}
 
 	$badge = dwqa_get_user_badge( $user_id );
 
-	echo '<span class="dwqa-label dwqa-'. strtolower( $badge ) .'">'.$badge.'</span>';
+	if ( $echo ) {
+		echo '<span class="dwqa-label dwqa-'. strtolower( $badge ) .'">'.$badge.'</span>';
+	}
+
+	return '<span class="dwqa-label dwqa-'. strtolower( $badge ) .'">'.$badge.'</span>';
 }
 
 class DWQA_User { 

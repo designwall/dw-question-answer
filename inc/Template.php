@@ -74,6 +74,10 @@ function dwqa_archive_question_filter_layout() {
 			<a href="<?php echo esc_url( add_query_arg( array( 'filter' => 'resolved' ) ) ) ?>" class="<?php echo 'resolved' == $filter ? 'active' : '' ?>"><?php _e( 'Resolved', 'dwqa' ); ?></a>
 			<a href="<?php echo esc_url( add_query_arg( array( 'filter' => 'closed' ) ) ) ?>" class="<?php echo 'closed' == $filter ? 'active' : '' ?>"><?php _e( 'Closed', 'dwqa' ); ?></a>
 			<a href="<?php echo esc_url( add_query_arg( array( 'filter' => 'unanswered' ) ) ) ?>" class="<?php echo 'unanswered' == $filter ? 'active' : '' ?>"><?php _e( 'Unanswered', 'dwqa' ); ?></a>
+			<?php if ( is_user_logged_in() ) : ?>
+				<a href="<?php echo esc_url( add_query_arg( array( 'filter' => 'my-questions' ) ) ) ?>" class="<?php echo 'my-questions' == $filter ? 'active' : '' ?>"><?php _e( 'My questions', 'dwqa' ); ?></a>
+				<a href="<?php echo esc_url( add_query_arg( array( 'filter' => 'my-subscribes' ) ) ) ?>" class="<?php echo 'my-subscribes' == $filter ? 'active' : '' ?>"><?php _e( 'My subscribes', 'dwqa' ); ?></a>
+			<?php endif; ?>
 		<?php else : ?>
 			<a href="<?php echo esc_url( add_query_arg( array( 'filter' => 'all' ) ) ) ?>" class="<?php echo 'all' == $filter ? 'active' : '' ?>"><?php _e( 'Questions', 'dwqa' ); ?></a>
 			<a href="<?php echo esc_url( add_query_arg( array( 'filter' => 'subscribes' ) ) ) ?>" class="<?php echo 'subscribes' == $filter ? 'active' : '' ?>"><?php _e( 'Subscribes', 'dwqa' ); ?></a>
@@ -119,7 +123,16 @@ function dwqa_answer_paginate_link() {
 		'total' => $wp_query->dwqa_answers->max_num_pages
 	);
 
-	echo paginate_links( $args );
+	$paginate = paginate_links( $args );
+	$paginate = str_replace( 'page-number', 'dwqa-page-number', $paginate );
+	$paginate = str_replace( 'current', 'dwqa-current', $paginate );
+	$paginate = str_replace( 'next', 'dwqa-next', $paginate );
+	$paginate = str_replace( 'prev ', 'dwqa-prev ', $paginate );
+	$paginate = str_replace( 'dots', 'dwqa-dots', $paginate );
+
+	echo '<div class="dwqa-pagination">';
+	echo $paginate;
+	echo '</div>';
 }
 
 function dwqa_question_paginate_link() {
@@ -136,7 +149,16 @@ function dwqa_question_paginate_link() {
 		'total' => $wp_query->dwqa_questions->max_num_pages
 	);
 
-	echo paginate_links( $args );
+	$paginate = paginate_links( $args );
+	$paginate = str_replace( 'page-number', 'dwqa-page-number', $paginate );
+	$paginate = str_replace( 'current', 'dwqa-current', $paginate );
+	$paginate = str_replace( 'next', 'dwqa-next', $paginate );
+	$paginate = str_replace( 'prev ', 'dwqa-prev ', $paginate );
+	$paginate = str_replace( 'dots', 'dwqa-dots', $paginate );
+
+	echo '<div class="dwqa-pagination">';
+	echo $paginate;
+	echo '</div>';
 }
 
 function dwqa_question_button_action() {

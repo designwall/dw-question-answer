@@ -59,17 +59,21 @@ function dwqa_valid_captcha( $type ) {
 add_filter( 'dwqa_valid_captcha', 'dwqa_recaptcha_check' );
 function dwqa_recaptcha_check( $res ) {
 	global $dwqa_general_settings;
-	$type_selected = isset( $dwqa_general_settings['captcha-type'] ) ? $dwqa_general_settings['captcha-type'] : 'default-captcha';
-	if (!isset( $_SESSION ) ) session_start();
-	$hash_md5 = $_SESSION['dwqa']['captcha-form']['verify'];
-	$captcha = isset( $_POST['dwqa-captcha'] ) ? $_POST['dwqa-captcha'] : '';
-	$captcha = md5( $captcha );
+	$type_selected = isset( $dwqa_general_settings['captcha-type'] ) ? $dwqa_general_settings['captcha-type'] : 'default';
+	if ( $type_selected == 'default' ) {
+		if (!isset( $_SESSION ) ) session_start();
+		$hash_md5 = $_SESSION['dwqa']['captcha-form']['verify'];
+		$captcha = isset( $_POST['dwqa-captcha'] ) ? $_POST['dwqa-captcha'] : '';
+		$captcha = md5( $captcha );
 
-	if ( $hash_md5 == $captcha ) {
-		return true;
+		if ( $hash_md5 == $captcha ) {
+			return true;
+		}
+
+		return false;
 	}
 
-	return false;
+	return $res;
 }
 
 /**

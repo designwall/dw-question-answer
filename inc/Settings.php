@@ -526,8 +526,8 @@ function dwqa_captcha_google_private_key_display() {
 function dwqa_captcha_select_type_display() {
 	global $dwqa_general_settings;
 
-	$types = apply_filters( 'dwqa_captcha_type', array( 'google-recaptcha' => __( 'Google reCaptcha', 'dwqa' ) ) );
-	$type_selected = isset( $dwqa_general_settings['captcha-type'] ) ? $dwqa_general_settings['captcha-type'] : 'google-recaptcha';
+	$types = apply_filters( 'dwqa_captcha_type', array( 'default' => __( 'Default', 'dwqa' ) ) );
+	$type_selected = isset( $dwqa_general_settings['captcha-type'] ) ? $dwqa_general_settings['captcha-type'] : 'default';
 	echo '<select name="dwqa_options[captcha-type]">';
 	foreach( $types as $key => $name ) {
 		echo '<option '.selected( $key, $type_selected, false ).' value="'.$key.'">'.$name.'</option>';
@@ -625,7 +625,7 @@ function dwqa_is_captcha_enable_in_submit_question() {
 	global $dwqa_general_settings;
 	$captcha_in_question = isset( $dwqa_general_settings['captcha-in-question'] ) ? $dwqa_general_settings['captcha-in-question'] : false;
 	
-	if ( $captcha_in_question && dwqa_is_captcha_enable() ) {
+	if ( $captcha_in_question ) {
 		return true;
 	}
 	return false;
@@ -634,7 +634,7 @@ function dwqa_is_captcha_enable_in_submit_question() {
 function dwqa_is_captcha_enable_in_single_question() {
 	global $dwqa_general_settings;
 	$captcha_in_single_question = isset( $dwqa_general_settings['captcha-in-single-question'] ) ? $dwqa_general_settings['captcha-in-single-question'] : false;
-	if ( $captcha_in_single_question && dwqa_is_captcha_enable() ) {
+	if ( $captcha_in_single_question ) {
 		return true;
 	} 
 	return false;
@@ -824,22 +824,6 @@ class DWQA_Settings {
 			'dwqa_options[captcha-type]', 
 			__( 'Captcha Type', 'dwqa' ), 
 			'dwqa_captcha_select_type_display',
-			'dwqa-settings', 
-			'dwqa-captcha-settings'
-		);
-
-		add_settings_field( 
-			'dwqa_options[captcha-google-public-key]', 
-			__( 'Google Captcha Public Key', 'dwqa' ), 
-			'dwqa_captcha_google_pubic_key_display', 
-			'dwqa-settings', 
-			'dwqa-captcha-settings'
-		);
-
-		add_settings_field( 
-			'dwqa_options[captcha-google-private-key]', 
-			__( 'Google Captcha Private Key', 'dwqa' ), 
-			'dwqa_captcha_google_private_key_display', 
 			'dwqa-settings', 
 			'dwqa-captcha-settings'
 		);

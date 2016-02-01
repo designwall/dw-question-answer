@@ -23,6 +23,7 @@
 			}
 		?>
 		<?php printf( __( '<span><a href="%s">%s%s</a> %s %s ago</span>', 'dwqa' ), dwqa_get_author_link( $user_id ), get_avatar( $user_id, 48 ), dwqa_get_author(), $text, $time ) ?>
+		<?php echo get_the_term_list( get_the_ID(), 'dwqa-question_category', '<span class="dwqa-question-category">' . __( '&nbsp; &bull; &nbsp;', 'dwqa' ), ', ', '</span>' ); ?>
 	</div>
 	<div class="dwqa-question-stats">
 		<span class="dwqa-views-count">

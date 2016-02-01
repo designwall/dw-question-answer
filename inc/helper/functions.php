@@ -230,4 +230,8 @@ function dwqa_question_status( $question = false ) {
 
 	return get_post_meta( $question, '_dwqa_status', true );
 }
+
+function dwqa_current_filter() {
+	return isset( $_GET['filter'] ) && !empty( $_GET['filter'] ) ? $_GET['filter'] : 'all';
+}
 ?>

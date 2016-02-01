@@ -123,8 +123,15 @@ function dwqa_answer_paginate_link() {
 		'total' => $wp_query->dwqa_answers->max_num_pages
 	);
 
+	$paginate = paginate_links( $args );
+	$paginate = str_replace( 'page-number', 'dwqa-page-number', $paginate );
+	$paginate = str_replace( 'current', 'dwqa-current', $paginate );
+	$paginate = str_replace( 'next', 'dwqa-next', $paginate );
+	$paginate = str_replace( 'prev ', 'dwqa-prev ', $paginate );
+	$paginate = str_replace( 'dots', 'dwqa-dots', $paginate );
+
 	echo '<div class="dwqa-pagination">';
-	echo paginate_links( $args );
+	echo $paginate;
 	echo '</div>';
 }
 
@@ -142,8 +149,15 @@ function dwqa_question_paginate_link() {
 		'total' => $wp_query->dwqa_questions->max_num_pages
 	);
 
+	$paginate = paginate_links( $args );
+	$paginate = str_replace( 'page-number', 'dwqa-page-number', $paginate );
+	$paginate = str_replace( 'current', 'dwqa-current', $paginate );
+	$paginate = str_replace( 'next', 'dwqa-next', $paginate );
+	$paginate = str_replace( 'prev ', 'dwqa-prev ', $paginate );
+	$paginate = str_replace( 'dots', 'dwqa-dots', $paginate );
+
 	echo '<div class="dwqa-pagination">';
-	echo paginate_links( $args );
+	echo $paginate;
 	echo '</div>';
 }
 

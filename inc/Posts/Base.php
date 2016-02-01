@@ -280,7 +280,6 @@ class DWQA_Posts_Base {
 		add_filter( 'the_content', array( $this, 'auto_convert_urls' ) );
 
 		add_filter( 'wp_insert_post_data', array( $this, 'hook_on_update_anonymous_post' ), 10, 2 );
-
 	}
 
 	// Abstract, do all init actions for itself

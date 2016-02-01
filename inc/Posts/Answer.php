@@ -440,6 +440,7 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 			}
 
 			do_action( 'dwqa_add_answer', $answer_id, $question_id );
+			exit( wp_redirect( get_permalink( $question_id ) ) );
 		} else {
 			dwqa_add_wp_error_message( $answer_id );
 		}

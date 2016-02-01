@@ -620,7 +620,7 @@ class DWQA_Filter {
 		$sticky_questions = get_option( 'dwqa_sticky_questions' );
 
 		// exclude sticky question
-		if ( $sticky_questions ) {
+		if ( $sticky_questions && 'all' == $filter && !$sort && !$search_text ) {
 			$query['post__not_in'] = $sticky_questions;
 		}
 
@@ -635,7 +635,56 @@ class DWQA_Filter {
 		global $wp_query;
 		$sticky_questions = get_option( 'dwqa_sticky_questions' );
 
-		if ( $sticky_questions ) {
+		$user = isset( $_GET['user'] ) && !empty( $_GET['user'] ) ? urldecode( $_GET['user'] ) : false;
+		$filter = isset( $_GET['filter'] ) && !empty( $_GET['filter'] ) ? $_GET['filter'] : 'all';
+		$search_text = isset( $_GET['qs'] ) ? $_GET['qs'] : false;
+		$sort = isset( $_GET['sort'] ) ? $_GET['sort'] : '';
+
+		$cat = get_query_var( 'dwqa-question_category' ) ? get_query_var( 'dwqa-question_category' ) : false;
+		$tag = get_query_var( 'dwqa-question_tag' ) ? get_query_var( 'dwqa-question_tag' ) : false;
+
+		if ( $sticky_questions && 'all' == $filter && !$search_text && !$sort ) {
+			if ( $cat ) {
+				foreach( $sticky_questions as $key => $id ) {
+					$terms = wp_get_post_terms( $id, 'dwqa-question_category' );
+
+					if ( empty( $terms ) || $cat !== $terms[0]->slug ) {
+						unset( $sticky_questions[ $key ] );
+					}
+				}
+
+				$args['tax_query'][] = array(
+					'taxonomy' => 'dwqa-question_category',
+					'terms' => $cat,
+					'field' => 'slug'
+				);
+			}
+
+			if ( $tag ) {
+				foreach( $sticky_questions as $key => $id ) {
+					$terms = wp_get_post_terms( $id, 'dwqa-question_tag' );
+
+					if ( empty( $terms ) || $tag !== $terms[0]->slug ) {
+						unset( $sticky_questions[ $key ] );
+					}
+				}
+				
+				$args['tax_query'][] = array(
+					'taxonomy' => 'dwqa-question_category',
+					'terms' => $cat,
+					'field' => 'slug'
+				);
+			}
+
+			if ( $user ) {
+				$user = get_user_by( 'login', $user );
+				foreach( $sticky_questions as $key => $id ) {
+					if ( $user->data->ID !== get_post_field( 'post_author', $id ) ) {
+						unset( $sticky_questions[ $key ] );
+					}
+				}
+			}
+			
 			$args = array(
 				'posts_per_page' => 40,
 				'post_type' => 'dwqa-question',

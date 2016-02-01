@@ -12,7 +12,8 @@
 	<div class="dwqa-answer-form-title"><?php _e( 'Your Answer', 'dwqa' ) ?></div>
 	<form name="dwqa-answer-form" id="dwqa-answer-form" method="post">
 		<?php dwqa_print_notices(); ?>
-		<?php dwqa_init_tinymce_editor( array( 'textarea_name' => 'answer-content', 'id' => 'dwqa-answer-content' ) ) ?>
+		<?php $content = isset( $_POST['answer-content'] ) ? $_POST['answer-content'] : ''; ?>
+		<?php dwqa_init_tinymce_editor( array( 'content' => $content, 'textarea_name' => 'answer-content', 'id' => 'dwqa-answer-content' ) ) ?>
 		<?php dwqa_load_template( 'captcha', 'form' ); ?>
 
 		<?php if ( dwqa_current_user_can( 'post_answer' ) && !is_user_logged_in() ) : ?>

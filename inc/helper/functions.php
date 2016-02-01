@@ -143,6 +143,18 @@ function dwqa_the_question() {
 	return $wp_query->dwqa_questions->the_post();
 }
 
+function dwqa_has_question_stickies() {
+	global $wp_query;
+
+	return isset( $wp_query->dwqa_question_stickies ) ? $wp_query->dwqa_question_stickies->have_posts() : false;
+}
+
+function dwqa_the_sticky() {
+	global $wp_query;
+
+	return $wp_query->dwqa_question_stickies->the_post();
+}
+
 function dwqa_has_answers() {
 	global $wp_query;
 

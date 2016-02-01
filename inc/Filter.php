@@ -487,49 +487,6 @@ class DWQA_Filter {
 		}
 	}
 
-	public function sticky_post_on_top( $posts ) {
-		if ( is_post_type_archive( 'dwcf-question' ) ) {
-			global $wp_query;
-			$page_text = dwqa_is_front_page() ? 'page' : 'paged';
-			$paged = get_query_var( $page_text ) ? get_query_var( $page_text ) : 1;
-
-			if ( $paged == 1 ) {
-				$sticky = get_option( 'dwqa_sticky_questions', 0 );
-				$sticky_posts = array( $sticky );
-				$num_posts = count( $posts );
-				$sticky_offset = 0;
-				for ( $i = 0; $i < $num_posts; $i++ ) {
-					if ( $posts[$i]->ID == $sticky ) {
-						$sticky_post = $posts[$i];
-						array_splice( $posts, $i, 1 );
-
-						array_splice( $posts, $sticky_offset, 0, array( $sticky_post ) );
-						$sticky_offset++;
-
-						$offset = array_search( $sticky_post->ID, array( $sticky ) );
-						unset( $sticky_posts[$offset] );
-					}
-				}
-
-				if ( !empty( $sticky_posts ) ) {
-					$stickies = get_posts(array(
-						'post__in' => array( $sticky ),
-						'post_type' => 'dwcf-question',
-						'post_status' => 'publish',
-						'nopaging' => true
-					));
-
-					foreach( $stickies as $sticky_post ) {
-						array_splice( $posts , $sticky_offset, 0, array( $sticky_post ) );
-						$sticky_offset++;
-					}
-				}
-			}
-		}
-
-		return $posts;
-	}
-
 	public function prepare_archive_posts() {
 		global $wp_query,$dwqa_general_settings;
 
@@ -674,6 +631,21 @@ class DWQA_Filter {
 		$wp_query->dwqa_questions = new WP_Query( $query );
 	}
 
+	public function sticky_question() {
+		global $wp_query;
+		$sticky_questions = get_option( 'dwqa_sticky_questions' );
+
+		if ( $sticky_questions ) {
+			$args = array(
+				'posts_per_page' => 40,
+				'post_type' => 'dwqa-question',
+				'post__in' => $sticky_questions,
+			);
+
+			$wp_query->dwqa_question_stickies = new WP_Query( $args );
+		}
+	}
+
 	public function after_archive_posts() {
 		wp_reset_query();
 		wp_reset_postdata();
@@ -729,10 +701,11 @@ class DWQA_Filter {
 
 		add_action( 'dwqa_before_questions_list', array( $this, 'prepare_archive_posts' ) );
 		add_action( 'dwqa_after_questions_list', array( $this, 'after_archive_posts' ) );
+		add_action( 'dwqa_before_question_stickies', array( $this, 'sticky_question' ) );
+		add_action( 'dwqa_after_question_stickies', array( $this, 'after_archive_posts' ) );
 
 		//Prepare answers for single questions
 		add_action( 'the_posts', array( $this, 'prepare_answers' ), 10, 2 );
-		add_action( 'the_posts', array( $this, 'sticky_post_on_top' ) );
 	}
 }
 ?>

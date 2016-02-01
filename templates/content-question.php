@@ -7,7 +7,7 @@
  */
 
 ?>
-<div class="dwqa-question-item">
+<div class="dwqa-question-item <?php echo dwqa_is_sticky() ? 'dwqa-sticky' : '' ?>">
 	<header class="dwqa-question-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></header>
 	<div class="dwqa-question-meta">
 		<?php dwqa_question_print_status() ?>

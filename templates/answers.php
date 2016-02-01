@@ -15,7 +15,7 @@
 		<?php do_action( 'dwqa_before_answers_list' ) ?>
 			<?php while ( dwqa_has_answers() ) : dwqa_the_answers(); ?>
 				<?php $question_id = get_post_meta( get_the_ID(), '_question', true ) ?>
-				<?php if ( ( 'private' == get_post_status() && ( dwqa_current_user_can( 'edit_answer' ) || dwqa_current_user_can( 'edit_question', $question_id ) ) ) || 'publish' == get_post_status() ) : ?>
+				<?php if ( ( 'private' == get_post_status() && ( dwqa_current_user_can( 'edit_answer', get_the_ID() ) || dwqa_current_user_can( 'edit_question', $question_id ) ) ) || 'publish' == get_post_status() ) : ?>
 					<?php dwqa_load_template( 'content', 'single-answer' ); ?>
 				<?php endif; ?>
 			<?php endwhile; ?>

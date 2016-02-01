@@ -14,7 +14,9 @@
 		<?php dwqa_print_user_badge( $comment->user_id, true ); ?>
 		<?php printf( _x( 'replied %s ago', '%s = human-readable time difference', 'dwqa' ), human_time_diff( get_comment_time( 'U' ), current_time( 'timestamp' ) ) ); ?>
 		<div class="dwqa-comment-actions">
-			<?php edit_comment_link( __( 'Edit', 'dwqa' ), '  ', '' ); ?>
+			<?php if ( dwqa_current_user_can( 'edit_comment' ) ) : ?>
+				<?php edit_comment_link( __( 'Edit', 'dwqa' ), '  ', '' ); ?>
+			<?php endif; ?>
 		</div>
 	</div>
 	<?php comment_text(); ?>

@@ -48,12 +48,12 @@
 }
 
 .dwqa-question-item.dwqa-sticky {
-	background: #fdf4cd;
+	background: #fcf8e3;
 }
 
 .dwqa-question-item .avatar {
 	position: absolute;
-	left: 10px;
+	left: 15px;
 	top: 0;
 	border-radius: 48px;
 }
@@ -358,7 +358,12 @@
 	padding-right: 40px;
 	width: 100%;
 	margin-bottom: 0 !important;
-	background: url(../img/icon-search.png) no-repeat right 10px center !important;
+	background: url(../img/icon-search.png) no-repeat right 10px center #fff !important;
+	border: 1px solid #ddd;
+	padding: 10px 15px;
+	border-radius: 2px;
+	box-shadow: none;
+	outline: none;
 }
 
 .dwqa-search input.ui-autocomplete-loading {
@@ -378,7 +383,7 @@
 }
 
 .dwqa-search .dwqa-autocomplete li {
-	padding: 10px;
+	padding: 10px 15px;
 	cursor: pointer;
 	border-bottom: 1px solid #ddd;
 	margin: 0;
@@ -425,9 +430,15 @@
 	border-top: 1px solid #ddd;
 }
 
+.dwqa-questions-list .dwqa-alert {
+	padding: 10px 0;
+}
+
 .dwqa-questions-list .dwqa-question-item {
 	border-bottom: 1px solid #ddd;
 	padding: 15px 160px 15px 80px;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
 }
 
 .dwqa-questions-list .dwqa-question-item .avatar {

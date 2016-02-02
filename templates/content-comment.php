@@ -10,7 +10,9 @@
 <?php global $comment; ?>
 <div class="dwqa-comment">
 	<div class="dwqa-comment-meta">
-		<a href="<?php echo dwqa_get_author_link( $comment->user_id ); ?>"><?php the_author_meta( 'display_name', $comment->user_id ); ?></a>
+		<?php $user = get_user_by( 'id', $comment->user_id ); ?>
+		<?php $author_name = $user ? get_the_author_meta( 'display_name', $user->ID ) : __( 'Anonymous', 'dwqa' ); ?>
+		<a href="<?php echo dwqa_get_author_link( $comment->user_id ); ?>"><?php echo $author_name ?></a>
 		<?php dwqa_print_user_badge( $comment->user_id, true ); ?>
 		<?php printf( _x( 'replied %s ago', '%s = human-readable time difference', 'dwqa' ), human_time_diff( get_comment_time( 'U' ), current_time( 'timestamp' ) ) ); ?>
 		<div class="dwqa-comment-actions">

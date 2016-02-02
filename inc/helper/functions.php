@@ -61,12 +61,14 @@ function dwqa_recaptcha_check( $res ) {
 	global $dwqa_general_settings;
 	$type_selected = isset( $dwqa_general_settings['captcha-type'] ) ? $dwqa_general_settings['captcha-type'] : 'default';
 	if ( $type_selected == 'default' ) {
-		if (!isset( $_SESSION ) ) session_start();
-		$hash_md5 = $_SESSION['dwqa']['captcha-form']['verify'];
-		$captcha = isset( $_POST['dwqa-captcha'] ) ? $_POST['dwqa-captcha'] : '';
-		$captcha = md5( $captcha );
+		$number_1 = intval( $_POST['dwqa-captcha-number-1'] );
+		$number_2 = intval( $_POST['dwqa-captcha-number-2'] );
+		$result = intval( $_POST['dwqa-captcha-result'] );
+		if ( empty( $number_1 ) || empty( $number_2 ) || empty( $result ) ) {
+			return false;
+		}
 
-		if ( $hash_md5 == $captcha ) {
+		if ( ( $number_1 + $number_2 ) === $result ) {
 			return true;
 		}
 

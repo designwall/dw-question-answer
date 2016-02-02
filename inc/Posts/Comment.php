@@ -7,7 +7,7 @@ class DWQA_Posts_Comment {
 		// Comment form template for DW Question Answer
 		remove_action( 'comment_form', 'wp_comment_form_unfiltered_html_nonce' );
 		add_action( 'comment_form', array( $this, 'wp_comment_form_unfiltered_html_nonce' ) );
-		add_action( 'wp_ajax_dwqa-action-update-comment', array( $this, 'update' ) );
+		add_action( 'wp_loaded', array( $this, 'update' ) );
 		add_action( 'wp_ajax_dwqa-action-delete-comment', array( $this, 'delete' ) );
 		// Filter
 		add_filter( 'comment_id_fields', array( $this, 'comment_form_id_fields_filter' ), 10, 3 );
@@ -67,25 +67,38 @@ class DWQA_Posts_Comment {
 
 	public function update() {
 		global $post_submit_filter;
-		if ( ! isset( $_POST['comment_id']) ) {
-			dwqa_add_notice( __( 'Comment is missing', 'dwqa' ), 'error' );
-		}
-		$comment_id = intval( $_POST['comment_id'] );
-		$comment_content = isset( $_POST['comment'] ) ? esc_html( $_POST['comment'] ) : '';
-		$comment_content = apply_filters( 'dwqa_pre_update_comment_content', $comment_content );
+		if ( isset( $_POST['dwqa-edit-comment-submit'] ) ) {
+			if ( ! isset( $_POST['comment_id']) ) {
+				dwqa_add_notice( __( 'Comment is missing', 'dwqa' ), 'error' );
+			}
+			$comment_id = intval( $_POST['comment_id'] );
+			$comment_content = isset( $_POST['comment_content'] ) ? esc_html( $_POST['comment_content'] ) : '';
+			$comment_content = apply_filters( 'dwqa_pre_update_comment_content', $comment_content );
 
-		if ( ! isset( $_POST['wpnonce'] ) || ! wp_verify_nonce( sanitize_text_field( $_POST['wpnonce'] ), '_dwqa_action_comment_edit_nonce' ) ) {
-			dwqa_add_notice( __( 'Are you cheating huh?', 'dwqa' ), 'error' );
-		}
-		if ( strlen( $comment_content ) <= 0 || ! isset( $comment_id ) || ( int )$comment_id <= 0 ) {
-			dwqa_add_notice( __( 'Comment content must not be empty.', 'dwqa' ), 'error' );
-		} else {
-			$commentarr = array(
-				'comment_ID'        => $comment_id,
-				'comment_content'   => $comment_content
-			);
-			
-			wp_update_comment( $commentarr );
+			if ( ! isset( $_POST['_wpnonce'] ) || ! wp_verify_nonce( sanitize_text_field( $_POST['_wpnonce'] ), '_dwqa_edit_comment' ) ) {
+				dwqa_add_notice( __( 'Are you cheating huh?', 'dwqa' ), 'error' );
+			}
+
+			if ( !dwqa_current_user_can( 'You do not have permission to edit answer.' ) ) {
+				dwqa_add_notice( __( 'You do not have permission to edit comment.', 'dwqa' ), 'error' );
+			}
+
+			if ( strlen( $comment_content ) <= 0 || ! isset( $comment_id ) || ( int )$comment_id <= 0 ) {
+				dwqa_add_notice( __( 'Comment content must not be empty.', 'dwqa' ), 'error' );
+			} else {
+				$commentarr = array(
+					'comment_ID'        => $comment_id,
+					'comment_content'   => $comment_content
+				);
+				
+				$intval = wp_update_comment( $commentarr );
+				if ( !is_wp_error( $intval ) ) {
+					$comment = get_comment( $comment_id );
+					exit( wp_safe_redirect( dwqa_get_question_link( $comment->comment_post_ID ) ) );
+				}else {
+					dwqa_add_wp_error_message( $intval );
+				}
+			}
 		}
 	}
 
@@ -93,19 +106,21 @@ class DWQA_Posts_Comment {
 	 * AJAX:Remove comment of quest/answer away from database
 	 */
 	public function delete() {
-		if ( ! isset( $_POST['wpnonce'] ) || ! wp_verify_nonce( sanitize_text_field( $_POST['wpnonce'] ), '_dwqa_action_comment_delete_nonce' ) ) {
-			wp_send_json_error( array(
-				'message'   => __( 'Are you cheating huh?', 'dwqa' )  
-			) );
-		}
-		if ( ! isset( $_POST['comment_id'] ) ) {
-			wp_send_json_error( array(
-				'message'   => __( 'Comment ID must be showed.', 'dwqa' )  
-			) );
+		if ( ! isset( $_GET['_wpnonce'] ) || ! wp_verify_nonce( sanitize_text_field( $_GET['_wpnonce'] ), '_dwqa_delete_comment' ) ) {
+			wp_die( __( 'Are you cheating huh?', 'dwqa' ) );
 		}
 
-		wp_delete_comment( intval( $_POST['comment_id'] ) );
-		wp_send_json_success();
+		if ( !dwqa_current_user_can( 'delete_comment' ) ) {
+			wp_die( __( 'You do not have permission to edit comment.', 'dwqa' ) );
+		}
+
+		if ( ! isset( $_GET['comment_id'] ) ) {
+			wp_die( __( 'Comment ID must be showed.', 'dwqa' ) );
+		}
+
+		wp_delete_comment( intval( $_GET['comment_id'] ) );
+		$comment = get_comment( $_GET['comment_id'] );
+		exit( wp_safe_redirect( dwqa_get_question_link( $comment->comment_post_ID ) ) );
 	}
 
 	// We have many comment fields on single question page, so each of them need to be unique in ID

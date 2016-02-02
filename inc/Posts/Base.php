@@ -258,8 +258,12 @@ function dwqa_get_latest_action_date( $question = false, $before = '<span>', $af
 }
 
 function dwqa_is_edit() {
-	if ( isset( $_GET['edit'] ) && is_numeric( $_GET['edit'] ) ) {
-		return true;
+	$gets = array( 'edit', 'comment_edit' );
+
+	foreach( $gets as $get ) {
+		if ( isset( $_GET[ $get ] ) && is_numeric( $_GET[ $get ] ) ) {
+			return true;
+		}
 	}
 
 	return false;

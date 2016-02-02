@@ -243,4 +243,12 @@ function dwqa_get_ask_link() {
 
 	return get_permalink( $dwqa_general_settings['pages']['submit-question'] );
 }
+
+function dwqa_get_question_link( $post_id ) {
+	if ( 'dwqa-answer' == get_post_type( $post_id ) ) {
+		$post_id = dwqa_get_question_from_answer_id( $post_id );
+	}
+
+	return get_permalink( $post_id );
+}
 ?>

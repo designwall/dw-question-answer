@@ -82,6 +82,10 @@ Visit our [Github](https://github.com/designwall/dw-question-answer) project or 
 
 == Changelog ==
 
+= 1.4.0 =
+* New: UI
+* New: Improve Performance
+
 = 1.3.8.1 =
 * Quick fix
 

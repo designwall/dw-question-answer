@@ -687,9 +687,9 @@ function dwqa_get_ask_question_link( $echo = true, $label = false, $class = fals
 
 function dwqa_get_template( $template = false ) {
 	$templates = apply_filters( 'dwqa_get_template', array(
+		'page.php',
 		'single-dwqa-question',
 		'single.php',
-		'page.php',
 		'index.php',
 	) );
 

@@ -526,7 +526,7 @@ function dwqa_captcha_google_private_key_display() {
 function dwqa_captcha_select_type_display() {
 	global $dwqa_general_settings;
 
-	$types = apply_filters( 'dwqa_captcha_type', array( 'default' => __( 'Default', 'dwqa' ) ) );
+	$types = apply_filters( 'dwqa_captcha_type', array( 'google-recaptcha' => __( 'Default', 'dwqa' ) ) );
 	$type_selected = isset( $dwqa_general_settings['captcha-type'] ) ? $dwqa_general_settings['captcha-type'] : 'default';
 	echo '<select name="dwqa_options[captcha-type]">';
 	foreach( $types as $key => $name ) {

@@ -60,7 +60,9 @@ add_filter( 'dwqa_valid_captcha', 'dwqa_recaptcha_check' );
 function dwqa_recaptcha_check( $res ) {
 	global $dwqa_general_settings;
 	$type_selected = isset( $dwqa_general_settings['captcha-type'] ) ? $dwqa_general_settings['captcha-type'] : 'default';
-	if ( $type_selected == 'default' ) {
+
+	$is_old_version = $type_selected == 'google-recaptcha' ? true : false;
+	if ( $type_selected == 'default' || $is_old_version ) {
 		$number_1 = intval( $_POST['dwqa-captcha-number-1'] );
 		$number_2 = intval( $_POST['dwqa-captcha-number-2'] );
 		$result = intval( $_POST['dwqa-captcha-result'] );

@@ -6,6 +6,7 @@
  * @since DW Question & Answer 1.4.0
  */
 ?>
+
 <?php if ( comments_open() ) : ?>
 <div class="dwqa-comments">
 	<?php do_action( 'dwqa_before_comments' ) ?>
@@ -26,6 +27,7 @@
 				'id_form' => 'comment_form_' . get_the_ID(),
 			);
 		?>
+		<?php dwqa_print_notices( true ) ?>
 		<?php dwqa_comment_form( $args ); ?>
 	<?php endif; ?>
 	<?php do_action( 'dwqa_after_comments' ); ?>

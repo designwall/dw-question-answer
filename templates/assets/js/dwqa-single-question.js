@@ -157,24 +157,12 @@
         var changeHeight = function() {
             var matches = t.val().match(/\n/g);
             var breaks = matches ? matches.length : 0;
-            if (breaks <= 1 || t.val().length < 0) {
-                t.height(defaultHeight);
-            }
-            if (breaks > 1) {
-                var newHeight = lineHeight * (breaks + 1) + thisPadding * 3;
-                if (t.height() < newHeight) {
-                    t.height(newHeight);
-                }
-            }
-
+            t.height(defaultHeight);
         }
 
-        //changeHeight();
+        changeHeight();
         t.parent().addClass( 'dwqa-comment-show-button' );
         current_form.find('.dwqa-form-submit').show();
-        t.bind('keyup change', function(event) {
-            changeHeight();
-        });
 	});
 	
 

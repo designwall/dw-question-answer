@@ -420,12 +420,12 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 		$answer_id = wp_insert_post( $answers );
 
 		if ( !is_wp_error( $answer_id ) ) {
-			if ( user_can( $user_id, 'edit_posts' ) && $answers['post_status'] != 'draft' ) {
-				$answer_count = get_post_meta( $question_id, '_dwqa_answers_count', true );
-				update_post_meta( $question_id, '_dwqa_answers_count', (int) $answer_count + 1 );
+			if ( $answers['post_status'] != 'draft' ) {
 				update_post_meta( $question_id, '_dwqa_status', 'answered' );
 				update_post_meta( $question_id, '_dwqa_answered_time', time() );
 				update_post_meta( $answer_id, '_dwqa_votes', 0 );
+				$answer_count = get_post_meta( $question_id, '_dwqa_answers_count', true );
+				update_post_meta( $question_id, '_dwqa_answers_count', (int) $answer_count + 1 );
 			}
 			update_post_meta( $answer_id, '_question', $question_id  );
 

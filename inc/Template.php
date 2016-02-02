@@ -509,7 +509,7 @@ function dwqa_comment_form( $args = array(), $post_id = null ) {
 			do_action( 'comment_form_must_log_in_after' );
 			?>
 		<?php else : ?>
-			<form action="<?php echo site_url( '/wp-comments-post.php' ); ?>" method="post" id="<?php echo esc_attr( $args['id_form'] ); ?>" class="comment-form"<?php echo $html5 ? ' novalidate' : ''; ?>>
+			<form method="post" id="<?php echo esc_attr( $args['id_form'] ); ?>" class="comment-form"<?php echo $html5 ? ' novalidate' : ''; ?>>
 			<?php
 			/**
 			 * Fires at the top of the comment form, inside the <form> tag.
@@ -584,7 +584,7 @@ function dwqa_comment_form( $args = array(), $post_id = null ) {
 			 */
 			echo apply_filters( 'comment_form_field_comment', $args['comment_field'] );
 			?>
-			<input name="submit" type="submit" id="<?php echo esc_attr( $args['id_submit'] ); ?>" value="<?php echo esc_attr( $args['label_submit'] ); ?>" class="dwqa-btn dwqa-btn-primary" />
+			<input name="comment-submit" type="submit" id="<?php echo esc_attr( $args['id_submit'] ); ?>" value="<?php echo esc_attr( $args['label_submit'] ); ?>" class="dwqa-btn dwqa-btn-primary" />
 			<?php comment_id_fields( $post_id ); ?>
 			<?php
 			/**
@@ -1022,7 +1022,7 @@ class DWQA_Template {
 			$name .= '-' . $extend;
 		}
 
-		if ( $name == 'question-submit-form' && is_user_logged_in() && ! dwqa_current_user_can( 'post_question' ) ) {
+		if ( $name == 'question-submit-form' && ! dwqa_current_user_can( 'post_question' ) ) {
 			echo '<div class="alert">'.__( 'You do not have permission to submit a question','dwqa' ).'</div>';
 			return false;
 		}

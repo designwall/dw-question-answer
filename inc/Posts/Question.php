@@ -497,7 +497,7 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 							update_post_meta( $new_question, '_dwqa_is_anonymous', true );
 						}
 
-						if ( isset( $dwqa_options['enable-review-question'] ) && $dwqa_options['enable-review-question'] ) {
+						if ( isset( $dwqa_options['enable-review-question'] ) && $dwqa_options['enable-review-question'] && !current_user_can( 'manage_options' ) && $post_status != 'private' ) {
 							dwqa_add_notice( __( 'Your question is waiting moderator.', 'dwqa' ), 'success' );
 						} else {
 							exit( wp_safe_redirect( get_permalink( $new_question ) ) );

@@ -1,8 +1,8 @@
 <?php
 
-function dwqa_add_notice( $message, $type = 'success' ) {
+function dwqa_add_notice( $message, $type = 'success', $comment = false ) {
 	global $dwqa;
-	$dwqa->session->add( $message, $type );
+	$dwqa->session->add( $message, $type, $comment );
 }
 
 function dwqa_clear_notices() {
@@ -12,19 +12,19 @@ function dwqa_clear_notices() {
 
 add_action( 'dwqa_before_edit_form', 'dwqa_print_notices' );
 add_action( 'dwqa_before_question_submit_form', 'dwqa_print_notices' );
-function dwqa_print_notices() {
+function dwqa_print_notices( $comment = false ) {
 	global $dwqa;
-	echo $dwqa->session->print_notices();
+	echo $dwqa->session->print_notices( $comment );
 }
 
-function dwqa_count_notices( $type = '' ) {
+function dwqa_count_notices( $type = '', $comment = false ) {
 	global $dwqa;
-	return $dwqa->session->count( $type );
+	return $dwqa->session->count( $type, $comment );
 }
 
-function dwqa_add_wp_error_message( $errors ) {
+function dwqa_add_wp_error_message( $errors, $comment = false ) {
 	if ( is_wp_error( $errors ) ) {
-		dwqa_add_notice( $errors->get_error_message(), 'error' );
+		dwqa_add_notice( $errors->get_error_message(), 'error', $comment );
 	}
 }
 
@@ -63,7 +63,7 @@ class DWQA_Session {
 		}
 	}
 
-	public function add( $message, $type = 'success' ) {
+	public function add( $message, $type = 'success', $comment = false ) {
 		if ( ! did_action( 'init' ) ) {
 			_doing_it_wrong( __FUNCTION__, __( 'This function should not be called before init.', 'dwqa' ), '1.4.0' );
 			return;
@@ -71,11 +71,13 @@ class DWQA_Session {
 
 		global $dwqa;
 
-		$notices = $this->get( 'dwqa-notices', array() );
+		$key = $comment ? 'dwqa-comment-notices' : 'dwqa-notices';
+
+		$notices = $this->get( $key, array() );
 
 		$notices[ $type ][] = $message;
 
-		$this->set( 'dwqa-notices', $notices );
+		$this->set( $key, $notices );
 	}
 
 	public function clear() {
@@ -88,7 +90,7 @@ class DWQA_Session {
 		$this->set( 'dwqa-notices', null );
 	}
 
-	public function print_notices() {
+	public function print_notices( $comment = false ) {
 		if ( ! did_action( 'init' ) ) {
 			_doing_it_wrong( __FUNCTION__, __( 'This function should not be called before init.', 'dwqa' ), '1.4.0' );
 			return;
@@ -96,11 +98,12 @@ class DWQA_Session {
 
 		global $dwqa;
 
-		$notices = $this->get( 'dwqa-notices', array() );
+		$key = $comment ? 'dwqa-comment-notices' : 'dwqa-notices';
+		$notices = $this->get( $key, array() );
 		$types = array( 'error', 'success', 'info' );
 
 		foreach( $types as $type ) {
-			if ( $this->count( $type ) > 0 ) {
+			if ( $this->count( $type, $comment ) > 0 ) {
 				foreach( $notices[ $type ] as $message ) {
 					return sprintf( '<p class="dwqa-alert dwqa-alert-%s">%s</p>', $type, $message );
 				}
@@ -110,14 +113,14 @@ class DWQA_Session {
 		dwqa_clear_notices();
 	}
 
-	public function count( $type = '' ) {
+	public function count( $type = '', $comment = false ) {
 		if ( ! did_action( 'init' ) ) {
 			_doing_it_wrong( __FUNCTION__, __( 'This function should not be called before init.', 'dwqa' ), '1.4.0' );
 			return;
 		}
 
-		global $dwqa;
-		$all_notices = $this->get( 'dwqa-notices', array() );
+		$key = $comment ? 'dwqa-comment-notices' : 'dwqa-notices';
+		$all_notices = $this->get( $key, array() );
 		$count = 0;
 		if ( isset( $all_notices[ $type ] ) ) {
 			$count = absint( sizeof( $all_notices[ $type ] ) );

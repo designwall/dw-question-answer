@@ -9,7 +9,6 @@
 <div class="dwqa-questions-archive">
 	<?php do_action( 'dwqa_before_questions_archive' ) ?>
 		<div class="dwqa-questions-list">
-
 		<?php do_action( 'dwqa_before_question_stickies' ); ?>
 		<?php if ( dwqa_has_question_stickies() && 'all' == dwqa_current_filter() ) : ?>
 			<?php while( dwqa_has_question_stickies() ) : dwqa_the_sticky() ?>

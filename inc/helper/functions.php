@@ -208,21 +208,22 @@ function dwqa_get_answer_count( $question_id = false ) {
 	}
 }
 
-function dwqa_is_ask_form( $post_id = false ) {
+function dwqa_is_ask_form() {
 	global $dwqa_general_settings;
-	if ( !$post_id ) {
-		$post_id = get_the_ID();
-	}
-
 	if ( !isset( $dwqa_general_settings['pages']['submit-question'] ) ) {
 		return false;
 	}
 
-	if ( (int) $post_id === (int) $dwqa_general_settings['pages']['submit-question'] ) {
-		return true;
-	}
+	return is_page( $dwqa_general_settings['pages']['submit-question'] );
+}
 
-	return false;
+function dwqa_is_archive_question() {
+	global $dwqa_general_settings;
+	if ( !isset( $dwqa_general_settings['pages']['archive-question'] ) ) {
+		return false;
+	}
+	
+	return is_page( $dwqa_general_settings['pages']['submit-question'] );
 }
 
 function dwqa_question_status( $question = false ) {

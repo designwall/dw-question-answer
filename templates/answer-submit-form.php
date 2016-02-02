@@ -20,7 +20,7 @@
 		<p>
 			<label for="user-email"><?php _e( 'Your Email', 'dwqa' ) ?></label>
 			<?php $email = isset( $_POST['user-email'] ) ? $_POST['user-email'] : ''; ?>
-			<input type="text" class="" name="user-email" value="<?php echo $email ?>" >
+			<input type="email" class="" name="user-email" value="<?php echo $email ?>" >
 		</p>
 		<?php endif; ?>
 

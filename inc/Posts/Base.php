@@ -202,6 +202,12 @@ function dwqa_question_get_edit_title( $post_id = false ) {
 	return apply_filters( 'dwqa_question_get_edit_title', $title, $post_id );
 }
 
+function dwqa_comment_get_edit_content( $comment_id ) {
+	$comment_content = get_comment_text( $comment_id );
+
+	return apply_filters( 'dwqa_comment_get_edit_content', $comment_content, $comment_id );
+}
+
 function dwqa_get_latest_action_date( $question = false, $before = '<span>', $after = '</span>' ){
 	if ( ! $question ) {
 		$question = get_the_ID();

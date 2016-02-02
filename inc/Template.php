@@ -735,6 +735,7 @@ function dwqa_load_answers() {
 
 class DWQA_Template {
 	private $active = 'default';
+	private $page_template = 'page.php';
 	public $filters;
 
 	public function __construct() {
@@ -783,9 +784,30 @@ class DWQA_Template {
 		return $comment_template;
 	}
 
+	public function page_template_body_class( $classes ) {
+		$classes[] = 'page-template';
+
+		$template_slug  = $this->page_template;
+		$template_parts = explode( '/', $template_slug );
+
+		foreach ( $template_parts as $part ) {
+			$classes[] = 'page-template-' . sanitize_html_class( str_replace( array( '.', '/' ), '-', basename( $part, '.php' ) ) );
+			$classes[] = sanitize_html_class( str_replace( array( '.', '/' ), '-', basename( $part, '.php' ) ) );
+		}
+		$classes[] = 'page-template-' . sanitize_html_class( str_replace( '.', '-', $template_slug ) );
+
+		return $classes;
+	}
+
 	public function question_content( $template ) {
-		global $dwqa_options;
+		$dwqa_options = get_option( 'dwqa_options' );
 		$template_folder = trailingslashit( get_template_directory() );
+		if ( isset( $dwqa_options['pages']['archive-question'] ) ) {
+			$page_template = get_post_meta( $dwqa_options['pages']['archive-question'], '_wp_page_template', true );
+		}
+
+		$page_template = isset( $page_template ) && !empty( $page_template ) ? $page_template : 'page.php';
+		$this->page_template = $page_template;
 		if ( is_singular( 'dwqa-question' ) ) {
 			ob_start();
 
@@ -818,7 +840,8 @@ class DWQA_Template {
 			$single_template = isset( $dwqa_options['single-template'] ) ? $dwqa_options['single-template'] : false;
 
 			$this->remove_all_filters( 'the_content' );
-			return dwqa_get_template( 'page.php' );
+			add_filter( 'body_class', array( $this, 'page_template_body_class' ) );
+			return dwqa_get_template( $page_template );
 		}
 		if ( is_tax( 'dwqa-question_category' ) || is_tax( 'dwqa-question_tag' ) || is_post_type_archive( 'dwqa-question' ) || is_post_type_archive( 'dwqa-answer' ) ) {
 
@@ -827,7 +850,8 @@ class DWQA_Template {
 			if ( $post_id ) {
 				$page = get_page( $post_id );
 				$this->reset_content( $page );
-				return dwqa_get_template( 'page.php' );
+				add_filter( 'body_class', array( $this, 'page_template_body_class' ) );
+				return dwqa_get_template( $page_template );
 			}
 		}
 

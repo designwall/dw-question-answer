@@ -15,7 +15,7 @@
 		<?php printf( _x( 'replied %s ago', '%s = human-readable time difference', 'dwqa' ), human_time_diff( get_comment_time( 'U' ), current_time( 'timestamp' ) ) ); ?>
 		<div class="dwqa-comment-actions">
 			<?php if ( dwqa_current_user_can( 'edit_comment' ) ) : ?>
-				<?php edit_comment_link( __( 'Edit', 'dwqa' ), '  ', '' ); ?>
+				<a href="<?php echo esc_url( add_query_arg( array( 'comment_edit' => $comment->comment_ID ) ) ) ?>"></a>
 			<?php endif; ?>
 		</div>
 	</div>

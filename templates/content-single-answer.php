@@ -8,7 +8,7 @@
 ?>
 <div class="dwqa-answer-item">
 	<div class="dwqa-answer-vote" data-nonce="<?php echo wp_create_nonce( '_dwqa_answer_vote_nonce' ) ?>" data-post="<?php the_ID(); ?>">
-		<span class="dwqa-vote-count"><?php echo get_post_meta( get_the_ID(), '_dwqa_votes', true ) ? get_post_meta( get_the_ID(), '_dwqa_votes', true ) : 0 ?></span>
+		<span class="dwqa-vote-count"><?php echo dwqa_vote_count() ?></span>
 		<a class="dwqa-vote dwqa-vote-up" href="#"><?php _e( 'Vote Up', 'dwqa' ); ?></a>
 		<a class="dwqa-vote dwqa-vote-down" href="#"><?php _e( 'Vote Down', 'dwqa' ); ?></a>
 	</div>

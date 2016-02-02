@@ -10,7 +10,7 @@
 <?php do_action( 'dwqa_before_single_question_content' ); ?>
 <div class="dwqa-question-item">
 	<div class="dwqa-question-vote" data-nonce="<?php echo wp_create_nonce( '_dwqa_question_vote_nonce' ) ?>" data-post="<?php the_ID(); ?>">
-		<span class="dwqa-vote-count"><?php echo get_post_meta( get_the_ID(), '_dwqa_votes', true ) ?></span>
+		<span class="dwqa-vote-count"><?php echo dwqa_vote_count() ?></span>
 		<a class="dwqa-vote dwqa-vote-up" href="#"><?php _e( 'Vote Up', 'dwqa' ); ?></a>
 		<a class="dwqa-vote dwqa-vote-down" href="#"><?php _e( 'Vote Down', 'dwqa' ); ?></a>
 	</div>

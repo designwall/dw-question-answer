@@ -163,10 +163,6 @@ class DWQA_Posts_Comment {
 					dwqa_add_notice( __( 'Missing email information', 'dwqa' ), 'error', true );
 				}
 
-				if ( ! isset( $_POST['name'] ) ) {
-					dwqa_add_notice( __( 'Missing name information', 'dwqa' ), 'error', true );
-				}
-
 				$args['comment_author'] = isset( $_POST['name'] ) ? sanitize_text_field( $_POST['name'] ) : 'anonymous';
 				$args['comment_author_email'] = sanitize_email(  $_POST['email'] );
 				$args['comment_author_url'] = isset( $_POST['url'] ) ? esc_url( $_POST['url'] ) : '';

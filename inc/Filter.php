@@ -522,8 +522,8 @@ class DWQA_Filter {
 				'terms' => $tag,
 				'field' => 'slug'
 			);
-		}
 
+		}
 
 		// filter by user
 		if ( $user ) {
@@ -691,7 +691,9 @@ class DWQA_Filter {
 				'post__in' => $sticky_questions,
 			);
 
-			$wp_query->dwqa_question_stickies = new WP_Query( $args );
+			if ( !empty( $sticky_questions ) ) {
+				$wp_query->dwqa_question_stickies = new WP_Query( $args );
+			}
 		}
 	}
 

@@ -42,6 +42,8 @@ class DW_Question_Answer {
 		$this->question = new DWQA_Posts_Question();
 		$this->answer = new DWQA_Posts_Answer();
 		$this->comment = new DWQA_Posts_Comment();
+		$this->ajax = new DWQA_Ajax();
+		$this->handle = new DWQA_Handle();
 		$this->permission = new DWQA_Permission();
 		$this->status = new DWQA_Status();
 		$this->shortcode = new DWQA_Shortcode();
@@ -57,8 +59,6 @@ class DW_Question_Answer {
 
 		$this->helptab = new DWQA_Helptab();
 		$this->pointer_helper = new DWQA_PointerHelper();
-		$this->ajax = new DWQA_Ajax();
-		$this->handle = new DWQA_Handle();
 
 		new DWQA_Admin_Extensions();
 		new DWQA_Admin_Welcome();

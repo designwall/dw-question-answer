@@ -14,7 +14,7 @@ function dwqa_question_print_status( $question_id = false, $echo = true ) {
 	}
 
 	if ( $status == 'close' ) {
-		$status == __( 'Closed', 'dwqa' );
+		$status = __( 'Closed', 'dwqa' );
 	}
 
 	if ( $status ) {

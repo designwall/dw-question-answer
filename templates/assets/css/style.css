@@ -300,7 +300,6 @@
 .dwqa-comments-list .dwqa-comment {
 	border-bottom: 1px solid #ddd;
 	padding: 10px 0;
-	font-size: small;
 }
 
 .dwqa-comments-list .dwqa-comment p:last-child {
@@ -309,6 +308,10 @@
 
 .dwqa-comments-list .dwqa-comment:last-child {
 	border-bottom: none;
+}
+
+.dwqa-comments-list .dwqa-comment-meta {
+	font-size: small;
 }
 
 .dwqa-comment-form {

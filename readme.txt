@@ -83,8 +83,13 @@ Visit our [Github](https://github.com/designwall/dw-question-answer) project or 
 == Changelog ==
 
 = 1.4.0 =
-* New: UI
-* New: Improve Performance
+* New: Template Structure Updates
+* New: Core Performance Improvements
+* New: Add Questions Listing By Author page
+* New: Optimize Questions & Answers Editing
+* New: Add Breadcrumbs
+* New: Improve ‘Subscribe Question’ Feature
+* New: Simplify the question status
 
 = 1.3.8.1 =
 * Quick fix

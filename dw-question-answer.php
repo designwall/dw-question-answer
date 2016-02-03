@@ -25,7 +25,7 @@ if ( ! defined( 'DWQA_URI' ) ) {
 // Add autoload class
 require_once DWQA_DIR . 'inc/autoload.php';
 require_once DWQA_DIR . 'inc/helper/functions.php';
-require_once DWQA_DIR . 'upgrades/upgrades.php';
+//require_once DWQA_DIR . 'upgrades/upgrades.php';
 require_once DWQA_DIR . 'inc/deprecated.php';
 
 class DW_Question_Answer {

@@ -811,6 +811,7 @@ class DWQA_Template {
 
 		$page_template = isset( $page_template ) && !empty( $page_template ) ? $page_template : 'page.php';
 		$this->page_template = $page_template;
+
 		if ( is_singular( 'dwqa-question' ) ) {
 			ob_start();
 
@@ -852,10 +853,18 @@ class DWQA_Template {
 			$post_id = isset( $dwqa_options['pages']['archive-question'] ) ? $dwqa_options['pages']['archive-question'] : 0;
 			if ( $post_id ) {
 				$page = get_page( $post_id );
+				if ( is_tax( 'dwqa-question_category' ) || is_tax( 'dwqa-question_tag' ) ) {
+					$page->is_tax = true;
+				}
 				$this->reset_content( $page );
 				add_filter( 'body_class', array( $this, 'page_template_body_class' ) );
 				return dwqa_get_template( $page_template );
 			}
+		}
+
+		if ( is_page( $dwqa_options['pages']['archive-question'] ) ) {
+			global $wp_query;
+			$wp_query->is_archive = true;
 		}
 
 		return $template;
@@ -895,7 +904,7 @@ class DWQA_Template {
 				'is_single'             => false,
 				'is_archive'            => false,
 				'is_tax'                => false,
-				'current_comment'		=> $wp_query->comment_count,
+				'current_comment'		=> $wp_query->post->comment_count,
 			) );
 		} else {
 			$dummy = wp_parse_args( $args, array(

@@ -8,9 +8,7 @@ function dwqa_breadcrumb() {
 	$title = get_the_title( $dwqa_general_settings['pages']['archive-question'] );
 	$search = isset( $_GET['qs'] ) ? $_GET['qs'] : false;
 	$author = isset( $_GET['user'] ) ? $_GET['user'] : false;
-	if ( is_singular( 'dwqa-question' ) || $search || $author ) {
-		echo '<div class="dwqa-breadcrumbs">';
-	}
+
 	if ( !is_singular( 'dwqa-question' ) ) {
 		$term = get_query_var( 'dwqa-question_category' ) ? get_query_var( 'dwqa-question_category' ) : ( get_query_var( 'dwqa-question_tag' ) ? get_query_var( 'dwqa-question_tag' ) : false );
 		$term = get_term_by( 'slug', $term, get_query_var( 'taxonomy' ) );
@@ -21,6 +19,10 @@ function dwqa_breadcrumb() {
 			$term = $term[0];
 			$tax_name = __( 'Category', 'dwqa' );
 		}
+	}
+
+	if ( is_singular( 'dwqa-question' ) || $search || $author || $term ) {
+		echo '<div class="dwqa-breadcrumbs">';
 	}
 
 	if ( $term || is_singular( 'dwqa-question' ) || $search || $author ) {
@@ -56,7 +58,7 @@ function dwqa_breadcrumb() {
 			echo '<span class="dwqa-current">'. __( 'Edit', 'dwqa' ) .'</span>';
 		}
 	}
-	if ( is_singular( 'dwqa-question' ) || $search || $author ) {
+	if ( is_singular( 'dwqa-question' ) || $search || $author || $term ) {
 		echo '</div>';
 	}
 }

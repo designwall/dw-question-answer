@@ -6,6 +6,7 @@ Tested up to: 4+
 Stable tag: 1.4.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
+License: Free for commercial use
 
 Your WordPress site will have a full-featured Question & Answer section like Stack Overflow, Quora or Yahoo Answers
 

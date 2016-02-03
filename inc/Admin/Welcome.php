@@ -76,38 +76,58 @@ class DWQA_Admin_Welcome {
 			<p class="about-description">In recent weeks, we have been working hard to enhance our DW Question &#38; Answer (DW Q&#38;A) plugin. Apart from getting bugs fixed and providing technical assistance to our users, our team implemented some new cool features to extend functionality for DW Q&#38;A. For more info, see <a href="https://www.designwall.com/blog/dw-qa-1-4-0-introduction/" target="_blank">instruction</a>.</p>
 
 			
-			<div class="feature-section">
+			<div class="feature-section two-col">
+				<div class="col">
+					<div class="media-container">
+						<img src="<?php echo esc_url( $dwqa->uri . 'assets/img/dwqa-140-1.gif' ) ?>" sizes="(max-width: 500px) calc(100vw - 40px), (max-width: 782px) calc(100vw - 70px), (max-width: 960px) calc((100vw - 116px) * .476), (max-width: 1290px) calc((100vw - 240px) * .476), 500px">
+					</div>
+				</div>
 				<div class="col">
 					<h3>Core Performance Improvements</h3>
 					<p>Our Developers have replaced the old filter solution using ajax with a new solution via WP_Query. We also omitted some queries and filters which were known as the cause for slowness while listing questions.</p>
 				</div>
 			</div>
 			<hr>
-			<div class="feature-section">
+			<div class="feature-section two-col">
 				<div class="col">
 					<h3>Add Questions Listing By Author page</h3>
 					<p>We have replaced and turn the author link as a filter when you click on it. This way allows you to see all the questions asked by that user, or all questions that user follows.</p>
 				</div>
+				<div class="col">
+					<div class="media-container">
+						<img src="<?php echo esc_url( $dwqa->uri . 'assets/img/dwqa-140-2.gif' ) ?>" sizes="(max-width: 500px) calc(100vw - 40px), (max-width: 782px) calc(100vw - 70px), (max-width: 960px) calc((100vw - 116px) * .476), (max-width: 1290px) calc((100vw - 240px) * .476), 500px">
+					</div>
+				</div>
 			</div>
 			<hr>
-			<div class="feature-section">
+			<div class="feature-section two-col">
+				<div class="col">
+					<div class="media-container two-col">
+						<img src="<?php echo esc_url( $dwqa->uri . 'assets/img/dwqa-140-3.gif' ) ?>" sizes="(max-width: 500px) calc(100vw - 40px), (max-width: 782px) calc(100vw - 70px), (max-width: 960px) calc((100vw - 116px) * .476), (max-width: 1290px) calc((100vw - 240px) * .476), 500px">
+					</div>
+				</div>
 				<div class="col">
 					<h3>Add Breadcrumbs</h3>
 					<p>We have created native breadcrumbs for DW Question & Answer. You can also integrate this feature with the other breadcrumbs plugin if you like to enhance navigation system your ways.</p>
 				</div>
 			</div>
 			<hr>
-			<div class="feature-section">
+			<div class="feature-section two-col">
 				<div class="col">
 					<h3>Improve ‘Subscribe Question’ Feature</h3>
 					<p>We enhance ‘Subscribe’ feature (known as Follow) further, allow users who adds comments or answer such question will be set by default to ‘subscribe’ that question (no longer needs an extra step to subscribe). To stop receiving notifications, you simply ‘unsubscribe’ the question at your choice.</p>
+				</div>
+				<div class="col">
+					<div class="media-container two-col">
+						<img src="<?php echo esc_url( $dwqa->uri . 'assets/img/dwqa-140-4.gif' ) ?>" sizes="(max-width: 500px) calc(100vw - 40px), (max-width: 782px) calc(100vw - 70px), (max-width: 960px) calc((100vw - 116px) * .476), (max-width: 1290px) calc((100vw - 240px) * .476), 500px">
+					</div>
 				</div>
 			</div>
 			<hr>
 			<div class="feature-section two-col">
 				<div class="col">
 					<div class="media-container">
-						<img src="<?php echo esc_url( $dwqa->uri . 'assets/img/Ask-question-page.png' ) ?>" sizes="(max-width: 500px) calc(100vw - 40px), (max-width: 782px) calc(100vw - 70px), (max-width: 960px) calc((100vw - 116px) * .476), (max-width: 1290px) calc((100vw - 240px) * .476), 500px">
+						<img src="<?php echo esc_url( $dwqa->uri . 'assets/img/dwqa-140-5.gif' ) ?>" sizes="(max-width: 500px) calc(100vw - 40px), (max-width: 782px) calc(100vw - 70px), (max-width: 960px) calc((100vw - 116px) * .476), (max-width: 1290px) calc((100vw - 240px) * .476), 500px">
 					</div>
 				</div>
 				<div class="col">
@@ -118,20 +138,20 @@ class DWQA_Admin_Welcome {
 			<hr>
 			<div class="feature-section two-col">
 				<div class="col">
-					<div class="media-container">
-						<img src="<?php echo esc_url( $dwqa->uri . 'assets/img/Ask-question-page.png' ) ?>" sizes="(max-width: 500px) calc(100vw - 40px), (max-width: 782px) calc(100vw - 70px), (max-width: 960px) calc((100vw - 116px) * .476), (max-width: 1290px) calc((100vw - 240px) * .476), 500px">
-					</div>
-				</div>
-				<div class="col">
 					<h3>Simplify the question status</h3>
 					<p>We set 3 default status: Open, Resolved and Closed. The old status ‘Pending’ and ‘Re-open’ will be marked as ‘Open’. We aim at making the question category more simple and make the filter ease to follow.</p>
+				</div>
+				<div class="col">
+					<div class="media-container">
+						<img src="<?php echo esc_url( $dwqa->uri . 'assets/img/dwqa-140-6.gif' ) ?>" sizes="(max-width: 500px) calc(100vw - 40px), (max-width: 782px) calc(100vw - 70px), (max-width: 960px) calc((100vw - 116px) * .476), (max-width: 1290px) calc((100vw - 240px) * .476), 500px">
+					</div>
 				</div>
 			</div>
 			<hr>
 			<div class="feature-section two-col">
 				<div class="col">
 					<div class="media-container">
-						<img src="<?php echo esc_url( $dwqa->uri . 'assets/img/Front-end-appearance.png' ) ?>" sizes="(max-width: 500px) calc(100vw - 40px), (max-width: 782px) calc(100vw - 70px), (max-width: 960px) calc((100vw - 116px) * .476), (max-width: 1290px) calc((100vw - 240px) * .476), 500px">
+						<img src="<?php echo esc_url( $dwqa->uri . 'assets/img/dwqa-140-7.gif' ) ?>" sizes="(max-width: 500px) calc(100vw - 40px), (max-width: 782px) calc(100vw - 70px), (max-width: 960px) calc((100vw - 116px) * .476), (max-width: 1290px) calc((100vw - 240px) * .476), 500px">
 					</div>
 				</div>
 				<div class="col">

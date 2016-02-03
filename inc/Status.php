@@ -19,10 +19,10 @@ function dwqa_question_print_status( $question_id = false, $echo = true ) {
 
 	if ( $status ) {
 		if ( $echo ) {
-			echo '<span title="'.ucwords( $status ).'" class="dwqa-status dwqa-status-'.$status.'">'.ucwords( $status ).'</span>';
+			echo '<span title="'.ucwords( $status ).'" class="dwqa-status dwqa-status-'.strtolower( $status ).'">'.ucwords( $status ).'</span>';
 			return;
 		}
-		return '<span title="'.ucwords( $status ).'" class="dwqa-status dwqa-status-'.$status.'">'.ucwords( $status ).'</span>';
+		return '<span title="'.ucwords( $status ).'" class="dwqa-status dwqa-status-'.strtolower( $status ).'">'.ucwords( $status ).'</span>';
 	}
 }
 

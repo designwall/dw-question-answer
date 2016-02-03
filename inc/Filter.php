@@ -584,7 +584,11 @@ class DWQA_Filter {
 				break;
 			case 'subscribes':
 				if ( $user ) {
-					$query['post__in'] = dwqa_get_user_question_subscribes( $user->ID, $posts_per_page, $query['paged'] );
+					$query['meta_query'][] = array(
+						'key'					=> '_dwqa_followers',
+						'value'					=> $user->ID,
+						'compare'				=> '='
+					);
 				}
 				break;
 			case 'my-questions':
@@ -594,8 +598,11 @@ class DWQA_Filter {
 				break;
 			case 'my-subscribes':
 				if ( is_user_logged_in() ) {
-					$query['author'] = get_current_user_id();
-					$query['post__in'] = dwqa_get_user_question_subscribes( get_current_user_id(), $posts_per_page, $query['paged'] );
+					$query['meta_query'][] = array(
+						'key'					=> '_dwqa_followers',
+						'value'					=> get_current_user_id(),
+						'compare'				=> '='
+					);
 				}
 				break;
 		}

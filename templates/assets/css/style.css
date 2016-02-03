@@ -390,6 +390,14 @@
 	background-image: url(../img/icon-loading.gif) !important;
 }
 
+.submit-dwqa-question .dwqa-search input {
+	background: none no-repeat right 10px center #fff !important;
+}
+
+.submit-dwqa-question .dwqa-search input.ui-autocomplete-loading {
+	background-image: url(../img/icon-loading.gif) !important;
+}
+
 .dwqa-search .dwqa-autocomplete {
 	margin: 0;
 	padding: 0;

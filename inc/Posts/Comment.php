@@ -123,6 +123,10 @@ class DWQA_Posts_Comment {
 				}
 			}
 		}
+
+		if ( $comment->user_id ) {
+			update_post_meta( $question, '_dwqa_followers', $comment->user_id );
+		}
 	}
 }
 ?>

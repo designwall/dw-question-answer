@@ -222,7 +222,7 @@ function dwqa_is_archive_question() {
 		return false;
 	}
 	
-	return is_page( $dwqa_general_settings['pages']['submit-question'] );
+	return is_page( $dwqa_general_settings['pages']['archive-question'] );
 }
 
 function dwqa_question_status( $question = false ) {

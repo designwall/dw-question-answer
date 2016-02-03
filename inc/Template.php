@@ -5,7 +5,9 @@
  */
 function dwqa_breadcrumb() {
 	global $dwqa_general_settings;
-	echo '<div class="dwqa-breadcrumbs">';
+	if ( !dwqa_is_archive_question() ) {
+		echo '<div class="dwqa-breadcrumbs">';
+	}
 	$title = get_the_title( $dwqa_general_settings['pages']['archive-question'] );
 	$search = isset( $_GET['qs'] ) ? $_GET['qs'] : false;
 	$author = isset( $_GET['user'] ) ? $_GET['user'] : false;
@@ -54,8 +56,9 @@ function dwqa_breadcrumb() {
 			echo '<span class="dwqa-current">'. __( 'Edit', 'dwqa' ) .'</span>';
 		}
 	}
-
-	echo '</div>';
+	if ( !dwqa_is_archive_question() ) {
+		echo '</div>';
+	}
 }
 add_action( 'dwqa_before_questions_archive', 'dwqa_breadcrumb' );
 add_action( 'dwqa_before_single_question', 'dwqa_breadcrumb' );

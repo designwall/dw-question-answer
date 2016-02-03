@@ -48,7 +48,6 @@ class DW_Question_Answer {
 		$this->template = new DWQA_Template();
 		$this->settings = new DWQA_Settings();
 		$this->editor = new DWQA_Editor();
-		//$this->rewrite = new DWQA_Rewrite();
 		$this->user = new DWQA_User();
 		$this->notifications = new DWQA_Notifications();
 		$this->filter = new DWQA_Filter();
@@ -58,6 +57,7 @@ class DW_Question_Answer {
 
 		$this->helptab = new DWQA_Helptab();
 		$this->pointer_helper = new DWQA_PointerHelper();
+		$this->ajax = new DWQA_Ajax();
 
 		new DWQA_Admin_Extensions();
 		new DWQA_Admin_Welcome();

@@ -174,11 +174,11 @@ function dwqa_question_button_action() {
 		$html .= '<input type="checkbox" id="dwqa-favorites" data-post="'. get_the_ID() .'" data-nonce="'. wp_create_nonce( '_dwqa_follow_question' ) .'" value="'. $followed .'" '. checked( $followed, 'followed', false ) .'/>';
 		$html .= '<span>' . $text . '</span>';
 		$html .= '</label>';
-		if ( dwqa_current_user_can( 'edit_question' ) ) {
+		if ( dwqa_current_user_can( 'edit_question', get_the_ID() ) ) {
 			$html .= '<a class="dwqa_edit_question" href="'. add_query_arg( array( 'edit' => get_the_ID() ), get_permalink() ) .'">' . __( 'Edit', 'dwqa' ) . '</a> ';
 		}
 
-		if ( dwqa_current_user_can( 'delete_question' ) ) {
+		if ( dwqa_current_user_can( 'delete_question', get_the_ID() ) ) {
 			$action_url = add_query_arg( array( 'action' => 'dwqa_delete_question', 'question_id' => get_the_ID() ), admin_url( 'admin-ajax.php' ) );
 			$html .= '<a class="dwqa_delete_question" href="'. wp_nonce_url( $action_url, '_dwqa_action_remove_question_nonce' ) .'">' . __( 'Delete', 'dwqa' ) . '</a> ';
 		}
@@ -190,12 +190,12 @@ function dwqa_question_button_action() {
 function dwqa_answer_button_action() {
 	$html = '';
 	if ( is_user_logged_in() ) {
-		if ( dwqa_current_user_can( 'edit_answer' ) ) {
+		if ( dwqa_current_user_can( 'edit_answer'. get_the_ID() ) ) {
 			$parent_id = dwqa_get_question_from_answer_id();
 			$html .= '<a class="dwqa_edit_question" href="'. add_query_arg( array( 'edit' => get_the_ID() ), get_permalink( $parent_id ) ) .'">' . __( 'Edit', 'dwqa' ) . '</a> ';
 		}
 
-		if ( dwqa_current_user_can( 'delete_answer' ) ) {
+		if ( dwqa_current_user_can( 'delete_answer', get_the_ID() ) ) {
 			$action_url = add_query_arg( array( 'action' => 'dwqa_delete_answer', 'answer_id' => get_the_ID() ), admin_url( 'admin-ajax.php' ) );
 			$html .= '<a class="dwqa_delete_answer" href="'. wp_nonce_url( $action_url, '_dwqa_action_remove_answer_nonce' ) .'">' . __( 'Delete', 'dwqa' ) . '</a> ';
 		}

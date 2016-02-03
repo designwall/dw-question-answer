@@ -8,15 +8,12 @@ class DWQA_Posts_Comment {
 		remove_action( 'comment_form', 'wp_comment_form_unfiltered_html_nonce' );
 		add_action( 'comment_form', array( $this, 'wp_comment_form_unfiltered_html_nonce' ) );
 		add_action( 'wp_loaded', array( $this, 'update' ) );
-		add_action( 'wp_ajax_dwqa-action-delete-comment', array( $this, 'delete' ) );
 		// Filter
 		add_filter( 'comment_id_fields', array( $this, 'comment_form_id_fields_filter' ), 10, 3 );
 		add_filter( 'get_comment_text', array( $this, 'sanitizie_comment' ), 10, 2 );
 		// Ajax insert comment
 		add_action( 'wp_loaded', array( $this, 'insert' ) );
 
-		add_action( 'wp_ajax_dwqa-get-comments', array( $this, 'get_comments' ) );
-		add_action( 'wp_ajax_nopriv_dwqa-get-comments', array( $this, 'get_comments' ) );
 		add_filter( 'get_comment', array( $this, 'comment_author_link_anonymous' ) );
 
 		add_action( 'wp_insert_comment', array( $this, 'reopen_question_have_new_comment' ) );
@@ -100,27 +97,6 @@ class DWQA_Posts_Comment {
 				}
 			}
 		}
-	}
-
-	/**
-	 * AJAX:Remove comment of quest/answer away from database
-	 */
-	public function delete() {
-		if ( ! isset( $_GET['_wpnonce'] ) || ! wp_verify_nonce( sanitize_text_field( $_GET['_wpnonce'] ), '_dwqa_delete_comment' ) ) {
-			wp_die( __( 'Are you cheating huh?', 'dwqa' ) );
-		}
-
-		if ( !dwqa_current_user_can( 'delete_comment' ) ) {
-			wp_die( __( 'You do not have permission to edit comment.', 'dwqa' ) );
-		}
-
-		if ( ! isset( $_GET['comment_id'] ) ) {
-			wp_die( __( 'Comment ID must be showed.', 'dwqa' ) );
-		}
-
-		wp_delete_comment( intval( $_GET['comment_id'] ) );
-		$comment = get_comment( $_GET['comment_id'] );
-		exit( wp_safe_redirect( dwqa_get_question_link( $comment->comment_post_ID ) ) );
 	}
 
 	// We have many comment fields on single question page, so each of them need to be unique in ID

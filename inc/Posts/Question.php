@@ -142,9 +142,8 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 		add_action( 'wp_ajax_dwqa-stick-question', array( $this, 'stick_question' ) );
 		add_action( 'restrict_manage_posts', array( $this, 'admin_posts_filter_restrict_manage_posts' ) );
 
-		add_action( 'wp_ajax_dwqa_delete_question', array( $this, 'delete' ) );
+		
 		// Ajax Update question status
-		add_action( 'wp_ajax_dwqa-update-question-status', array( $this, 'update_status' ) );
 		add_filter( 'parse_query', array( $this, 'posts_filter' ) );
 
 		add_action( 'wp', array( $this, 'schedule_events' ) );
@@ -581,43 +580,6 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 		}
 	}
 
-	public function delete() {
-		global $dwqa_general_settings;
-		if ( ! isset( $_GET['_wpnonce'] ) || ! wp_verify_nonce( $_GET['_wpnonce'], '_dwqa_action_remove_question_nonce' ) || 'dwqa_delete_question' !== $_GET['action'] ) {
-			wp_die( __( 'Are you cheating huh?', 'dwqa' ) );
-		}
-
-		if ( ! isset( $_GET['question_id'] ) ) {
-			wp_die( __( 'Question is missing.', 'dwqa' ), 'error' );
-		}
-
-		if ( 'dwqa-question' !== get_post_type( $_GET['question_id'] ) ) {
-			wp_die( __( 'This post is not question.', 'dwqa' ) );
-		}
-
-		if ( !dwqa_current_user_can( 'delete_answer' ) ) {
-			wp_die( __( 'You do not have permission to delete this post.', 'dwqa' ) );
-		}
-
-		do_action( 'before_delete_post', $_GET['question_id'] );
-		
-		$id = wp_delete_post( $_GET['question_id'] );
-
-		if ( is_wp_error( $id ) ) {
-			wp_die( $id->get_error_message() );
-		}
-
-		do_action( 'dwqa_delete_question', $_GET['question_id'] );
-
-		$url = home_url();
-		if ( isset( $dwqa_general_settings['pages']['archive-question'] ) ) {
-			$url = get_permalink( $dwqa_general_settings['pages']['archive-question'] );
-		}
-
-		wp_redirect( $url );
-		exit();
-	}
-
 	public function insert( $args ) {
 		if ( is_user_logged_in() ) {
 			$user_id = get_current_user_id();
@@ -685,37 +647,6 @@ class DWQA_Posts_Question extends DWQA_Posts_Base {
 					update_post_meta( $post->ID, '_dwqa_views', $views );
 				}
 			}
-		}
-	}
-
-	/**
-	 * AJAX: update post status
-	 * @return void
-	 */
-	public function update_status() {
-		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( $_POST['nonce'] ), '_dwqa_update_question_status_nonce' ) ) {
-		}
-		if ( ! isset( $_POST['question'] ) ) {
-			wp_die( 0 );
-		}
-		if ( ! isset( $_POST['status'] ) || ! in_array( sanitize_text_field( $_POST['status'] ), array( 'open', 're-open', 'resolved', 'closed', 'pending' ) ) ) {
-			wp_die( 0 );
-		}
-
-		global $current_user;
-		$question_id = intval( $_POST['question'] );
-		$question = get_post( $question_id );
-
-		if ( dwqa_current_user_can( 'edit_question' ) || $current_user->ID == $question->post_author ) {
-			$status = sanitize_text_field( $_POST['status'] );
-			update_post_meta( $question_id, '_dwqa_status', $status );
-			if ( $status == 'resolved' ) {
-				update_post_meta( $question_id, '_dwqa_resolved_time', time() );
-			}
-		} else {
-			wp_send_json_error( array(
-				'message'   => __( 'You do not have permission to edit question status', 'dwqa' )
-			) );
 		}
 	}
 

@@ -234,13 +234,8 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 		// add answer
 		add_action( 'wp_loaded', array( $this, 'insert') );
 		add_action( 'wp_loaded', array( $this, 'update' ) );
-		// Ajax remove Answer
-		add_action( 'wp_ajax_dwqa_delete_answer', array( $this, 'delete' ) );
-		// Ajax flag answer spam
-		add_action( 'wp_ajax_dwqa-action-flag-answer', array( $this, 'flag' ) );
-		//Ajax vote best answer
-		add_action( 'wp_ajax_dwqa-vote-best-answer', array( $this, 'vote_best_answer' ) );
-		add_action( 'wp_ajax_dwqa-unvote-best-answer', array( $this, 'unvote_best_answer' ) );
+		
+		
 		//Cache
 		add_action( 'dwqa_add_answer', array( $this, 'update_transient_when_add_answer' ), 10, 2 );
 		add_action( 'dwqa_delete_answer', array( $this, 'update_transient_when_remove_answer' ), 10, 2 );
@@ -498,42 +493,6 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 		}
 	}
 
-	function delete() {
-		if ( ! isset( $_GET['_wpnonce'] ) || ! wp_verify_nonce( $_GET['_wpnonce'], '_dwqa_action_remove_answer_nonce' ) || 'dwqa_delete_answer' !== $_GET['action'] ) {
-			wp_die( __( 'Are you cheating huh?', 'dwqa' ) );
-		}
-
-		if ( ! isset( $_GET['answer_id'] ) ) {
-			wp_die( __( 'Answer is missing.', 'dwqa' ), 'error' );
-		}
-
-		if ( 'dwqa-answer' !== get_post_type( $_GET['answer_id'] ) ) {
-			wp_die( __( 'This post is not answer.', 'dwqa' ) );
-		}
-
-		if ( !dwqa_current_user_can( 'delete_answer' ) ) {
-			wp_die( __( 'You do not have permission to delete this post.', 'dwqa' ) );
-		}
-
-		do_action( 'dwqa_prepare_delete_answer', $_GET['answer_id'] );
-
-		$question_id = get_post_meta( $_GET['answer_id'], '_question', true );
-		
-		$id = wp_delete_post( $_GET['answer_id'] );
-
-		if ( is_wp_error( $id ) ) {
-			wp_die( $id->get_error_message() );
-		}
-
-		$answer_count = get_post_meta( $question_id, '_dwqa_answers_count', true );
-		update_post_meta( $question_id, '_dwqa_answers_count', (int) $answer_count - 1 );
-
-		do_action( 'dwqa_delete_answer', $_GET['answer_id'], $question_id );
-
-		wp_redirect( get_permalink( $question_id ) );
-		exit();
-	}
-
 	//Cache
 	public function update_transient_when_add_answer( $answer_id, $question_id ) {
 		// Update cache for latest answer of this question
@@ -546,69 +505,6 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 		// Remove Cached Latest Answer
 		delete_transient( 'dwqa_latest_answer_for_' . $question_id );
 		delete_transient( 'dwqa_answer_count_for_' . $question_id );
-	}
-
-	/**
-	 * Flag as spam answer
-	 */
-	public function flag() {
-		if ( ! isset( $_POST['wpnonce'] ) || ! wp_verify_nonce( sanitize_text_field( $_POST['wpnonce'] ), '_dwqa_action_flag_answer_nonce' ) ) {
-			wp_send_json_error( array( 'message' => __( 'Are you cheating huh?', 'dwqa' ) ) );
-		}
-		if ( ! isset( $_POST['answer_id'] ) ) {
-			wp_send_json_error( array( 'message' => __( 'Missing id of answer', 'dwqa' ) ) );
-		}
-		global $current_user;
-		$answer_id = intval( $_POST['answer_id'] );
-		$flag = get_post_meta( $answer_id, '_flag', true );
-		if ( ! $flag ) {
-			$flag = array();
-		} else {
-			$flag = unserialize( $flag );
-		}
-		// _flag[ user_id => flag_bool , ...]
-		$flag_score = 0;
-		if ( dwqa_is_user_flag( $answer_id, $current_user->ID ) ) {
-			//unflag
-			$flag[$current_user->ID] = $flag_score = 0;
-		} else {
-			$flag[$current_user->ID] = $flag_score = 1;
-
-		}
-		$flag = serialize( $flag );
-		update_post_meta( $answer_id, '_flag', $flag );
-		wp_send_json_success( array( 'status' => $flag_score ) );
-	}
-
-	public function vote_best_answer() {
-		global $current_user;
-		check_ajax_referer( '_dwqa_vote_best_answer', 'nonce' );
-		if ( ! isset( $_POST['answer'] ) ) {
-			exit( 0 );
-		}
-		$answer_id = intval( $_POST['answer'] );
-		$q = get_post_meta( $answer_id, '_question', true );
-		$question = get_post( $q );
-		if ( $current_user->ID == $question->post_author || current_user_can( 'edit_posts' ) ) {
-			do_action( 'dwqa_vote_best_answer', $answer_id );
-			update_post_meta( $q, '_dwqa_best_answer', $answer_id );
-		}
-	}
-
-	public function unvote_best_answer() {
-		global $current_user;
-		check_ajax_referer( '_dwqa_vote_best_answer', 'nonce' );
-		if ( ! isset( $_POST['answer'] ) ) {
-			exit( 0 );
-		}
-		$answer_id = intval( $_POST['answer'] );
-		$q = get_post_meta( $answer_id, '_question', true );
-		$question = get_post( $q );
-		if ( $current_user->ID == $question->post_author || current_user_can( 'edit_posts' ) ) {
-			do_action( 'dwqa_unvote_best_answer', $answer_id );
-			delete_post_meta( $q, '_dwqa_best_answer' );
-		}
-
 	}
 }
 

@@ -499,7 +499,6 @@ class DWQA_Filter {
 			'post_type' => 'dwqa-question',
 			'posts_per_page' => $posts_per_page,
 			'orderby'	=> 'modified',
-			'no_found_rows' => true,
 		);
 		$page_text = dwqa_is_front_page() ? 'page' : 'paged';
 		$paged = get_query_var( $page_text );

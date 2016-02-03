@@ -7,12 +7,9 @@ class DWQA_Posts_Comment {
 		// Comment form template for DW Question Answer
 		remove_action( 'comment_form', 'wp_comment_form_unfiltered_html_nonce' );
 		add_action( 'comment_form', array( $this, 'wp_comment_form_unfiltered_html_nonce' ) );
-		add_action( 'wp_loaded', array( $this, 'update' ) );
-		// Filter
+		
 		add_filter( 'comment_id_fields', array( $this, 'comment_form_id_fields_filter' ), 10, 3 );
 		add_filter( 'get_comment_text', array( $this, 'sanitizie_comment' ), 10, 2 );
-		// Ajax insert comment
-		add_action( 'wp_loaded', array( $this, 'insert' ) );
 
 		add_filter( 'get_comment', array( $this, 'comment_author_link_anonymous' ) );
 
@@ -62,43 +59,6 @@ class DWQA_Posts_Comment {
 		}
 	}
 
-	public function update() {
-		global $post_submit_filter;
-		if ( isset( $_POST['dwqa-edit-comment-submit'] ) ) {
-			if ( ! isset( $_POST['comment_id']) ) {
-				dwqa_add_notice( __( 'Comment is missing', 'dwqa' ), 'error' );
-			}
-			$comment_id = intval( $_POST['comment_id'] );
-			$comment_content = isset( $_POST['comment_content'] ) ? esc_html( $_POST['comment_content'] ) : '';
-			$comment_content = apply_filters( 'dwqa_pre_update_comment_content', $comment_content );
-
-			if ( ! isset( $_POST['_wpnonce'] ) || ! wp_verify_nonce( sanitize_text_field( $_POST['_wpnonce'] ), '_dwqa_edit_comment' ) ) {
-				dwqa_add_notice( __( 'Are you cheating huh?', 'dwqa' ), 'error' );
-			}
-
-			if ( !dwqa_current_user_can( 'You do not have permission to edit answer.' ) ) {
-				dwqa_add_notice( __( 'You do not have permission to edit comment.', 'dwqa' ), 'error' );
-			}
-
-			if ( strlen( $comment_content ) <= 0 || ! isset( $comment_id ) || ( int )$comment_id <= 0 ) {
-				dwqa_add_notice( __( 'Comment content must not be empty.', 'dwqa' ), 'error' );
-			} else {
-				$commentarr = array(
-					'comment_ID'        => $comment_id,
-					'comment_content'   => $comment_content
-				);
-				
-				$intval = wp_update_comment( $commentarr );
-				if ( !is_wp_error( $intval ) ) {
-					$comment = get_comment( $comment_id );
-					exit( wp_safe_redirect( dwqa_get_question_link( $comment->comment_post_ID ) ) );
-				}else {
-					dwqa_add_wp_error_message( $intval );
-				}
-			}
-		}
-	}
-
 	// We have many comment fields on single question page, so each of them need to be unique in ID
 	public function comment_form_id_fields_filter( $result, $id, $replytoid ) {
 		if ( 'dwqa-answer' == get_post_type( $id ) ) {
@@ -108,75 +68,7 @@ class DWQA_Posts_Comment {
 		return $result;
 	}
 
-	public function insert() {
-		global $current_user;
-		if ( isset( $_POST['comment-submit'] ) ) {
-			if ( ! dwqa_current_user_can( 'post_comment' ) ) {
-				dwqa_add_notice( __( 'You can\'t post comment', 'dwqa' ), 'error', true );
-			}
-			if ( ! isset( $_POST['comment_post_ID'] ) ) {
-				dwqa_add_notice( __( 'Missing post id.', 'dwqa' ), 'error', true );
-			}
-			$comment_content = isset( $_POST['comment'] ) ? $_POST['comment'] : '';
-			$comment_content = apply_filters( 'dwqa_pre_comment_content', $comment_content );
-
-			if ( empty( $comment_content ) ) {
-				dwqa_add_notice( __( 'Please enter your comment content', 'dwqa' ), 'error', true );
-			}
-
-			$args = array(
-				'comment_post_ID'   => intval( $_POST['comment_post_ID'] ),
-				'comment_content'   => $comment_content,
-				'comment_parent'    => isset( $_POST['comment_parent']) ? intval( $_POST['comment_parent'] ) : 0,
-				'comment_type'		=> 'dwqa-comment'
-			);
-
-			if ( is_user_logged_in() ) {
-				$args['user_id'] = $current_user->ID;
-				$args['comment_author'] = $current_user->display_name;
-			} else {
-				if ( ! isset( $_POST['email'] ) || ! sanitize_email( $_POST['email'] ) ) {
-					dwqa_add_notice( __( 'Missing email information', 'dwqa' ), 'error', true );
-				}
-
-				$args['comment_author'] = isset( $_POST['name'] ) ? sanitize_text_field( $_POST['name'] ) : 'anonymous';
-				$args['comment_author_email'] = sanitize_email(  $_POST['email'] );
-				$args['comment_author_url'] = isset( $_POST['url'] ) ? esc_url( $_POST['url'] ) : '';
-				$args['user_id']    = -1;
-			}
-
-			if ( dwqa_count_notices( 'error', true ) > 0 ) {
-				return false;
-			}
-
-			$comment_id = wp_insert_comment( $args );  
-
-			global $comment;
-			$comment = get_comment( $comment_id );
-			ob_start();
-			$args = array( 
-				'walker' => null, 
-				'max_depth' => '', 
-				'style' => 'ol', 
-				'callback' => null, 
-				'end-callback' => null, 
-				'type' => 'all',
-				'page' => '', 
-				'per_page' => '', 
-				'avatar_size' => 32, 
-				'reverse_top_level' => null, 
-				'reverse_children' => '', 
-			);
-			dwqa_question_comment_callback( $comment, $args, 0 );
-			echo '</li>';
-			$comment_html = ob_get_contents();
-			ob_end_clean();
-
-			$client_id = isset( $_POST['clientId'] ) ? sanitize_text_field( $_POST['clientId'] ) : false;
-			do_action( 'dwqa_add_comment', $comment_id, $client_id );
-			
-		}
-	}
+	
 
 	public function sanitizie_comment( $content, $comment ) {
 		$post_type = get_post_type( $comment->comment_post_ID );

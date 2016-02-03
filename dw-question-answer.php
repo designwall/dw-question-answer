@@ -58,6 +58,7 @@ class DW_Question_Answer {
 		$this->helptab = new DWQA_Helptab();
 		$this->pointer_helper = new DWQA_PointerHelper();
 		$this->ajax = new DWQA_Ajax();
+		$this->handle = new DWQA_Handle();
 
 		new DWQA_Admin_Extensions();
 		new DWQA_Admin_Welcome();

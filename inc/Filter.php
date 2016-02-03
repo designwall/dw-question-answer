@@ -502,7 +502,7 @@ class DWQA_Filter {
 		);
 		$page_text = dwqa_is_front_page() ? 'page' : 'paged';
 		$paged = get_query_var( $page_text );
-		$query['paged'] = $paged ? $paged : 1; 
+		$query['paged'] = $paged ? $paged : 1;
 		
 		// filter by category
 		$cat = get_query_var( 'dwqa-question_category' ) ? get_query_var( 'dwqa-question_category' ) : false;
@@ -584,7 +584,7 @@ class DWQA_Filter {
 				break;
 			case 'subscribes':
 				if ( $user ) {
-					$query['post__in'] = dwqa_get_user_question_subscribes( $user->ID, $posts_per_page, $paged );
+					$query['post__in'] = dwqa_get_user_question_subscribes( $user->ID, $posts_per_page, $query['paged'] );
 				}
 				break;
 			case 'my-questions':
@@ -595,7 +595,7 @@ class DWQA_Filter {
 			case 'my-subscribes':
 				if ( is_user_logged_in() ) {
 					$query['author'] = get_current_user_id();
-					$query['post__in'] = dwqa_get_user_question_subscribes( get_current_user_id(), $posts_per_page, $paged );
+					$query['post__in'] = dwqa_get_user_question_subscribes( get_current_user_id(), $posts_per_page, $query['paged'] );
 				}
 				break;
 		}

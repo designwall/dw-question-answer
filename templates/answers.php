@@ -23,7 +23,7 @@
 		<?php do_action( 'dwqa_after_answers_list' ) ?>
 	</div>
 	<?php endif; ?>
-	<?php if ( dwqa_current_user_can( 'post_answer' ) ) : ?>
+	<?php if ( dwqa_current_user_can( 'post_answer' ) && !dwqa_is_closed( get_the_ID() ) ) : ?>
 		<?php dwqa_load_template( 'answer', 'submit-form' ) ?>
 	<?php endif; ?>
 	<?php do_action( 'dwqa_after_answers' ); ?>

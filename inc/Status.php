@@ -45,8 +45,13 @@ function dwqa_is_closed( $question_id = false ) {
 	if ( ! $question_id ) {
 	   $question_id = get_the_ID();
 	}
+
+	if ( 'dwqa-answer' == get_post_type( $question_id ) ) {
+		$question_id = dwqa_get_question_from_answer_id( $question_id );
+	}
+
 	$status = get_post_meta( $question_id, '_dwqa_status', true );
-	if ( $status == 'closed' ) {
+	if ( $status == 'close' ) {
 		return true;
 	}
 	return false;

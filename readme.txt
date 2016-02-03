@@ -6,7 +6,6 @@ Tested up to: 4+
 Stable tag: 1.4.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
-License: Free for commercial use
 
 Your WordPress site will have a full-featured Question & Answer section like Stack Overflow, Quora or Yahoo Answers
 
@@ -37,6 +36,9 @@ DW Question and Answer is a WordPress plugin which builds a complete Question & 
 = Documents and Support: =
 You can find [Documents](http://www.designwall.com/guide/dw-question-answer-plugin/) and more detailed information about DW Question and Answer plugin on [DesignWall.com](http://www.designwall.com/). 
 We provide support both on support forum on WordPress.org and our [support page](http://www.designwall.com/question/) on DesignWall.
+
+= Source =
+[Free for commercial use](https://www.iconfinder.com/icons/728992/configuration_control_dashboard_setting_speed_system_tool_icon#size=128)
 
 = Languages supported: =
 * English (default) 

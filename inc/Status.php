@@ -16,7 +16,9 @@ function dwqa_question_print_status( $question_id = false, $echo = true ) {
 	if ( $status == 'close' ) {
 		$status = __( 'Closed', 'dwqa' );
 	}
-
+	
+	$status = __( ucwords( $status ), 'dwqa' );
+	
 	if ( $status ) {
 		if ( $echo ) {
 			echo '<span title="'.ucwords( $status ).'" class="dwqa-status dwqa-status-'.strtolower( $status ).'">'.ucwords( $status ).'</span>';

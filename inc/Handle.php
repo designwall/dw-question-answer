@@ -59,6 +59,9 @@ class DWQA_Handle {
 			if ( isset( $_POST['user-email'] ) && is_email( $_POST['user-email'] ) ) {
 				$post_author_email = sanitize_email( $_POST['user-email'] );
 			}
+			if ( isset( $_POST['user-name'] ) && !empty( $_POST['user-name'] ) ) {
+				$post_author_name = $_POST['user-name'];
+			}
 		}
 
 		$question_id = intval( $_POST['question_id'] );
@@ -102,6 +105,10 @@ class DWQA_Handle {
 
 				if ( isset( $post_author_email ) && is_email( $post_author_email ) ) {
 					update_post_meta( $answer_id, '_dwqa_anonymous_email', $post_author_email );
+				}
+
+				if ( isset( $post_author_name ) && !empty( $post_author_name ) ) {
+					update_post_meta( $answer_id, '_dwqa_anonymous_name', $post_author_name );
 				}
 			} else {
 				add_post_meta( $question_id, '_dwqa_followers', get_current_user_id() );
@@ -197,7 +204,11 @@ class DWQA_Handle {
 					dwqa_add_notice( __( 'Missing email information', 'dwqa' ), 'error', true );
 				}
 
-				$args['comment_author'] = isset( $_POST['name'] ) ? sanitize_text_field( $_POST['name'] ) : 'anonymous';
+				if ( ! isset( $_POST['name'] ) || empty( $_POST['name'] ) ) {
+					dwqa_add_notice( __( 'Missing name information', 'dwqa' ), 'error', true );
+				}
+
+				$args['comment_author'] = isset( $_POST['name'] ) ? sanitize_text_field( $_POST['name'] ) : 'Anonymous';
 				$args['comment_author_email'] = sanitize_email(  $_POST['email'] );
 				$args['comment_author_url'] = isset( $_POST['url'] ) ? esc_url( $_POST['url'] ) : '';
 				$args['user_id']    = -1;
@@ -361,6 +372,7 @@ class DWQA_Handle {
 						} else {
 							$is_anonymous = true;
 							$question_author_email = isset( $_POST['_dwqa_anonymous_email'] ) && is_email( $_POST['_dwqa_anonymous_email'] ) ? sanitize_email( $_POST['_dwqa_anonymous_email'] ) : false;
+							$question_author_name = isset( $_POST['_dwqa_anonymous_name'] ) && !empty( $_POST['_dwqa_anonymous_name'] ) ? $_POST['_dwqa_anonymous_name'] : false;
 							$user_id = 0;
 						}
 					}
@@ -399,6 +411,7 @@ class DWQA_Handle {
 					if ( dwqa_count_notices( 'error' ) == 0 ) {
 						if ( $is_anonymous ) {
 							update_post_meta( $new_question, '_dwqa_anonymous_email', $question_author_email );
+							update_post_meta( $new_question, '_dwqa_anonymous_name', $question_author_name );
 							update_post_meta( $new_question, '_dwqa_is_anonymous', true );
 						}
 

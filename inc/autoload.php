@@ -5,6 +5,9 @@ function dwqa_autoload_function($className) {
 	if ( $classPath[0] != 'DWQA' ) {
 		return;
 	}
+	if ( $classPath[1] == 'Widgets' || $classPath[1] == 'widgets' ) {
+		return;
+	}
 	// Drop 'Google', and maximum class file path depth in this project is 3.
 	$classPathSlice = array_slice($classPath, 1, 2);
 	if ( count( $classPath ) > 3 ) {

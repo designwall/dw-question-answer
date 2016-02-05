@@ -1,156 +1,156 @@
 msgid ""
 msgstr ""
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Project-Id-Version: DW Question Answer\n"
-"POT-Creation-Date: 2016-02-03 14:37+0700\n"
-"PO-Revision-Date: 2016-02-03 14:37+0700\n"
+"POT-Creation-Date: 2016-02-04 21:15+0700\n"
+"PO-Revision-Date: 2016-02-04 21:15+0700\n"
+"Last-Translator: \n"
 "Language-Team: \n"
+"Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.8.6\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-WPHeader: dw-question-answer.php\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
 "esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
 "_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
-"Last-Translator: \n"
-"Language: en_US\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: dw-question-answer.php:95 inc/Filter.php:80
+#: dw-question-answer.php:100 inc/Filter.php:80
 msgid "Next"
 msgstr ""
 
-#: dw-question-answer.php:96
+#: dw-question-answer.php:101
 msgid "Prev"
 msgstr ""
 
-#: dw-question-answer.php:98
+#: dw-question-answer.php:103
 msgid "Please enter your question"
 msgstr ""
 
-#: dw-question-answer.php:99
+#: dw-question-answer.php:104
 msgid "Your question must be at least 2 characters in length"
 msgstr ""
 
-#: dw-question-answer.php:100
+#: dw-question-answer.php:105
 msgid "Enter a valid email address"
 msgstr ""
 
-#: dw-question-answer.php:101
+#: dw-question-answer.php:106
 msgid "Enter a question title"
 msgstr ""
 
-#: dw-question-answer.php:102
+#: dw-question-answer.php:107
 msgid "Please add your name"
 msgstr ""
 
-#: dw-question-answer.php:103
+#: dw-question-answer.php:108
 msgid "Please enter your answer"
 msgstr ""
 
-#: dw-question-answer.php:104 inc/Handle.php:182
+#: dw-question-answer.php:109 inc/Handle.php:182
 msgid "Please enter your comment content"
 msgstr ""
 
-#: dw-question-answer.php:105
+#: dw-question-answer.php:110
 msgid "Comment must have more than 2 characters"
 msgstr ""
 
-#: dw-question-answer.php:106
+#: dw-question-answer.php:111
 msgid "Not found! Try another keyword."
 msgstr ""
 
-#: dw-question-answer.php:107
+#: dw-question-answer.php:112
 msgid "Or press <strong>ENTER</strong> to get more questions"
 msgstr ""
 
-#: dw-question-answer.php:108 inc/Editor.php:119
+#: dw-question-answer.php:113 inc/Editor.php:119
 msgid "Update"
 msgstr ""
 
-#: dw-question-answer.php:109 inc/Posts/Answer.php:315 inc/Posts/Base.php:320
-#: inc/Settings.php:398 inc/Template.php:56 inc/Template.php:181
-#: inc/Template.php:198 templates/content-comment.php:20
+#: dw-question-answer.php:114 inc/Posts/Answer.php:315 inc/Posts/Base.php:320
+#: inc/Settings.php:398 inc/Template.php:58 inc/Template.php:183
+#: inc/Template.php:200 templates/content-comment.php:20
 msgid "Edit"
 msgstr ""
 
-#: dw-question-answer.php:110 inc/Editor.php:120
+#: dw-question-answer.php:115 inc/Editor.php:120
 msgid "Cancel"
 msgstr ""
 
-#: dw-question-answer.php:111
+#: dw-question-answer.php:116
 msgid "Do you want to delete this comment?"
 msgstr ""
 
-#: dw-question-answer.php:112
+#: dw-question-answer.php:117
 msgid "Do you want to delete this answer?"
 msgstr ""
 
-#: dw-question-answer.php:113
+#: dw-question-answer.php:118
 msgid "Do you want to update this answer?"
 msgstr ""
 
-#: dw-question-answer.php:114
+#: dw-question-answer.php:119
 msgid "Do you want to report this answer?"
 msgstr ""
 
-#: dw-question-answer.php:116
+#: dw-question-answer.php:121
 msgid "Report"
 msgstr ""
 
-#: dw-question-answer.php:117
+#: dw-question-answer.php:122
 msgid "Undo"
 msgstr ""
 
-#: dw-question-answer.php:118
+#: dw-question-answer.php:123
 msgid "This answer will be marked as spam and hidden. Do you want to flag it?"
 msgstr ""
 
-#: dw-question-answer.php:119
+#: dw-question-answer.php:124
 msgid "This answer was flagged as spam. Do you want to show it"
 msgstr ""
 
-#: dw-question-answer.php:120
+#: dw-question-answer.php:125
 msgid "This answer was flagged as spam"
 msgstr ""
 
-#: dw-question-answer.php:121
+#: dw-question-answer.php:126
 msgid "hide"
 msgstr ""
 
-#: dw-question-answer.php:122
+#: dw-question-answer.php:127
 msgid "show"
 msgstr ""
 
-#: dw-question-answer.php:124
+#: dw-question-answer.php:129
 msgid "Follow This Question"
 msgstr ""
 
-#: dw-question-answer.php:125
+#: dw-question-answer.php:130
 msgid "Unfollow This Question"
 msgstr ""
 
-#: dw-question-answer.php:126
+#: dw-question-answer.php:131
 msgid "Pin this question to top"
 msgstr ""
 
-#: dw-question-answer.php:127
+#: dw-question-answer.php:132
 msgid "Unpin this question from top"
 msgstr ""
 
-#: dw-question-answer.php:130
+#: dw-question-answer.php:135
 msgid "Do you want to delete this question?"
 msgstr ""
 
-#: dw-question-answer.php:143
+#: dw-question-answer.php:148
 msgid "DWQA Questions"
 msgstr ""
 
-#: dw-question-answer.php:160
+#: dw-question-answer.php:165
 msgid "DWQA Ask Question"
 msgstr ""
 
@@ -214,11 +214,11 @@ msgstr ""
 msgid "Credits"
 msgstr ""
 
-#: inc/Admin/Welcome.php:173
+#: inc/Admin/Welcome.php:193
 msgid "Contributors"
 msgstr ""
 
-#: inc/Admin/Welcome.php:192
+#: inc/Admin/Welcome.php:212
 msgid "No valid changelog was found."
 msgstr ""
 
@@ -264,7 +264,7 @@ msgstr ""
 msgid "You do not have permission to edit question status"
 msgstr ""
 
-#: inc/Answer_List_Table.php:81 inc/Posts/Answer.php:269 inc/Template.php:46
+#: inc/Answer_List_Table.php:81 inc/Posts/Answer.php:269 inc/Template.php:48
 msgid "Author"
 msgstr ""
 
@@ -486,7 +486,7 @@ msgid "Status"
 msgstr ""
 
 #: inc/Metaboxes.php:15 inc/Status.php:13 inc/Status.php:299
-#: inc/Template.php:76 templates/content-single-question.php:31
+#: inc/Template.php:78 templates/content-single-question.php:31
 msgid "Open"
 msgstr ""
 
@@ -494,7 +494,7 @@ msgstr ""
 msgid "Pending"
 msgstr ""
 
-#: inc/Metaboxes.php:17 inc/Status.php:279 inc/Template.php:77
+#: inc/Metaboxes.php:17 inc/Status.php:279 inc/Template.php:79
 #: templates/content-single-question.php:33
 msgid "Resolved"
 msgstr ""
@@ -504,7 +504,7 @@ msgid "Re-Open"
 msgstr ""
 
 #: inc/Metaboxes.php:19 inc/Status.php:17 inc/Status.php:288
-#: inc/Template.php:78 templates/content-single-question.php:32
+#: inc/Template.php:80 templates/content-single-question.php:32
 msgid "Closed"
 msgstr ""
 
@@ -517,7 +517,7 @@ msgid "Pin question to top of archive page."
 msgstr ""
 
 #: inc/Metaboxes.php:45 inc/Posts/Answer.php:225 inc/Posts/Answer.php:227
-#: inc/Template.php:91
+#: inc/Template.php:93
 msgid "Answers"
 msgstr ""
 
@@ -569,8 +569,8 @@ msgstr ""
 msgid "In Response To"
 msgstr ""
 
-#: inc/Posts/Answer.php:316 inc/Settings.php:399 inc/Template.php:186
-#: inc/Template.php:203 templates/content-comment.php:23
+#: inc/Posts/Answer.php:316 inc/Settings.php:399 inc/Template.php:188
+#: inc/Template.php:205 templates/content-comment.php:23
 msgid "Delete"
 msgstr ""
 
@@ -657,7 +657,7 @@ msgid "asked by"
 msgstr ""
 
 #: inc/Posts/Question.php:114 inc/Posts/Question.php:116
-#: inc/Posts/Question.php:284 inc/Template.php:85
+#: inc/Posts/Question.php:284 inc/Template.php:87
 msgid "Questions"
 msgstr ""
 
@@ -977,169 +977,165 @@ msgstr ""
 msgid "Review Question"
 msgstr ""
 
-#: inc/Settings.php:758
-msgid "DWQA 404 Page"
-msgstr ""
-
-#: inc/Settings.php:777
+#: inc/Settings.php:769
 msgid "Time settings"
 msgstr ""
 
-#: inc/Settings.php:784
+#: inc/Settings.php:776
 msgid "New Question Time Frame"
 msgstr ""
 
-#: inc/Settings.php:792
+#: inc/Settings.php:784
 msgid "Question Overdue - Time Frame"
 msgstr ""
 
-#: inc/Settings.php:802
+#: inc/Settings.php:794
 msgid "Captcha settings"
 msgstr ""
 
-#: inc/Settings.php:809
+#: inc/Settings.php:801
 msgid "Captcha on Submit Question Page"
 msgstr ""
 
-#: inc/Settings.php:817
+#: inc/Settings.php:809
 msgid "Captcha on Single Question Page"
 msgstr ""
 
-#: inc/Settings.php:825
+#: inc/Settings.php:817
 msgid "Captcha Type"
 msgstr ""
 
-#: inc/Settings.php:837
+#: inc/Settings.php:829
 msgid "Permalink Settings"
 msgstr ""
 
-#: inc/Settings.php:844
+#: inc/Settings.php:836
 msgid "Single Question"
 msgstr ""
 
-#: inc/Settings.php:852
+#: inc/Settings.php:844
 msgid "Single Category"
 msgstr ""
 
-#: inc/Settings.php:860
+#: inc/Settings.php:852
 msgid "Single Tag"
 msgstr ""
 
-#: inc/Settings.php:908
+#: inc/Settings.php:900
 msgid "From Email"
 msgstr ""
 
-#: inc/Settings.php:972 inc/Settings.php:979
+#: inc/Settings.php:964 inc/Settings.php:971
 msgid "Group Permission"
 msgstr ""
 
-#: inc/Settings.php:992
+#: inc/Settings.php:984
 msgid "DWQA Settings"
 msgstr ""
 
-#: inc/Settings.php:996
+#: inc/Settings.php:988
 msgid "General"
 msgstr ""
 
-#: inc/Settings.php:997
+#: inc/Settings.php:989
 msgid "Notification"
 msgstr ""
 
-#: inc/Settings.php:998
+#: inc/Settings.php:990
 msgid "Permission"
 msgstr ""
 
-#: inc/Settings.php:1000
+#: inc/Settings.php:992
 msgid "Licenses"
 msgstr ""
 
-#: inc/Settings.php:1010
+#: inc/Settings.php:1002
 msgid "Email setup"
 msgstr ""
 
-#: inc/Settings.php:1014
+#: inc/Settings.php:1006
 msgid "Email Logo"
 msgstr ""
 
-#: inc/Settings.php:1024
+#: inc/Settings.php:1016
 msgid "New Question"
 msgstr ""
 
-#: inc/Settings.php:1025
+#: inc/Settings.php:1017
 msgid "New Answer"
 msgstr ""
 
-#: inc/Settings.php:1026
+#: inc/Settings.php:1018
 msgid "New Comment to Question"
 msgstr ""
 
-#: inc/Settings.php:1027
+#: inc/Settings.php:1019
 msgid "New Comment to Answer"
 msgstr ""
 
-#: inc/Settings.php:1028
+#: inc/Settings.php:1020
 msgid "New Answer (to Followers )"
 msgstr ""
 
-#: inc/Settings.php:1029
+#: inc/Settings.php:1021
 msgid "New Comment to Question (to Followers )"
 msgstr ""
 
-#: inc/Settings.php:1030
+#: inc/Settings.php:1022
 msgid "New Comment to Answer (to Followers )"
 msgstr ""
 
-#: inc/Settings.php:1037
+#: inc/Settings.php:1029
 msgid "New Question Notification"
 msgstr ""
 
-#: inc/Settings.php:1044 inc/Settings.php:1053 inc/Settings.php:1062
-#: inc/Settings.php:1071 inc/Settings.php:1081 inc/Settings.php:1089
-#: inc/Settings.php:1099
+#: inc/Settings.php:1036 inc/Settings.php:1045 inc/Settings.php:1054
+#: inc/Settings.php:1063 inc/Settings.php:1073 inc/Settings.php:1081
+#: inc/Settings.php:1091
 msgid "Save all changes"
 msgstr ""
 
-#: inc/Settings.php:1049
+#: inc/Settings.php:1041
 msgid "New Answer Notification"
 msgstr ""
 
-#: inc/Settings.php:1058
+#: inc/Settings.php:1050
 msgid "New Answer Notification (to Followers )"
 msgstr ""
 
-#: inc/Settings.php:1067
+#: inc/Settings.php:1059
 msgid "New Comment to Question Notification"
 msgstr ""
 
-#: inc/Settings.php:1077
+#: inc/Settings.php:1069
 msgid "New Comment to Answer Notification"
 msgstr ""
 
-#: inc/Settings.php:1085
+#: inc/Settings.php:1077
 msgid "New Comment to Question Notification (to Followers )"
 msgstr ""
 
-#: inc/Settings.php:1095
+#: inc/Settings.php:1087
 msgid "New Comment to Answer Notification (to Followers )"
 msgstr ""
 
-#: inc/Settings.php:1132
+#: inc/Settings.php:1124
 msgid "Send to"
 msgstr ""
 
-#: inc/Settings.php:1137
+#: inc/Settings.php:1129
 msgid "Cc"
 msgstr ""
 
-#: inc/Settings.php:1142
+#: inc/Settings.php:1134
 msgid "Bcc"
 msgstr ""
 
-#: inc/Settings.php:1147
+#: inc/Settings.php:1139
 msgid "This address will be used as the sender of the outgoing emails."
 msgstr ""
 
-#: inc/Settings.php:1153
+#: inc/Settings.php:1145
 msgid "Send A Copy Of Every Email To Admin"
 msgstr ""
 
@@ -1182,195 +1178,195 @@ msgstr ""
 msgid "Invalid post status"
 msgstr ""
 
-#: inc/Template.php:17 templates/content-edit.php:44
+#: inc/Template.php:15 templates/content-edit.php:44
 #: templates/question-submit-form.php:46
 msgid "Tag"
 msgstr ""
 
-#: inc/Template.php:17 inc/Template.php:22 templates/content-edit.php:29
+#: inc/Template.php:15 inc/Template.php:20 templates/content-edit.php:29
 #: templates/question-submit-form.php:32
 msgid "Category"
 msgstr ""
 
-#: inc/Template.php:41
+#: inc/Template.php:43
 msgid "Showing search results for"
 msgstr ""
 
-#: inc/Template.php:73
+#: inc/Template.php:75
 msgid "Filter:"
 msgstr ""
 
-#: inc/Template.php:75
+#: inc/Template.php:77
 msgid "All"
 msgstr ""
 
-#: inc/Template.php:79
+#: inc/Template.php:81
 msgid "Unanswered"
 msgstr ""
 
-#: inc/Template.php:81
+#: inc/Template.php:83
 msgid "My questions"
 msgstr ""
 
-#: inc/Template.php:82
+#: inc/Template.php:84
 msgid "My subscribes"
 msgstr ""
 
-#: inc/Template.php:86
+#: inc/Template.php:88
 msgid "Subscribes"
 msgstr ""
 
-#: inc/Template.php:89
+#: inc/Template.php:91
 msgid "Sort by"
 msgstr ""
 
-#: inc/Template.php:90
+#: inc/Template.php:92
 msgid "Views"
 msgstr ""
 
-#: inc/Template.php:92
+#: inc/Template.php:94
 msgid "Votes"
 msgstr ""
 
-#: inc/Template.php:103
+#: inc/Template.php:105
 msgid "What do you want to know?"
 msgstr ""
 
-#: inc/Template.php:175
+#: inc/Template.php:177
 msgid "Subscribe"
 msgstr ""
 
-#: inc/Template.php:287
+#: inc/Template.php:289
 msgid "You need an account to submit question and get answers. Create one:"
 msgstr ""
 
-#: inc/Template.php:289 inc/Template.php:327
+#: inc/Template.php:291 inc/Template.php:329
 msgid "Type your email"
 msgstr ""
 
-#: inc/Template.php:294
+#: inc/Template.php:296
 msgid "Already a member?"
 msgstr ""
 
-#: inc/Template.php:294
+#: inc/Template.php:296
 msgid "Log In"
 msgstr ""
 
-#: inc/Template.php:298
+#: inc/Template.php:300
 msgid "Login to submit your question"
 msgstr ""
 
-#: inc/Template.php:300
+#: inc/Template.php:302
 msgid "Type your username"
 msgstr ""
 
-#: inc/Template.php:303
+#: inc/Template.php:305
 msgid "Type your password"
 msgstr ""
 
-#: inc/Template.php:305
+#: inc/Template.php:307
 msgid "Not yet a member?"
 msgstr ""
 
-#: inc/Template.php:305
+#: inc/Template.php:307
 msgid "Register"
 msgstr ""
 
-#: inc/Template.php:309
+#: inc/Template.php:311
 msgid ""
 "Enter your email to receive notification regarding your question. Your email "
 "is safe with us and will not be published."
 msgstr ""
 
-#: inc/Template.php:309
+#: inc/Template.php:311
 msgid "Your email *"
 msgstr ""
 
-#: inc/Template.php:310
+#: inc/Template.php:312
 msgid "Email address ..."
 msgstr ""
 
-#: inc/Template.php:311
+#: inc/Template.php:313
 #, php-format
 msgid "or <strong><a href=\"%s\">login</a></strong> to submit question"
 msgstr ""
 
-#: inc/Template.php:339
+#: inc/Template.php:341
 #, php-format
 msgid "Private: %s"
 msgstr ""
 
-#: inc/Template.php:458
+#: inc/Template.php:460
 msgid "Email"
 msgstr ""
 
-#: inc/Template.php:461
+#: inc/Template.php:463
 #, php-format
 msgid "Required fields are marked %s"
 msgstr ""
 
-#: inc/Template.php:472
+#: inc/Template.php:474
 msgctxt "noun"
 msgid "Comment"
 msgstr ""
 
-#: inc/Template.php:473
+#: inc/Template.php:475
 #, php-format
 msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
 msgstr ""
 
-#: inc/Template.php:474
+#: inc/Template.php:476
 #, php-format
 msgid ""
 "Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of "
 "this account\">Log out?</a>"
 msgstr ""
 
-#: inc/Template.php:475
+#: inc/Template.php:477
 msgid "Your email address will not be published."
 msgstr ""
 
-#: inc/Template.php:476
+#: inc/Template.php:478
 #, php-format
 msgid ""
 "You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
 "and attributes: %s"
 msgstr ""
 
-#: inc/Template.php:479
+#: inc/Template.php:481
 msgid "Leave a Reply"
 msgstr ""
 
-#: inc/Template.php:480
+#: inc/Template.php:482
 #, php-format
 msgid "Leave a Reply to %s"
 msgstr ""
 
-#: inc/Template.php:481
+#: inc/Template.php:483
 msgid "Cancel reply"
 msgstr ""
 
-#: inc/Template.php:482
+#: inc/Template.php:484
 msgid "Post Comment"
 msgstr ""
 
-#: inc/Template.php:657
+#: inc/Template.php:659
 msgid "Sticky Question"
 msgstr ""
 
-#: inc/Template.php:671
+#: inc/Template.php:673
 msgid "Ask a question"
 msgstr ""
 
-#: inc/Template.php:673
+#: inc/Template.php:675
 msgid "Login to ask a question"
 msgstr ""
 
-#: inc/Template.php:1062
+#: inc/Template.php:1064
 msgid "You do not have permission to submit a question"
 msgstr ""
 
-#: inc/Template.php:1116
+#: inc/Template.php:1118
 msgid "Choose as the best answer"
 msgstr ""
 
@@ -1498,6 +1494,10 @@ msgstr ""
 #: templates/answers.php:13
 #, php-format
 msgid "%s Answers"
+msgstr ""
+
+#: templates/archive-question.php:35
+msgid "Ask Question"
 msgstr ""
 
 #: templates/captcha-form.php:11

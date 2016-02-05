@@ -22,6 +22,11 @@
 			<?php $email = isset( $_POST['user-email'] ) ? $_POST['user-email'] : ''; ?>
 			<input type="email" class="" name="user-email" value="<?php echo $email ?>" >
 		</p>
+		<p>
+			<label for="user-name"><?php _e( 'Your Name', 'dwqa' ) ?></label>
+			<?php $name = isset( $_POST['user-name'] ) ? $_POST['user-name'] : ''; ?>
+			<input type="text" class="" name="user-name" value="<?php echo $name ?>" >
+		</p>
 		<?php endif; ?>
 
 		<select class="dwqa-select" name="dwqa-status">

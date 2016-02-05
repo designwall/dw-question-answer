@@ -53,6 +53,11 @@
 		<?php $email = isset( $_POST['_dwqa_anonymous_email'] ) ? $_POST['_dwqa_anonymous_email'] : ''; ?>
 		<input type="email" class="" name="_dwqa_anonymous_email" value="<?php echo $email ?>" >
 	</p>
+	<p>
+		<label for="_dwqa_anonymous_email"><?php _e( 'Your Name', 'dwqa' ) ?></label>
+		<?php $name = isset( $_POST['_dwqa_anonymous_email'] ) ? $_POST['_dwqa_anonymous_email'] : ''; ?>
+		<input type="text" class="" name="_dwqa_anonymous_email" value="<?php echo $name ?>" >
+	</p>
 	<?php endif; ?>
 	<?php wp_nonce_field( '_dwqa_submit_question' ) ?>
 	<?php dwqa_load_template( 'captcha', 'form' ); ?>

@@ -28,6 +28,11 @@ require_once DWQA_DIR . 'inc/helper/functions.php';
 //require_once DWQA_DIR . 'upgrades/upgrades.php';
 require_once DWQA_DIR . 'inc/deprecated.php';
 
+require_once DWQA_DIR . 'inc/widgets/Closed_Question.php';
+require_once DWQA_DIR . 'inc/widgets/Latest_Question.php';
+require_once DWQA_DIR . 'inc/widgets/Popular_Question.php';
+require_once DWQA_DIR . 'inc/widgets/Related_Question.php';
+
 class DW_Question_Answer {
 	private $last_update = 010220161055; //last update time of the plugin
 

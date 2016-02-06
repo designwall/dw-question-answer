@@ -1,10 +1,5 @@
 <?php
 
-add_action( 'widgets_init', 'dwqa_related_question_widget_init' );
-function dwqa_related_question_widget_init() {
-	register_widget( 'DWQA_Widgets_Related_Question' );
-}
-
 class DWQA_Widgets_Related_Question extends WP_Widget {
 
 	/**

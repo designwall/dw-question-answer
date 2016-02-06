@@ -5,12 +5,7 @@
  * @package DW Question & Answer
  * @since DW Question & Answer 1.4.0
  */
-if (isset( $_GET['oryc_test'] ) ) {
-	global $wp_query;
-	print_r( $wp_query );
-}
 ?>
-
 <div class="dwqa-answers">
 	<?php do_action( 'dwqa_before_answers' ) ?>
 	<?php if ( dwqa_has_answers() ) : ?>

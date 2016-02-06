@@ -1,0 +1,5 @@
+.gitattributes export-ignore
+.gitignore export-ignore
+.editorconfig export-ignore
+codesniffer.ruleset.xml export-ignore
+phpunit.xml export-ignore

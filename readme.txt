@@ -86,7 +86,7 @@ Visit our [Github](https://github.com/designwall/dw-question-answer) project or 
 == Changelog ==
 
 = 1.4.1 =
-* Tweak: Update Default Language Files
+* Tweak: Update Language Files
 * Tweak: Update Swedish Language Files
 * New: Display name of the person instead of Anonymous
 * Fix: Some string cannot translate

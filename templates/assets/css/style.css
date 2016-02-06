@@ -555,6 +555,7 @@
 }
 
 .dwqa-content-edit-form input[type=text],
+.dwqa-content-edit-form input[type=email],
 .dwqa-content-edit-form select {
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;

@@ -1043,14 +1043,14 @@ class DWQA_Settings {
 					echo $this->email_tabs();
 					// email setup section
 					settings_fields( 'dwqa-subscribe-settings' );
-					do_settings_sections( 'dwqa-email' );
 					if ( $email_section === 'general' ) :
 						echo '<h3>'.__( 'Email setup','dwqa' ).'</h3>';
 						echo '<table class="form-table"><tr>';
 						echo '<th scope="row">'.__( 'Email Logo','dwqa' ).'</th><td>';
 						dwqa_subscrible_email_logo_display();
 						echo '</td></tr></table>';
-
+						do_settings_sections( 'dwqa-email' );
+						submit_button( __( 'Save all changes','dwqa' ) );
 					endif;
 
 					echo '<div class="dwqa-mail-templates">';
@@ -1193,7 +1193,7 @@ class DWQA_Settings {
 	}
 
 	public function input_text_field( $option, $label = false, $description = false, $class = false ){
-		echo '<p><label for="'.$option.'"><input type="text" id="'.$option.'" name="'.$option.'" value="'.get_option( $option ).'" class="widefat" / ';
+		echo '<p><label for="'.$option.'"><input type="text" id="'.$option.'" name="'.$option.'" value="'.get_option( $option ).'" class="widefat" />';
 		if ( $description ) {
 			echo '<span class="description">'.$description.'</span>';
 		}
@@ -1201,7 +1201,7 @@ class DWQA_Settings {
 	}
 
 	public function input_checkbox_field( $option, $description = false ){
-		echo '</p><label for="'.$option.'"><input id="'.$option.'" name="'.$option.'" type="checkbox" '.checked( true, (bool ) get_option( $option ), false ).' value="true">';
+		echo '</p><label for="'.$option.'"><input id="'.$option.'" name="'.$option.'" type="checkbox" '.checked( true, (bool ) get_option( $option ), false ).' value="true"/>';
 		if ( $description ) {
 			echo '<span class="description">'.$description.'</span>';
 		}

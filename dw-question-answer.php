@@ -70,6 +70,7 @@ class DW_Question_Answer {
 
 		// All init action of plugin will be included in
 		add_action( 'init', array( $this, 'init' ) );
+		add_action( 'widgets_init', array( $this, 'widgets_init' ) );
 		register_activation_hook( __FILE__, array( $this, 'activate_hook' ) );
 		register_deactivation_hook( __FILE__, array( $this, 'deactivate_hook' ) );
 	}
@@ -134,6 +135,14 @@ class DW_Question_Answer {
 			'question_tag_rewrite'      => $question_tag_rewrite, //$question_tag_rewrite,
 			'delete_question_confirm' => __( 'Do you want to delete this question?', 'dwqa' )
 		);
+	}
+
+	// Register Widgets
+	public function widgets_init(){
+		register_widget( 'DWQA_Widgets_Closed_Question' );
+		register_widget( 'DWQA_Widgets_Latest_Question' );
+		register_widget( 'DWQA_Widgets_Popular_Question' );
+		register_widget( 'DWQA_Widgets_Related_Question' );
 	}
 
 	// Update rewrite url when active plugin

@@ -1,10 +1,4 @@
 <?php
-
-add_action( 'widgets_init', 'dwqa_latest_question_widget_init' );
-function dwqa_latest_question_widget_init() {
-	register_widget( 'DWQA_Widgets_Latest_Question' );
-}
-
 class DWQA_Widgets_Latest_Question extends WP_Widget {
 	/**
 	 * Constructor

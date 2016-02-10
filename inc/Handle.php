@@ -279,7 +279,7 @@ class DWQA_Handle {
 					if ( empty( $_POST['question-title'] ) ) {
 
 						// $dwqa_submit_question_errors->add( 'submit_question', 'You must enter a valid question title' );
-						dwqa_add_notice( __( 'You must enter a valid question title.' , 'dwqa'), 'error' ) );
+						dwqa_add_notice( __( 'You must enter a valid question title.' , 'dwqa'), 'error' );
 						return false;
 					}
 

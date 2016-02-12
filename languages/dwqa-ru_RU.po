@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: DW Question Answer v1.2.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/dw-question-"
 "answer\n"
-"POT-Creation-Date: 2016-02-10 22:59+0700\n"
-"PO-Revision-Date: 2016-02-11 09:39+0700\n"
+"POT-Creation-Date: 2016-02-12 09:28+0700\n"
+"PO-Revision-Date: 2016-02-12 10:22+0700\n"
 "Last-Translator: DesignWall <webmaster@designwall.com>\n"
 "Language-Team: \n"
 "Language: ru\n"
@@ -23,7 +23,6 @@ msgstr ""
 
 # @ dwqa
 #: dw-question-answer.php:108 inc/Filter.php:80
-#, fuzzy
 msgid "Next"
 msgstr "След."
 
@@ -319,7 +318,7 @@ msgstr "Детали"
 #: inc/Settings.php:415 inc/Settings.php:451 inc/Settings.php:486
 #: inc/User.php:160 inc/widgets/Latest_Question.php:39
 msgid "Anonymous"
-msgstr "Аноним"
+msgstr "Посетитель сайта"
 
 # @ dwqa
 #: inc/Answer_List_Table.php:101
@@ -477,7 +476,7 @@ msgstr "Комментарий не должен быть пустым."
 
 #: inc/Handle.php:282 inc/Handle.php:446
 msgid "You must enter a valid question title."
-msgstr ""
+msgstr "Пожалуйста, введите заголовок."
 
 # @ dwqa
 #: inc/Handle.php:360
@@ -496,7 +495,7 @@ msgstr "Этот логин уже используется. Пожалуйст�
 
 #: inc/Handle.php:419
 msgid "Your question is waiting moderator."
-msgstr ""
+msgstr "Спасибо! Ваш вопрос появится на форуме после модерации."
 
 # @ dwqa
 #: inc/Handle.php:441 inc/Status.php:335
@@ -618,7 +617,7 @@ msgstr "Прикрепить вопрос наверху архива"
 #: inc/Metaboxes.php:45 inc/Posts/Answer.php:225 inc/Posts/Answer.php:227
 #: inc/Template.php:93
 msgid "Answers"
-msgstr "Ответов"
+msgstr "Ответы"
 
 # @ dwqa
 #: inc/Metaboxes.php:65
@@ -715,11 +714,11 @@ msgstr "Записи автора: %s"
 
 #: inc/Posts/Base.php:251 inc/Posts/Base.php:255
 msgid "%s answered <span class=\"dwqa-date\">%s</span> ago"
-msgstr ""
+msgstr "%s ответил <span class=\"dwqa-date\">%s</span> назад"
 
 #: inc/Posts/Base.php:257
 msgid "%s asked <span class=\"dwqa-date\">%s</span> ago"
-msgstr ""
+msgstr "%s спросил <span class=\"dwqa-date\">%s</span> назад"
 
 #: inc/Posts/Base.php:306
 msgid "DWQA Posts"
@@ -783,15 +782,15 @@ msgstr ""
 
 #: inc/Posts/Question.php:218
 msgid "Parent Question Category"
-msgstr ""
+msgstr "Рубрика"
 
 #: inc/Posts/Question.php:219
 msgid "Parent Question Category:"
-msgstr ""
+msgstr "Рубрика"
 
 #: inc/Posts/Question.php:220
 msgid "Edit Question Category"
-msgstr ""
+msgstr "Рубрика"
 
 #: inc/Posts/Question.php:221
 msgid "Update Question Category"
@@ -1204,7 +1203,7 @@ msgstr "Вопрос"
 # @ dwqa
 #: inc/Settings.php:870
 msgid "Single Category"
-msgstr "Категория"
+msgstr "Рубрика"
 
 # @ dwqa
 #: inc/Settings.php:878
@@ -1342,12 +1341,11 @@ msgstr "Неверный статус"
 #: inc/Template.php:15 templates/content-edit.php:44
 #: templates/question-submit-form.php:46
 msgid "Tag"
-msgstr ""
+msgstr "Ключевые слова"
 
 # @ default
 #: inc/Template.php:15 inc/Template.php:20 templates/content-edit.php:29
 #: templates/question-submit-form.php:32
-#, fuzzy
 msgid "Category"
 msgstr "Рубрика"
 
@@ -1357,7 +1355,7 @@ msgstr ""
 
 #: inc/Template.php:75
 msgid "Filter:"
-msgstr ""
+msgstr "Фильтр:"
 
 # @ dwqa
 #: inc/Template.php:77
@@ -1366,7 +1364,7 @@ msgstr "Все"
 
 #: inc/Template.php:81
 msgid "Unanswered"
-msgstr ""
+msgstr "Ждет ответа"
 
 #: inc/Template.php:83
 msgid "My questions"
@@ -1382,19 +1380,19 @@ msgstr ""
 
 #: inc/Template.php:91
 msgid "Sort by"
-msgstr ""
+msgstr "Сортировка"
 
 #: inc/Template.php:92
 msgid "Views"
-msgstr ""
+msgstr "Просмотры"
 
 #: inc/Template.php:94
 msgid "Votes"
-msgstr ""
+msgstr "Голоса"
 
 #: inc/Template.php:105
 msgid "What do you want to know?"
-msgstr ""
+msgstr "Искать вопрос"
 
 #: inc/Template.php:177
 msgid "Subscribe"
@@ -1676,11 +1674,11 @@ msgstr ""
 
 #: templates/answer-submit-form.php:21 templates/question-submit-form.php:52
 msgid "Your Email"
-msgstr ""
+msgstr "Ваш Email"
 
 #: templates/answer-submit-form.php:26 templates/question-submit-form.php:57
 msgid "Your Name"
-msgstr ""
+msgstr "Ваше имя"
 
 #: templates/answer-submit-form.php:33 templates/question-submit-form.php:24
 msgid "Who can see this?"
@@ -1692,11 +1690,11 @@ msgstr ""
 
 #: templates/answer-submit-form.php:39 templates/question-submit-form.php:64
 msgid "Submit"
-msgstr ""
+msgstr "Отправить"
 
 #: templates/answers.php:12
 msgid "%s Answers"
-msgstr ""
+msgstr "%s ответ"
 
 # @ dwqa
 #: templates/archive-question.php:35
@@ -1713,7 +1711,7 @@ msgstr ""
 
 #: templates/content-edit.php:21 templates/question-submit-form.php:13
 msgid "Title"
-msgstr ""
+msgstr "Заголовок"
 
 # @ dwqa
 #: templates/content-edit.php:36 templates/question-submit-form.php:38
@@ -1735,7 +1733,7 @@ msgstr "спросил"
 
 #: templates/content-question.php:25
 msgid "<span><a href=\"%s\">%s%s</a> %s %s ago</span>"
-msgstr ""
+msgstr "<span><a href=\"%s\">%s%s</a> %s %s назад</span>"
 
 #: templates/content-question.php:26
 msgid "&nbsp; &bull; &nbsp;"
@@ -1743,15 +1741,15 @@ msgstr ""
 
 #: templates/content-question.php:31
 msgid "<strong>%1$s</strong> views"
-msgstr ""
+msgstr "<strong>%1$s</strong> просм."
 
 #: templates/content-question.php:35
 msgid "<strong>%1$s</strong> answers"
-msgstr ""
+msgstr "<strong>%1$s</strong> ответ."
 
 #: templates/content-question.php:39
 msgid "<strong>%1$s</strong> votes"
-msgstr ""
+msgstr "<strong>%1$s</strong> голос."
 
 # @ dwqa
 #: templates/content-single-answer.php:12
@@ -1767,11 +1765,11 @@ msgstr "-1"
 
 #: templates/content-single-answer.php:17
 msgid "<span><a href=\"%s\">%s%s</a> %s answered %s ago</span>"
-msgstr ""
+msgstr "<span><a href=\"%s\">%s%s</a> %s ответил %s назад</span>"
 
 #: templates/content-single-question.php:19
 msgid "<span><a href=\"%s\">%s%s</a> %s asked %s ago</span>"
-msgstr ""
+msgstr "<span><a href=\"%s\">%s%s</a> %s спросил %s назад</span>"
 
 #: templates/content-single-question.php:25
 msgid "Question Tags: "
@@ -1849,7 +1847,7 @@ msgstr ""
 #: inc/Posts/Question.php:215
 msgctxt "taxonomy singular name"
 msgid "Question Category"
-msgstr ""
+msgstr "Рубрика"
 
 #: inc/Posts/Question.php:244
 msgctxt "taxonomy singular name"
@@ -1865,7 +1863,7 @@ msgstr "Комментарий"
 #: templates/content-comment.php:16
 msgctxt "%s = human-readable time difference"
 msgid "replied %s ago"
-msgstr ""
+msgstr "ответил %s назад"
 
 #~ msgid "What "
 #~ msgstr "Что"

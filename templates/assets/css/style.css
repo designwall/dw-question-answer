@@ -532,12 +532,12 @@
  * -----------------------------------------------------------------------------
  */
 
-.single .dwqa-question-item {
+.single-dwqa-question .dwqa-question-item {
 	min-height: 140px;
 	padding-left: 70px;
 }
 
-.single .dwqa-question-item .avatar {
+.single-dwqa-question .dwqa-question-item .avatar {
 	left: 0;
 }
 
@@ -592,19 +592,19 @@
 		margin-right: 5px;
 	}
 
-	.single .dwqa-question-item,
-	.single .dwqa-answer-item {
+	.single-dwqa-question .dwqa-question-item,
+	.single-dwqa-question .dwqa-answer-item {
 		padding-left: 0;
 		min-height: 0;
 	}
 
-	.single .dwqa-question-item .dwqa-question-vote,
-	.single .dwqa-answer-item .dwqa-answer-vote {
+	.single-dwqa-question .dwqa-question-item .dwqa-question-vote,
+	.single-dwqa-question .dwqa-answer-item .dwqa-answer-vote {
 		display: none;
 	}
 
-	.single .dwqa-question-item .avatar,
-	.single .dwqa-answer-item .avatar {
+	.single-dwqa-question .dwqa-question-item .avatar,
+	.single-dwqa-question .dwqa-answer-item .avatar {
 		position: static;
 		width: 14px;
 		height: 14px;

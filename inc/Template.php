@@ -361,6 +361,7 @@ function dwqa_wp_footer() {
 				width: 12px;
 				height: 12px;
 				margin-right: 5px;
+				margin-top: 0;
 			}
 
 			.dwqa-question-item .dwqa-status {

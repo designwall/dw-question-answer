@@ -9,6 +9,7 @@ class DWQA_Shortcode {
 		'dwqa-popular-questions',
 		'dwqa-latest-answers',
 		'dwqa-question-followers',
+		'dwqa-question-list'
 	);
 
 	public function __construct() {
@@ -21,6 +22,7 @@ class DWQA_Shortcode {
 		add_shortcode( 'dwqa-popular-questions', array( $this, 'shortcode_popular_questions' ) );
 		add_shortcode( 'dwqa-latest-answers', array( $this, 'shortcode_latest_answers' ) );
 		add_shortcode( 'dwqa-question-followers', array( $this, 'question_followers' ) );
+		add_shortcode( 'dwqa-question-list', array( $this, 'question_list' ) );
 		add_filter( 'the_content', array( $this, 'post_content_remove_shortcodes' ), 0 );
 	}
 
@@ -207,6 +209,38 @@ class DWQA_Shortcode {
 		}
 		/* Return the post content. */
 		return $content;
+	}
+
+	function question_list( $atts ) {
+		extract( shortcode_atts( array(
+			'categories' 	=> '',
+			'number' 		=> '',
+			'title' 		=> __( 'Question List', 'dwqa' ),
+			'orderby' 		=> 'modified',
+			'order' 		=> 'DESC'
+		), $atts ) );
+
+		$args = array(
+			'post_type' 		=> 'dwqa-question',
+			'posts_per_page' 	=> $number,
+			'orderby' 			=> $orderby,
+			'order' 			=> $order,
+		);
+
+		if ( $term ) {
+			$args['tax_query'][] = array(
+				'taxonomy' 	=> 'dwqa-question_category',
+				'terms' 	=> explode( ',', $categories ),
+				'field' 	=> 'slug'
+			);
+		}
+
+		if ( $title ) {
+			echo '<h3>';
+			echo $title;
+			echo '</h3>';
+		}
+
 	}
 }
 

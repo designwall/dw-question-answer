@@ -314,6 +314,92 @@ function dwqa_enqueue_scripts(){
 }
 add_action( 'wp_enqueue_scripts', 'dwqa_enqueue_scripts' );
 
+add_action( 'wp_footer', 'dwqa_wp_footer' );
+function dwqa_wp_footer() {
+	global $dwqa_general_settings;
+
+	if ( isset( $dwqa_general_settings['show-status-icon'] ) && $dwqa_general_settings['show-status-icon'] && dwqa_is_enable_status() ) {
+		?>
+		<style type="text/css">
+			@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
+
+			.dwqa-questions-list .dwqa-question-item {
+				padding-left: 70px;
+			}
+
+			.dwqa-questions-list .dwqa-question-item .avatar {
+				position: static;
+				width: 12px;
+				height: 12px;
+				margin-right: 5px;
+			}
+
+			.dwqa-question-item .dwqa-status {
+				position: absolute;
+				left: 15px;
+				top: 50%;
+				width: 36px;
+				height: 36px;
+				margin-top: -18px;
+				border-radius: 36px;
+				text-indent: -9999px;
+				padding: 0;
+				background: none;
+				box-shadow: 0 0 0 1px #e67e22 inset;
+			}
+
+			.dwqa-question-item .dwqa-status:after {
+				content: "\f128";
+				display: block;
+				font: normal normal normal 14px/1 FontAwesome;
+				font-size: inherit;
+				text-rendering: auto;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+
+				color: #e67e22;
+				text-indent: 0;
+				font-size: 18px;
+				width: 36px;
+				height: 36px;
+				line-height: 36px;
+				text-align: center;
+				top: 0;
+				position: absolute;
+			}
+
+			.dwqa-question-item .dwqa-status-closed {
+				box-shadow: 0 0 0 1px #666 inset;
+			}
+
+			.dwqa-question-item .dwqa-status-closed:after {
+				color: #666;
+				content: "\f023";
+			}
+
+			.dwqa-question-item .dwqa-status-resolved {
+				box-shadow: 0 0 0 1px #578824 inset;
+			}
+
+			.dwqa-question-item .dwqa-status-resolved:after {
+				color: #578824;
+				content: "\f00c";
+			}
+
+			.dwqa-question-item .dwqa-status-answered {
+				box-shadow: 0 0 0 1px #1ba1e2 inset;
+			}
+
+			.dwqa-question-item .dwqa-status-answered:after {
+				color: #1ba1e2;
+				content: "\f112";
+				font-size: 14px;
+			}
+		</style>
+		<?php
+	}
+}
+
 function dwqa_comment_form( $args = array(), $post_id = null ) {
 	if ( null === $post_id )
 		$post_id = get_the_ID();

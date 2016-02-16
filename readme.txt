@@ -85,6 +85,12 @@ Visit our [Github](https://github.com/designwall/dw-question-answer) project or 
 
 == Changelog ==
 
+= 1.4.2 =
+* Tweak: Update Language Files
+* Fix: Some string cannot translate
+* Fix: Notification save issue
+
+
 = 1.4.1 =
 * Tweak: Update Language Files
 * Tweak: Update Swedish Language Files

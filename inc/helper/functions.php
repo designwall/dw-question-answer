@@ -132,7 +132,7 @@ function dwqa_is_front_page() {
 	return false;
 }
 
-function dwqa_has_question() {
+function dwqa_has_question( $args = array() ) {
 	global $wp_query;
 
 	return $wp_query->dwqa_questions->have_posts();

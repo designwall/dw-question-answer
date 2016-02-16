@@ -570,6 +570,8 @@ class DWQA_Filter {
 			$query['post_status'] = array( 'publish', 'private', 'pending' );
 		}
 
+		$query = apply_filters( 'dwqa_prepare_archive_posts', $query );
+
 		$wp_query->dwqa_questions = new WP_Query( $query );
 	}
 
@@ -645,7 +647,7 @@ class DWQA_Filter {
 	}
 
 	public function prepare_answers( $posts, $query ) {
-		global $dwqa;
+		global $dwqa, $dwqa_general_settings;
 
 		if ( $query->is_single() && $query->query_vars['post_type'] == $dwqa->question->get_slug() ) {
 			$question = $posts[0];
@@ -653,7 +655,6 @@ class DWQA_Filter {
 			// We will include the all answers of this question here;
 			$args = array(
 				'post_type' 		=> 'dwqa-answer',
-				'posts_per_page'    => get_option( 'posts_per_page' ),
 				'order'      		=> 'ASC',
 				'paged'				=> $ans_cur_page,
 				'meta_query' 		=> array(
@@ -664,7 +665,16 @@ class DWQA_Filter {
 				),
 				'post_status' => array( 'publish', 'private', 'draft' )
 			);
+
+			if ( isset( $dwqa_general_settings['show-all-answers-on-single-question-page'] ) && $dwqa_general_settings['show-all-answers-on-single-question-page'] ) {
+				$args['nopaging'] = true;
+			} else {
+				$args['posts_per_page'] = get_option( 'posts_per_page' );
+			}
+
 			$best_answer = dwqa_get_the_best_answer( $question->ID );
+
+			$args = apply_filters( 'dwqa_prepare_answers', $args );
 
 			$query->dwqa_answers = new WP_Query( $args );
 			if ( $best_answer && !empty( $best_answer ) ) {

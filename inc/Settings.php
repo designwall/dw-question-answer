@@ -553,6 +553,24 @@ function dwqa_enable_review_question_mode() {
 	echo '<p><label for="dwqa_options_enable_review_question"><input type="checkbox" name="dwqa_options[enable-review-question]"  id="dwqa_options_enable_review_question" value="1" '.checked( 1, (isset($dwqa_general_settings['enable-review-question'] ) ? $dwqa_general_settings['enable-review-question'] : false ) , false ) .'><span class="description">'.__( 'Question must be manually approved','dwqa' ).'</span></label></p>';
 }
 
+function dwqa_show_status_icon() {
+	global $dwqa_general_settings;
+
+	echo '<p><label for="dwqa_options_enable_show_status_icon"><input type="checkbox" name="dwqa_options[show-status-icon]"  id="dwqa_options_enable_show_status_icon" value="1" '.checked( 1, (isset($dwqa_general_settings['show-status-icon'] ) ? $dwqa_general_settings['show-status-icon'] : false ) , false ) .'><span class="description">'.__( 'Enable', 'dwqa' ).'</span></label></p>';
+}
+
+function dwqa_disable_question_status() {
+	global $dwqa_general_settings;
+
+	echo '<p><label for="dwqa_options_dwqa_disable_question_status"><input type="checkbox" name="dwqa_options[disable-question-status]"  id="dwqa_options_dwqa_disable_question_status" value="1" '.checked( 1, (isset($dwqa_general_settings['disable-question-status'] ) ? $dwqa_general_settings['disable-question-status'] : false ) , false ) .'><span class="description">'.__( 'Disable', 'dwqa' ).'</span></label></p>';
+}
+
+function dwqa_show_all_answers() {
+	global $dwqa_general_settings;
+
+	echo '<p><label for="dwqa_options_dwqa_show_all_answers"><input type="checkbox" name="dwqa_options[show-all-answers-on-single-question-page]"  id="dwqa_options_dwqa_show_all_answers" value="1" '.checked( 1, (isset($dwqa_general_settings['show-all-answers-on-single-question-page'] ) ? $dwqa_general_settings['show-all-answers-on-single-question-page'] : false ) , false ) .'><span class="description">'.__( 'Enable', 'dwqa' ).'</span></label></p>';
+}
+
 function dwqa_single_template_options() {
 	global $dwqa_general_settings;
 	$selected = isset( $dwqa_general_settings['single-template'] ) ? $dwqa_general_settings['single-template'] : -1;
@@ -637,6 +655,16 @@ function dwqa_is_captcha_enable_in_single_question() {
 	if ( $captcha_in_single_question ) {
 		return true;
 	} 
+	return false;
+}
+
+function dwqa_is_enable_status() {
+	global $dwqa_general_settings;
+
+	if ( !isset( $dwqa_general_settings['disable-question-status'] ) || !$dwqa_general_settings['disable-question-status'] ) {
+		return true;
+	}
+
 	return false;
 }
 
@@ -764,6 +792,7 @@ class DWQA_Settings {
 			'dwqa-settings', 
 			'dwqa-general-settings'
 		);
+
 		add_settings_field( 
 			'dwqa_options[enable-private-question]', 
 			__( 'Private Question', 'dwqa' ), 
@@ -771,11 +800,36 @@ class DWQA_Settings {
 			'dwqa-settings', 
 			'dwqa-general-settings'
 		);
+
 		add_settings_field( 
 			'dwqa_options[enable-review-question]', 
 			__( 'Review Question', 'dwqa' ), 
 			'dwqa_enable_review_question_mode', 
 			'dwqa-settings', 
+			'dwqa-general-settings'
+		);
+
+		add_settings_field(
+			'dwqa_options[show-status-icon]',
+			__( 'Show status icon on questions list', 'dwqa' ),
+			'dwqa_show_status_icon',
+			'dwqa-settings',
+			'dwqa-general-settings'
+		);
+
+		add_settings_field(
+			'dwqa_options[disable-question-status]',
+			__( 'Disable question status', 'dwqa' ),
+			'dwqa_disable_question_status',
+			'dwqa-settings',
+			'dwqa-general-settings'
+		);
+
+		add_settings_field(
+			'dwqa_options[show-all-answers-on-single-question-page]',
+			__( 'Show all answers on signle question page', 'dwqa' ),
+			'dwqa_show_all_answers',
+			'dwqa-settings',
 			'dwqa-general-settings'
 		);
 

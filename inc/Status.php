@@ -3,6 +3,10 @@
  * Control all status 
  */
 function dwqa_question_print_status( $question_id = false, $echo = true ) {
+	if ( !dwqa_is_enable_status() ) {
+		return;
+	}
+
 	if ( !$question_id ) {
 		$question_id = get_the_ID();
 	}

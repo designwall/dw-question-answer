@@ -11,7 +11,7 @@ class DWQA_Posts_Comment {
 		add_filter( 'comment_id_fields', array( $this, 'comment_form_id_fields_filter' ), 10, 3 );
 		add_filter( 'get_comment_text', array( $this, 'sanitizie_comment' ), 10, 2 );
 
-		add_filter( 'get_comment', array( $this, 'comment_author_link_anonymous' ) );
+		//add_filter( 'get_comment', array( $this, 'comment_author_link_anonymous' ) );
 
 		add_action( 'wp_insert_comment', array( $this, 'reopen_question_have_new_comment' ) );
 

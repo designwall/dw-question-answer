@@ -87,8 +87,11 @@ Visit our [Github](https://github.com/designwall/dw-question-answer) project or 
 
 = 1.4.2 =
 * Tweak: Update Language Files
+* New: Option show all answers on a single question page
+* New: Option show status icon on question list page
+* New: Add function pick best answer
 * Fix: Some string cannot translate
-* Fix: Notification save issue
+* Fix: Fix losing data when saving changes.
 * Fix: Display name of person instead of anonymous in question and comment
 
 

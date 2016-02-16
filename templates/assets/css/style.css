@@ -181,6 +181,8 @@
 	position: absolute;
 	left: 10px;
 	top: 0;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 .dwqa-pick-best-answer:hover:after {

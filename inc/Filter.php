@@ -567,7 +567,7 @@ class DWQA_Filter {
 		}
 
 		if ( is_user_logged_in() ) {
-			$query['post_status'] = array( 'publish', 'private', 'pending' );
+			$query['post_status'] = array( 'publish', 'private' );
 		}
 
 		$query = apply_filters( 'dwqa_prepare_archive_posts', $query );

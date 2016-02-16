@@ -22,7 +22,7 @@ class DWQA_Shortcode {
 		add_shortcode( 'dwqa-popular-questions', array( $this, 'shortcode_popular_questions' ) );
 		add_shortcode( 'dwqa-latest-answers', array( $this, 'shortcode_latest_answers' ) );
 		add_shortcode( 'dwqa-question-followers', array( $this, 'question_followers' ) );
-		add_shortcode( 'dwqa-question-list', array( $this, 'question_list' ) );
+		//add_shortcode( 'dwqa-question-list', array( $this, 'question_list' ) );
 		add_filter( 'the_content', array( $this, 'post_content_remove_shortcodes' ), 0 );
 	}
 

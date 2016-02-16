@@ -257,6 +257,35 @@ function dwqa_load_template( $name, $extend = false, $include = true ){
 	$dwqa->template->load_template( $name, $extend, $include );
 }
 
+function dwqa_post_class( $post_id = false ) {
+	$classes = array();
+
+	if ( !$post_id ) {
+		$post_id = get_the_ID();
+	}
+
+	if ( 'dwqa-question' == get_post_type( $post_id ) ) {
+		$classes[] = 'dwqa-question-item';
+
+		if ( !is_singular( 'dwqa-question' ) && dwqa_is_sticky( $post_id ) ) {
+			$classes[] = 'dwqa-sticky';
+		}
+	}
+
+	if ( 'dwqa-answer' == get_post_type( $post_id ) ) {
+		$classes[] = 'dwqa-answer-item';
+
+		if ( dwqa_is_the_best_answer( $post_id ) ) {
+			$classes[] = 'dwqa-best-answer';
+		}
+
+		if ( 'private' == get_post_status( $post_id ) ) {
+			$classes[] = 'dwqa-status-private';
+		}
+	}
+
+	return implode( ' ', apply_filters( 'dwqa_post_class', $classes ) );
+}
 
 /**
  * Enqueue all scripts for plugins on front-end

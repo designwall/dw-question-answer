@@ -1,24 +1,18 @@
+# Copyright (C) 2016 DesignWall
+# This file is distributed under the same license as the DW Question Answer package.
 msgid ""
 msgstr ""
-"Project-Id-Version: DW Question Answer\n"
-"POT-Creation-Date: 2016-02-06 11:15+0700\n"
-"PO-Revision-Date: 2016-02-06 11:15+0700\n"
-"Last-Translator: \n"
-"Language-Team: \n"
-"Language: en_US\n"
+"Project-Id-Version: DW Question Answer 1.4.1\n"
+"Report-Msgid-Bugs-To: "
+"https://wordpress.org/support/plugin/dw-question-answer\n"
+"POT-Creation-Date: 2016-02-10 15:58:32+00:00\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.6\n"
-"X-Poedit-Basepath: ..\n"
-"X-Poedit-WPHeader: dw-question-answer.php\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
-"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
-"X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPathExcluded-0: *.js\n"
+"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: grunt-wp-i18n 0.5.3\n"
 
 #: dw-question-answer.php:108 inc/Filter.php:80
 msgid "Next"
@@ -191,15 +185,14 @@ msgid "DW Question & Answer Credits"
 msgstr ""
 
 #: inc/Admin/Welcome.php:54
-#, php-format
 msgid "Welcome to DW Question & Answer %s"
 msgstr ""
 
 #: inc/Admin/Welcome.php:55
 msgid ""
 "Thank you for installing our WordPress plugin. If you have any question "
-"about this theme, please submit to our <a target=\"_blank\" href=\"https://"
-"www.designwall.com/question/\">Q&A section</a>."
+"about this theme, please submit to our <a target=\"_blank\" "
+"href=\"https://www.designwall.com/question/\">Q&A section</a>."
 msgstr ""
 
 #: inc/Admin/Welcome.php:63
@@ -443,8 +436,8 @@ msgstr ""
 #: inc/Helptab.php:45
 msgid ""
 "DW Question Answer is a WordPress Plugin which helps you build a Question & "
-"Answer system on your WordPress sites. The plugin is easy to install and set "
-"up. Let start building up your community with this WordPress question & "
+"Answer system on your WordPress sites. The plugin is easy to install and "
+"set up. Let start building up your community with this WordPress question & "
 "answer system."
 msgstr ""
 
@@ -593,26 +586,15 @@ msgstr ""
 msgid "Are you cheating, huh?"
 msgstr ""
 
-#: inc/Posts/Base.php:18
-msgid "What "
-msgstr ""
-
-#: inc/Posts/Base.php:46
-msgid "You voted for this "
-msgstr ""
-
 #: inc/Posts/Base.php:242
-#, php-format
 msgid "Posts by %s"
 msgstr ""
 
 #: inc/Posts/Base.php:251 inc/Posts/Base.php:255
-#, php-format
 msgid "%s answered <span class=\"dwqa-date\">%s</span> ago"
 msgstr ""
 
 #: inc/Posts/Base.php:257
-#, php-format
 msgid "%s asked <span class=\"dwqa-date\">%s</span> ago"
 msgstr ""
 
@@ -622,11 +604,6 @@ msgstr ""
 
 #: inc/Posts/Base.php:307
 msgid "DWQA Post"
-msgstr ""
-
-#: inc/Posts/Base.php:318
-msgctxt "dwqa"
-msgid "Add New"
 msgstr ""
 
 #: inc/Posts/Base.php:319
@@ -668,16 +645,6 @@ msgstr ""
 msgid "Question"
 msgstr ""
 
-#: inc/Posts/Question.php:214
-msgctxt "taxonomy general name"
-msgid "Question Categories"
-msgstr ""
-
-#: inc/Posts/Question.php:215
-msgctxt "taxonomy singular name"
-msgid "Question Category"
-msgstr ""
-
 #: inc/Posts/Question.php:216
 msgid "Search Question Categories"
 msgstr ""
@@ -712,16 +679,6 @@ msgstr ""
 
 #: inc/Posts/Question.php:224
 msgid "Question Category"
-msgstr ""
-
-#: inc/Posts/Question.php:243
-msgctxt "taxonomy general name"
-msgid "Question Tags"
-msgstr ""
-
-#: inc/Posts/Question.php:244
-msgctxt "taxonomy singular name"
-msgid "Question Tag"
 msgstr ""
 
 #: inc/Posts/Question.php:245
@@ -829,8 +786,7 @@ msgid "hours"
 msgstr ""
 
 #: inc/Settings.php:31
-msgid ""
-"A period of time in which new questions are highlighted and marked as New"
+msgid "A period of time in which new questions are highlighted and marked as New"
 msgstr ""
 
 #: inc/Settings.php:36
@@ -857,9 +813,9 @@ msgstr ""
 
 #: inc/Settings.php:70
 msgid ""
-"This page will be redirected when users without authority click on a private "
-"question. You can customize the message of this page in.If not, a default "
-"404 page will be used."
+"This page will be redirected when users without authority click on a "
+"private question. You can customize the message of this page in.If not, a "
+"default 404 page will be used."
 msgstr ""
 
 #: inc/Settings.php:86
@@ -1135,7 +1091,6 @@ msgid "Link to"
 msgstr ""
 
 #: inc/Shortcode.php:186
-#, php-format
 msgid "%d person who is following this question"
 msgid_plural "%d people who are following this question"
 msgstr[0] ""
@@ -1253,8 +1208,8 @@ msgstr ""
 
 #: inc/Template.php:311
 msgid ""
-"Enter your email to receive notification regarding your question. Your email "
-"is safe with us and will not be published."
+"Enter your email to receive notification regarding your question. Your "
+"email is safe with us and will not be published."
 msgstr ""
 
 #: inc/Template.php:311
@@ -1266,12 +1221,10 @@ msgid "Email address ..."
 msgstr ""
 
 #: inc/Template.php:313
-#, php-format
 msgid "or <strong><a href=\"%s\">login</a></strong> to submit question"
 msgstr ""
 
 #: inc/Template.php:341
-#, php-format
 msgid "Private: %s"
 msgstr ""
 
@@ -1284,22 +1237,14 @@ msgid "Name"
 msgstr ""
 
 #: inc/Template.php:464
-#, php-format
 msgid "Required fields are marked %s"
 msgstr ""
 
-#: inc/Template.php:475
-msgctxt "noun"
-msgid "Comment"
-msgstr ""
-
 #: inc/Template.php:476
-#, php-format
 msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
 msgstr ""
 
 #: inc/Template.php:477
-#, php-format
 msgid ""
 "Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of "
 "this account\">Log out?</a>"
@@ -1310,10 +1255,9 @@ msgid "Your email address will not be published."
 msgstr ""
 
 #: inc/Template.php:479
-#, php-format
 msgid ""
-"You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
-"and attributes: %s"
+"You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> "
+"tags and attributes: %s"
 msgstr ""
 
 #: inc/Template.php:482
@@ -1321,7 +1265,6 @@ msgid "Leave a Reply"
 msgstr ""
 
 #: inc/Template.php:483
-#, php-format
 msgid "Leave a Reply to %s"
 msgstr ""
 
@@ -1370,12 +1313,10 @@ msgid "Staff"
 msgstr ""
 
 #: inc/Walker/Category.php:20 inc/Walker/Tag.php:20
-#, php-format
 msgid "View all posts filed under %s"
 msgstr ""
 
 #: inc/Walker/Category.php:35 inc/Walker/Tag.php:35
-#, php-format
 msgid "Feed for all posts filed under %s"
 msgstr ""
 
@@ -1432,18 +1373,16 @@ msgid "DWQA Related Questions"
 msgstr ""
 
 #: lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:181
-#, php-format
 msgid ""
-"There is a new version of %1$s available. <a target=\"_blank\" class="
-"\"thickbox\" href=\"%2$s\">View version %3$s details</a>."
+"There is a new version of %1$s available. <a target=\"_blank\" "
+"class=\"thickbox\" href=\"%2$s\">View version %3$s details</a>."
 msgstr ""
 
 #: lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:188
-#, php-format
 msgid ""
-"There is a new version of %1$s available. <a target=\"_blank\" class="
-"\"thickbox\" href=\"%2$s\">View version %3$s details</a> or <a href=\"%4$s"
-"\">update now</a>."
+"There is a new version of %1$s available. <a target=\"_blank\" "
+"class=\"thickbox\" href=\"%2$s\">View version %3$s details</a> or <a "
+"href=\"%4$s\">update now</a>."
 msgstr ""
 
 #: lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:326
@@ -1479,7 +1418,6 @@ msgid "Submit"
 msgstr ""
 
 #: templates/answers.php:12
-#, php-format
 msgid "%s Answers"
 msgstr ""
 
@@ -1493,12 +1431,6 @@ msgstr ""
 
 #: templates/comments.php:23
 msgid "Write a comment ..."
-msgstr ""
-
-#: templates/content-comment.php:16
-#, php-format
-msgctxt "%s = human-readable time difference"
-msgid "replied %s ago"
 msgstr ""
 
 #: templates/content-edit.php:21 templates/question-submit-form.php:13
@@ -1522,7 +1454,6 @@ msgid "asked"
 msgstr ""
 
 #: templates/content-question.php:25
-#, php-format
 msgid "<span><a href=\"%s\">%s%s</a> %s %s ago</span>"
 msgstr ""
 
@@ -1531,17 +1462,14 @@ msgid "&nbsp; &bull; &nbsp;"
 msgstr ""
 
 #: templates/content-question.php:31
-#, php-format
 msgid "<strong>%1$s</strong> views"
 msgstr ""
 
 #: templates/content-question.php:35
-#, php-format
 msgid "<strong>%1$s</strong> answers"
 msgstr ""
 
 #: templates/content-question.php:39
-#, php-format
 msgid "<strong>%1$s</strong> votes"
 msgstr ""
 
@@ -1556,12 +1484,10 @@ msgid "Vote Down"
 msgstr ""
 
 #: templates/content-single-answer.php:17
-#, php-format
 msgid "<span><a href=\"%s\">%s%s</a> %s answered %s ago</span>"
 msgstr ""
 
 #: templates/content-single-question.php:19
-#, php-format
 msgid "<span><a href=\"%s\">%s%s</a> %s asked %s ago</span>"
 msgstr ""
 
@@ -1574,7 +1500,6 @@ msgid "This question is:"
 msgstr ""
 
 #: upgrades/upgrades.php:25
-#, php-format
 msgid ""
 "DW Question Answer needs to upgrade the database, click %shere%s to start "
 "the upgrade."
@@ -1587,7 +1512,8 @@ msgstr ""
 #: upgrades/upgrades.php:40
 msgid ""
 "The upgrade process has started, please be patient. This could take several "
-"minutes. You will be automatically redirected when the upgrade is finished..."
+"minutes. You will be automatically redirected when the upgrade is "
+"finished..."
 msgstr ""
 
 #: upgrades/upgrades.php:130
@@ -1599,7 +1525,6 @@ msgid "Just do it.."
 msgstr ""
 
 #: upgrades/upgrades.php:155
-#, php-format
 msgid "Move to next step %d"
 msgstr ""
 
@@ -1623,4 +1548,39 @@ msgstr ""
 
 #. Author URI of the plugin/theme
 msgid "http://www.designwall.com"
+msgstr ""
+
+#: inc/Posts/Base.php:318
+msgctxt "dwqa"
+msgid "Add New"
+msgstr ""
+
+#: inc/Posts/Question.php:214
+msgctxt "taxonomy general name"
+msgid "Question Categories"
+msgstr ""
+
+#: inc/Posts/Question.php:243
+msgctxt "taxonomy general name"
+msgid "Question Tags"
+msgstr ""
+
+#: inc/Posts/Question.php:215
+msgctxt "taxonomy singular name"
+msgid "Question Category"
+msgstr ""
+
+#: inc/Posts/Question.php:244
+msgctxt "taxonomy singular name"
+msgid "Question Tag"
+msgstr ""
+
+#: inc/Template.php:475
+msgctxt "noun"
+msgid "Comment"
+msgstr ""
+
+#: templates/content-comment.php:16
+msgctxt "%s = human-readable time difference"
+msgid "replied %s ago"
 msgstr ""

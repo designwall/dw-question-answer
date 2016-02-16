@@ -28,6 +28,7 @@ tests/clover.xml
 
 # Grunt
 node_modules
+tools/node_modules
 
 # Vendor
 vendor

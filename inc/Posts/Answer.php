@@ -49,11 +49,11 @@ function dwqa_is_answer_flag( $post_id ) {
 	return false; //showing
 }
 
-function dwqa_is_the_best_answer( $answer_id, $question_id = false ) {
-	if ( ! $question_id ) {
-		$question_id = get_the_ID();
+function dwqa_is_the_best_answer( $answer_id = false ) {
+	if ( ! $answer_id ) {
+		$answer_id = get_the_ID();
 	}
-
+	$question_id = dwqa_get_question_from_answer_id( $answer_id );
 	$best_answer = dwqa_get_the_best_answer( $question_id );
 	if ( $best_answer && $best_answer == $answer_id ) {
 		return true;

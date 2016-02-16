@@ -1,0 +1,35 @@
+{
+  "name": "dw-question-answer",
+  "description": "Your WordPress site will have a full-featured Question & Answer section like Stack Overflow, Quora or Yahoo Answers",
+  "version": "1.4.1",
+  "author": "DesignWall <hi@designwall.com>",
+  "homepage": "http://www.designwall.com",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/designwall/dw-question-answer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/designwall/dw-question-answer/issues"
+  },
+  "license": [
+    {
+      "type": "GPL-3.0+",
+      "url": "http://www.gnu.org/licenses/gpl-3.0-standalone.html"
+    }
+  ],
+  "readme": [
+    {
+      "url": "readme.md"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "devDependencies": {
+    "bower": ">=1.4.1",
+    "grunt": "~0.4.5",
+    "grunt-wp-i18n": "^0.5.2",
+    "load-grunt-tasks": "~3.1.0",
+    "time-grunt": "~1.0.0"
+  }
+}

@@ -78,8 +78,8 @@ class DWQA_Handle {
 			'post_parent'	 => $question_id,
 		);
 
-		$answers['post_status'] = isset( $_POST['save-draft'] ) 
-									? 'draft' 
+		$answers['post_status'] = isset( $_POST['save-draft'] )
+									? 'draft'
 										: ( isset( $_POST['dwqa-status'] ) && $_POST['dwqa-status'] ? $_POST['dwqa-status'] : 'publish' );
 
 		do_action( 'dwqa_prepare_add_answer' );
@@ -218,13 +218,13 @@ class DWQA_Handle {
 				return false;
 			}
 
-			$comment_id = wp_insert_comment( $args );  
+			$comment_id = wp_insert_comment( $args );
 
 			global $comment;
 			$comment = get_comment( $comment_id );
 			$client_id = isset( $_POST['clientId'] ) ? sanitize_text_field( $_POST['clientId'] ) : false;
 			do_action( 'dwqa_add_comment', $comment_id, $client_id );
-			
+
 		}
 	}
 
@@ -253,7 +253,7 @@ class DWQA_Handle {
 					'comment_ID'        => $comment_id,
 					'comment_content'   => $comment_content
 				);
-				
+
 				$intval = wp_update_comment( $commentarr );
 				if ( !is_wp_error( $intval ) ) {
 					$comment = get_comment( $comment_id );
@@ -277,8 +277,6 @@ class DWQA_Handle {
 			if ( isset( $_POST['_wpnonce'] ) && wp_verify_nonce( esc_html( $_POST['_wpnonce'] ), '_dwqa_submit_question' ) ) {
 				if ( $valid_captcha ) {
 					if ( empty( $_POST['question-title'] ) ) {
-
-						// $dwqa_submit_question_errors->add( 'submit_question', 'You must enter a valid question title' );
 						dwqa_add_notice( __( 'You must enter a valid question title.', 'dwqa' ), 'error' );
 						return false;
 					}

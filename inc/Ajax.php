@@ -7,8 +7,10 @@ class DWQA_Ajax {
 
 		// Ajax remove Answer
 		add_action( 'wp_ajax_dwqa_delete_answer', array( $this, 'delete_answer' ) );
+
 		// Ajax flag answer spam
 		add_action( 'wp_ajax_dwqa-action-flag-answer', array( $this, 'flag_answer' ) );
+
 		//Ajax vote best answer
 		add_action( 'wp_ajax_dwqa-vote-best-answer', array( $this, 'vote_best_answer' ) );
 		add_action( 'wp_ajax_dwqa-unvote-best-answer', array( $this, 'unvote_best_answer' ) );
@@ -16,6 +18,10 @@ class DWQA_Ajax {
 		//Question
 		add_action( 'wp_ajax_dwqa_delete_question', array( $this, 'delete_question' ) );
 		add_action( 'wp_ajax_dwqa-update-question-status', array( $this, 'update_status' ) );
+
+		// Ajax search and suggest question
+		add_action( 'wp_ajax_dwqa-auto-suggest-search-result', array( $this, 'auto_suggest_for_seach' ) );
+		add_action( 'wp_ajax_nopriv_dwqa-auto-suggest-search-result', array( $this, 'auto_suggest_for_seach' ) );
 	}
 
 	public function delete_comment() {
@@ -103,33 +109,39 @@ class DWQA_Ajax {
 
 	public function vote_best_answer() {
 		global $current_user;
-		check_ajax_referer( '_dwqa_vote_best_answer', 'nonce' );
-		if ( ! isset( $_POST['answer'] ) ) {
+		if ( ! isset( $_GET['_wpnonce'] ) || ! wp_verify_nonce( $_GET['_wpnonce'], '_dwqa_vote_best_answer' ) ) {
+			wp_die( __( 'Are you cheating huh?', 'dwqa' ) );
+		}
+		if ( ! isset( $_GET['answer'] ) ) {
 			exit( 0 );
 		}
-		$answer_id = intval( $_POST['answer'] );
+		$answer_id = intval( $_GET['answer'] );
 		$q = get_post_meta( $answer_id, '_question', true );
 		$question = get_post( $q );
 		if ( $current_user->ID == $question->post_author || current_user_can( 'edit_posts' ) ) {
 			do_action( 'dwqa_vote_best_answer', $answer_id );
 			update_post_meta( $q, '_dwqa_best_answer', $answer_id );
 		}
+
+		wp_safe_redirect( get_permalink( $q ) );
 	}
 
 	public function unvote_best_answer() {
 		global $current_user;
-		check_ajax_referer( '_dwqa_vote_best_answer', 'nonce' );
-		if ( ! isset( $_POST['answer'] ) ) {
+		if ( ! isset( $_GET['_wpnonce'] ) || ! wp_verify_nonce( $_GET['_wpnonce'], '_dwqa_vote_best_answer' ) ) {
+			wp_die( __( 'Are you cheating huh?', 'dwqa' ) );
+		}
+		if ( ! isset( $_GET['answer'] ) ) {
 			exit( 0 );
 		}
-		$answer_id = intval( $_POST['answer'] );
+		$answer_id = intval( $_GET['answer'] );
 		$q = get_post_meta( $answer_id, '_question', true );
 		$question = get_post( $q );
 		if ( $current_user->ID == $question->post_author || current_user_can( 'edit_posts' ) ) {
 			do_action( 'dwqa_unvote_best_answer', $answer_id );
 			delete_post_meta( $q, '_dwqa_best_answer' );
 		}
-
+		wp_safe_redirect( get_permalink( $q ) );
 	}
 
 	public function delete_question() {
@@ -193,6 +205,71 @@ class DWQA_Ajax {
 			wp_send_json_error( array(
 				'message'   => __( 'You do not have permission to edit question status', 'dwqa' )
 			) );
+		}
+	}
+
+	public function auto_suggest_for_seach(){
+		if ( ! isset( $_POST['nonce'])  ) {
+			wp_send_json_error( array( array( 
+				'error' => 'sercurity',
+				'message' => __( 'Are you cheating huh?', 'dwqa' ) 
+			) ) );
+		}
+		check_ajax_referer( '_dwqa_filter_nonce', 'nonce' );
+
+		if ( ! isset( $_POST['title'] ) ) {
+			wp_send_json_error( array( array( 
+				'error' => 'empty title',
+				'message' => __( 'Search query is empty', 'dwqa' ), 
+			) ) );
+		}
+
+		$status = 'publish';
+		if ( is_user_logged_in() ) {
+			$status = array( 'publish', 'private' );
+		}
+
+		$search = sanitize_text_field( $_POST['title'] );
+		$args_query = array(
+			'post_type'			=> 'dwqa-question',
+			'posts_per_page'	=> 6,
+			'post_status'		=> $status,
+		);
+		preg_match_all( '/#\S*\w/i', $search, $matches );
+		if ( $matches && is_array( $matches ) && count( $matches ) > 0 && count( $matches[0] ) > 0 ) {
+			$args_query['tax_query'][] = array(
+				'taxonomy' => 'dwqa-question_tag',
+				'field' => 'slug',
+				'terms' => $matches[0],
+				'operator'  => 'IN',
+			);
+			$search = preg_replace( '/#\S*\w/i', '', $search );
+		}
+		$args_query['s'] = $search;
+		$query = new WP_Query( $args_query );
+		if ( ! $query->have_posts() ) {
+			global $current_search;
+			$current_search = $search;
+			add_filter( 'posts_where' , array( $this, 'posts_where_suggest' ) );
+			unset( $args_query['s'] );
+			$query = new WP_Query( $args_query );
+			remove_filter( 'posts_where' , array( $this, 'posts_where_suggest') );
+		}
+		$results = array();
+		if ( $query->have_posts() ) {
+			$html = '';
+			while ( $query->have_posts() ) {
+				$query->the_post();
+				$results[] = array(
+					'title' => get_post_field( 'post_title', get_the_ID() ),
+					'url' => get_permalink( get_the_ID() )
+				);
+			}
+			wp_reset_query();
+			wp_send_json_success( $results );
+		} else {
+			wp_reset_query();
+			wp_send_json_error( array( array( 'error' => 'not found', 'message' => __( 'Search query is empty', 'dwqa' ) ) ) );
 		}
 	}
 }

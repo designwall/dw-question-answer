@@ -164,6 +164,5 @@
         t.parent().addClass( 'dwqa-comment-show-button' );
         current_form.find('.dwqa-form-submit').show();
 	});
-	
 
 })(jQuery);

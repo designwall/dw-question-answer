@@ -20,9 +20,7 @@
 		<?php do_action( 'dwqa_before_questions_list' ) ?>
 		<?php if ( dwqa_has_question() ) : ?>
 			<?php while ( dwqa_has_question() ) : dwqa_the_question(); ?>
-				<?php if ( ( ( 'private' == get_post_status() || 'pending' == get_post_status() ) && ( dwqa_current_user_can( 'edit_answer' ) || dwqa_current_user_can( 'edit_question', $question_id ) ) ) || 'publish' == get_post_status() ) : ?>
-					<?php dwqa_load_template( 'content', 'question' ) ?>
-				<?php endif; ?>
+				<?php dwqa_load_template( 'content', 'question' ) ?>
 			<?php endwhile; ?>
 		<?php else : ?>
 			<?php dwqa_load_template( 'content', 'none' ) ?>

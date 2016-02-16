@@ -159,7 +159,7 @@ function dwqa_the_sticky() {
 function dwqa_has_answers() {
 	global $wp_query;
 
-	return $wp_query->dwqa_answers->have_posts();
+	return isset( $wp_query->dwqa_answers ) ? $wp_query->dwqa_answers->have_posts() : false;
 }
 
 function dwqa_the_answers() {

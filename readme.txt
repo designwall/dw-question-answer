@@ -89,6 +89,7 @@ Visit our [Github](https://github.com/designwall/dw-question-answer) project or 
 * Tweak: Update Language Files
 * Fix: Some string cannot translate
 * Fix: Notification save issue
+* Fix: Display name of person instead of anonymous in question and comment
 
 
 = 1.4.1 =

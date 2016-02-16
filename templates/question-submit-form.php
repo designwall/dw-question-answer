@@ -3,7 +3,7 @@
  * The template for displaying single answers
  *
  * @package DW Question & Answer
- * @since DW Question & Answer 1.4.0
+ * @since DW Question & Answer 1.4.2
  */
 ?>
 
@@ -54,9 +54,9 @@
 		<input type="email" class="" name="_dwqa_anonymous_email" value="<?php echo $email ?>" >
 	</p>
 	<p>
-		<label for="_dwqa_anonymous_email"><?php _e( 'Your Name', 'dwqa' ) ?></label>
-		<?php $name = isset( $_POST['_dwqa_anonymous_email'] ) ? $_POST['_dwqa_anonymous_email'] : ''; ?>
-		<input type="text" class="" name="_dwqa_anonymous_email" value="<?php echo $name ?>" >
+		<label for="_dwqa_anonymous_name"><?php _e( 'Your Name', 'dwqa' ) ?></label>
+		<?php $name = isset( $_POST['_dwqa_anonymous_name'] ) ? $_POST['_dwqa_anonymous_name'] : ''; ?>
+		<input type="text" class="" name="_dwqa_anonymous_name" value="<?php echo $name ?>" >
 	</p>
 	<?php endif; ?>
 	<?php wp_nonce_field( '_dwqa_submit_question' ) ?>

@@ -387,7 +387,7 @@ class DWQA_Notifications {
 		if ( ! $admin_email ) {
 			$admin_email = get_bloginfo( 'admin_email' );
 		}
-		return explode( ',', $admin_email );
+		return explode( PHP_EOL, $admin_email );
 	}
 }
 

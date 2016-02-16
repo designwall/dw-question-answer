@@ -13,6 +13,10 @@ function dwqa_question_print_status( $question_id = false, $echo = true ) {
 
 	$status = get_post_meta( $question_id, '_dwqa_status', true );
 
+	if ( 'close' == $status ) {
+		$status = 'closed';
+	}
+
 	if ( $status ) {
 		$return = '<span title="'.__( ucwords( $status ), 'dwqa' ).'" class="dwqa-status dwqa-status-'.strtolower( $status ).'">'.__( ucwords( $status ), 'dwqa' ).'</span>';
 		if ( $echo ) {

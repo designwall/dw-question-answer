@@ -310,7 +310,7 @@ class DWQA_Permission {
 		if ( ! is_single() && isset( $query->query['post_type'] ) && $query->query['post_type'] == 'dwqa-question' ) {
 			$availables = array();
 			foreach ( $posts as $key => $post ) {
-				if ( $post->post_status == 'publish' || ( $post->post_status != 'publish' && dwqa_current_user_can( 'edit_question', $post->ID ) ) ){
+				if ( $post->post_status == 'publish' || ( $post->post_status == 'private' && dwqa_current_user_can( 'edit_question', $post->ID ) ) || ( $post->post_stauts == 'pending' && dwqa_current_user_can( 'edit_question' ) ) ){
 					$availables[] = $post;
 				}
 			}

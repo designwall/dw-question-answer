@@ -506,7 +506,7 @@ class DWQA_Filter {
 			case 'closed':
 				$query['meta_query'][] = array(
 				   'key' => '_dwqa_status',
-				   'value' => array( 'closed' ),
+				   'value' => array( 'closed', 'close' ),
 				   'compare' => 'IN',
 				);
 				break;

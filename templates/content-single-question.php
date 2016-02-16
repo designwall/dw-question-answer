@@ -30,7 +30,7 @@
 					<select id="dwqa-question-status" data-nonce="<?php echo wp_create_nonce( '_dwqa_update_privacy_nonce' ) ?>" data-post="<?php the_ID(); ?>">
 						<optgroup label="<?php _e( 'Status', 'dwqa' ); ?>">
 							<option <?php selected( dwqa_question_status(), 'open' ) ?> value="open"><?php _e( 'Open', 'dwqa' ) ?></option>
-							<option <?php selected( dwqa_question_status(), 'close' ) ?> value="close"><?php _e( 'Closed', 'dwqa' ) ?></option>
+							<option <?php selected( dwqa_question_status(), 'closed' ) ?> value="close"><?php _e( 'Closed', 'dwqa' ) ?></option>
 							<option <?php selected( dwqa_question_status(), 'resolved' ) ?> value="resolved"><?php _e( 'Resolved', 'dwqa' ) ?></option>
 						</optgroup>
 					</select>

@@ -21,7 +21,7 @@ function dwqa_pages_settings_display() {
 				'option_none_value' => 0,
 				'selected'          => $archive_question_page,
 			) );
-		?><span class="description"><?php _e( 'A page where displays all questions','dwqa' ) ?></span>
+		?><br><span class="description"><?php _e( 'A page where displays all questions. The <code>[dwqa-list-questions]</code> short code must be on this page.','dwqa' ) ?></span>
 	</p>
 	<?php
 }
@@ -48,8 +48,8 @@ function dwqa_submit_question_page_display(){
 				'option_none_value' => 0,
 				'selected'          => $submit_question_page,
 			) );
-		?>
-		<span class="description"><?php _e( 'A page where users can submit questions.','dwqa' ) ?></span>
+		?><br>
+		<span class="description"><?php _e( 'A page where users can submit questions. The <code>[dwqa-submit-question-form]</code> short code must be on this page.','dwqa' ) ?></span>
 	</p>
 	<?php
 }
@@ -503,13 +503,13 @@ function dwqa_permission_display(){
 function dwqa_captcha_in_question_display() {
 	global $dwqa_general_settings;
 
-	echo '<p><input type="checkbox" name="dwqa_options[captcha-in-question]"  id="dwqa_options_captcha_in_question" value="1" '.checked( 1, (isset($dwqa_general_settings['captcha-in-question'] ) ? $dwqa_general_settings['captcha-in-question'] : false ) , false ) .'><span class="description">'.__( 'Enable/Disable captcha on submit question page','dwqa' ).'</span></p>';
+	echo '<p><input type="checkbox" name="dwqa_options[captcha-in-question]"  id="dwqa_options_captcha_in_question" value="1" '.checked( 1, (isset($dwqa_general_settings['captcha-in-question'] ) ? $dwqa_general_settings['captcha-in-question'] : false ) , false ) .'><span class="description">'.__( 'Enable captcha on submit question page','dwqa' ).'</span></p>';
 }
 
 function dwqa_captcha_in_single_question_display() {
 	global $dwqa_general_settings;
 	
-	echo '<p><input type="checkbox" name="dwqa_options[captcha-in-single-question]"  id="dwqa_options_captcha_in_question" value="1" '.checked( 1, (isset($dwqa_general_settings['captcha-in-single-question'] ) ? $dwqa_general_settings['captcha-in-single-question'] : false ) , false ) .'><span class="description">'.__( 'Enable/Disable captcha on single question page','dwqa' ).'</span></p>';
+	echo '<p><input type="checkbox" name="dwqa_options[captcha-in-single-question]"  id="dwqa_options_captcha_in_question" value="1" '.checked( 1, (isset($dwqa_general_settings['captcha-in-single-question'] ) ? $dwqa_general_settings['captcha-in-single-question'] : false ) , false ) .'><span class="description">'.__( 'Enable captcha on single question page','dwqa' ).'</span></p>';
 }
 
 function dwqa_captcha_google_pubic_key_display() {
@@ -557,13 +557,13 @@ function dwqa_enable_review_question_mode() {
 function dwqa_show_status_icon() {
 	global $dwqa_general_settings;
 
-	echo '<p><label for="dwqa_options_enable_show_status_icon"><input type="checkbox" name="dwqa_options[show-status-icon]"  id="dwqa_options_enable_show_status_icon" value="1" '.checked( 1, (isset($dwqa_general_settings['show-status-icon'] ) ? $dwqa_general_settings['show-status-icon'] : false ) , false ) .'><span class="description">'.__( 'Show status icon on questions list', 'dwqa' ).'</span></label></p>';
+	echo '<p><label for="dwqa_options_enable_show_status_icon"><input type="checkbox" name="dwqa_options[show-status-icon]"  id="dwqa_options_enable_show_status_icon" value="1" '.checked( 1, (isset($dwqa_general_settings['show-status-icon'] ) ? $dwqa_general_settings['show-status-icon'] : false ) , false ) .'><span class="description">'.__( 'Display question status icon on questions list.', 'dwqa' ).'</span></label></p>';
 }
 
 function dwqa_disable_question_status() {
 	global $dwqa_general_settings;
 
-	echo '<p><label for="dwqa_options_dwqa_disable_question_status"><input type="checkbox" name="dwqa_options[disable-question-status]"  id="dwqa_options_dwqa_disable_question_status" value="1" '.checked( 1, (isset($dwqa_general_settings['disable-question-status'] ) ? $dwqa_general_settings['disable-question-status'] : false ) , false ) .'><span class="description">'.__( 'Disable question status', 'dwqa' ).'</span></label></p>';
+	echo '<p><label for="dwqa_options_dwqa_disable_question_status"><input type="checkbox" name="dwqa_options[disable-question-status]"  id="dwqa_options_dwqa_disable_question_status" value="1" '.checked( 1, (isset($dwqa_general_settings['disable-question-status'] ) ? $dwqa_general_settings['disable-question-status'] : false ) , false ) .'><span class="description">'.__( 'Disable question status feature.', 'dwqa' ).'</span></label></p>';
 }
 
 function dwqa_show_all_answers() {
@@ -762,7 +762,7 @@ class DWQA_Settings {
 		//Register Setting Sections
 		add_settings_section( 
 			'dwqa-general-settings', 
-			false, 
+			__( 'Page Settings', 'dwqa' ),
 			null, 
 			'dwqa-settings' 
 		);
@@ -776,14 +776,6 @@ class DWQA_Settings {
 		);
 
 		add_settings_field( 
-			'dwqa_options[posts-per-page]', 
-			__( 'Archive page show at most','dwqa' ), 
-			'dwqa_posts_per_page_display', 
-			'dwqa-settings', 
-			'dwqa-general-settings' 
-		);
-
-		add_settings_field( 
 			'dwqa_options[pages][submit-question]', 
 			__( 'Ask Question Page', 'dwqa' ), 
 			'dwqa_submit_question_page_display', 
@@ -791,20 +783,35 @@ class DWQA_Settings {
 			'dwqa-general-settings'
 		);
 
+		add_settings_section(
+			'dwqa-misc-settings',
+			__( 'Misc Settings', 'dwqa' ),
+			false,
+			'dwqa-settings'
+		);
+
 		add_settings_field( 
-			'dwqa_options[enable-private-question]', 
-			__( 'Private Question', 'dwqa' ), 
-			'dwqa_enable_private_question_display', 
+			'dwqa_options[posts-per-page]', 
+			__( 'Archive page show at most','dwqa' ), 
+			'dwqa_posts_per_page_display', 
 			'dwqa-settings', 
-			'dwqa-general-settings'
+			'dwqa-misc-settings' 
 		);
 
 		add_settings_field( 
 			'dwqa_options[enable-review-question]', 
-			__( 'Review Question', 'dwqa' ), 
+			__( 'Before a question appears', 'dwqa' ), 
 			'dwqa_enable_review_question_mode', 
 			'dwqa-settings', 
-			'dwqa-general-settings'
+			'dwqa-misc-settings'
+		);
+
+		add_settings_field( 
+			'dwqa_options[enable-private-question]', 
+			__( 'Other question settings', 'dwqa' ), 
+			'dwqa_enable_private_question_display', 
+			'dwqa-settings', 
+			'dwqa-misc-settings'
 		);
 
 		add_settings_field(
@@ -812,7 +819,7 @@ class DWQA_Settings {
 			'',
 			'dwqa_disable_question_status',
 			'dwqa-settings',
-			'dwqa-general-settings'
+			'dwqa-misc-settings'
 		);
 
 		add_settings_field(
@@ -820,15 +827,15 @@ class DWQA_Settings {
 			'',
 			'dwqa_show_status_icon',
 			'dwqa-settings',
-			'dwqa-general-settings'
+			'dwqa-misc-settings'
 		);
 
 		add_settings_field(
 			'dwqa_options[show-all-answers-on-single-question-page]',
-			'',
+			__( 'Answer Listing', 'dwqa' ),
 			'dwqa_show_all_answers',
 			'dwqa-settings',
-			'dwqa-general-settings'
+			'dwqa-misc-settings'
 		);
 
 		// add_settings_field( 

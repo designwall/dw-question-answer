@@ -6,7 +6,7 @@
  * @since DW Question & Answer 1.4.0
  */
 ?>
-<div class="dwqa-answer-item <?php echo dwqa_is_the_best_answer() ? 'dwqa-best-answer' : ''; ?>">
+<div class="<?php echo dwqa_post_class() ?>">
 	<div class="dwqa-answer-vote" data-nonce="<?php echo wp_create_nonce( '_dwqa_answer_vote_nonce' ) ?>" data-post="<?php the_ID(); ?>">
 		<span class="dwqa-vote-count"><?php echo dwqa_vote_count() ?></span>
 		<a class="dwqa-vote dwqa-vote-up" href="#"><?php _e( 'Vote Up', 'dwqa' ); ?></a>

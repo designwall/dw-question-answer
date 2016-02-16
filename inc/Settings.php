@@ -81,6 +81,7 @@ function dwqa_email_template_settings_display(){
 
 
 function dwqa_subscrible_email_logo_display(){
+	wp_enqueue_media();
 	?>
 	<div class="uploader">
 		<p><input type="text" name="dwqa_subscrible_email_logo" id="dwqa_subscrible_email_logo" class="regular-text" value="<?php echo  get_option( 'dwqa_subscrible_email_logo' ); ?>" />&nbsp;<input type="button" class="button" name="dwqa_subscrible_email_logo_button" id="dwqa_subscrible_email_logo_button" value="<?php _e( 'Upload','dwqa' ) ?>" /><span class="description">&nbsp;<?php _e( 'Upload or choose a logo to be displayed at the top of the email','dwqa' ) ?></span></p>

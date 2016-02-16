@@ -528,6 +528,7 @@ function dwqa_captcha_select_type_display() {
 	global $dwqa_general_settings;
 
 	$types = apply_filters( 'dwqa_captcha_type', array( 'default' => __( 'Default', 'dwqa' ) ) );
+	$total = count( $types );
 	$type_selected = isset( $dwqa_general_settings['captcha-type'] ) ? $dwqa_general_settings['captcha-type'] : 'default';
 	echo '<select name="dwqa_options[captcha-type]">';
 	foreach( $types as $key => $name ) {
@@ -539,19 +540,19 @@ function dwqa_captcha_select_type_display() {
 function dwqa_posts_per_page_display(){
 	global $dwqa_general_settings;
 	$posts_per_page = isset( $dwqa_general_settings['posts-per-page'] ) ?  $dwqa_general_settings['posts-per-page'] : 5;
-	echo '<p><input type="text" name="dwqa_options[posts-per-page]" class="small-text" value="'.$posts_per_page.'" > <span class="description">'.__( 'questions','dwqa' ).'</span></p>';
+	echo '<p><input type="text" name="dwqa_options[posts-per-page]" class="small-text" value="'.$posts_per_page.'" > <span class="description">'.__( 'questions.','dwqa' ).'</span></p>';
 }
 
 function dwqa_enable_private_question_display() {
 	global $dwqa_general_settings;
 	
-	echo '<p><label for="dwqa_options_enable_private_question"><input type="checkbox" name="dwqa_options[enable-private-question]"  id="dwqa_options_enable_private_question" value="1" '.checked( 1, (isset($dwqa_general_settings['enable-private-question'] ) ? $dwqa_general_settings['enable-private-question'] : false ) , false ) .'><span class="description">'.__( 'Allow members to post private question','dwqa' ).'</span></label></p>';
+	echo '<p><label for="dwqa_options_enable_private_question"><input type="checkbox" name="dwqa_options[enable-private-question]"  id="dwqa_options_enable_private_question" value="1" '.checked( 1, (isset($dwqa_general_settings['enable-private-question'] ) ? $dwqa_general_settings['enable-private-question'] : false ) , false ) .'><span class="description">'.__( 'Allow members to post private question.','dwqa' ).'</span></label></p>';
 }
 
 function dwqa_enable_review_question_mode() {
 	global $dwqa_general_settings;
 	
-	echo '<p><label for="dwqa_options_enable_review_question"><input type="checkbox" name="dwqa_options[enable-review-question]"  id="dwqa_options_enable_review_question" value="1" '.checked( 1, (isset($dwqa_general_settings['enable-review-question'] ) ? $dwqa_general_settings['enable-review-question'] : false ) , false ) .'><span class="description">'.__( 'Question must be manually approved','dwqa' ).'</span></label></p>';
+	echo '<p><label for="dwqa_options_enable_review_question"><input type="checkbox" name="dwqa_options[enable-review-question]"  id="dwqa_options_enable_review_question" value="1" '.checked( 1, (isset($dwqa_general_settings['enable-review-question'] ) ? $dwqa_general_settings['enable-review-question'] : false ) , false ) .'><span class="description">'.__( 'Question must be manually approved.','dwqa' ).'</span></label></p>';
 }
 
 function dwqa_show_status_icon() {
@@ -569,7 +570,7 @@ function dwqa_disable_question_status() {
 function dwqa_show_all_answers() {
 	global $dwqa_general_settings;
 
-	echo '<p><label for="dwqa_options_dwqa_show_all_answers"><input type="checkbox" name="dwqa_options[show-all-answers-on-single-question-page]"  id="dwqa_options_dwqa_show_all_answers" value="1" '.checked( 1, (isset($dwqa_general_settings['show-all-answers-on-single-question-page'] ) ? $dwqa_general_settings['show-all-answers-on-single-question-page'] : false ) , false ) .'><span class="description">'.__( 'Show all answers on single question page', 'dwqa' ).'</span></label></p>';
+	echo '<p><label for="dwqa_options_dwqa_show_all_answers"><input type="checkbox" name="dwqa_options[show-all-answers-on-single-question-page]"  id="dwqa_options_dwqa_show_all_answers" value="1" '.checked( 1, (isset($dwqa_general_settings['show-all-answers-on-single-question-page'] ) ? $dwqa_general_settings['show-all-answers-on-single-question-page'] : false ) , false ) .'><span class="description">'.__( 'Show all answers on single question page.', 'dwqa' ).'</span></label></p>';
 }
 
 function dwqa_single_template_options() {
@@ -591,6 +592,10 @@ function dwqa_single_template_options() {
 		</p>
 	<?php
 
+}
+
+function dwqa_permalink_section_layout() {
+	printf( __( 'If you like, you may enter custom structure for your single question, question category and question tag URLs here. For example, using `topic` as your question base would make your question links like <code>%s</code>. If you leave these blank the default will be used.', 'dwqa' ), home_url( 'topic/question-name' ) );
 }
 
 function dwqa_get_rewrite_slugs() {
@@ -783,6 +788,108 @@ class DWQA_Settings {
 			'dwqa-general-settings'
 		);
 
+		// add_settings_field( 
+		// 	'dwqa_options[single-template]', 
+		// 	__( 'Single Question Template', 'dwqa' ), 
+		// 	'dwqa_single_template_options', 
+		// 	'dwqa-settings', 
+		// 	'dwqa-general-settings' 
+		// );
+
+		do_action( 'dwqa_register_setting_section' );
+
+		//Time setting
+//		add_settings_section( 
+//			'dwqa-time-settings', 
+//			__( 'Time settings','dwqa' ), 
+//			null, 
+//			'dwqa-settings' 
+//		);
+//
+//		add_settings_field( 
+//			'dwqa_options[question-new-time-frame]', 
+//			__( 'New Question Time Frame', 'dwqa' ), 
+//			'dwqa_question_new_time_frame_display', 
+//			'dwqa-settings', 
+//			'dwqa-time-settings'
+//		);
+//
+//		add_settings_field( 
+//			'dwqa_options[question-overdue-time-frame]', 
+//			__( 'Question Overdue - Time Frame', 'dwqa' ), 
+//			'dwqa_question_overdue_time_frame_display', 
+//			'dwqa-settings', 
+//			'dwqa-time-settings'
+//		);
+
+		//Captcha Setting
+
+		add_settings_section( 
+			'dwqa-captcha-settings', 
+			__( 'Captcha Settings','dwqa' ), 
+			null, 
+			'dwqa-settings' 
+		);
+
+		add_settings_field( 
+			'dwqa_options[captcha-in-question]', 
+			__( 'Ask Question Page', 'dwqa' ), 
+			'dwqa_captcha_in_question_display', 
+			'dwqa-settings',
+			'dwqa-captcha-settings'
+		);
+
+		add_settings_field( 
+			'dwqa_options[captcha-in-single-question]', 
+			__( 'Single Question Page', 'dwqa' ), 
+			'dwqa_captcha_in_single_question_display', 
+			'dwqa-settings', 
+			'dwqa-captcha-settings'
+		);
+
+		add_settings_field( 
+			'dwqa_options[captcha-type]', 
+			__( 'Captcha Type', 'dwqa' ), 
+			'dwqa_captcha_select_type_display',
+			'dwqa-settings', 
+			'dwqa-captcha-settings'
+		);
+
+		do_action( 'dwqa_captcha_setting_field' );
+
+
+		//Permalink
+		add_settings_section( 
+			'dwqa-permalink-settings', 
+			__( 'Permalink Settings','dwqa' ), 
+			'dwqa_permalink_section_layout',
+			'dwqa-settings' 
+		);
+
+		add_settings_field( 
+			'dwqa_options[question-rewrite]', 
+			__( 'Question base', 'dwqa' ), 
+			'dwqa_question_rewrite_display', 
+			'dwqa-settings', 
+			'dwqa-permalink-settings'
+		);
+
+		add_settings_field( 
+			'dwqa_options[question-category-rewrite]', 
+			__( 'Single category base', 'dwqa' ), 
+			'dwqa_question_category_rewrite_display', 
+			'dwqa-settings', 
+			'dwqa-permalink-settings'
+		);
+
+		add_settings_field( 
+			'dwqa_options[question-tag-rewrite]', 
+			__( 'Single tag base', 'dwqa' ), 
+			'dwqa_question_tag_rewrite_display', 
+			'dwqa-settings', 
+			'dwqa-permalink-settings'
+		);
+
 		add_settings_section(
 			'dwqa-misc-settings',
 			__( 'Misc Settings', 'dwqa' ),
@@ -832,112 +939,10 @@ class DWQA_Settings {
 
 		add_settings_field(
 			'dwqa_options[show-all-answers-on-single-question-page]',
-			__( 'Answer Listing', 'dwqa' ),
+			__( 'Answer listing', 'dwqa' ),
 			'dwqa_show_all_answers',
 			'dwqa-settings',
 			'dwqa-misc-settings'
-		);
-
-		// add_settings_field( 
-		// 	'dwqa_options[single-template]', 
-		// 	__( 'Single Question Template', 'dwqa' ), 
-		// 	'dwqa_single_template_options', 
-		// 	'dwqa-settings', 
-		// 	'dwqa-general-settings' 
-		// );
-
-		do_action( 'dwqa_register_setting_section' );
-
-		//Time setting
-//		add_settings_section( 
-//			'dwqa-time-settings', 
-//			__( 'Time settings','dwqa' ), 
-//			null, 
-//			'dwqa-settings' 
-//		);
-//
-//		add_settings_field( 
-//			'dwqa_options[question-new-time-frame]', 
-//			__( 'New Question Time Frame', 'dwqa' ), 
-//			'dwqa_question_new_time_frame_display', 
-//			'dwqa-settings', 
-//			'dwqa-time-settings'
-//		);
-//
-//		add_settings_field( 
-//			'dwqa_options[question-overdue-time-frame]', 
-//			__( 'Question Overdue - Time Frame', 'dwqa' ), 
-//			'dwqa_question_overdue_time_frame_display', 
-//			'dwqa-settings', 
-//			'dwqa-time-settings'
-//		);
-
-		//Captcha Setting
-
-		add_settings_section( 
-			'dwqa-captcha-settings', 
-			__( 'Captcha settings','dwqa' ), 
-			null, 
-			'dwqa-settings' 
-		);
-
-		add_settings_field( 
-			'dwqa_options[captcha-in-question]', 
-			__( 'Captcha on Submit Question Page', 'dwqa' ), 
-			'dwqa_captcha_in_question_display', 
-			'dwqa-settings', 
-			'dwqa-captcha-settings'
-		);
-
-		add_settings_field( 
-			'dwqa_options[captcha-in-single-question]', 
-			__( 'Captcha on Single Question Page', 'dwqa' ), 
-			'dwqa_captcha_in_single_question_display', 
-			'dwqa-settings', 
-			'dwqa-captcha-settings'
-		);
-
-		add_settings_field( 
-			'dwqa_options[captcha-type]', 
-			__( 'Captcha Type', 'dwqa' ), 
-			'dwqa_captcha_select_type_display',
-			'dwqa-settings', 
-			'dwqa-captcha-settings'
-		);
-
-		do_action( 'dwqa_captcha_setting_field' );
-
-
-		//Permalink
-		add_settings_section( 
-			'dwqa-permalink-settings', 
-			__( 'Permalink Settings','dwqa' ), 
-			create_function( '', '_e( \'Custom permalinks for single questions, categories, tags.\',\'dwqa\' ); ' ), 
-			'dwqa-settings' 
-		);
-
-		add_settings_field( 
-			'dwqa_options[question-rewrite]', 
-			__( 'Single Question', 'dwqa' ), 
-			'dwqa_question_rewrite_display', 
-			'dwqa-settings', 
-			'dwqa-permalink-settings'
-		);
-
-		add_settings_field( 
-			'dwqa_options[question-category-rewrite]', 
-			__( 'Single Category', 'dwqa' ), 
-			'dwqa_question_category_rewrite_display', 
-			'dwqa-settings', 
-			'dwqa-permalink-settings'
-		);
-
-		add_settings_field( 
-			'dwqa_options[question-tag-rewrite]', 
-			__( 'Single Tag', 'dwqa' ), 
-			'dwqa_question_tag_rewrite_display', 
-			'dwqa-settings', 
-			'dwqa-permalink-settings'
 		);
 
 		register_setting( 'dwqa-settings', 'dwqa_options' );

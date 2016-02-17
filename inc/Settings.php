@@ -567,7 +567,7 @@ function dwqa_enable_review_question_mode() {
 function dwqa_show_status_icon() {
 	global $dwqa_general_settings;
 
-	echo '<p><label for="dwqa_options_enable_show_status_icon"><input type="checkbox" name="dwqa_options[show-status-icon]"  id="dwqa_options_enable_show_status_icon" value="1" '.checked( 1, (isset($dwqa_general_settings['show-status-icon'] ) ? $dwqa_general_settings['show-status-icon'] : false ) , false ) .'><span class="description">'.__( 'Display question status icon on questions list.', 'dwqa' ).'</span></label></p>';
+	echo '<p><label for="dwqa_options_enable_show_status_icon"><input type="checkbox" name="dwqa_options[show-status-icon]"  id="dwqa_options_enable_show_status_icon" value="1" '.checked( 1, (isset($dwqa_general_settings['show-status-icon'] ) ? $dwqa_general_settings['show-status-icon'] : false ) , false ) .'><span class="description">'.__( 'Display question status icon on the left of question.', 'dwqa' ).'</span></label></p>';
 }
 
 function dwqa_disable_question_status() {

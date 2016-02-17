@@ -84,7 +84,7 @@ function dwqa_subscrible_email_logo_display(){
 	wp_enqueue_media();
 	?>
 	<div class="uploader">
-		<p><input type="text" name="dwqa_subscrible_email_logo" id="dwqa_subscrible_email_logo" class="regular-text" value="<?php echo  get_option( 'dwqa_subscrible_email_logo' ); ?>" />&nbsp;<input type="button" class="button" name="dwqa_subscrible_email_logo_button" id="dwqa_subscrible_email_logo_button" value="<?php _e( 'Upload','dwqa' ) ?>" /><span class="description">&nbsp;<?php _e( 'Upload or choose a logo to be displayed at the top of the email','dwqa' ) ?></span></p>
+		<p><input type="text" name="dwqa_subscrible_email_logo" id="dwqa_subscrible_email_logo" class="regular-text" value="<?php echo  get_option( 'dwqa_subscrible_email_logo' ); ?>" />&nbsp;<input type="button" class="button" name="dwqa_subscrible_email_logo_button" id="dwqa_subscrible_email_logo_button" value="<?php _e( 'Upload','dwqa' ) ?>" /></br><span class="description">&nbsp;<?php _e( 'Upload or choose a logo to be displayed at the top of the email.','dwqa' ) ?></span></p>
 	</div>
 	<script type="text/javascript">
 	jQuery( document ).ready(function($ ){
@@ -123,12 +123,12 @@ function dwqa_subscrible_email_logo_display(){
 }
 
 function dwqa_subscrible_enable_new_question_notification(){
-	echo '<p><label for="dwqa_subscrible_enable_new_question_notification"><input type="checkbox" value="1" '.checked( 1, get_option( 'dwqa_subscrible_enable_new_question_notification', 1 ), false ).' name="dwqa_subscrible_enable_new_question_notification" id="dwqa_subscrible_enable_new_question_notification" >'.__( 'Enable notification for new question','dwqa' ).'</label></p>';
+	echo '<p><label for="dwqa_subscrible_enable_new_question_notification"><input type="checkbox" value="1" '.checked( 1, get_option( 'dwqa_subscrible_enable_new_question_notification', 1 ), false ).' name="dwqa_subscrible_enable_new_question_notification" id="dwqa_subscrible_enable_new_question_notification" >'.__( 'Enable notification for new question.','dwqa' ).'</label></p>';
 }
 // New Question - Enable Notification
 
 function dwqa_subscrible_new_question_email_subject_display(){ 
-	echo '<p><label for="dwqa_subscrible_new_question_email_subject">'.__( 'Email subject','dwqa' ).'<br><input type="text" id="dwqa_subscrible_new_question_email_subject" name="dwqa_subscrible_new_question_email_subject" value="'.get_option( 'dwqa_subscrible_new_question_email_subject' ).'" class="widefat" /></span></p>';
+	echo '<p><label for="dwqa_subscrible_new_question_email_subject">'.__( 'Email subject','dwqa' ).'<br><input type="text" id="dwqa_subscrible_new_question_email_subject" name="dwqa_subscrible_new_question_email_subject" value="'.get_option( 'dwqa_subscrible_new_question_email_subject' ).'" class="regular-text" /></span></p>';
 }
 // New Question - Email subject
 
@@ -142,14 +142,14 @@ function dwqa_subscrible_new_question_email_display(){
 	echo '<p><input data-template="new-question.html" type="button" class="button dwqa-reset-email-template" value="Reset Template"></p>';
 	echo '<div class="description">
 		Enter the email that is sent to Administrator when have new question on your site. HTML is accepted. Available template settings:<br>
-		<strong>{site_logo}</strong> - Your site logo <br />
-		<strong>{site_name}</strong> - Your site name <br />
-		<strong>{user_avatar}</strong> - Question Author Avatar <br />
-		<strong>{username}</strong> - Question Author Name <br />
-		<strong>{user_link}</strong> - Question Author Posts Link<br />
-		<strong>{question_title}</strong> - Question Title <br />
-		<strong>{question_link}</strong> - Question Link <br />
-		<strong>{question_content}</strong> - Question Content <br />
+		<strong>{site_logo}</strong> - Your site logo. <br />
+		<strong>{site_name}</strong> - Your site name. <br />
+		<strong>{user_avatar}</strong> - Question Author Avatar. <br />
+		<strong>{username}</strong> - Question Author Name. <br />
+		<strong>{user_link}</strong> - Question Author Posts Link.<br />
+		<strong>{question_title}</strong> - Question Title. <br />
+		<strong>{question_link}</strong> - Question Link. <br />
+		<strong>{question_content}</strong> - Question Content. <br />
 	</div>';
 	echo '</label>';
 }
@@ -157,7 +157,7 @@ function dwqa_subscrible_new_question_email_display(){
 
 
 function dwqa_subscrible_enable_new_answer_notification(){
-	echo '<p><label for="dwqa_subscrible_enable_new_answer_notification"><input type="checkbox" value="1" '.checked( 1, get_option( 'dwqa_subscrible_enable_new_answer_notification', 1 ), false ).' name="dwqa_subscrible_enable_new_answer_notification" id="dwqa_subscrible_enable_new_answer_notification" >'.__( 'Enable notification for new answer','dwqa' ).'</label></p>';
+	echo '<p><label for="dwqa_subscrible_enable_new_answer_notification"><input type="checkbox" value="1" '.checked( 1, get_option( 'dwqa_subscrible_enable_new_answer_notification', 1 ), false ).' name="dwqa_subscrible_enable_new_answer_notification" id="dwqa_subscrible_enable_new_answer_notification" >'.__( 'Enable notification for new answer.','dwqa' ).'</label></p>';
 }
 // New Answer - Enable Notification
 
@@ -176,15 +176,15 @@ function dwqa_subscrible_new_answer_email_display(){
 	echo '<p><input data-template="new-answer.html" type="button" class="button dwqa-reset-email-template" value="Reset Template"></p>';
 	echo '<div class="description">
 		Enter the email that is sent to Administrator when have new answer on your site. HTML is accepted. Available template settings:<br>
-		<strong>{site_logo}</strong> - Your site logo <br />
-		<strong>{site_name}</strong> - Your site name <br />
-		<strong>{site_description}</strong> - Your site description <br />
-		<strong>{answer_avatar}</strong> - Answer Author Avatar <br />
-		<strong>{answer_author}</strong> - Answer Author Name <br />
-		<strong>{answer_author_link}</strong> - Answer Author Link <br />
-		<strong>{question_title}</strong> - Question Title <br />
-		<strong>{question_link}</strong> - Question Link <br />
-		<strong>{answer_content}</strong> - Answer Content <br />
+		<strong>{site_logo}</strong> - Your site logo. <br />
+		<strong>{site_name}</strong> - Your site name. <br />
+		<strong>{site_description}</strong> - Your site description. <br />
+		<strong>{answer_avatar}</strong> - Answer Author Avatar. <br />
+		<strong>{answer_author}</strong> - Answer Author Name. <br />
+		<strong>{answer_author_link}</strong> - Answer Author Link. <br />
+		<strong>{question_title}</strong> - Question Title. <br />
+		<strong>{question_link}</strong> - Question Link. <br />
+		<strong>{answer_content}</strong> - Answer Content. <br />
 
 	</div>';
 	echo '</label>';
@@ -192,7 +192,7 @@ function dwqa_subscrible_new_answer_email_display(){
 // New Answer - Email Content
 
 function dwqa_subscrible_enable_new_answer_followers_notification(){
-	echo '<p><label for="dwqa_subscrible_enable_new_answer_followers_notification"><input type="checkbox" value="1" '.checked( 1, get_option( 'dwqa_subscrible_enable_new_answer_followers_notification', 1 ), false ).' name="dwqa_subscrible_enable_new_answer_followers_notification" id="dwqa_subscrible_enable_new_answer_followers_notification" >'.__( 'Enable notification for new answer (to Followers )','dwqa' ).'</label></p>';
+	echo '<p><label for="dwqa_subscrible_enable_new_answer_followers_notification"><input type="checkbox" value="1" '.checked( 1, get_option( 'dwqa_subscrible_enable_new_answer_followers_notification', 1 ), false ).' name="dwqa_subscrible_enable_new_answer_followers_notification" id="dwqa_subscrible_enable_new_answer_followers_notification" >'.__( 'Enable notification for new answer ( to Followers ).','dwqa' ).'</label></p>';
 }
 // New Answer - Follow - Enable Notification
 
@@ -211,15 +211,15 @@ function dwqa_subscrible_new_answer_followers_email_display(){
 	echo '<p><input data-template="new-answer-followers.html" type="button" class="button dwqa-reset-email-template" value="Reset Template"></p>';
 	echo '<div class="description">
 		Enter the email that is sent to Administrator when have new answer on your site. HTML is accepted. Available template settings:<br>
-		<strong>{site_logo}</strong> - Your site logo <br />
-		<strong>{site_name}</strong> - Your site name <br />
-		<strong>{site_description}</strong> - Your site description <br />
-		<strong>{answer_avatar}</strong> - Answer Author Avatar <br />
-		<strong>{answer_author}</strong> - Answer Author Name <br />
-		<strong>{answer_author_link}</strong> - Answer Author Link <br />
-		<strong>{question_title}</strong> - Question Title <br />
-		<strong>{question_link}</strong> - Question Link <br />
-		<strong>{answer_content}</strong> - Answer Content <br />
+		<strong>{site_logo}</strong> - Your site logo. <br />
+		<strong>{site_name}</strong> - Your site name. <br />
+		<strong>{site_description}</strong> - Your site description. <br />
+		<strong>{answer_avatar}</strong> - Answer Author Avatar. <br />
+		<strong>{answer_author}</strong> - Answer Author Name. <br />
+		<strong>{answer_author_link}</strong> - Answer Author Link. <br />
+		<strong>{question_title}</strong> - Question Title. <br />
+		<strong>{question_link}</strong> - Question Link. <br />
+		<strong>{answer_content}</strong> - Answer Content. <br />
 
 	</div>';
 	echo '</label>';
@@ -227,7 +227,7 @@ function dwqa_subscrible_new_answer_followers_email_display(){
 // New Answer - Follow - Email Content
 
 function dwqa_subscrible_enable_new_comment_question_notification(){
-	echo '<p><label for="dwqa_subscrible_enable_new_comment_question_notification"><input type="checkbox" '.checked( 1, get_option( 'dwqa_subscrible_enable_new_comment_question_notification', 1 ), false ).' value="1" name="dwqa_subscrible_enable_new_comment_question_notification" id="dwqa_subscrible_enable_new_comment_question_notification" >'.__( 'Enable notification for new comment of question','dwqa' ).'</label></p>';
+	echo '<p><label for="dwqa_subscrible_enable_new_comment_question_notification"><input type="checkbox" '.checked( 1, get_option( 'dwqa_subscrible_enable_new_comment_question_notification', 1 ), false ).' value="1" name="dwqa_subscrible_enable_new_comment_question_notification" id="dwqa_subscrible_enable_new_comment_question_notification" >'.__( 'Enable notification for new comment of question.','dwqa' ).'</label></p>';
 }
 // New Comment - Question - Enable Notification
 
@@ -246,23 +246,23 @@ function dwqa_subscrible_new_comment_question_email_display(){
 	echo '<p><input data-editor="dwqa_subscrible_new_comment_question_email" data-template="new-comment-question.html" type="button" class="button dwqa-reset-email-template" value="Reset Template"></p>';
 	echo '<div class="description">
 		Enter the email that is sent to Administrator when have new answer on your site. HTML is accepted. Available template settings:<br>
-		<strong>{site_logo}</strong> - Your site logo <br />
-		<strong>{site_name}</strong> - Your site name <br />
-		<strong>{site_description}</strong> - Your site description <br />
-		<strong>{question_author}</strong> - Question Author Name <br />
-		<strong>{comment_author}</strong> - Comment Author Name <br />
-		<strong>{comment_author_avatar}</strong> - Comment Author Avatar <br />
-		<strong>{comment_author_link}</strong> - Comment Author Link <br />
-		<strong>{question_title}</strong> - Question Title <br />
-		<strong>{question_link}</strong> - Question Link <br />
-		<strong>{comment_content}</strong> - Comment Content <br />
+		<strong>{site_logo}</strong> - Your site logo. <br />
+		<strong>{site_name}</strong> - Your site name. <br />
+		<strong>{site_description}</strong> - Your site description. <br />
+		<strong>{question_author}</strong> - Question Author Name. <br />
+		<strong>{comment_author}</strong> - Comment Author Name. <br />
+		<strong>{comment_author_avatar}</strong> - Comment Author Avatar. <br />
+		<strong>{comment_author_link}</strong> - Comment Author Link. <br />
+		<strong>{question_title}</strong> - Question Title. <br />
+		<strong>{question_link}</strong> - Question Link. <br />
+		<strong>{comment_content}</strong> - Comment Content. <br />
 	</div>';
 	echo '</label>';
 }
 // New Comment - Question - Email Content
 
 function dwqa_subscrible_enable_new_comment_question_followers_notification(){
-	echo '<p><label for="dwqa_subscrible_enable_new_comment_question_followers_notify"><input type="checkbox" '.checked( 1, get_option( 'dwqa_subscrible_enable_new_comment_question_followers_notify', 1 ), false ).' value="1" name="dwqa_subscrible_enable_new_comment_question_followers_notify" id="dwqa_subscrible_enable_new_comment_question_followers_notify" >'.__( 'Enable notification for new comment of question','dwqa' ).'</label></p>';
+	echo '<p><label for="dwqa_subscrible_enable_new_comment_question_followers_notify"><input type="checkbox" '.checked( 1, get_option( 'dwqa_subscrible_enable_new_comment_question_followers_notify', 1 ), false ).' value="1" name="dwqa_subscrible_enable_new_comment_question_followers_notify" id="dwqa_subscrible_enable_new_comment_question_followers_notify" >'.__( 'Enable notification for new comment of question.','dwqa' ).'</label></p>';
 }
 // New Comment - Question - Follow - Enable Notification
 
@@ -281,23 +281,23 @@ function dwqa_subscrible_new_comment_question_followers_email_display(){
 	echo '<p><input data-template="new-comment-question-followers.html" type="button" class="button dwqa-reset-email-template" value="Reset Template"></p>';
 	echo '<div class="description">
 		Enter the email that is sent to Administrator when have new answer on your site. HTML is accepted. Available template settings:<br>
-		<strong>{site_logo}</strong> - Your site logo <br />
-		<strong>{site_name}</strong> - Your site name <br />
-		<strong>{site_description}</strong> - Your site description <br />
-		<strong>{question_author}</strong> - Question Author Name <br />
-		<strong>{comment_author}</strong> - Comment Author Name <br />
-		<strong>{comment_author_avatar}</strong> - Comment Author Avatar <br />
-		<strong>{comment_author_link}</strong> - Comment Author Link <br />
-		<strong>{question_title}</strong> - Question Title <br />
-		<strong>{question_link}</strong> - Question Link <br />
-		<strong>{comment_content}</strong> - Comment Content <br />
+		<strong>{site_logo}</strong> - Your site logo. <br />
+		<strong>{site_name}</strong> - Your site name. <br />
+		<strong>{site_description}</strong> - Your site description. <br />
+		<strong>{question_author}</strong> - Question Author Name. <br />
+		<strong>{comment_author}</strong> - Comment Author Name. <br />
+		<strong>{comment_author_avatar}</strong> - Comment Author Avatar. <br />
+		<strong>{comment_author_link}</strong> - Comment Author Link. <br />
+		<strong>{question_title}</strong> - Question Title. <br />
+		<strong>{question_link}</strong> - Question Link. <br />
+		<strong>{comment_content}</strong> - Comment Content. <br />
 	</div>';
 	echo '</label>';
 }
 // New Comment - Question - Follow - Email Content
 
 function dwqa_subscrible_enable_new_comment_answer_notification(){
-	echo '<p><label for="dwqa_subscrible_enable_new_comment_answer_notification"><input type="checkbox" '.checked( 1, get_option( 'dwqa_subscrible_enable_new_comment_answer_notification', 1 ), false ).' value="1" name="dwqa_subscrible_enable_new_comment_answer_notification" id="dwqa_subscrible_enable_new_comment_answer_notification" >'.__( 'Enable notification for new comment of answer','dwqa' ).'</label></p>';
+	echo '<p><label for="dwqa_subscrible_enable_new_comment_answer_notification"><input type="checkbox" '.checked( 1, get_option( 'dwqa_subscrible_enable_new_comment_answer_notification', 1 ), false ).' value="1" name="dwqa_subscrible_enable_new_comment_answer_notification" id="dwqa_subscrible_enable_new_comment_answer_notification" >'.__( 'Enable notification for new comment of answer.','dwqa' ).'</label></p>';
 }
 // New Comment - Answer - Enable Notification
 
@@ -316,23 +316,23 @@ function dwqa_subscrible_new_comment_answer_email_display(){
 	echo '<p><input data-template="new-comment-answer.html" type="button" class="button dwqa-reset-email-template" value="Reset Template"></p>';
 	echo '<div class="description">
 		Enter the email that is sent to Administrator when have new answer on your site. HTML is accepted. Available template settings:<br>
-		<strong>{site_logo}</strong> - Your site logo <br />
-		<strong>{site_name}</strong> - Your site name <br />
-		<strong>{site_description}</strong> - Your site description <br />
-		<strong>{answer_author}</strong> - Answer Author Name <br />
-		<strong>{comment_author}</strong> - Comment Author Name <br />
-		<strong>{comment_author_avatar}</strong> - Comment Author Avatar <br />
-		<strong>{comment_author_link}</strong> - Comment Author Link <br />
-		<strong>{question_title}</strong> - Question Title <br />
-		<strong>{question_link}</strong> - Question Link <br />
-		<strong>{comment_content}</strong> - Comment Content <br />
+		<strong>{site_logo}</strong> - Your site logo. <br />
+		<strong>{site_name}</strong> - Your site name. <br />
+		<strong>{site_description}</strong> - Your site description. <br />
+		<strong>{answer_author}</strong> - Answer Author Name. <br />
+		<strong>{comment_author}</strong> - Comment Author Name. <br />
+		<strong>{comment_author_avatar}</strong> - Comment Author Avatar. <br />
+		<strong>{comment_author_link}</strong> - Comment Author Link. <br />
+		<strong>{question_title}</strong> - Question Title. <br />
+		<strong>{question_link}</strong> - Question Link. <br />
+		<strong>{comment_content}</strong> - Comment Content. <br />
 	</div>';
 	echo '</label>';
 }
 // New Comment - Answer - Email Content
 
 function dwqa_subscrible_enable_new_comment_answer_followers_notification(){
-	echo '<p><label for="dwqa_subscrible_enable_new_comment_answer_followers_notification"><input type="checkbox" '.checked( 1, get_option( 'dwqa_subscrible_enable_new_comment_answer_followers_notification', 1 ), false ).' value="1" name="dwqa_subscrible_enable_new_comment_answer_followers_notification" id="dwqa_subscrible_enable_new_comment_answer_followers_notification" >'.__( 'Enable notification for new comment of answer','dwqa' ).'</label></p>';
+	echo '<p><label for="dwqa_subscrible_enable_new_comment_answer_followers_notification"><input type="checkbox" '.checked( 1, get_option( 'dwqa_subscrible_enable_new_comment_answer_followers_notification', 1 ), false ).' value="1" name="dwqa_subscrible_enable_new_comment_answer_followers_notification" id="dwqa_subscrible_enable_new_comment_answer_followers_notification" >'.__( 'Enable notification for new comment of answer.','dwqa' ).'</label></p>';
 }
 // New Comment - Answer - Follow - Enable Notification
 
@@ -351,16 +351,16 @@ function dwqa_subscrible_new_comment_answer_followers_email_display(){
 	echo '<p><input data-template="new-comment-answer-followers.html" type="button" class="button dwqa-reset-email-template" value="Reset Template"></p>';
 	echo '<div class="description">
 		Enter the email that is sent to Administrator when have new answer on your site. HTML is accepted. Available template settings:<br>
-		<strong>{site_logo}</strong> - Your site logo <br />
-		<strong>{site_name}</strong> - Your site name <br />
-		<strong>{site_description}</strong> - Your site description <br />
-		<strong>{answer_author}</strong> - Answer Author Name <br />
-		<strong>{comment_author}</strong> - Comment Author Name <br />
-		<strong>{comment_author_avatar}</strong> - Comment Author Avatar <br />
-		<strong>{comment_author_link}</strong> - Comment Author Link <br />
-		<strong>{question_title}</strong> - Question Title <br />
-		<strong>{question_link}</strong> - Question Link <br />
-		<strong>{comment_content}</strong> - Comment Content <br />
+		<strong>{site_logo}</strong> - Your site logo. <br />
+		<strong>{site_name}</strong> - Your site name. <br />
+		<strong>{site_description}</strong> - Your site description. <br />
+		<strong>{answer_author}</strong> - Answer Author Name. <br />
+		<strong>{comment_author}</strong> - Comment Author Name. <br />
+		<strong>{comment_author_avatar}</strong> - Comment Author Avatar. <br />
+		<strong>{comment_author_link}</strong> - Comment Author Link. <br />
+		<strong>{question_title}</strong> - Question Title. <br />
+		<strong>{question_link}</strong> - Question Link. <br />
+		<strong>{comment_content}</strong> - Comment Content. <br />
 	</div>';
 	echo '</label>';
 }
@@ -1162,7 +1162,6 @@ class DWQA_Settings {
 						dwqa_subscrible_email_logo_display();
 						echo '</td></tr></table>';
 						do_settings_sections( 'dwqa-email' );
-						submit_button( __( 'Save all changes','dwqa' ) );
 					endif;
 
 					echo '<div class="dwqa-mail-templates">';
@@ -1173,42 +1172,52 @@ class DWQA_Settings {
 					if ( $email_section == 'new-question' ) :
 						settings_fields( 'dwqa-subscribe-settings-new-question' );
 						echo '<div id="new-question" class="tab-pane active">';
-						echo '<h3>'.__( 'New Question Notification','dwqa' ) . '</h3>';
+						echo '<h3>'.__( 'New Question Notifications (to Admin)','dwqa' ) . '</h3>';
 						dwqa_subscrible_enable_new_question_notification();
 						dwqa_subscrible_new_question_email_subject_display();
 						dwqa_subscrible_new_question_email_display();
 						$this->email_sendto_address_display();
-						submit_button( __( 'Save all changes','dwqa' ) );
 						echo '<hr>';
 						echo '</div>'; //End tab for New Question Notification
 					endif;
 
 					// new answer section
 					if ( $email_section == 'new-answer' ) :
+
+						// new answer to follower section
+						echo '<div id="new-answer-followers" class="tab-pane">';
+						echo '<h3>'.__( 'New Answer Notifications (to Followers)','dwqa' ). '</h3>';
+						dwqa_subscrible_enable_new_answer_followers_notification();
+						dwqa_subscrible_new_answer_followers_email_subject_display();
+						dwqa_subscrible_new_answer_followers_email_display();
+						
+						echo '<hr>';
+						echo '</div>';//End tab for New Answer Notification To Followers
+
 						settings_fields( 'dwqa-subscribe-settings-new-answer' );
 						echo '<div id="new-answer" class="tab-pane">';
-						echo '<h3>'.__( 'New Answer Notification','dwqa' ). '</h3>';
+						echo '<h3>'.__( 'New Answer Notifications (to Admin)','dwqa' ). '</h3>';
 						dwqa_subscrible_enable_new_answer_notification();
 						dwqa_subscrible_new_answer_email_subject_display();
 						dwqa_subscrible_new_answer_email_display();
 						echo '<hr>';
 						echo '</div>';//End tab for New Answer Notification
 
-						// new answer to follower section
-						echo '<div id="new-answer-followers" class="tab-pane">';
-						echo '<h3>'.__( 'New Answer Notification (to Followers )','dwqa' ). '</h3>';
-						dwqa_subscrible_enable_new_answer_followers_notification();
-						dwqa_subscrible_new_answer_followers_email_subject_display();
-						dwqa_subscrible_new_answer_followers_email_display();
-						submit_button( __( 'Save all changes','dwqa' ) );
-						echo '<hr>';
-						echo '</div>';//End tab for New Answer Notification To Followers
 					endif;
 
 					if ( $email_section == 'new-comment' ) :
-						settings_fields( 'dwqa-subscribe-settings-new-comment-question' );
+						settings_fields( 'dwqa-subscribe-settings-new-comment' );
+						echo '<div id="new-comment-question-followers" class="tab-pane">';
+						echo '<h3>'.__( 'New Comment to Question Notifications (to Followers)','dwqa' ). '</h3>';
+						dwqa_subscrible_enable_new_comment_question_followers_notification();
+						dwqa_subscrible_new_comment_question_followers_email_subject_display();
+						dwqa_subscrible_new_comment_question_followers_email_display();
+						echo '<hr>';
+						echo '</div>'; //End tab for New Comment to Question Notification
+
+
 						echo '<div id="new-comment-question" class="tab-pane">';
-						echo '<h3>'.__( 'New Comment to Question Notification','dwqa' ). '</h3>';
+						echo '<h3>'.__( 'New Comment to Question Notifications (to Admin)','dwqa' ). '</h3>';
 						dwqa_subscrible_enable_new_comment_question_notification();
 						dwqa_subscrible_new_comment_question_email_subject_display();
 						dwqa_subscrible_new_comment_question_email_display();
@@ -1216,32 +1225,23 @@ class DWQA_Settings {
 						echo '</div>'; //End tab for New Comment to Question Notification
 
 						
+						echo '<div id="new-comment-answer-followers" class="tab-pane">';
+						echo '<h3>'.__( 'New Comment to Answer Notifications (to Followers)','dwqa' ). '</h3>';
+						dwqa_subscrible_enable_new_comment_answer_followers_notification();
+						dwqa_subscrible_new_comment_answer_followers_email_subject_display();
+						dwqa_subscrible_new_comment_answer_followers_email_display();
+						echo '</div>'; //End tab for New Comment to Answer Notification
+
+						
 						echo '<div id="new-comment-answer" class="tab-pane">';
-						echo '<h3>'.__( 'New Comment to Answer Notification','dwqa' ). '</h3>';
+						echo '<h3>'.__( 'New Comment to Answer Notifications (to Admin)','dwqa' ). '</h3>';
 						dwqa_subscrible_enable_new_comment_answer_notification();
 						dwqa_subscrible_new_comment_answer_email_subject_display();
 						dwqa_subscrible_new_comment_answer_email_display();
 						echo '</div>'; //End tab for New Comment to Answer Notification
-
-
-						
-						echo '<div id="new-comment-question-followers" class="tab-pane">';
-						echo '<h3>'.__( 'New Comment to Question Notification (to Followers )','dwqa' ). '</h3>';
-						dwqa_subscrible_enable_new_comment_question_followers_notification();
-						dwqa_subscrible_new_comment_question_followers_email_subject_display();
-						dwqa_subscrible_new_comment_question_followers_email_display();
-						echo '<hr>';
-						echo '</div>'; //End tab for New Comment to Question Notification
-
-						
-						echo '<div id="new-comment-answer-followers" class="tab-pane">';
-						echo '<h3>'.__( 'New Comment to Answer Notification (to Followers )','dwqa' ). '</h3>';
-						dwqa_subscrible_enable_new_comment_answer_followers_notification();
-						dwqa_subscrible_new_comment_answer_followers_email_subject_display();
-						dwqa_subscrible_new_comment_answer_followers_email_display();
-						submit_button( __( 'Save all changes','dwqa' ) );
-						echo '</div>'; //End tab for New Comment to Answer Notification
 					endif;
+
+					submit_button( __( 'Save all changes','dwqa' ) );
 					echo '</div>'; //End wrap mail template settings
 
 					echo '</div>'; //End wrap tab content
@@ -1293,14 +1293,14 @@ class DWQA_Settings {
 	public function email_send_copy_to_admin(){
 		$this->input_checkbox_field( 
 			'dwqa_subscrible_send_copy_to_admin',
-			__( 'Send A Copy Of Every Email To Admin','dwqa' )
+			__( 'Send a copy of every email to admin.','dwqa' )
 		);
 	}
 
 	public function input_text_field( $option, $label = false, $description = false, $class = false ){
-		echo '<p><label for="'.$option.'"><input type="text" id="'.$option.'" name="'.$option.'" value="'.get_option( $option ).'" class="widefat" />';
+		echo '<p><label for="'.$option.'"><input type="text" id="'.$option.'" name="'.$option.'" value="'.get_option( $option ).'" class="regular-text" />';
 		if ( $description ) {
-			echo '<span class="description">'.$description.'</span>';
+			echo '<br><span class="description">'.$description.'</span>';
 		}
 		echo '</label></p>';
 	}
@@ -1308,7 +1308,7 @@ class DWQA_Settings {
 	public function textarea_field( $option, $lable = false, $description = false, $class = false ) {
 		echo '<p><label for="'.$option.'"><textarea type="text" id="'.$option.'" name="'.$option.'" rows="5" class="widefat" >'.get_option( $option ).'</textarea>';
 		if ( $description ) {
-			echo '<span class="description">'.$description.'</span>';
+			echo '<br><span class="description">'.$description.'</span>';
 		}
 		echo '</label></p>';
 	}

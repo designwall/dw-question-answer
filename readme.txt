@@ -20,7 +20,7 @@ DW Question and Answer is a WordPress plugin which builds a complete Question & 
 * Notification Email system
 * Instant search by keywords
 * 11+ languages supported
-* reCAPTCHA supported
+* Captcha supported
 * Shortcodes available
 * Private/ Public for Question and Answer
 * Questions / Answers follow function

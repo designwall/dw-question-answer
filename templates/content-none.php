@@ -3,7 +3,7 @@
  * The template for displaying a message that questions cannot be found
  *
  * @package DW Question & Answer
- * @since DW Question & Answer 1.4.0
+ * @since DW Question & Answer 1.4.2
  */
 ?>
 <?php if ( ! dwqa_current_user_can( 'read_question' ) ) : ?>

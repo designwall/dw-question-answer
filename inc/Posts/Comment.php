@@ -73,7 +73,7 @@ class DWQA_Posts_Comment {
 	public function sanitizie_comment( $content, $comment ) {
 		$post_type = get_post_type( $comment->comment_post_ID );
 		if ( $post_type == 'dwqa-question' || $post_type == 'dwqa-answer' ) {
-			$content = str_replace( esc_html( '<br>' ), '<br>', esc_html( $content ) );
+			$content = str_replace( '<br>', '<br>', $content );
 			$content = make_clickable( $content );
 			$content = preg_replace( '/( <a[^>]* )( > )/', '$1 target="_blank" $2', $content );
 		}

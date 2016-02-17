@@ -1,3 +1,12 @@
+<?php
+/**
+ * The template for displaying captcha form
+ *
+ * @package DW Question & Answer
+ * @since DW Question & Answer 1.4.2
+ */
+?>
+
 <?php if ( ( 'dwqa-question' == get_post_type() && dwqa_is_captcha_enable_in_single_question() ) || ( dwqa_is_ask_form() && dwqa_is_captcha_enable_in_submit_question() ) ) : ?>
 <p class="dwqa-captcha">
 	<?php 

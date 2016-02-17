@@ -3,7 +3,7 @@
  * The template for displaying content comment
  *
  * @package DW Question & Answer
- * @since DW Question & Answer 1.4.0
+ * @since DW Question & Answer 1.4.2
  */
 ?>
 

@@ -3,7 +3,7 @@
  * The template for editing question and answer
  *
  * @package DW Question & Answer
- * @since DW Question & Answer 1.4.0
+ * @since DW Question & Answer 1.4.2
  */
 ?>
 

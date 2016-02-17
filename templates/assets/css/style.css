@@ -158,6 +158,10 @@
 	float: right;
 }
 
+.dwqa-question-item .dwqa-question-actions label {
+	display: inline-block;
+}
+
 .dwqa-question-item .dwqa-question-actions a {
 	margin-left: 10px;
 }
@@ -205,6 +209,11 @@
 
 .dwqa-question-tag + .dwqa-question-status {
 	float: right;
+}
+
+.dwqa-question-item .dwqa-question-meta .dwqa-question-status select {
+	display: inline-block;
+	width: auto;
 }
 
 /**
@@ -313,6 +322,7 @@
 
 .dwqa-answer-form .dwqa-select {
 	float: left;
+	width: auto;
 }
 
 .dwqa-answer-form textarea {
@@ -337,6 +347,7 @@
 .dwqa-comments-list .dwqa-comment {
 	border-bottom: 1px solid #ddd;
 	padding: 10px 0;
+	position: relative;
 }
 
 .dwqa-comments-list .dwqa-comment p:last-child {
@@ -349,6 +360,14 @@
 
 .dwqa-comments-list .dwqa-comment-meta {
 	font-size: small;
+}
+
+.dwqa-comments-list .dwqa-comment-meta .avatar {
+	position: inherit;
+	margin-right: 5px;
+	display: inline-block;
+	width: 12px;
+	height: 12px;
 }
 
 .dwqa-comment-form {
@@ -367,15 +386,21 @@
 
 .dwqa-comment-form .dwqa-comment-show-button #submit {
 	display: block;
+	margin-top: 10px;
 }
 
 .dwqa-comment-form .comment-form textarea {
 	background: #fff;
 	width: 100% !important;
-	height: 30px;
+	height: 45px;
 	box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
+	font-size: 14px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	border: 1px solid #ddd;
+	padding: 10px 15px;
+	display: block;
 }
 
 .dwqa-comment-form textarea {
@@ -491,7 +516,7 @@
 
 .dwqa-question-filter .dwqa-sort-by {
 	float: right;
-	max-width: 100px;
+	width: auto;
 }
 
 /* Question List */

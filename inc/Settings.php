@@ -543,6 +543,12 @@ function dwqa_posts_per_page_display(){
 	echo '<p><input type="text" name="dwqa_options[posts-per-page]" class="small-text" value="'.$posts_per_page.'" > <span class="description">'.__( 'questions.','dwqa' ).'</span></p>';
 }
 
+function dwqa_answer_per_page_display() {
+	global $dwqa_general_settings;
+	$posts_per_page = isset( $dwqa_general_settings['answer-per-page'] ) ?  $dwqa_general_settings['answer-per-page'] : 5;
+	echo '<p><input id="dwqa_setting_answers_per_page" type="text" name="dwqa_options[answer-per-page]" class="small-text" value="'.$posts_per_page.'" > <span class="description">'.__( 'answers.','dwqa' ).'</span></p>';
+}
+
 function dwqa_enable_private_question_display() {
 	global $dwqa_general_settings;
 	
@@ -681,6 +687,11 @@ class DWQA_Settings {
 		add_action( 'admin_init', array( $this, 'register_settings' ) );
 		add_action( 'updated_option', array( $this, 'update_options' ), 10, 3 );
 		add_action( 'wp_loaded', array( $this, 'flush_rules' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_script' ) );
+	}
+
+	public function enqueue_script() {
+		wp_enqueue_script( 'dwqa-admin-settings-page', DWQA_URI . 'assets/js/admin-settings-page.js', array( 'jquery' ), true );
 	}
 
 	public function update_options( $option, $old_value, $value ) {
@@ -822,6 +833,78 @@ class DWQA_Settings {
 //			'dwqa-time-settings'
 //		);
 
+		// Question Settings
+		add_settings_section(
+			'dwqa-misc-settings',
+			__( 'Question Settings', 'dwqa' ),
+			false,
+			'dwqa-settings'
+		);
+
+		add_settings_field( 
+			'dwqa_options[posts-per-page]', 
+			__( 'Archive Page Show At Most','dwqa' ), 
+			'dwqa_posts_per_page_display', 
+			'dwqa-settings', 
+			'dwqa-misc-settings' 
+		);
+
+		add_settings_field( 
+			'dwqa_options[enable-review-question]', 
+			__( 'Before A Question Appears', 'dwqa' ), 
+			'dwqa_enable_review_question_mode', 
+			'dwqa-settings', 
+			'dwqa-misc-settings'
+		);
+
+		add_settings_field( 
+			'dwqa_options[enable-private-question]', 
+			__( 'Other Question Settings', 'dwqa' ), 
+			'dwqa_enable_private_question_display', 
+			'dwqa-settings', 
+			'dwqa-misc-settings'
+		);
+
+		add_settings_field(
+			'dwqa_options[disable-question-status]',
+			'',
+			'dwqa_disable_question_status',
+			'dwqa-settings',
+			'dwqa-misc-settings'
+		);
+
+		add_settings_field(
+			'dwqa_options[show-status-icon]',
+			'',
+			'dwqa_show_status_icon',
+			'dwqa-settings',
+			'dwqa-misc-settings'
+		);
+
+		// Answer Settings
+		add_settings_section(
+			'dwqa-answer-settings',
+			__( 'Answer Settings', 'dwqa' ),
+			false,
+			'dwqa-settings'
+		);
+
+		add_settings_field(
+			'dwqa_options[show-all-answers-on-single-question-page]',
+			__( 'Answer Listing', 'dwqa' ),
+			'dwqa_show_all_answers',
+			'dwqa-settings',
+			'dwqa-answer-settings'
+		);
+
+		add_settings_field( 
+			'dwqa_options[answer-per-page]', 
+			false, 
+			'dwqa_answer_per_page_display', 
+			'dwqa-settings', 
+			'dwqa-answer-settings' 
+		);
+
 		//Captcha Setting
 
 		add_settings_section( 
@@ -888,61 +971,6 @@ class DWQA_Settings {
 			'dwqa_question_tag_rewrite_display', 
 			'dwqa-settings', 
 			'dwqa-permalink-settings'
-		);
-
-		add_settings_section(
-			'dwqa-misc-settings',
-			__( 'Misc Settings', 'dwqa' ),
-			false,
-			'dwqa-settings'
-		);
-
-		add_settings_field( 
-			'dwqa_options[posts-per-page]', 
-			__( 'Archive Page Show At Most','dwqa' ), 
-			'dwqa_posts_per_page_display', 
-			'dwqa-settings', 
-			'dwqa-misc-settings' 
-		);
-
-		add_settings_field( 
-			'dwqa_options[enable-review-question]', 
-			__( 'Before A Question Appears', 'dwqa' ), 
-			'dwqa_enable_review_question_mode', 
-			'dwqa-settings', 
-			'dwqa-misc-settings'
-		);
-
-		add_settings_field( 
-			'dwqa_options[enable-private-question]', 
-			__( 'Other Question Settings', 'dwqa' ), 
-			'dwqa_enable_private_question_display', 
-			'dwqa-settings', 
-			'dwqa-misc-settings'
-		);
-
-		add_settings_field(
-			'dwqa_options[disable-question-status]',
-			'',
-			'dwqa_disable_question_status',
-			'dwqa-settings',
-			'dwqa-misc-settings'
-		);
-
-		add_settings_field(
-			'dwqa_options[show-status-icon]',
-			'',
-			'dwqa_show_status_icon',
-			'dwqa-settings',
-			'dwqa-misc-settings'
-		);
-
-		add_settings_field(
-			'dwqa_options[show-all-answers-on-single-question-page]',
-			__( 'Answer Listing', 'dwqa' ),
-			'dwqa_show_all_answers',
-			'dwqa-settings',
-			'dwqa-misc-settings'
 		);
 
 		register_setting( 'dwqa-settings', 'dwqa_options' );

@@ -652,6 +652,7 @@ class DWQA_Filter {
 		if ( $query->is_single() && $query->query_vars['post_type'] == $dwqa->question->get_slug() ) {
 			$question = $posts[0];
 			$ans_cur_page = isset( $_GET['ans-page'] ) ? intval( $_GET['ans-page'] ) : 1;
+			$posts_per_page = isset( $dwqa_general_settings['answer-per-page'] ) ?  $dwqa_general_settings['answer-per-page'] : 5;
 			// We will include the all answers of this question here;
 			$args = array(
 				'post_type' 		=> 'dwqa-answer',
@@ -669,7 +670,7 @@ class DWQA_Filter {
 			if ( isset( $dwqa_general_settings['show-all-answers-on-single-question-page'] ) && $dwqa_general_settings['show-all-answers-on-single-question-page'] ) {
 				$args['nopaging'] = true;
 			} else {
-				$args['posts_per_page'] = get_option( 'posts_per_page' );
+				$args['posts_per_page'] = $posts_per_page;
 			}
 
 			$best_answer = dwqa_get_the_best_answer( $question->ID );

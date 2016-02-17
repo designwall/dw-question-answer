@@ -87,7 +87,7 @@ class DWQA_Notifications {
 		}
 
 		//Admin email
-		$admin_email = get_bloginfo( 'admin_email' );;
+		$admin_email = $admin_email = $this->get_admin_email( 'answer' );
 		$enable_send_copy = get_option( 'dwqa_subscrible_send_copy_to_admin' );
 
 		$question_id = get_post_meta( $answer_id, '_question', true );
@@ -240,9 +240,11 @@ class DWQA_Notifications {
 
 		if ( 1 == $comment->comment_approved && ( 'dwqa-question' == $parent || 'dwqa-answer' == $parent ) ) { 
 			if ( $parent == 'dwqa-question' ) {
-				$enabled = get_option( 'dwqa_subscrible_enable_new_comment_question_notification', 1 );        
+				$enabled = get_option( 'dwqa_subscrible_enable_new_comment_question_notification', 1 );
+				$admin_email = $this->get_admin_email( 'comment-question' );      
 			} elseif ( $parent == 'dwqa-answer' ) {
 				$enabled = get_option( 'dwqa_subscrible_enable_new_comment_answer_notification', 1 );
+				$admin_email = $this->get_admin_email( 'comment-answer' );
 			}
 		
 			if ( ! $enabled ) {
@@ -382,8 +384,25 @@ class DWQA_Notifications {
 		}
 	}
 	
-	public function get_admin_email(){
-		$admin_email = get_option( 'dwqa_subscrible_sendto_address' );
+	public function get_admin_email( $type = 'question' ){
+
+		$admin_email = false;
+		if ( 'question' == $type ) {
+			$admin_email = get_option( 'dwqa_subscrible_sendto_address' );
+		}
+
+		if ( 'answer' == $type ) {
+			$admin_email = get_option( 'dwqa_subscrible_new_answer_forward' );
+		}
+
+		if ( 'comment-question' == $type ) {
+			$admin_email = get_option( 'dwqa_subscrible_new_comment_question_forward' );
+		}
+
+		if ( 'comment-answer' == $type ) {
+			$admin_email = get_option( 'dwqa_subscrible_new_comment_answer_forward' );
+		}
+
 		if ( ! $admin_email ) {
 			$admin_email = get_bloginfo( 'admin_email' );
 		}

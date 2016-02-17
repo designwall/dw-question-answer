@@ -213,17 +213,6 @@ function dwqa_question_comment_callback( $comment, $args, $depth ) {
 	dwqa_load_template( 'content', 'comment' );
 }
 
-function dwqa_title( $title, $id ){
-	if ( 'dwqa-question' == get_post_type( $id ) ) {
-		if ( 'pending' == get_post_status( $id ) ) {
-			$pending_title_format = apply_filters( 'pending_title_format', __( 'Pending: %s' ) );
-			$title = sprintf( $pending_title_format, $title );
-		}
-	}
-	return $title;
-}
-add_action( 'the_title', 'dwqa_title', 10, 2 );
-
 function dwqa_body_class( $classes ) {
 	global $post, $dwqa_options;
 	if ( ( $dwqa_options['pages']['archive-question'] && is_page( $dwqa_options['pages']['archive-question'] )  )

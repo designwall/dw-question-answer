@@ -37,6 +37,10 @@ function dwqa_paged_query() {
 	_deprecated_function( __FUNCTION__, '1.4.2', '' );
 }
 
+function dwqa_title( $title ) {
+	_deprecated_function( __FUNCTION__, '1.4.2.1', '' );
+}
+
 class Walker_Category_DWQA {
 	public function __construct() {
 		_deprecated_function( __FUNCTION__, '1.3.4', 'DWQA_Walker_Category' );

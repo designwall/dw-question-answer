@@ -503,13 +503,13 @@ function dwqa_permission_display(){
 function dwqa_captcha_in_question_display() {
 	global $dwqa_general_settings;
 
-	echo '<p><input type="checkbox" name="dwqa_options[captcha-in-question]"  id="dwqa_options_captcha_in_question" value="1" '.checked( 1, (isset($dwqa_general_settings['captcha-in-question'] ) ? $dwqa_general_settings['captcha-in-question'] : false ) , false ) .'><span class="description">'.__( 'Enable captcha on submit question page','dwqa' ).'</span></p>';
+	echo '<p><input type="checkbox" name="dwqa_options[captcha-in-question]"  id="dwqa_options_captcha_in_question" value="1" '.checked( 1, (isset($dwqa_general_settings['captcha-in-question'] ) ? $dwqa_general_settings['captcha-in-question'] : false ) , false ) .'><span class="description">'.__( 'Enable captcha on submit question page.','dwqa' ).'</span></p>';
 }
 
 function dwqa_captcha_in_single_question_display() {
 	global $dwqa_general_settings;
 	
-	echo '<p><input type="checkbox" name="dwqa_options[captcha-in-single-question]"  id="dwqa_options_captcha_in_question" value="1" '.checked( 1, (isset($dwqa_general_settings['captcha-in-single-question'] ) ? $dwqa_general_settings['captcha-in-single-question'] : false ) , false ) .'><span class="description">'.__( 'Enable captcha on single question page','dwqa' ).'</span></p>';
+	echo '<p><input type="checkbox" name="dwqa_options[captcha-in-single-question]"  id="dwqa_options_captcha_in_question" value="1" '.checked( 1, (isset($dwqa_general_settings['captcha-in-single-question'] ) ? $dwqa_general_settings['captcha-in-single-question'] : false ) , false ) .'><span class="description">'.__( 'Enable captcha on single question page.','dwqa' ).'</span></p>';
 }
 
 function dwqa_captcha_google_pubic_key_display() {
@@ -595,7 +595,7 @@ function dwqa_single_template_options() {
 }
 
 function dwqa_permalink_section_layout() {
-	printf( __( 'If you like, you may enter custom structure for your single question, question category and question tag URLs here. For example, using `topic` as your question base would make your question links like <code>%s</code>. If you leave these blank the default will be used.', 'dwqa' ), home_url( 'topic/question-name' ) );
+	printf( __( 'If you like, you may enter custom structure for your single question, question category and question tag URLs here. For example, using <code>topic</code> as your question base would make your question links like <code>%s</code>. If you leave these blank the default will be used.', 'dwqa' ), home_url( 'topic/question-name/' ) );
 }
 
 function dwqa_get_rewrite_slugs() {
@@ -832,6 +832,14 @@ class DWQA_Settings {
 		);
 
 		add_settings_field( 
+			'dwqa_options[captcha-type]', 
+			__( 'Type', 'dwqa' ), 
+			'dwqa_captcha_select_type_display',
+			'dwqa-settings', 
+			'dwqa-captcha-settings'
+		);
+
+		add_settings_field( 
 			'dwqa_options[captcha-in-question]', 
 			__( 'Ask Question Page', 'dwqa' ), 
 			'dwqa_captcha_in_question_display', 
@@ -843,14 +851,6 @@ class DWQA_Settings {
 			'dwqa_options[captcha-in-single-question]', 
 			__( 'Single Question Page', 'dwqa' ), 
 			'dwqa_captcha_in_single_question_display', 
-			'dwqa-settings', 
-			'dwqa-captcha-settings'
-		);
-
-		add_settings_field( 
-			'dwqa_options[captcha-type]', 
-			__( 'Captcha Type', 'dwqa' ), 
-			'dwqa_captcha_select_type_display',
 			'dwqa-settings', 
 			'dwqa-captcha-settings'
 		);
@@ -868,7 +868,7 @@ class DWQA_Settings {
 
 		add_settings_field( 
 			'dwqa_options[question-rewrite]', 
-			__( 'Question base', 'dwqa' ), 
+			__( 'Question Base', 'dwqa' ), 
 			'dwqa_question_rewrite_display', 
 			'dwqa-settings', 
 			'dwqa-permalink-settings'
@@ -876,7 +876,7 @@ class DWQA_Settings {
 
 		add_settings_field( 
 			'dwqa_options[question-category-rewrite]', 
-			__( 'Single category base', 'dwqa' ), 
+			__( 'Question Category Base', 'dwqa' ), 
 			'dwqa_question_category_rewrite_display', 
 			'dwqa-settings', 
 			'dwqa-permalink-settings'
@@ -884,7 +884,7 @@ class DWQA_Settings {
 
 		add_settings_field( 
 			'dwqa_options[question-tag-rewrite]', 
-			__( 'Single tag base', 'dwqa' ), 
+			__( 'Question Tag Base', 'dwqa' ), 
 			'dwqa_question_tag_rewrite_display', 
 			'dwqa-settings', 
 			'dwqa-permalink-settings'
@@ -899,7 +899,7 @@ class DWQA_Settings {
 
 		add_settings_field( 
 			'dwqa_options[posts-per-page]', 
-			__( 'Archive page show at most','dwqa' ), 
+			__( 'Archive Page Show At Most','dwqa' ), 
 			'dwqa_posts_per_page_display', 
 			'dwqa-settings', 
 			'dwqa-misc-settings' 
@@ -907,7 +907,7 @@ class DWQA_Settings {
 
 		add_settings_field( 
 			'dwqa_options[enable-review-question]', 
-			__( 'Before a question appears', 'dwqa' ), 
+			__( 'Before A Question Appears', 'dwqa' ), 
 			'dwqa_enable_review_question_mode', 
 			'dwqa-settings', 
 			'dwqa-misc-settings'
@@ -915,7 +915,7 @@ class DWQA_Settings {
 
 		add_settings_field( 
 			'dwqa_options[enable-private-question]', 
-			__( 'Other question settings', 'dwqa' ), 
+			__( 'Other Question Settings', 'dwqa' ), 
 			'dwqa_enable_private_question_display', 
 			'dwqa-settings', 
 			'dwqa-misc-settings'
@@ -939,7 +939,7 @@ class DWQA_Settings {
 
 		add_settings_field(
 			'dwqa_options[show-all-answers-on-single-question-page]',
-			__( 'Answer listing', 'dwqa' ),
+			__( 'Answer Listing', 'dwqa' ),
 			'dwqa_show_all_answers',
 			'dwqa-settings',
 			'dwqa-misc-settings'
@@ -1112,8 +1112,8 @@ class DWQA_Settings {
 			<?php $active_tab = isset( $_GET[ 'tab' ] ) ? esc_html( $_GET['tab'] ) : 'general'; ?>  
 			<h2 class="nav-tab-wrapper">  
 				<a href="?post_type=dwqa-question&amp;page=dwqa-settings&amp;tab=general" class="nav-tab <?php echo $active_tab == 'general' ? 'nav-tab-active' : ''; ?>"><?php _e( 'General','dwqa' ); ?></a> 
-				<a href="?post_type=dwqa-question&amp;page=dwqa-settings&amp;tab=email" class="nav-tab <?php echo $active_tab == 'email' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Notification','dwqa' ); ?></a> 
-				<a href="?post_type=dwqa-question&amp;page=dwqa-settings&amp;tab=permission" class="nav-tab <?php echo $active_tab == 'permission' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Permission','dwqa' ); ?></a>
+				<a href="?post_type=dwqa-question&amp;page=dwqa-settings&amp;tab=email" class="nav-tab <?php echo $active_tab == 'email' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Emails','dwqa' ); ?></a> 
+				<a href="?post_type=dwqa-question&amp;page=dwqa-settings&amp;tab=permission" class="nav-tab <?php echo $active_tab == 'permission' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Permissions','dwqa' ); ?></a>
 				<a href="?post_type=dwqa-question&amp;page=dwqa-settings&amp;tab=licenses" class="nav-tab <?php echo $active_tab == 'licenses' ? 'nav-tab-active' : ''; ?>"><?php _e( 'Licenses','dwqa' ); ?></a> 
 			</h2>  
 			  

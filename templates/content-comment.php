@@ -11,7 +11,7 @@
 <div class="dwqa-comment">
 	<div class="dwqa-comment-meta">
 		<?php $user = get_user_by( 'id', $comment->user_id ); ?>
-		<a href="<?php echo dwqa_get_author_link( $comment->user_id ); ?>"><?php echo get_comment_author( $comment->ID ) ?></a>
+		<a href="<?php echo dwqa_get_author_link( $comment->user_id ); ?>"><?php echo get_avatar( $comment->user_id, 16 ) ?><?php echo get_comment_author( $comment->ID ) ?></a>
 		<?php dwqa_print_user_badge( $comment->user_id, true ); ?>
 		<?php printf( _x( 'replied %s ago', '%s = human-readable time difference', 'dwqa' ), human_time_diff( get_comment_time( 'U' ), current_time( 'timestamp' ) ) ); ?>
 		<div class="dwqa-comment-actions">

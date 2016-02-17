@@ -392,7 +392,7 @@ function dwqa_permission_display(){
 	$roles = get_editable_roles();
 	?>
 	<input type="hidden" id="reset-permission-nonce" name="reset-permission-nonce" value="<?php echo wp_create_nonce( '_dwqa_reset_permission' ); ?>">
-	<h3><?php _e( 'Question','dwqa' ) ?></h3>
+	<h3><?php _e( 'Questions','dwqa' ) ?></h3>
 	<table class="table widefat dwqa-permission-settings">
 		<thead>
 			<tr>
@@ -428,7 +428,7 @@ function dwqa_permission_display(){
 	<p class="reset-button-container align-right" style="text-align:right">
 		<button data-type="question" class="button reset-permission"><?php _e( 'Reset Default', 'dwqa' ); ?></button>
 	</p>
-	<h3><?php _e( 'Answer', 'dwqa' ); ?></h3>
+	<h3><?php _e( 'Answers', 'dwqa' ); ?></h3>
 	<table class="table widefat dwqa-permission-settings">
 		<thead>
 			<tr>
@@ -464,7 +464,7 @@ function dwqa_permission_display(){
 	<p class="reset-button-container align-right" style="text-align:right">
 		<button data-type="answer" class="button reset-permission"><?php _e( 'Reset Default', 'dwqa' ); ?></button>
 	</p>
-	<h3><?php _e( 'Comment','dwqa' ) ?></h3>
+	<h3><?php _e( 'Comments','dwqa' ) ?></h3>
 	<table class="table widefat dwqa-permission-settings">
 		<thead>
 			<tr>
@@ -1325,6 +1325,7 @@ class DWQA_Settings {
 					break;
 				case 'licenses':
 					settings_fields( 'dwqa-addons' );
+					echo '<p class="description">'.sprintf( __( 'Manage <a href="%s">DWQA Extensions</a> license keys', 'dwqa' ), add_query_arg( array( 'post_type' => 'dwqa-question', 'page' => 'dwqa-extensions' ), admin_url( 'edit.php' ) ) ).'</p>';
 					do_settings_sections( 'dwqa-addons-settings' );
 					submit_button();
 					break;

@@ -193,10 +193,10 @@ class DWQA_Admin_Welcome {
 				<h3 class="wp-people-group"><?php _e( 'Contributors', 'dwqa' ); ?></h3>
 				<?php foreach( $contributors as $contributor ) : ?>
 					<li class="wp-person" id="wp-person-nacin">
-						<a href="<?php echo esc_url( $contributor->url ) ?>">
+						<a href="<?php echo esc_url( $contributor->html_url ) ?>">
 							<img width="60" height="60" src="<?php echo esc_url( $contributor->avatar_url ) ?>" class="gravatar" alt="<?php echo esc_html( $contributor->login ) ?>">
 						</a>
-						<a href="<?php echo esc_url( $contributor->url ) ?>"><?php echo esc_html( $contributor->login ) ?></a>
+						<a href="<?php echo esc_url( $contributor->html_url ) ?>"><?php echo esc_html( $contributor->login ) ?></a>
 					</li>
 				<?php endforeach; ?>
 			<?php endif; ?>

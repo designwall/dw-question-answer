@@ -146,7 +146,7 @@ class DWQA_Handle {
 				dwqa_add_notice( __( 'This post is not answer.', 'dwqa' ), 'error' );
 			}
 
-			do_action( 'dwqa_prepare_update_question', $answer_id );
+			do_action( 'dwqa_prepare_insert_question', $answer_id );
 
 			if ( dwqa_count_notices( 'error' ) > 0 ) {
 				return false;

@@ -1,150 +1,156 @@
-# Copyright (C) 2016 DesignWall
-# This file is distributed under the same license as the DW Question Answer package.
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: DW Question Answer 1.4.2\n"
-"Report-Msgid-Bugs-To: "
-"https://wordpress.org/support/plugin/dw-question-answer\n"
-"POT-Creation-Date: 2016-02-17 09:46:37+00:00\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: DW Question Answer\n"
+"POT-Creation-Date: 2016-02-18 16:21+0700\n"
+"PO-Revision-Date: 2016-02-18 16:20+0700\n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"X-Generator: grunt-wp-i18n 0.5.3\n"
+"X-Generator: Poedit 1.8.6\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: dw-question-answer.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: dw-question-answer.php:108 inc/Filter.php:80
+#: dw-question-answer.php:101 inc/Filter.php:80
 msgid "Next"
 msgstr ""
 
-#: dw-question-answer.php:109
+#: dw-question-answer.php:102
 msgid "Prev"
 msgstr ""
 
-#: dw-question-answer.php:111
+#: dw-question-answer.php:104
 msgid "Please enter your question"
 msgstr ""
 
-#: dw-question-answer.php:112
+#: dw-question-answer.php:105
 msgid "Your question must be at least 2 characters in length"
 msgstr ""
 
-#: dw-question-answer.php:113
+#: dw-question-answer.php:106
 msgid "Enter a valid email address"
 msgstr ""
 
-#: dw-question-answer.php:114
+#: dw-question-answer.php:107
 msgid "Enter a question title"
 msgstr ""
 
-#: dw-question-answer.php:115
+#: dw-question-answer.php:108
 msgid "Please add your name"
 msgstr ""
 
-#: dw-question-answer.php:116
+#: dw-question-answer.php:109
 msgid "Please enter your answer"
 msgstr ""
 
-#: dw-question-answer.php:117 inc/Handle.php:189
+#: dw-question-answer.php:110 inc/Handle.php:189
 msgid "Please enter your comment content"
 msgstr ""
 
-#: dw-question-answer.php:118
+#: dw-question-answer.php:111
 msgid "Comment must have more than 2 characters"
 msgstr ""
 
-#: dw-question-answer.php:119
+#: dw-question-answer.php:112
 msgid "Not found! Try another keyword."
 msgstr ""
 
-#: dw-question-answer.php:120
+#: dw-question-answer.php:113
 msgid "Or press <strong>ENTER</strong> to get more questions"
 msgstr ""
 
-#: dw-question-answer.php:121 inc/Editor.php:119
+#: dw-question-answer.php:114 inc/Editor.php:119
 msgid "Update"
 msgstr ""
 
-#: dw-question-answer.php:122 inc/Posts/Answer.php:315 inc/Posts/Base.php:320
+#: dw-question-answer.php:115 inc/Posts/Answer.php:315 inc/Posts/Base.php:320
 #: inc/Settings.php:402 inc/Template.php:58 inc/Template.php:156
 #: inc/Template.php:173 templates/content-comment.php:19
 msgid "Edit"
 msgstr ""
 
-#: dw-question-answer.php:123 inc/Editor.php:120
+#: dw-question-answer.php:116 inc/Editor.php:120
 msgid "Cancel"
 msgstr ""
 
-#: dw-question-answer.php:124
+#: dw-question-answer.php:117
 msgid "Do you want to delete this comment?"
 msgstr ""
 
-#: dw-question-answer.php:125
+#: dw-question-answer.php:118
 msgid "Do you want to delete this answer?"
 msgstr ""
 
-#: dw-question-answer.php:126
+#: dw-question-answer.php:119
 msgid "Do you want to update this answer?"
 msgstr ""
 
-#: dw-question-answer.php:127
+#: dw-question-answer.php:120
 msgid "Do you want to report this answer?"
 msgstr ""
 
-#: dw-question-answer.php:129
+#: dw-question-answer.php:122
 msgid "Report"
 msgstr ""
 
-#: dw-question-answer.php:130
+#: dw-question-answer.php:123
 msgid "Undo"
 msgstr ""
 
-#: dw-question-answer.php:131
+#: dw-question-answer.php:124
 msgid "This answer will be marked as spam and hidden. Do you want to flag it?"
 msgstr ""
 
-#: dw-question-answer.php:132
+#: dw-question-answer.php:125
 msgid "This answer was flagged as spam. Do you want to show it"
 msgstr ""
 
-#: dw-question-answer.php:133
+#: dw-question-answer.php:126
 msgid "This answer was flagged as spam"
 msgstr ""
 
-#: dw-question-answer.php:134
+#: dw-question-answer.php:127
 msgid "hide"
 msgstr ""
 
-#: dw-question-answer.php:135
+#: dw-question-answer.php:128
 msgid "show"
 msgstr ""
 
-#: dw-question-answer.php:137
+#: dw-question-answer.php:130
 msgid "Follow This Question"
 msgstr ""
 
-#: dw-question-answer.php:138
+#: dw-question-answer.php:131
 msgid "Unfollow This Question"
 msgstr ""
 
-#: dw-question-answer.php:139
+#: dw-question-answer.php:132
 msgid "Pin this question to top"
 msgstr ""
 
-#: dw-question-answer.php:140
+#: dw-question-answer.php:133
 msgid "Unpin this question from top"
 msgstr ""
 
-#: dw-question-answer.php:143
+#: dw-question-answer.php:136
 msgid "Do you want to delete this question?"
 msgstr ""
 
-#: dw-question-answer.php:156
+#: dw-question-answer.php:152
 msgid "DWQA Questions"
 msgstr ""
 
-#: dw-question-answer.php:173
+#: dw-question-answer.php:169
 msgid "DWQA Ask Question"
 msgstr ""
 
@@ -164,11 +170,15 @@ msgstr ""
 msgid "DWQA Embed Question"
 msgstr ""
 
-#: inc/Admin/Extensions.php:41
+#: inc/Admin/Extensions.php:37
+msgid "DWQA Widgets"
+msgstr ""
+
+#: inc/Admin/Extensions.php:47
 msgid "Extensions"
 msgstr ""
 
-#: inc/Admin/Extensions.php:69
+#: inc/Admin/Extensions.php:75
 msgid "Get It Now!"
 msgstr ""
 
@@ -185,14 +195,15 @@ msgid "DW Question & Answer Credits"
 msgstr ""
 
 #: inc/Admin/Welcome.php:54
+#, php-format
 msgid "Welcome to DW Question & Answer %s"
 msgstr ""
 
 #: inc/Admin/Welcome.php:55
 msgid ""
 "Thank you for installing our WordPress plugin. If you have any question "
-"about this theme, please submit to our <a target=\"_blank\" "
-"href=\"https://www.designwall.com/question/\">Q&A section</a>."
+"about this theme, please submit to our <a target=\"_blank\" href=\"https://"
+"www.designwall.com/question/\">Q&A section</a>."
 msgstr ""
 
 #: inc/Admin/Welcome.php:63
@@ -217,7 +228,7 @@ msgstr ""
 
 #: inc/Ajax.php:29 inc/Ajax.php:47 inc/Ajax.php:83 inc/Ajax.php:113
 #: inc/Ajax.php:132 inc/Ajax.php:150 inc/Ajax.php:215 inc/Handle.php:242
-#: inc/Handle.php:428 inc/Permission.php:286 inc/Status.php:315
+#: inc/Handle.php:428 inc/Permission.php:286 inc/Status.php:319
 msgid "Are you cheating huh?"
 msgstr ""
 
@@ -421,7 +432,7 @@ msgstr ""
 msgid "Your question is waiting moderator."
 msgstr ""
 
-#: inc/Handle.php:439 inc/Status.php:343
+#: inc/Handle.php:439 inc/Status.php:347
 msgid "You do not have permission to edit question"
 msgstr ""
 
@@ -436,8 +447,8 @@ msgstr ""
 #: inc/Helptab.php:45
 msgid ""
 "DW Question Answer is a WordPress Plugin which helps you build a Question & "
-"Answer system on your WordPress sites. The plugin is easy to install and "
-"set up. Let start building up your community with this WordPress question & "
+"Answer system on your WordPress sites. The plugin is easy to install and set "
+"up. Let start building up your community with this WordPress question & "
 "answer system."
 msgstr ""
 
@@ -482,27 +493,27 @@ msgstr ""
 msgid "Status"
 msgstr ""
 
-#: inc/Metaboxes.php:15 inc/Status.php:300
+#: inc/Metaboxes.php:15 inc/Status.php:304
 #: templates/archive-question-filter.php:18
 #: templates/content-single-question.php:32
 msgid "Open"
 msgstr ""
 
-#: inc/Metaboxes.php:16 inc/Status.php:283
+#: inc/Metaboxes.php:16 inc/Status.php:287
 msgid "Pending"
 msgstr ""
 
-#: inc/Metaboxes.php:17 inc/Status.php:280
+#: inc/Metaboxes.php:17 inc/Status.php:284
 #: templates/archive-question-filter.php:19
 #: templates/content-single-question.php:34
 msgid "Resolved"
 msgstr ""
 
-#: inc/Metaboxes.php:18 inc/Status.php:286
+#: inc/Metaboxes.php:18 inc/Status.php:290
 msgid "Re-Open"
 msgstr ""
 
-#: inc/Metaboxes.php:19 inc/Status.php:289
+#: inc/Metaboxes.php:19 inc/Status.php:293
 #: templates/archive-question-filter.php:20
 #: templates/content-single-question.php:33
 msgid "Closed"
@@ -590,15 +601,26 @@ msgstr ""
 msgid "Are you cheating, huh?"
 msgstr ""
 
+#: inc/Posts/Base.php:18
+msgid "What "
+msgstr ""
+
+#: inc/Posts/Base.php:46
+msgid "You voted for this "
+msgstr ""
+
 #: inc/Posts/Base.php:242
+#, php-format
 msgid "Posts by %s"
 msgstr ""
 
 #: inc/Posts/Base.php:251 inc/Posts/Base.php:255
+#, php-format
 msgid "%s answered <span class=\"dwqa-date\">%s</span> ago"
 msgstr ""
 
 #: inc/Posts/Base.php:257
+#, php-format
 msgid "%s asked <span class=\"dwqa-date\">%s</span> ago"
 msgstr ""
 
@@ -610,11 +632,16 @@ msgstr ""
 msgid "DWQA Post"
 msgstr ""
 
+#: inc/Posts/Base.php:318
+msgctxt "dwqa"
+msgid "Add New"
+msgstr ""
+
 #: inc/Posts/Base.php:319
 msgid "Add New"
 msgstr ""
 
-#: inc/Posts/Base.php:321 inc/Status.php:292
+#: inc/Posts/Base.php:321 inc/Status.php:296
 msgid "New"
 msgstr ""
 
@@ -648,6 +675,16 @@ msgstr ""
 
 #: inc/Posts/Question.php:101
 msgid "Question"
+msgstr ""
+
+#: inc/Posts/Question.php:196
+msgctxt "taxonomy general name"
+msgid "Question Categories"
+msgstr ""
+
+#: inc/Posts/Question.php:197
+msgctxt "taxonomy singular name"
+msgid "Question Category"
 msgstr ""
 
 #: inc/Posts/Question.php:198
@@ -684,6 +721,16 @@ msgstr ""
 
 #: inc/Posts/Question.php:206
 msgid "Question Category"
+msgstr ""
+
+#: inc/Posts/Question.php:225
+msgctxt "taxonomy general name"
+msgid "Question Tags"
+msgstr ""
+
+#: inc/Posts/Question.php:226
+msgctxt "taxonomy singular name"
+msgid "Question Tag"
 msgstr ""
 
 #: inc/Posts/Question.php:227
@@ -793,7 +840,8 @@ msgid "hours"
 msgstr ""
 
 #: inc/Settings.php:31
-msgid "A period of time in which new questions are highlighted and marked as New"
+msgid ""
+"A period of time in which new questions are highlighted and marked as New"
 msgstr ""
 
 #: inc/Settings.php:36
@@ -812,8 +860,8 @@ msgstr ""
 
 #: inc/Settings.php:52
 msgid ""
-"A page where users can submit questions. The "
-"<code>[dwqa-submit-question-form]</code> short code must be on this page."
+"A page where users can submit questions. The <code>[dwqa-submit-question-"
+"form]</code> short code must be on this page."
 msgstr ""
 
 #: inc/Settings.php:65
@@ -822,9 +870,9 @@ msgstr ""
 
 #: inc/Settings.php:70
 msgid ""
-"This page will be redirected when users without authority click on a "
-"private question. You can customize the message of this page in.If not, a "
-"default 404 page will be used."
+"This page will be redirected when users without authority click on a private "
+"question. You can customize the message of this page in.If not, a default "
+"404 page will be used."
 msgstr ""
 
 #: inc/Settings.php:87
@@ -940,11 +988,12 @@ msgid ""
 msgstr ""
 
 #: inc/Settings.php:607
+#, php-format
 msgid ""
 "If you like, you may enter custom structure for your single question, "
 "question category and question tag URLs here. For example, using "
-"<code>topic</code> as your question base would make your question links "
-"like <code>%s</code>. If you leave these blank the default will be used."
+"<code>topic</code> as your question base would make your question links like "
+"<code>%s</code>. If you leave these blank the default will be used."
 msgstr ""
 
 #: inc/Settings.php:732
@@ -1104,6 +1153,7 @@ msgid "Save all changes"
 msgstr ""
 
 #: inc/Settings.php:1328
+#, php-format
 msgid "Manage <a href=\"%s\">DWQA Extensions</a> license keys"
 msgstr ""
 
@@ -1145,6 +1195,7 @@ msgid "Link to"
 msgstr ""
 
 #: inc/Shortcode.php:188
+#, php-format
 msgid "%d person who is following this question"
 msgid_plural "%d people who are following this question"
 msgstr[0] ""
@@ -1154,19 +1205,19 @@ msgstr[1] ""
 msgid "Question List"
 msgstr ""
 
-#: inc/Status.php:296
+#: inc/Status.php:300
 msgid "Answered"
 msgstr ""
 
-#: inc/Status.php:320
+#: inc/Status.php:324
 msgid "Missing post ID"
 msgstr ""
 
-#: inc/Status.php:333
+#: inc/Status.php:337
 msgid "Post does not exist"
 msgstr ""
 
-#: inc/Status.php:338
+#: inc/Status.php:342
 msgid "Invalid post status"
 msgstr ""
 
@@ -1192,75 +1243,81 @@ msgstr ""
 msgid "Subscribe"
 msgstr ""
 
-#: inc/Template.php:219
-msgid "Pending: %s"
-msgstr ""
-
-#: inc/Template.php:448
+#: inc/Template.php:437
 msgid "Email"
 msgstr ""
 
-#: inc/Template.php:450
+#: inc/Template.php:439
 msgid "Name"
 msgstr ""
 
-#: inc/Template.php:452
+#: inc/Template.php:441
+#, php-format
 msgid "Required fields are marked %s"
 msgstr ""
 
-#: inc/Template.php:464
+#: inc/Template.php:452
+msgctxt "noun"
+msgid "Comment"
+msgstr ""
+
+#: inc/Template.php:453
+#, php-format
 msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
 msgstr ""
 
-#: inc/Template.php:465
+#: inc/Template.php:454
+#, php-format
 msgid ""
 "Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of "
 "this account\">Log out?</a>"
 msgstr ""
 
-#: inc/Template.php:466
+#: inc/Template.php:455
 msgid "Your email address will not be published."
 msgstr ""
 
-#: inc/Template.php:467
+#: inc/Template.php:456
+#, php-format
 msgid ""
-"You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> "
-"tags and attributes: %s"
+"You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
+"and attributes: %s"
 msgstr ""
 
-#: inc/Template.php:470
+#: inc/Template.php:459
 msgid "Leave a Reply"
 msgstr ""
 
-#: inc/Template.php:471
+#: inc/Template.php:460
+#, php-format
 msgid "Leave a Reply to %s"
 msgstr ""
 
-#: inc/Template.php:472
+#: inc/Template.php:461
 msgid "Cancel reply"
 msgstr ""
 
-#: inc/Template.php:473
+#: inc/Template.php:462
 msgid "Post Comment"
 msgstr ""
 
-#: inc/Template.php:648
+#: inc/Template.php:637
 msgid "Sticky Question"
 msgstr ""
 
-#: inc/Template.php:662
+#: inc/Template.php:651
 msgid "Ask a question"
 msgstr ""
 
-#: inc/Template.php:664
+#: inc/Template.php:653
 msgid "Login to ask a question"
 msgstr ""
 
-#: inc/Template.php:1053
+#: inc/Template.php:1052
 msgid "You do not have permission to submit a question"
 msgstr ""
 
-#: inc/Template.php:1107
+#: inc/Template.php:1106
 msgid "Choose as the best answer"
 msgstr ""
 
@@ -1281,10 +1338,12 @@ msgid "Staff"
 msgstr ""
 
 #: inc/Walker/Category.php:20 inc/Walker/Tag.php:20
+#, php-format
 msgid "View all posts filed under %s"
 msgstr ""
 
 #: inc/Walker/Category.php:35 inc/Walker/Tag.php:35
+#, php-format
 msgid "Feed for all posts filed under %s"
 msgstr ""
 
@@ -1341,16 +1400,18 @@ msgid "DWQA Related Questions"
 msgstr ""
 
 #: lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:181
+#, php-format
 msgid ""
-"There is a new version of %1$s available. <a target=\"_blank\" "
-"class=\"thickbox\" href=\"%2$s\">View version %3$s details</a>."
+"There is a new version of %1$s available. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">View version %3$s details</a>."
 msgstr ""
 
 #: lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:188
+#, php-format
 msgid ""
-"There is a new version of %1$s available. <a target=\"_blank\" "
-"class=\"thickbox\" href=\"%2$s\">View version %3$s details</a> or <a "
-"href=\"%4$s\">update now</a>."
+"There is a new version of %1$s available. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">View version %3$s details</a> or <a href=\"%4$s"
+"\">update now</a>."
 msgstr ""
 
 #: lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:326
@@ -1386,6 +1447,7 @@ msgid "Submit"
 msgstr ""
 
 #: templates/answers.php:12
+#, php-format
 msgid "%s Answers"
 msgstr ""
 
@@ -1437,6 +1499,12 @@ msgstr ""
 msgid "Write a comment ..."
 msgstr ""
 
+#: templates/content-comment.php:16
+#, php-format
+msgctxt "%s = human-readable time difference"
+msgid "replied %s ago"
+msgstr ""
+
 #: templates/content-edit.php:21 templates/question-submit-form.php:13
 msgid "Title"
 msgstr ""
@@ -1458,6 +1526,7 @@ msgid "asked"
 msgstr ""
 
 #: templates/content-question.php:25
+#, php-format
 msgid "<span><a href=\"%s\">%s%s</a> %s %s ago</span>"
 msgstr ""
 
@@ -1466,14 +1535,17 @@ msgid "&nbsp;&bull;&nbsp;"
 msgstr ""
 
 #: templates/content-question.php:31
+#, php-format
 msgid "<strong>%1$s</strong> views"
 msgstr ""
 
 #: templates/content-question.php:35
+#, php-format
 msgid "<strong>%1$s</strong> answers"
 msgstr ""
 
 #: templates/content-question.php:39
+#, php-format
 msgid "<strong>%1$s</strong> votes"
 msgstr ""
 
@@ -1493,10 +1565,12 @@ msgid "Best Answer"
 msgstr ""
 
 #: templates/content-single-answer.php:23
+#, php-format
 msgid "<span><a href=\"%s\">%s%s</a> %s answered %s ago</span>"
 msgstr ""
 
 #: templates/content-single-question.php:19
+#, php-format
 msgid "<span><a href=\"%s\">%s%s</a> %s asked %s ago</span>"
 msgstr ""
 
@@ -1509,6 +1583,7 @@ msgid "This question is:"
 msgstr ""
 
 #: upgrades/upgrades.php:25
+#, php-format
 msgid ""
 "DW Question Answer needs to upgrade the database, click %shere%s to start "
 "the upgrade."
@@ -1521,8 +1596,7 @@ msgstr ""
 #: upgrades/upgrades.php:40
 msgid ""
 "The upgrade process has started, please be patient. This could take several "
-"minutes. You will be automatically redirected when the upgrade is "
-"finished..."
+"minutes. You will be automatically redirected when the upgrade is finished..."
 msgstr ""
 
 #: upgrades/upgrades.php:130
@@ -1534,6 +1608,7 @@ msgid "Just do it.."
 msgstr ""
 
 #: upgrades/upgrades.php:155
+#, php-format
 msgid "Move to next step %d"
 msgstr ""
 
@@ -1557,39 +1632,4 @@ msgstr ""
 
 #. Author URI of the plugin/theme
 msgid "http://www.designwall.com"
-msgstr ""
-
-#: inc/Posts/Base.php:318
-msgctxt "dwqa"
-msgid "Add New"
-msgstr ""
-
-#: inc/Posts/Question.php:196
-msgctxt "taxonomy general name"
-msgid "Question Categories"
-msgstr ""
-
-#: inc/Posts/Question.php:225
-msgctxt "taxonomy general name"
-msgid "Question Tags"
-msgstr ""
-
-#: inc/Posts/Question.php:197
-msgctxt "taxonomy singular name"
-msgid "Question Category"
-msgstr ""
-
-#: inc/Posts/Question.php:226
-msgctxt "taxonomy singular name"
-msgid "Question Tag"
-msgstr ""
-
-#: inc/Template.php:463
-msgctxt "noun"
-msgid "Comment"
-msgstr ""
-
-#: templates/content-comment.php:16
-msgctxt "%s = human-readable time difference"
-msgid "replied %s ago"
 msgstr ""

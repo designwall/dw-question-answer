@@ -206,8 +206,11 @@ class DW_Question_Answer {
 	}
 
 	// using action `upgrader_process_complete`
-	public function register_upgrade_plugin() {
-		update_option( 'dwqa_plugin_upgraded', true );
+	public function register_upgrade_plugin( $upgrader_object, $args ) {
+		$file_name = plugin_basename( __FILE__ );
+		if ( in_array( $file_name, $args['plugins'] ) ) {
+			update_option( 'dwqa_plugin_upgraded', true );
+		}
 	}
 
 	public function deactivate_hook() {

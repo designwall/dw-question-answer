@@ -69,7 +69,7 @@ class DW_Question_Answer {
 		// All init action of plugin will be included in
 		add_action( 'init', array( $this, 'init' ) );
 		add_action( 'widgets_init', array( $this, 'widgets_init' ) );
-		add_action( 'upgrader_process_complete', array( $this, 'register_upgrade_plugin' ) );
+		add_action( 'upgrader_process_complete', array( $this, 'register_upgrade_plugin' ), 10, 2 );
 		register_activation_hook( __FILE__, array( $this, 'activate_hook' ) );
 		register_deactivation_hook( __FILE__, array( $this, 'deactivate_hook' ) );
 	}

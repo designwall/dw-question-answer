@@ -32,6 +32,12 @@ class DWQA_Admin_Extensions {
 				'url' => 'http://bit.ly/dwqa-embed-questions',
 				'img_url' => $dwqa->uri . 'assets/img/dw-embedquestion.png'
 			),
+
+			'dwqa-widgets' => array(
+				'name' => __( 'DWQA Widgets', 'dwqa' ),
+				'url'	=> 'http://bit.ly/dwqa-widgets',
+				'img_url'	=> $dwqa->uri . 'assets/img/dw-widgets.png'
+			),
 		);
 
 		return $extension;

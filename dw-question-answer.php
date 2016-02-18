@@ -4,7 +4,7 @@
  *  Description: A WordPress plugin was make by DesignWall.com to build an Question Answer system for support, asking and comunitcate with your customer
  *  Author: DesignWall
  *  Author URI: http://www.designwall.com
- *  Version: 1.4.2.1
+ *  Version: 1.4.2.2
  *  Text Domain: dwqa
  *  @since 1.4.0
  */
@@ -39,7 +39,7 @@ class DW_Question_Answer {
 	public function __construct() {
 		$this->dir = DWQA_DIR;
 		$this->uri = DWQA_URI;
-		$this->version = '1.4.2.1';
+		$this->version = '1.4.2.2';
 
 		// load posttype
 		$this->question = new DWQA_Posts_Question();
@@ -69,6 +69,7 @@ class DW_Question_Answer {
 		// All init action of plugin will be included in
 		add_action( 'init', array( $this, 'init' ) );
 		add_action( 'widgets_init', array( $this, 'widgets_init' ) );
+		add_action( 'upgrader_process_complete', array( $this, 'register_upgrade_plugin' ) );
 		register_activation_hook( __FILE__, array( $this, 'activate_hook' ) );
 		register_deactivation_hook( __FILE__, array( $this, 'deactivate_hook' ) );
 	}
@@ -134,12 +135,15 @@ class DW_Question_Answer {
 			'question_tag_rewrite'      => $question_tag_rewrite, //$question_tag_rewrite,
 			'delete_question_confirm' => __( 'Do you want to delete this question?', 'dwqa' )
 		);
+
+		$this->flush_rules();
 	}
 
 	// Update rewrite url when active plugin
 	public function activate_hook() {
 		$this->permission->prepare_permission_caps();
 
+		flush_rewrite_rules();
 		//Auto create question page
 		$options = get_option( 'dwqa_options' );
 
@@ -199,7 +203,11 @@ class DW_Question_Answer {
 		update_option( 'dwqa_options', $options );
 		update_option( 'dwqa_plugin_activated', true );
 		// dwqa_posttype_init();
-		flush_rewrite_rules();
+	}
+
+	// using action `upgrader_process_complete`
+	public function register_upgrade_plugin() {
+		update_option( 'dwqa_plugin_upgraded', true );
 	}
 
 	public function deactivate_hook() {
@@ -208,6 +216,13 @@ class DW_Question_Answer {
 		wp_clear_scheduled_hook( 'dwqa_hourly_event' );
 
 		flush_rewrite_rules();
+	}
+
+	public function flush_rules() {
+		if ( get_option( 'dwqa_plugin_activated', false ) || get_option( 'dwqa_plugin_upgraded', false ) ) {
+			delete_option( 'dwqa_plugin_upgraded' );
+			flush_rewrite_rules();
+		}
 	}
 
 	public function get_last_update() {

@@ -41,8 +41,6 @@ class DW_Question_Answer {
 		$this->uri = DWQA_URI;
 		$this->version = '1.4.2.1';
 
-		// Add recaptcha library from google, 99 to sure that the library was not include if any other plugins use same library
-		add_action( 'plugins_loaded', array( $this, 'include_recaptcha_library' ), 99 );
 		// load posttype
 		$this->question = new DWQA_Posts_Question();
 		$this->answer = new DWQA_Posts_Answer();
@@ -80,12 +78,6 @@ class DW_Question_Answer {
 		register_widget( 'DWQA_Widgets_Latest_Question' );
 		register_widget( 'DWQA_Widgets_Popular_Question' );
 		register_widget( 'DWQA_Widgets_Related_Question' );
-	}
-
-	public function include_recaptcha_library() {
-		if ( ! defined( 'RECAPTCHA_VERIFY_SERVER' ) ) {
-			require_once DWQA_DIR  . 'lib/recaptcha-php/recaptchalib.php';
-		}
 	}
 
 	public function init() {

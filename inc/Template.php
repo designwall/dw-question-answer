@@ -734,6 +734,8 @@ class DWQA_Template {
 		//Wrapper
 		add_action( 'dwqa_before_page', array( $this, 'start_wrapper_content' ) );
 		add_action( 'dwqa_after_page', array( $this, 'end_wrapper_content' ) );
+
+		add_filter( 'option_thread_comments', array( $this, 'disable_thread_comment' ) );
 	}
 
 	public function start_wrapper_content() {
@@ -884,7 +886,7 @@ class DWQA_Template {
 				'is_single'             => false,
 				'is_archive'            => false,
 				'is_tax'                => false,
-				'current_comment'		=> $wp_query->post->comment_count,
+				'current_comment'		=> 0,
 			) );
 		} else {
 			$dummy = wp_parse_args( $args, array(
@@ -941,6 +943,14 @@ class DWQA_Template {
 		$wp_query->is_tax     		= $dummy['is_tax'];
 		$wp_query->current_comment 	= $dummy['current_comment'];
 
+	}
+
+	function disable_thread_comment( $value ) {
+		if ( is_singular( 'dwqa-question' ) ) {
+			return false;
+		}
+
+		return $value;
 	}
 
 	public function close_default_comment( $open ) {

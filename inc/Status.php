@@ -17,6 +17,10 @@ function dwqa_question_print_status( $question_id = false, $echo = true ) {
 		$status = 'closed';
 	}
 
+	if ( 're-open' == $status ) {
+		$status = 'open';
+	}
+
 	if ( $status ) {
 		$return = '<span title="'.__( ucwords( $status ), 'dwqa' ).'" class="dwqa-status dwqa-status-'.strtolower( $status ).'">'.__( ucwords( $status ), 'dwqa' ).'</span>';
 		if ( $echo ) {

@@ -362,10 +362,6 @@
 	font-size: small;
 }
 
-.dwqa-comments-list .dwqa-comment-meta a {
-	position: inherit;
-}
-
 .dwqa-comments-list .dwqa-comment-meta .avatar {
 	position: inherit;
 	margin-right: 5px;
@@ -539,6 +535,10 @@
 	padding: 15px 180px 15px 80px;
 	border-left: 1px solid #ddd;
 	border-right: 1px solid #ddd;
+}
+
+.dwqa-questions-list .dwqa-question-item a {
+	position: inherit;
 }
 
 .dwqa-questions-list .dwqa-question-item .avatar {

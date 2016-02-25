@@ -446,6 +446,8 @@
 	-webkit-box-sizing: border-box;
 	padding-right: 40px;
 	width: 100%;
+	max-width: 100%;
+	min-width: 100%;
 	margin-bottom: 0 !important;
 	background: url(../img/icon-search.png) no-repeat right 10px center #fff !important;
 	border: 1px solid #ddd;

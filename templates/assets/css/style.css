@@ -233,6 +233,10 @@
 	min-height: 220px;
 }
 
+.dwqa-answer-item .dwqa-answer-meta a {
+	position: inherit;
+}
+
 .dwqa-answer-item .avatar {
 	position: absolute;
 	left: 0;
@@ -566,6 +570,7 @@
 	margin-left: 5px;
 	text-align: center;
 	font-size: 11px;
+	line-height: 1;
 }
 
 .dwqa-questions-list .dwqa-question-item .dwqa-question-stats strong {
@@ -603,6 +608,10 @@
 .single-dwqa-question .dwqa-question-item {
 	min-height: 140px;
 	padding-left: 70px;
+}
+
+.single-dwqa-question .dwqa-question-item a {
+	position: inherit;
 }
 
 .single-dwqa-question .dwqa-question-item .avatar {

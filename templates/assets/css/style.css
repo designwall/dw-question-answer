@@ -362,6 +362,10 @@
 	font-size: small;
 }
 
+.dwqa-comments-list .dwqa-comment-meta a {
+	position: inherit;
+}
+
 .dwqa-comments-list .dwqa-comment-meta .avatar {
 	position: inherit;
 	margin-right: 5px;

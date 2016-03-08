@@ -142,30 +142,23 @@ function dwqa_is_followed( $post_id = false, $user_id = false ) {
 /**
 * Get username
 *
-* @param int $post_id
+* @param string $display_name
 * @return string
 * @since 1.4.0
 */
-function dwqa_get_author( $post_id = false ) {
-	if ( !$post_id ) {
-		$post_id = get_the_ID();
-	}
+function dwqa_the_author( $display_name ) {
+	global $post;
 
-	$display_name = false;
-	if ( dwqa_is_anonymous( $post_id ) ) {
-		$anonymous_name = get_post_meta( $post_id, '_dwqa_anonymous_name', true );
-		if ( $anonymous_name ) {
-			$display_name = $anonymous_name;
-		} else {
-			$display_name = __( 'Anonymous', 'dwqa' );
+	if ( 'dwqa-answer' == $post->post_type || 'dwqa-question' == $post->post_type) {
+		if ( dwqa_is_anonymous( $post->ID ) ) {
+			$anonymous_name = get_post_meta( $post->ID, '_dwqa_anonymous_name', true );
+			$display_name = $anonymous_name ? $anonymous_name : __( 'Anonymous', 'dwqa' );
 		}
-	} else {
-		$user_id = get_post_field( 'post_author', $post_id );
-		$display_name = get_the_author_meta( 'display_name', $user_id );
 	}
 
-	return apply_filters( 'dwqa_get_author', $display_name, $post_id );
+	return $display_name;
 }
+add_filter( 'the_author', 'dwqa_the_author' );
 
 /**
 * Get user's profile link

@@ -230,6 +230,8 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 
 		add_action( 'manage_' . $this->get_slug() . '_posts_custom_column', array( $this, 'columns_content' ), 10, 2 );
 		add_action( 'post_row_actions', array( $this, 'unset_old_actions' ) );
+		add_action( 'add_meta_boxes', array( $this, 'question_metabox' ) );
+		add_action( 'save_post', array( $this, 'save_metabox' ), 10, 2 );
 		
 		//Cache
 		add_action( 'dwqa_add_answer', array( $this, 'update_transient_when_add_answer' ), 10, 2 );
@@ -349,6 +351,45 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 		// Remove Cached Latest Answer
 		delete_transient( 'dwqa_latest_answer_for_' . $question_id );
 		delete_transient( 'dwqa_answer_count_for_' . $question_id );
+	}
+
+	public function question_metabox() {
+		add_meta_box(
+			'dwqa-answer-question-metabox',
+			__( 'Question ID', 'dwqa' ),
+			array( $this, 'question_metabox_output' ),
+			'dwqa-answer',
+			'side'
+		);
+	}
+
+	public function question_metabox_output( $post ) {
+		$question = get_post_meta( $post->ID, '_question', true ) ? get_post_meta( $post->ID, '_question', true ) : 0;
+		?>
+		<p>
+			<strong><?php _e( 'ID', 'dwqa' ) ?></strong>
+		</p>
+		<p>
+			<label class="screen-reader-text"><?php _e( 'ID', 'dwqa' ) ?></label>
+			<input name="_question" type="text" size="4" id="_question" value="<?php echo (int) $question ?>">
+		</p>
+		<?php
+	}
+
+	public function save_metabox( $id, $post ) {
+		if ( 'dwqa-answer' !== $post->post_type ) {
+			return false;
+		}
+
+		if ( !$id ) {
+			return false;
+		}
+
+		if ( !isset( $_POST['_question'] ) || empty( $_POST['_question'] ) ) {
+			return false;
+		}
+
+		update_post_meta( $id, '_question', $_POST['_question'] );
 	}
 }
 

@@ -41,6 +41,10 @@ function dwqa_title( $title ) {
 	_deprecated_function( __FUNCTION__, '1.4.2.1', '' );
 }
 
+function dwqa_get_author( $post_id = 0 ) {
+	_deprecated_function( __FUNCTION__, '1.4.2.3', '' );
+}
+
 class Walker_Category_DWQA {
 	public function __construct() {
 		_deprecated_function( __FUNCTION__, '1.3.4', 'DWQA_Walker_Category' );

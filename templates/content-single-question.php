@@ -20,7 +20,7 @@
 		<span class="dwqa-question-actions"><?php dwqa_question_button_action() ?></span>
 	</div>
 	<div class="dwqa-question-content"><?php the_content(); ?></div>
-	<footer class="dwqa-question-footer">
+	<div class="dwqa-question-footer">
 		<div class="dwqa-question-meta">
 			<?php echo get_the_term_list( get_the_ID(), 'dwqa-question_tag', '<span class="dwqa-question-tag">' . __( 'Question Tags: ', 'dwqa' ), ', ', '</span>' ); ?>
 			<?php if ( dwqa_current_user_can( 'edit_question', get_the_ID() ) ) : ?>
@@ -38,7 +38,7 @@
 				<?php endif; ?>
 			<?php endif; ?>
 		</div>
-	</footer>
+	</div>
 	<?php comments_template(); ?>
 </div>
 <?php do_action( 'dwqa_after_single_question_content' ); ?>

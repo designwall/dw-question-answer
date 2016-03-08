@@ -8,7 +8,7 @@
 
 ?>
 <div class="<?php echo dwqa_post_class(); ?>">
-	<header class="dwqa-question-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></header>
+	<div class="dwqa-question-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></div>
 	<div class="dwqa-question-meta">
 		<?php dwqa_question_print_status() ?>
 		<?php

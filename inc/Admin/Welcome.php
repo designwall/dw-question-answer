@@ -57,7 +57,7 @@ class DWQA_Admin_Welcome {
 		global $dwqa;
 		?>
 		<h1><?php printf( __( 'Welcome to DW Question & Answer %s', 'dwqa' ), $dwqa->version ) ?></h1>
-		<p class="about-text"><?php _e( 'Thank you for installing our WordPress plugin. If you have any question about this theme, please submit to our <a target="_blank" href="https://www.designwall.com/question/">Q&A section</a>.', 'dwqa' ); ?></p>
+		<p class="about-text"><?php _e( 'Thank you for installing our WordPress plugin. If you have any question about this plugin, please submit to our <a target="_blank" href="https://www.designwall.com/question/">Q&A section</a>.', 'dwqa' ); ?></p>
 		<?php
 	}
 

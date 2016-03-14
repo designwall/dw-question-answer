@@ -6,7 +6,7 @@
  * @since DW Question & Answer 1.4.3
  */
 ?>
-<?php if ( ! dwqa_current_user_can( 'post_question' ) ) : ?>
+<?php if ( dwqa_current_user_can( 'post_question' ) ) : ?>
 	<?php do_action( 'dwqa_before_question_submit_form' ); ?>
 	<form method="post" class="dwqa-content-edit-form">
 		<p class="dwqa-search">

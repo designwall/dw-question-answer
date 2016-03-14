@@ -3,7 +3,7 @@
  * The template for displaying single answers
  *
  * @package DW Question & Answer
- * @since DW Question & Answer 1.4.2
+ * @since DW Question & Answer 1.4.3
  */
 ?>
 <div class="<?php echo dwqa_post_class() ?>">

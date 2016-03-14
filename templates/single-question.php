@@ -3,7 +3,7 @@
  * The template for displaying all single questions
  *
  * @package DW Question & Answer
- * @since DW Question & Answer 1.4.2
+ * @since DW Question & Answer 1.4.3
  */
 // global $wp_query; print_r( $wp_query );
 ?>

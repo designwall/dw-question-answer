@@ -1055,11 +1055,6 @@ class DWQA_Template {
 			$name .= '-' . $extend;
 		}
 
-		if ( $name == 'question-submit-form' && ! dwqa_current_user_can( 'post_question' ) ) {
-			echo '<div class="alert">'.__( 'You do not have permission to submit a question','dwqa' ).'</div>';
-			return false;
-		}
-
 		$template = get_stylesheet_directory() . '/dwqa-templates/'.$name.'.php';
 		if ( ! file_exists( $template ) ) {
 			$template = DWQA_DIR . 'templates/'.$name.'.php';

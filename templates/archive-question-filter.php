@@ -3,7 +3,7 @@
  * The template for displaying answers
  *
  * @package DW Question & Answer
- * @since DW Question & Answer 1.4.2
+ * @since DW Question & Answer 1.4.3
  */
 
 global $dwqa_general_settings;

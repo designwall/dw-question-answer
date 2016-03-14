@@ -208,8 +208,10 @@ class DW_Question_Answer {
 	// using action `upgrader_process_complete`
 	public function register_upgrade_plugin( $upgrader_object, $args ) {
 		$file_name = plugin_basename( __FILE__ );
-		if ( in_array( $file_name, $args['plugins'] ) ) {
-			update_option( 'dwqa_plugin_upgraded', true );
+		if ( isset( $args['plugins'] ) && !empty( $args['plugins'] ) ) {
+			if ( ( is_array( $args['plugins'] ) && in_array( $file_name, $args['plugins'] ) ) || ( is_string( $args['plugins'] && $file_name == $args['plugins'] ) ) ) {
+				update_option( 'dwqa_plugin_upgraded', true );
+			}
 		}
 	}
 

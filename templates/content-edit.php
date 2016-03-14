@@ -11,7 +11,7 @@
 $comment_id = isset( $_GET['comment_edit'] ) && is_numeric( $_GET['comment_edit'] ) ? $_GET['comment_edit'] : false;
 $edit_id = isset( $_GET['edit'] ) && is_numeric( $_GET['edit'] ) ? $_GET['edit'] : ( $comment_id ? $comment_id : false );
 if ( !$edit_id ) return;
-$type = 'dwqa-question' == get_post_type( $edit_id ) ? 'question' : ( $comment_id ? 'comment' : 'answer' );
+$type = $comment_id ? 'comment' : ( 'dwqa-question' == get_post_type( $edit_id ) ? 'question' : 'answer' );
 ?>
 <?php do_action( 'dwqa_before_edit_form' ); ?>
 <form method="post" class="dwqa-content-edit-form">
@@ -23,7 +23,7 @@ $type = 'dwqa-question' == get_post_type( $edit_id ) ? 'question' : ( $comment_i
 	</p>
 	<?php endif; ?>
 	<?php $content = call_user_func( 'dwqa_' . $type . '_get_edit_content', $edit_id ); ?>
-	<p><?php dwqa_init_tinymce_editor( array( 'content' => $content, 'textarea_name' => $type . '_content' ) ) ?></p>
+	<p><?php dwqa_init_tinymce_editor( array( 'content' => $content, 'textarea_name' => $type . '_content', 'wpautop' => true ) ) ?></p>
 	<?php if ( 'dwqa-question' == get_post_type( $edit_id ) ) : ?>
 	<p>
 		<label for="question-category"><?php _e( 'Category', 'dwqa' ) ?></label>

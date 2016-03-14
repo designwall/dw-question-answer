@@ -20,10 +20,6 @@
 	<?php if ( ! dwqa_is_closed( get_the_ID() ) && dwqa_current_user_can( 'post_comment' ) ) : ?>
 		<?php
 			$args = array(
-				'comment_field' => '<textarea id="comment" name="comment" aria-required="true" placeholder="' . __( 'Write a comment ...', 'dwqa' ).'"></textarea>',
-				'comment_notes_before' => '',
-				'logged_in_as' => '',
-				'comment_notes_after' => '',
 				'id_form' => 'comment_form_' . get_the_ID(),
 			);
 		?>

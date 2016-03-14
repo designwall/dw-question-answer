@@ -125,7 +125,7 @@ function dwqa_is_front_page() {
 
 	$page_on_front = get_option( 'page_on_front' );
 
-	if ( $page_on_front === $dwqa_general_settings['pages']['archive-question'] ) {
+	if ( (int) $page_on_front === (int) $dwqa_general_settings['pages']['archive-question'] ) {
 		return true;
 	}
 

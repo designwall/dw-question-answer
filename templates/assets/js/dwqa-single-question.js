@@ -137,6 +137,7 @@
 	});
 
 	var originHeight, current_form;
+	$('.dwqa-anonymous-fields').hide();
 	$('.dwqa-comment-form #comment').on('focus',function(e){
 		var t = $(this);
 
@@ -162,6 +163,7 @@
 
         changeHeight();
         t.parent().addClass( 'dwqa-comment-show-button' );
+        $(this).closest('form').find('.dwqa-anonymous-fields').slideDown();
         current_form.find('.dwqa-form-submit').show();
 	});
 

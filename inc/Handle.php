@@ -111,7 +111,9 @@ class DWQA_Handle {
 					update_post_meta( $answer_id, '_dwqa_anonymous_name', $post_author_name );
 				}
 			} else {
-				add_post_meta( $question_id, '_dwqa_followers', get_current_user_id() );
+				if ( !dwqa_is_followed( $question_id, get_current_user_id() ) ) {
+					add_post_meta( $question_id, '_dwqa_followers', get_current_user_id() );
+				}
 			}
 
 			do_action( 'dwqa_add_answer', $answer_id, $question_id );

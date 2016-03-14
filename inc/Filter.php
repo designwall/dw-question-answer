@@ -561,11 +561,6 @@ class DWQA_Filter {
 
 		$sticky_questions = get_option( 'dwqa_sticky_questions' );
 
-		// exclude sticky question
-		if ( $sticky_questions && 'all' == $filter && !$sort && !$search_text ) {
-			$query['post__not_in'] = $sticky_questions;
-		}
-
 		if ( is_user_logged_in() ) {
 			$query['post_status'] = array( 'publish', 'private' );
 		}
@@ -573,51 +568,27 @@ class DWQA_Filter {
 		$query = apply_filters( 'dwqa_prepare_archive_posts', $query );
 
 		$wp_query->dwqa_questions = new WP_Query( $query );
-	}
 
-	public function sticky_question() {
-		global $wp_query;
+		// sticky question
 		$sticky_questions = get_option( 'dwqa_sticky_questions' );
+		if ( !empty( $sticky_questions ) && 'all' == $filter && ! $sort && !$search_text && $page == 1 ) {
 
-		$user = isset( $_GET['user'] ) && !empty( $_GET['user'] ) ? urldecode( $_GET['user'] ) : false;
-		$filter = isset( $_GET['filter'] ) && !empty( $_GET['filter'] ) ? $_GET['filter'] : 'all';
-		$search_text = isset( $_GET['qs'] ) ? $_GET['qs'] : false;
-		$sort = isset( $_GET['sort'] ) ? $_GET['sort'] : '';
-
-		$cat = get_query_var( 'dwqa-question_category' ) ? get_query_var( 'dwqa-question_category' ) : false;
-		$tag = get_query_var( 'dwqa-question_tag' ) ? get_query_var( 'dwqa-question_tag' ) : false;
-
-		if ( $sticky_questions && 'all' == $filter && !$search_text && !$sort ) {
 			if ( $cat ) {
 				foreach( $sticky_questions as $key => $id ) {
 					$terms = wp_get_post_terms( $id, 'dwqa-question_category' );
-
 					if ( empty( $terms ) || $cat !== $terms[0]->slug ) {
 						unset( $sticky_questions[ $key ] );
 					}
 				}
-
-				$args['tax_query'][] = array(
-					'taxonomy' => 'dwqa-question_category',
-					'terms' => $cat,
-					'field' => 'slug'
-				);
 			}
 
 			if ( $tag ) {
 				foreach( $sticky_questions as $key => $id ) {
 					$terms = wp_get_post_terms( $id, 'dwqa-question_tag' );
-
 					if ( empty( $terms ) || $tag !== $terms[0]->slug ) {
 						unset( $sticky_questions[ $key ] );
 					}
 				}
-				
-				$args['tax_query'][] = array(
-					'taxonomy' => 'dwqa-question_category',
-					'terms' => $cat,
-					'field' => 'slug'
-				);
 			}
 
 			if ( $user ) {
@@ -628,16 +599,41 @@ class DWQA_Filter {
 					}
 				}
 			}
-			
-			$args = array(
-				'posts_per_page' => 40,
-				'post_type' => 'dwqa-question',
-				'post__in' => $sticky_questions,
-			);
+
+			if ( !is_array( $sticky_questions ) ) {
+				$sticky_questions = array( $sticky_questions );
+			}
+			$num_posts = count( $wp_query->dwqa_questions->posts );
+			$stickies_offset = 0;
+
+			for ( $i = 0; $i < $num_posts; $i++ ) {
+				if ( in_array( $wp_query->dwqa_questions->posts[ $i ]->ID, $sticky_questions ) ) {
+					$sticky_post = $query->dwqa_answers->posts[$i];
+
+					array_splice( $query->dwqa_answers->posts, $i, 1 );
+					array_splice( $query->dwqa_answers->posts, $best_offset, 0, array( $sticky_post ) );
+
+					$stickies_offset++;
+
+					$offset = array_search( $sticky_post->ID, $sticky_questions );
+					unset( $sticky_questions[$offset] );
+				}
+			}
 
 			if ( !empty( $sticky_questions ) ) {
-				$wp_query->dwqa_question_stickies = new WP_Query( $args );
+				$stickies = get_posts( array(
+					'post__in' 		=> $sticky_questions,
+					'post_type' 	=> 'dwqa-question',
+					'post_status' 	=> 'publish',
+					'nopaging'		=> true
+				) );
+
+				foreach( $stickies as $sticky_post ) {
+					array_splice( $wp_query->dwqa_questions->posts, $stickies_offset, 0, array( $sticky_post ) );
+					$stickies_offset++;
+				}
 			}
+			$wp_query->dwqa_questions->post_count = count( $wp_query->dwqa_questions->posts );
 		}
 	}
 
@@ -678,6 +674,8 @@ class DWQA_Filter {
 			$args = apply_filters( 'dwqa_prepare_answers', $args );
 
 			$query->dwqa_answers = new WP_Query( $args );
+
+			// best answer
 			if ( $best_answer && !empty( $best_answer ) ) {
 				$sticky_posts = array( $best_answer );
 				$num_posts = count( $query->dwqa_answers->posts );

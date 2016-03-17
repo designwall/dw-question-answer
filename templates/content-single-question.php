@@ -39,6 +39,8 @@
 			<?php endif; ?>
 		</div>
 	</div>
+	<?php do_action( 'dwqa_before_single_question_comment' ) ?>
 	<?php comments_template(); ?>
+	<?php do_action( 'dwqa_after_single_question_comment' ) ?>
 </div>
 <?php do_action( 'dwqa_after_single_question_content' ); ?>

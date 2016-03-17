@@ -210,10 +210,10 @@ class DWQA_Notifications {
 					if ( $user_data ) {
 						$follow_email = $user_data->user_email;
 						$follower_name = $user_data->display_name;
-						if ( $follow_email && $follow_email != $email && $follow_email != $answer_email ) {
+						if ( $follow_email ) {
 							//Send email to follower
 							$message_to_each_follower = str_replace( '{follower}', $follower_name, $message_to_follower );
-							wp_mail( $follow_email, $follow_subject, $message_to_each_follower, $headers );
+							$test = wp_mail( $follow_email, $follow_subject, $message_to_each_follower, $headers );
 							if ( $enable_send_copy && $follow_email != $admin_email ) {
 								wp_mail( $admin_email, $follow_subject, $message_to_each_follower, $headers );
 							}
@@ -223,12 +223,12 @@ class DWQA_Notifications {
 			}
 		} // Send email to followers
 
-		if ( $question->post_author != $answer->post_author ) {
-			wp_mail( $email, $subject, $message, $headers );
-			if ( $enable_send_copy && $email != $admin_email ) {
-				wp_mail( $admin_email, $subject, $message, $headers );
-			}
-		}
+		// if ( $question->post_author != $answer->post_author ) {
+		// 	wp_mail( $email, $subject, $message, $headers );
+		// 	if ( $enable_send_copy && $email != $admin_email ) {
+		// 		wp_mail( $admin_email, $subject, $message, $headers );
+		// 	}
+		// }
 	}
 
 	public function new_comment_notify( $comment_id, $comment ) {

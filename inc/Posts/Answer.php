@@ -389,7 +389,7 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 			return false;
 		}
 
-		update_post_meta( $id, '_question', $_POST['_question'] );
+		update_post_meta( $id, '_question', sanitize_text_field( $_POST['_question'] ) );
 	}
 }
 

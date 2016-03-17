@@ -571,7 +571,7 @@ class DWQA_Filter {
 
 		// sticky question
 		$sticky_questions = get_option( 'dwqa_sticky_questions' );
-		if ( !empty( $sticky_questions ) && 'all' == $filter && ! $sort && !$search_text && $page == 1 ) {
+		if ( !empty( $sticky_questions ) && 'all' == $filter && ! $sort && !$search_text && $query['paged'] == 1 ) {
 
 			if ( $cat ) {
 				foreach( $sticky_questions as $key => $id ) {
@@ -608,10 +608,10 @@ class DWQA_Filter {
 
 			for ( $i = 0; $i < $num_posts; $i++ ) {
 				if ( in_array( $wp_query->dwqa_questions->posts[ $i ]->ID, $sticky_questions ) ) {
-					$sticky_post = $query->dwqa_answers->posts[$i];
+					$sticky_post = $wp_query->dwqa_questions->posts[$i];
 
-					array_splice( $query->dwqa_answers->posts, $i, 1 );
-					array_splice( $query->dwqa_answers->posts, $best_offset, 0, array( $sticky_post ) );
+					array_splice( $wp_query->dwqa_questions->posts, $i, 1 );
+					array_splice( $wp_query->dwqa_questions->posts, $stickies_offset, 0, array( $sticky_post ) );
 
 					$stickies_offset++;
 
@@ -734,7 +734,6 @@ class DWQA_Filter {
 
 		add_action( 'dwqa_before_questions_list', array( $this, 'prepare_archive_posts' ) );
 		add_action( 'dwqa_after_questions_list', array( $this, 'after_archive_posts' ) );
-		add_action( 'dwqa_before_question_stickies', array( $this, 'sticky_question' ) );
 		add_action( 'dwqa_after_question_stickies', array( $this, 'after_archive_posts' ) );
 
 		//Prepare answers for single questions

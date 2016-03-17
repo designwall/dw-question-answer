@@ -60,14 +60,14 @@ class DWQA_Handle {
 				$post_author_email = sanitize_email( $_POST['user-email'] );
 			}
 			if ( isset( $_POST['user-name'] ) && !empty( $_POST['user-name'] ) ) {
-				$post_author_name = $_POST['user-name'];
+				$post_author_name = sanitize_text_field( $_POST['user-name'] );
 			}
 		}
 
 		$question_id = intval( $_POST['question_id'] );
 
 		$answer_title = __( 'Answer for ', 'dwqa' ) . get_post_field( 'post_title', $question_id );
-		$answ_content = apply_filters( 'dwqa_prepare_answer_content', $_POST['answer-content'] );
+		$answ_content = apply_filters( 'dwqa_prepare_answer_content', sanitize_text_field( $_POST['answer-content'] ) );
 
 		$answers = array(
 			'comment_status' => 'open',
@@ -80,7 +80,7 @@ class DWQA_Handle {
 
 		$answers['post_status'] = isset( $_POST['save-draft'] )
 									? 'draft'
-										: ( isset( $_POST['dwqa-status'] ) && $_POST['dwqa-status'] ? $_POST['dwqa-status'] : 'publish' );
+										: ( isset( $_POST['dwqa-status'] ) && $_POST['dwqa-status'] ? sanitize_text_field( $_POST['dwqa-status'] ) : 'publish' );
 
 		do_action( 'dwqa_prepare_add_answer' );
 
@@ -133,7 +133,7 @@ class DWQA_Handle {
 				dwqa_add_notice( __( 'Hello, Are you cheating huh?', 'dwqa' ), 'error' );
 			}
 
-			$answer_content = apply_filters( 'dwqa_prepare_edit_answer_content', $_POST['answer_content'] );
+			$answer_content = apply_filters( 'dwqa_prepare_edit_answer_content', sanitize_text_field( $_POST['answer_content'] ) );
 			if ( empty( $answer_content ) ) {
 				dwqa_add_notice( __( 'You must enter a valid answer content.', 'dwqa' ), 'error' );
 			}
@@ -184,7 +184,7 @@ class DWQA_Handle {
 			if ( ! isset( $_POST['comment_post_ID'] ) ) {
 				dwqa_add_notice( __( 'Missing post id.', 'dwqa' ), 'error', true );
 			}
-			$comment_content = isset( $_POST['comment'] ) ? $_POST['comment'] : '';
+			$comment_content = isset( $_POST['comment'] ) ? sanitize_text_field( $_POST['comment'] ) : '';
 			$comment_content = apply_filters( 'dwqa_pre_comment_content', $comment_content );
 
 			if ( empty( $comment_content ) ) {
@@ -294,7 +294,7 @@ class DWQA_Handle {
 					$tags = isset( $_POST['question-tag'] ) ?
 								esc_html( $_POST['question-tag'] ): '';
 
-					$content = isset( $_POST['question-content'] ) ? $_POST['question-content'] : '';
+					$content = isset( $_POST['question-content'] ) ? sanitize_text_field( $_POST['question-content'] ) : '';
 					$content = apply_filters( 'dwqa_prepare_question_content', $content );
 
 					$user_id = 0;
@@ -372,7 +372,7 @@ class DWQA_Handle {
 						} else {
 							$is_anonymous = true;
 							$question_author_email = isset( $_POST['_dwqa_anonymous_email'] ) && is_email( $_POST['_dwqa_anonymous_email'] ) ? sanitize_email( $_POST['_dwqa_anonymous_email'] ) : false;
-							$question_author_name = isset( $_POST['_dwqa_anonymous_name'] ) && !empty( $_POST['_dwqa_anonymous_name'] ) ? $_POST['_dwqa_anonymous_name'] : false;
+							$question_author_name = isset( $_POST['_dwqa_anonymous_name'] ) && !empty( $_POST['_dwqa_anonymous_name'] ) ? sanitize_text_field( $_POST['_dwqa_anonymous_name'] ) : false;
 							$user_id = 0;
 						}
 					}
@@ -446,7 +446,7 @@ class DWQA_Handle {
 					dwqa_add_notice( __( 'You must enter a valid question title.', 'dwqa' ), 'error' );
 				}
 
-				$question_id = isset( $_POST['question_id'] ) ? $_POST['question_id'] : false;
+				$question_id = isset( $_POST['question_id'] ) ? sanitize_text_field( $_POST['question_id'] ) : false;
 
 				if ( !$question_id ) {
 					dwqa_add_notice( __( 'Question is missing.', 'dwqa' ), 'error' );

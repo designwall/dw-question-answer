@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: DW Question Answer\n"
-"POT-Creation-Date: 2016-02-18 16:21+0700\n"
+"POT-Creation-Date: 2016-03-17 10:04+0700\n"
 "PO-Revision-Date: 2016-02-18 16:20+0700\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -52,7 +52,7 @@ msgstr ""
 msgid "Please enter your answer"
 msgstr ""
 
-#: dw-question-answer.php:110 inc/Handle.php:189
+#: dw-question-answer.php:110 inc/Handle.php:191
 msgid "Please enter your comment content"
 msgstr ""
 
@@ -72,9 +72,9 @@ msgstr ""
 msgid "Update"
 msgstr ""
 
-#: dw-question-answer.php:115 inc/Posts/Answer.php:315 inc/Posts/Base.php:320
-#: inc/Settings.php:402 inc/Template.php:58 inc/Template.php:156
-#: inc/Template.php:173 templates/content-comment.php:19
+#: dw-question-answer.php:115 inc/Posts/Answer.php:317 inc/Posts/Base.php:320
+#: inc/Settings.php:402 inc/Template.php:58 inc/Template.php:163
+#: inc/Template.php:180 templates/content-comment.php:19
 msgid "Edit"
 msgstr ""
 
@@ -182,57 +182,49 @@ msgstr ""
 msgid "Get It Now!"
 msgstr ""
 
-#: inc/Admin/Welcome.php:21 inc/Admin/Welcome.php:22
-msgid "Welcome to DW Question & Answer"
-msgstr ""
-
-#: inc/Admin/Welcome.php:29 inc/Admin/Welcome.php:30
+#: inc/Admin/Welcome.php:34 inc/Admin/Welcome.php:35
 msgid "DW Question & Answer Changelog"
 msgstr ""
 
-#: inc/Admin/Welcome.php:37 inc/Admin/Welcome.php:38
+#: inc/Admin/Welcome.php:42 inc/Admin/Welcome.php:43
 msgid "DW Question & Answer Credits"
 msgstr ""
 
-#: inc/Admin/Welcome.php:54
+#: inc/Admin/Welcome.php:59
 #, php-format
 msgid "Welcome to DW Question & Answer %s"
 msgstr ""
 
-#: inc/Admin/Welcome.php:55
+#: inc/Admin/Welcome.php:60
 msgid ""
 "Thank you for installing our WordPress plugin. If you have any question "
-"about this theme, please submit to our <a target=\"_blank\" href=\"https://"
+"about this plugin, please submit to our <a target=\"_blank\" href=\"https://"
 "www.designwall.com/question/\">Q&A section</a>."
 msgstr ""
 
-#: inc/Admin/Welcome.php:63
-msgid "What&#8217;s New"
-msgstr ""
-
-#: inc/Admin/Welcome.php:64
+#: inc/Admin/Welcome.php:69
 msgid "Changelog"
 msgstr ""
 
-#: inc/Admin/Welcome.php:65
+#: inc/Admin/Welcome.php:70
 msgid "Credits"
 msgstr ""
 
-#: inc/Admin/Welcome.php:193
+#: inc/Admin/Welcome.php:198
 msgid "Contributors"
 msgstr ""
 
-#: inc/Admin/Welcome.php:212
+#: inc/Admin/Welcome.php:217
 msgid "No valid changelog was found."
 msgstr ""
 
 #: inc/Ajax.php:29 inc/Ajax.php:47 inc/Ajax.php:83 inc/Ajax.php:113
-#: inc/Ajax.php:132 inc/Ajax.php:150 inc/Ajax.php:215 inc/Handle.php:242
-#: inc/Handle.php:428 inc/Permission.php:286 inc/Status.php:319
+#: inc/Ajax.php:132 inc/Ajax.php:150 inc/Ajax.php:215 inc/Handle.php:244
+#: inc/Handle.php:430 inc/Permission.php:286 inc/Status.php:319
 msgid "Are you cheating huh?"
 msgstr ""
 
-#: inc/Ajax.php:33 inc/Handle.php:246
+#: inc/Ajax.php:33 inc/Handle.php:248
 msgid "You do not have permission to edit comment."
 msgstr ""
 
@@ -240,11 +232,11 @@ msgstr ""
 msgid "Comment ID must be showed."
 msgstr ""
 
-#: inc/Ajax.php:51 inc/Handle.php:142
+#: inc/Ajax.php:51 inc/Handle.php:144
 msgid "Answer is missing."
 msgstr ""
 
-#: inc/Ajax.php:55 inc/Handle.php:146
+#: inc/Ajax.php:55 inc/Handle.php:148
 msgid "This post is not answer."
 msgstr ""
 
@@ -256,11 +248,11 @@ msgstr ""
 msgid "Missing id of answer"
 msgstr ""
 
-#: inc/Ajax.php:154 inc/Handle.php:450
+#: inc/Ajax.php:154 inc/Handle.php:452
 msgid "Question is missing."
 msgstr ""
 
-#: inc/Ajax.php:158 inc/Handle.php:454
+#: inc/Ajax.php:158 inc/Handle.php:456
 msgid "This post is not question."
 msgstr ""
 
@@ -272,7 +264,7 @@ msgstr ""
 msgid "Search query is empty"
 msgstr ""
 
-#: inc/Answer_List_Table.php:81 inc/Posts/Answer.php:269 inc/Template.php:48
+#: inc/Answer_List_Table.php:81 inc/Posts/Answer.php:271 inc/Template.php:48
 msgid "Author"
 msgstr ""
 
@@ -283,7 +275,7 @@ msgstr ""
 #: inc/Answer_List_Table.php:92 inc/Notifications.php:146
 #: inc/Notifications.php:148 inc/Posts/Base.php:230 inc/Posts/Comment.php:102
 #: inc/Settings.php:419 inc/Settings.php:455 inc/Settings.php:490
-#: inc/User.php:160 inc/widgets/Latest_Question.php:39
+#: inc/User.php:155 inc/widgets/Latest_Question.php:39
 msgid "Anonymous"
 msgstr ""
 
@@ -364,11 +356,11 @@ msgstr ""
 msgid "Question is empty"
 msgstr ""
 
-#: inc/Handle.php:46 inc/Handle.php:405
+#: inc/Handle.php:46 inc/Handle.php:407
 msgid "You do not have permission to submit question."
 msgstr ""
 
-#: inc/Handle.php:50 inc/Handle.php:424
+#: inc/Handle.php:50 inc/Handle.php:426
 msgid "Captcha is not correct"
 msgstr ""
 
@@ -376,63 +368,63 @@ msgstr ""
 msgid "Answer for "
 msgstr ""
 
-#: inc/Handle.php:127
+#: inc/Handle.php:129
 msgid "You do not have permission to edit answer."
 msgstr ""
 
-#: inc/Handle.php:131 inc/Handle.php:493 inc/Posts/Question.php:473
+#: inc/Handle.php:133 inc/Handle.php:495 inc/Posts/Question.php:473
 msgid "Hello, Are you cheating huh?"
 msgstr ""
 
-#: inc/Handle.php:136
+#: inc/Handle.php:138
 msgid "You must enter a valid answer content."
 msgstr ""
 
-#: inc/Handle.php:180
+#: inc/Handle.php:182
 msgid "You can't post comment"
 msgstr ""
 
-#: inc/Handle.php:183
+#: inc/Handle.php:185
 msgid "Missing post id."
 msgstr ""
 
-#: inc/Handle.php:204
+#: inc/Handle.php:206
 msgid "Missing email information"
 msgstr ""
 
-#: inc/Handle.php:208
+#: inc/Handle.php:210
 msgid "Missing name information"
 msgstr ""
 
-#: inc/Handle.php:235
+#: inc/Handle.php:237
 msgid "Comment is missing"
 msgstr ""
 
-#: inc/Handle.php:250
+#: inc/Handle.php:252
 msgid "Comment content must not be empty."
 msgstr ""
 
-#: inc/Handle.php:280 inc/Handle.php:444
+#: inc/Handle.php:282 inc/Handle.php:446
 msgid "You must enter a valid question title."
 msgstr ""
 
-#: inc/Handle.php:358
+#: inc/Handle.php:360
 msgid "User Registration was disabled."
 msgstr ""
 
-#: inc/Handle.php:361
+#: inc/Handle.php:363
 msgid "This email is already registered, please choose another one."
 msgstr ""
 
-#: inc/Handle.php:364
+#: inc/Handle.php:366
 msgid "This username is already registered. Please use another one."
 msgstr ""
 
-#: inc/Handle.php:417
+#: inc/Handle.php:419
 msgid "Your question is waiting moderator."
 msgstr ""
 
-#: inc/Handle.php:439 inc/Status.php:347
+#: inc/Handle.php:441 inc/Status.php:347
 msgid "You do not have permission to edit question"
 msgstr ""
 
@@ -572,29 +564,37 @@ msgstr ""
 msgid "Change comment settings, and create the Submit question page."
 msgstr ""
 
-#: inc/Posts/Answer.php:226 inc/Posts/Answer.php:268
+#: inc/Posts/Answer.php:226 inc/Posts/Answer.php:270
 msgid "Answer"
 msgstr ""
 
-#: inc/Posts/Answer.php:271
+#: inc/Posts/Answer.php:273
 msgid "In Response To"
 msgstr ""
 
-#: inc/Posts/Answer.php:316 inc/Settings.php:403 inc/Template.php:161
-#: inc/Template.php:178 templates/content-comment.php:22
+#: inc/Posts/Answer.php:318 inc/Settings.php:403 inc/Template.php:168
+#: inc/Template.php:185 templates/content-comment.php:22
 msgid "Delete"
 msgstr ""
 
-#: inc/Posts/Answer.php:317 inc/Posts/Base.php:322
+#: inc/Posts/Answer.php:319 inc/Posts/Base.php:322
 msgid "View"
 msgstr ""
 
-#: inc/Posts/Answer.php:321
+#: inc/Posts/Answer.php:323
 msgid "Submitted"
 msgstr ""
 
-#: inc/Posts/Answer.php:322
+#: inc/Posts/Answer.php:324
 msgid "on"
+msgstr ""
+
+#: inc/Posts/Answer.php:359
+msgid "Question ID"
+msgstr ""
+
+#: inc/Posts/Answer.php:370 inc/Posts/Answer.php:373
+msgid "ID"
 msgstr ""
 
 #: inc/Posts/Base.php:5
@@ -797,7 +797,7 @@ msgstr ""
 msgid "views"
 msgstr ""
 
-#: inc/Posts/Question.php:410 inc/User.php:268
+#: inc/Posts/Question.php:410 inc/User.php:261
 msgid "Invalid Post"
 msgstr ""
 
@@ -1239,85 +1239,65 @@ msgstr ""
 msgid "What do you want to know?"
 msgstr ""
 
-#: inc/Template.php:150
+#: inc/Template.php:157
 msgid "Subscribe"
 msgstr ""
 
-#: inc/Template.php:437
+#: inc/Template.php:444
 msgid "Email"
 msgstr ""
 
-#: inc/Template.php:439
+#: inc/Template.php:446
 msgid "Name"
 msgstr ""
 
-#: inc/Template.php:441
+#: inc/Template.php:448
 #, php-format
 msgid "Required fields are marked %s"
 msgstr ""
 
-#: inc/Template.php:452
-msgctxt "noun"
-msgid "Comment"
-msgstr ""
-
-#: inc/Template.php:453
+#: inc/Template.php:460
 #, php-format
 msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
 msgstr ""
 
-#: inc/Template.php:454
-#, php-format
-msgid ""
-"Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of "
-"this account\">Log out?</a>"
-msgstr ""
-
-#: inc/Template.php:455
-msgid "Your email address will not be published."
-msgstr ""
-
-#: inc/Template.php:456
+#: inc/Template.php:463
 #, php-format
 msgid ""
 "You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
 "and attributes: %s"
 msgstr ""
 
-#: inc/Template.php:459
+#: inc/Template.php:466
 msgid "Leave a Reply"
 msgstr ""
 
-#: inc/Template.php:460
+#: inc/Template.php:467
 #, php-format
 msgid "Leave a Reply to %s"
 msgstr ""
 
-#: inc/Template.php:461
+#: inc/Template.php:468
 msgid "Cancel reply"
 msgstr ""
 
-#: inc/Template.php:462
+#: inc/Template.php:469
 msgid "Post Comment"
 msgstr ""
 
-#: inc/Template.php:637
+#: inc/Template.php:644
 msgid "Sticky Question"
 msgstr ""
 
-#: inc/Template.php:651
+#: inc/Template.php:658
 msgid "Ask a question"
 msgstr ""
 
-#: inc/Template.php:653
+#: inc/Template.php:660
 msgid "Login to ask a question"
 msgstr ""
 
-#: inc/Template.php:1052
-msgid "You do not have permission to submit a question"
-msgstr ""
-
-#: inc/Template.php:1106
+#: inc/Template.php:1108
 msgid "Choose as the best answer"
 msgstr ""
 
@@ -1333,7 +1313,7 @@ msgstr ""
 msgid "Plugin was activated"
 msgstr ""
 
-#: inc/User.php:237
+#: inc/User.php:230
 msgid "Staff"
 msgstr ""
 
@@ -1487,16 +1467,12 @@ msgstr ""
 msgid "Votes"
 msgstr ""
 
-#: templates/archive-question.php:35
+#: templates/archive-question.php:28
 msgid "Ask Question"
 msgstr ""
 
 #: templates/captcha-form.php:20
 msgid "Enter the result"
-msgstr ""
-
-#: templates/comments.php:23
-msgid "Write a comment ..."
 msgstr ""
 
 #: templates/content-comment.php:16
@@ -1580,6 +1556,10 @@ msgstr ""
 
 #: templates/content-single-question.php:29
 msgid "This question is:"
+msgstr ""
+
+#: templates/question-submit-form.php:68
+msgid "You do not have permission to submit a question"
 msgstr ""
 
 #: upgrades/upgrades.php:25

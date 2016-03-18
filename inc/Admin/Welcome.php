@@ -18,7 +18,7 @@ class DWQA_Admin_Welcome {
 	}
 
 	public function admin_notices() {
-		if ( !isset( $_COOKIE['qa-pro-notice'] ) && 'off' != $_COOKIE['qa-pro-notice'] ) {
+		if ( !isset( $_COOKIE['qa-pro-notice'] ) ) {
 			echo '<div id="dwqa-message" class="notice is-dismissible"><p>To support this plugin and get more features, <a href="http://bit.ly/dwqa-pro" target="_blank">upgrade to DW Question & Answer Pro &rarr;</a></p><button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button></div>';
 		}
 	}

@@ -4,7 +4,7 @@
  *  Description: A WordPress plugin was make by DesignWall.com to build an Question Answer system for support, asking and comunitcate with your customer
  *  Author: DesignWall
  *  Author URI: http://www.designwall.com
- *  Version: 1.4.3.1
+ *  Version: 1.4.3.2
  *  Text Domain: dwqa
  *  @since 1.4.0
  */
@@ -39,7 +39,7 @@ class DW_Question_Answer {
 	public function __construct() {
 		$this->dir = DWQA_DIR;
 		$this->uri = DWQA_URI;
-		$this->version = '1.4.3.1';
+		$this->version = '1.4.3.2';
 
 		// load posttype
 		$this->question = new DWQA_Posts_Question();
@@ -69,7 +69,6 @@ class DW_Question_Answer {
 		// All init action of plugin will be included in
 		add_action( 'init', array( $this, 'init' ) );
 		add_action( 'widgets_init', array( $this, 'widgets_init' ) );
-		add_action( 'upgrader_process_complete', array( $this, 'register_upgrade_plugin' ), 10, 2 );
 		register_activation_hook( __FILE__, array( $this, 'activate_hook' ) );
 		register_deactivation_hook( __FILE__, array( $this, 'deactivate_hook' ) );
 	}
@@ -203,16 +202,6 @@ class DW_Question_Answer {
 		update_option( 'dwqa_options', $options );
 		update_option( 'dwqa_plugin_activated', true );
 		// dwqa_posttype_init();
-	}
-
-	// using action `upgrader_process_complete`
-	public function register_upgrade_plugin( $upgrader_object, $args ) {
-		$file_name = plugin_basename( __FILE__ );
-		if ( isset( $args['plugins'] ) && !empty( $args['plugins'] ) ) {
-			if ( ( is_array( $args['plugins'] ) && in_array( $file_name, $args['plugins'] ) ) || ( is_string( $args['plugins'] && $file_name == $args['plugins'] ) ) ) {
-				update_option( 'dwqa_plugin_upgraded', true );
-			}
-		}
 	}
 
 	public function deactivate_hook() {

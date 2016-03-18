@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: DW Question Answer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-06 14:32+0700\n"
-"PO-Revision-Date: 2016-02-06 14:32+0700\n"
+"PO-Revision-Date: 2016-03-18 09:49+0700\n"
 "Last-Translator: DesignWall <webmaster@designwall.com>\n"
 "Language-Team: DesignWall <webmaster@designwall.com>\n"
 "Language: es\n"
@@ -632,12 +632,12 @@ msgstr "Publicaciones por %s"
 #: ../inc/Posts/Base.php:251 ../inc/Posts/Base.php:255
 #, php-format
 msgid "%s answered <span class=\"dwqa-date\">%s</span> ago"
-msgstr ""
+msgstr "%s contestada <span class=\"dwqa-date\">%s</span> antes"
 
 #: ../inc/Posts/Base.php:257
 #, php-format
 msgid "%s asked <span class=\"dwqa-date\">%s</span> ago"
-msgstr ""
+msgstr "%s preguntada <span class=\"dwqa-date\">%s</span> antes"
 
 #: ../inc/Posts/Base.php:306
 msgid "DWQA Posts"
@@ -810,7 +810,7 @@ msgstr "votada"
 
 #: ../inc/Posts/Question.php:307
 msgid "views"
-msgstr "visto"
+msgstr "vistas"
 
 #: ../inc/Posts/Question.php:428 ../inc/User.php:266
 msgid "Invalid Post"
@@ -960,7 +960,7 @@ msgstr ""
 
 #: ../inc/Settings.php:529
 msgid "Default"
-msgstr ""
+msgstr "Por defecto"
 
 #: ../inc/Settings.php:541
 msgid "questions"
@@ -1199,7 +1199,7 @@ msgstr "Estatus de publicacion invalido"
 #: ../inc/Template.php:15 ../templates/content-edit.php:44
 #: ../templates/question-submit-form.php:46
 msgid "Tag"
-msgstr ""
+msgstr "Etiqueta"
 
 #: ../inc/Template.php:15 ../inc/Template.php:20
 #: ../templates/content-edit.php:29 ../templates/question-submit-form.php:32
@@ -1208,11 +1208,11 @@ msgstr "Categoria"
 
 #: ../inc/Template.php:43
 msgid "Showing search results for"
-msgstr ""
+msgstr "Mostrando resultado de la busqueda por"
 
 #: ../inc/Template.php:75
 msgid "Filter:"
-msgstr ""
+msgstr "Filtro:"
 
 #: ../inc/Template.php:77
 msgid "All"
@@ -1220,39 +1220,39 @@ msgstr "Todo"
 
 #: ../inc/Template.php:81
 msgid "Unanswered"
-msgstr ""
+msgstr "Sin contestar"
 
 #: ../inc/Template.php:83
 msgid "My questions"
-msgstr ""
+msgstr "Mis preguntas"
 
 #: ../inc/Template.php:84
 msgid "My subscribes"
-msgstr ""
+msgstr "Mis subscripciones"
 
 #: ../inc/Template.php:88
 msgid "Subscribes"
-msgstr ""
+msgstr "Subscripciones"
 
 #: ../inc/Template.php:91
 msgid "Sort by"
-msgstr ""
+msgstr "Ordenadar por"
 
 #: ../inc/Template.php:92
 msgid "Views"
-msgstr ""
+msgstr "Vistas"
 
 #: ../inc/Template.php:94
 msgid "Votes"
-msgstr ""
+msgstr "Votos"
 
 #: ../inc/Template.php:105
 msgid "What do you want to know?"
-msgstr ""
+msgstr "Que quieres saber?"
 
 #: ../inc/Template.php:177
 msgid "Subscribe"
-msgstr ""
+msgstr "Subscribirse"
 
 #: ../inc/Template.php:289
 msgid "You need an account to submit question and get answers. Create one:"
@@ -1543,7 +1543,7 @@ msgstr ""
 #: ../templates/answers.php:12
 #, php-format
 msgid "%s Answers"
-msgstr ""
+msgstr "%s Respuestas"
 
 #: ../templates/archive-question.php:35
 msgid "Ask Question"
@@ -1561,7 +1561,7 @@ msgstr ""
 #, php-format
 msgctxt "%s = human-readable time difference"
 msgid "replied %s ago"
-msgstr ""
+msgstr "contestada %s antes"
 
 #: ../templates/content-edit.php:21 ../templates/question-submit-form.php:13
 msgid "Title"
@@ -1577,7 +1577,7 @@ msgstr ""
 
 #: ../templates/content-none.php:12
 msgid "Sorry, but nothing matched your filter"
-msgstr ""
+msgstr "Lo siento, no hemos encontrado nada con ese filtro"
 
 #: ../templates/content-question.php:18
 msgid "asked"
@@ -1586,7 +1586,7 @@ msgstr "preguntado"
 #: ../templates/content-question.php:25
 #, php-format
 msgid "<span><a href=\"%s\">%s%s</a> %s %s ago</span>"
-msgstr ""
+msgstr "<span><a href=\"%s\">%s%s</a> %s %s antes</span>"
 
 #: ../templates/content-question.php:26
 msgid "&nbsp; &bull; &nbsp;"
@@ -1595,17 +1595,17 @@ msgstr ""
 #: ../templates/content-question.php:31
 #, php-format
 msgid "<strong>%1$s</strong> views"
-msgstr ""
+msgstr "<strong>%1$s</strong> vistas"
 
 #: ../templates/content-question.php:35
 #, php-format
 msgid "<strong>%1$s</strong> answers"
-msgstr ""
+msgstr "<strong>%1$s</strong> respuestas"
 
 #: ../templates/content-question.php:39
 #, php-format
 msgid "<strong>%1$s</strong> votes"
-msgstr ""
+msgstr "<strong>%1$s</strong> votos"
 
 #: ../templates/content-single-answer.php:12
 #: ../templates/content-single-question.php:14
@@ -1620,12 +1620,12 @@ msgstr "Votar Mala"
 #: ../templates/content-single-answer.php:17
 #, php-format
 msgid "<span><a href=\"%s\">%s%s</a> %s answered %s ago</span>"
-msgstr ""
+msgstr "<span><a href=\"%s\">%s%s</a> %s contestada %s antes</span>"
 
 #: ../templates/content-single-question.php:19
 #, php-format
 msgid "<span><a href=\"%s\">%s%s</a> %s asked %s ago</span>"
-msgstr ""
+msgstr "<span><a href=\"%s\">%s%s</a> %s preguntada %s antes</span>"
 
 #: ../templates/content-single-question.php:25
 msgid "Question Tags: "

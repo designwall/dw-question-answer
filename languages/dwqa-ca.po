@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: DW Question Answer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-02-06 14:31+0700\n"
-"PO-Revision-Date: 2016-02-06 14:31+0700\n"
+"PO-Revision-Date: 2016-03-18 09:49+0700\n"
 "Last-Translator: DesignWall <webmaster@designwall.com>\n"
 "Language-Team: DesignWall <webmaster@designwall.com>\n"
 "Language: ca\n"
@@ -635,12 +635,12 @@ msgstr "Publicacions de %s"
 #: ../inc/Posts/Base.php:251 ../inc/Posts/Base.php:255
 #, php-format
 msgid "%s answered <span class=\"dwqa-date\">%s</span> ago"
-msgstr ""
+msgstr "%s contestat <span class=\"dwqa-date\">%s</span> abans"
 
 #: ../inc/Posts/Base.php:257
 #, php-format
 msgid "%s asked <span class=\"dwqa-date\">%s</span> ago"
-msgstr ""
+msgstr "%s preguntat <span class=\"dwqa-date\">%s</span> abans"
 
 #: ../inc/Posts/Base.php:306
 msgid "DWQA Posts"
@@ -813,7 +813,7 @@ msgstr "votada"
 
 #: ../inc/Posts/Question.php:307
 msgid "views"
-msgstr "cops vist"
+msgstr "vistes"
 
 #: ../inc/Posts/Question.php:428 ../inc/User.php:266
 msgid "Invalid Post"
@@ -1119,7 +1119,7 @@ msgstr "Permís"
 
 #: ../inc/Settings.php:1033
 msgid "Licenses"
-msgstr ""
+msgstr "Llicencies"
 
 #: ../inc/Settings.php:1047
 msgid "Email setup"
@@ -1179,8 +1179,8 @@ msgstr "Enllaçar a"
 #, php-format
 msgid "%d person who is following this question"
 msgid_plural "%d people who are following this question"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d persona que segueix la teva pregunta"
+msgstr[1] "%d persones que segueixen la teva pregunta"
 
 #: ../inc/Status.php:288
 msgid "Answered"
@@ -1201,7 +1201,7 @@ msgstr "Estatus de publicació no vàlid"
 #: ../inc/Template.php:15 ../templates/content-edit.php:44
 #: ../templates/question-submit-form.php:46
 msgid "Tag"
-msgstr ""
+msgstr "Etiqueta"
 
 #: ../inc/Template.php:15 ../inc/Template.php:20
 #: ../templates/content-edit.php:29 ../templates/question-submit-form.php:32
@@ -1210,11 +1210,11 @@ msgstr "Categoria"
 
 #: ../inc/Template.php:43
 msgid "Showing search results for"
-msgstr ""
+msgstr "Mostrant resultats per"
 
 #: ../inc/Template.php:75
 msgid "Filter:"
-msgstr ""
+msgstr "Filtre:"
 
 #: ../inc/Template.php:77
 msgid "All"
@@ -1222,39 +1222,39 @@ msgstr "Tot"
 
 #: ../inc/Template.php:81
 msgid "Unanswered"
-msgstr ""
+msgstr "Sense contestar"
 
 #: ../inc/Template.php:83
 msgid "My questions"
-msgstr ""
+msgstr "Les meves preguntes"
 
 #: ../inc/Template.php:84
 msgid "My subscribes"
-msgstr ""
+msgstr "Les meves subscripcions"
 
 #: ../inc/Template.php:88
 msgid "Subscribes"
-msgstr ""
+msgstr "Subscripcions"
 
 #: ../inc/Template.php:91
 msgid "Sort by"
-msgstr ""
+msgstr "Ordena per"
 
 #: ../inc/Template.php:92
 msgid "Views"
-msgstr ""
+msgstr "Vistes"
 
 #: ../inc/Template.php:94
 msgid "Votes"
-msgstr ""
+msgstr "Vots"
 
 #: ../inc/Template.php:105
 msgid "What do you want to know?"
-msgstr ""
+msgstr "Que vols saber?"
 
 #: ../inc/Template.php:177
 msgid "Subscribe"
-msgstr ""
+msgstr "Subscriu-te"
 
 #: ../inc/Template.php:289
 msgid "You need an account to submit question and get answers. Create one:"
@@ -1298,6 +1298,8 @@ msgid ""
 "Enter your email to receive notification regarding your question. Your email "
 "is safe with us and will not be published."
 msgstr ""
+"Introdueix el teu mail per rebre notificacions sobre la pregunta. El teu "
+"email el guardarem i no el publicarem."
 
 #: ../inc/Template.php:311
 #, fuzzy
@@ -1306,12 +1308,12 @@ msgstr "Escriu el teu correu electrònic"
 
 #: ../inc/Template.php:312
 msgid "Email address ..."
-msgstr ""
+msgstr "Adreça de email *"
 
 #: ../inc/Template.php:313
 #, php-format
 msgid "or <strong><a href=\"%s\">login</a></strong> to submit question"
-msgstr ""
+msgstr "o  <strong><a href=\"%s\">login</a></strong> per penjar una pregunta"
 
 #: ../inc/Template.php:341
 #, php-format
@@ -1433,7 +1435,7 @@ msgstr "Carregar totes les publicacions fetes sota %s"
 
 #: ../inc/widgets/Closed_Question.php:11
 msgid "Show a list of questions marked as closed."
-msgstr ""
+msgstr "Mostra una llista de preguntes tancades"
 
 #: ../inc/widgets/Closed_Question.php:12
 #, fuzzy
@@ -1459,7 +1461,7 @@ msgstr "Nombre de publicacions"
 
 #: ../inc/widgets/Latest_Question.php:10
 msgid "Show a list of latest questions."
-msgstr ""
+msgstr "Mostra una llista de les últimes preguntes"
 
 #: ../inc/widgets/Latest_Question.php:11
 #, fuzzy
@@ -1473,7 +1475,7 @@ msgstr "Pregunta Privada"
 
 #: ../inc/widgets/Popular_Question.php:13
 msgid "Show a list of popular questions."
-msgstr ""
+msgstr "Mostra una llista de les preguntes mes populars"
 
 #: ../inc/widgets/Popular_Question.php:15
 msgid "DWQA Popular Questions"
@@ -1512,21 +1514,21 @@ msgstr ""
 
 #: ../lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:326
 msgid "Error"
-msgstr ""
+msgstr "Error"
 
 #: ../templates/answer-submit-form.php:12
 msgid "Your Answer"
-msgstr ""
+msgstr "La teva pregunta"
 
 #: ../templates/answer-submit-form.php:21
 #: ../templates/question-submit-form.php:52
 msgid "Your Email"
-msgstr ""
+msgstr "El teu email"
 
 #: ../templates/answer-submit-form.php:26
 #: ../templates/question-submit-form.php:57
 msgid "Your Name"
-msgstr ""
+msgstr "El teu nom"
 
 #: ../templates/answer-submit-form.php:33
 #: ../templates/question-submit-form.php:24
@@ -1541,12 +1543,12 @@ msgstr ""
 #: ../templates/answer-submit-form.php:39
 #: ../templates/question-submit-form.php:64
 msgid "Submit"
-msgstr ""
+msgstr "Envia"
 
 #: ../templates/answers.php:12
 #, php-format
 msgid "%s Answers"
-msgstr ""
+msgstr "%s Respostes"
 
 #: ../templates/archive-question.php:35
 msgid "Ask Question"
@@ -1554,21 +1556,21 @@ msgstr "Fer Pregunta"
 
 #: ../templates/captcha-form.php:11
 msgid "Enter the result"
-msgstr ""
+msgstr "Introdueix el resultat"
 
 #: ../templates/comments.php:23
 msgid "Write a comment ..."
-msgstr ""
+msgstr "Escriu un comentari ..."
 
 #: ../templates/content-comment.php:16
 #, php-format
 msgctxt "%s = human-readable time difference"
 msgid "replied %s ago"
-msgstr ""
+msgstr "contestat %s abans"
 
 #: ../templates/content-edit.php:21 ../templates/question-submit-form.php:13
 msgid "Title"
-msgstr ""
+msgstr "Títol"
 
 #: ../templates/content-edit.php:36 ../templates/question-submit-form.php:38
 msgid "Select question category"
@@ -1576,11 +1578,11 @@ msgstr "Selecciona la categoria de la pregunta"
 
 #: ../templates/content-edit.php:50
 msgid "Save Changes"
-msgstr ""
+msgstr "Desa els canvis"
 
 #: ../templates/content-none.php:12
 msgid "Sorry, but nothing matched your filter"
-msgstr ""
+msgstr "Ho sento, pero no hem trobat res amb aquest filtre"
 
 #: ../templates/content-question.php:18
 msgid "asked"
@@ -1589,7 +1591,7 @@ msgstr "preguntat"
 #: ../templates/content-question.php:25
 #, php-format
 msgid "<span><a href=\"%s\">%s%s</a> %s %s ago</span>"
-msgstr ""
+msgstr "<span><a href=\"%s\">%s%s</a> %s %s abans</span>"
 
 #: ../templates/content-question.php:26
 msgid "&nbsp; &bull; &nbsp;"
@@ -1598,17 +1600,17 @@ msgstr ""
 #: ../templates/content-question.php:31
 #, php-format
 msgid "<strong>%1$s</strong> views"
-msgstr ""
+msgstr "<strong>%1$s</strong> vistes"
 
 #: ../templates/content-question.php:35
 #, php-format
 msgid "<strong>%1$s</strong> answers"
-msgstr ""
+msgstr "<strong>%1$s</strong> respostes"
 
 #: ../templates/content-question.php:39
 #, php-format
 msgid "<strong>%1$s</strong> votes"
-msgstr ""
+msgstr "<strong>%1$s</strong> vots"
 
 #: ../templates/content-single-answer.php:12
 #: ../templates/content-single-question.php:14
@@ -1623,20 +1625,20 @@ msgstr "Vot Negatiu"
 #: ../templates/content-single-answer.php:17
 #, php-format
 msgid "<span><a href=\"%s\">%s%s</a> %s answered %s ago</span>"
-msgstr ""
+msgstr "<span><a href=\"%s\">%s%s</a> %s contestat %s abans</span>"
 
 #: ../templates/content-single-question.php:19
 #, php-format
 msgid "<span><a href=\"%s\">%s%s</a> %s asked %s ago</span>"
-msgstr ""
+msgstr "<span><a href=\"%s\">%s%s</a> %s preguntat %s abans</span>"
 
 #: ../templates/content-single-question.php:25
 msgid "Question Tags: "
-msgstr ""
+msgstr "Etiquetes de preguntes"
 
 #: ../templates/content-single-question.php:28
 msgid "This question is:"
-msgstr ""
+msgstr "Aquesta pregunta es:"
 
 #: ../upgrades/upgrades.php:33
 msgid "DWQA Upgrade"
@@ -1650,7 +1652,7 @@ msgstr ""
 
 #: ../upgrades/upgrades.php:130
 msgid "You do not have permission to do this task"
-msgstr ""
+msgstr "No tens permís per fer aquesta tasca"
 
 #: ../upgrades/upgrades.php:147
 msgid "Just do it.."

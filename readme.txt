@@ -85,6 +85,9 @@ Visit our [Github](https://github.com/designwall/dw-question-answer) project or 
 
 == Changelog ==
 
+= 1.4.3.1 =
+Quick fix and update some language file.
+
 = 1.4.3 =
 Tweak: Update language file
 Fix: Addressed some security issues

@@ -39,7 +39,7 @@ class DW_Question_Answer {
 	public function __construct() {
 		$this->dir = DWQA_DIR;
 		$this->uri = DWQA_URI;
-		$this->version = '1.4.3';
+		$this->version = '1.4.3.1';
 
 		// load posttype
 		$this->question = new DWQA_Posts_Question();

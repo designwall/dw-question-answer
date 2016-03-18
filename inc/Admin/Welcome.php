@@ -5,7 +5,7 @@ class DWQA_Admin_Welcome {
 		add_action( 'admin_menu', array( $this, 'admin_menus') );
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
 		add_action( 'admin_init', array( $this, 'welcome' ) );
-		add_action( 'admin_notices', array( $this, 'admin_notices' ) );
+		add_action( 'admin_notices', array( $this, 'admin_notices' ), 99 );
 	}
 
 	public function welcome() {
@@ -18,17 +18,19 @@ class DWQA_Admin_Welcome {
 	}
 
 	public function admin_notices() {
-		echo '<div class="notice notice-info is-dismissable"><p>To support this plugin and get more features, <a href="http://bit.ly/dwqa-pro" target="_blank">upgrade to DW Question & Answer Pro &rarr;</a></p><a class="welcome-panel-close"></a></div>';
+		if ( !isset( $_COOKIE['qa-pro-notice'] ) && 'off' != $_COOKIE['qa-pro-notice'] ) {
+			echo '<div id="dwqa-message" class="notice is-dismissible"><p>To support this plugin and get more features, <a href="http://bit.ly/dwqa-pro" target="_blank">upgrade to DW Question & Answer Pro &rarr;</a></p><button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button></div>';
+		}
 	}
 
 	public function admin_menus() {
-		// add_dashboard_page(
-		// 	__( 'Welcome to DW Question & Answer', 'dwqa' ),
-		// 	__( 'Welcome to DW Question & Answer', 'dwqa' ),
-		// 	'manage_options',
-		// 	'dwqa-about',
-		// 	array( $this, 'about_layout' )
-		// );
+		add_dashboard_page(
+			__( 'Welcome to DW Question & Answer', 'dwqa' ),
+			__( 'Welcome to DW Question & Answer', 'dwqa' ),
+			'manage_options',
+			'dwqa-about',
+			array( $this, 'about_layout' )
+		);
 
 		add_dashboard_page(
 			__( 'DW Question & Answer Changelog', 'dwqa' ),
@@ -65,7 +67,7 @@ class DWQA_Admin_Welcome {
 		$current_tab = isset( $_GET['page'] ) ? $_GET['page'] : 'dwqa-about'; 
 		?>
 		<h2 class="nav-tab-wrapper">
-			<?php /*<a href="<?php echo esc_url( add_query_arg( array( 'page' => 'dwqa-about' ), admin_url( 'index.php' ) ) ) ?>" class="nav-tab <?php echo 'dwqa-about' == $current_tab ? 'nav-tab-active' : ''; ?>"><?php _e( 'What&#8217;s New' ); ?></a> */ ?>
+			<a href="<?php echo esc_url( add_query_arg( array( 'page' => 'dwqa-about' ), admin_url( 'index.php' ) ) ) ?>" class="nav-tab <?php echo 'dwqa-about' == $current_tab ? 'nav-tab-active' : ''; ?>"><?php _e( 'What&#8217;s New' ); ?></a>
 			<a href="<?php echo esc_url( add_query_arg( array( 'page' => 'dwqa-changelog' ), admin_url( 'index.php' ) ) ) ?>" class="nav-tab <?php echo 'dwqa-changelog' == $current_tab ? 'nav-tab-active' : ''; ?>"><?php _e( 'Changelog' ); ?></a>
 			<a href="<?php echo esc_url( add_query_arg( array( 'page' => 'dwqa-credits' ), admin_url( 'index.php' ) ) ) ?>" class="nav-tab <?php echo 'dwqa-credits' == $current_tab ? 'nav-tab-active' : ''; ?>"><?php _e( 'Credits' ); ?></a>
 		</h2>

@@ -7,8 +7,8 @@
  */
 
 global $dwqa_general_settings;
-$sort = isset( $_GET['sort'] ) ? $_GET['sort'] : '';
-$filter = isset( $_GET['filter'] ) ? $_GET['filter'] : 'all';
+$sort = isset( $_GET['sort'] ) ? esc_html( $_GET['sort'] ) : '';
+$filter = isset( $_GET['filter'] ) ? esc_html( $_GET['filter'] ) : 'all';
 ?>
 <div class="dwqa-question-filter">
 	<span><?php _e( 'Filter:', 'dwqa' ); ?></span>

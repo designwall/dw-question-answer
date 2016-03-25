@@ -6,8 +6,8 @@
 function dwqa_breadcrumb() {
 	global $dwqa_general_settings;
 	$title = get_the_title( $dwqa_general_settings['pages']['archive-question'] );
-	$search = isset( $_GET['qs'] ) ? $_GET['qs'] : false;
-	$author = isset( $_GET['user'] ) ? $_GET['user'] : false;
+	$search = isset( $_GET['qs'] ) ? esc_html( $_GET['qs'] ) : false;
+	$author = isset( $_GET['user'] ) ? esc_html( $_GET['user'] ) : false;
 	$output = '';
 	if ( !is_singular( 'dwqa-question' ) ) {
 		$term = get_query_var( 'dwqa-question_category' ) ? get_query_var( 'dwqa-question_category' ) : ( get_query_var( 'dwqa-question_tag' ) ? get_query_var( 'dwqa-question_tag' ) : false );
@@ -75,7 +75,7 @@ add_action( 'dwqa_before_questions_archive', 'dwqa_archive_question_filter_layou
 function dwqa_search_form() {
 	?>
 	<form id="dwqa-search" class="dwqa-search">
-		<input data-nonce="<?php echo wp_create_nonce( '_dwqa_filter_nonce' ) ?>" type="text" placeholder="<?php _e( 'What do you want to know?', 'dwqa' ); ?>" name="qs" value="<?php echo isset( $_GET['qs'] ) ? $_GET['qs'] : '' ?>">
+		<input data-nonce="<?php echo wp_create_nonce( '_dwqa_filter_nonce' ) ?>" type="text" placeholder="<?php _e( 'What do you want to know?', 'dwqa' ); ?>" name="qs" value="<?php echo isset( $_GET['qs'] ) ? esc_html( $_GET['qs'] ) : '' ?>">
 	</form>
 	<?php
 }
@@ -92,7 +92,7 @@ add_action( 'dwqa_after_answers_list', 'dwqa_answer_paginate_link' );
 function dwqa_answer_paginate_link() {
 	global $wp_query;
 	$question_url = get_permalink();
-	$page = isset( $_GET['ans-page'] ) ? $_GET['ans-page'] : 1;
+	$page = isset( $_GET['ans-page'] ) ? intval( $_GET['ans-page'] ) : 1;
 
 	$args = array(
 		'base' => add_query_arg( 'ans-page', '%#%', $question_url ),

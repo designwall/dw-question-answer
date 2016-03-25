@@ -43,7 +43,7 @@ class DWQA_Ajax {
 	}
 
 	function delete_answer() {
-		if ( ! isset( $_GET['_wpnonce'] ) || ! wp_verify_nonce( $_GET['_wpnonce'], '_dwqa_action_remove_answer_nonce' ) || 'dwqa_delete_answer' !== $_GET['action'] ) {
+		if ( ! isset( $_GET['_wpnonce'] ) || ! wp_verify_nonce( $_GET['_wpnonce'], '_dwqa_action_remove_answer_nonce' ) || 'dwqa_delete_answer' !== sanitize_text_field( $_GET['action'] ) ) {
 			wp_die( __( 'Are you cheating huh?', 'dwqa' ) );
 		}
 
@@ -51,7 +51,7 @@ class DWQA_Ajax {
 			wp_die( __( 'Answer is missing.', 'dwqa' ), 'error' );
 		}
 
-		if ( 'dwqa-answer' !== get_post_type( $_GET['answer_id'] ) ) {
+		if ( 'dwqa-answer' !== get_post_type( intval( $_GET['answer_id'] ) ) ) {
 			wp_die( __( 'This post is not answer.', 'dwqa' ) );
 		}
 
@@ -59,11 +59,11 @@ class DWQA_Ajax {
 			wp_die( __( 'You do not have permission to delete this post.', 'dwqa' ) );
 		}
 
-		do_action( 'dwqa_prepare_delete_answer', $_GET['answer_id'] );
+		do_action( 'dwqa_prepare_delete_answer', intval( $_GET['answer_id'] ) );
 
-		$question_id = get_post_meta( $_GET['answer_id'], '_question', true );
+		$question_id = get_post_meta( intval( $_GET['answer_id'] ), '_question', true );
 		
-		$id = wp_delete_post( $_GET['answer_id'] );
+		$id = wp_delete_post( intval( $_GET['answer_id'] ) );
 
 		if ( is_wp_error( $id ) ) {
 			wp_die( $id->get_error_message() );
@@ -72,7 +72,7 @@ class DWQA_Ajax {
 		$answer_count = get_post_meta( $question_id, '_dwqa_answers_count', true );
 		update_post_meta( $question_id, '_dwqa_answers_count', (int) $answer_count - 1 );
 
-		do_action( 'dwqa_delete_answer', $_GET['answer_id'], $question_id );
+		do_action( 'dwqa_delete_answer', intval( $_GET['answer_id'] ), $question_id );
 
 		wp_redirect( get_permalink( $question_id ) );
 		exit();
@@ -146,7 +146,7 @@ class DWQA_Ajax {
 
 	public function delete_question() {
 		global $dwqa_general_settings;
-		if ( ! isset( $_GET['_wpnonce'] ) || ! wp_verify_nonce( $_GET['_wpnonce'], '_dwqa_action_remove_question_nonce' ) || 'dwqa_delete_question' !== $_GET['action'] ) {
+		if ( ! isset( $_GET['_wpnonce'] ) || ! wp_verify_nonce( sanitize_text_field( $_GET['_wpnonce'] ), '_dwqa_action_remove_question_nonce' ) || 'dwqa_delete_question' !== $_GET['action'] ) {
 			wp_die( __( 'Are you cheating huh?', 'dwqa' ) );
 		}
 
@@ -154,7 +154,7 @@ class DWQA_Ajax {
 			wp_die( __( 'Question is missing.', 'dwqa' ), 'error' );
 		}
 
-		if ( 'dwqa-question' !== get_post_type( $_GET['question_id'] ) ) {
+		if ( 'dwqa-question' !== get_post_type( intval( $_GET['question_id'] ) ) ) {
 			wp_die( __( 'This post is not question.', 'dwqa' ) );
 		}
 
@@ -162,15 +162,15 @@ class DWQA_Ajax {
 			wp_die( __( 'You do not have permission to delete this post.', 'dwqa' ) );
 		}
 
-		do_action( 'before_delete_post', $_GET['question_id'] );
+		do_action( 'before_delete_post', intval( $_GET['question_id'] ) );
 		
-		$id = wp_delete_post( $_GET['question_id'] );
+		$id = wp_delete_post( intval( $_GET['question_id'] ) );
 
 		if ( is_wp_error( $id ) ) {
 			wp_die( $id->get_error_message() );
 		}
 
-		do_action( 'dwqa_delete_question', $_GET['question_id'] );
+		do_action( 'dwqa_delete_question', intval( $_GET['question_id'] ) );
 
 		$url = home_url();
 		if ( isset( $dwqa_general_settings['pages']['archive-question'] ) ) {

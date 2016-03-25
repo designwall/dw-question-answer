@@ -264,7 +264,7 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 	}
 
 	public function columns_head( $defaults ) {
-		if ( isset( $_GET['post_type'] ) && $_GET['post_type'] == $this->get_slug() ) {
+		if ( isset( $_GET['post_type'] ) && sanitize_text_field( $_GET['post_type'] ) == $this->get_slug() ) {
 			$defaults = array(
 				'cb'            => '<input type="checkbox">',
 				'info'          => __( 'Answer', 'dwqa' ),

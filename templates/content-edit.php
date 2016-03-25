@@ -8,8 +8,8 @@
 ?>
 
 <?php
-$comment_id = isset( $_GET['comment_edit'] ) && is_numeric( $_GET['comment_edit'] ) ? $_GET['comment_edit'] : false;
-$edit_id = isset( $_GET['edit'] ) && is_numeric( $_GET['edit'] ) ? $_GET['edit'] : ( $comment_id ? $comment_id : false );
+$comment_id = isset( $_GET['comment_edit'] ) && is_numeric( $_GET['comment_edit'] ) ? intval( $_GET['comment_edit'] ) : false;
+$edit_id = isset( $_GET['edit'] ) && is_numeric( $_GET['edit'] ) ? intval( $_GET['edit'] ) : ( $comment_id ? $comment_id : false );
 if ( !$edit_id ) return;
 $type = $comment_id ? 'comment' : ( 'dwqa-question' == get_post_type( $edit_id ) ? 'question' : 'answer' );
 ?>

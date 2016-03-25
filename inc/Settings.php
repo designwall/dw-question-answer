@@ -747,14 +747,14 @@ class DWQA_Settings {
 	}
 
 	public function flush_rules() {
-		if ( isset( $_GET['page'] ) && 'dwqa-settings' == $_GET['page'] ) {
+		if ( isset( $_GET['page'] ) && 'dwqa-settings' == esc_html( $_GET['page'] ) ) {
 			flush_rewrite_rules();
 		}
 	}
 
 	public function current_email_tab() {
-		if ( isset( $_GET['tab'] ) && 'email' == $_GET['tab'] ) {
-			return isset( $_GET['section'] ) ? $_GET['section'] : 'general';
+		if ( isset( $_GET['tab'] ) && 'email' == esc_html( $_GET['tab'] ) ) {
+			return isset( $_GET['section'] ) ? esc_html( $_GET['section'] ) : 'general';
 		}
 
 		return false;

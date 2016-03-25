@@ -234,7 +234,7 @@ function dwqa_question_status( $question = false ) {
 }
 
 function dwqa_current_filter() {
-	return isset( $_GET['filter'] ) && !empty( $_GET['filter'] ) ? $_GET['filter'] : 'all';
+	return isset( $_GET['filter'] ) && !empty( $_GET['filter'] ) ? sanitize_text_field( $_GET['filter'] ) : 'all';
 }
 
 function dwqa_get_ask_link() {

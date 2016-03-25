@@ -16,7 +16,7 @@ class DWQA_Upgrades {
 	}
 
 	public static function admin_notices() {
-		if ( isset( $_GET['page']) && 'dwqa-upgrades' == $_GET['page'] ) {
+		if ( isset( $_GET['page']) && 'dwqa-upgrades' == esc_html( $_GET['page'] ) ) {
 			return;
 		}
 

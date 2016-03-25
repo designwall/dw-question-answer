@@ -225,12 +225,12 @@ function dwqa_get_user_badge( $user_id = false ) {
 		return;
 	}
 
-	$badge = false;
+	$badges = array();
 	if ( user_can( $user_id, 'edit_posts' ) ) {
-		$badge = __( 'Staff', 'dwqa' );
+		$badges['staff'] = __( 'Staff', 'dwqa' );
 	}
 
-	return apply_filters( 'dwqa_get_user_badge', $badge, $user_id );
+	return apply_filters( 'dwqa_get_user_badge', $badges, $user_id );
 }
 
 function dwqa_print_user_badge( $user_id = false, $echo = false ) {
@@ -238,15 +238,20 @@ function dwqa_print_user_badge( $user_id = false, $echo = false ) {
 		return;
 	}
 
-	$badge = dwqa_get_user_badge( $user_id );
-
-	if ( $badge ) {
-		if ( $echo ) {
-			echo '<span class="dwqa-label dwqa-'. strtolower( $badge ) .'">'.$badge.'</span>';
+	$badges = dwqa_get_user_badge( $user_id );
+	$result = '';
+	if ( $badges && !empty( $badges ) ) {
+		foreach( $badges as $k => $badge ) {
+			$k = str_replace( ' ', '-', $k );
+			$result .= '<span class="dwqa-label dwqa-'. strtolower( $k ) .'">'.$badge.'</span>';
 		}
-
-		return '<span class="dwqa-label dwqa-'. strtolower( $badge ) .'">'.$badge.'</span>';
 	}
+
+	if ( $echo ) {
+		echo $result;
+	}
+
+	return $result;
 }
 
 class DWQA_User { 

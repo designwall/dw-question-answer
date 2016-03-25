@@ -220,7 +220,7 @@ class DWQA_Ajax {
 		if ( ! isset( $_POST['title'] ) ) {
 			wp_send_json_error( array( array( 
 				'error' => 'empty title',
-				'message' => __( 'Search query is empty', 'dwqa' ), 
+				'message' => __( 'Not Found!!!', 'dwqa' ), 
 			) ) );
 		}
 
@@ -269,7 +269,25 @@ class DWQA_Ajax {
 			wp_send_json_success( $results );
 		} else {
 			wp_reset_query();
-			wp_send_json_error( array( array( 'error' => 'not found', 'message' => __( 'Search query is empty', 'dwqa' ) ) ) );
+			wp_send_json_error( array( array( 'error' => 'not found', 'message' => __( 'Not Found!!!', 'dwqa' ) ) ) );
 		}
+	}
+
+	public function posts_where_suggest( $where ) {
+		global $current_search;
+		$first = true;
+		$s = explode( ' ', $current_search );
+		if ( count( $s ) > 0 ) {
+			$where .= ' AND (';
+			foreach ( $s as $w ) {
+				if ( ! $first ) {
+					$where .= ' OR ';
+				}
+				$where .= "post_title REGEXP '".preg_quote( $w )."'";
+				$first = false;
+			}
+			$where .= ' ) ';
+		}
+		return $where;
 	}
 }

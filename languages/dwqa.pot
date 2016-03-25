@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: DW Question Answer\n"
-"POT-Creation-Date: 2016-03-17 10:04+0700\n"
-"PO-Revision-Date: 2016-02-18 16:20+0700\n"
+"POT-Creation-Date: 2016-03-25 10:02+0700\n"
+"PO-Revision-Date: 2016-03-25 09:53+0700\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -20,137 +20,137 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: dw-question-answer.php:101 inc/Filter.php:80
+#: dw-question-answer.php:102
 msgid "Next"
 msgstr ""
 
-#: dw-question-answer.php:102
+#: dw-question-answer.php:103
 msgid "Prev"
 msgstr ""
 
-#: dw-question-answer.php:104
+#: dw-question-answer.php:105
 msgid "Please enter your question"
 msgstr ""
 
-#: dw-question-answer.php:105
+#: dw-question-answer.php:106
 msgid "Your question must be at least 2 characters in length"
 msgstr ""
 
-#: dw-question-answer.php:106
+#: dw-question-answer.php:107
 msgid "Enter a valid email address"
 msgstr ""
 
-#: dw-question-answer.php:107
+#: dw-question-answer.php:108
 msgid "Enter a question title"
 msgstr ""
 
-#: dw-question-answer.php:108
+#: dw-question-answer.php:109
 msgid "Please add your name"
 msgstr ""
 
-#: dw-question-answer.php:109
+#: dw-question-answer.php:110
 msgid "Please enter your answer"
 msgstr ""
 
-#: dw-question-answer.php:110 inc/Handle.php:191
+#: dw-question-answer.php:111 inc/Handle.php:191
 msgid "Please enter your comment content"
 msgstr ""
 
-#: dw-question-answer.php:111
+#: dw-question-answer.php:112
 msgid "Comment must have more than 2 characters"
 msgstr ""
 
-#: dw-question-answer.php:112
+#: dw-question-answer.php:113
 msgid "Not found! Try another keyword."
 msgstr ""
 
-#: dw-question-answer.php:113
+#: dw-question-answer.php:114
 msgid "Or press <strong>ENTER</strong> to get more questions"
 msgstr ""
 
-#: dw-question-answer.php:114 inc/Editor.php:119
+#: dw-question-answer.php:115
 msgid "Update"
 msgstr ""
 
-#: dw-question-answer.php:115 inc/Posts/Answer.php:317 inc/Posts/Base.php:320
+#: dw-question-answer.php:116 inc/Posts/Answer.php:317 inc/Posts/Base.php:320
 #: inc/Settings.php:402 inc/Template.php:58 inc/Template.php:163
 #: inc/Template.php:180 templates/content-comment.php:19
 msgid "Edit"
 msgstr ""
 
-#: dw-question-answer.php:116 inc/Editor.php:120
+#: dw-question-answer.php:117
 msgid "Cancel"
 msgstr ""
 
-#: dw-question-answer.php:117
+#: dw-question-answer.php:118
 msgid "Do you want to delete this comment?"
 msgstr ""
 
-#: dw-question-answer.php:118
+#: dw-question-answer.php:119
 msgid "Do you want to delete this answer?"
 msgstr ""
 
-#: dw-question-answer.php:119
+#: dw-question-answer.php:120
 msgid "Do you want to update this answer?"
 msgstr ""
 
-#: dw-question-answer.php:120
+#: dw-question-answer.php:121
 msgid "Do you want to report this answer?"
 msgstr ""
 
-#: dw-question-answer.php:122
+#: dw-question-answer.php:123
 msgid "Report"
 msgstr ""
 
-#: dw-question-answer.php:123
+#: dw-question-answer.php:124
 msgid "Undo"
 msgstr ""
 
-#: dw-question-answer.php:124
+#: dw-question-answer.php:125
 msgid "This answer will be marked as spam and hidden. Do you want to flag it?"
 msgstr ""
 
-#: dw-question-answer.php:125
+#: dw-question-answer.php:126
 msgid "This answer was flagged as spam. Do you want to show it"
 msgstr ""
 
-#: dw-question-answer.php:126
+#: dw-question-answer.php:127
 msgid "This answer was flagged as spam"
 msgstr ""
 
-#: dw-question-answer.php:127
+#: dw-question-answer.php:128
 msgid "hide"
 msgstr ""
 
-#: dw-question-answer.php:128
+#: dw-question-answer.php:129
 msgid "show"
 msgstr ""
 
-#: dw-question-answer.php:130
+#: dw-question-answer.php:131
 msgid "Follow This Question"
 msgstr ""
 
-#: dw-question-answer.php:131
+#: dw-question-answer.php:132
 msgid "Unfollow This Question"
 msgstr ""
 
-#: dw-question-answer.php:132
+#: dw-question-answer.php:133
 msgid "Pin this question to top"
 msgstr ""
 
-#: dw-question-answer.php:133
+#: dw-question-answer.php:134
 msgid "Unpin this question from top"
 msgstr ""
 
-#: dw-question-answer.php:136
+#: dw-question-answer.php:137
 msgid "Do you want to delete this question?"
 msgstr ""
 
-#: dw-question-answer.php:152
+#: dw-question-answer.php:153
 msgid "DWQA Questions"
 msgstr ""
 
-#: dw-question-answer.php:169
+#: dw-question-answer.php:170
 msgid "DWQA Ask Question"
 msgstr ""
 
@@ -182,39 +182,47 @@ msgstr ""
 msgid "Get It Now!"
 msgstr ""
 
-#: inc/Admin/Welcome.php:34 inc/Admin/Welcome.php:35
+#: inc/Admin/Welcome.php:28 inc/Admin/Welcome.php:29
+msgid "Welcome to DW Question & Answer"
+msgstr ""
+
+#: inc/Admin/Welcome.php:36 inc/Admin/Welcome.php:37
 msgid "DW Question & Answer Changelog"
 msgstr ""
 
-#: inc/Admin/Welcome.php:42 inc/Admin/Welcome.php:43
+#: inc/Admin/Welcome.php:44 inc/Admin/Welcome.php:45
 msgid "DW Question & Answer Credits"
 msgstr ""
 
-#: inc/Admin/Welcome.php:59
+#: inc/Admin/Welcome.php:61
 #, php-format
 msgid "Welcome to DW Question & Answer %s"
 msgstr ""
 
-#: inc/Admin/Welcome.php:60
+#: inc/Admin/Welcome.php:62
 msgid ""
 "Thank you for installing our WordPress plugin. If you have any question "
 "about this plugin, please submit to our <a target=\"_blank\" href=\"https://"
 "www.designwall.com/question/\">Q&A section</a>."
 msgstr ""
 
-#: inc/Admin/Welcome.php:69
+#: inc/Admin/Welcome.php:70
+msgid "What&#8217;s New"
+msgstr ""
+
+#: inc/Admin/Welcome.php:71
 msgid "Changelog"
 msgstr ""
 
-#: inc/Admin/Welcome.php:70
+#: inc/Admin/Welcome.php:72
 msgid "Credits"
 msgstr ""
 
-#: inc/Admin/Welcome.php:198
+#: inc/Admin/Welcome.php:200
 msgid "Contributors"
 msgstr ""
 
-#: inc/Admin/Welcome.php:217
+#: inc/Admin/Welcome.php:219
 msgid "No valid changelog was found."
 msgstr ""
 
@@ -261,7 +269,7 @@ msgid "You do not have permission to edit question status"
 msgstr ""
 
 #: inc/Ajax.php:223 inc/Ajax.php:272
-msgid "Search query is empty"
+msgid "Not Found!!!"
 msgstr ""
 
 #: inc/Answer_List_Table.php:81 inc/Posts/Answer.php:271 inc/Template.php:48
@@ -285,59 +293,6 @@ msgstr ""
 
 #: inc/Answer_List_Table.php:112 inc/Helptab.php:149
 msgid "Read more"
-msgstr ""
-
-#: inc/Editor.php:123
-msgid "Publish"
-msgstr ""
-
-#: inc/Editor.php:130 inc/Editor.php:138 templates/content-single-answer.php:26
-msgid "Private"
-msgstr ""
-
-#: inc/Editor.php:130 inc/Editor.php:137 templates/answer-submit-form.php:34
-#: templates/question-submit-form.php:25
-msgid "Public"
-msgstr ""
-
-#: inc/Editor.php:137
-msgid "Everyone can see"
-msgstr ""
-
-#: inc/Editor.php:138
-msgid "Only Author and Administrator can see"
-msgstr ""
-
-#: inc/Filter.php:97 templates/content-none.php:10
-msgid "You do not have permission to view questions"
-msgstr ""
-
-#: inc/Filter.php:100
-msgid "Sorry, but nothing matched your filter. "
-msgstr ""
-
-#: inc/Filter.php:108
-msgid "You can ask question"
-msgstr ""
-
-#: inc/Filter.php:110
-msgid "here"
-msgstr ""
-
-#: inc/Filter.php:116
-msgid "Please"
-msgstr ""
-
-#: inc/Filter.php:118
-msgid "Login"
-msgstr ""
-
-#: inc/Filter.php:122
-msgid " or"
-msgstr ""
-
-#: inc/Filter.php:124
-msgid " to submit question."
 msgstr ""
 
 #: inc/Handle.php:29
@@ -797,7 +752,7 @@ msgstr ""
 msgid "views"
 msgstr ""
 
-#: inc/Posts/Question.php:410 inc/User.php:261
+#: inc/Posts/Question.php:410 inc/User.php:266
 msgid "Invalid Post"
 msgstr ""
 
@@ -1418,6 +1373,10 @@ msgstr ""
 msgid "Who can see this?"
 msgstr ""
 
+#: templates/answer-submit-form.php:34 templates/question-submit-form.php:25
+msgid "Public"
+msgstr ""
+
 #: templates/answer-submit-form.php:35 templates/question-submit-form.php:26
 msgid "Only Me &amp; Admin"
 msgstr ""
@@ -1493,6 +1452,10 @@ msgstr ""
 msgid "Save Changes"
 msgstr ""
 
+#: templates/content-none.php:10
+msgid "You do not have permission to view questions"
+msgstr ""
+
 #: templates/content-none.php:12
 msgid "Sorry, but nothing matched your filter"
 msgstr ""
@@ -1543,6 +1506,10 @@ msgstr ""
 #: templates/content-single-answer.php:23
 #, php-format
 msgid "<span><a href=\"%s\">%s%s</a> %s answered %s ago</span>"
+msgstr ""
+
+#: templates/content-single-answer.php:26
+msgid "Private"
 msgstr ""
 
 #: templates/content-single-question.php:19

@@ -73,7 +73,7 @@ class DWQA_Metaboxes {
 			if ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) {
 
 				$sticky_questions = get_option( 'dwqa_sticky_questions', array() );
-				if ( isset( $_POST['dwqa-question-sticky'] ) && $_POST['dwqa-question-sticky'] ) {
+				if ( isset( $_POST['dwqa-question-sticky'] ) && sanitize_text_field( $_POST['dwqa-question-sticky'] ) ) {
 					if ( ! in_array( $post_id, $sticky_questions ) ) {
 						$sticky_questions[] = $post_id;
 						update_option( 'dwqa_sticky_questions', $sticky_questions );

@@ -4,7 +4,7 @@
  *  Description: A WordPress plugin was make by DesignWall.com to build an Question Answer system for support, asking and comunitcate with your customer
  *  Author: DesignWall
  *  Author URI: http://www.designwall.com
- *  Version: 1.4.3.2
+ *  Version: 1.4.3.3
  *  Text Domain: dwqa
  *  @since 1.4.0
  */
@@ -39,7 +39,7 @@ class DW_Question_Answer {
 	public function __construct() {
 		$this->dir = DWQA_DIR;
 		$this->uri = DWQA_URI;
-		$this->version = '1.4.3.2';
+		$this->version = '1.4.3.3';
 
 		// load posttype
 		$this->question = new DWQA_Posts_Question();
@@ -69,6 +69,8 @@ class DW_Question_Answer {
 		// All init action of plugin will be included in
 		add_action( 'init', array( $this, 'init' ) );
 		add_action( 'widgets_init', array( $this, 'widgets_init' ) );
+		add_filter( 'plugin_action_links', array( $this, 'go_pro' ), 10, 2 );
+		add_filter( 'plugin_row_meta', array( $this, 'plugin_rows_meta' ), 10, 2 );
 		register_activation_hook( __FILE__, array( $this, 'activate_hook' ) );
 		register_deactivation_hook( __FILE__, array( $this, 'deactivate_hook' ) );
 	}
@@ -223,5 +225,26 @@ class DW_Question_Answer {
 		return $this->last_update;
 	}
 
+	public function go_pro( $actions, $file ) {
+		$file_name = plugin_basename( __FILE__ );
+		if ( $file == $file_name ) {
+			$actions['dwqa_go_pro'] = '<a href="http://bit.ly/dwqa-pro" style="color: red; font-weight: bold">Go Pro!</a>';
+			$action = $actions['dwqa_go_pro'];
+			unset( $actions['dwqa_go_pro'] );
+			array_unshift( $actions, $action );
+		}
+
+		return $actions;
+	}
+
+	public function plugin_rows_meta( $meta, $file ) {
+		$file_name = plugin_basename( __FILE__ );
+		if ( $file == $file_name ) {
+			$meta['extensions'] = '<a href="'.admin_url( 'edit.php?post_type=dwqa-question&page=dwqa-extensions' ).'">Extensions</a>';
+			// $meta['facebook'] = '<a href="">Facebook</a>';
+		}
+
+		return $meta;
+	}
 }
 $GLOBALS['dwqa'] = new DW_Question_Answer();

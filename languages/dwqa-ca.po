@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DW Question Answer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-06 14:31+0700\n"
-"PO-Revision-Date: 2016-03-18 09:49+0700\n"
+"POT-Creation-Date: 2016-03-25 10:02+0700\n"
+"PO-Revision-Date: 2016-03-25 10:02+0700\n"
 "Last-Translator: DesignWall <webmaster@designwall.com>\n"
 "Language-Team: DesignWall <webmaster@designwall.com>\n"
 "Language: ca\n"
@@ -16,446 +16,392 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../dw-question-answer.php:108 ../inc/Filter.php:80
+#: dw-question-answer.php:102
 msgid "Next"
 msgstr "Següent"
 
-#: ../dw-question-answer.php:109
+#: dw-question-answer.php:103
 msgid "Prev"
 msgstr "Previ"
 
-#: ../dw-question-answer.php:111
+#: dw-question-answer.php:105
 msgid "Please enter your question"
 msgstr "Si us plau escriu la teva pregunta"
 
-#: ../dw-question-answer.php:112
+#: dw-question-answer.php:106
 msgid "Your question must be at least 2 characters in length"
 msgstr "La pregunta ha de tenir al menys 2 caràcters"
 
-#: ../dw-question-answer.php:113
+#: dw-question-answer.php:107
 msgid "Enter a valid email address"
 msgstr "Escriu una adreça de correu vàlida"
 
-#: ../dw-question-answer.php:114
+#: dw-question-answer.php:108
 msgid "Enter a question title"
 msgstr "Escriu un títol per la pregunta"
 
-#: ../dw-question-answer.php:115
+#: dw-question-answer.php:109
 msgid "Please add your name"
 msgstr "Si us plau afegeix el teu nom"
 
-#: ../dw-question-answer.php:116
+#: dw-question-answer.php:110
 msgid "Please enter your answer"
 msgstr "Si us plau escriu la teva resposta"
 
-#: ../dw-question-answer.php:117 ../inc/Handle.php:189
+#: dw-question-answer.php:111 inc/Handle.php:191
 msgid "Please enter your comment content"
 msgstr "Si us plau escriu el contingut del comentari"
 
-#: ../dw-question-answer.php:118
+#: dw-question-answer.php:112
 msgid "Comment must have more than 2 characters"
 msgstr "El comentari ha de tenir més de 2 caràcters"
 
-#: ../dw-question-answer.php:119
+#: dw-question-answer.php:113
 msgid "Not found! Try another keyword."
 msgstr "¡No trobat! Prova amb una paraula diferent"
 
-#: ../dw-question-answer.php:120
+#: dw-question-answer.php:114
 msgid "Or press <strong>ENTER</strong> to get more questions"
 msgstr "O pressiona <strong>INTRO</strong> per obtenir més preguntes"
 
-#: ../dw-question-answer.php:121 ../inc/Editor.php:119
+#: dw-question-answer.php:115
 msgid "Update"
 msgstr "Actualitzar"
 
-#: ../dw-question-answer.php:122 ../inc/Posts/Answer.php:315
-#: ../inc/Posts/Base.php:320 ../inc/Settings.php:398 ../inc/Template.php:58
-#: ../inc/Template.php:183 ../inc/Template.php:200
-#: ../templates/content-comment.php:19
+#: dw-question-answer.php:116 inc/Posts/Answer.php:317 inc/Posts/Base.php:320
+#: inc/Settings.php:402 inc/Template.php:58 inc/Template.php:163
+#: inc/Template.php:180 templates/content-comment.php:19
 msgid "Edit"
 msgstr "Editar"
 
-#: ../dw-question-answer.php:123 ../inc/Editor.php:120
+#: dw-question-answer.php:117
 msgid "Cancel"
 msgstr "Cancel·lar"
 
-#: ../dw-question-answer.php:124
+#: dw-question-answer.php:118
 msgid "Do you want to delete this comment?"
 msgstr "¿Vols esborrar aquest comentari?"
 
-#: ../dw-question-answer.php:125
+#: dw-question-answer.php:119
 msgid "Do you want to delete this answer?"
 msgstr "¿Vols esborrar aquesta resposta?"
 
-#: ../dw-question-answer.php:126
+#: dw-question-answer.php:120
 #, fuzzy
 msgid "Do you want to update this answer?"
 msgstr "¿Vols actualitzar aquesta resposta?"
 
-#: ../dw-question-answer.php:127
+#: dw-question-answer.php:121
 #, fuzzy
 msgid "Do you want to report this answer?"
 msgstr "¿Vols reportar aquesta resposta?"
 
-#: ../dw-question-answer.php:129
+#: dw-question-answer.php:123
 msgid "Report"
 msgstr "Reportar"
 
-#: ../dw-question-answer.php:130
+#: dw-question-answer.php:124
 msgid "Undo"
 msgstr "Desfer"
 
-#: ../dw-question-answer.php:131
+#: dw-question-answer.php:125
 msgid "This answer will be marked as spam and hidden. Do you want to flag it?"
 msgstr ""
 "Aquesta resposta serà marcada com a correu brossa i amagada. ¿Vols posar-li "
 "una senyal?"
 
-#: ../dw-question-answer.php:132
+#: dw-question-answer.php:126
 msgid "This answer was flagged as spam. Do you want to show it"
 msgstr ""
 "Aquesta resposta va ser marcada com a correu brossa. ¿Vols que torni a ser "
 "visible?"
 
-#: ../dw-question-answer.php:133
+#: dw-question-answer.php:127
 msgid "This answer was flagged as spam"
 msgstr "Aquesta resposta va ser marcada com a correu brossa"
 
-#: ../dw-question-answer.php:134
+#: dw-question-answer.php:128
 msgid "hide"
 msgstr "amagar"
 
-#: ../dw-question-answer.php:135
+#: dw-question-answer.php:129
 msgid "show"
 msgstr "mostrar"
 
-#: ../dw-question-answer.php:137
+#: dw-question-answer.php:131
 msgid "Follow This Question"
 msgstr "Seguir Aquesta Pregunta"
 
-#: ../dw-question-answer.php:138
+#: dw-question-answer.php:132
 msgid "Unfollow This Question"
 msgstr "Deixar de Seguir Aquesta Pregunta"
 
-#: ../dw-question-answer.php:139
+#: dw-question-answer.php:133
 #, fuzzy
 msgid "Pin this question to top"
 msgstr "Fixar pregunta a la pàgina principal"
 
-#: ../dw-question-answer.php:140
+#: dw-question-answer.php:134
 #, fuzzy
 msgid "Unpin this question from top"
 msgstr "Treure pregunta de la pàgina principal"
 
-#: ../dw-question-answer.php:143
+#: dw-question-answer.php:137
 msgid "Do you want to delete this question?"
 msgstr "¿Vols esborrar aquesta pregunta?"
 
-#: ../dw-question-answer.php:156
+#: dw-question-answer.php:153
 msgid "DWQA Questions"
 msgstr "DWQA Preguntes"
 
-#: ../dw-question-answer.php:173
+#: dw-question-answer.php:170
 msgid "DWQA Ask Question"
 msgstr "DWQA Preguntar"
 
-#: ../inc/Admin/Extensions.php:13
+#: inc/Admin/Extensions.php:13
 msgid "DWQA Markdown"
 msgstr ""
 
-#: ../inc/Admin/Extensions.php:19
+#: inc/Admin/Extensions.php:19
 msgid "DWQA Leaderboard"
 msgstr ""
 
-#: ../inc/Admin/Extensions.php:25
+#: inc/Admin/Extensions.php:25
 msgid "DWQA Captcha"
 msgstr ""
 
-#: ../inc/Admin/Extensions.php:31
+#: inc/Admin/Extensions.php:31
 msgid "DWQA Embed Question"
 msgstr ""
 
-#: ../inc/Admin/Extensions.php:41
+#: inc/Admin/Extensions.php:37
+msgid "DWQA Widgets"
+msgstr ""
+
+#: inc/Admin/Extensions.php:47
 msgid "Extensions"
 msgstr ""
 
-#: ../inc/Admin/Extensions.php:69
+#: inc/Admin/Extensions.php:75
 msgid "Get It Now!"
 msgstr ""
 
-#: ../inc/Admin/Welcome.php:21 ../inc/Admin/Welcome.php:22
+#: inc/Admin/Welcome.php:28 inc/Admin/Welcome.php:29
 msgid "Welcome to DW Question & Answer"
 msgstr ""
 
-#: ../inc/Admin/Welcome.php:29 ../inc/Admin/Welcome.php:30
+#: inc/Admin/Welcome.php:36 inc/Admin/Welcome.php:37
 msgid "DW Question & Answer Changelog"
 msgstr ""
 
-#: ../inc/Admin/Welcome.php:37 ../inc/Admin/Welcome.php:38
+#: inc/Admin/Welcome.php:44 inc/Admin/Welcome.php:45
 msgid "DW Question & Answer Credits"
 msgstr ""
 
-#: ../inc/Admin/Welcome.php:54
+#: inc/Admin/Welcome.php:61
 #, php-format
 msgid "Welcome to DW Question & Answer %s"
 msgstr ""
 
-#: ../inc/Admin/Welcome.php:55
+#: inc/Admin/Welcome.php:62
 msgid ""
 "Thank you for installing our WordPress plugin. If you have any question "
-"about this theme, please submit to our <a target=\"_blank\" href=\"https://"
+"about this plugin, please submit to our <a target=\"_blank\" href=\"https://"
 "www.designwall.com/question/\">Q&A section</a>."
 msgstr ""
 
-#: ../inc/Admin/Welcome.php:63
+#: inc/Admin/Welcome.php:70
 msgid "What&#8217;s New"
 msgstr ""
 
-#: ../inc/Admin/Welcome.php:64
+#: inc/Admin/Welcome.php:71
 msgid "Changelog"
 msgstr ""
 
-#: ../inc/Admin/Welcome.php:65
+#: inc/Admin/Welcome.php:72
 msgid "Credits"
 msgstr ""
 
-#: ../inc/Admin/Welcome.php:193
+#: inc/Admin/Welcome.php:200
 msgid "Contributors"
 msgstr ""
 
-#: ../inc/Admin/Welcome.php:212
+#: inc/Admin/Welcome.php:219
 msgid "No valid changelog was found."
 msgstr ""
 
-#: ../inc/Ajax.php:23 ../inc/Ajax.php:41 ../inc/Ajax.php:77 ../inc/Ajax.php:138
-#: ../inc/Filter.php:429 ../inc/Handle.php:242 ../inc/Handle.php:430
-#: ../inc/Permission.php:286 ../inc/Status.php:307
+#: inc/Ajax.php:29 inc/Ajax.php:47 inc/Ajax.php:83 inc/Ajax.php:113
+#: inc/Ajax.php:132 inc/Ajax.php:150 inc/Ajax.php:215 inc/Handle.php:244
+#: inc/Handle.php:430 inc/Permission.php:286 inc/Status.php:319
 msgid "Are you cheating huh?"
 msgstr "¿De debò?"
 
-#: ../inc/Ajax.php:27 ../inc/Handle.php:246
+#: inc/Ajax.php:33 inc/Handle.php:248
 msgid "You do not have permission to edit comment."
 msgstr ""
 
-#: ../inc/Ajax.php:31
+#: inc/Ajax.php:37
 #, fuzzy
 msgid "Comment ID must be showed."
 msgstr "El ID del comentari s'ha de veure."
 
-#: ../inc/Ajax.php:45 ../inc/Handle.php:142
+#: inc/Ajax.php:51 inc/Handle.php:144
 msgid "Answer is missing."
 msgstr ""
 
-#: ../inc/Ajax.php:49 ../inc/Handle.php:146
+#: inc/Ajax.php:55 inc/Handle.php:148
 msgid "This post is not answer."
 msgstr ""
 
-#: ../inc/Ajax.php:53 ../inc/Ajax.php:150
+#: inc/Ajax.php:59 inc/Ajax.php:162
 msgid "You do not have permission to delete this post."
 msgstr ""
 
-#: ../inc/Ajax.php:80
+#: inc/Ajax.php:86
 msgid "Missing id of answer"
 msgstr "Falta ID de resposta"
 
-#: ../inc/Ajax.php:142 ../inc/Handle.php:452
+#: inc/Ajax.php:154 inc/Handle.php:452
 msgid "Question is missing."
 msgstr ""
 
-#: ../inc/Ajax.php:146 ../inc/Handle.php:456
+#: inc/Ajax.php:158 inc/Handle.php:456
 msgid "This post is not question."
 msgstr ""
 
-#: ../inc/Ajax.php:194
+#: inc/Ajax.php:206
 #, fuzzy
 msgid "You do not have permission to edit question status"
 msgstr "No tens permís per veure preguntes"
 
-#: ../inc/Answer_List_Table.php:81 ../inc/Posts/Answer.php:269
-#: ../inc/Template.php:48
+#: inc/Ajax.php:223 inc/Ajax.php:272
+msgid "Not Found!!!"
+msgstr ""
+
+#: inc/Answer_List_Table.php:81 inc/Posts/Answer.php:271 inc/Template.php:48
 msgid "Author"
 msgstr "Autor"
 
-#: ../inc/Answer_List_Table.php:82
+#: inc/Answer_List_Table.php:82
 msgid "Detail"
 msgstr "Detall"
 
-#: ../inc/Answer_List_Table.php:92 ../inc/Notifications.php:146
-#: ../inc/Notifications.php:148 ../inc/Posts/Base.php:230
-#: ../inc/Posts/Comment.php:102 ../inc/Settings.php:415 ../inc/Settings.php:451
-#: ../inc/Settings.php:486 ../inc/User.php:160
-#: ../inc/widgets/Latest_Question.php:39
+#: inc/Answer_List_Table.php:92 inc/Notifications.php:146
+#: inc/Notifications.php:148 inc/Posts/Base.php:230 inc/Posts/Comment.php:102
+#: inc/Settings.php:419 inc/Settings.php:455 inc/Settings.php:490
+#: inc/User.php:155 inc/widgets/Latest_Question.php:39
 msgid "Anonymous"
 msgstr "Anònim"
 
-#: ../inc/Answer_List_Table.php:101
+#: inc/Answer_List_Table.php:101
 msgid "Answered on "
 msgstr "Contestada en"
 
-#: ../inc/Answer_List_Table.php:112 ../inc/Helptab.php:149
+#: inc/Answer_List_Table.php:112 inc/Helptab.php:149
 msgid "Read more"
 msgstr "Saber més"
 
-#: ../inc/Editor.php:123
-msgid "Publish"
-msgstr "Publicar"
-
-#: ../inc/Editor.php:130 ../inc/Editor.php:138
-msgid "Private"
-msgstr "Privat"
-
-#: ../inc/Editor.php:130 ../inc/Editor.php:137
-#: ../templates/answer-submit-form.php:34
-#: ../templates/question-submit-form.php:25
-msgid "Public"
-msgstr "Públic"
-
-#: ../inc/Editor.php:137
-msgid "Everyone can see"
-msgstr "Tothom ho pot veure"
-
-#: ../inc/Editor.php:138
-msgid "Only Author and Administrator can see"
-msgstr "Només l'Autor i l'Administrador ho pot veure"
-
-#: ../inc/Filter.php:97 ../templates/content-none.php:10
-msgid "You do not have permission to view questions"
-msgstr "No tens permís per veure preguntes"
-
-#: ../inc/Filter.php:100
-msgid "Sorry, but nothing matched your filter. "
-msgstr "Ho sento, res no coincideix amb el teu filtre."
-
-#: ../inc/Filter.php:108
-msgid "You can ask question"
-msgstr "Pots fer la teva pregunta"
-
-#: ../inc/Filter.php:110
-msgid "here"
-msgstr "aquí"
-
-#: ../inc/Filter.php:116
-msgid "Please"
-msgstr "Si us plau"
-
-#: ../inc/Filter.php:118
-msgid "Login"
-msgstr "Ingressa"
-
-#: ../inc/Filter.php:122
-msgid " or"
-msgstr "o"
-
-#: ../inc/Filter.php:124
-msgid " to submit question."
-msgstr "per fer una pregunta"
-
-#: ../inc/Filter.php:437 ../inc/Filter.php:486
-#, fuzzy
-msgid "Search query is empty"
-msgstr "Resultat de búsqueda és buit"
-
-#: ../inc/Handle.php:29
+#: inc/Handle.php:29
 msgid "&quot;Helllo&quot;, Are you cheating huh?."
 msgstr ""
 
-#: ../inc/Handle.php:32
+#: inc/Handle.php:32
 msgid "Delete draft"
 msgstr "Esborrar esborrany"
 
-#: ../inc/Handle.php:39
+#: inc/Handle.php:39
 msgid "Answer content is empty"
 msgstr ""
 
-#: ../inc/Handle.php:42
+#: inc/Handle.php:42
 msgid "Question is empty"
 msgstr ""
 
-#: ../inc/Handle.php:46 ../inc/Handle.php:407
+#: inc/Handle.php:46 inc/Handle.php:407
 msgid "You do not have permission to submit question."
 msgstr "No tens permís per enviar preguntes."
 
-#: ../inc/Handle.php:50 ../inc/Handle.php:426
+#: inc/Handle.php:50 inc/Handle.php:426
 msgid "Captcha is not correct"
 msgstr "Captcha no és correcte"
 
-#: ../inc/Handle.php:69
+#: inc/Handle.php:69
 msgid "Answer for "
 msgstr "Resposta per"
 
-#: ../inc/Handle.php:127
+#: inc/Handle.php:129
 msgid "You do not have permission to edit answer."
 msgstr ""
 
-#: ../inc/Handle.php:131 ../inc/Handle.php:495 ../inc/Posts/Question.php:491
+#: inc/Handle.php:133 inc/Handle.php:495 inc/Posts/Question.php:473
 msgid "Hello, Are you cheating huh?"
 msgstr "Hola ¿de debò?"
 
-#: ../inc/Handle.php:136
+#: inc/Handle.php:138
 msgid "You must enter a valid answer content."
 msgstr ""
 
-#: ../inc/Handle.php:180
+#: inc/Handle.php:182
 msgid "You can't post comment"
 msgstr "No pots publicar el comentari"
 
-#: ../inc/Handle.php:183
+#: inc/Handle.php:185
 msgid "Missing post id."
 msgstr ""
 
-#: ../inc/Handle.php:204
+#: inc/Handle.php:206
 #, fuzzy
 msgid "Missing email information"
 msgstr "Falta informació del correu electrònic"
 
-#: ../inc/Handle.php:208
+#: inc/Handle.php:210
 #, fuzzy
 msgid "Missing name information"
 msgstr "Falta informació del nom"
 
-#: ../inc/Handle.php:235
+#: inc/Handle.php:237
 msgid "Comment is missing"
 msgstr ""
 
-#: ../inc/Handle.php:250
+#: inc/Handle.php:252
 msgid "Comment content must not be empty."
 msgstr "El contingut del comentari no pot ser buit."
 
-#: ../inc/Handle.php:282 ../inc/Handle.php:446
+#: inc/Handle.php:282 inc/Handle.php:446
 msgid "You must enter a valid question title."
 msgstr ""
 
-#: ../inc/Handle.php:360
+#: inc/Handle.php:360
 msgid "User Registration was disabled."
 msgstr "Registre d'Usuaris va ser deshabilitat."
 
-#: ../inc/Handle.php:363
+#: inc/Handle.php:363
 msgid "This email is already registered, please choose another one."
 msgstr "Aquest correu ja existeix, si us plau escriu-ne un altre."
 
-#: ../inc/Handle.php:366
+#: inc/Handle.php:366
 #, fuzzy
 msgid "This username is already registered. Please use another one."
 msgstr "Aquest nom d'usuari ja existeix, si us plau escriu-ne un altre."
 
-#: ../inc/Handle.php:419
+#: inc/Handle.php:419
 msgid "Your question is waiting moderator."
 msgstr ""
 
-#: ../inc/Handle.php:441 ../inc/Status.php:335
+#: inc/Handle.php:441 inc/Status.php:347
 #, fuzzy
 msgid "You do not have permission to edit question"
 msgstr "No tens permís per enviar preguntes."
 
-#: ../inc/Helptab.php:43
+#: inc/Helptab.php:43
 msgid "Overview"
 msgstr "Visió General"
 
-#: ../inc/Helptab.php:44
+#: inc/Helptab.php:44
 msgid "DW Question Answer Plugin"
 msgstr "DW Plugin Pregunta y Resposta"
 
-#: ../inc/Helptab.php:45
+#: inc/Helptab.php:45
 msgid ""
 "DW Question Answer is a WordPress Plugin which helps you build a Question & "
 "Answer system on your WordPress sites. The plugin is easy to install and set "
@@ -467,406 +413,419 @@ msgstr ""
 "d'instal·lar i configurar.  Comença a crear la teva comunitat amb aquest "
 "sistema de preguntes i respostes en Wordpress."
 
-#: ../inc/Helptab.php:48
+#: inc/Helptab.php:48
 msgid "Setup Question List Page"
 msgstr "Configurar Pàgina de Llistat de Preguntes"
 
-#: ../inc/Helptab.php:52
+#: inc/Helptab.php:52
 msgid "Setup Ask Question Page"
 msgstr "Configurar Pàgina per Fer una Pregunta"
 
-#: ../inc/Helptab.php:56
+#: inc/Helptab.php:56
 msgid "Shortcode"
 msgstr "Shortcode"
 
-#: ../inc/Helptab.php:60
+#: inc/Helptab.php:60
 msgid "Style integration"
 msgstr "Integració d'estil"
 
-#: ../inc/Helptab.php:169
+#: inc/Helptab.php:169
 msgid "For more information:"
 msgstr "Per més informació:"
 
-#: ../inc/Helptab.php:170
+#: inc/Helptab.php:170
 msgid "DW Question Answer Guide"
 msgstr "Guia de DW Question Answer "
 
-#: ../inc/Helptab.php:171
+#: inc/Helptab.php:171
 msgid "Community"
 msgstr "Comunitat"
 
-#: ../inc/Helptab.php:172
+#: inc/Helptab.php:172
 msgid "DesignWall Wordpress Themes"
 msgstr "Temes DesignWall Wordpress"
 
-#: ../inc/Helptab.php:173
+#: inc/Helptab.php:173
 msgid "DesignWall Wordpress Plugins"
 msgstr "Plugins DesignWall Wordpress"
 
-#: ../inc/Metaboxes.php:13 ../templates/question-submit-form.php:22
+#: inc/Metaboxes.php:13 templates/content-single-question.php:31
+#: templates/question-submit-form.php:22
 msgid "Status"
 msgstr "Estat"
 
-#: ../inc/Metaboxes.php:15 ../inc/Status.php:292 ../inc/Template.php:78
-#: ../templates/content-single-question.php:31
+#: inc/Metaboxes.php:15 inc/Status.php:304
+#: templates/archive-question-filter.php:18
+#: templates/content-single-question.php:32
 msgid "Open"
 msgstr "Oberta"
 
-#: ../inc/Metaboxes.php:16 ../inc/Status.php:275
+#: inc/Metaboxes.php:16 inc/Status.php:287
 msgid "Pending"
 msgstr "Pendent"
 
-#: ../inc/Metaboxes.php:17 ../inc/Status.php:272 ../inc/Template.php:79
-#: ../templates/content-single-question.php:33
+#: inc/Metaboxes.php:17 inc/Status.php:284
+#: templates/archive-question-filter.php:19
+#: templates/content-single-question.php:34
 msgid "Resolved"
 msgstr "Resolta"
 
-#: ../inc/Metaboxes.php:18 ../inc/Status.php:278
+#: inc/Metaboxes.php:18 inc/Status.php:290
 msgid "Re-Open"
 msgstr "Re-oberta"
 
-#: ../inc/Metaboxes.php:19 ../inc/Status.php:281 ../inc/Template.php:80
-#: ../templates/content-single-question.php:32
+#: inc/Metaboxes.php:19 inc/Status.php:293
+#: templates/archive-question-filter.php:20
+#: templates/content-single-question.php:33
 msgid "Closed"
 msgstr "Tancada"
 
-#: ../inc/Metaboxes.php:25
+#: inc/Metaboxes.php:25
 msgid "Sticky"
 msgstr "Fixe"
 
-#: ../inc/Metaboxes.php:29
+#: inc/Metaboxes.php:29
 #, fuzzy
 msgid "Pin question to top of archive page."
 msgstr "Pregunta fixe al capdamunt de la pàgina d'arxiu"
 
-#: ../inc/Metaboxes.php:45 ../inc/Posts/Answer.php:225
-#: ../inc/Posts/Answer.php:227 ../inc/Template.php:93
+#: inc/Metaboxes.php:45 inc/Posts/Answer.php:225 inc/Posts/Answer.php:227
+#: inc/Settings.php:431 templates/archive-question-filter.php:34
 msgid "Answers"
 msgstr "Respostes"
 
-#: ../inc/Metaboxes.php:65
+#: inc/Metaboxes.php:65
 msgid "Question Meta Data"
 msgstr "Meta Data per Pregunta"
 
-#: ../inc/Notifications.php:27
+#: inc/Notifications.php:27
 msgid "A new question was posted on {site_name}"
 msgstr "Unanova pregunta ha sigut publicada a {site_name}"
 
-#: ../inc/Notifications.php:118
+#: inc/Notifications.php:118
 msgid "A new answer for \"{question_title}\" was posted on {site_name}"
 msgstr ""
 "Una nova resposta de la pregunta \"{question_title}\" ha sigut publicada a "
 "{site_name}"
 
-#: ../inc/Notifications.php:186
+#: inc/Notifications.php:186
 #, fuzzy
 msgid "You have a new answer for your followed question"
 msgstr "Tens una resposta nova per la pregunta que segueixes"
 
-#: ../inc/Notifications.php:282 ../inc/Notifications.php:328
+#: inc/Notifications.php:284 inc/Notifications.php:330
 msgid "[{site_name}] You have a new comment for question {question_title}"
 msgstr "[{site_name}] Tens un nou comentari per la pregunta {question_title}"
 
-#: ../inc/Notifications.php:287 ../inc/Notifications.php:333
+#: inc/Notifications.php:289 inc/Notifications.php:335
 msgid "[{site_name}] You have a new comment for answer"
 msgstr "[{site_name}] Tens un nou comentari per la resposta"
 
-#: ../inc/PointerHelper.php:60
+#: inc/PointerHelper.php:60
 msgid "How to use DW Question Answer"
 msgstr "Com fer servir DW Question Answer"
 
-#: ../inc/PointerHelper.php:61
+#: inc/PointerHelper.php:61
 msgid "Documents, Support From DesignWall (help)"
 msgstr "Documents, Suport de DesignWall (ajuda)"
 
-#: ../inc/PointerHelper.php:70
+#: inc/PointerHelper.php:70
 msgid "Config your support channel"
 msgstr "Configurar el teu canal de suport"
 
-#: ../inc/PointerHelper.php:71
+#: inc/PointerHelper.php:71
 #, fuzzy
 msgid "Change comment settings, and create the Submit question page."
 msgstr ""
 "Canviar configuració de comentari i crear pàgina d'enviament de pregunta."
 
-#: ../inc/Posts/Answer.php:226 ../inc/Posts/Answer.php:268
-#: ../inc/Settings.php:427
+#: inc/Posts/Answer.php:226 inc/Posts/Answer.php:270
 msgid "Answer"
 msgstr "Resposta"
 
-#: ../inc/Posts/Answer.php:271
+#: inc/Posts/Answer.php:273
 msgid "In Response To"
 msgstr "En resposta A"
 
-#: ../inc/Posts/Answer.php:316 ../inc/Settings.php:399 ../inc/Template.php:188
-#: ../inc/Template.php:205 ../templates/content-comment.php:22
+#: inc/Posts/Answer.php:318 inc/Settings.php:403 inc/Template.php:168
+#: inc/Template.php:185 templates/content-comment.php:22
 msgid "Delete"
 msgstr "Esborrar"
 
-#: ../inc/Posts/Answer.php:317 ../inc/Posts/Base.php:322
+#: inc/Posts/Answer.php:319 inc/Posts/Base.php:322
 msgid "View"
 msgstr "Veure"
 
-#: ../inc/Posts/Answer.php:321
+#: inc/Posts/Answer.php:323
 msgid "Submitted"
 msgstr "Enviada"
 
-#: ../inc/Posts/Answer.php:322
+#: inc/Posts/Answer.php:324
 msgid "on"
 msgstr "en"
 
-#: ../inc/Posts/Base.php:5
+#: inc/Posts/Answer.php:359
+msgid "Question ID"
+msgstr ""
+
+#: inc/Posts/Answer.php:370 inc/Posts/Answer.php:373
+msgid "ID"
+msgstr ""
+
+#: inc/Posts/Base.php:5
 msgid "Are you cheating, huh?"
 msgstr "¿De debò?"
 
-#: ../inc/Posts/Base.php:18
+#: inc/Posts/Base.php:18
 msgid "What "
 msgstr "Què"
 
-#: ../inc/Posts/Base.php:46
+#: inc/Posts/Base.php:46
 msgid "You voted for this "
 msgstr "Vas votar per això"
 
-#: ../inc/Posts/Base.php:242
+#: inc/Posts/Base.php:242
 #, php-format
 msgid "Posts by %s"
 msgstr "Publicacions de %s"
 
-#: ../inc/Posts/Base.php:251 ../inc/Posts/Base.php:255
+#: inc/Posts/Base.php:251 inc/Posts/Base.php:255
 #, php-format
 msgid "%s answered <span class=\"dwqa-date\">%s</span> ago"
 msgstr "%s contestat <span class=\"dwqa-date\">%s</span> abans"
 
-#: ../inc/Posts/Base.php:257
+#: inc/Posts/Base.php:257
 #, php-format
 msgid "%s asked <span class=\"dwqa-date\">%s</span> ago"
 msgstr "%s preguntat <span class=\"dwqa-date\">%s</span> abans"
 
-#: ../inc/Posts/Base.php:306
+#: inc/Posts/Base.php:306
 msgid "DWQA Posts"
 msgstr ""
 
-#: ../inc/Posts/Base.php:307
+#: inc/Posts/Base.php:307
 msgid "DWQA Post"
 msgstr ""
 
-#: ../inc/Posts/Base.php:318
+#: inc/Posts/Base.php:318
 msgctxt "dwqa"
 msgid "Add New"
 msgstr ""
 
-#: ../inc/Posts/Base.php:319
+#: inc/Posts/Base.php:319
 #, fuzzy
 msgid "Add New"
 msgstr "Afegir nou"
 
-#: ../inc/Posts/Base.php:321 ../inc/Status.php:284
+#: inc/Posts/Base.php:321 inc/Status.php:296
 msgid "New"
 msgstr "Nou"
 
-#: ../inc/Posts/Base.php:323
+#: inc/Posts/Base.php:323
 msgid "Search "
 msgstr ""
 
-#: ../inc/Posts/Base.php:324
+#: inc/Posts/Base.php:324
 msgid "not found"
 msgstr ""
 
-#: ../inc/Posts/Base.php:325
+#: inc/Posts/Base.php:325
 msgid "not found in Trash"
 msgstr ""
 
-#: ../inc/Posts/Base.php:326
+#: inc/Posts/Base.php:326
 msgid "Parent:"
 msgstr ""
 
-#: ../inc/Posts/Question.php:56 ../inc/Shortcode.php:118
-#: ../inc/widgets/Closed_Question.php:49 ../inc/widgets/Latest_Question.php:39
-#: ../inc/widgets/Popular_Question.php:43
+#: inc/Posts/Question.php:56 inc/Shortcode.php:120
+#: inc/widgets/Closed_Question.php:49 inc/widgets/Latest_Question.php:39
+#: inc/widgets/Popular_Question.php:43
 msgid "asked by"
 msgstr "preguntat per"
 
-#: ../inc/Posts/Question.php:114 ../inc/Posts/Question.php:116
-#: ../inc/Posts/Question.php:284 ../inc/Template.php:87
+#: inc/Posts/Question.php:100 inc/Posts/Question.php:102
+#: inc/Posts/Question.php:266 inc/Settings.php:395
+#: templates/archive-question-filter.php:28
 msgid "Questions"
 msgstr ""
 
-#: ../inc/Posts/Question.php:115 ../inc/Settings.php:391
+#: inc/Posts/Question.php:101
 msgid "Question"
 msgstr "Pregunta"
 
-#: ../inc/Posts/Question.php:214
+#: inc/Posts/Question.php:196
 msgctxt "taxonomy general name"
 msgid "Question Categories"
 msgstr ""
 
-#: ../inc/Posts/Question.php:215
+#: inc/Posts/Question.php:197
 msgctxt "taxonomy singular name"
 msgid "Question Category"
 msgstr ""
 
-#: ../inc/Posts/Question.php:216
+#: inc/Posts/Question.php:198
 msgid "Search Question Categories"
 msgstr ""
 
-#: ../inc/Posts/Question.php:217
+#: inc/Posts/Question.php:199
 msgid "All Question Categories"
 msgstr ""
 
-#: ../inc/Posts/Question.php:218
+#: inc/Posts/Question.php:200
 msgid "Parent Question Category"
 msgstr ""
 
-#: ../inc/Posts/Question.php:219
+#: inc/Posts/Question.php:201
 msgid "Parent Question Category:"
 msgstr ""
 
-#: ../inc/Posts/Question.php:220
+#: inc/Posts/Question.php:202
 msgid "Edit Question Category"
 msgstr ""
 
-#: ../inc/Posts/Question.php:221
+#: inc/Posts/Question.php:203
 msgid "Update Question Category"
 msgstr ""
 
-#: ../inc/Posts/Question.php:222
+#: inc/Posts/Question.php:204
 msgid "Add New Question Category"
 msgstr ""
 
-#: ../inc/Posts/Question.php:223
+#: inc/Posts/Question.php:205
 msgid "New Question Category Name"
 msgstr ""
 
-#: ../inc/Posts/Question.php:224
+#: inc/Posts/Question.php:206
 msgid "Question Category"
 msgstr "Categoria de Pregunta"
 
-#: ../inc/Posts/Question.php:243
+#: inc/Posts/Question.php:225
 msgctxt "taxonomy general name"
 msgid "Question Tags"
 msgstr ""
 
-#: ../inc/Posts/Question.php:244
+#: inc/Posts/Question.php:226
 msgctxt "taxonomy singular name"
 msgid "Question Tag"
 msgstr ""
 
-#: ../inc/Posts/Question.php:245
+#: inc/Posts/Question.php:227
 msgid "Search Question Tags"
 msgstr ""
 
-#: ../inc/Posts/Question.php:246
+#: inc/Posts/Question.php:228
 msgid "Popular Question Tags"
 msgstr ""
 
-#: ../inc/Posts/Question.php:247
+#: inc/Posts/Question.php:229
 msgid "All Question Tags"
 msgstr ""
 
-#: ../inc/Posts/Question.php:250
+#: inc/Posts/Question.php:232
 msgid "Edit Question Tag"
 msgstr ""
 
-#: ../inc/Posts/Question.php:251
+#: inc/Posts/Question.php:233
 msgid "Update Question Tag"
 msgstr ""
 
-#: ../inc/Posts/Question.php:252
+#: inc/Posts/Question.php:234
 msgid "Add New Question Tag"
 msgstr ""
 
-#: ../inc/Posts/Question.php:253
+#: inc/Posts/Question.php:235
 msgid "New Question Tag Name"
 msgstr ""
 
-#: ../inc/Posts/Question.php:254
+#: inc/Posts/Question.php:236
 msgid "Separate question tags with commas"
 msgstr ""
 
-#: ../inc/Posts/Question.php:255
+#: inc/Posts/Question.php:237
 msgid "Add or remove question tags"
 msgstr ""
 
-#: ../inc/Posts/Question.php:256
+#: inc/Posts/Question.php:238
 msgid "Choose from the most used question tags"
 msgstr ""
 
-#: ../inc/Posts/Question.php:257
+#: inc/Posts/Question.php:239
 msgid "No question tags found."
 msgstr ""
 
-#: ../inc/Posts/Question.php:258
+#: inc/Posts/Question.php:240
 msgid "Question Tags"
 msgstr "Etiquetes de Preguntes"
 
-#: ../inc/Posts/Question.php:294
+#: inc/Posts/Question.php:276
 msgid "Info"
 msgstr "Info"
 
-#: ../inc/Posts/Question.php:305 ../templates/content-question.php:22
+#: inc/Posts/Question.php:287 templates/content-question.php:22
 msgid "answered"
 msgstr "contestada"
 
-#: ../inc/Posts/Question.php:306
+#: inc/Posts/Question.php:288
 msgid "voted"
 msgstr "votada"
 
-#: ../inc/Posts/Question.php:307
+#: inc/Posts/Question.php:289
 msgid "views"
 msgstr "vistes"
 
-#: ../inc/Posts/Question.php:428 ../inc/User.php:266
+#: inc/Posts/Question.php:410 inc/User.php:266
 msgid "Invalid Post"
 msgstr "Publicació Invàlida"
 
-#: ../inc/Posts/Question.php:463
+#: inc/Posts/Question.php:445
 msgid "Sticky Questions"
 msgstr "Preguntes fixes"
 
-#: ../inc/Posts/Question.php:497
+#: inc/Posts/Question.php:479
 msgid "Question is not valid"
 msgstr "La Pregunta no és vàlida"
 
-#: ../inc/Posts/Question.php:518
+#: inc/Posts/Question.php:500
 msgid "Delete Action was failed"
 msgstr "No s'ha pogut Esborrar"
 
-#: ../inc/Posts/Question.php:523
+#: inc/Posts/Question.php:505
 msgid "You do not have permission to delete this question"
 msgstr "No tens permís per esborrar aquesta pregunta"
 
-#: ../inc/Session.php:68 ../inc/Session.php:85 ../inc/Session.php:95
-#: ../inc/Session.php:118
+#: inc/Session.php:68 inc/Session.php:85 inc/Session.php:95 inc/Session.php:118
 msgid "This function should not be called before init."
 msgstr ""
 
-#: ../inc/Settings.php:8
+#: inc/Settings.php:8
 #, fuzzy
 msgid "Login required. No anonymous post allowed"
 msgstr "Es requereix ingressar a la pàgina. No es permeten anònims"
 
-#: ../inc/Settings.php:20
+#: inc/Settings.php:20
 msgid "Select Archive Question Page"
 msgstr "Seleccionar pàgina de Respostes Arxivades"
 
-#: ../inc/Settings.php:24
-msgid "A page where displays all questions"
-msgstr "Una pàgina on es veuem totes les respostes"
+#: inc/Settings.php:24
+msgid ""
+"A page where displays all questions. The <code>[dwqa-list-questions]</code> "
+"short code must be on this page."
+msgstr ""
 
-#: ../inc/Settings.php:31
+#: inc/Settings.php:31
 msgid "hours"
 msgstr "hores"
 
-#: ../inc/Settings.php:31
+#: inc/Settings.php:31
 msgid ""
 "A period of time in which new questions are highlighted and marked as New"
 msgstr "Un període en el qual les noves preguntes són marcades com a Noves"
 
-#: ../inc/Settings.php:36
+#: inc/Settings.php:36
 msgid "days"
 msgstr "dies"
 
-#: ../inc/Settings.php:36
+#: inc/Settings.php:36
 #, fuzzy
 msgid ""
 "A Question will be marked as overdue if it passes this period of time, "
@@ -875,490 +834,417 @@ msgstr ""
 "Una pregunta serà marcada com a endarrerida si es passa d'aquest període, "
 "començant des de la data en que la pregunta va ser enviada"
 
-#: ../inc/Settings.php:47
+#: inc/Settings.php:47
 msgid "Select Submit Question Page"
 msgstr "Seleccionar Pàgina d'Enviar Pregunta"
 
-#: ../inc/Settings.php:52
-msgid "A page where users can submit questions."
-msgstr "Una pàgina on els usuaris poden enviar preguntes"
+#: inc/Settings.php:52
+msgid ""
+"A page where users can submit questions. The <code>[dwqa-submit-question-"
+"form]</code> short code must be on this page."
+msgstr ""
 
-#: ../inc/Settings.php:65
+#: inc/Settings.php:65
 msgid "Select 404 DWQA Page"
 msgstr ""
 
-#: ../inc/Settings.php:70
+#: inc/Settings.php:70
 msgid ""
 "This page will be redirected when users without authority click on a private "
 "question. You can customize the message of this page in.If not, a default "
 "404 page will be used."
 msgstr ""
 
-#: ../inc/Settings.php:86
+#: inc/Settings.php:87
 msgid "Upload"
 msgstr "Pujar"
 
-#: ../inc/Settings.php:86
-msgid "Upload or choose a logo to be displayed at the top of the email"
-msgstr "Pujar o escollir un logo per la capçalera del correu electrònic"
+#: inc/Settings.php:87
+msgid "Upload or choose a logo to be displayed at the top of the email."
+msgstr ""
 
-#: ../inc/Settings.php:125
-msgid "Enable notification for new question"
-msgstr "Activar notificació per nova pregunta"
+#: inc/Settings.php:126 inc/Settings.php:161 inc/Settings.php:197
+#: inc/Settings.php:233 inc/Settings.php:268 inc/Settings.php:303
+#: inc/Settings.php:338
+msgid "Enable?"
+msgstr ""
 
-#: ../inc/Settings.php:130 ../inc/Settings.php:164 ../inc/Settings.php:199
-#: ../inc/Settings.php:234 ../inc/Settings.php:269 ../inc/Settings.php:304
-#: ../inc/Settings.php:339
+#: inc/Settings.php:126
+msgid "Enable notification for new question."
+msgstr ""
+
+#: inc/Settings.php:131 inc/Settings.php:166 inc/Settings.php:202
+#: inc/Settings.php:238 inc/Settings.php:273 inc/Settings.php:308
+#: inc/Settings.php:343
 msgid "Email subject"
 msgstr "Assumpte del correu"
 
-#: ../inc/Settings.php:135 ../inc/Settings.php:169 ../inc/Settings.php:204
-#: ../inc/Settings.php:239 ../inc/Settings.php:274 ../inc/Settings.php:309
-#: ../inc/Settings.php:344
+#: inc/Settings.php:136 inc/Settings.php:171 inc/Settings.php:207
+#: inc/Settings.php:243 inc/Settings.php:278 inc/Settings.php:313
+#: inc/Settings.php:348
 msgid "Email Content"
 msgstr "Contingut del correu"
 
-#: ../inc/Settings.php:159
-msgid "Enable notification for new answer"
-msgstr "Activar notificació per nova resposta"
+#: inc/Settings.php:161
+msgid "Enable notification for new answer."
+msgstr ""
 
-#: ../inc/Settings.php:194
-#, fuzzy
-msgid "Enable notification for new answer (to Followers )"
-msgstr "Enviar notificació de nova resposta (a Seguidors)"
+#: inc/Settings.php:197
+msgid "Enable notification for new answer ( to Followers )."
+msgstr ""
 
-#: ../inc/Settings.php:229 ../inc/Settings.php:264
-msgid "Enable notification for new comment of question"
-msgstr "Activar notificació per un nou comentari d'una pregunta"
+#: inc/Settings.php:233 inc/Settings.php:268
+msgid "Enable notification for new comment of question."
+msgstr ""
 
-#: ../inc/Settings.php:299 ../inc/Settings.php:334
-msgid "Enable notification for new comment of answer"
-msgstr "Activar notificació per un nou comentari d'una resposta"
+#: inc/Settings.php:303 inc/Settings.php:338
+msgid "Enable notification for new comment of answer."
+msgstr ""
 
-#: ../inc/Settings.php:396
+#: inc/Settings.php:400
 msgid "Read"
 msgstr "Llegir"
 
-#: ../inc/Settings.php:397
+#: inc/Settings.php:401
 msgid "Post"
 msgstr "Publicar"
 
-#: ../inc/Settings.php:425 ../inc/Settings.php:461 ../inc/Settings.php:496
+#: inc/Settings.php:429 inc/Settings.php:465 inc/Settings.php:500
 msgid "Reset Default"
 msgstr "Reiniciar a valors per defecte"
 
-#: ../inc/Settings.php:463
-msgid "Comment"
-msgstr "Comentar"
-
-#: ../inc/Settings.php:505
-msgid "Enable/Disable captcha on submit question page"
-msgstr "Habilitar/Deshabilitar captcha en la pàgina d'enviament de preguntes"
-
-#: ../inc/Settings.php:511
-msgid "Enable/Disable captcha on single question page"
+#: inc/Settings.php:467
+msgid "Comments"
 msgstr ""
-"Habilitar/Deshabilitar captcha en la pàgina d'enviament d'unasola pregunta"
 
-#: ../inc/Settings.php:529
+#: inc/Settings.php:509
+msgid "Enable captcha on submit question page."
+msgstr ""
+
+#: inc/Settings.php:515
+msgid "Enable captcha on single question page."
+msgstr ""
+
+#: inc/Settings.php:533
 msgid "Default"
 msgstr ""
 
-#: ../inc/Settings.php:541
-msgid "questions"
-msgstr "preguntes"
-
-#: ../inc/Settings.php:547
-msgid "Allow members to post private question"
-msgstr "Permetre als usuaris enviar preguntes privades"
-
-#: ../inc/Settings.php:553
-msgid "Question must be manually approved"
+#: inc/Settings.php:546
+msgid "questions."
 msgstr ""
 
-#: ../inc/Settings.php:564
+#: inc/Settings.php:552
+msgid "answers."
+msgstr ""
+
+#: inc/Settings.php:558
+msgid "Allow members to post private question."
+msgstr ""
+
+#: inc/Settings.php:564
+msgid "Question must be manually approved."
+msgstr ""
+
+#: inc/Settings.php:570
+msgid "Display status icon on the left side."
+msgstr ""
+
+#: inc/Settings.php:576
+msgid "Disable question status feature."
+msgstr ""
+
+#: inc/Settings.php:582
+msgid "Show all answers on single question page."
+msgstr ""
+
+#: inc/Settings.php:593
 #, fuzzy
 msgid "Select template for Single Quesiton page"
 msgstr "Seleccionar pàgina de Respostes Arxivades"
 
-#: ../inc/Settings.php:570
+#: inc/Settings.php:599
 msgid ""
 "By default, your single.php template file will be used if you do not choose "
 "any template"
 msgstr ""
 
-#: ../inc/Settings.php:684
+#: inc/Settings.php:607
+#, php-format
+msgid ""
+"If you like, you may enter custom structure for your single question, "
+"question category and question tag URLs here. For example, using "
+"<code>topic</code> as your question base would make your question links like "
+"<code>%s</code>. If you leave these blank the default will be used."
+msgstr ""
+
+#: inc/Settings.php:732
 msgid "Plugin Settings"
 msgstr "Configuració del Plugin"
 
-#: ../inc/Settings.php:684
+#: inc/Settings.php:732
 msgid "Settings"
 msgstr "Configuració"
 
-#: ../inc/Settings.php:720
-msgid "Email Setup"
+#: inc/Settings.php:768
+msgid "Email Settings"
 msgstr ""
 
-#: ../inc/Settings.php:721 ../inc/Settings.php:1063
-msgid "New Question Notification"
-msgstr "Notificació de Nova Pregunta"
+#: inc/Settings.php:769
+msgid "New Question Notifications"
+msgstr ""
 
-#: ../inc/Settings.php:722 ../inc/Settings.php:1078
-msgid "New Answer Notification"
-msgstr "Notificacion a nova Resposta"
+#: inc/Settings.php:770
+msgid "New Answer Notifications"
+msgstr ""
 
-#: ../inc/Settings.php:723 ../inc/Settings.php:726 ../inc/Settings.php:1122
-#, fuzzy
-msgid "New Comment to Question Notification (to Followers )"
-msgstr "Notificacioó a Nou Comentari a Preguntes (a Seguidors)"
+#: inc/Settings.php:771
+msgid "New Comment Notifications"
+msgstr ""
 
-#: ../inc/Settings.php:724 ../inc/Settings.php:1112
-msgid "New Comment to Answer Notification"
-msgstr "Notificació a Nou Comentari a Respostes"
+#: inc/Settings.php:784
+msgid "Page Settings"
+msgstr ""
 
-#: ../inc/Settings.php:725 ../inc/Settings.php:1090
-#, fuzzy
-msgid "New Answer Notification (to Followers )"
-msgstr "Notificació a Nova Resposta (a Seguidors)"
-
-#: ../inc/Settings.php:727 ../inc/Settings.php:1133
-#, fuzzy
-msgid "New Comment to Answer Notification (to Followers )"
-msgstr "Notificació a Nou Comentari a Respoestes (a Seguidors)"
-
-#: ../inc/Settings.php:746
+#: inc/Settings.php:791
 msgid "Question List Page"
 msgstr "Pàgina de Llistat de Preguntes"
 
-#: ../inc/Settings.php:754
-msgid "Archive page show at most"
-msgstr "la pàgina d'Arxiu mostra màxim"
-
-#: ../inc/Settings.php:762
+#: inc/Settings.php:799 inc/Settings.php:930
 msgid "Ask Question Page"
 msgstr "Pàgina per Fer Preguntes"
 
-#: ../inc/Settings.php:769
-msgid "Private Question"
-msgstr "Pregunta Privada"
-
-#: ../inc/Settings.php:776
-#, fuzzy
-msgid "Review Question"
-msgstr "Veure Pregunta"
-
-#: ../inc/Settings.php:795
-msgid "Time settings"
-msgstr "Valors horaris"
-
-#: ../inc/Settings.php:802
-msgid "New Question Time Frame"
-msgstr "Període de Nova Pregunta"
-
-#: ../inc/Settings.php:810
-msgid "Question Overdue - Time Frame"
-msgstr "Pregunta Endarrerida - Període"
-
-#: ../inc/Settings.php:820
-msgid "Captcha settings"
-msgstr "Configuració del Captcha"
-
-#: ../inc/Settings.php:827
-#, fuzzy
-msgid "Captcha on Submit Question Page"
-msgstr "Captcha a la Pàgina d'Enviament de Preguntes"
-
-#: ../inc/Settings.php:835
-#, fuzzy
-msgid "Captcha on Single Question Page"
-msgstr "Captcha a la pàgina d'Enviament d'una Pregunta Única"
-
-#: ../inc/Settings.php:843
-msgid "Captcha Type"
+#: inc/Settings.php:842
+msgid "Question Settings"
 msgstr ""
 
-#: ../inc/Settings.php:855
+#: inc/Settings.php:849
+msgid "Archive Page Show At Most"
+msgstr ""
+
+#: inc/Settings.php:857
+msgid "Before A Question Appears"
+msgstr ""
+
+#: inc/Settings.php:865
+msgid "Other Question Settings"
+msgstr ""
+
+#: inc/Settings.php:890
+msgid "Answer Settings"
+msgstr ""
+
+#: inc/Settings.php:897
+msgid "Answer Listing"
+msgstr ""
+
+#: inc/Settings.php:915
+msgid "Captcha Settings"
+msgstr ""
+
+#: inc/Settings.php:922
+msgid "Type"
+msgstr ""
+
+#: inc/Settings.php:938
+msgid "Single Question Page"
+msgstr ""
+
+#: inc/Settings.php:950
 msgid "Permalink Settings"
 msgstr "Configuració Permalink"
 
-#: ../inc/Settings.php:862
-msgid "Single Question"
-msgstr "Pregunta Única"
+#: inc/Settings.php:957
+msgid "Question Base"
+msgstr ""
 
-#: ../inc/Settings.php:870
-msgid "Single Category"
-msgstr "Categoria Única"
+#: inc/Settings.php:965
+msgid "Question Category Base"
+msgstr ""
 
-#: ../inc/Settings.php:878
-msgid "Single Tag"
-msgstr "Etiqueta Única"
+#: inc/Settings.php:973
+msgid "Question Tag Base"
+msgstr ""
 
-#: ../inc/Settings.php:926
+#: inc/Settings.php:1042
 msgid "From Email"
 msgstr "Del correu electrònic"
 
-#: ../inc/Settings.php:990 ../inc/Settings.php:997
+#: inc/Settings.php:1110 inc/Settings.php:1117
 msgid "Group Permission"
 msgstr "Premisos de Grup"
 
-#: ../inc/Settings.php:1025
+#: inc/Settings.php:1145
 msgid "DWQA Settings"
 msgstr "Configuració DWQA"
 
-#: ../inc/Settings.php:1029
+#: inc/Settings.php:1149
 msgid "General"
 msgstr "General"
 
-#: ../inc/Settings.php:1030
-msgid "Notification"
-msgstr "Notificació"
+#: inc/Settings.php:1150
+msgid "Emails"
+msgstr ""
 
-#: ../inc/Settings.php:1031
-msgid "Permission"
-msgstr "Permís"
+#: inc/Settings.php:1151
+msgid "Permissions"
+msgstr ""
 
-#: ../inc/Settings.php:1033
+#: inc/Settings.php:1152
 msgid "Licenses"
 msgstr "Llicencies"
 
-#: ../inc/Settings.php:1047
-msgid "Email setup"
-msgstr "Configuració del correu electrònic"
+#: inc/Settings.php:1166
+msgid "Email settings"
+msgstr ""
 
-#: ../inc/Settings.php:1049
+#: inc/Settings.php:1168
 msgid "Email Logo"
 msgstr "Logotip pel correu electrònic"
 
-#: ../inc/Settings.php:1053 ../inc/Settings.php:1070 ../inc/Settings.php:1082
-#: ../inc/Settings.php:1094 ../inc/Settings.php:1105 ../inc/Settings.php:1116
-#: ../inc/Settings.php:1126 ../inc/Settings.php:1137
+#: inc/Settings.php:1182
+msgid "New Question Notifications (to Admin)"
+msgstr ""
+
+#: inc/Settings.php:1206
+msgid "New Answer Notifications (to Followers)"
+msgstr ""
+
+#: inc/Settings.php:1222
+msgid "New Answer Notifications (to Admin)"
+msgstr ""
+
+#: inc/Settings.php:1242
+msgid "New Comment to Question Notifications (to Followers)"
+msgstr ""
+
+#: inc/Settings.php:1259
+msgid "New Comment to Question Notifications (to Admin)"
+msgstr ""
+
+#: inc/Settings.php:1279
+msgid "New Comment to Answer Notifications (to Followers)"
+msgstr ""
+
+#: inc/Settings.php:1296
+msgid "New Comment to Answer Notifications (to Admin)"
+msgstr ""
+
+#: inc/Settings.php:1314
 msgid "Save all changes"
 msgstr "Desar tots els canvis"
 
-#: ../inc/Settings.php:1101
-msgid "New Comment to Question Notification"
-msgstr "Notificació a Nou Comentari a Preguntes"
+#: inc/Settings.php:1328
+#, php-format
+msgid "Manage <a href=\"%s\">DWQA Extensions</a> license keys"
+msgstr ""
 
-#: ../inc/Settings.php:1170
-msgid "Send to"
-msgstr "Enviar a"
+#: inc/Settings.php:1346 inc/Settings.php:1351 inc/Settings.php:1356
+#: inc/Settings.php:1361
+msgid "Forward to"
+msgstr ""
 
-#: ../inc/Settings.php:1175
+#: inc/Settings.php:1366
 msgid "Cc"
 msgstr "Cc"
 
-#: ../inc/Settings.php:1180
+#: inc/Settings.php:1371
 msgid "Bcc"
 msgstr "Bcc"
 
-#: ../inc/Settings.php:1185
+#: inc/Settings.php:1376
 msgid "This address will be used as the sender of the outgoing emails."
 msgstr "Aquesta adreça es farà servir per el correu de sortida"
 
-#: ../inc/Settings.php:1191
-msgid "Send A Copy Of Every Email To Admin"
-msgstr "Enviar una còpia de TOT correu a l'Administrador"
+#: inc/Settings.php:1382
+msgid "Send a copy of every email to admin."
+msgstr ""
 
-#: ../inc/Shortcode.php:95 ../inc/widgets/Popular_Question.php:21
+#: inc/Shortcode.php:97 inc/widgets/Popular_Question.php:21
 msgid "Popular Questions"
 msgstr "Preguntas mas populares"
 
-#: ../inc/Shortcode.php:132
+#: inc/Shortcode.php:134
 msgid "Latest Answers"
 msgstr "Últimes Respostes"
 
-#: ../inc/Shortcode.php:158
+#: inc/Shortcode.php:160
 msgid "Answer at"
 msgstr "Contestar a"
 
-#: ../inc/Shortcode.php:158
+#: inc/Shortcode.php:160
 msgid "Link to"
 msgstr "Enllaçar a"
 
-#: ../inc/Shortcode.php:186
+#: inc/Shortcode.php:188
 #, php-format
 msgid "%d person who is following this question"
 msgid_plural "%d people who are following this question"
 msgstr[0] "%d persona que segueix la teva pregunta"
 msgstr[1] "%d persones que segueixen la teva pregunta"
 
-#: ../inc/Status.php:288
+#: inc/Shortcode.php:218
+msgid "Question List"
+msgstr ""
+
+#: inc/Status.php:300
 msgid "Answered"
 msgstr "Contestada"
 
-#: ../inc/Status.php:312
+#: inc/Status.php:324
 msgid "Missing post ID"
 msgstr "Falta ID de publicació"
 
-#: ../inc/Status.php:325
+#: inc/Status.php:337
 msgid "Post does not exist"
 msgstr "Publicació no existeix"
 
-#: ../inc/Status.php:330
+#: inc/Status.php:342
 msgid "Invalid post status"
 msgstr "Estatus de publicació no vàlid"
 
-#: ../inc/Template.php:15 ../templates/content-edit.php:44
-#: ../templates/question-submit-form.php:46
+#: inc/Template.php:15 templates/content-edit.php:44
+#: templates/question-submit-form.php:46
 msgid "Tag"
 msgstr "Etiqueta"
 
-#: ../inc/Template.php:15 ../inc/Template.php:20
-#: ../templates/content-edit.php:29 ../templates/question-submit-form.php:32
+#: inc/Template.php:15 inc/Template.php:20 templates/content-edit.php:29
+#: templates/question-submit-form.php:32
 msgid "Category"
 msgstr "Categoria"
 
-#: ../inc/Template.php:43
+#: inc/Template.php:43
 msgid "Showing search results for"
 msgstr "Mostrant resultats per"
 
-#: ../inc/Template.php:75
-msgid "Filter:"
-msgstr "Filtre:"
-
-#: ../inc/Template.php:77
-msgid "All"
-msgstr "Tot"
-
-#: ../inc/Template.php:81
-msgid "Unanswered"
-msgstr "Sense contestar"
-
-#: ../inc/Template.php:83
-msgid "My questions"
-msgstr "Les meves preguntes"
-
-#: ../inc/Template.php:84
-msgid "My subscribes"
-msgstr "Les meves subscripcions"
-
-#: ../inc/Template.php:88
-msgid "Subscribes"
-msgstr "Subscripcions"
-
-#: ../inc/Template.php:91
-msgid "Sort by"
-msgstr "Ordena per"
-
-#: ../inc/Template.php:92
-msgid "Views"
-msgstr "Vistes"
-
-#: ../inc/Template.php:94
-msgid "Votes"
-msgstr "Vots"
-
-#: ../inc/Template.php:105
+#: inc/Template.php:78
 msgid "What do you want to know?"
 msgstr "Que vols saber?"
 
-#: ../inc/Template.php:177
+#: inc/Template.php:157
 msgid "Subscribe"
 msgstr "Subscriu-te"
 
-#: ../inc/Template.php:289
-msgid "You need an account to submit question and get answers. Create one:"
-msgstr ""
-"Necessites registrar-te per poder fer preguntes i respondre.  Registrar-se:"
-
-#: ../inc/Template.php:291 ../inc/Template.php:329
-msgid "Type your email"
-msgstr "Escriu el teu correu electrònic"
-
-#: ../inc/Template.php:296
-msgid "Already a member?"
-msgstr "¿Ja ets membre?"
-
-#: ../inc/Template.php:296
-msgid "Log In"
-msgstr "Ingressar"
-
-#: ../inc/Template.php:300
-msgid "Login to submit your question"
-msgstr "Ingressa per enviar la teva pregunta"
-
-#: ../inc/Template.php:302
-msgid "Type your username"
-msgstr "Escriu el teu nom d'usuari"
-
-#: ../inc/Template.php:305
-msgid "Type your password"
-msgstr "Escriu la teva paraula de pas"
-
-#: ../inc/Template.php:307
-msgid "Not yet a member?"
-msgstr "¿Encara no ets membre?"
-
-#: ../inc/Template.php:307
-msgid "Register"
-msgstr "Registrar-se"
-
-#: ../inc/Template.php:311
-msgid ""
-"Enter your email to receive notification regarding your question. Your email "
-"is safe with us and will not be published."
-msgstr ""
-"Introdueix el teu mail per rebre notificacions sobre la pregunta. El teu "
-"email el guardarem i no el publicarem."
-
-#: ../inc/Template.php:311
-#, fuzzy
-msgid "Your email *"
-msgstr "Escriu el teu correu electrònic"
-
-#: ../inc/Template.php:312
-msgid "Email address ..."
-msgstr "Adreça de email *"
-
-#: ../inc/Template.php:313
-#, php-format
-msgid "or <strong><a href=\"%s\">login</a></strong> to submit question"
-msgstr "o  <strong><a href=\"%s\">login</a></strong> per penjar una pregunta"
-
-#: ../inc/Template.php:341
-#, php-format
-msgid "Private: %s"
-msgstr "Privat: %s"
-
-#: ../inc/Template.php:460
+#: inc/Template.php:444
 msgid "Email"
 msgstr "Email"
 
-#: ../inc/Template.php:462
+#: inc/Template.php:446
 msgid "Name"
 msgstr "Nom"
 
-#: ../inc/Template.php:464
+#: inc/Template.php:448
 #, php-format
 msgid "Required fields are marked %s"
 msgstr "Els camps necessaris estan marcats %s"
 
-#: ../inc/Template.php:475
-msgctxt "noun"
-msgid "Comment"
-msgstr "Comentari"
-
-#: ../inc/Template.php:476
+#: inc/Template.php:460
 #, php-format
 msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
 msgstr ""
 "Has d'haver <a href=\"%s\">ingressat a la pàgina</a> per publicar un "
 "comentari."
 
-#: ../inc/Template.php:477
-#, php-format
-msgid ""
-"Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of "
-"this account\">Log out?</a>"
-msgstr ""
-"Registrat como <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out "
-"of this account\">¿Sortir?</a>"
-
-#: ../inc/Template.php:478
-msgid "Your email address will not be published."
-msgstr "La teva adreça de correu no serà publicada."
-
-#: ../inc/Template.php:479
+#: inc/Template.php:463
 #, php-format
 msgid ""
 "You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
@@ -1367,121 +1253,114 @@ msgstr ""
 "Pots fer servir aquestes <abbr title=\"HyperText Markup Language\">HTML</"
 "abbr> etiquetes i atributs: %s"
 
-#: ../inc/Template.php:482
+#: inc/Template.php:466
 msgid "Leave a Reply"
 msgstr "Deixar una resposta"
 
-#: ../inc/Template.php:483
+#: inc/Template.php:467
 #, php-format
 msgid "Leave a Reply to %s"
 msgstr "Deixar una resposta a %s"
 
-#: ../inc/Template.php:484
+#: inc/Template.php:468
 msgid "Cancel reply"
 msgstr "Cancel·lar resposta"
 
-#: ../inc/Template.php:485
+#: inc/Template.php:469
 msgid "Post Comment"
 msgstr "Publicar comentari"
 
-#: ../inc/Template.php:660
+#: inc/Template.php:644
 msgid "Sticky Question"
 msgstr "Pregunta Fixe"
 
-#: ../inc/Template.php:674
+#: inc/Template.php:658
 msgid "Ask a question"
 msgstr "Fer una pregunta"
 
-#: ../inc/Template.php:676
+#: inc/Template.php:660
 #, fuzzy
 msgid "Login to ask a question"
 msgstr "Ingressa per enviar la teva pregunta"
 
-#: ../inc/Template.php:1065
-#, fuzzy
-msgid "You do not have permission to submit a question"
-msgstr "No tens permís per enviar preguntes."
-
-#: ../inc/Template.php:1119
+#: inc/Template.php:1108
 #, fuzzy
 msgid "Choose as the best answer"
 msgstr "Seleccionar com a millor resposta"
 
-#: ../inc/Updater.php:97
+#: inc/Updater.php:97
 msgid "License Key"
 msgstr ""
 
-#: ../inc/Updater.php:122
+#: inc/Updater.php:122
 msgid "Activate"
 msgstr ""
 
-#: ../inc/Updater.php:176
+#: inc/Updater.php:176
 msgid "Plugin was activated"
 msgstr ""
 
-#: ../inc/User.php:237
+#: inc/User.php:230
 msgid "Staff"
 msgstr "Administrador"
 
-#: ../inc/Walker/Category.php:20 ../inc/Walker/Tag.php:20
+#: inc/Walker/Category.php:20 inc/Walker/Tag.php:20
 #, php-format
 msgid "View all posts filed under %s"
 msgstr "Veure totes les publicacions fetes per %s"
 
-#: ../inc/Walker/Category.php:35 ../inc/Walker/Tag.php:35
+#: inc/Walker/Category.php:35 inc/Walker/Tag.php:35
 #, php-format
 msgid "Feed for all posts filed under %s"
 msgstr "Carregar totes les publicacions fetes sota %s"
 
-#: ../inc/widgets/Closed_Question.php:11
+#: inc/widgets/Closed_Question.php:11
 msgid "Show a list of questions marked as closed."
 msgstr "Mostra una llista de preguntes tancades"
 
-#: ../inc/widgets/Closed_Question.php:12
+#: inc/widgets/Closed_Question.php:12
 #, fuzzy
 msgid "DWQA Closed Questions"
 msgstr "Preguntes relacionades amb DWQA"
 
-#: ../inc/widgets/Closed_Question.php:18
+#: inc/widgets/Closed_Question.php:18
 #, fuzzy
 msgid "Closed Questions"
 msgstr "Totes les Preguntes"
 
-#: ../inc/widgets/Closed_Question.php:72 ../inc/widgets/Latest_Question.php:63
-#: ../inc/widgets/Popular_Question.php:66
-#: ../inc/widgets/Related_Question.php:48
+#: inc/widgets/Closed_Question.php:72 inc/widgets/Latest_Question.php:63
+#: inc/widgets/Popular_Question.php:66 inc/widgets/Related_Question.php:48
 msgid "Widget title"
 msgstr "Títol del Widget"
 
-#: ../inc/widgets/Closed_Question.php:75 ../inc/widgets/Latest_Question.php:66
-#: ../inc/widgets/Popular_Question.php:69
-#: ../inc/widgets/Related_Question.php:51
+#: inc/widgets/Closed_Question.php:75 inc/widgets/Latest_Question.php:66
+#: inc/widgets/Popular_Question.php:69 inc/widgets/Related_Question.php:51
 msgid "Number of posts"
 msgstr "Nombre de publicacions"
 
-#: ../inc/widgets/Latest_Question.php:10
+#: inc/widgets/Latest_Question.php:10
 msgid "Show a list of latest questions."
 msgstr "Mostra una llista de les últimes preguntes"
 
-#: ../inc/widgets/Latest_Question.php:11
+#: inc/widgets/Latest_Question.php:11
 #, fuzzy
 msgid "DWQA Latest Questions"
 msgstr "Preguntes relacionades amb DWQA"
 
-#: ../inc/widgets/Latest_Question.php:17
+#: inc/widgets/Latest_Question.php:17
 #, fuzzy
 msgid "Latest Questions"
 msgstr "Pregunta Privada"
 
-#: ../inc/widgets/Popular_Question.php:13
+#: inc/widgets/Popular_Question.php:13
 msgid "Show a list of popular questions."
 msgstr "Mostra una llista de les preguntes mes populars"
 
-#: ../inc/widgets/Popular_Question.php:15
+#: inc/widgets/Popular_Question.php:15
 msgid "DWQA Popular Questions"
 msgstr "Preguntes Populars DWQA"
 
-#: ../inc/widgets/Related_Question.php:11
+#: inc/widgets/Related_Question.php:11
 msgid ""
 "Show a list of questions that related to a question. Just show in single "
 "question page"
@@ -1489,18 +1368,18 @@ msgstr ""
 "veure un llistat de preguntes que es relacionen amb una pregunta. Només "
 "veure en la pàgina de pregunta única."
 
-#: ../inc/widgets/Related_Question.php:12
+#: inc/widgets/Related_Question.php:12
 msgid "DWQA Related Questions"
 msgstr "Preguntes relacionades amb DWQA"
 
-#: ../lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:181
+#: lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:181
 #, php-format
 msgid ""
 "There is a new version of %1$s available. <a target=\"_blank\" class="
 "\"thickbox\" href=\"%2$s\">View version %3$s details</a>."
 msgstr ""
 
-#: ../lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:188
+#: lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:188
 #, php-format
 msgid ""
 "There is a new version of %1$s available. <a target=\"_blank\" class="
@@ -1508,164 +1387,459 @@ msgid ""
 "\">update now</a>."
 msgstr ""
 
-#: ../lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:326
+#: lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:326
 msgid "You do not have permission to install plugin updates"
 msgstr ""
 
-#: ../lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:326
+#: lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:326
 msgid "Error"
 msgstr "Error"
 
-#: ../templates/answer-submit-form.php:12
+#: templates/answer-submit-form.php:12
 msgid "Your Answer"
 msgstr "La teva pregunta"
 
-#: ../templates/answer-submit-form.php:21
-#: ../templates/question-submit-form.php:52
+#: templates/answer-submit-form.php:21 templates/question-submit-form.php:52
 msgid "Your Email"
 msgstr "El teu email"
 
-#: ../templates/answer-submit-form.php:26
-#: ../templates/question-submit-form.php:57
+#: templates/answer-submit-form.php:26 templates/question-submit-form.php:57
 msgid "Your Name"
 msgstr "El teu nom"
 
-#: ../templates/answer-submit-form.php:33
-#: ../templates/question-submit-form.php:24
+#: templates/answer-submit-form.php:33 templates/question-submit-form.php:24
 msgid "Who can see this?"
 msgstr ""
 
-#: ../templates/answer-submit-form.php:35
-#: ../templates/question-submit-form.php:26
+#: templates/answer-submit-form.php:34 templates/question-submit-form.php:25
+msgid "Public"
+msgstr "Públic"
+
+#: templates/answer-submit-form.php:35 templates/question-submit-form.php:26
 msgid "Only Me &amp; Admin"
 msgstr ""
 
-#: ../templates/answer-submit-form.php:39
-#: ../templates/question-submit-form.php:64
+#: templates/answer-submit-form.php:39 templates/question-submit-form.php:64
 msgid "Submit"
 msgstr "Envia"
 
-#: ../templates/answers.php:12
+#: templates/answers.php:12
 #, php-format
 msgid "%s Answers"
 msgstr "%s Respostes"
 
-#: ../templates/archive-question.php:35
+#: templates/archive-question-filter.php:14
+msgid "Filter:"
+msgstr "Filtre:"
+
+#: templates/archive-question-filter.php:16
+msgid "All"
+msgstr "Tot"
+
+#: templates/archive-question-filter.php:22
+msgid "Unanswered"
+msgstr "Sense contestar"
+
+#: templates/archive-question-filter.php:24
+msgid "My questions"
+msgstr "Les meves preguntes"
+
+#: templates/archive-question-filter.php:25
+msgid "My subscribes"
+msgstr "Les meves subscripcions"
+
+#: templates/archive-question-filter.php:29
+msgid "Subscribes"
+msgstr "Subscripcions"
+
+#: templates/archive-question-filter.php:32
+msgid "Sort by"
+msgstr "Ordena per"
+
+#: templates/archive-question-filter.php:33
+msgid "Views"
+msgstr "Vistes"
+
+#: templates/archive-question-filter.php:35
+msgid "Votes"
+msgstr "Vots"
+
+#: templates/archive-question.php:28
 msgid "Ask Question"
 msgstr "Fer Pregunta"
 
-#: ../templates/captcha-form.php:11
+#: templates/captcha-form.php:20
 msgid "Enter the result"
 msgstr "Introdueix el resultat"
 
-#: ../templates/comments.php:23
-msgid "Write a comment ..."
-msgstr "Escriu un comentari ..."
-
-#: ../templates/content-comment.php:16
+#: templates/content-comment.php:16
 #, php-format
 msgctxt "%s = human-readable time difference"
 msgid "replied %s ago"
 msgstr "contestat %s abans"
 
-#: ../templates/content-edit.php:21 ../templates/question-submit-form.php:13
+#: templates/content-edit.php:21 templates/question-submit-form.php:13
 msgid "Title"
 msgstr "Títol"
 
-#: ../templates/content-edit.php:36 ../templates/question-submit-form.php:38
+#: templates/content-edit.php:36 templates/question-submit-form.php:38
 msgid "Select question category"
 msgstr "Selecciona la categoria de la pregunta"
 
-#: ../templates/content-edit.php:50
+#: templates/content-edit.php:50
 msgid "Save Changes"
 msgstr "Desa els canvis"
 
-#: ../templates/content-none.php:12
+#: templates/content-none.php:10
+msgid "You do not have permission to view questions"
+msgstr "No tens permís per veure preguntes"
+
+#: templates/content-none.php:12
 msgid "Sorry, but nothing matched your filter"
 msgstr "Ho sento, pero no hem trobat res amb aquest filtre"
 
-#: ../templates/content-question.php:18
+#: templates/content-question.php:18
 msgid "asked"
 msgstr "preguntat"
 
-#: ../templates/content-question.php:25
+#: templates/content-question.php:25
 #, php-format
 msgid "<span><a href=\"%s\">%s%s</a> %s %s ago</span>"
 msgstr "<span><a href=\"%s\">%s%s</a> %s %s abans</span>"
 
-#: ../templates/content-question.php:26
-msgid "&nbsp; &bull; &nbsp;"
+#: templates/content-question.php:26 templates/content-single-answer.php:25
+msgid "&nbsp;&bull;&nbsp;"
 msgstr ""
 
-#: ../templates/content-question.php:31
+#: templates/content-question.php:31
 #, php-format
 msgid "<strong>%1$s</strong> views"
 msgstr "<strong>%1$s</strong> vistes"
 
-#: ../templates/content-question.php:35
+#: templates/content-question.php:35
 #, php-format
 msgid "<strong>%1$s</strong> answers"
 msgstr "<strong>%1$s</strong> respostes"
 
-#: ../templates/content-question.php:39
+#: templates/content-question.php:39
 #, php-format
 msgid "<strong>%1$s</strong> votes"
 msgstr "<strong>%1$s</strong> vots"
 
-#: ../templates/content-single-answer.php:12
-#: ../templates/content-single-question.php:14
+#: templates/content-single-answer.php:12
+#: templates/content-single-question.php:14
 msgid "Vote Up"
 msgstr "Vot Positiu"
 
-#: ../templates/content-single-answer.php:13
-#: ../templates/content-single-question.php:15
+#: templates/content-single-answer.php:13
+#: templates/content-single-question.php:15
 msgid "Vote Down"
 msgstr "Vot Negatiu"
 
-#: ../templates/content-single-answer.php:17
+#: templates/content-single-answer.php:17
+#: templates/content-single-answer.php:19
+msgid "Best Answer"
+msgstr ""
+
+#: templates/content-single-answer.php:23
 #, php-format
 msgid "<span><a href=\"%s\">%s%s</a> %s answered %s ago</span>"
 msgstr "<span><a href=\"%s\">%s%s</a> %s contestat %s abans</span>"
 
-#: ../templates/content-single-question.php:19
+#: templates/content-single-answer.php:26
+msgid "Private"
+msgstr "Privat"
+
+#: templates/content-single-question.php:19
 #, php-format
 msgid "<span><a href=\"%s\">%s%s</a> %s asked %s ago</span>"
 msgstr "<span><a href=\"%s\">%s%s</a> %s preguntat %s abans</span>"
 
-#: ../templates/content-single-question.php:25
+#: templates/content-single-question.php:25
 msgid "Question Tags: "
 msgstr "Etiquetes de preguntes"
 
-#: ../templates/content-single-question.php:28
+#: templates/content-single-question.php:29
 msgid "This question is:"
 msgstr "Aquesta pregunta es:"
 
-#: ../upgrades/upgrades.php:33
+#: templates/question-submit-form.php:68
+#, fuzzy
+msgid "You do not have permission to submit a question"
+msgstr "No tens permís per enviar preguntes."
+
+#: upgrades/upgrades.php:25
+#, php-format
+msgid ""
+"DW Question Answer needs to upgrade the database, click %shere%s to start "
+"the upgrade."
+msgstr ""
+
+#: upgrades/upgrades.php:33
 msgid "DWQA Upgrade"
 msgstr ""
 
-#: ../upgrades/upgrades.php:40
+#: upgrades/upgrades.php:40
 msgid ""
 "The upgrade process has started, please be patient. This could take several "
 "minutes. You will be automatically redirected when the upgrade is finished..."
 msgstr ""
 
-#: ../upgrades/upgrades.php:130
+#: upgrades/upgrades.php:130
 msgid "You do not have permission to do this task"
 msgstr "No tens permís per fer aquesta tasca"
 
-#: ../upgrades/upgrades.php:147
+#: upgrades/upgrades.php:147
 msgid "Just do it.."
 msgstr ""
 
-#: ../upgrades/upgrades.php:155
+#: upgrades/upgrades.php:155
 #, php-format
 msgid "Move to next step %d"
 msgstr ""
 
-#: ../upgrades/upgrades.php:172
+#: upgrades/upgrades.php:172
 msgid "Upgrade process is done"
 msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "DW Question Answer"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"A WordPress plugin was make by DesignWall.com to build an Question Answer "
+"system for support, asking and comunitcate with your customer"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "DesignWall"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.designwall.com"
+msgstr ""
+
+#~ msgid "Publish"
+#~ msgstr "Publicar"
+
+#~ msgid "Everyone can see"
+#~ msgstr "Tothom ho pot veure"
+
+#~ msgid "Only Author and Administrator can see"
+#~ msgstr "Només l'Autor i l'Administrador ho pot veure"
+
+#~ msgid "Sorry, but nothing matched your filter. "
+#~ msgstr "Ho sento, res no coincideix amb el teu filtre."
+
+#~ msgid "You can ask question"
+#~ msgstr "Pots fer la teva pregunta"
+
+#~ msgid "here"
+#~ msgstr "aquí"
+
+#~ msgid "Please"
+#~ msgstr "Si us plau"
+
+#~ msgid "Login"
+#~ msgstr "Ingressa"
+
+#~ msgid " or"
+#~ msgstr "o"
+
+#~ msgid " to submit question."
+#~ msgstr "per fer una pregunta"
+
+#, fuzzy
+#~ msgid "Search query is empty"
+#~ msgstr "Resultat de búsqueda és buit"
+
+#~ msgid "A page where displays all questions"
+#~ msgstr "Una pàgina on es veuem totes les respostes"
+
+#~ msgid "A page where users can submit questions."
+#~ msgstr "Una pàgina on els usuaris poden enviar preguntes"
+
+#~ msgid "Upload or choose a logo to be displayed at the top of the email"
+#~ msgstr "Pujar o escollir un logo per la capçalera del correu electrònic"
+
+#~ msgid "Enable notification for new question"
+#~ msgstr "Activar notificació per nova pregunta"
+
+#~ msgid "Enable notification for new answer"
+#~ msgstr "Activar notificació per nova resposta"
+
+#, fuzzy
+#~ msgid "Enable notification for new answer (to Followers )"
+#~ msgstr "Enviar notificació de nova resposta (a Seguidors)"
+
+#~ msgid "Enable notification for new comment of question"
+#~ msgstr "Activar notificació per un nou comentari d'una pregunta"
+
+#~ msgid "Enable notification for new comment of answer"
+#~ msgstr "Activar notificació per un nou comentari d'una resposta"
+
+#~ msgid "Comment"
+#~ msgstr "Comentar"
+
+#~ msgid "Enable/Disable captcha on submit question page"
+#~ msgstr ""
+#~ "Habilitar/Deshabilitar captcha en la pàgina d'enviament de preguntes"
+
+#~ msgid "Enable/Disable captcha on single question page"
+#~ msgstr ""
+#~ "Habilitar/Deshabilitar captcha en la pàgina d'enviament d'unasola pregunta"
+
+#~ msgid "questions"
+#~ msgstr "preguntes"
+
+#~ msgid "Allow members to post private question"
+#~ msgstr "Permetre als usuaris enviar preguntes privades"
+
+#~ msgid "New Question Notification"
+#~ msgstr "Notificació de Nova Pregunta"
+
+#~ msgid "New Answer Notification"
+#~ msgstr "Notificacion a nova Resposta"
+
+#, fuzzy
+#~ msgid "New Comment to Question Notification (to Followers )"
+#~ msgstr "Notificacioó a Nou Comentari a Preguntes (a Seguidors)"
+
+#~ msgid "New Comment to Answer Notification"
+#~ msgstr "Notificació a Nou Comentari a Respostes"
+
+#, fuzzy
+#~ msgid "New Answer Notification (to Followers )"
+#~ msgstr "Notificació a Nova Resposta (a Seguidors)"
+
+#, fuzzy
+#~ msgid "New Comment to Answer Notification (to Followers )"
+#~ msgstr "Notificació a Nou Comentari a Respoestes (a Seguidors)"
+
+#~ msgid "Archive page show at most"
+#~ msgstr "la pàgina d'Arxiu mostra màxim"
+
+#~ msgid "Private Question"
+#~ msgstr "Pregunta Privada"
+
+#, fuzzy
+#~ msgid "Review Question"
+#~ msgstr "Veure Pregunta"
+
+#~ msgid "Time settings"
+#~ msgstr "Valors horaris"
+
+#~ msgid "New Question Time Frame"
+#~ msgstr "Període de Nova Pregunta"
+
+#~ msgid "Question Overdue - Time Frame"
+#~ msgstr "Pregunta Endarrerida - Període"
+
+#~ msgid "Captcha settings"
+#~ msgstr "Configuració del Captcha"
+
+#, fuzzy
+#~ msgid "Captcha on Submit Question Page"
+#~ msgstr "Captcha a la Pàgina d'Enviament de Preguntes"
+
+#, fuzzy
+#~ msgid "Captcha on Single Question Page"
+#~ msgstr "Captcha a la pàgina d'Enviament d'una Pregunta Única"
+
+#~ msgid "Single Question"
+#~ msgstr "Pregunta Única"
+
+#~ msgid "Single Category"
+#~ msgstr "Categoria Única"
+
+#~ msgid "Single Tag"
+#~ msgstr "Etiqueta Única"
+
+#~ msgid "Notification"
+#~ msgstr "Notificació"
+
+#~ msgid "Permission"
+#~ msgstr "Permís"
+
+#~ msgid "Email setup"
+#~ msgstr "Configuració del correu electrònic"
+
+#~ msgid "New Comment to Question Notification"
+#~ msgstr "Notificació a Nou Comentari a Preguntes"
+
+#~ msgid "Send to"
+#~ msgstr "Enviar a"
+
+#~ msgid "Send A Copy Of Every Email To Admin"
+#~ msgstr "Enviar una còpia de TOT correu a l'Administrador"
+
+#~ msgid "You need an account to submit question and get answers. Create one:"
+#~ msgstr ""
+#~ "Necessites registrar-te per poder fer preguntes i respondre.  Registrar-"
+#~ "se:"
+
+#~ msgid "Type your email"
+#~ msgstr "Escriu el teu correu electrònic"
+
+#~ msgid "Already a member?"
+#~ msgstr "¿Ja ets membre?"
+
+#~ msgid "Log In"
+#~ msgstr "Ingressar"
+
+#~ msgid "Login to submit your question"
+#~ msgstr "Ingressa per enviar la teva pregunta"
+
+#~ msgid "Type your username"
+#~ msgstr "Escriu el teu nom d'usuari"
+
+#~ msgid "Type your password"
+#~ msgstr "Escriu la teva paraula de pas"
+
+#~ msgid "Not yet a member?"
+#~ msgstr "¿Encara no ets membre?"
+
+#~ msgid "Register"
+#~ msgstr "Registrar-se"
+
+#~ msgid ""
+#~ "Enter your email to receive notification regarding your question. Your "
+#~ "email is safe with us and will not be published."
+#~ msgstr ""
+#~ "Introdueix el teu mail per rebre notificacions sobre la pregunta. El teu "
+#~ "email el guardarem i no el publicarem."
+
+#, fuzzy
+#~ msgid "Your email *"
+#~ msgstr "Escriu el teu correu electrònic"
+
+#~ msgid "Email address ..."
+#~ msgstr "Adreça de email *"
+
+#~ msgid "or <strong><a href=\"%s\">login</a></strong> to submit question"
+#~ msgstr ""
+#~ "o  <strong><a href=\"%s\">login</a></strong> per penjar una pregunta"
+
+#~ msgid "Private: %s"
+#~ msgstr "Privat: %s"
+
+#~ msgctxt "noun"
+#~ msgid "Comment"
+#~ msgstr "Comentari"
+
+#~ msgid ""
+#~ "Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out "
+#~ "of this account\">Log out?</a>"
+#~ msgstr ""
+#~ "Registrat como <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log "
+#~ "out of this account\">¿Sortir?</a>"
+
+#~ msgid "Your email address will not be published."
+#~ msgstr "La teva adreça de correu no serà publicada."
+
+#~ msgid "Write a comment ..."
+#~ msgstr "Escriu un comentari ..."
 
 #~ msgid "Add New Question"
 #~ msgstr "Afegir Nova Pregunta"

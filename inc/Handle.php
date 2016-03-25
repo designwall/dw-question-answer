@@ -21,7 +21,7 @@ class DWQA_Handle {
 			return false;
 		}
 
-		if ( 'add-answer' !== $_POST['dwqa-action'] ) {
+		if ( 'add-answer' !== sanitize_text_field( $_POST['dwqa-action'] ) ) {
 			return false;
 		}
 
@@ -29,7 +29,7 @@ class DWQA_Handle {
 			dwqa_add_notice( __( '&quot;Helllo&quot;, Are you cheating huh?.', 'dwqa' ), 'error' );
 		}
 
-		if ( $_POST['submit-answer'] == __( 'Delete draft', 'dwqa' ) ) {
+		if ( sanitize_text_field( $_POST['submit-answer'] ) == __( 'Delete draft', 'dwqa' ) ) {
 			$draft = isset( $_POST['answer-id'] ) ? intval( $_POST['answer-id'] ) : 0;
 			if ( $draft )
 				wp_delete_post( $draft );
@@ -138,7 +138,7 @@ class DWQA_Handle {
 				dwqa_add_notice( __( 'You must enter a valid answer content.', 'dwqa' ), 'error' );
 			}
 
-			$answer_id = isset( $_POST['answer_id'] ) ? $_POST['answer_id'] : false;
+			$answer_id = isset( $_POST['answer_id'] ) ? intval( $_POST['answer_id'] ) : false;
 
 			if ( !$answer_id ) {
 				dwqa_add_notice( __( 'Answer is missing.', 'dwqa' ), 'error' );
@@ -303,7 +303,7 @@ class DWQA_Handle {
 						$user_id = get_current_user_id();
 					} else {
 						//$post_author_email = $_POST['user-email'];
-						if ( isset( $_POST['login-type'] ) && $_POST['login-type'] == 'sign-in' ) {
+						if ( isset( $_POST['login-type'] ) && sanitize_text_field( $_POST['login-type'] ) == 'sign-in' ) {
 							$user = wp_signon( array(
 								'user_login'    => isset( $_POST['user-name'] ) ? esc_html( $_POST['user-name'] ) : '',
 								'user_password' => isset( $_POST['user-password'] ) ? esc_html( $_POST['user-password'] ) : '',
@@ -318,7 +318,7 @@ class DWQA_Handle {
 								$dwqa_current_error = $user;
 								return false;
 							}
-						} elseif ( isset( $_POST['login-type'] ) && $_POST['login-type'] == 'sign-up' ) {
+						} elseif ( isset( $_POST['login-type'] ) && sanitize_text_field( $_POST['login-type'] ) == 'sign-up' ) {
 							//Create new user
 							$users_can_register = get_option( 'users_can_register' );
 							if ( isset( $_POST['user-email'] ) && isset( $_POST['user-name-signup'] )
@@ -441,7 +441,7 @@ class DWQA_Handle {
 					dwqa_add_notice( __( "You do not have permission to edit question", 'dwqa' ), 'error' );
 				}
 
-				$question_title = apply_filters( 'dwqa_prepare_edit_question_title', $_POST['question_title'] );
+				$question_title = apply_filters( 'dwqa_prepare_edit_question_title', sanitize_text_field( $_POST['question_title'] ) );
 				if ( empty( $question_title ) ) {
 					dwqa_add_notice( __( 'You must enter a valid question title.', 'dwqa' ), 'error' );
 				}
@@ -456,7 +456,7 @@ class DWQA_Handle {
 					dwqa_add_notice( __( 'This post is not question.', 'dwqa' ), 'error' );
 				}
 
-				$question_content = apply_filters( 'dwqa_prepare_edit_question_content', $_POST['question_content'] );
+				$question_content = apply_filters( 'dwqa_prepare_edit_question_content', sanitize_text_field( $_POST['question_content'] ) );
 
 				$tags = isset( $_POST['question-tag'] ) ? esc_html( $_POST['question-tag'] ): '';
 				$category = isset( $_POST['question-category'] ) ? intval( $_POST['question-category'] ) : 0;

@@ -2,464 +2,406 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DW Question Answer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-06 14:32+0700\n"
-"PO-Revision-Date: 2016-02-11 10:43+0100\n"
+"POT-Creation-Date: 2016-03-25 10:03+0700\n"
+"PO-Revision-Date: 2016-03-25 10:03+0700\n"
 "Last-Translator: \n"
 "Language-Team: DesignWall <webmaster@designwall.com>\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.8.6\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../dw-question-answer.php:108 ../inc/Filter.php:80
+#: dw-question-answer.php:102
 msgid "Next"
 msgstr "Suivant"
 
-#: ../dw-question-answer.php:109
+#: dw-question-answer.php:103
 msgid "Prev"
 msgstr "Précédent"
 
-#: ../dw-question-answer.php:111
+#: dw-question-answer.php:105
 msgid "Please enter your question"
 msgstr "Veuillez entrez votre Question"
 
-#: ../dw-question-answer.php:112
+#: dw-question-answer.php:106
 msgid "Your question must be at least 2 characters in length"
 msgstr "Votre Question doit au moins avoir 2 caractères"
 
-#: ../dw-question-answer.php:113
+#: dw-question-answer.php:107
 msgid "Enter a valid email address"
 msgstr "Entrez une adresse email valide"
 
-#: ../dw-question-answer.php:114
+#: dw-question-answer.php:108
 msgid "Enter a question title"
 msgstr "Titrr de la Question"
 
-#: ../dw-question-answer.php:115
+#: dw-question-answer.php:109
 msgid "Please add your name"
 msgstr "Veuillez indiuer votre Nom"
 
-#: ../dw-question-answer.php:116
+#: dw-question-answer.php:110
 msgid "Please enter your answer"
 msgstr "Veuillez entrez votre réponse"
 
-#: ../dw-question-answer.php:117 ../inc/Handle.php:189
+#: dw-question-answer.php:111 inc/Handle.php:191
 msgid "Please enter your comment content"
 msgstr "Veuillez entrez votre commentaire"
 
-#: ../dw-question-answer.php:118
+#: dw-question-answer.php:112
 msgid "Comment must have more than 2 characters"
 msgstr "Votre commentaire doit au moins avoir 2 caractères"
 
-#: ../dw-question-answer.php:119
+#: dw-question-answer.php:113
 msgid "Not found! Try another keyword."
 msgstr "Pas résultat ! Essayez un autre mot-clé."
 
-#: ../dw-question-answer.php:120
+#: dw-question-answer.php:114
 msgid "Or press <strong>ENTER</strong> to get more questions"
 msgstr ""
 "Ou appuyez sur ENTRER <strong> </ strong> pour obtenir plus de questions"
 
-#: ../dw-question-answer.php:121 ../inc/Editor.php:119
+#: dw-question-answer.php:115
 msgid "Update"
 msgstr "Mettre à jour"
 
-#: ../dw-question-answer.php:122 ../inc/Posts/Answer.php:315
-#: ../inc/Posts/Base.php:320 ../inc/Settings.php:398 ../inc/Template.php:58
-#: ../inc/Template.php:183 ../inc/Template.php:200
-#: ../templates/content-comment.php:19
+#: dw-question-answer.php:116 inc/Posts/Answer.php:317 inc/Posts/Base.php:320
+#: inc/Settings.php:402 inc/Template.php:58 inc/Template.php:163
+#: inc/Template.php:180 templates/content-comment.php:19
 msgid "Edit"
 msgstr "Editer"
 
-#: ../dw-question-answer.php:123 ../inc/Editor.php:120
+#: dw-question-answer.php:117
 msgid "Cancel"
 msgstr "Annuler"
 
-#: ../dw-question-answer.php:124
+#: dw-question-answer.php:118
 msgid "Do you want to delete this comment?"
 msgstr "Voulez-vous supprimer ce commentaire?"
 
-#: ../dw-question-answer.php:125
+#: dw-question-answer.php:119
 msgid "Do you want to delete this answer?"
 msgstr "Voulez-vous supprimer cette réponse?"
 
-#: ../dw-question-answer.php:126
+#: dw-question-answer.php:120
 #, fuzzy
 msgid "Do you want to update this answer?"
 msgstr "Voulez-vous mettre à jour cette réponse"
 
-#: ../dw-question-answer.php:127
+#: dw-question-answer.php:121
 #, fuzzy
 msgid "Do you want to report this answer?"
 msgstr "Voulez-vous signaler cette réponse"
 
-#: ../dw-question-answer.php:129
+#: dw-question-answer.php:123
 msgid "Report"
 msgstr "Signaler"
 
-#: ../dw-question-answer.php:130
+#: dw-question-answer.php:124
 msgid "Undo"
 msgstr "Annuler"
 
-#: ../dw-question-answer.php:131
+#: dw-question-answer.php:125
 msgid "This answer will be marked as spam and hidden. Do you want to flag it?"
 msgstr "Cette réponse sera marqué comme spam et caché. Voulez-vous la marquer?"
 
-#: ../dw-question-answer.php:132
+#: dw-question-answer.php:126
 msgid "This answer was flagged as spam. Do you want to show it"
 msgstr "Cette réponse a été marqué comme spam. Voulez-vous la montrer"
 
-#: ../dw-question-answer.php:133
+#: dw-question-answer.php:127
 msgid "This answer was flagged as spam"
 msgstr "Cette réponse a été marqué comme spam"
 
-#: ../dw-question-answer.php:134
+#: dw-question-answer.php:128
 msgid "hide"
 msgstr "Cacher"
 
-#: ../dw-question-answer.php:135
+#: dw-question-answer.php:129
 msgid "show"
 msgstr "Montrer"
 
-#: ../dw-question-answer.php:137
+#: dw-question-answer.php:131
 msgid "Follow This Question"
 msgstr "Suivre Cette Question"
 
-#: ../dw-question-answer.php:138
+#: dw-question-answer.php:132
 msgid "Unfollow This Question"
 msgstr "Ne pas suivre cette question"
 
-#: ../dw-question-answer.php:139
+#: dw-question-answer.php:133
 #, fuzzy
 msgid "Pin this question to top"
 msgstr "Collez cette question à la première page"
 
-#: ../dw-question-answer.php:140
+#: dw-question-answer.php:134
 #, fuzzy
 msgid "Unpin this question from top"
 msgstr "Décoller cette question à la première page"
 
-#: ../dw-question-answer.php:143
+#: dw-question-answer.php:137
 #, fuzzy
 msgid "Do you want to delete this question?"
 msgstr "Voulez-vous supprimer ce commentaire?"
 
-#: ../dw-question-answer.php:156
+#: dw-question-answer.php:153
 msgid "DWQA Questions"
 msgstr "Questions"
 
-#: ../dw-question-answer.php:173
+#: dw-question-answer.php:170
 msgid "DWQA Ask Question"
 msgstr "Poser une Question"
 
-#: ../inc/Admin/Extensions.php:13
+#: inc/Admin/Extensions.php:13
 msgid "DWQA Markdown"
 msgstr "DWQA Markdown"
 
-#: ../inc/Admin/Extensions.php:19
+#: inc/Admin/Extensions.php:19
 msgid "DWQA Leaderboard"
 msgstr "DWQA Leaderboard"
 
-#: ../inc/Admin/Extensions.php:25
+#: inc/Admin/Extensions.php:25
 msgid "DWQA Captcha"
 msgstr "DWQA Captcha"
 
-#: ../inc/Admin/Extensions.php:31
+#: inc/Admin/Extensions.php:31
 msgid "DWQA Embed Question"
 msgstr "DWQA question intégrée"
 
-#: ../inc/Admin/Extensions.php:41
+#: inc/Admin/Extensions.php:37
+msgid "DWQA Widgets"
+msgstr ""
+
+#: inc/Admin/Extensions.php:47
 msgid "Extensions"
 msgstr "Extensions"
 
-#: ../inc/Admin/Extensions.php:69
+#: inc/Admin/Extensions.php:75
 msgid "Get It Now!"
 msgstr "Récupérez le maintenant!"
 
-#: ../inc/Admin/Welcome.php:21 ../inc/Admin/Welcome.php:22
+#: inc/Admin/Welcome.php:28 inc/Admin/Welcome.php:29
 msgid "Welcome to DW Question & Answer"
 msgstr "Bienvenue sur DWQA"
 
-#: ../inc/Admin/Welcome.php:29 ../inc/Admin/Welcome.php:30
+#: inc/Admin/Welcome.php:36 inc/Admin/Welcome.php:37
 msgid "DW Question & Answer Changelog"
 msgstr "DWQA Changelog"
 
-#: ../inc/Admin/Welcome.php:37 ../inc/Admin/Welcome.php:38
+#: inc/Admin/Welcome.php:44 inc/Admin/Welcome.php:45
 msgid "DW Question & Answer Credits"
 msgstr "DWQA Crédits"
 
-#: ../inc/Admin/Welcome.php:54
+#: inc/Admin/Welcome.php:61
 #, php-format
 msgid "Welcome to DW Question & Answer %s"
 msgstr "Bienvenue sur DWQA %s"
 
-#: ../inc/Admin/Welcome.php:55
+#: inc/Admin/Welcome.php:62
 msgid ""
 "Thank you for installing our WordPress plugin. If you have any question "
-"about this theme, please submit to our <a target=\"_blank\" href=\"https://"
+"about this plugin, please submit to our <a target=\"_blank\" href=\"https://"
 "www.designwall.com/question/\">Q&A section</a>."
 msgstr ""
-"Merci d'avoir installé ce plugin Wordpress. Si vous avez une question, <a "
-"target=\"_blank\" href=\"https://www.designwall.com/question/\">posez la "
-"dans notre section Q&A</a>. "
 
-#: ../inc/Admin/Welcome.php:63
+#: inc/Admin/Welcome.php:70
 msgid "What&#8217;s New"
 msgstr "Quoi de neuf"
 
-#: ../inc/Admin/Welcome.php:64
+#: inc/Admin/Welcome.php:71
 msgid "Changelog"
 msgstr "Changelog"
 
-#: ../inc/Admin/Welcome.php:65
+#: inc/Admin/Welcome.php:72
 msgid "Credits"
 msgstr "Crédits"
 
-#: ../inc/Admin/Welcome.php:193
+#: inc/Admin/Welcome.php:200
 msgid "Contributors"
 msgstr "Contributeurs"
 
-#: ../inc/Admin/Welcome.php:212
+#: inc/Admin/Welcome.php:219
 msgid "No valid changelog was found."
 msgstr "Aucun changelog valide n'a été trouvé."
 
-#: ../inc/Ajax.php:23 ../inc/Ajax.php:41 ../inc/Ajax.php:77
-#: ../inc/Ajax.php:138 ../inc/Filter.php:429 ../inc/Handle.php:242
-#: ../inc/Handle.php:430 ../inc/Permission.php:286 ../inc/Status.php:307
+#: inc/Ajax.php:29 inc/Ajax.php:47 inc/Ajax.php:83 inc/Ajax.php:113
+#: inc/Ajax.php:132 inc/Ajax.php:150 inc/Ajax.php:215 inc/Handle.php:244
+#: inc/Handle.php:430 inc/Permission.php:286 inc/Status.php:319
 msgid "Are you cheating huh?"
 msgstr "Est ce que vous trichez hein?"
 
-#: ../inc/Ajax.php:27 ../inc/Handle.php:246
+#: inc/Ajax.php:33 inc/Handle.php:248
 msgid "You do not have permission to edit comment."
 msgstr "Vous n'avez pas la permission de modifier le commentaire."
 
-#: ../inc/Ajax.php:31
+#: inc/Ajax.php:37
 #, fuzzy
 msgid "Comment ID must be showed."
 msgstr "L'ID du Commentaire doit être visible!!."
 
-#: ../inc/Ajax.php:45 ../inc/Handle.php:142
+#: inc/Ajax.php:51 inc/Handle.php:144
 msgid "Answer is missing."
 msgstr "Réponse manquante."
 
-#: ../inc/Ajax.php:49 ../inc/Handle.php:146
+#: inc/Ajax.php:55 inc/Handle.php:148
 msgid "This post is not answer."
 msgstr "Cet article n'est pas une réponse."
 
-#: ../inc/Ajax.php:53 ../inc/Ajax.php:150
+#: inc/Ajax.php:59 inc/Ajax.php:162
 msgid "You do not have permission to delete this post."
 msgstr "Vous n'avez pas la permission de supprimer cet article."
 
-#: ../inc/Ajax.php:80
+#: inc/Ajax.php:86
 msgid "Missing id of answer"
 msgstr "ID manquant pour répondre"
 
-#: ../inc/Ajax.php:142 ../inc/Handle.php:452
+#: inc/Ajax.php:154 inc/Handle.php:452
 msgid "Question is missing."
 msgstr "Question manquante."
 
-#: ../inc/Ajax.php:146 ../inc/Handle.php:456
+#: inc/Ajax.php:158 inc/Handle.php:456
 msgid "This post is not question."
 msgstr "Cet article n'est pas une question."
 
-#: ../inc/Ajax.php:194
+#: inc/Ajax.php:206
 #, fuzzy
 msgid "You do not have permission to edit question status"
 msgstr "Vous n'avez pas la permission de voir les questions"
 
-#: ../inc/Answer_List_Table.php:81 ../inc/Posts/Answer.php:269
-#: ../inc/Template.php:48
+#: inc/Ajax.php:223 inc/Ajax.php:272
+msgid "Not Found!!!"
+msgstr ""
+
+#: inc/Answer_List_Table.php:81 inc/Posts/Answer.php:271 inc/Template.php:48
 msgid "Author"
 msgstr "Auteur"
 
-#: ../inc/Answer_List_Table.php:82
+#: inc/Answer_List_Table.php:82
 msgid "Detail"
 msgstr "détail"
 
-#: ../inc/Answer_List_Table.php:92 ../inc/Notifications.php:146
-#: ../inc/Notifications.php:148 ../inc/Posts/Base.php:230
-#: ../inc/Posts/Comment.php:102 ../inc/Settings.php:415
-#: ../inc/Settings.php:451 ../inc/Settings.php:486 ../inc/User.php:160
-#: ../inc/widgets/Latest_Question.php:39
+#: inc/Answer_List_Table.php:92 inc/Notifications.php:146
+#: inc/Notifications.php:148 inc/Posts/Base.php:230 inc/Posts/Comment.php:102
+#: inc/Settings.php:419 inc/Settings.php:455 inc/Settings.php:490
+#: inc/User.php:155 inc/widgets/Latest_Question.php:39
 msgid "Anonymous"
 msgstr "anonyme"
 
-#: ../inc/Answer_List_Table.php:101
+#: inc/Answer_List_Table.php:101
 msgid "Answered on "
 msgstr "Répondu"
 
-#: ../inc/Answer_List_Table.php:112 ../inc/Helptab.php:149
+#: inc/Answer_List_Table.php:112 inc/Helptab.php:149
 msgid "Read more"
 msgstr "Lire la suite"
 
-#: ../inc/Editor.php:123
-msgid "Publish"
-msgstr "Publier"
-
-#: ../inc/Editor.php:130 ../inc/Editor.php:138
-msgid "Private"
-msgstr "Privé"
-
-#: ../inc/Editor.php:130 ../inc/Editor.php:137
-#: ../templates/answer-submit-form.php:34
-#: ../templates/question-submit-form.php:25
-msgid "Public"
-msgstr "Public"
-
-#: ../inc/Editor.php:137
-msgid "Everyone can see"
-msgstr "Visible par tous"
-
-#: ../inc/Editor.php:138
-msgid "Only Author and Administrator can see"
-msgstr "Seulement les Auteurs et administrateurs peuvent voir"
-
-#: ../inc/Filter.php:97 ../templates/content-none.php:10
-msgid "You do not have permission to view questions"
-msgstr "Vous n'avez pas la permission de voir les questions"
-
-#: ../inc/Filter.php:100
-msgid "Sorry, but nothing matched your filter. "
-msgstr "Désolé, mais rien ne correspond à votre filtre."
-
-#: ../inc/Filter.php:108
-#, fuzzy
-msgid "You can ask question"
-msgstr "Vous pouvez poser une question <a href=\""
-
-#: ../inc/Filter.php:110
-msgid "here"
-msgstr "ici"
-
-#: ../inc/Filter.php:116
-msgid "Please"
-msgstr "Veuillez"
-
-#: ../inc/Filter.php:118
-msgid "Login"
-msgstr "connexion"
-
-#: ../inc/Filter.php:122
-msgid " or"
-msgstr "ou"
-
-#: ../inc/Filter.php:124
-msgid " to submit question."
-msgstr "pour soumettre une question."
-
-#: ../inc/Filter.php:437 ../inc/Filter.php:486
-#, fuzzy
-msgid "Search query is empty"
-msgstr "Requête de recherche vides "
-
-#: ../inc/Handle.php:29
+#: inc/Handle.php:29
 msgid "&quot;Helllo&quot;, Are you cheating huh?."
 msgstr "&quot;Hey !&quot;, vous trichez ?."
 
-#: ../inc/Handle.php:32
+#: inc/Handle.php:32
 msgid "Delete draft"
 msgstr "Supprimer le brouillon "
 
-#: ../inc/Handle.php:39
+#: inc/Handle.php:39
 msgid "Answer content is empty"
 msgstr "Réponse vide"
 
-#: ../inc/Handle.php:42
+#: inc/Handle.php:42
 msgid "Question is empty"
 msgstr "Question vide"
 
-#: ../inc/Handle.php:46 ../inc/Handle.php:407
+#: inc/Handle.php:46 inc/Handle.php:407
 msgid "You do not have permission to submit question."
 msgstr "Vous n'avez pas la permission de soumettre des questions."
 
-#: ../inc/Handle.php:50 ../inc/Handle.php:426
+#: inc/Handle.php:50 inc/Handle.php:426
 msgid "Captcha is not correct"
 msgstr "Le Captcha n'est pas correcte"
 
-#: ../inc/Handle.php:69
+#: inc/Handle.php:69
 msgid "Answer for "
 msgstr "répondre"
 
-#: ../inc/Handle.php:127
+#: inc/Handle.php:129
 msgid "You do not have permission to edit answer."
 msgstr "Vous n'avez pas la permission de modifier la réponse."
 
-#: ../inc/Handle.php:131 ../inc/Handle.php:495 ../inc/Posts/Question.php:491
+#: inc/Handle.php:133 inc/Handle.php:495 inc/Posts/Question.php:473
 #, fuzzy
 msgid "Hello, Are you cheating huh?"
 msgstr "Est ce que vous trichez hein?"
 
-#: ../inc/Handle.php:136
+#: inc/Handle.php:138
 msgid "You must enter a valid answer content."
 msgstr "Vous devez indiquer une réponse valide."
 
-#: ../inc/Handle.php:180
+#: inc/Handle.php:182
 msgid "You can't post comment"
 msgstr "Vous ne pouvez pas poster de commentaire"
 
-#: ../inc/Handle.php:183
+#: inc/Handle.php:185
 msgid "Missing post id."
 msgstr "ID d'article manquant"
 
-#: ../inc/Handle.php:204
+#: inc/Handle.php:206
 #, fuzzy
 msgid "Missing email information"
 msgstr "Email Manquant"
 
-#: ../inc/Handle.php:208
+#: inc/Handle.php:210
 #, fuzzy
 msgid "Missing name information"
 msgstr "Nom Manquant"
 
-#: ../inc/Handle.php:235
+#: inc/Handle.php:237
 msgid "Comment is missing"
 msgstr "Commentaire manquant"
 
-#: ../inc/Handle.php:250
+#: inc/Handle.php:252
 msgid "Comment content must not be empty."
 msgstr "Le commentaire ne doit pas être vide."
 
-#: ../inc/Handle.php:282 ../inc/Handle.php:446
+#: inc/Handle.php:282 inc/Handle.php:446
 msgid "You must enter a valid question title."
 msgstr "Vous devez indiquer un titre de question valide."
 
-#: ../inc/Handle.php:360
+#: inc/Handle.php:360
 msgid "User Registration was disabled."
 msgstr "Enregistrement désactivé."
 
-#: ../inc/Handle.php:363
+#: inc/Handle.php:363
 msgid "This email is already registered, please choose another one."
 msgstr "Cet e-mail est déjà enregistré, s'il vous plaît choisir un autre .."
 
-#: ../inc/Handle.php:366
+#: inc/Handle.php:366
 #, fuzzy
 msgid "This username is already registered. Please use another one."
 msgstr ""
 "Ce nom d'utilisateur est déjà enregistré. S'il vous plaît choisir un autre."
 
-#: ../inc/Handle.php:419
+#: inc/Handle.php:419
 msgid "Your question is waiting moderator."
 msgstr "Votre question est en attente de modération."
 
-#: ../inc/Handle.php:441 ../inc/Status.php:335
+#: inc/Handle.php:441 inc/Status.php:347
 #, fuzzy
 msgid "You do not have permission to edit question"
 msgstr "Vous n'avez pas la permission de soumettre des questions."
 
-#: ../inc/Helptab.php:43
+#: inc/Helptab.php:43
 msgid "Overview"
 msgstr "Vue d'ensemble"
 
-#: ../inc/Helptab.php:44
+#: inc/Helptab.php:44
 msgid "DW Question Answer Plugin"
 msgstr "DW Question Answer Plugin"
 
-#: ../inc/Helptab.php:45
+#: inc/Helptab.php:45
 msgid ""
 "DW Question Answer is a WordPress Plugin which helps you build a Question & "
 "Answer system on your WordPress sites. The plugin is easy to install and set "
@@ -471,411 +413,424 @@ msgstr ""
 "installer et à configurer. Laissez commencer à construire votre communauté à "
 "cette question WordPress et système de réponse."
 
-#: ../inc/Helptab.php:48
+#: inc/Helptab.php:48
 msgid "Setup Question List Page"
 msgstr "Configuration de la page Liste de questions"
 
-#: ../inc/Helptab.php:52
+#: inc/Helptab.php:52
 msgid "Setup Ask Question Page"
 msgstr "Configuration de la page Poser une question"
 
-#: ../inc/Helptab.php:56
+#: inc/Helptab.php:56
 msgid "Shortcode"
 msgstr "Shortcode"
 
-#: ../inc/Helptab.php:60
+#: inc/Helptab.php:60
 msgid "Style integration"
 msgstr "Intégration de style"
 
-#: ../inc/Helptab.php:169
+#: inc/Helptab.php:169
 msgid "For more information:"
 msgstr "Pour plus d'informations:"
 
-#: ../inc/Helptab.php:170
+#: inc/Helptab.php:170
 msgid "DW Question Answer Guide"
 msgstr "Guide DW Question Answer"
 
-#: ../inc/Helptab.php:171
+#: inc/Helptab.php:171
 msgid "Community"
 msgstr "Communauté"
 
-#: ../inc/Helptab.php:172
+#: inc/Helptab.php:172
 msgid "DesignWall Wordpress Themes"
 msgstr "Thèmes Wordpress par DesignWall"
 
-#: ../inc/Helptab.php:173
+#: inc/Helptab.php:173
 msgid "DesignWall Wordpress Plugins"
 msgstr "Plugins Wordpress par DesignWall"
 
-#: ../inc/Metaboxes.php:13 ../templates/question-submit-form.php:22
+#: inc/Metaboxes.php:13 templates/content-single-question.php:31
+#: templates/question-submit-form.php:22
 msgid "Status"
 msgstr "Statut"
 
-#: ../inc/Metaboxes.php:15 ../inc/Status.php:292 ../inc/Template.php:78
-#: ../templates/content-single-question.php:31
+#: inc/Metaboxes.php:15 inc/Status.php:304
+#: templates/archive-question-filter.php:18
+#: templates/content-single-question.php:32
 msgid "Open"
 msgstr "Ouvertes"
 
-#: ../inc/Metaboxes.php:16 ../inc/Status.php:275
+#: inc/Metaboxes.php:16 inc/Status.php:287
 msgid "Pending"
 msgstr "En attente"
 
-#: ../inc/Metaboxes.php:17 ../inc/Status.php:272 ../inc/Template.php:79
-#: ../templates/content-single-question.php:33
+#: inc/Metaboxes.php:17 inc/Status.php:284
+#: templates/archive-question-filter.php:19
+#: templates/content-single-question.php:34
 msgid "Resolved"
 msgstr "Résolues"
 
-#: ../inc/Metaboxes.php:18 ../inc/Status.php:278
+#: inc/Metaboxes.php:18 inc/Status.php:290
 msgid "Re-Open"
 msgstr "Ré-ouvertes"
 
-#: ../inc/Metaboxes.php:19 ../inc/Status.php:281 ../inc/Template.php:80
-#: ../templates/content-single-question.php:32
+#: inc/Metaboxes.php:19 inc/Status.php:293
+#: templates/archive-question-filter.php:20
+#: templates/content-single-question.php:33
 msgid "Closed"
 msgstr "Fermées"
 
-#: ../inc/Metaboxes.php:25
+#: inc/Metaboxes.php:25
 msgid "Sticky"
 msgstr "Sticky"
 
-#: ../inc/Metaboxes.php:29
+#: inc/Metaboxes.php:29
 #, fuzzy
 msgid "Pin question to top of archive page."
 msgstr "Question toujours en haut de la page d'archive."
 
-#: ../inc/Metaboxes.php:45 ../inc/Posts/Answer.php:225
-#: ../inc/Posts/Answer.php:227 ../inc/Template.php:93
+#: inc/Metaboxes.php:45 inc/Posts/Answer.php:225 inc/Posts/Answer.php:227
+#: inc/Settings.php:431 templates/archive-question-filter.php:34
 msgid "Answers"
 msgstr "Réponses"
 
-#: ../inc/Metaboxes.php:65
+#: inc/Metaboxes.php:65
 msgid "Question Meta Data"
 msgstr "Métadonnées du Question"
 
-#: ../inc/Notifications.php:27
+#: inc/Notifications.php:27
 msgid "A new question was posted on {site_name}"
 msgstr "Une nouvelle question a été publiée le {site_name}"
 
-#: ../inc/Notifications.php:118
+#: inc/Notifications.php:118
 msgid "A new answer for \"{question_title}\" was posted on {site_name}"
 msgstr ""
 "Une nouvelle réponse à \"{question_title}\" a été postée sur {site_name}"
 
-#: ../inc/Notifications.php:186
+#: inc/Notifications.php:186
 #, fuzzy
 msgid "You have a new answer for your followed question"
 msgstr "Vous avez une nouvelle réponse à une question suivie"
 
-#: ../inc/Notifications.php:282 ../inc/Notifications.php:328
+#: inc/Notifications.php:284 inc/Notifications.php:330
 msgid "[{site_name}] You have a new comment for question {question_title}"
 msgstr ""
 "[{site_name}] Vous avez un nouveau commentaire à la question {question_title}"
 
-#: ../inc/Notifications.php:287 ../inc/Notifications.php:333
+#: inc/Notifications.php:289 inc/Notifications.php:335
 msgid "[{site_name}] You have a new comment for answer"
 msgstr "[{site_name}] Vous avez un nouveau commentaire pour une réponse"
 
-#: ../inc/PointerHelper.php:60
+#: inc/PointerHelper.php:60
 msgid "How to use DW Question Answer"
 msgstr "Comment utiliser DW Question Answer"
 
-#: ../inc/PointerHelper.php:61
+#: inc/PointerHelper.php:61
 msgid "Documents, Support From DesignWall (help)"
 msgstr "Documents, support par DesignWall (aide)"
 
-#: ../inc/PointerHelper.php:70
+#: inc/PointerHelper.php:70
 msgid "Config your support channel"
 msgstr "Configurez votre canal de support"
 
-#: ../inc/PointerHelper.php:71
+#: inc/PointerHelper.php:71
 #, fuzzy
 msgid "Change comment settings, and create the Submit question page."
 msgstr ""
 "Modifier le réglage de commentaires, et créer une page de soumisson de "
 "questions."
 
-#: ../inc/Posts/Answer.php:226 ../inc/Posts/Answer.php:268
-#: ../inc/Settings.php:427
+#: inc/Posts/Answer.php:226 inc/Posts/Answer.php:270
 msgid "Answer"
 msgstr "Réponse"
 
-#: ../inc/Posts/Answer.php:271
+#: inc/Posts/Answer.php:273
 msgid "In Response To"
 msgstr "En réponse à"
 
-#: ../inc/Posts/Answer.php:316 ../inc/Settings.php:399 ../inc/Template.php:188
-#: ../inc/Template.php:205 ../templates/content-comment.php:22
+#: inc/Posts/Answer.php:318 inc/Settings.php:403 inc/Template.php:168
+#: inc/Template.php:185 templates/content-comment.php:22
 msgid "Delete"
 msgstr "Effacer"
 
-#: ../inc/Posts/Answer.php:317 ../inc/Posts/Base.php:322
+#: inc/Posts/Answer.php:319 inc/Posts/Base.php:322
 msgid "View"
 msgstr "Vue"
 
-#: ../inc/Posts/Answer.php:321
+#: inc/Posts/Answer.php:323
 msgid "Submitted"
 msgstr "Soumis"
 
-#: ../inc/Posts/Answer.php:322
+#: inc/Posts/Answer.php:324
 msgid "on"
 msgstr "sur"
 
-#: ../inc/Posts/Base.php:5
+#: inc/Posts/Answer.php:359
+msgid "Question ID"
+msgstr ""
+
+#: inc/Posts/Answer.php:370 inc/Posts/Answer.php:373
+msgid "ID"
+msgstr ""
+
+#: inc/Posts/Base.php:5
 msgid "Are you cheating, huh?"
 msgstr "Est ce que vous trichez, hein?"
 
-#: ../inc/Posts/Base.php:18
+#: inc/Posts/Base.php:18
 msgid "What "
 msgstr "Quoi"
 
-#: ../inc/Posts/Base.php:46
+#: inc/Posts/Base.php:46
 msgid "You voted for this "
 msgstr "Vous avez voté pour cette "
 
-#: ../inc/Posts/Base.php:242
+#: inc/Posts/Base.php:242
 #, php-format
 msgid "Posts by %s"
 msgstr "Les messages de% s"
 
-#: ../inc/Posts/Base.php:251 ../inc/Posts/Base.php:255
+#: inc/Posts/Base.php:251 inc/Posts/Base.php:255
 #, php-format
 msgid "%s answered <span class=\"dwqa-date\">%s</span> ago"
 msgstr "%s répondues il y a <span class=\"dwqa-date\">%s</span>"
 
-#: ../inc/Posts/Base.php:257
+#: inc/Posts/Base.php:257
 #, php-format
 msgid "%s asked <span class=\"dwqa-date\">%s</span> ago"
 msgstr "%s posées il y a<span class=\"dwqa-date\">%s</span> "
 
-#: ../inc/Posts/Base.php:306
+#: inc/Posts/Base.php:306
 msgid "DWQA Posts"
 msgstr "DWQA Articles"
 
-#: ../inc/Posts/Base.php:307
+#: inc/Posts/Base.php:307
 msgid "DWQA Post"
 msgstr "DWQA Article"
 
-#: ../inc/Posts/Base.php:318
+#: inc/Posts/Base.php:318
 msgctxt "dwqa"
 msgid "Add New"
 msgstr "Ajouter"
 
-#: ../inc/Posts/Base.php:319
+#: inc/Posts/Base.php:319
 #, fuzzy
 msgid "Add New"
 msgstr "Nouveau"
 
-#: ../inc/Posts/Base.php:321 ../inc/Status.php:284
+#: inc/Posts/Base.php:321 inc/Status.php:296
 msgid "New"
 msgstr "Nouveau"
 
-#: ../inc/Posts/Base.php:323
+#: inc/Posts/Base.php:323
 msgid "Search "
 msgstr "Rechercher"
 
-#: ../inc/Posts/Base.php:324
+#: inc/Posts/Base.php:324
 msgid "not found"
 msgstr "non trouvé"
 
-#: ../inc/Posts/Base.php:325
+#: inc/Posts/Base.php:325
 msgid "not found in Trash"
 msgstr "non trouvé dans la corbeille"
 
-#: ../inc/Posts/Base.php:326
+#: inc/Posts/Base.php:326
 msgid "Parent:"
 msgstr "Parent:"
 
-#: ../inc/Posts/Question.php:56 ../inc/Shortcode.php:118
-#: ../inc/widgets/Closed_Question.php:49 ../inc/widgets/Latest_Question.php:39
-#: ../inc/widgets/Popular_Question.php:43
+#: inc/Posts/Question.php:56 inc/Shortcode.php:120
+#: inc/widgets/Closed_Question.php:49 inc/widgets/Latest_Question.php:39
+#: inc/widgets/Popular_Question.php:43
 msgid "asked by"
 msgstr "demandé par"
 
-#: ../inc/Posts/Question.php:114 ../inc/Posts/Question.php:116
-#: ../inc/Posts/Question.php:284 ../inc/Template.php:87
+#: inc/Posts/Question.php:100 inc/Posts/Question.php:102
+#: inc/Posts/Question.php:266 inc/Settings.php:395
+#: templates/archive-question-filter.php:28
 msgid "Questions"
 msgstr "Questions"
 
-#: ../inc/Posts/Question.php:115 ../inc/Settings.php:391
+#: inc/Posts/Question.php:101
 msgid "Question"
 msgstr "Question"
 
-#: ../inc/Posts/Question.php:214
+#: inc/Posts/Question.php:196
 msgctxt "taxonomy general name"
 msgid "Question Categories"
 msgstr "Catégories"
 
-#: ../inc/Posts/Question.php:215
+#: inc/Posts/Question.php:197
 msgctxt "taxonomy singular name"
 msgid "Question Category"
 msgstr "Catégorie"
 
-#: ../inc/Posts/Question.php:216
+#: inc/Posts/Question.php:198
 msgid "Search Question Categories"
 msgstr "Rechercher par catégorie"
 
-#: ../inc/Posts/Question.php:217
+#: inc/Posts/Question.php:199
 msgid "All Question Categories"
 msgstr "Toutes les catégories"
 
-#: ../inc/Posts/Question.php:218
+#: inc/Posts/Question.php:200
 msgid "Parent Question Category"
 msgstr "Catégorie parente"
 
-#: ../inc/Posts/Question.php:219
+#: inc/Posts/Question.php:201
 msgid "Parent Question Category:"
 msgstr "Catégorie parente:"
 
-#: ../inc/Posts/Question.php:220
+#: inc/Posts/Question.php:202
 msgid "Edit Question Category"
 msgstr "Modifier une catégorie"
 
-#: ../inc/Posts/Question.php:221
+#: inc/Posts/Question.php:203
 msgid "Update Question Category"
 msgstr "Mettre à jour une catégorie"
 
-#: ../inc/Posts/Question.php:222
+#: inc/Posts/Question.php:204
 msgid "Add New Question Category"
 msgstr "Ajouter une catégorie"
 
-#: ../inc/Posts/Question.php:223
+#: inc/Posts/Question.php:205
 msgid "New Question Category Name"
 msgstr "Nouveau nom de catégorie"
 
-#: ../inc/Posts/Question.php:224
+#: inc/Posts/Question.php:206
 msgid "Question Category"
 msgstr "Catégorie de la Question"
 
-#: ../inc/Posts/Question.php:243
+#: inc/Posts/Question.php:225
 msgctxt "taxonomy general name"
 msgid "Question Tags"
 msgstr "Tags"
 
-#: ../inc/Posts/Question.php:244
+#: inc/Posts/Question.php:226
 msgctxt "taxonomy singular name"
 msgid "Question Tag"
 msgstr "Tag"
 
-#: ../inc/Posts/Question.php:245
+#: inc/Posts/Question.php:227
 msgid "Search Question Tags"
 msgstr "Rechercher par tags"
 
-#: ../inc/Posts/Question.php:246
+#: inc/Posts/Question.php:228
 msgid "Popular Question Tags"
 msgstr "Tags populaires"
 
-#: ../inc/Posts/Question.php:247
+#: inc/Posts/Question.php:229
 msgid "All Question Tags"
 msgstr "Tous les tags"
 
-#: ../inc/Posts/Question.php:250
+#: inc/Posts/Question.php:232
 msgid "Edit Question Tag"
 msgstr "Modifier le tag"
 
-#: ../inc/Posts/Question.php:251
+#: inc/Posts/Question.php:233
 msgid "Update Question Tag"
 msgstr "Mettre à jour le tag"
 
-#: ../inc/Posts/Question.php:252
+#: inc/Posts/Question.php:234
 msgid "Add New Question Tag"
 msgstr "Ajouter un tag"
 
-#: ../inc/Posts/Question.php:253
+#: inc/Posts/Question.php:235
 msgid "New Question Tag Name"
 msgstr "Nom du tag"
 
-#: ../inc/Posts/Question.php:254
+#: inc/Posts/Question.php:236
 msgid "Separate question tags with commas"
 msgstr "Séparer les tags par une virgule"
 
-#: ../inc/Posts/Question.php:255
+#: inc/Posts/Question.php:237
 msgid "Add or remove question tags"
 msgstr "Ajouter ou supprimer des tags"
 
-#: ../inc/Posts/Question.php:256
+#: inc/Posts/Question.php:238
 msgid "Choose from the most used question tags"
 msgstr "Choisir parmi les tags les plus utilisés"
 
-#: ../inc/Posts/Question.php:257
+#: inc/Posts/Question.php:239
 msgid "No question tags found."
 msgstr "Aucun tag de trouvé."
 
-#: ../inc/Posts/Question.php:258
+#: inc/Posts/Question.php:240
 msgid "Question Tags"
 msgstr "Question Tags"
 
-#: ../inc/Posts/Question.php:294
+#: inc/Posts/Question.php:276
 msgid "Info"
 msgstr "Info"
 
-#: ../inc/Posts/Question.php:305 ../templates/content-question.php:22
+#: inc/Posts/Question.php:287 templates/content-question.php:22
 msgid "answered"
 msgstr "répondu"
 
-#: ../inc/Posts/Question.php:306
+#: inc/Posts/Question.php:288
 msgid "voted"
 msgstr "voté"
 
-#: ../inc/Posts/Question.php:307
+#: inc/Posts/Question.php:289
 msgid "views"
 msgstr "vues"
 
-#: ../inc/Posts/Question.php:428 ../inc/User.php:266
+#: inc/Posts/Question.php:410 inc/User.php:266
 msgid "Invalid Post"
 msgstr "Poste invalide"
 
-#: ../inc/Posts/Question.php:463
+#: inc/Posts/Question.php:445
 msgid "Sticky Questions"
 msgstr "Questions collantes"
 
-#: ../inc/Posts/Question.php:497
+#: inc/Posts/Question.php:479
 #, fuzzy
 msgid "Question is not valid"
 msgstr "Page de liste des Questions"
 
-#: ../inc/Posts/Question.php:518
+#: inc/Posts/Question.php:500
 msgid "Delete Action was failed"
 msgstr "La suppression a échoué"
 
-#: ../inc/Posts/Question.php:523
+#: inc/Posts/Question.php:505
 #, fuzzy
 msgid "You do not have permission to delete this question"
 msgstr "Vous n'avez pas la permission de voir les questions"
 
-#: ../inc/Session.php:68 ../inc/Session.php:85 ../inc/Session.php:95
-#: ../inc/Session.php:118
+#: inc/Session.php:68 inc/Session.php:85 inc/Session.php:95 inc/Session.php:118
 msgid "This function should not be called before init."
 msgstr "Cette fonction ne doit pas être appelée avant l'init."
 
-#: ../inc/Settings.php:8
+#: inc/Settings.php:8
 #, fuzzy
 msgid "Login required. No anonymous post allowed"
 msgstr "Connexion requise. Aucun accès anonyme permis"
 
-#: ../inc/Settings.php:20
+#: inc/Settings.php:20
 msgid "Select Archive Question Page"
 msgstr "Sélectionnez une Archive de Question"
 
-#: ../inc/Settings.php:24
-msgid "A page where displays all questions"
-msgstr "Une page où toutes les questions sont affichées"
+#: inc/Settings.php:24
+msgid ""
+"A page where displays all questions. The <code>[dwqa-list-questions]</code> "
+"short code must be on this page."
+msgstr ""
 
-#: ../inc/Settings.php:31
+#: inc/Settings.php:31
 msgid "hours"
 msgstr "heures"
 
-#: ../inc/Settings.php:31
+#: inc/Settings.php:31
 msgid ""
 "A period of time in which new questions are highlighted and marked as New"
 msgstr ""
 "Une période de temps pendant laquelle de nouvelles questions sont mises en "
 "évidence et marqués comme nouveau"
 
-#: ../inc/Settings.php:36
+#: inc/Settings.php:36
 msgid "days"
 msgstr "jours"
 
-#: ../inc/Settings.php:36
+#: inc/Settings.php:36
 #, fuzzy
 msgid ""
 "A Question will be marked as overdue if it passes this period of time, "
@@ -884,19 +839,21 @@ msgstr ""
 "Une question sera marqué comme étant en alérte si passe cette période de "
 "temps, à partir de la date à laquelle la question a été soumise"
 
-#: ../inc/Settings.php:47
+#: inc/Settings.php:47
 msgid "Select Submit Question Page"
 msgstr "Page de sélection et de soumission de questions "
 
-#: ../inc/Settings.php:52
-msgid "A page where users can submit questions."
-msgstr "Une page où les utilisateurs peuvent soumettre des questions."
+#: inc/Settings.php:52
+msgid ""
+"A page where users can submit questions. The <code>[dwqa-submit-question-"
+"form]</code> short code must be on this page."
+msgstr ""
 
-#: ../inc/Settings.php:65
+#: inc/Settings.php:65
 msgid "Select 404 DWQA Page"
 msgstr "Choisir la page 404 DWQA"
 
-#: ../inc/Settings.php:70
+#: inc/Settings.php:70
 msgid ""
 "This page will be redirected when users without authority click on a private "
 "question. You can customize the message of this page in.If not, a default "
@@ -906,95 +863,116 @@ msgstr ""
 "une question privée. Vous pouvez personnaliser le message dans cette page. "
 "Sinon, une page 404 sera utilisée."
 
-#: ../inc/Settings.php:86
+#: inc/Settings.php:87
 msgid "Upload"
 msgstr "Uploader"
 
-#: ../inc/Settings.php:86
-msgid "Upload or choose a logo to be displayed at the top of the email"
-msgstr "Télécharger ou choisir un logo à afficher en haut de l'e-mail"
+#: inc/Settings.php:87
+msgid "Upload or choose a logo to be displayed at the top of the email."
+msgstr ""
 
-#: ../inc/Settings.php:125
-msgid "Enable notification for new question"
-msgstr "Activer la notification pour nouvelle question"
+#: inc/Settings.php:126 inc/Settings.php:161 inc/Settings.php:197
+#: inc/Settings.php:233 inc/Settings.php:268 inc/Settings.php:303
+#: inc/Settings.php:338
+msgid "Enable?"
+msgstr ""
 
-#: ../inc/Settings.php:130 ../inc/Settings.php:164 ../inc/Settings.php:199
-#: ../inc/Settings.php:234 ../inc/Settings.php:269 ../inc/Settings.php:304
-#: ../inc/Settings.php:339
+#: inc/Settings.php:126
+msgid "Enable notification for new question."
+msgstr ""
+
+#: inc/Settings.php:131 inc/Settings.php:166 inc/Settings.php:202
+#: inc/Settings.php:238 inc/Settings.php:273 inc/Settings.php:308
+#: inc/Settings.php:343
 msgid "Email subject"
 msgstr "Sujet de l'email"
 
-#: ../inc/Settings.php:135 ../inc/Settings.php:169 ../inc/Settings.php:204
-#: ../inc/Settings.php:239 ../inc/Settings.php:274 ../inc/Settings.php:309
-#: ../inc/Settings.php:344
+#: inc/Settings.php:136 inc/Settings.php:171 inc/Settings.php:207
+#: inc/Settings.php:243 inc/Settings.php:278 inc/Settings.php:313
+#: inc/Settings.php:348
 msgid "Email Content"
 msgstr "Contenu de l'email"
 
-#: ../inc/Settings.php:159
-msgid "Enable notification for new answer"
-msgstr "Activer la notification pour nouvelle réponse"
+#: inc/Settings.php:161
+msgid "Enable notification for new answer."
+msgstr ""
 
-#: ../inc/Settings.php:194
-#, fuzzy
-msgid "Enable notification for new answer (to Followers )"
-msgstr "Activer la notification pour nouvelle réponse (aux Abonnés)"
+#: inc/Settings.php:197
+msgid "Enable notification for new answer ( to Followers )."
+msgstr ""
 
-#: ../inc/Settings.php:229 ../inc/Settings.php:264
-msgid "Enable notification for new comment of question"
-msgstr "Activer la notification pour un commentaire de la question"
+#: inc/Settings.php:233 inc/Settings.php:268
+msgid "Enable notification for new comment of question."
+msgstr ""
 
-#: ../inc/Settings.php:299 ../inc/Settings.php:334
-msgid "Enable notification for new comment of answer"
-msgstr "Activer la notification pour un commentaire de réponse"
+#: inc/Settings.php:303 inc/Settings.php:338
+msgid "Enable notification for new comment of answer."
+msgstr ""
 
-#: ../inc/Settings.php:396
+#: inc/Settings.php:400
 #, fuzzy
 msgid "Read"
 msgstr "Lire la suite"
 
-#: ../inc/Settings.php:397
+#: inc/Settings.php:401
 #, fuzzy
 msgid "Post"
 msgstr "Poster par"
 
-#: ../inc/Settings.php:425 ../inc/Settings.php:461 ../inc/Settings.php:496
+#: inc/Settings.php:429 inc/Settings.php:465 inc/Settings.php:500
 msgid "Reset Default"
 msgstr "Réinitialiser par défaut"
 
-#: ../inc/Settings.php:463
-msgid "Comment"
-msgstr "Commentaire"
+#: inc/Settings.php:467
+msgid "Comments"
+msgstr ""
 
-#: ../inc/Settings.php:505
-msgid "Enable/Disable captcha on submit question page"
-msgstr "Activer / Désactiver captcha sur la page de soumission de questions"
+#: inc/Settings.php:509
+msgid "Enable captcha on submit question page."
+msgstr ""
 
-#: ../inc/Settings.php:511
-msgid "Enable/Disable captcha on single question page"
-msgstr "Activer / Désactiver captcha à la page de question unique"
+#: inc/Settings.php:515
+msgid "Enable captcha on single question page."
+msgstr ""
 
-#: ../inc/Settings.php:529
+#: inc/Settings.php:533
 msgid "Default"
 msgstr "Défaut"
 
-#: ../inc/Settings.php:541
-msgid "questions"
-msgstr "questions"
+#: inc/Settings.php:546
+msgid "questions."
+msgstr ""
 
-#: ../inc/Settings.php:547
-msgid "Allow members to post private question"
-msgstr "Permettre aux membres de poster des questions privées"
+#: inc/Settings.php:552
+msgid "answers."
+msgstr ""
 
-#: ../inc/Settings.php:553
-msgid "Question must be manually approved"
-msgstr "La question doit être approuvée manuellement"
+#: inc/Settings.php:558
+msgid "Allow members to post private question."
+msgstr ""
 
-#: ../inc/Settings.php:564
+#: inc/Settings.php:564
+msgid "Question must be manually approved."
+msgstr ""
+
+#: inc/Settings.php:570
+msgid "Display status icon on the left side."
+msgstr ""
+
+#: inc/Settings.php:576
+msgid "Disable question status feature."
+msgstr ""
+
+#: inc/Settings.php:582
+msgid "Show all answers on single question page."
+msgstr ""
+
+#: inc/Settings.php:593
 #, fuzzy
 msgid "Select template for Single Quesiton page"
 msgstr "Captcha dans la page Question unique"
 
-#: ../inc/Settings.php:570
+#: inc/Settings.php:599
 msgid ""
 "By default, your single.php template file will be used if you do not choose "
 "any template"
@@ -1002,382 +980,283 @@ msgstr ""
 "Par défaut, votre page single.php sera utilisée si vous ne choisissez aucun "
 "template"
 
-#: ../inc/Settings.php:684
+#: inc/Settings.php:607
+#, php-format
+msgid ""
+"If you like, you may enter custom structure for your single question, "
+"question category and question tag URLs here. For example, using "
+"<code>topic</code> as your question base would make your question links like "
+"<code>%s</code>. If you leave these blank the default will be used."
+msgstr ""
+
+#: inc/Settings.php:732
 msgid "Plugin Settings"
 msgstr "Paramètres Plugin"
 
-#: ../inc/Settings.php:684
+#: inc/Settings.php:732
 msgid "Settings"
 msgstr "Paramètres"
 
-#: ../inc/Settings.php:720
-msgid "Email Setup"
-msgstr "Configuration de l'email"
+#: inc/Settings.php:768
+msgid "Email Settings"
+msgstr ""
 
-#: ../inc/Settings.php:721 ../inc/Settings.php:1063
-msgid "New Question Notification"
-msgstr "Nouvelle notification de Question"
+#: inc/Settings.php:769
+msgid "New Question Notifications"
+msgstr ""
 
-#: ../inc/Settings.php:722 ../inc/Settings.php:1078
-msgid "New Answer Notification"
-msgstr "Notification de nouvelle réponse"
+#: inc/Settings.php:770
+msgid "New Answer Notifications"
+msgstr ""
 
-#: ../inc/Settings.php:723 ../inc/Settings.php:726 ../inc/Settings.php:1122
-#, fuzzy
-msgid "New Comment to Question Notification (to Followers )"
-msgstr "Nouveau commentaire à la notification de question (aux Abonnés)"
+#: inc/Settings.php:771
+msgid "New Comment Notifications"
+msgstr ""
 
-#: ../inc/Settings.php:724 ../inc/Settings.php:1112
-msgid "New Comment to Answer Notification"
-msgstr "Nouveau commentaire à la notification de réponse"
+#: inc/Settings.php:784
+msgid "Page Settings"
+msgstr ""
 
-#: ../inc/Settings.php:725 ../inc/Settings.php:1090
-#, fuzzy
-msgid "New Answer Notification (to Followers )"
-msgstr "Notification de nouvelle réponse (aux Abonnés)"
-
-#: ../inc/Settings.php:727 ../inc/Settings.php:1133
-#, fuzzy
-msgid "New Comment to Answer Notification (to Followers )"
-msgstr "Nouveau commentaire à la notification de réponse  (aux Abonnés)"
-
-#: ../inc/Settings.php:746
+#: inc/Settings.php:791
 msgid "Question List Page"
 msgstr "Page de liste des Questions"
 
-#: ../inc/Settings.php:754
-msgid "Archive page show at most"
-msgstr "La Page Archives affiche au plus"
-
-#: ../inc/Settings.php:762
+#: inc/Settings.php:799 inc/Settings.php:930
 msgid "Ask Question Page"
 msgstr "Page de soumission de questions"
 
-#: ../inc/Settings.php:769
-msgid "Private Question"
-msgstr "Question privée"
+#: inc/Settings.php:842
+msgid "Question Settings"
+msgstr ""
 
-#: ../inc/Settings.php:776
-#, fuzzy
-msgid "Review Question"
-msgstr "Afficher Question"
+#: inc/Settings.php:849
+msgid "Archive Page Show At Most"
+msgstr ""
 
-#: ../inc/Settings.php:795
-msgid "Time settings"
-msgstr "Réglage du temp"
+#: inc/Settings.php:857
+msgid "Before A Question Appears"
+msgstr ""
 
-#: ../inc/Settings.php:802
-msgid "New Question Time Frame"
-msgstr "Nouveau cadre heure des questions"
+#: inc/Settings.php:865
+msgid "Other Question Settings"
+msgstr ""
 
-#: ../inc/Settings.php:810
-msgid "Question Overdue - Time Frame"
-msgstr "Question en alérte - Time Frame"
+#: inc/Settings.php:890
+msgid "Answer Settings"
+msgstr ""
 
-#: ../inc/Settings.php:820
-msgid "Captcha settings"
-msgstr "Paramètres de Captcha"
+#: inc/Settings.php:897
+msgid "Answer Listing"
+msgstr ""
 
-#: ../inc/Settings.php:827
-#, fuzzy
-msgid "Captcha on Submit Question Page"
-msgstr "Captcha dans la page de soumission de Question"
+#: inc/Settings.php:915
+msgid "Captcha Settings"
+msgstr ""
 
-#: ../inc/Settings.php:835
-#, fuzzy
-msgid "Captcha on Single Question Page"
-msgstr "Captcha dans la page Question unique"
+#: inc/Settings.php:922
+msgid "Type"
+msgstr ""
 
-#: ../inc/Settings.php:843
-msgid "Captcha Type"
-msgstr "Type de Captcha"
+#: inc/Settings.php:938
+msgid "Single Question Page"
+msgstr ""
 
-#: ../inc/Settings.php:855
+#: inc/Settings.php:950
 msgid "Permalink Settings"
 msgstr "Paramètres Perma-lien"
 
-#: ../inc/Settings.php:862
-msgid "Single Question"
-msgstr "Question Unique"
+#: inc/Settings.php:957
+msgid "Question Base"
+msgstr ""
 
-#: ../inc/Settings.php:870
-msgid "Single Category"
-msgstr "Catégorie unique"
+#: inc/Settings.php:965
+msgid "Question Category Base"
+msgstr ""
 
-#: ../inc/Settings.php:878
-msgid "Single Tag"
-msgstr "Tag unique"
+#: inc/Settings.php:973
+msgid "Question Tag Base"
+msgstr ""
 
-#: ../inc/Settings.php:926
+#: inc/Settings.php:1042
 #, fuzzy
 msgid "From Email"
 msgstr "Email"
 
-#: ../inc/Settings.php:990 ../inc/Settings.php:997
+#: inc/Settings.php:1110 inc/Settings.php:1117
 msgid "Group Permission"
 msgstr "Permission de groupe"
 
-#: ../inc/Settings.php:1025
+#: inc/Settings.php:1145
 msgid "DWQA Settings"
 msgstr "Paramètres DWQA"
 
-#: ../inc/Settings.php:1029
+#: inc/Settings.php:1149
 msgid "General"
 msgstr "général"
 
-#: ../inc/Settings.php:1030
-msgid "Notification"
-msgstr "Notification"
+#: inc/Settings.php:1150
+msgid "Emails"
+msgstr ""
 
-#: ../inc/Settings.php:1031
-msgid "Permission"
-msgstr "Autorisation"
+#: inc/Settings.php:1151
+msgid "Permissions"
+msgstr ""
 
-#: ../inc/Settings.php:1033
+#: inc/Settings.php:1152
 msgid "Licenses"
 msgstr "Licences"
 
-#: ../inc/Settings.php:1047
-#, fuzzy
-msgid "Email setup"
-msgstr "Sujet de l'email"
+#: inc/Settings.php:1166
+msgid "Email settings"
+msgstr ""
 
-#: ../inc/Settings.php:1049
+#: inc/Settings.php:1168
 msgid "Email Logo"
 msgstr "Logo Email"
 
-#: ../inc/Settings.php:1053 ../inc/Settings.php:1070 ../inc/Settings.php:1082
-#: ../inc/Settings.php:1094 ../inc/Settings.php:1105 ../inc/Settings.php:1116
-#: ../inc/Settings.php:1126 ../inc/Settings.php:1137
+#: inc/Settings.php:1182
+msgid "New Question Notifications (to Admin)"
+msgstr ""
+
+#: inc/Settings.php:1206
+msgid "New Answer Notifications (to Followers)"
+msgstr ""
+
+#: inc/Settings.php:1222
+msgid "New Answer Notifications (to Admin)"
+msgstr ""
+
+#: inc/Settings.php:1242
+msgid "New Comment to Question Notifications (to Followers)"
+msgstr ""
+
+#: inc/Settings.php:1259
+msgid "New Comment to Question Notifications (to Admin)"
+msgstr ""
+
+#: inc/Settings.php:1279
+msgid "New Comment to Answer Notifications (to Followers)"
+msgstr ""
+
+#: inc/Settings.php:1296
+msgid "New Comment to Answer Notifications (to Admin)"
+msgstr ""
+
+#: inc/Settings.php:1314
 msgid "Save all changes"
 msgstr "Enregistrer toutes les modifications"
 
-#: ../inc/Settings.php:1101
-msgid "New Comment to Question Notification"
-msgstr "Nouveau commentaire à la notification de question"
+#: inc/Settings.php:1328
+#, php-format
+msgid "Manage <a href=\"%s\">DWQA Extensions</a> license keys"
+msgstr ""
 
-#: ../inc/Settings.php:1170
-msgid "Send to"
-msgstr "Envoyer à"
+#: inc/Settings.php:1346 inc/Settings.php:1351 inc/Settings.php:1356
+#: inc/Settings.php:1361
+msgid "Forward to"
+msgstr ""
 
-#: ../inc/Settings.php:1175
+#: inc/Settings.php:1366
 msgid "Cc"
 msgstr "Cc"
 
-#: ../inc/Settings.php:1180
+#: inc/Settings.php:1371
 msgid "Bcc"
 msgstr "Bcc"
 
-#: ../inc/Settings.php:1185
+#: inc/Settings.php:1376
 msgid "This address will be used as the sender of the outgoing emails."
 msgstr "Cette adresse sera utilisée comme expéditeur de vos messages."
 
-#: ../inc/Settings.php:1191
-msgid "Send A Copy Of Every Email To Admin"
-msgstr "Envoyer une copie de chaque e-mail à l'administrateur"
+#: inc/Settings.php:1382
+msgid "Send a copy of every email to admin."
+msgstr ""
 
-#: ../inc/Shortcode.php:95 ../inc/widgets/Popular_Question.php:21
+#: inc/Shortcode.php:97 inc/widgets/Popular_Question.php:21
 msgid "Popular Questions"
 msgstr "Questions fréquentes"
 
-#: ../inc/Shortcode.php:132
+#: inc/Shortcode.php:134
 msgid "Latest Answers"
 msgstr "Dernières réponses"
 
-#: ../inc/Shortcode.php:158
+#: inc/Shortcode.php:160
 msgid "Answer at"
 msgstr "Réponse à"
 
-#: ../inc/Shortcode.php:158
+#: inc/Shortcode.php:160
 msgid "Link to"
 msgstr "Lien vers"
 
-#: ../inc/Shortcode.php:186
+#: inc/Shortcode.php:188
 #, php-format
 msgid "%d person who is following this question"
 msgid_plural "%d people who are following this question"
 msgstr[0] "%d personne suit cette question"
 msgstr[1] "%d personnes suivent cette question"
 
-#: ../inc/Status.php:288
+#: inc/Shortcode.php:218
+msgid "Question List"
+msgstr ""
+
+#: inc/Status.php:300
 msgid "Answered"
 msgstr "Répondu"
 
-#: ../inc/Status.php:312
+#: inc/Status.php:324
 msgid "Missing post ID"
 msgstr "ID manquant"
 
-#: ../inc/Status.php:325
+#: inc/Status.php:337
 msgid "Post does not exist"
 msgstr "Entrée inexistante"
 
-#: ../inc/Status.php:330
+#: inc/Status.php:342
 msgid "Invalid post status"
 msgstr "Statut de poste invalide"
 
-#: ../inc/Template.php:15 ../templates/content-edit.php:44
-#: ../templates/question-submit-form.php:46
+#: inc/Template.php:15 templates/content-edit.php:44
+#: templates/question-submit-form.php:46
 msgid "Tag"
 msgstr "Tag"
 
-#: ../inc/Template.php:15 ../inc/Template.php:20
-#: ../templates/content-edit.php:29 ../templates/question-submit-form.php:32
+#: inc/Template.php:15 inc/Template.php:20 templates/content-edit.php:29
+#: templates/question-submit-form.php:32
 msgid "Category"
 msgstr "Catégorie"
 
-#: ../inc/Template.php:43
+#: inc/Template.php:43
 msgid "Showing search results for"
 msgstr "Résultats pour"
 
-#: ../inc/Template.php:75
-msgid "Filter:"
-msgstr "Filtre:"
-
-#: ../inc/Template.php:77
-msgid "All"
-msgstr "Toutes"
-
-#: ../inc/Template.php:81
-msgid "Unanswered"
-msgstr "Non répondues"
-
-#: ../inc/Template.php:83
-msgid "My questions"
-msgstr "Mes questions"
-
-#: ../inc/Template.php:84
-msgid "My subscribes"
-msgstr "Mes inscriptions"
-
-#: ../inc/Template.php:88
-msgid "Subscribes"
-msgstr "Inscription"
-
-#: ../inc/Template.php:91
-msgid "Sort by"
-msgstr "Trier par"
-
-#: ../inc/Template.php:92
-msgid "Views"
-msgstr "Vues"
-
-#: ../inc/Template.php:94
-msgid "Votes"
-msgstr "Votes"
-
-#: ../inc/Template.php:105
+#: inc/Template.php:78
 msgid "What do you want to know?"
 msgstr "Que voulez vous savoir ?"
 
-#: ../inc/Template.php:177
+#: inc/Template.php:157
 msgid "Subscribe"
 msgstr "S'inscrire"
 
-#: ../inc/Template.php:289
-msgid "You need an account to submit question and get answers. Create one:"
-msgstr ""
-"Vous avez besoin d'un compte pour pouvoir soumettre des questions et obtenir "
-"des réponses. Créer en un:"
-
-#: ../inc/Template.php:291 ../inc/Template.php:329
-msgid "Type your email"
-msgstr "Entrez votre e-mail"
-
-#: ../inc/Template.php:296
-msgid "Already a member?"
-msgstr "Déjà membre?"
-
-#: ../inc/Template.php:296
-msgid "Log In"
-msgstr "Connexion"
-
-#: ../inc/Template.php:300
-msgid "Login to submit your question"
-msgstr "Connectez-vous pour soumettre votre question"
-
-#: ../inc/Template.php:302
-#, fuzzy
-msgid "Type your username"
-msgstr "Entrez votre e-mail"
-
-#: ../inc/Template.php:305
-#, fuzzy
-msgid "Type your password"
-msgstr "Entrez votre e-mail"
-
-#: ../inc/Template.php:307
-msgid "Not yet a member?"
-msgstr "Pas encore membre?"
-
-#: ../inc/Template.php:307
-msgid "Register"
-msgstr "Enregistrer"
-
-#: ../inc/Template.php:311
-msgid ""
-"Enter your email to receive notification regarding your question. Your email "
-"is safe with us and will not be published."
-msgstr ""
-"Votre adresse email pour recevoir une notification concernant votre question."
-
-#: ../inc/Template.php:311
-#, fuzzy
-msgid "Your email *"
-msgstr "Entrez votre e-mail"
-
-#: ../inc/Template.php:312
-msgid "Email address ..."
-msgstr "Adresse email ..."
-
-#: ../inc/Template.php:313
-#, php-format
-msgid "or <strong><a href=\"%s\">login</a></strong> to submit question"
-msgstr ""
-"ou <strong><a href=\"%s\">connectez-vous</a></strong> pour poser une question"
-
-#: ../inc/Template.php:341
-#, php-format
-msgid "Private: %s"
-msgstr "Privé:% s"
-
-#: ../inc/Template.php:460
+#: inc/Template.php:444
 msgid "Email"
 msgstr "Email"
 
-#: ../inc/Template.php:462
+#: inc/Template.php:446
 msgid "Name"
 msgstr "Nom"
 
-#: ../inc/Template.php:464
+#: inc/Template.php:448
 #, php-format
 msgid "Required fields are marked %s"
 msgstr "Les champs obligatoires sont marqués %s"
 
-#: ../inc/Template.php:475
-msgctxt "noun"
-msgid "Comment"
-msgstr "commentaire"
-
-#: ../inc/Template.php:476
+#: inc/Template.php:460
 #, php-format
 msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
 msgstr ""
 "Vous devez être <a href=\"%s\">connecté</a> pour poster un commentaire."
 
-#: ../inc/Template.php:477
-#, php-format
-msgid ""
-"Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of "
-"this account\">Log out?</a>"
-msgstr ""
-"Connecté en tant que <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title="
-"\"Déconnectez-vous de ce compte\">Déconnexion?</a>"
-
-#: ../inc/Template.php:478
-msgid "Your email address will not be published."
-msgstr "Votre adresse de messagerie ne sera pas publiée."
-
-#: ../inc/Template.php:479
+#: inc/Template.php:463
 #, php-format
 msgid ""
 "You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
@@ -1386,121 +1265,114 @@ msgstr ""
 "Vous pouvez utiliser ces <abbr title=\"HyperText Markup Language\">HTML</"
 "abbr> tags et attributs: %s"
 
-#: ../inc/Template.php:482
+#: inc/Template.php:466
 msgid "Leave a Reply"
 msgstr "Laisser un commentaire"
 
-#: ../inc/Template.php:483
+#: inc/Template.php:467
 #, php-format
 msgid "Leave a Reply to %s"
 msgstr "Laisser un commentaire à %s"
 
-#: ../inc/Template.php:484
+#: inc/Template.php:468
 msgid "Cancel reply"
 msgstr "Annuler la réponse"
 
-#: ../inc/Template.php:485
+#: inc/Template.php:469
 msgid "Post Comment"
 msgstr "Poster un commentaire"
 
-#: ../inc/Template.php:660
+#: inc/Template.php:644
 msgid "Sticky Question"
 msgstr "Question collant"
 
-#: ../inc/Template.php:674
+#: inc/Template.php:658
 msgid "Ask a question"
 msgstr "Poser une question"
 
-#: ../inc/Template.php:676
+#: inc/Template.php:660
 #, fuzzy
 msgid "Login to ask a question"
 msgstr "Connectez-vous pour soumettre votre question"
 
-#: ../inc/Template.php:1065
-#, fuzzy
-msgid "You do not have permission to submit a question"
-msgstr "Vous n'avez pas la permission de soumettre des questions."
-
-#: ../inc/Template.php:1119
+#: inc/Template.php:1108
 #, fuzzy
 msgid "Choose as the best answer"
 msgstr "Choisissez comme meilleure réponse"
 
-#: ../inc/Updater.php:97
+#: inc/Updater.php:97
 msgid "License Key"
 msgstr "Clé de licence"
 
-#: ../inc/Updater.php:122
+#: inc/Updater.php:122
 msgid "Activate"
 msgstr "Activer"
 
-#: ../inc/Updater.php:176
+#: inc/Updater.php:176
 msgid "Plugin was activated"
 msgstr "Le plugin est activé"
 
-#: ../inc/User.php:237
+#: inc/User.php:230
 msgid "Staff"
 msgstr "personnel"
 
-#: ../inc/Walker/Category.php:20 ../inc/Walker/Tag.php:20
+#: inc/Walker/Category.php:20 inc/Walker/Tag.php:20
 #, php-format
 msgid "View all posts filed under %s"
 msgstr "Voir les articles classés dans % s"
 
-#: ../inc/Walker/Category.php:35 ../inc/Walker/Tag.php:35
+#: inc/Walker/Category.php:35 inc/Walker/Tag.php:35
 #, php-format
 msgid "Feed for all posts filed under %s"
 msgstr "Flux pour tous les articles classés dans % s"
 
-#: ../inc/widgets/Closed_Question.php:11
+#: inc/widgets/Closed_Question.php:11
 msgid "Show a list of questions marked as closed."
 msgstr "Voir les questions marquées comme fermées."
 
-#: ../inc/widgets/Closed_Question.php:12
+#: inc/widgets/Closed_Question.php:12
 #, fuzzy
 msgid "DWQA Closed Questions"
 msgstr "DWQA Questions en relations"
 
-#: ../inc/widgets/Closed_Question.php:18
+#: inc/widgets/Closed_Question.php:18
 #, fuzzy
 msgid "Closed Questions"
 msgstr "Toutes les Questions"
 
-#: ../inc/widgets/Closed_Question.php:72 ../inc/widgets/Latest_Question.php:63
-#: ../inc/widgets/Popular_Question.php:66
-#: ../inc/widgets/Related_Question.php:48
+#: inc/widgets/Closed_Question.php:72 inc/widgets/Latest_Question.php:63
+#: inc/widgets/Popular_Question.php:66 inc/widgets/Related_Question.php:48
 msgid "Widget title"
 msgstr "Titre du Widget"
 
-#: ../inc/widgets/Closed_Question.php:75 ../inc/widgets/Latest_Question.php:66
-#: ../inc/widgets/Popular_Question.php:69
-#: ../inc/widgets/Related_Question.php:51
+#: inc/widgets/Closed_Question.php:75 inc/widgets/Latest_Question.php:66
+#: inc/widgets/Popular_Question.php:69 inc/widgets/Related_Question.php:51
 msgid "Number of posts"
 msgstr "Nombre de messages"
 
-#: ../inc/widgets/Latest_Question.php:10
+#: inc/widgets/Latest_Question.php:10
 msgid "Show a list of latest questions."
 msgstr "Voir les dernières questions."
 
-#: ../inc/widgets/Latest_Question.php:11
+#: inc/widgets/Latest_Question.php:11
 #, fuzzy
 msgid "DWQA Latest Questions"
 msgstr "DWQA Questions en relations"
 
-#: ../inc/widgets/Latest_Question.php:17
+#: inc/widgets/Latest_Question.php:17
 #, fuzzy
 msgid "Latest Questions"
 msgstr "Question privée"
 
-#: ../inc/widgets/Popular_Question.php:13
+#: inc/widgets/Popular_Question.php:13
 msgid "Show a list of popular questions."
 msgstr "Liste de questions populaires."
 
-#: ../inc/widgets/Popular_Question.php:15
+#: inc/widgets/Popular_Question.php:15
 msgid "DWQA Popular Questions"
 msgstr "DWQA Questions fréquentes"
 
-#: ../inc/widgets/Related_Question.php:11
+#: inc/widgets/Related_Question.php:11
 msgid ""
 "Show a list of questions that related to a question. Just show in single "
 "question page"
@@ -1508,11 +1380,11 @@ msgstr ""
 "Afficher une liste de questions en relation avec une question. a afficher "
 "dans une page a Question unique"
 
-#: ../inc/widgets/Related_Question.php:12
+#: inc/widgets/Related_Question.php:12
 msgid "DWQA Related Questions"
 msgstr "DWQA Questions en relations"
 
-#: ../lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:181
+#: lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:181
 #, php-format
 msgid ""
 "There is a new version of %1$s available. <a target=\"_blank\" class="
@@ -1521,7 +1393,7 @@ msgstr ""
 "Nouvelle version disponible de %1$s. <a target=\"_blank\" class=\"thickbox\" "
 "href=\"%2$s\">Voir les détails de la version %3$s</a>."
 
-#: ../lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:188
+#: lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:188
 #, php-format
 msgid ""
 "There is a new version of %1$s available. <a target=\"_blank\" class="
@@ -1532,143 +1404,199 @@ msgstr ""
 "\" href=\"%2$s\">Voir les détails de la version %3$s </a> ou <a href=\"%4$s"
 "\">mettre à jour</a>."
 
-#: ../lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:326
+#: lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:326
 msgid "You do not have permission to install plugin updates"
 msgstr "Vous n'avez pas la permission d'installer la mise à jour"
 
-#: ../lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:326
+#: lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:326
 msgid "Error"
 msgstr "Erreur"
 
-#: ../templates/answer-submit-form.php:12
+#: templates/answer-submit-form.php:12
 msgid "Your Answer"
 msgstr "Votre Réponse"
 
-#: ../templates/answer-submit-form.php:21
-#: ../templates/question-submit-form.php:52
+#: templates/answer-submit-form.php:21 templates/question-submit-form.php:52
 msgid "Your Email"
 msgstr "Votre Email"
 
-#: ../templates/answer-submit-form.php:26
-#: ../templates/question-submit-form.php:57
+#: templates/answer-submit-form.php:26 templates/question-submit-form.php:57
 msgid "Your Name"
 msgstr "Votre Nom"
 
-#: ../templates/answer-submit-form.php:33
-#: ../templates/question-submit-form.php:24
+#: templates/answer-submit-form.php:33 templates/question-submit-form.php:24
 msgid "Who can see this?"
 msgstr "Qui peut voir ceci ?"
 
-#: ../templates/answer-submit-form.php:35
-#: ../templates/question-submit-form.php:26
+#: templates/answer-submit-form.php:34 templates/question-submit-form.php:25
+msgid "Public"
+msgstr "Public"
+
+#: templates/answer-submit-form.php:35 templates/question-submit-form.php:26
 msgid "Only Me &amp; Admin"
 msgstr "Seulement Moi &amp; Admin"
 
-#: ../templates/answer-submit-form.php:39
-#: ../templates/question-submit-form.php:64
+#: templates/answer-submit-form.php:39 templates/question-submit-form.php:64
 msgid "Submit"
 msgstr "Envoyer"
 
-#: ../templates/answers.php:12
+#: templates/answers.php:12
 #, php-format
 msgid "%s Answers"
 msgstr "%s Réponses"
 
-#: ../templates/archive-question.php:35
+#: templates/archive-question-filter.php:14
+msgid "Filter:"
+msgstr "Filtre:"
+
+#: templates/archive-question-filter.php:16
+msgid "All"
+msgstr "Toutes"
+
+#: templates/archive-question-filter.php:22
+msgid "Unanswered"
+msgstr "Non répondues"
+
+#: templates/archive-question-filter.php:24
+msgid "My questions"
+msgstr "Mes questions"
+
+#: templates/archive-question-filter.php:25
+msgid "My subscribes"
+msgstr "Mes inscriptions"
+
+#: templates/archive-question-filter.php:29
+msgid "Subscribes"
+msgstr "Inscription"
+
+#: templates/archive-question-filter.php:32
+msgid "Sort by"
+msgstr "Trier par"
+
+#: templates/archive-question-filter.php:33
+msgid "Views"
+msgstr "Vues"
+
+#: templates/archive-question-filter.php:35
+msgid "Votes"
+msgstr "Votes"
+
+#: templates/archive-question.php:28
 msgid "Ask Question"
 msgstr "Poser une question"
 
-#: ../templates/captcha-form.php:11
+#: templates/captcha-form.php:20
 msgid "Enter the result"
 msgstr "Entrer le résultat"
 
-#: ../templates/comments.php:23
-msgid "Write a comment ..."
-msgstr "Écrire un commentaire ..."
-
-#: ../templates/content-comment.php:16
+#: templates/content-comment.php:16
 #, php-format
 msgctxt "%s = human-readable time difference"
 msgid "replied %s ago"
 msgstr "répondue il y a %s"
 
-#: ../templates/content-edit.php:21 ../templates/question-submit-form.php:13
+#: templates/content-edit.php:21 templates/question-submit-form.php:13
 msgid "Title"
 msgstr "Titre"
 
-#: ../templates/content-edit.php:36 ../templates/question-submit-form.php:38
+#: templates/content-edit.php:36 templates/question-submit-form.php:38
 msgid "Select question category"
 msgstr "Sélectionnez une catégorie de question"
 
-#: ../templates/content-edit.php:50
+#: templates/content-edit.php:50
 msgid "Save Changes"
 msgstr "Sauvegarder les modifications"
 
-#: ../templates/content-none.php:12
+#: templates/content-none.php:10
+msgid "You do not have permission to view questions"
+msgstr "Vous n'avez pas la permission de voir les questions"
+
+#: templates/content-none.php:12
 msgid "Sorry, but nothing matched your filter"
 msgstr "Désolé, votre filtre ne retourne aucun résultat"
 
-#: ../templates/content-question.php:18
+#: templates/content-question.php:18
 msgid "asked"
 msgstr "demandé"
 
-#: ../templates/content-question.php:25
+#: templates/content-question.php:25
 #, php-format
 msgid "<span><a href=\"%s\">%s%s</a> %s %s ago</span>"
 msgstr "<span><a href=\"%s\">%s%s</a> %s il y a %s</span>"
 
-#: ../templates/content-question.php:26
-msgid "&nbsp; &bull; &nbsp;"
-msgstr "&nbsp; &bull; &nbsp;"
+#: templates/content-question.php:26 templates/content-single-answer.php:25
+msgid "&nbsp;&bull;&nbsp;"
+msgstr ""
 
-#: ../templates/content-question.php:31
+#: templates/content-question.php:31
 #, php-format
 msgid "<strong>%1$s</strong> views"
 msgstr "<strong>%1$s</strong> vues"
 
-#: ../templates/content-question.php:35
+#: templates/content-question.php:35
 #, php-format
 msgid "<strong>%1$s</strong> answers"
 msgstr "<strong>%1$s</strong> réponses"
 
-#: ../templates/content-question.php:39
+#: templates/content-question.php:39
 #, php-format
 msgid "<strong>%1$s</strong> votes"
 msgstr "<strong>%1$s</strong> votes"
 
-#: ../templates/content-single-answer.php:12
-#: ../templates/content-single-question.php:14
+#: templates/content-single-answer.php:12
+#: templates/content-single-question.php:14
 msgid "Vote Up"
 msgstr "Votez pour"
 
-#: ../templates/content-single-answer.php:13
-#: ../templates/content-single-question.php:15
+#: templates/content-single-answer.php:13
+#: templates/content-single-question.php:15
 msgid "Vote Down"
 msgstr "Votez contre"
 
-#: ../templates/content-single-answer.php:17
+#: templates/content-single-answer.php:17
+#: templates/content-single-answer.php:19
+msgid "Best Answer"
+msgstr ""
+
+#: templates/content-single-answer.php:23
 #, php-format
 msgid "<span><a href=\"%s\">%s%s</a> %s answered %s ago</span>"
 msgstr "<span><a href=\"%s\">%s%s</a> %s répondue il y a %s</span>"
 
-#: ../templates/content-single-question.php:19
+#: templates/content-single-answer.php:26
+msgid "Private"
+msgstr "Privé"
+
+#: templates/content-single-question.php:19
 #, php-format
 msgid "<span><a href=\"%s\">%s%s</a> %s asked %s ago</span>"
 msgstr "<span><a href=\"%s\">%s%s</a> %s demandée il y a %s </span>"
 
-#: ../templates/content-single-question.php:25
+#: templates/content-single-question.php:25
 msgid "Question Tags: "
 msgstr "Tags de question"
 
-#: ../templates/content-single-question.php:28
+#: templates/content-single-question.php:29
 msgid "This question is:"
 msgstr "Cette question est :"
 
-#: ../upgrades/upgrades.php:33
+#: templates/question-submit-form.php:68
+#, fuzzy
+msgid "You do not have permission to submit a question"
+msgstr "Vous n'avez pas la permission de soumettre des questions."
+
+#: upgrades/upgrades.php:25
+#, php-format
+msgid ""
+"DW Question Answer needs to upgrade the database, click %shere%s to start "
+"the upgrade."
+msgstr ""
+
+#: upgrades/upgrades.php:33
 msgid "DWQA Upgrade"
 msgstr "Mise à jour DWQA"
 
-#: ../upgrades/upgrades.php:40
+#: upgrades/upgrades.php:40
 msgid ""
 "The upgrade process has started, please be patient. This could take several "
 "minutes. You will be automatically redirected when the upgrade is finished..."
@@ -1677,22 +1605,285 @@ msgstr ""
 "minutes. Vous serez automatiquement redirigé quand la mise à jour sera "
 "terminée..."
 
-#: ../upgrades/upgrades.php:130
+#: upgrades/upgrades.php:130
 msgid "You do not have permission to do this task"
 msgstr "Vous n'avez pas la permission d'effectuer cette tâche"
 
-#: ../upgrades/upgrades.php:147
+#: upgrades/upgrades.php:147
 msgid "Just do it.."
 msgstr "Faites le.."
 
-#: ../upgrades/upgrades.php:155
+#: upgrades/upgrades.php:155
 #, php-format
 msgid "Move to next step %d"
 msgstr "Aller à la prochaine étape %d"
 
-#: ../upgrades/upgrades.php:172
+#: upgrades/upgrades.php:172
 msgid "Upgrade process is done"
 msgstr "Mise à jour effectuée"
+
+#. Plugin Name of the plugin/theme
+msgid "DW Question Answer"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"A WordPress plugin was make by DesignWall.com to build an Question Answer "
+"system for support, asking and comunitcate with your customer"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "DesignWall"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.designwall.com"
+msgstr ""
+
+#~ msgid ""
+#~ "Thank you for installing our WordPress plugin. If you have any question "
+#~ "about this theme, please submit to our <a target=\"_blank\" href="
+#~ "\"https://www.designwall.com/question/\">Q&A section</a>."
+#~ msgstr ""
+#~ "Merci d'avoir installé ce plugin Wordpress. Si vous avez une question, <a "
+#~ "target=\"_blank\" href=\"https://www.designwall.com/question/\">posez la "
+#~ "dans notre section Q&A</a>. "
+
+#~ msgid "Publish"
+#~ msgstr "Publier"
+
+#~ msgid "Everyone can see"
+#~ msgstr "Visible par tous"
+
+#~ msgid "Only Author and Administrator can see"
+#~ msgstr "Seulement les Auteurs et administrateurs peuvent voir"
+
+#~ msgid "Sorry, but nothing matched your filter. "
+#~ msgstr "Désolé, mais rien ne correspond à votre filtre."
+
+#, fuzzy
+#~ msgid "You can ask question"
+#~ msgstr "Vous pouvez poser une question <a href=\""
+
+#~ msgid "here"
+#~ msgstr "ici"
+
+#~ msgid "Please"
+#~ msgstr "Veuillez"
+
+#~ msgid "Login"
+#~ msgstr "connexion"
+
+#~ msgid " or"
+#~ msgstr "ou"
+
+#~ msgid " to submit question."
+#~ msgstr "pour soumettre une question."
+
+#, fuzzy
+#~ msgid "Search query is empty"
+#~ msgstr "Requête de recherche vides "
+
+#~ msgid "A page where displays all questions"
+#~ msgstr "Une page où toutes les questions sont affichées"
+
+#~ msgid "A page where users can submit questions."
+#~ msgstr "Une page où les utilisateurs peuvent soumettre des questions."
+
+#~ msgid "Upload or choose a logo to be displayed at the top of the email"
+#~ msgstr "Télécharger ou choisir un logo à afficher en haut de l'e-mail"
+
+#~ msgid "Enable notification for new question"
+#~ msgstr "Activer la notification pour nouvelle question"
+
+#~ msgid "Enable notification for new answer"
+#~ msgstr "Activer la notification pour nouvelle réponse"
+
+#, fuzzy
+#~ msgid "Enable notification for new answer (to Followers )"
+#~ msgstr "Activer la notification pour nouvelle réponse (aux Abonnés)"
+
+#~ msgid "Enable notification for new comment of question"
+#~ msgstr "Activer la notification pour un commentaire de la question"
+
+#~ msgid "Enable notification for new comment of answer"
+#~ msgstr "Activer la notification pour un commentaire de réponse"
+
+#~ msgid "Comment"
+#~ msgstr "Commentaire"
+
+#~ msgid "Enable/Disable captcha on submit question page"
+#~ msgstr "Activer / Désactiver captcha sur la page de soumission de questions"
+
+#~ msgid "Enable/Disable captcha on single question page"
+#~ msgstr "Activer / Désactiver captcha à la page de question unique"
+
+#~ msgid "questions"
+#~ msgstr "questions"
+
+#~ msgid "Allow members to post private question"
+#~ msgstr "Permettre aux membres de poster des questions privées"
+
+#~ msgid "Question must be manually approved"
+#~ msgstr "La question doit être approuvée manuellement"
+
+#~ msgid "Email Setup"
+#~ msgstr "Configuration de l'email"
+
+#~ msgid "New Question Notification"
+#~ msgstr "Nouvelle notification de Question"
+
+#~ msgid "New Answer Notification"
+#~ msgstr "Notification de nouvelle réponse"
+
+#, fuzzy
+#~ msgid "New Comment to Question Notification (to Followers )"
+#~ msgstr "Nouveau commentaire à la notification de question (aux Abonnés)"
+
+#~ msgid "New Comment to Answer Notification"
+#~ msgstr "Nouveau commentaire à la notification de réponse"
+
+#, fuzzy
+#~ msgid "New Answer Notification (to Followers )"
+#~ msgstr "Notification de nouvelle réponse (aux Abonnés)"
+
+#, fuzzy
+#~ msgid "New Comment to Answer Notification (to Followers )"
+#~ msgstr "Nouveau commentaire à la notification de réponse  (aux Abonnés)"
+
+#~ msgid "Archive page show at most"
+#~ msgstr "La Page Archives affiche au plus"
+
+#~ msgid "Private Question"
+#~ msgstr "Question privée"
+
+#, fuzzy
+#~ msgid "Review Question"
+#~ msgstr "Afficher Question"
+
+#~ msgid "Time settings"
+#~ msgstr "Réglage du temp"
+
+#~ msgid "New Question Time Frame"
+#~ msgstr "Nouveau cadre heure des questions"
+
+#~ msgid "Question Overdue - Time Frame"
+#~ msgstr "Question en alérte - Time Frame"
+
+#~ msgid "Captcha settings"
+#~ msgstr "Paramètres de Captcha"
+
+#, fuzzy
+#~ msgid "Captcha on Submit Question Page"
+#~ msgstr "Captcha dans la page de soumission de Question"
+
+#, fuzzy
+#~ msgid "Captcha on Single Question Page"
+#~ msgstr "Captcha dans la page Question unique"
+
+#~ msgid "Captcha Type"
+#~ msgstr "Type de Captcha"
+
+#~ msgid "Single Question"
+#~ msgstr "Question Unique"
+
+#~ msgid "Single Category"
+#~ msgstr "Catégorie unique"
+
+#~ msgid "Single Tag"
+#~ msgstr "Tag unique"
+
+#~ msgid "Notification"
+#~ msgstr "Notification"
+
+#~ msgid "Permission"
+#~ msgstr "Autorisation"
+
+#, fuzzy
+#~ msgid "Email setup"
+#~ msgstr "Sujet de l'email"
+
+#~ msgid "New Comment to Question Notification"
+#~ msgstr "Nouveau commentaire à la notification de question"
+
+#~ msgid "Send to"
+#~ msgstr "Envoyer à"
+
+#~ msgid "Send A Copy Of Every Email To Admin"
+#~ msgstr "Envoyer une copie de chaque e-mail à l'administrateur"
+
+#~ msgid "You need an account to submit question and get answers. Create one:"
+#~ msgstr ""
+#~ "Vous avez besoin d'un compte pour pouvoir soumettre des questions et "
+#~ "obtenir des réponses. Créer en un:"
+
+#~ msgid "Type your email"
+#~ msgstr "Entrez votre e-mail"
+
+#~ msgid "Already a member?"
+#~ msgstr "Déjà membre?"
+
+#~ msgid "Log In"
+#~ msgstr "Connexion"
+
+#~ msgid "Login to submit your question"
+#~ msgstr "Connectez-vous pour soumettre votre question"
+
+#, fuzzy
+#~ msgid "Type your username"
+#~ msgstr "Entrez votre e-mail"
+
+#, fuzzy
+#~ msgid "Type your password"
+#~ msgstr "Entrez votre e-mail"
+
+#~ msgid "Not yet a member?"
+#~ msgstr "Pas encore membre?"
+
+#~ msgid "Register"
+#~ msgstr "Enregistrer"
+
+#~ msgid ""
+#~ "Enter your email to receive notification regarding your question. Your "
+#~ "email is safe with us and will not be published."
+#~ msgstr ""
+#~ "Votre adresse email pour recevoir une notification concernant votre "
+#~ "question."
+
+#, fuzzy
+#~ msgid "Your email *"
+#~ msgstr "Entrez votre e-mail"
+
+#~ msgid "Email address ..."
+#~ msgstr "Adresse email ..."
+
+#~ msgid "or <strong><a href=\"%s\">login</a></strong> to submit question"
+#~ msgstr ""
+#~ "ou <strong><a href=\"%s\">connectez-vous</a></strong> pour poser une "
+#~ "question"
+
+#~ msgid "Private: %s"
+#~ msgstr "Privé:% s"
+
+#~ msgctxt "noun"
+#~ msgid "Comment"
+#~ msgstr "commentaire"
+
+#~ msgid ""
+#~ "Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out "
+#~ "of this account\">Log out?</a>"
+#~ msgstr ""
+#~ "Connecté en tant que <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title="
+#~ "\"Déconnectez-vous de ce compte\">Déconnexion?</a>"
+
+#~ msgid "Your email address will not be published."
+#~ msgstr "Votre adresse de messagerie ne sera pas publiée."
+
+#~ msgid "Write a comment ..."
+#~ msgstr "Écrire un commentaire ..."
+
+#~ msgid "&nbsp; &bull; &nbsp;"
+#~ msgstr "&nbsp; &bull; &nbsp;"
 
 #~ msgid "Add New Question"
 #~ msgstr "Nouvelle Question"

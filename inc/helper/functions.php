@@ -63,9 +63,9 @@ function dwqa_recaptcha_check( $res ) {
 
 	$is_old_version = $type_selected == 'google-recaptcha' ? true : false;
 	if ( $type_selected == 'default' || $is_old_version ) {
-		$number_1 = isset( $_POST['dwqa-captcha-number-1'] ) ? (int) $_POST['dwqa-captcha-number-1'] : 0;
-		$number_2 = isset( $_POST['dwqa-captcha-number-2'] ) ? (int) $_POST['dwqa-captcha-number-2'] : 0;
-		$result = isset( $_POST['dwqa-captcha-result'] ) ? (int) $_POST['dwqa-captcha-result'] : 0;
+		$number_1 = isset( $_POST['dwqa-captcha-number-1'] ) ? intval( $_POST['dwqa-captcha-number-1'] ) : 0;
+		$number_2 = isset( $_POST['dwqa-captcha-number-2'] ) ? intval( $_POST['dwqa-captcha-number-2'] ) : 0;
+		$result = isset( $_POST['dwqa-captcha-result'] ) ? intval( $_POST['dwqa-captcha-result'] ) : 0;
 
 		if ( ( $number_1 + $number_2 ) === $result ) {
 			return true;

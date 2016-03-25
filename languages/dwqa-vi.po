@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DW Question Answer v1.3.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-06 11:26+0700\n"
-"PO-Revision-Date: 2016-02-06 11:46+0700\n"
+"POT-Creation-Date: 2016-03-25 10:05+0700\n"
+"PO-Revision-Date: 2016-03-25 10:05+0700\n"
 "Last-Translator: DesignWall <webmaster@designwall.com>\n"
 "Language-Team: \n"
 "Language: vi_VN\n"
@@ -20,172 +20,172 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 # @ dwqa
-#: dw-question-answer.php:108 inc/Filter.php:80
+#: dw-question-answer.php:102
 msgid "Next"
 msgstr "Tiếp"
 
 # @ dwqa
-#: dw-question-answer.php:109
+#: dw-question-answer.php:103
 msgid "Prev"
 msgstr "Trở lại"
 
 # @ dwqa
-#: dw-question-answer.php:111
+#: dw-question-answer.php:105
 msgid "Please enter your question"
 msgstr "Vui lòng gõ câu hỏi của bạn"
 
 # @ dwqa
-#: dw-question-answer.php:112
+#: dw-question-answer.php:106
 msgid "Your question must be at least 2 characters in length"
 msgstr "Câu hỏi của bạn phải có ít nhất 2 ký tự"
 
 # @ dwqa
-#: dw-question-answer.php:113
+#: dw-question-answer.php:107
 msgid "Enter a valid email address"
 msgstr "Nhập địa chỉ email chính xác"
 
 # @ dwqa
-#: dw-question-answer.php:114
+#: dw-question-answer.php:108
 msgid "Enter a question title"
 msgstr "Nhập tựa đề câu hỏi"
 
 # @ dwqa
-#: dw-question-answer.php:115
+#: dw-question-answer.php:109
 msgid "Please add your name"
 msgstr "Vui lòng cung cấp tên của bạn"
 
 # @ dwqa
-#: dw-question-answer.php:116
+#: dw-question-answer.php:110
 msgid "Please enter your answer"
 msgstr "Vui lòng nhập câu trả lời của bạn"
 
 # @ dwqa
-#: dw-question-answer.php:117 inc/Handle.php:189
+#: dw-question-answer.php:111 inc/Handle.php:191
 msgid "Please enter your comment content"
 msgstr "Vui lòng nhập nội dung bình luận của bạn"
 
 # @ dwqa
-#: dw-question-answer.php:118
+#: dw-question-answer.php:112
 msgid "Comment must have more than 2 characters"
 msgstr "Câu bình luận phải nhiều hơn 2 ký tự"
 
 # @ dwqa
-#: dw-question-answer.php:119
+#: dw-question-answer.php:113
 msgid "Not found! Try another keyword."
 msgstr "Không tìm thấy! Vui lòng thử từ khóa khác."
 
 # @ dwqa
-#: dw-question-answer.php:120
+#: dw-question-answer.php:114
 msgid "Or press <strong>ENTER</strong> to get more questions"
 msgstr "Hoặc ấn <strong>ENTER</strong> để xem thêm câu hỏi"
 
 # @ dwqa
-#: dw-question-answer.php:121 inc/Editor.php:119
+#: dw-question-answer.php:115
 msgid "Update"
 msgstr "Cập nhật"
 
 # @ dwqa
 # @ edd-dw-membersip
-#: dw-question-answer.php:122 inc/Posts/Answer.php:315 inc/Posts/Base.php:320
-#: inc/Settings.php:398 inc/Template.php:58 inc/Template.php:183
-#: inc/Template.php:200 templates/content-comment.php:19
+#: dw-question-answer.php:116 inc/Posts/Answer.php:317 inc/Posts/Base.php:320
+#: inc/Settings.php:402 inc/Template.php:58 inc/Template.php:163
+#: inc/Template.php:180 templates/content-comment.php:19
 msgid "Edit"
 msgstr "Sửa"
 
 # @ dwqa
-#: dw-question-answer.php:123 inc/Editor.php:120
+#: dw-question-answer.php:117
 msgid "Cancel"
 msgstr "Hủy"
 
 # @ dwqa
-#: dw-question-answer.php:124
+#: dw-question-answer.php:118
 msgid "Do you want to delete this comment?"
 msgstr "Bạn muốn xóa đoạn bình luận này?"
 
 # @ dwqa
-#: dw-question-answer.php:125
+#: dw-question-answer.php:119
 msgid "Do you want to delete this answer?"
 msgstr "Bạn muốn xóa câu trả lời này?"
 
 # @ dwqa
-#: dw-question-answer.php:126
+#: dw-question-answer.php:120
 msgid "Do you want to update this answer?"
 msgstr "Bạn có muốn cập nhật câu trả lời này?"
 
 # @ dwqa
-#: dw-question-answer.php:127
+#: dw-question-answer.php:121
 msgid "Do you want to report this answer?"
 msgstr "Bạn có muốn thông báo câu trả lời này?"
 
 # @ dwqa
-#: dw-question-answer.php:129
+#: dw-question-answer.php:123
 msgid "Report"
 msgstr "Thông báo"
 
 # @ dwqa
-#: dw-question-answer.php:130
+#: dw-question-answer.php:124
 msgid "Undo"
 msgstr "Làm lại"
 
 # @ dwqa
-#: dw-question-answer.php:131
+#: dw-question-answer.php:125
 msgid "This answer will be marked as spam and hidden. Do you want to flag it?"
 msgstr ""
 "Câu trả lờ này sẽ được đánh dấu là spam và sẽ bị ẩn đi. Bạn có muốn thực "
 "hiện không?"
 
 # @ dwqa
-#: dw-question-answer.php:132
+#: dw-question-answer.php:126
 msgid "This answer was flagged as spam. Do you want to show it"
 msgstr "Câu trả lời này được đánh dấu là spam. Bạn có muốn hiện nó lên"
 
 # @ dwqa
-#: dw-question-answer.php:133
+#: dw-question-answer.php:127
 msgid "This answer was flagged as spam"
 msgstr "Câu trả lời này được đánh dấu là spam"
 
 # @ dwqa
-#: dw-question-answer.php:134
+#: dw-question-answer.php:128
 msgid "hide"
 msgstr "ẩn"
 
 # @ dwqa
-#: dw-question-answer.php:135
+#: dw-question-answer.php:129
 msgid "show"
 msgstr "hiện"
 
 # @ dwqa
-#: dw-question-answer.php:137
+#: dw-question-answer.php:131
 msgid "Follow This Question"
 msgstr "Theo dõi câu hỏi này"
 
 # @ dwqa
-#: dw-question-answer.php:138
+#: dw-question-answer.php:132
 msgid "Unfollow This Question"
 msgstr "Bỏ theo dõi câu hỏi này"
 
 # @ dwqa
-#: dw-question-answer.php:139
+#: dw-question-answer.php:133
 msgid "Pin this question to top"
 msgstr "Ghim câu hỏi này lên đầu"
 
 # @ dwqa
-#: dw-question-answer.php:140
+#: dw-question-answer.php:134
 msgid "Unpin this question from top"
 msgstr "Bỏ ghim câu hỏi này"
 
 # @ dwqa
-#: dw-question-answer.php:143
+#: dw-question-answer.php:137
 msgid "Do you want to delete this question?"
 msgstr "Bạn muốn xóa câu hỏi này?"
 
 # @ dwqa
-#: dw-question-answer.php:156
+#: dw-question-answer.php:153
 msgid "DWQA Questions"
 msgstr "Các câu hỏi DWQA"
 
 # @ dwqa
-#: dw-question-answer.php:173
+#: dw-question-answer.php:170
 msgid "DWQA Ask Question"
 msgstr "Đăng câu hỏi DWQA"
 
@@ -205,107 +205,115 @@ msgstr ""
 msgid "DWQA Embed Question"
 msgstr ""
 
-#: inc/Admin/Extensions.php:41
+#: inc/Admin/Extensions.php:37
+msgid "DWQA Widgets"
+msgstr ""
+
+#: inc/Admin/Extensions.php:47
 msgid "Extensions"
 msgstr "Tiện ích"
 
-#: inc/Admin/Extensions.php:69
+#: inc/Admin/Extensions.php:75
 msgid "Get It Now!"
 msgstr ""
 
-#: inc/Admin/Welcome.php:21 inc/Admin/Welcome.php:22
+#: inc/Admin/Welcome.php:28 inc/Admin/Welcome.php:29
 msgid "Welcome to DW Question & Answer"
 msgstr ""
 
-#: inc/Admin/Welcome.php:29 inc/Admin/Welcome.php:30
+#: inc/Admin/Welcome.php:36 inc/Admin/Welcome.php:37
 msgid "DW Question & Answer Changelog"
 msgstr ""
 
-#: inc/Admin/Welcome.php:37 inc/Admin/Welcome.php:38
+#: inc/Admin/Welcome.php:44 inc/Admin/Welcome.php:45
 msgid "DW Question & Answer Credits"
 msgstr ""
 
-#: inc/Admin/Welcome.php:54
+#: inc/Admin/Welcome.php:61
 #, php-format
 msgid "Welcome to DW Question & Answer %s"
 msgstr ""
 
-#: inc/Admin/Welcome.php:55
+#: inc/Admin/Welcome.php:62
 msgid ""
 "Thank you for installing our WordPress plugin. If you have any question "
-"about this theme, please submit to our <a target=\"_blank\" href=\"https://"
+"about this plugin, please submit to our <a target=\"_blank\" href=\"https://"
 "www.designwall.com/question/\">Q&A section</a>."
 msgstr ""
 
-#: inc/Admin/Welcome.php:63
+#: inc/Admin/Welcome.php:70
 msgid "What&#8217;s New"
 msgstr ""
 
-#: inc/Admin/Welcome.php:64
+#: inc/Admin/Welcome.php:71
 msgid "Changelog"
 msgstr ""
 
-#: inc/Admin/Welcome.php:65
+#: inc/Admin/Welcome.php:72
 msgid "Credits"
 msgstr ""
 
-#: inc/Admin/Welcome.php:193
+#: inc/Admin/Welcome.php:200
 msgid "Contributors"
 msgstr ""
 
-#: inc/Admin/Welcome.php:212
+#: inc/Admin/Welcome.php:219
 msgid "No valid changelog was found."
 msgstr ""
 
 # @ dwqa
 # @ default
-#: inc/Ajax.php:23 inc/Ajax.php:41 inc/Ajax.php:77 inc/Ajax.php:138
-#: inc/Filter.php:429 inc/Handle.php:242 inc/Handle.php:430
-#: inc/Permission.php:286 inc/Status.php:307
+#: inc/Ajax.php:29 inc/Ajax.php:47 inc/Ajax.php:83 inc/Ajax.php:113
+#: inc/Ajax.php:132 inc/Ajax.php:150 inc/Ajax.php:215 inc/Handle.php:244
+#: inc/Handle.php:430 inc/Permission.php:286 inc/Status.php:319
 msgid "Are you cheating huh?"
 msgstr "Bạn đang lừa dối phải không?"
 
-#: inc/Ajax.php:27 inc/Handle.php:246
+#: inc/Ajax.php:33 inc/Handle.php:248
 msgid "You do not have permission to edit comment."
 msgstr "Bạn không có quyền để chỉnh sửa bình luận."
 
 # @ dwqa
-#: inc/Ajax.php:31
+#: inc/Ajax.php:37
 msgid "Comment ID must be showed."
 msgstr "ID lời bình luận phải được hiện ra"
 
-#: inc/Ajax.php:45 inc/Handle.php:142
+#: inc/Ajax.php:51 inc/Handle.php:144
 msgid "Answer is missing."
 msgstr "Trả lời câu hỏi này."
 
-#: inc/Ajax.php:49 inc/Handle.php:146
+#: inc/Ajax.php:55 inc/Handle.php:148
 msgid "This post is not answer."
 msgstr "Nội dung này không phải câu trả lời."
 
-#: inc/Ajax.php:53 inc/Ajax.php:150
+#: inc/Ajax.php:59 inc/Ajax.php:162
 msgid "You do not have permission to delete this post."
 msgstr "Bạn không có quyền xoá bài viết này."
 
 # @ dwqa
-#: inc/Ajax.php:80
+#: inc/Ajax.php:86
 msgid "Missing id of answer"
 msgstr "Thiếu ID của câu trả lời"
 
-#: inc/Ajax.php:142 inc/Handle.php:452
+#: inc/Ajax.php:154 inc/Handle.php:452
 msgid "Question is missing."
 msgstr ""
 
-#: inc/Ajax.php:146 inc/Handle.php:456
+#: inc/Ajax.php:158 inc/Handle.php:456
 msgid "This post is not question."
 msgstr "Nội dung này không phải câu hỏi."
 
 # @ dwqa
-#: inc/Ajax.php:194
+#: inc/Ajax.php:206
 msgid "You do not have permission to edit question status"
 msgstr "Bạn không được phép sửa trạng thái câu hỏi"
 
+#: inc/Ajax.php:223 inc/Ajax.php:272
+msgid "Not Found!!!"
+msgstr ""
+
 # @ dwqa
-#: inc/Answer_List_Table.php:81 inc/Posts/Answer.php:269 inc/Template.php:48
+#: inc/Answer_List_Table.php:81 inc/Posts/Answer.php:271 inc/Template.php:48
 msgid "Author"
 msgstr "Tác giả"
 
@@ -317,8 +325,8 @@ msgstr "Chi tiết"
 # @ dwqa
 #: inc/Answer_List_Table.php:92 inc/Notifications.php:146
 #: inc/Notifications.php:148 inc/Posts/Base.php:230 inc/Posts/Comment.php:102
-#: inc/Settings.php:415 inc/Settings.php:451 inc/Settings.php:486
-#: inc/User.php:160 inc/widgets/Latest_Question.php:39
+#: inc/Settings.php:419 inc/Settings.php:455 inc/Settings.php:490
+#: inc/User.php:155 inc/widgets/Latest_Question.php:39
 msgid "Anonymous"
 msgstr "Vô danh"
 
@@ -331,78 +339,6 @@ msgstr "Đã trả lời ở"
 #: inc/Answer_List_Table.php:112 inc/Helptab.php:149
 msgid "Read more"
 msgstr "Xem thêm"
-
-# @ dwqa
-#: inc/Editor.php:123
-msgid "Publish"
-msgstr "Công bố"
-
-# @ dwqa
-#: inc/Editor.php:130 inc/Editor.php:138
-msgid "Private"
-msgstr "Riêng tư"
-
-# @ dwqa
-#: inc/Editor.php:130 inc/Editor.php:137 templates/answer-submit-form.php:34
-#: templates/question-submit-form.php:25
-msgid "Public"
-msgstr "Đăng công bố"
-
-# @ dwqa
-#: inc/Editor.php:137
-msgid "Everyone can see"
-msgstr "Mọi người có thể thấy"
-
-# @ dwqa
-#: inc/Editor.php:138
-msgid "Only Author and Administrator can see"
-msgstr ""
-"Chỉ có bạn là tác giả câu hỏi, và chúng tôi là Admin mới nhìn được nội dung"
-
-# @ dwqa
-#: inc/Filter.php:97 templates/content-none.php:10
-msgid "You do not have permission to view questions"
-msgstr "Bạn không đủ quyền để xem câu hỏi"
-
-# @ dwqa
-#: inc/Filter.php:100
-msgid "Sorry, but nothing matched your filter. "
-msgstr "Xin lỗi, nhưng không có gì phù hợp với việc lọc nội dung của bạn."
-
-# @ dwqa
-#: inc/Filter.php:108
-msgid "You can ask question"
-msgstr "Bạn có thể đặt câu hỏi"
-
-# @ dwqa
-#: inc/Filter.php:110
-msgid "here"
-msgstr "ở đây"
-
-# @ dwqa
-#: inc/Filter.php:116
-msgid "Please"
-msgstr "Vui lòng"
-
-# @ dwqa
-#: inc/Filter.php:118
-msgid "Login"
-msgstr "Đăng nhập"
-
-# @ dwqa
-#: inc/Filter.php:122
-msgid " or"
-msgstr "hoặc"
-
-# @ dwqa
-#: inc/Filter.php:124
-msgid " to submit question."
-msgstr "để gửi câu hỏi"
-
-# @ dwqa
-#: inc/Filter.php:437 inc/Filter.php:486
-msgid "Search query is empty"
-msgstr "Truy vấn tìm kiếm không có kết quả nào"
 
 #: inc/Handle.php:29
 msgid "&quot;Helllo&quot;, Are you cheating huh?."
@@ -436,44 +372,44 @@ msgstr "Captcha không đúng"
 msgid "Answer for "
 msgstr "Trả lời cho"
 
-#: inc/Handle.php:127
+#: inc/Handle.php:129
 msgid "You do not have permission to edit answer."
 msgstr "Bạn không có quyền để sửa câu trả lời."
 
 # @ dwqa
-#: inc/Handle.php:131 inc/Handle.php:495 inc/Posts/Question.php:491
+#: inc/Handle.php:133 inc/Handle.php:495 inc/Posts/Question.php:473
 msgid "Hello, Are you cheating huh?"
 msgstr "Xin chào, bạn đang lừa dối phải phải không?"
 
-#: inc/Handle.php:136
+#: inc/Handle.php:138
 msgid "You must enter a valid answer content."
 msgstr ""
 
 # @ dwqa
-#: inc/Handle.php:180
+#: inc/Handle.php:182
 msgid "You can't post comment"
 msgstr "Bạn không thể đăng bình luận"
 
-#: inc/Handle.php:183
+#: inc/Handle.php:185
 msgid "Missing post id."
 msgstr ""
 
 # @ dwqa
-#: inc/Handle.php:204
+#: inc/Handle.php:206
 msgid "Missing email information"
 msgstr "Thiếu thông tin email"
 
 # @ dwqa
-#: inc/Handle.php:208
+#: inc/Handle.php:210
 msgid "Missing name information"
 msgstr "Thiếu thông tin họ tên"
 
-#: inc/Handle.php:235
+#: inc/Handle.php:237
 msgid "Comment is missing"
 msgstr ""
 
 # @ dwqa
-#: inc/Handle.php:250
+#: inc/Handle.php:252
 msgid "Comment content must not be empty."
 msgstr "Nội dung bình luận không được để trống"
 
@@ -501,7 +437,7 @@ msgid "Your question is waiting moderator."
 msgstr "Câu trả lời của bạn đang chờ kiểm duyệt."
 
 # @ dwqa
-#: inc/Handle.php:441 inc/Status.php:335
+#: inc/Handle.php:441 inc/Status.php:347
 msgid "You do not have permission to edit question"
 msgstr "Bạn không được phép sửa câu hỏi"
 
@@ -574,35 +510,39 @@ msgid "DesignWall Wordpress Plugins"
 msgstr ""
 
 # @ dwqa
-#: inc/Metaboxes.php:13 templates/question-submit-form.php:22
+#: inc/Metaboxes.php:13 templates/content-single-question.php:31
+#: templates/question-submit-form.php:22
 msgid "Status"
 msgstr "Trạng thái"
 
 # @ dwqa
-#: inc/Metaboxes.php:15 inc/Status.php:292 inc/Template.php:78
-#: templates/content-single-question.php:31
+#: inc/Metaboxes.php:15 inc/Status.php:304
+#: templates/archive-question-filter.php:18
+#: templates/content-single-question.php:32
 msgid "Open"
 msgstr "Mở"
 
 # @ dwqa
-#: inc/Metaboxes.php:16 inc/Status.php:275
+#: inc/Metaboxes.php:16 inc/Status.php:287
 msgid "Pending"
 msgstr "Đang chờ"
 
 # @ dwqa
-#: inc/Metaboxes.php:17 inc/Status.php:272 inc/Template.php:79
-#: templates/content-single-question.php:33
+#: inc/Metaboxes.php:17 inc/Status.php:284
+#: templates/archive-question-filter.php:19
+#: templates/content-single-question.php:34
 msgid "Resolved"
 msgstr "Đã hoàn thành"
 
 # @ dwqa
-#: inc/Metaboxes.php:18 inc/Status.php:278
+#: inc/Metaboxes.php:18 inc/Status.php:290
 msgid "Re-Open"
 msgstr "Mở lại"
 
 # @ dwqa
-#: inc/Metaboxes.php:19 inc/Status.php:281 inc/Template.php:80
-#: templates/content-single-question.php:32
+#: inc/Metaboxes.php:19 inc/Status.php:293
+#: templates/archive-question-filter.php:20
+#: templates/content-single-question.php:33
 msgid "Closed"
 msgstr "Đã đóng"
 
@@ -618,7 +558,7 @@ msgstr "Ghim câu hỏi lên đầu trang lưu trữ"
 
 # @ dwqa
 #: inc/Metaboxes.php:45 inc/Posts/Answer.php:225 inc/Posts/Answer.php:227
-#: inc/Template.php:93
+#: inc/Settings.php:431 templates/archive-question-filter.php:34
 msgid "Answers"
 msgstr "Các câu trả lời"
 
@@ -643,12 +583,12 @@ msgid "You have a new answer for your followed question"
 msgstr "Bạn nhận được câu trả lời mới cho câu hỏi bạn đã theo dõi"
 
 # @ dwqa
-#: inc/Notifications.php:282 inc/Notifications.php:328
+#: inc/Notifications.php:284 inc/Notifications.php:330
 msgid "[{site_name}] You have a new comment for question {question_title}"
 msgstr "[{site_name}] bạn có bình luận mới cho câu hỏi {question_title}"
 
 # @ dwqa
-#: inc/Notifications.php:287 inc/Notifications.php:333
+#: inc/Notifications.php:289 inc/Notifications.php:335
 msgid "[{site_name}] You have a new comment for answer"
 msgstr "[{site_name}] bạn có bình luận mới cho câu trả lời"
 
@@ -674,37 +614,45 @@ msgstr "Các cài đặt thay đổi lời bình luận, và tạo trang gửi c
 
 # @ default
 # @ dwqa
-#: inc/Posts/Answer.php:226 inc/Posts/Answer.php:268 inc/Settings.php:427
+#: inc/Posts/Answer.php:226 inc/Posts/Answer.php:270
 msgid "Answer"
 msgstr "Trả lời"
 
 # @ dwqa
-#: inc/Posts/Answer.php:271
+#: inc/Posts/Answer.php:273
 msgid "In Response To"
 msgstr "Trong phản hồi tới"
 
 # @ edd-dw-membersip
 # @ dwqa
-#: inc/Posts/Answer.php:316 inc/Settings.php:399 inc/Template.php:188
-#: inc/Template.php:205 templates/content-comment.php:22
+#: inc/Posts/Answer.php:318 inc/Settings.php:403 inc/Template.php:168
+#: inc/Template.php:185 templates/content-comment.php:22
 msgid "Delete"
 msgstr "Xóa"
 
 # @ edd-dw-membersip
 # @ dwqa
-#: inc/Posts/Answer.php:317 inc/Posts/Base.php:322
+#: inc/Posts/Answer.php:319 inc/Posts/Base.php:322
 msgid "View"
 msgstr "Lượt xem"
 
 # @ dwqa
-#: inc/Posts/Answer.php:321
+#: inc/Posts/Answer.php:323
 msgid "Submitted"
 msgstr "Đã gửi"
 
 # @ dwqa
-#: inc/Posts/Answer.php:322
+#: inc/Posts/Answer.php:324
 msgid "on"
 msgstr "Trên"
+
+#: inc/Posts/Answer.php:359
+msgid "Question ID"
+msgstr ""
+
+#: inc/Posts/Answer.php:370 inc/Posts/Answer.php:373
+msgid "ID"
+msgstr ""
 
 # @ dwqa
 #: inc/Posts/Base.php:5
@@ -754,7 +702,7 @@ msgid "Add New"
 msgstr ""
 
 # @ dwqa
-#: inc/Posts/Base.php:321 inc/Status.php:284
+#: inc/Posts/Base.php:321 inc/Status.php:296
 msgid "New"
 msgstr "Mới"
 
@@ -775,171 +723,172 @@ msgid "Parent:"
 msgstr ""
 
 # @ dwqa
-#: inc/Posts/Question.php:56 inc/Shortcode.php:118
+#: inc/Posts/Question.php:56 inc/Shortcode.php:120
 #: inc/widgets/Closed_Question.php:49 inc/widgets/Latest_Question.php:39
 #: inc/widgets/Popular_Question.php:43
 msgid "asked by"
 msgstr "hỏi bởi"
 
-#: inc/Posts/Question.php:114 inc/Posts/Question.php:116
-#: inc/Posts/Question.php:284 inc/Template.php:87
+#: inc/Posts/Question.php:100 inc/Posts/Question.php:102
+#: inc/Posts/Question.php:266 inc/Settings.php:395
+#: templates/archive-question-filter.php:28
 msgid "Questions"
 msgstr ""
 
 # @ dwqa
-#: inc/Posts/Question.php:115 inc/Settings.php:391
+#: inc/Posts/Question.php:101
 msgid "Question"
 msgstr "Câu hỏi"
 
-#: inc/Posts/Question.php:214
+#: inc/Posts/Question.php:196
 msgctxt "taxonomy general name"
 msgid "Question Categories"
 msgstr ""
 
-#: inc/Posts/Question.php:215
+#: inc/Posts/Question.php:197
 msgctxt "taxonomy singular name"
 msgid "Question Category"
 msgstr ""
 
-#: inc/Posts/Question.php:216
+#: inc/Posts/Question.php:198
 msgid "Search Question Categories"
 msgstr ""
 
-#: inc/Posts/Question.php:217
+#: inc/Posts/Question.php:199
 msgid "All Question Categories"
 msgstr ""
 
-#: inc/Posts/Question.php:218
+#: inc/Posts/Question.php:200
 msgid "Parent Question Category"
 msgstr ""
 
-#: inc/Posts/Question.php:219
+#: inc/Posts/Question.php:201
 msgid "Parent Question Category:"
 msgstr ""
 
-#: inc/Posts/Question.php:220
+#: inc/Posts/Question.php:202
 msgid "Edit Question Category"
 msgstr ""
 
-#: inc/Posts/Question.php:221
+#: inc/Posts/Question.php:203
 msgid "Update Question Category"
 msgstr ""
 
-#: inc/Posts/Question.php:222
+#: inc/Posts/Question.php:204
 msgid "Add New Question Category"
 msgstr ""
 
-#: inc/Posts/Question.php:223
+#: inc/Posts/Question.php:205
 msgid "New Question Category Name"
 msgstr ""
 
 # @ dwqa
-#: inc/Posts/Question.php:224
+#: inc/Posts/Question.php:206
 msgid "Question Category"
 msgstr "Danh mục câu hỏi"
 
-#: inc/Posts/Question.php:243
+#: inc/Posts/Question.php:225
 msgctxt "taxonomy general name"
 msgid "Question Tags"
 msgstr ""
 
-#: inc/Posts/Question.php:244
+#: inc/Posts/Question.php:226
 msgctxt "taxonomy singular name"
 msgid "Question Tag"
 msgstr ""
 
-#: inc/Posts/Question.php:245
+#: inc/Posts/Question.php:227
 msgid "Search Question Tags"
 msgstr ""
 
-#: inc/Posts/Question.php:246
+#: inc/Posts/Question.php:228
 msgid "Popular Question Tags"
 msgstr ""
 
-#: inc/Posts/Question.php:247
+#: inc/Posts/Question.php:229
 msgid "All Question Tags"
 msgstr ""
 
-#: inc/Posts/Question.php:250
+#: inc/Posts/Question.php:232
 msgid "Edit Question Tag"
 msgstr ""
 
-#: inc/Posts/Question.php:251
+#: inc/Posts/Question.php:233
 msgid "Update Question Tag"
 msgstr ""
 
-#: inc/Posts/Question.php:252
+#: inc/Posts/Question.php:234
 msgid "Add New Question Tag"
 msgstr ""
 
-#: inc/Posts/Question.php:253
+#: inc/Posts/Question.php:235
 msgid "New Question Tag Name"
 msgstr ""
 
-#: inc/Posts/Question.php:254
+#: inc/Posts/Question.php:236
 msgid "Separate question tags with commas"
 msgstr ""
 
-#: inc/Posts/Question.php:255
+#: inc/Posts/Question.php:237
 msgid "Add or remove question tags"
 msgstr ""
 
-#: inc/Posts/Question.php:256
+#: inc/Posts/Question.php:238
 msgid "Choose from the most used question tags"
 msgstr ""
 
-#: inc/Posts/Question.php:257
+#: inc/Posts/Question.php:239
 msgid "No question tags found."
 msgstr ""
 
 # @ default
 # @ dwqa
-#: inc/Posts/Question.php:258
+#: inc/Posts/Question.php:240
 msgid "Question Tags"
 msgstr "Nhãn cho câu hỏi"
 
 # @ dwqa
-#: inc/Posts/Question.php:294
+#: inc/Posts/Question.php:276
 msgid "Info"
 msgstr "Thông tin"
 
 # @ dwqa
-#: inc/Posts/Question.php:305 templates/content-question.php:22
+#: inc/Posts/Question.php:287 templates/content-question.php:22
 msgid "answered"
 msgstr "đã trả lời"
 
 # @ dwqa
-#: inc/Posts/Question.php:306
+#: inc/Posts/Question.php:288
 msgid "voted"
 msgstr "đã ủng hộ"
 
 # @ dwqa
-#: inc/Posts/Question.php:307
+#: inc/Posts/Question.php:289
 msgid "views"
 msgstr "xem"
 
 # @ dwqa
-#: inc/Posts/Question.php:428 inc/User.php:266
+#: inc/Posts/Question.php:410 inc/User.php:266
 msgid "Invalid Post"
 msgstr "Bài viết không hợp lệ"
 
 # @ dwqa
-#: inc/Posts/Question.php:463
+#: inc/Posts/Question.php:445
 msgid "Sticky Questions"
 msgstr "Câu hỏi cần chú ý"
 
 # @ dwqa
-#: inc/Posts/Question.php:497
+#: inc/Posts/Question.php:479
 msgid "Question is not valid"
 msgstr "Câu hỏi không hợp lệ"
 
 # @ dwqa
-#: inc/Posts/Question.php:518
+#: inc/Posts/Question.php:500
 msgid "Delete Action was failed"
 msgstr "Việc xóa bị lỗi"
 
 # @ dwqa
-#: inc/Posts/Question.php:523
+#: inc/Posts/Question.php:505
 msgid "You do not have permission to delete this question"
 msgstr "Bạn không có quyền xóa câu hỏi này"
 
@@ -957,10 +906,11 @@ msgstr "Yêu cầu đăng nhập. Người vô danh không được phép đăng
 msgid "Select Archive Question Page"
 msgstr "Lựa chọn trang lưu trữ câu hỏi"
 
-# @ dwqa
 #: inc/Settings.php:24
-msgid "A page where displays all questions"
-msgstr "Một trang nơi hiển thị tất cả các câu hỏi"
+msgid ""
+"A page where displays all questions. The <code>[dwqa-list-questions]</code> "
+"short code must be on this page."
+msgstr ""
 
 # @ dwqa
 #: inc/Settings.php:31
@@ -994,10 +944,11 @@ msgstr ""
 msgid "Select Submit Question Page"
 msgstr "Chọn gửi trang câu hỏi"
 
-# @ dwqa
 #: inc/Settings.php:52
-msgid "A page where users can submit questions."
-msgstr "Một trang cho các thành viên có thể gửi các câu hỏi"
+msgid ""
+"A page where users can submit questions. The <code>[dwqa-submit-question-"
+"form]</code> short code must be on this page."
+msgstr ""
 
 # @ dwqa
 #: inc/Settings.php:65
@@ -1016,365 +967,378 @@ msgstr ""
 "một trang mặc định 404 sẽ được sử dụng"
 
 # @ dwqa
-#: inc/Settings.php:86
+#: inc/Settings.php:87
 msgid "Upload"
 msgstr "Tải lên"
 
-# @ dwqa
-#: inc/Settings.php:86
-msgid "Upload or choose a logo to be displayed at the top of the email"
-msgstr "Tải lên hoặc chọn một logo để hiện trên đỉnh của email"
+#: inc/Settings.php:87
+msgid "Upload or choose a logo to be displayed at the top of the email."
+msgstr ""
+
+#: inc/Settings.php:126 inc/Settings.php:161 inc/Settings.php:197
+#: inc/Settings.php:233 inc/Settings.php:268 inc/Settings.php:303
+#: inc/Settings.php:338
+msgid "Enable?"
+msgstr ""
+
+#: inc/Settings.php:126
+msgid "Enable notification for new question."
+msgstr ""
 
 # @ dwqa
-#: inc/Settings.php:125
-msgid "Enable notification for new question"
-msgstr "Cho phép thông báo cho câu hỏi mới"
-
-# @ dwqa
-#: inc/Settings.php:130 inc/Settings.php:164 inc/Settings.php:199
-#: inc/Settings.php:234 inc/Settings.php:269 inc/Settings.php:304
-#: inc/Settings.php:339
+#: inc/Settings.php:131 inc/Settings.php:166 inc/Settings.php:202
+#: inc/Settings.php:238 inc/Settings.php:273 inc/Settings.php:308
+#: inc/Settings.php:343
 msgid "Email subject"
 msgstr "Chủ đề email"
 
 # @ dwqa
-#: inc/Settings.php:135 inc/Settings.php:169 inc/Settings.php:204
-#: inc/Settings.php:239 inc/Settings.php:274 inc/Settings.php:309
-#: inc/Settings.php:344
+#: inc/Settings.php:136 inc/Settings.php:171 inc/Settings.php:207
+#: inc/Settings.php:243 inc/Settings.php:278 inc/Settings.php:313
+#: inc/Settings.php:348
 msgid "Email Content"
 msgstr "Nội dung email"
 
-# @ dwqa
-#: inc/Settings.php:159
-msgid "Enable notification for new answer"
-msgstr "Cho phép thông báo cho câu trả lời mới"
+#: inc/Settings.php:161
+msgid "Enable notification for new answer."
+msgstr ""
+
+#: inc/Settings.php:197
+msgid "Enable notification for new answer ( to Followers )."
+msgstr ""
+
+#: inc/Settings.php:233 inc/Settings.php:268
+msgid "Enable notification for new comment of question."
+msgstr ""
+
+#: inc/Settings.php:303 inc/Settings.php:338
+msgid "Enable notification for new comment of answer."
+msgstr ""
 
 # @ dwqa
-#: inc/Settings.php:194
-msgid "Enable notification for new answer (to Followers )"
-msgstr "Cho phép thông báo câu trả lời mới (tới người theo dõi)"
-
-# @ dwqa
-#: inc/Settings.php:229 inc/Settings.php:264
-msgid "Enable notification for new comment of question"
-msgstr "Cho phép thông báo bình luận mới của câu hỏi"
-
-# @ dwqa
-#: inc/Settings.php:299 inc/Settings.php:334
-msgid "Enable notification for new comment of answer"
-msgstr "Cho phép thông báo khi có bình luận mới của câu trả lời"
-
-# @ dwqa
-#: inc/Settings.php:396
+#: inc/Settings.php:400
 msgid "Read"
 msgstr "Đọc"
 
 # @ dwqa
-#: inc/Settings.php:397
+#: inc/Settings.php:401
 msgid "Post"
 msgstr "Viết bài"
 
 # @ dwqa
-#: inc/Settings.php:425 inc/Settings.php:461 inc/Settings.php:496
+#: inc/Settings.php:429 inc/Settings.php:465 inc/Settings.php:500
 msgid "Reset Default"
 msgstr "Thiết lập lại mặc định"
 
-# @ dwqa
-#: inc/Settings.php:463
-msgid "Comment"
-msgstr "Bình luận"
+#: inc/Settings.php:467
+msgid "Comments"
+msgstr ""
 
-# @ dwqa
-#: inc/Settings.php:505
-msgid "Enable/Disable captcha on submit question page"
-msgstr "Cho phép/Không cho phép captcha trên trang gửi câu hỏi"
+#: inc/Settings.php:509
+msgid "Enable captcha on submit question page."
+msgstr ""
 
-# @ dwqa
-#: inc/Settings.php:511
-msgid "Enable/Disable captcha on single question page"
-msgstr "Cho phép/Không cho phép captcha trên trang câu hỏi đơn"
+#: inc/Settings.php:515
+msgid "Enable captcha on single question page."
+msgstr ""
 
-#: inc/Settings.php:529
+#: inc/Settings.php:533
 msgid "Default"
 msgstr ""
 
-# @ dwqa
-#: inc/Settings.php:541
-msgid "questions"
-msgstr "Các câu hỏi"
+#: inc/Settings.php:546
+msgid "questions."
+msgstr ""
 
-# @ dwqa
-#: inc/Settings.php:547
-msgid "Allow members to post private question"
-msgstr "Cho phép các thành viên đăng câu hỏi riêng tư"
+#: inc/Settings.php:552
+msgid "answers."
+msgstr ""
 
-# @ dwqa
-#: inc/Settings.php:553
-msgid "Question must be manually approved"
-msgstr "Câu hỏi phải được sự chấp thuận"
+#: inc/Settings.php:558
+msgid "Allow members to post private question."
+msgstr ""
 
-# @ dwqa
 #: inc/Settings.php:564
+msgid "Question must be manually approved."
+msgstr ""
+
+#: inc/Settings.php:570
+msgid "Display status icon on the left side."
+msgstr ""
+
+#: inc/Settings.php:576
+msgid "Disable question status feature."
+msgstr ""
+
+#: inc/Settings.php:582
+msgid "Show all answers on single question page."
+msgstr ""
+
+# @ dwqa
+#: inc/Settings.php:593
 #, fuzzy
 msgid "Select template for Single Quesiton page"
 msgstr "Captcha trên trang câu hỏi đơn"
 
-#: inc/Settings.php:570
+#: inc/Settings.php:599
 msgid ""
 "By default, your single.php template file will be used if you do not choose "
 "any template"
 msgstr ""
 
+#: inc/Settings.php:607
+#, php-format
+msgid ""
+"If you like, you may enter custom structure for your single question, "
+"question category and question tag URLs here. For example, using "
+"<code>topic</code> as your question base would make your question links like "
+"<code>%s</code>. If you leave these blank the default will be used."
+msgstr ""
+
 # @ dwqa
-#: inc/Settings.php:684
+#: inc/Settings.php:732
 msgid "Plugin Settings"
 msgstr "Các cài đặt plugin"
 
 # @ dwqa
-#: inc/Settings.php:684
+#: inc/Settings.php:732
 msgid "Settings"
 msgstr "Cấu hình"
 
-#: inc/Settings.php:720
-msgid "Email Setup"
-msgstr "Cài đặt email"
+#: inc/Settings.php:768
+msgid "Email Settings"
+msgstr ""
+
+#: inc/Settings.php:769
+msgid "New Question Notifications"
+msgstr ""
+
+#: inc/Settings.php:770
+msgid "New Answer Notifications"
+msgstr ""
+
+#: inc/Settings.php:771
+msgid "New Comment Notifications"
+msgstr ""
+
+#: inc/Settings.php:784
+msgid "Page Settings"
+msgstr ""
 
 # @ dwqa
-#: inc/Settings.php:721 inc/Settings.php:1063
-msgid "New Question Notification"
-msgstr "Thông báo câu hỏi mới"
-
-# @ dwqa
-#: inc/Settings.php:722 inc/Settings.php:1078
-msgid "New Answer Notification"
-msgstr "Thông báo câu trả lời mới"
-
-# @ dwqa
-#: inc/Settings.php:723 inc/Settings.php:726 inc/Settings.php:1122
-#, fuzzy
-msgid "New Comment to Question Notification (to Followers )"
-msgstr "Thông báo khi có bình luận mới của câu hỏi (tới người theo dõi)"
-
-# @ dwqa
-#: inc/Settings.php:724 inc/Settings.php:1112
-msgid "New Comment to Answer Notification"
-msgstr "Thông báo khi có  bình luận mới của câu trả lời"
-
-# @ dwqa
-#: inc/Settings.php:725 inc/Settings.php:1090
-#, fuzzy
-msgid "New Answer Notification (to Followers )"
-msgstr "Thông báo câu trả lời mới (để theo dõi)"
-
-# @ dwqa
-#: inc/Settings.php:727 inc/Settings.php:1133
-msgid "New Comment to Answer Notification (to Followers )"
-msgstr "Thông báo khi có bình luận mới của câu trả lời (tới người theo dõi)"
-
-# @ dwqa
-#: inc/Settings.php:746
+#: inc/Settings.php:791
 msgid "Question List Page"
 msgstr "Trang danh sách câu hỏi"
 
 # @ dwqa
-#: inc/Settings.php:754
-msgid "Archive page show at most"
-msgstr "Trang lữu trữ nhiều nhất"
-
-# @ dwqa
-#: inc/Settings.php:762
+#: inc/Settings.php:799 inc/Settings.php:930
 msgid "Ask Question Page"
 msgstr "Trang đặt câu hỏi"
 
-# @ dwqa
-#: inc/Settings.php:769
-msgid "Private Question"
-msgstr "Câu hỏi riêng tư"
+#: inc/Settings.php:842
+msgid "Question Settings"
+msgstr ""
 
-# @ dwqa
-#: inc/Settings.php:776
-msgid "Review Question"
-msgstr "Xem xét câu hỏi"
+#: inc/Settings.php:849
+msgid "Archive Page Show At Most"
+msgstr ""
 
-# @ dwqa
-#: inc/Settings.php:795
-msgid "Time settings"
-msgstr "Cài đặt thời gian"
+#: inc/Settings.php:857
+msgid "Before A Question Appears"
+msgstr ""
 
-# @ dwqa
-#: inc/Settings.php:802
-msgid "New Question Time Frame"
-msgstr "Khung thời gian câu hỏi mới"
+#: inc/Settings.php:865
+msgid "Other Question Settings"
+msgstr ""
 
-# @ dwqa
-#: inc/Settings.php:810
-msgid "Question Overdue - Time Frame"
-msgstr "Khung thời gian cho câu hỏi quá hạn"
+#: inc/Settings.php:890
+msgid "Answer Settings"
+msgstr ""
 
-# @ dwqa
-#: inc/Settings.php:820
-msgid "Captcha settings"
-msgstr "Cài đặt captcha"
+#: inc/Settings.php:897
+msgid "Answer Listing"
+msgstr ""
 
-# @ dwqa
-#: inc/Settings.php:827
-msgid "Captcha on Submit Question Page"
-msgstr "Captcha trên trang gửi câu hỏi"
+#: inc/Settings.php:915
+msgid "Captcha Settings"
+msgstr ""
 
-# @ dwqa
-#: inc/Settings.php:835
-msgid "Captcha on Single Question Page"
-msgstr "Captcha trên trang câu hỏi đơn"
+#: inc/Settings.php:922
+msgid "Type"
+msgstr ""
 
-#: inc/Settings.php:843
-msgid "Captcha Type"
+#: inc/Settings.php:938
+msgid "Single Question Page"
 msgstr ""
 
 # @ dwqa
-#: inc/Settings.php:855
+#: inc/Settings.php:950
 msgid "Permalink Settings"
 msgstr "Cài đặt permalink"
 
-# @ dwqa
-#: inc/Settings.php:862
-msgid "Single Question"
-msgstr "Câu hỏi đơn"
+#: inc/Settings.php:957
+msgid "Question Base"
+msgstr ""
+
+#: inc/Settings.php:965
+msgid "Question Category Base"
+msgstr ""
+
+#: inc/Settings.php:973
+msgid "Question Tag Base"
+msgstr ""
 
 # @ dwqa
-#: inc/Settings.php:870
-msgid "Single Category"
-msgstr "Danh mục đơn"
-
-# @ dwqa
-#: inc/Settings.php:878
-msgid "Single Tag"
-msgstr "Tag đơn"
-
-# @ dwqa
-#: inc/Settings.php:926
+#: inc/Settings.php:1042
 msgid "From Email"
 msgstr "Từ email"
 
 # @ dwqa
-#: inc/Settings.php:990 inc/Settings.php:997
+#: inc/Settings.php:1110 inc/Settings.php:1117
 msgid "Group Permission"
 msgstr "Nhóm cho phép"
 
 # @ dwqa
-#: inc/Settings.php:1025
+#: inc/Settings.php:1145
 msgid "DWQA Settings"
 msgstr "Cài đặt DWQA"
 
 # @ dwqa
-#: inc/Settings.php:1029
+#: inc/Settings.php:1149
 msgid "General"
 msgstr "Tổng thể"
 
-# @ dwqa
-#: inc/Settings.php:1030
-msgid "Notification"
-msgstr "Thông báo"
+#: inc/Settings.php:1150
+msgid "Emails"
+msgstr ""
 
-# @ dwqa
-#: inc/Settings.php:1031
-msgid "Permission"
-msgstr "Phân quyền"
+#: inc/Settings.php:1151
+msgid "Permissions"
+msgstr ""
 
-#: inc/Settings.php:1033
+#: inc/Settings.php:1152
 msgid "Licenses"
 msgstr ""
 
-# @ dwqa
-#: inc/Settings.php:1047
-msgid "Email setup"
-msgstr "Cài đặt email"
+#: inc/Settings.php:1166
+msgid "Email settings"
+msgstr ""
 
 # @ dwqa
-#: inc/Settings.php:1049
+#: inc/Settings.php:1168
 msgid "Email Logo"
 msgstr "Email Logo"
 
+#: inc/Settings.php:1182
+msgid "New Question Notifications (to Admin)"
+msgstr ""
+
+#: inc/Settings.php:1206
+msgid "New Answer Notifications (to Followers)"
+msgstr ""
+
+#: inc/Settings.php:1222
+msgid "New Answer Notifications (to Admin)"
+msgstr ""
+
+#: inc/Settings.php:1242
+msgid "New Comment to Question Notifications (to Followers)"
+msgstr ""
+
+#: inc/Settings.php:1259
+msgid "New Comment to Question Notifications (to Admin)"
+msgstr ""
+
+#: inc/Settings.php:1279
+msgid "New Comment to Answer Notifications (to Followers)"
+msgstr ""
+
+#: inc/Settings.php:1296
+msgid "New Comment to Answer Notifications (to Admin)"
+msgstr ""
+
 # @ dwqa
-#: inc/Settings.php:1053 inc/Settings.php:1070 inc/Settings.php:1082
-#: inc/Settings.php:1094 inc/Settings.php:1105 inc/Settings.php:1116
-#: inc/Settings.php:1126 inc/Settings.php:1137
+#: inc/Settings.php:1314
 msgid "Save all changes"
 msgstr "Lưu tất cả sự thay đổi"
 
-# @ dwqa
-#: inc/Settings.php:1101
-msgid "New Comment to Question Notification"
-msgstr "Thông báo khi có bình luận mới của câu hỏi"
+#: inc/Settings.php:1328
+#, php-format
+msgid "Manage <a href=\"%s\">DWQA Extensions</a> license keys"
+msgstr ""
+
+#: inc/Settings.php:1346 inc/Settings.php:1351 inc/Settings.php:1356
+#: inc/Settings.php:1361
+msgid "Forward to"
+msgstr ""
 
 # @ dwqa
-#: inc/Settings.php:1170
-msgid "Send to"
-msgstr "Gửi tới"
-
-# @ dwqa
-#: inc/Settings.php:1175
+#: inc/Settings.php:1366
 msgid "Cc"
 msgstr "Cc"
 
 # @ dwqa
-#: inc/Settings.php:1180
+#: inc/Settings.php:1371
 msgid "Bcc"
 msgstr "Bcc"
 
 # @ dwqa
-#: inc/Settings.php:1185
+#: inc/Settings.php:1376
 msgid "This address will be used as the sender of the outgoing emails."
 msgstr "Địa chỉ này được người gửi sử dụng cho các email gửi đi"
 
-# @ dwqa
-#: inc/Settings.php:1191
-msgid "Send A Copy Of Every Email To Admin"
-msgstr "Gửi bản sao của tất cả email tới Admin"
+#: inc/Settings.php:1382
+msgid "Send a copy of every email to admin."
+msgstr ""
 
 # @ dwqa
-#: inc/Shortcode.php:95 inc/widgets/Popular_Question.php:21
+#: inc/Shortcode.php:97 inc/widgets/Popular_Question.php:21
 msgid "Popular Questions"
 msgstr "Các câu hỏi phổ biến"
 
 # @ dwqa
-#: inc/Shortcode.php:132
+#: inc/Shortcode.php:134
 msgid "Latest Answers"
 msgstr "Câu trả lời mới nhất"
 
 # @ dwqa
-#: inc/Shortcode.php:158
+#: inc/Shortcode.php:160
 msgid "Answer at"
 msgstr "Trả lời tại"
 
 # @ dwqa
-#: inc/Shortcode.php:158
+#: inc/Shortcode.php:160
 msgid "Link to"
 msgstr "Liên kết đến"
 
-#: inc/Shortcode.php:186
+#: inc/Shortcode.php:188
 #, php-format
 msgid "%d person who is following this question"
 msgid_plural "%d people who are following this question"
 msgstr[0] ""
 msgstr[1] ""
 
+#: inc/Shortcode.php:218
+msgid "Question List"
+msgstr ""
+
 # @ dwqa
-#: inc/Status.php:288
+#: inc/Status.php:300
 msgid "Answered"
 msgstr "Đã trả lời"
 
 # @ dwqa
-#: inc/Status.php:312
+#: inc/Status.php:324
 msgid "Missing post ID"
 msgstr "Thiếu ID bài viết"
 
 # @ dwqa
-#: inc/Status.php:325
+#: inc/Status.php:337
 msgid "Post does not exist"
 msgstr "Bài viết không tồn tại"
 
 # @ dwqa
-#: inc/Status.php:330
+#: inc/Status.php:342
 msgid "Invalid post status"
 msgstr "Tình trạng bài viết không hợp lệ"
 
@@ -1393,170 +1357,37 @@ msgstr "Danh mục đơn"
 msgid "Showing search results for"
 msgstr ""
 
-#: inc/Template.php:75
-msgid "Filter:"
-msgstr ""
-
-# @ dwqa
-#: inc/Template.php:77
-msgid "All"
-msgstr "Toàn bộ"
-
-#: inc/Template.php:81
-msgid "Unanswered"
-msgstr "Chưa trả lời"
-
-#: inc/Template.php:83
-msgid "My questions"
-msgstr "Câu hỏi của tôi"
-
-#: inc/Template.php:84
-msgid "My subscribes"
-msgstr "Theo dõi của tôi"
-
-#: inc/Template.php:88
-msgid "Subscribes"
-msgstr "Theo dõi"
-
-#: inc/Template.php:91
-msgid "Sort by"
-msgstr "Sắp xếp theo"
-
-#: inc/Template.php:92
-msgid "Views"
-msgstr "Lượt xem"
-
-#: inc/Template.php:94
-msgid "Votes"
-msgstr "Lượt ủng hộ"
-
-#: inc/Template.php:105
+#: inc/Template.php:78
 msgid "What do you want to know?"
 msgstr "Bạn muốn biết gì?"
 
-#: inc/Template.php:177
+#: inc/Template.php:157
 msgid "Subscribe"
 msgstr "Theo dõi"
 
-# @ dwqa
-#: inc/Template.php:289
-msgid "You need an account to submit question and get answers. Create one:"
-msgstr ""
-"Bạn cần một tài khoản để gửi câu hỏi và nhận câu trả lời. Tạo tài khoản:"
-
-# @ dwqa
-#: inc/Template.php:291 inc/Template.php:329
-msgid "Type your email"
-msgstr "Điền email của bạn"
-
-# @ dwqa
-#: inc/Template.php:296
-msgid "Already a member?"
-msgstr "Đã là thành viên chưa?"
-
-# @ dwqa
-#: inc/Template.php:296
-msgid "Log In"
-msgstr "Đăng nhập"
-
-# @ dwqa
-#: inc/Template.php:300
-msgid "Login to submit your question"
-msgstr "Đăng nhập để gửi câu hỏi của bạn"
-
-# @ dwqa
-#: inc/Template.php:302
-msgid "Type your username"
-msgstr "Gõ tên đăng nhập"
-
-# @ dwqa
-#: inc/Template.php:305
-msgid "Type your password"
-msgstr "Gõ mật khẩu của bạn"
-
-# @ dwqa
-#: inc/Template.php:307
-msgid "Not yet a member?"
-msgstr "Không phải là thành viên?"
-
-# @ dwqa
-#: inc/Template.php:307
-msgid "Register"
-msgstr "Đăng ký"
-
-# @ dwqa
-#: inc/Template.php:311
-msgid ""
-"Enter your email to receive notification regarding your question. Your email "
-"is safe with us and will not be published."
-msgstr ""
-"Nhập email của bạn để nhận thông báo liên quan đến câu hỏi của bạn. Email "
-"của bạn được chúng tôi bảo mật và sẽ không được công bố"
-
-# @ dwqa
-#: inc/Template.php:311
-msgid "Your email *"
-msgstr "Email của bạn *"
-
-# @ dwqa
-#: inc/Template.php:312
-msgid "Email address ..."
-msgstr "Địa chỉ email ..."
-
-# @ dwqa
-#: inc/Template.php:313
-#, php-format
-msgid "or <strong><a href=\"%s\">login</a></strong> to submit question"
-msgstr "or <strong><a href=\"%s\">login</a></strong> để gửi câu hỏi"
-
 # @ default
-#: inc/Template.php:341
-#, php-format
-msgid "Private: %s"
-msgstr ""
-
-# @ default
-#: inc/Template.php:460
+#: inc/Template.php:444
 msgid "Email"
 msgstr ""
 
-#: inc/Template.php:462
+#: inc/Template.php:446
 msgid "Name"
 msgstr "Tên"
 
 # @ default
-#: inc/Template.php:464
+#: inc/Template.php:448
 #, php-format
 msgid "Required fields are marked %s"
 msgstr ""
 
-# @ default
-#: inc/Template.php:475
-msgctxt "noun"
-msgid "Comment"
-msgstr ""
-
 # @ dwqa
-#: inc/Template.php:476
+#: inc/Template.php:460
 #, php-format
 msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
 msgstr "Bạn cần phải <a href=\"%s\">đăng nhập</a> để viết bình luận"
 
-# @ default
-#: inc/Template.php:477
-#, php-format
-msgid ""
-"Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of "
-"this account\">Log out?</a>"
-msgstr ""
-
 # @ dwqa
-#: inc/Template.php:478
-msgid "Your email address will not be published."
-msgstr "Địa chỉ email của bạn sẽ không được công bố"
-
-# @ dwqa
-#: inc/Template.php:479
+#: inc/Template.php:463
 #, php-format
 msgid ""
 "You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
@@ -1566,48 +1397,43 @@ msgstr ""
 "tags and attributes: %s"
 
 # @ dwqa
-#: inc/Template.php:482
+#: inc/Template.php:466
 msgid "Leave a Reply"
 msgstr "Để lại một phản hồi"
 
 # @ dwqa
-#: inc/Template.php:483
+#: inc/Template.php:467
 #, php-format
 msgid "Leave a Reply to %s"
 msgstr "Để lại phản hồi tới %s"
 
 # @ dwqa
-#: inc/Template.php:484
+#: inc/Template.php:468
 msgid "Cancel reply"
 msgstr "Hủy bỏ phản hồi"
 
 # @ dwqa
-#: inc/Template.php:485
+#: inc/Template.php:469
 msgid "Post Comment"
 msgstr "Đăng bình luận"
 
 # @ dwqa
-#: inc/Template.php:660
+#: inc/Template.php:644
 msgid "Sticky Question"
 msgstr "Câu hỏi dính"
 
 # @ dwqa
-#: inc/Template.php:674
+#: inc/Template.php:658
 msgid "Ask a question"
 msgstr "Đặt câu hỏi"
 
 # @ dwqa
-#: inc/Template.php:676
+#: inc/Template.php:660
 msgid "Login to ask a question"
 msgstr "Đăng nhập để gửi câu hỏi"
 
 # @ dwqa
-#: inc/Template.php:1065
-msgid "You do not have permission to submit a question"
-msgstr "Bạn không được phép gửi câu hỏi"
-
-# @ dwqa
-#: inc/Template.php:1119
+#: inc/Template.php:1108
 msgid "Choose as the best answer"
 msgstr "Lựa chọn câu trả lời tốt nhất"
 
@@ -1624,7 +1450,7 @@ msgid "Plugin was activated"
 msgstr ""
 
 # @ dwqa
-#: inc/User.php:237
+#: inc/User.php:230
 msgid "Staff"
 msgstr "Nhân viên"
 
@@ -1741,6 +1567,11 @@ msgstr ""
 msgid "Who can see this?"
 msgstr ""
 
+# @ dwqa
+#: templates/answer-submit-form.php:34 templates/question-submit-form.php:25
+msgid "Public"
+msgstr "Đăng công bố"
+
 #: templates/answer-submit-form.php:35 templates/question-submit-form.php:26
 msgid "Only Me &amp; Admin"
 msgstr ""
@@ -1754,18 +1585,51 @@ msgstr ""
 msgid "%s Answers"
 msgstr ""
 
+#: templates/archive-question-filter.php:14
+msgid "Filter:"
+msgstr ""
+
 # @ dwqa
-#: templates/archive-question.php:35
+#: templates/archive-question-filter.php:16
+msgid "All"
+msgstr "Toàn bộ"
+
+#: templates/archive-question-filter.php:22
+msgid "Unanswered"
+msgstr "Chưa trả lời"
+
+#: templates/archive-question-filter.php:24
+msgid "My questions"
+msgstr "Câu hỏi của tôi"
+
+#: templates/archive-question-filter.php:25
+msgid "My subscribes"
+msgstr "Theo dõi của tôi"
+
+#: templates/archive-question-filter.php:29
+msgid "Subscribes"
+msgstr "Theo dõi"
+
+#: templates/archive-question-filter.php:32
+msgid "Sort by"
+msgstr "Sắp xếp theo"
+
+#: templates/archive-question-filter.php:33
+msgid "Views"
+msgstr "Lượt xem"
+
+#: templates/archive-question-filter.php:35
+msgid "Votes"
+msgstr "Lượt ủng hộ"
+
+# @ dwqa
+#: templates/archive-question.php:28
 msgid "Ask Question"
 msgstr "Gửi câu hỏi"
 
-#: templates/captcha-form.php:11
+#: templates/captcha-form.php:20
 msgid "Enter the result"
 msgstr ""
-
-#: templates/comments.php:23
-msgid "Write a comment ..."
-msgstr "Viết bình luận"
 
 #: templates/content-comment.php:16
 #, php-format
@@ -1786,6 +1650,11 @@ msgstr "Lựa chọn danh mục câu hỏi"
 msgid "Save Changes"
 msgstr ""
 
+# @ dwqa
+#: templates/content-none.php:10
+msgid "You do not have permission to view questions"
+msgstr "Bạn không đủ quyền để xem câu hỏi"
+
 #: templates/content-none.php:12
 msgid "Sorry, but nothing matched your filter"
 msgstr ""
@@ -1800,8 +1669,8 @@ msgstr "đã hỏi"
 msgid "<span><a href=\"%s\">%s%s</a> %s %s ago</span>"
 msgstr ""
 
-#: templates/content-question.php:26
-msgid "&nbsp; &bull; &nbsp;"
+#: templates/content-question.php:26 templates/content-single-answer.php:25
+msgid "&nbsp;&bull;&nbsp;"
 msgstr ""
 
 #: templates/content-question.php:31
@@ -1832,9 +1701,19 @@ msgid "Vote Down"
 msgstr "Không đồng ý"
 
 #: templates/content-single-answer.php:17
+#: templates/content-single-answer.php:19
+msgid "Best Answer"
+msgstr ""
+
+#: templates/content-single-answer.php:23
 #, php-format
 msgid "<span><a href=\"%s\">%s%s</a> %s answered %s ago</span>"
 msgstr "<span><a href=\"%s\">%s%s</a> %s trả lời %s trước</span>"
+
+# @ dwqa
+#: templates/content-single-answer.php:26
+msgid "Private"
+msgstr "Riêng tư"
 
 #: templates/content-single-question.php:19
 #, php-format
@@ -1845,8 +1724,20 @@ msgstr "<span><a href=\"%s\">%s%s</a> %s hỏi %s trước</span>"
 msgid "Question Tags: "
 msgstr ""
 
-#: templates/content-single-question.php:28
+#: templates/content-single-question.php:29
 msgid "This question is:"
+msgstr ""
+
+# @ dwqa
+#: templates/question-submit-form.php:68
+msgid "You do not have permission to submit a question"
+msgstr "Bạn không được phép gửi câu hỏi"
+
+#: upgrades/upgrades.php:25
+#, php-format
+msgid ""
+"DW Question Answer needs to upgrade the database, click %shere%s to start "
+"the upgrade."
 msgstr ""
 
 #: upgrades/upgrades.php:33
@@ -1875,6 +1766,291 @@ msgstr ""
 #: upgrades/upgrades.php:172
 msgid "Upgrade process is done"
 msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "DW Question Answer"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"A WordPress plugin was make by DesignWall.com to build an Question Answer "
+"system for support, asking and comunitcate with your customer"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "DesignWall"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.designwall.com"
+msgstr ""
+
+# @ dwqa
+#~ msgid "Publish"
+#~ msgstr "Công bố"
+
+# @ dwqa
+#~ msgid "Everyone can see"
+#~ msgstr "Mọi người có thể thấy"
+
+# @ dwqa
+#~ msgid "Only Author and Administrator can see"
+#~ msgstr ""
+#~ "Chỉ có bạn là tác giả câu hỏi, và chúng tôi là Admin mới nhìn được nội "
+#~ "dung"
+
+# @ dwqa
+#~ msgid "Sorry, but nothing matched your filter. "
+#~ msgstr "Xin lỗi, nhưng không có gì phù hợp với việc lọc nội dung của bạn."
+
+# @ dwqa
+#~ msgid "You can ask question"
+#~ msgstr "Bạn có thể đặt câu hỏi"
+
+# @ dwqa
+#~ msgid "here"
+#~ msgstr "ở đây"
+
+# @ dwqa
+#~ msgid "Please"
+#~ msgstr "Vui lòng"
+
+# @ dwqa
+#~ msgid "Login"
+#~ msgstr "Đăng nhập"
+
+# @ dwqa
+#~ msgid " or"
+#~ msgstr "hoặc"
+
+# @ dwqa
+#~ msgid " to submit question."
+#~ msgstr "để gửi câu hỏi"
+
+# @ dwqa
+#~ msgid "Search query is empty"
+#~ msgstr "Truy vấn tìm kiếm không có kết quả nào"
+
+# @ dwqa
+#~ msgid "A page where displays all questions"
+#~ msgstr "Một trang nơi hiển thị tất cả các câu hỏi"
+
+# @ dwqa
+#~ msgid "A page where users can submit questions."
+#~ msgstr "Một trang cho các thành viên có thể gửi các câu hỏi"
+
+# @ dwqa
+#~ msgid "Upload or choose a logo to be displayed at the top of the email"
+#~ msgstr "Tải lên hoặc chọn một logo để hiện trên đỉnh của email"
+
+# @ dwqa
+#~ msgid "Enable notification for new question"
+#~ msgstr "Cho phép thông báo cho câu hỏi mới"
+
+# @ dwqa
+#~ msgid "Enable notification for new answer"
+#~ msgstr "Cho phép thông báo cho câu trả lời mới"
+
+# @ dwqa
+#~ msgid "Enable notification for new answer (to Followers )"
+#~ msgstr "Cho phép thông báo câu trả lời mới (tới người theo dõi)"
+
+# @ dwqa
+#~ msgid "Enable notification for new comment of question"
+#~ msgstr "Cho phép thông báo bình luận mới của câu hỏi"
+
+# @ dwqa
+#~ msgid "Enable notification for new comment of answer"
+#~ msgstr "Cho phép thông báo khi có bình luận mới của câu trả lời"
+
+# @ dwqa
+#~ msgid "Comment"
+#~ msgstr "Bình luận"
+
+# @ dwqa
+#~ msgid "Enable/Disable captcha on submit question page"
+#~ msgstr "Cho phép/Không cho phép captcha trên trang gửi câu hỏi"
+
+# @ dwqa
+#~ msgid "Enable/Disable captcha on single question page"
+#~ msgstr "Cho phép/Không cho phép captcha trên trang câu hỏi đơn"
+
+# @ dwqa
+#~ msgid "questions"
+#~ msgstr "Các câu hỏi"
+
+# @ dwqa
+#~ msgid "Allow members to post private question"
+#~ msgstr "Cho phép các thành viên đăng câu hỏi riêng tư"
+
+# @ dwqa
+#~ msgid "Question must be manually approved"
+#~ msgstr "Câu hỏi phải được sự chấp thuận"
+
+#~ msgid "Email Setup"
+#~ msgstr "Cài đặt email"
+
+# @ dwqa
+#~ msgid "New Question Notification"
+#~ msgstr "Thông báo câu hỏi mới"
+
+# @ dwqa
+#~ msgid "New Answer Notification"
+#~ msgstr "Thông báo câu trả lời mới"
+
+# @ dwqa
+#, fuzzy
+#~ msgid "New Comment to Question Notification (to Followers )"
+#~ msgstr "Thông báo khi có bình luận mới của câu hỏi (tới người theo dõi)"
+
+# @ dwqa
+#~ msgid "New Comment to Answer Notification"
+#~ msgstr "Thông báo khi có  bình luận mới của câu trả lời"
+
+# @ dwqa
+#, fuzzy
+#~ msgid "New Answer Notification (to Followers )"
+#~ msgstr "Thông báo câu trả lời mới (để theo dõi)"
+
+# @ dwqa
+#~ msgid "New Comment to Answer Notification (to Followers )"
+#~ msgstr "Thông báo khi có bình luận mới của câu trả lời (tới người theo dõi)"
+
+# @ dwqa
+#~ msgid "Archive page show at most"
+#~ msgstr "Trang lữu trữ nhiều nhất"
+
+# @ dwqa
+#~ msgid "Private Question"
+#~ msgstr "Câu hỏi riêng tư"
+
+# @ dwqa
+#~ msgid "Review Question"
+#~ msgstr "Xem xét câu hỏi"
+
+# @ dwqa
+#~ msgid "Time settings"
+#~ msgstr "Cài đặt thời gian"
+
+# @ dwqa
+#~ msgid "New Question Time Frame"
+#~ msgstr "Khung thời gian câu hỏi mới"
+
+# @ dwqa
+#~ msgid "Question Overdue - Time Frame"
+#~ msgstr "Khung thời gian cho câu hỏi quá hạn"
+
+# @ dwqa
+#~ msgid "Captcha settings"
+#~ msgstr "Cài đặt captcha"
+
+# @ dwqa
+#~ msgid "Captcha on Submit Question Page"
+#~ msgstr "Captcha trên trang gửi câu hỏi"
+
+# @ dwqa
+#~ msgid "Captcha on Single Question Page"
+#~ msgstr "Captcha trên trang câu hỏi đơn"
+
+# @ dwqa
+#~ msgid "Single Question"
+#~ msgstr "Câu hỏi đơn"
+
+# @ dwqa
+#~ msgid "Single Category"
+#~ msgstr "Danh mục đơn"
+
+# @ dwqa
+#~ msgid "Single Tag"
+#~ msgstr "Tag đơn"
+
+# @ dwqa
+#~ msgid "Notification"
+#~ msgstr "Thông báo"
+
+# @ dwqa
+#~ msgid "Permission"
+#~ msgstr "Phân quyền"
+
+# @ dwqa
+#~ msgid "Email setup"
+#~ msgstr "Cài đặt email"
+
+# @ dwqa
+#~ msgid "New Comment to Question Notification"
+#~ msgstr "Thông báo khi có bình luận mới của câu hỏi"
+
+# @ dwqa
+#~ msgid "Send to"
+#~ msgstr "Gửi tới"
+
+# @ dwqa
+#~ msgid "Send A Copy Of Every Email To Admin"
+#~ msgstr "Gửi bản sao của tất cả email tới Admin"
+
+# @ dwqa
+#~ msgid "You need an account to submit question and get answers. Create one:"
+#~ msgstr ""
+#~ "Bạn cần một tài khoản để gửi câu hỏi và nhận câu trả lời. Tạo tài khoản:"
+
+# @ dwqa
+#~ msgid "Type your email"
+#~ msgstr "Điền email của bạn"
+
+# @ dwqa
+#~ msgid "Already a member?"
+#~ msgstr "Đã là thành viên chưa?"
+
+# @ dwqa
+#~ msgid "Log In"
+#~ msgstr "Đăng nhập"
+
+# @ dwqa
+#~ msgid "Login to submit your question"
+#~ msgstr "Đăng nhập để gửi câu hỏi của bạn"
+
+# @ dwqa
+#~ msgid "Type your username"
+#~ msgstr "Gõ tên đăng nhập"
+
+# @ dwqa
+#~ msgid "Type your password"
+#~ msgstr "Gõ mật khẩu của bạn"
+
+# @ dwqa
+#~ msgid "Not yet a member?"
+#~ msgstr "Không phải là thành viên?"
+
+# @ dwqa
+#~ msgid "Register"
+#~ msgstr "Đăng ký"
+
+# @ dwqa
+#~ msgid ""
+#~ "Enter your email to receive notification regarding your question. Your "
+#~ "email is safe with us and will not be published."
+#~ msgstr ""
+#~ "Nhập email của bạn để nhận thông báo liên quan đến câu hỏi của bạn. Email "
+#~ "của bạn được chúng tôi bảo mật và sẽ không được công bố"
+
+# @ dwqa
+#~ msgid "Your email *"
+#~ msgstr "Email của bạn *"
+
+# @ dwqa
+#~ msgid "Email address ..."
+#~ msgstr "Địa chỉ email ..."
+
+# @ dwqa
+#~ msgid "or <strong><a href=\"%s\">login</a></strong> to submit question"
+#~ msgstr "or <strong><a href=\"%s\">login</a></strong> để gửi câu hỏi"
+
+# @ dwqa
+#~ msgid "Your email address will not be published."
+#~ msgstr "Địa chỉ email của bạn sẽ không được công bố"
+
+#~ msgid "Write a comment ..."
+#~ msgstr "Viết bình luận"
 
 # @ default
 # @ dwqa

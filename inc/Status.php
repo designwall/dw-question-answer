@@ -329,7 +329,7 @@ class DWQA_Status {
 		if ( dwqa_current_user_can( 'edit_question' ) || $current_user->ID == $post_author ) {
 			$status = 'publish';
 			if ( isset( $_POST['status'] ) && in_array( $_POST['status'], array( 'close', 'open', 'resolved' ) ) ) {
-				$update = update_post_meta( $_POST['post'], '_dwqa_status', esc_html( $_POST['status'] ) );
+				$update = update_post_meta( intval( $_POST['post'] ), '_dwqa_status', esc_html( $_POST['status'] ) );
 				if ( $update ) {
 					wp_send_json_success( array( 'ID' => $update ) );
 				} else {

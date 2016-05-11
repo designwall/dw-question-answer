@@ -67,7 +67,7 @@ class DWQA_Handle {
 		$question_id = intval( $_POST['question_id'] );
 
 		$answer_title = __( 'Answer for ', 'dwqa' ) . get_post_field( 'post_title', $question_id );
-		$answ_content = apply_filters( 'dwqa_prepare_answer_content', sanitize_text_field( $_POST['answer-content'] ) );
+		$answ_content = apply_filters( 'dwqa_prepare_answer_content', $_POST['answer-content'] );
 
 		$answers = array(
 			'comment_status' => 'open',
@@ -133,7 +133,7 @@ class DWQA_Handle {
 				dwqa_add_notice( __( 'Hello, Are you cheating huh?', 'dwqa' ), 'error' );
 			}
 
-			$answer_content = apply_filters( 'dwqa_prepare_edit_answer_content', sanitize_text_field( $_POST['answer_content'] ) );
+			$answer_content = apply_filters( 'dwqa_prepare_edit_answer_content', $_POST['answer_content'] );
 			if ( empty( $answer_content ) ) {
 				dwqa_add_notice( __( 'You must enter a valid answer content.', 'dwqa' ), 'error' );
 			}
@@ -184,7 +184,7 @@ class DWQA_Handle {
 			if ( ! isset( $_POST['comment_post_ID'] ) ) {
 				dwqa_add_notice( __( 'Missing post id.', 'dwqa' ), 'error', true );
 			}
-			$comment_content = isset( $_POST['comment'] ) ? sanitize_text_field( $_POST['comment'] ) : '';
+			$comment_content = isset( $_POST['comment'] ) ? $_POST['comment'] : '';
 			$comment_content = apply_filters( 'dwqa_pre_comment_content', $comment_content );
 
 			if ( empty( $comment_content ) ) {
@@ -237,7 +237,7 @@ class DWQA_Handle {
 				dwqa_add_notice( __( 'Comment is missing', 'dwqa' ), 'error' );
 			}
 			$comment_id = intval( $_POST['comment_id'] );
-			$comment_content = isset( $_POST['comment_content'] ) ? esc_html( $_POST['comment_content'] ) : '';
+			$comment_content = isset( $_POST['comment_content'] ) ? $_POST['comment_content'] : '';
 			$comment_content = apply_filters( 'dwqa_pre_update_comment_content', $comment_content );
 
 			if ( ! isset( $_POST['_wpnonce'] ) || ! wp_verify_nonce( sanitize_text_field( $_POST['_wpnonce'] ), '_dwqa_edit_comment' ) ) {
@@ -294,7 +294,7 @@ class DWQA_Handle {
 					$tags = isset( $_POST['question-tag'] ) ?
 								esc_html( $_POST['question-tag'] ): '';
 
-					$content = isset( $_POST['question-content'] ) ? sanitize_text_field( $_POST['question-content'] ) : '';
+					$content = isset( $_POST['question-content'] ) ?  $_POST['question-content']  : '';
 					$content = apply_filters( 'dwqa_prepare_question_content', $content );
 
 					$user_id = 0;
@@ -456,7 +456,7 @@ class DWQA_Handle {
 					dwqa_add_notice( __( 'This post is not question.', 'dwqa' ), 'error' );
 				}
 
-				$question_content = apply_filters( 'dwqa_prepare_edit_question_content', sanitize_text_field( $_POST['question_content'] ) );
+				$question_content = apply_filters( 'dwqa_prepare_edit_question_content', $_POST['question_content'] );
 
 				$tags = isset( $_POST['question-tag'] ) ? esc_html( $_POST['question-tag'] ): '';
 				$category = isset( $_POST['question-category'] ) ? intval( $_POST['question-category'] ) : 0;

@@ -116,7 +116,9 @@ class DWQA_Handle {
 				}
 			}
 
-			do_action( 'dwqa_add_answer', $answer_id, $question_id );
+			// do_action( 'dwqa_add_answer', $answer_id, $question_id );
+			$this->update_modified_date( $question_id , current_time( 'timestamp', 0 ), current_time( 'timestamp', 1 ) );
+
 			exit( wp_redirect( get_permalink( $question_id ) ) );
 		} else {
 			dwqa_add_wp_error_message( $answer_id );
@@ -166,6 +168,8 @@ class DWQA_Handle {
 				$new_post = get_post( $new_answer_id );
 				do_action( 'dwqa_update_answer', $new_answer_id, $old_post, $new_post );
 				$question_id = get_post_meta( $new_answer_id, '_question', true );
+				$this->update_modified_date( $question_id , current_time( 'sql', 0 ), current_time( 'sql', 1 ) );
+
 				wp_safe_redirect( get_permalink( $question_id ) . '#answer-' . $new_answer_id );
 			} else {
 				dwqa_add_wp_error_message( $new_answer_id );
@@ -537,5 +541,18 @@ class DWQA_Handle {
 			do_action( 'dwqa_add_question', $new_question, $user_id );
 		}
 		return $new_question;
+	}
+
+	function update_modified_date( $question_id, $modified_date, $modified_date_gmt ) {
+		$data = array(
+			'ID' => $question_id,
+			'post_modified' => $this->timeformat_convert( $modified_date ),
+			'post_modified_gmt' => $this->timeformat_convert( $modified_date_gmt ),
+		);
+		wp_update_post( $data );
+	}
+
+	function timeformat_convert( $timestamp ) {
+		return date("Y-m-d H:i:s", $timestamp );
 	}
 }

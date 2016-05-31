@@ -141,6 +141,7 @@ function dwqa_has_question( $args = array() ) {
 function dwqa_the_question() {
 	global $wp_query;
 
+	$wp_query->dwqa_questions->set( 'orderby', 'modified' );
 	return $wp_query->dwqa_questions->the_post();
 }
 

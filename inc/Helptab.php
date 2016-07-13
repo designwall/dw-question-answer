@@ -31,8 +31,12 @@ class DWQA_Helptab {
 			return $current_screen->post_type;
 
 		//lastly check the post_type querystring
-		elseif ( isset( $_REQUEST['post_type'] ) )
+		elseif ( isset( $_REQUEST['post_type'] ) ) {
+			//Some plugins set post_type to an array
+			if ( is_array( $_REQUEST['post_type'] ) )
+				return null;
 			return sanitize_key( $_REQUEST['post_type'] );
+		}
 	}
 
 	private function create_tabs(){

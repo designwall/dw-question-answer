@@ -406,6 +406,7 @@ class DWQA_Handle {
 
 					if ( apply_filters( 'dwqa-current-user-can-add-question', dwqa_current_user_can( 'post_question' ), $postarr ) ) {
 						$new_question = $this->insert_question( $postarr );
+						do_action('dwqa_after_insert_question',$new_question);
 					} else {
 						//$dwqa_submit_question_errors->add( 'submit_question',  __( 'You do not have permission to submit question.', 'dwqa' ) );
 						dwqa_add_notice( __( 'You do not have permission to submit question.', 'dwqa' ), 'error' );

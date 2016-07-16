@@ -61,6 +61,7 @@
 		<?php endif; ?>
 		<?php wp_nonce_field( '_dwqa_submit_question' ) ?>
 		<?php dwqa_load_template( 'captcha', 'form' ); ?>
+		<?php do_action('dwqa_before_question_submit_button'); ?>
 		<input type="submit" name="dwqa-question-submit" value="<?php _e( 'Submit', 'dwqa' ) ?>" >
 	</form>
 	<?php do_action( 'dwqa_after_question_submit_form' ); ?>

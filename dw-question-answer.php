@@ -9,36 +9,22 @@
  *  @since 1.4.0
  */
 
-// DWQA plugin dir path
-if ( ! defined( 'DWQA_DIR' ) ) {
-	define( 'DWQA_DIR', plugin_dir_path( __FILE__ ) );
-}
-// DWQA plugin dir URI
-if ( ! defined( 'DWQA_URI' ) ) {
-	define( 'DWQA_URI', plugin_dir_url( __FILE__ ) );
-}
-
-// These lines just is used to back to older version of this plugin
-// require_once DWQA_DIR . 'dw-question-answer-bak.php';
-// return;
-
-// Add autoload class
-require_once DWQA_DIR . 'inc/autoload.php';
-require_once DWQA_DIR . 'inc/helper/functions.php';
-//require_once DWQA_DIR . 'upgrades/upgrades.php';
-require_once DWQA_DIR . 'inc/deprecated.php';
-
-require_once DWQA_DIR . 'inc/widgets/Closed_Question.php';
-require_once DWQA_DIR . 'inc/widgets/Latest_Question.php';
-require_once DWQA_DIR . 'inc/widgets/Popular_Question.php';
-require_once DWQA_DIR . 'inc/widgets/Related_Question.php';
+if ( !class_exists( 'DW_Question_Answer' ) ) :
 
 class DW_Question_Answer {
 	private $last_update = 010220161055; //last update time of the plugin
 
 	public function __construct() {
+		$this->define_constants();
+		$this->includes();
+
 		$this->dir = DWQA_DIR;
 		$this->uri = DWQA_URI;
+		$this->temp_dir = DWQA_TEMP_DIR;
+		$this->temp_uri = DWQA_TEMP_URL;
+		$this->stylesheet_dir = DWQA_STYLESHEET_DIR;
+		$this->stylesheet_uri = DWQA_STYLESHEET_URL;
+
 		$this->version = '1.4.3.3';
 
 		// load posttype
@@ -75,11 +61,56 @@ class DW_Question_Answer {
 		register_deactivation_hook( __FILE__, array( $this, 'deactivate_hook' ) );
 	}
 
+	public static function instance() {
+		static $instance = null;
+
+		if ( is_null( $instance ) ) {
+			$instance = new self();
+		}
+
+		return $instance;
+	}
+
+	public function includes() {
+		require_once DWQA_DIR . 'inc/autoload.php';
+		require_once DWQA_DIR . 'inc/helper/functions.php';
+		//require_once DWQA_DIR . 'upgrades/upgrades.php';
+		require_once DWQA_DIR . 'inc/deprecated.php';
+
+		require_once DWQA_DIR . 'inc/widgets/Closed_Question.php';
+		require_once DWQA_DIR . 'inc/widgets/Latest_Question.php';
+		require_once DWQA_DIR . 'inc/widgets/Popular_Question.php';
+		require_once DWQA_DIR . 'inc/widgets/Related_Question.php';
+	}
+
+	public function define_constants() {
+		$defines = array(
+			'DWQA_DIR' => plugin_dir_path( __FILE__ ),
+			'DWQA_URI' => plugin_dir_url( __FILE__ ),
+			'DWQA_TEMP_DIR' => trailingslashit( get_template_directory() ),
+			'DWQA_TEMP_URL' => trailingslashit( get_template_directory_uri() ),
+			'DWQA_STYLESHEET_DIR' => trailingslashit( get_stylesheet_directory() ),
+			'DWQA_STYLESHEET_URL' => trailingslashit( get_stylesheet_directory_uri() ),
+		);
+
+		foreach( $defines as $k => $v ) {
+			if ( !defined( $k ) ) {
+				define( $k, $v );
+			}
+		}
+	}
+
 	public function widgets_init() {
-		register_widget( 'DWQA_Widgets_Closed_Question' );
-		register_widget( 'DWQA_Widgets_Latest_Question' );
-		register_widget( 'DWQA_Widgets_Popular_Question' );
-		register_widget( 'DWQA_Widgets_Related_Question' );
+		$widgets = array(
+			'DWQA_Widgets_Closed_Question',
+			'DWQA_Widgets_Latest_Question',
+			'DWQA_Widgets_Popular_Question',
+			'DWQA_Widgets_Related_Question'
+		);
+
+		foreach( $widgets as $widget ) {
+			register_widget( $widget );
+		}
 	}
 
 	public function init() {
@@ -95,46 +126,7 @@ class DW_Question_Answer {
 		$question_tag_rewrite = $dwqa_general_settings['question-tag-rewrite'];
 		$question_tag_rewrite = $question_tag_rewrite ? $question_tag_rewrite : 'question-tag';
 		$dwqa_sript_vars = array(
-			'is_logged_in'  => is_user_logged_in(),
-			'plugin_dir_url' => DWQA_URI,
-			'code_icon'     => DWQA_URI . 'inc/templates/' . $active_template . '/assets/img/icon-code.png',
 			'ajax_url'      => admin_url( 'admin-ajax.php' ),
-			'text_next'     => __( 'Next','dwqa' ),
-			'text_prev'     => __( 'Prev','dwqa' ),
-			'questions_archive_link'    => get_post_type_archive_link( 'dwqa-question' ),
-			'error_missing_question_content'    => __( 'Please enter your question', 'dwqa' ),
-			'error_question_length' => __( 'Your question must be at least 2 characters in length', 'dwqa' ),
-			'error_valid_email'    => __( 'Enter a valid email address', 'dwqa' ),
-			'error_valid_user'    => __( 'Enter a question title', 'dwqa' ),
-			'error_valid_name'    => __( 'Please add your name', 'dwqa' ),
-			'error_missing_answer_content'  => __( 'Please enter your answer', 'dwqa' ),
-			'error_missing_comment_content' => __( 'Please enter your comment content', 'dwqa' ),
-			'error_not_enought_length'      => __( 'Comment must have more than 2 characters', 'dwqa' ),
-			'search_not_found_message'  => __( 'Not found! Try another keyword.', 'dwqa' ),
-			'search_enter_get_more'  => __( 'Or press <strong>ENTER</strong> to get more questions', 'dwqa' ),
-			'comment_edit_submit_button'    => __( 'Update', 'dwqa' ),
-			'comment_edit_link'    => __( 'Edit', 'dwqa' ),
-			'comment_edit_cancel_link'    => __( 'Cancel', 'dwqa' ),
-			'comment_delete_confirm'        => __( 'Do you want to delete this comment?', 'dwqa' ),
-			'answer_delete_confirm'     => __( 'Do you want to delete this answer?', 'dwqa' ),
-			'answer_update_privacy_confirm' => __( 'Do you want to update this answer?', 'dwqa' ),
-			'report_answer_confirm' => __( 'Do you want to report this answer?', 'dwqa' ),
-			'flag'      => array(
-				'label'         => __( 'Report', 'dwqa' ),
-				'label_revert'  => __( 'Undo', 'dwqa' ),
-				'text'          => __( 'This answer will be marked as spam and hidden. Do you want to flag it?', 'dwqa' ),
-				'revert'        => __( 'This answer was flagged as spam. Do you want to show it', 'dwqa' ),
-				'flag_alert'         => __( 'This answer was flagged as spam', 'dwqa' ),
-				'flagged_hide'  => __( 'hide', 'dwqa' ),
-				'flagged_show'  => __( 'show', 'dwqa' ),
-			),
-			'follow_tooltip'    => __( 'Follow This Question', 'dwqa' ),
-			'unfollow_tooltip'  => __( 'Unfollow This Question', 'dwqa' ),
-			'stick_tooltip'    => __( 'Pin this question to top', 'dwqa' ),
-			'unstick_tooltip'  => __( 'Unpin this question from top', 'dwqa' ),
-			'question_category_rewrite' => $question_category_rewrite,//$question_category_rewrite,
-			'question_tag_rewrite'      => $question_tag_rewrite, //$question_tag_rewrite,
-			'delete_question_confirm' => __( 'Do you want to delete this question?', 'dwqa' )
 		);
 
 		$this->flush_rules();
@@ -247,4 +239,11 @@ class DW_Question_Answer {
 		return $meta;
 	}
 }
-$GLOBALS['dwqa'] = new DW_Question_Answer();
+
+function dwqa() {
+	return DW_Question_Answer::instance();
+}
+
+$GLOBALS['dwqa'] = dwqa();
+
+endif;

@@ -305,6 +305,7 @@ function dwqa_enqueue_scripts(){
 
     // Enqueue style
     wp_enqueue_style( 'dwqa-style', $assets_folder . 'css/style.css', array(), $script_version );
+    wp_enqueue_style( 'dwqa-rtl', $assets_folder . 'css/rtl.css', array(), $script_version );
     // Enqueue for single question page
     if( is_single() && 'dwqa-question' == get_post_type() ) {
         // js

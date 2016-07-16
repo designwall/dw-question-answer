@@ -1,0 +1,49 @@
+.rtl .dwqa-search input {
+	background-position: 15px center !important;
+	padding-left: 40px;
+}
+
+.rtl .dwqa-question-filter .dwqa-sort-by {
+	float: left;
+}
+
+.rtl .dwqa-questions-list .dwqa-question-item {
+	padding: 15px 80px 15px 180px;
+}
+
+.rtl .dwqa-questions-list .dwqa-question-item .dwqa-question-stats {
+	right: auto;
+	left: 10px;
+}
+
+.rtl .dwqa-questions-list .dwqa-question-item .avatar {
+	left: auto;
+	right: 15px;
+	margin-right: 0;
+	margin-left: 5px;
+}
+
+.rtl .dwqa-question-item .dwqa-status {
+	margin-right: 0;
+	margin-left: 10px;
+	left: 0;
+	right: 15px;
+}
+
+.rtl.single-dwqa-question .dwqa-question-item .avatar,
+.rtl.single-dwqa-question .dwqa-answer-item .avatar {
+	float: right;
+	margin-right: 0;
+	margin-left: 10px;
+}
+
+.rtl .dwqa-question-item .dwqa-question-actions,
+.rtl .dwqa-answer-item .dwqa-answer-actions,
+.rtl .dwqa-answer-item .dwqa-comment-actions {
+	float: left;
+}
+
+.rtl.single-dwqa-question .dwqa-question-item .dwqa-staff,
+.rtl.single-dwqa-question .dwqa-answer-item .dwqa-staff {
+	margin: 0 10px 0 0;
+}

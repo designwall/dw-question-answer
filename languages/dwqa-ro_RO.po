@@ -2,157 +2,26 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DW Question Answer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-25 10:04+0700\n"
-"PO-Revision-Date: 2016-03-25 10:04+0700\n"
+"POT-Creation-Date: 2016-07-18 14:04+0700\n"
+"PO-Revision-Date: 2016-07-18 14:04+0700\n"
 "Last-Translator: DesignWall <webmaster@designwall.com>\n"
 "Language-Team: DesignWall <webmaster@designwall.com>\n"
 "Language: ro_RO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.6\n"
+"X-Generator: Poedit 1.8.7\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?"
 "2:1));\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: dw-question-answer.php:102
-msgid "Next"
-msgstr "Următor"
-
-#: dw-question-answer.php:103
-msgid "Prev"
-msgstr "Anterior"
-
-#: dw-question-answer.php:105
-msgid "Please enter your question"
-msgstr "Adaugă întrebarea"
-
-#: dw-question-answer.php:106
-msgid "Your question must be at least 2 characters in length"
-msgstr "Întrebarea trebuie să aibă cel puțin două caractere în lungime"
-
-#: dw-question-answer.php:107
-msgid "Enter a valid email address"
-msgstr "Adaugă o adresă de e-mail validă"
-
-#: dw-question-answer.php:108
-msgid "Enter a question title"
-msgstr "Adaugă un titlu întrebării"
-
-#: dw-question-answer.php:109
-msgid "Please add your name"
-msgstr "Adaugă numele tău"
-
-#: dw-question-answer.php:110
-msgid "Please enter your answer"
-msgstr "Adaugă răspunsul tău"
-
-#: dw-question-answer.php:111 inc/Handle.php:191
-msgid "Please enter your comment content"
-msgstr "Adaugă comentariul tău"
-
-#: dw-question-answer.php:112
-msgid "Comment must have more than 2 characters"
-msgstr "Comentariile trebuie să aibă mai mult de două caractere"
-
-#: dw-question-answer.php:113
-msgid "Not found! Try another keyword."
-msgstr "Nu am găsit! Încearcă să cauți altceva."
-
-#: dw-question-answer.php:114
-msgid "Or press <strong>ENTER</strong> to get more questions"
-msgstr "Sau apasă <strong>ENTER</strong> pentru a afișa mai multe întrebări"
-
-#: dw-question-answer.php:115
-msgid "Update"
-msgstr "Actualizare"
-
-#: dw-question-answer.php:116 inc/Posts/Answer.php:317 inc/Posts/Base.php:320
-#: inc/Settings.php:402 inc/Template.php:58 inc/Template.php:163
-#: inc/Template.php:180 templates/content-comment.php:19
-msgid "Edit"
-msgstr "Editare"
-
-#: dw-question-answer.php:117
-msgid "Cancel"
-msgstr "Anulează"
-
-#: dw-question-answer.php:118
-msgid "Do you want to delete this comment?"
-msgstr "Vrei să ștergi acest comentariu?"
-
-#: dw-question-answer.php:119
-msgid "Do you want to delete this answer?"
-msgstr "Vrei să ștergi acest răspuns?"
-
-#: dw-question-answer.php:120
-#, fuzzy
-msgid "Do you want to update this answer?"
-msgstr "Vrei să actualizezi acest răspuns"
-
-#: dw-question-answer.php:121
-#, fuzzy
-msgid "Do you want to report this answer?"
-msgstr "Vrei să raportezi acest răspuns"
-
-#: dw-question-answer.php:123
-msgid "Report"
-msgstr "Raportează"
-
-#: dw-question-answer.php:124
-msgid "Undo"
-msgstr "Anulează"
-
-#: dw-question-answer.php:125
-msgid "This answer will be marked as spam and hidden. Do you want to flag it?"
-msgstr "Acest răspuns va fi marcat ca spam și ascuns. Vrei să îl marchezi?"
-
-#: dw-question-answer.php:126
-msgid "This answer was flagged as spam. Do you want to show it"
-msgstr "Acest răspuns a fost marcat ca spam. Vrei să fie afișat"
-
-#: dw-question-answer.php:127
-msgid "This answer was flagged as spam"
-msgstr "Acest răspuns a fost marcat ca spam"
-
-#: dw-question-answer.php:128
-msgid "hide"
-msgstr "ascunde"
-
-#: dw-question-answer.php:129
-msgid "show"
-msgstr "arată"
-
-#: dw-question-answer.php:131
-msgid "Follow This Question"
-msgstr "Urmărește această întrebare"
-
-#: dw-question-answer.php:132
-msgid "Unfollow This Question"
-msgstr "Nu mai urmări această întrebare"
-
-#: dw-question-answer.php:133
-#, fuzzy
-msgid "Pin this question to top"
-msgstr "Fixează această întrebare pe prima pagină"
-
-#: dw-question-answer.php:134
-#, fuzzy
-msgid "Unpin this question from top"
-msgstr "Defixează această întrebare de pe prima pagină"
-
-#: dw-question-answer.php:137
-#, fuzzy
-msgid "Do you want to delete this question?"
-msgstr "Vrei să ștergi acest comentariu?"
-
-#: dw-question-answer.php:153
+#: dw-question-answer.php:147
 msgid "DWQA Questions"
 msgstr "Întrebări DWQA"
 
-#: dw-question-answer.php:170
+#: dw-question-answer.php:164
 msgid "DWQA Ask Question"
 msgstr "Întreabă DWQA"
 
@@ -229,12 +98,12 @@ msgid "No valid changelog was found."
 msgstr ""
 
 #: inc/Ajax.php:29 inc/Ajax.php:47 inc/Ajax.php:83 inc/Ajax.php:113
-#: inc/Ajax.php:132 inc/Ajax.php:150 inc/Ajax.php:215 inc/Handle.php:244
-#: inc/Handle.php:430 inc/Permission.php:286 inc/Status.php:319
+#: inc/Ajax.php:132 inc/Ajax.php:150 inc/Ajax.php:215 inc/Handle.php:256
+#: inc/Handle.php:455 inc/Permission.php:286 inc/Status.php:319
 msgid "Are you cheating huh?"
 msgstr "Trișezi?"
 
-#: inc/Ajax.php:33 inc/Handle.php:248
+#: inc/Ajax.php:33 inc/Handle.php:260
 msgid "You do not have permission to edit comment."
 msgstr ""
 
@@ -243,11 +112,11 @@ msgstr ""
 msgid "Comment ID must be showed."
 msgstr "ID-ul comentariului trebuie să fie afișat."
 
-#: inc/Ajax.php:51 inc/Handle.php:144
+#: inc/Ajax.php:51 inc/Handle.php:154
 msgid "Answer is missing."
 msgstr ""
 
-#: inc/Ajax.php:55 inc/Handle.php:148
+#: inc/Ajax.php:55 inc/Handle.php:158
 msgid "This post is not answer."
 msgstr ""
 
@@ -259,11 +128,11 @@ msgstr ""
 msgid "Missing id of answer"
 msgstr "Lipsește ID-ul răspunsului"
 
-#: inc/Ajax.php:154 inc/Handle.php:452
+#: inc/Ajax.php:154 inc/Handle.php:477
 msgid "Question is missing."
 msgstr ""
 
-#: inc/Ajax.php:158 inc/Handle.php:456
+#: inc/Ajax.php:158 inc/Handle.php:481
 msgid "This post is not question."
 msgstr ""
 
@@ -284,10 +153,10 @@ msgstr "Autor"
 msgid "Detail"
 msgstr "Detalii"
 
-#: inc/Answer_List_Table.php:92 inc/Notifications.php:146
-#: inc/Notifications.php:148 inc/Posts/Base.php:230 inc/Posts/Comment.php:102
-#: inc/Settings.php:419 inc/Settings.php:455 inc/Settings.php:490
-#: inc/User.php:155 inc/widgets/Latest_Question.php:39
+#: inc/Answer_List_Table.php:92 inc/Notifications.php:116
+#: inc/Notifications.php:212 inc/Notifications.php:230 inc/Posts/Base.php:230
+#: inc/Posts/Comment.php:102 inc/Settings.php:419 inc/Settings.php:455
+#: inc/Settings.php:490 inc/User.php:155 inc/widgets/Latest_Question.php:39
 msgid "Anonymous"
 msgstr "Anonim"
 
@@ -295,7 +164,7 @@ msgstr "Anonim"
 msgid "Answered on "
 msgstr "Răspuns pe"
 
-#: inc/Answer_List_Table.php:112 inc/Helptab.php:149
+#: inc/Answer_List_Table.php:112 inc/Helptab.php:153
 msgid "Read more"
 msgstr "Citește mai mult"
 
@@ -315,94 +184,98 @@ msgstr ""
 msgid "Question is empty"
 msgstr ""
 
-#: inc/Handle.php:46 inc/Handle.php:407
+#: inc/Handle.php:46 inc/Handle.php:432
 msgid "You do not have permission to submit question."
 msgstr "Nu ai permisiuni pentru a adăuga întrebarea."
 
-#: inc/Handle.php:50 inc/Handle.php:426
-msgid "Captcha is not correct"
-msgstr "Captcha nu este corect"
-
-#: inc/Handle.php:69
-msgid "Answer for "
-msgstr "Răspuns pentru"
-
-#: inc/Handle.php:129
-msgid "You do not have permission to edit answer."
-msgstr ""
-
-#: inc/Handle.php:133 inc/Handle.php:495 inc/Posts/Question.php:473
-#, fuzzy
-msgid "Hello, Are you cheating huh?"
-msgstr "\"Helllo\", trișezi?."
-
-#: inc/Handle.php:138
-msgid "You must enter a valid answer content."
-msgstr ""
-
-#: inc/Handle.php:182
-msgid "You can't post comment"
-msgstr "Nu poți adăuga comentariu"
-
-#: inc/Handle.php:185
-msgid "Missing post id."
-msgstr ""
-
-#: inc/Handle.php:206
+#: inc/Handle.php:50 inc/Handle.php:218 inc/Handle.php:300
 #, fuzzy
 msgid "Missing email information"
 msgstr "Lipsește e-mail-ul"
 
-#: inc/Handle.php:210
+#: inc/Handle.php:54 inc/Handle.php:222 inc/Handle.php:305
 #, fuzzy
 msgid "Missing name information"
 msgstr "Lipsește numele"
 
-#: inc/Handle.php:237
+#: inc/Handle.php:58 inc/Handle.php:451
+msgid "Captcha is not correct"
+msgstr "Captcha nu este corect"
+
+#: inc/Handle.php:77
+msgid "Answer for "
+msgstr "Răspuns pentru"
+
+#: inc/Handle.php:139
+msgid "You do not have permission to edit answer."
+msgstr ""
+
+#: inc/Handle.php:143 inc/Handle.php:520 inc/Posts/Question.php:473
+#, fuzzy
+msgid "Hello, Are you cheating huh?"
+msgstr "\"Helllo\", trișezi?."
+
+#: inc/Handle.php:148
+msgid "You must enter a valid answer content."
+msgstr ""
+
+#: inc/Handle.php:194
+msgid "You can't post comment"
+msgstr "Nu poți adăuga comentariu"
+
+#: inc/Handle.php:197
+msgid "Missing post id."
+msgstr ""
+
+#: inc/Handle.php:203
+msgid "Please enter your comment content"
+msgstr "Adaugă comentariul tău"
+
+#: inc/Handle.php:249
 msgid "Comment is missing"
 msgstr ""
 
-#: inc/Handle.php:252
+#: inc/Handle.php:264
 msgid "Comment content must not be empty."
 msgstr "Comentariul nu poate să lipsească."
 
-#: inc/Handle.php:282 inc/Handle.php:446
+#: inc/Handle.php:294 inc/Handle.php:471
 msgid "You must enter a valid question title."
 msgstr ""
 
-#: inc/Handle.php:360
+#: inc/Handle.php:384
 msgid "User Registration was disabled."
 msgstr "Înregistrarea a fost dezactivată."
 
-#: inc/Handle.php:363
+#: inc/Handle.php:387
 msgid "This email is already registered, please choose another one."
 msgstr "Acest e-mail este deja înregistrat, te rugăm să alegi altul."
 
-#: inc/Handle.php:366
+#: inc/Handle.php:390
 #, fuzzy
 msgid "This username is already registered. Please use another one."
 msgstr ""
 "Acest nume de utilizator este deja înregistrat, te rugăm să alegi altul."
 
-#: inc/Handle.php:419
+#: inc/Handle.php:444
 msgid "Your question is waiting moderator."
 msgstr ""
 
-#: inc/Handle.php:441 inc/Status.php:347
+#: inc/Handle.php:466 inc/Status.php:347
 #, fuzzy
 msgid "You do not have permission to edit question"
 msgstr "Nu ai permisiuni pentru a adăuga întrebarea."
 
-#: inc/Helptab.php:43
+#: inc/Helptab.php:47
 msgid "Overview"
 msgstr "Vedere de ansamblu"
 
-#: inc/Helptab.php:44
+#: inc/Helptab.php:48
 #, fuzzy
 msgid "DW Question Answer Plugin"
 msgstr "De ce să folosești DW Question & Answer"
 
-#: inc/Helptab.php:45
+#: inc/Helptab.php:49
 msgid ""
 "DW Question Answer is a WordPress Plugin which helps you build a Question & "
 "Answer system on your WordPress sites. The plugin is easy to install and set "
@@ -410,43 +283,43 @@ msgid ""
 "answer system."
 msgstr ""
 
-#: inc/Helptab.php:48
+#: inc/Helptab.php:52
 #, fuzzy
 msgid "Setup Question List Page"
 msgstr "Pagina cu lista întrebărilor"
 
-#: inc/Helptab.php:52
+#: inc/Helptab.php:56
 #, fuzzy
 msgid "Setup Ask Question Page"
 msgstr "Pagina pentru adăugarea întrebării"
 
-#: inc/Helptab.php:56
+#: inc/Helptab.php:60
 msgid "Shortcode"
 msgstr ""
 
-#: inc/Helptab.php:60
+#: inc/Helptab.php:64
 msgid "Style integration"
 msgstr ""
 
-#: inc/Helptab.php:169
+#: inc/Helptab.php:173
 msgid "For more information:"
 msgstr "Pentru mai multe informații:"
 
-#: inc/Helptab.php:170
+#: inc/Helptab.php:174
 #, fuzzy
 msgid "DW Question Answer Guide"
 msgstr "De ce să folosești DW Question & Answer"
 
-#: inc/Helptab.php:171
+#: inc/Helptab.php:175
 #, fuzzy
 msgid "Community"
 msgstr "Comentariu"
 
-#: inc/Helptab.php:172
+#: inc/Helptab.php:176
 msgid "DesignWall Wordpress Themes"
 msgstr "DesignWall Teme Wordpress"
 
-#: inc/Helptab.php:173
+#: inc/Helptab.php:177
 #, fuzzy
 msgid "DesignWall Wordpress Plugins"
 msgstr "DesignWall Teme Wordpress"
@@ -500,27 +373,27 @@ msgstr "Răspunsuri"
 msgid "Question Meta Data"
 msgstr "Meta date întrebare"
 
-#: inc/Notifications.php:27
+#: inc/Notifications.php:29
 msgid "A new question was posted on {site_name}"
 msgstr "A fost adăugată o întrebare nouă pe {site_name}"
 
-#: inc/Notifications.php:118
-msgid "A new answer for \"{question_title}\" was posted on {site_name}"
-msgstr ""
-"A fost adăugat un răspuns nou pentru \"{question_title}\" pe {site_name}"
-
-#: inc/Notifications.php:186
+#: inc/Notifications.php:131
 #, fuzzy
 msgid "You have a new answer for your followed question"
 msgstr "Ai primit un răspuns nou la întrebarea urmărită"
 
-#: inc/Notifications.php:284 inc/Notifications.php:330
+#: inc/Notifications.php:246
+msgid "A new answer for \"{question_title}\" was posted on {site_name}"
+msgstr ""
+"A fost adăugat un răspuns nou pentru \"{question_title}\" pe {site_name}"
+
+#: inc/Notifications.php:330 inc/Notifications.php:376
 #, fuzzy
 msgid "[{site_name}] You have a new comment for question {question_title}"
 msgstr ""
 "[{site_name}] Ai primit un comentariu nou la întrebarea {question_title} "
 
-#: inc/Notifications.php:289 inc/Notifications.php:335
+#: inc/Notifications.php:335 inc/Notifications.php:381
 msgid "[{site_name}] You have a new comment for answer"
 msgstr "[{site_name}] Ai primit un comentariu nou la răspuns"
 
@@ -551,6 +424,12 @@ msgstr "Răspunsuri"
 #: inc/Posts/Answer.php:273
 msgid "In Response To"
 msgstr "Ca răspuns la"
+
+#: inc/Posts/Answer.php:317 inc/Posts/Base.php:320 inc/Settings.php:402
+#: inc/Template.php:58 inc/Template.php:163 inc/Template.php:180
+#: templates/content-comment.php:19
+msgid "Edit"
+msgstr "Editare"
 
 #: inc/Posts/Answer.php:318 inc/Settings.php:403 inc/Template.php:168
 #: inc/Template.php:185 templates/content-comment.php:22
@@ -1237,26 +1116,26 @@ msgstr ""
 msgid "Subscribe"
 msgstr ""
 
-#: inc/Template.php:444
+#: inc/Template.php:445
 msgid "Email"
 msgstr "E-mail"
 
-#: inc/Template.php:446
+#: inc/Template.php:447
 msgid "Name"
 msgstr "Nume"
 
-#: inc/Template.php:448
+#: inc/Template.php:449
 #, php-format
 msgid "Required fields are marked %s"
 msgstr "Câmpurile obligatorii sunt marcate %s"
 
-#: inc/Template.php:460
+#: inc/Template.php:461
 #, php-format
 msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
 msgstr ""
 "Trebuie să te <a href=\"%s\">autentifici</a> pentru a adăuga un comentariu."
 
-#: inc/Template.php:463
+#: inc/Template.php:464
 #, php-format
 msgid ""
 "You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
@@ -1265,37 +1144,37 @@ msgstr ""
 "Poți folosi aceste etichete și atribute <abbr title=\"HyperText Markup "
 "Language\">HTML</abbr>: %s"
 
-#: inc/Template.php:466
+#: inc/Template.php:467
 msgid "Leave a Reply"
 msgstr "Adaugă un răspuns"
 
-#: inc/Template.php:467
+#: inc/Template.php:468
 #, php-format
 msgid "Leave a Reply to %s"
 msgstr "Oferă-i un răspuns lui %s"
 
-#: inc/Template.php:468
+#: inc/Template.php:469
 msgid "Cancel reply"
 msgstr "Anulează răspunsul"
 
-#: inc/Template.php:469
+#: inc/Template.php:470
 msgid "Post Comment"
 msgstr "Adaugă comentariu"
 
-#: inc/Template.php:644
+#: inc/Template.php:645
 msgid "Sticky Question"
 msgstr "Întrebare fixată"
 
-#: inc/Template.php:658
+#: inc/Template.php:659
 msgid "Ask a question"
 msgstr "Adaugă întrebare"
 
-#: inc/Template.php:660
+#: inc/Template.php:661
 #, fuzzy
 msgid "Login to ask a question"
 msgstr "Trebuie să te autentifici pentru a adăuga întrebarea"
 
-#: inc/Template.php:1108
+#: inc/Template.php:1109
 #, fuzzy
 msgid "Choose as the best answer"
 msgstr "Alege ca Cel mai bun răspuns"
@@ -1431,7 +1310,7 @@ msgstr "Public"
 msgid "Only Me &amp; Admin"
 msgstr ""
 
-#: templates/answer-submit-form.php:39 templates/question-submit-form.php:64
+#: templates/answer-submit-form.php:39 templates/question-submit-form.php:65
 msgid "Submit"
 msgstr ""
 
@@ -1575,7 +1454,7 @@ msgstr ""
 msgid "This question is:"
 msgstr ""
 
-#: templates/question-submit-form.php:68
+#: templates/question-submit-form.php:69
 #, fuzzy
 msgid "You do not have permission to submit a question"
 msgstr "Nu ai permisiuni pentru a adăuga întrebarea."
@@ -1631,6 +1510,99 @@ msgstr ""
 #. Author URI of the plugin/theme
 msgid "http://www.designwall.com"
 msgstr ""
+
+#~ msgid "Next"
+#~ msgstr "Următor"
+
+#~ msgid "Prev"
+#~ msgstr "Anterior"
+
+#~ msgid "Please enter your question"
+#~ msgstr "Adaugă întrebarea"
+
+#~ msgid "Your question must be at least 2 characters in length"
+#~ msgstr "Întrebarea trebuie să aibă cel puțin două caractere în lungime"
+
+#~ msgid "Enter a valid email address"
+#~ msgstr "Adaugă o adresă de e-mail validă"
+
+#~ msgid "Enter a question title"
+#~ msgstr "Adaugă un titlu întrebării"
+
+#~ msgid "Please add your name"
+#~ msgstr "Adaugă numele tău"
+
+#~ msgid "Please enter your answer"
+#~ msgstr "Adaugă răspunsul tău"
+
+#~ msgid "Comment must have more than 2 characters"
+#~ msgstr "Comentariile trebuie să aibă mai mult de două caractere"
+
+#~ msgid "Not found! Try another keyword."
+#~ msgstr "Nu am găsit! Încearcă să cauți altceva."
+
+#~ msgid "Or press <strong>ENTER</strong> to get more questions"
+#~ msgstr "Sau apasă <strong>ENTER</strong> pentru a afișa mai multe întrebări"
+
+#~ msgid "Update"
+#~ msgstr "Actualizare"
+
+#~ msgid "Cancel"
+#~ msgstr "Anulează"
+
+#~ msgid "Do you want to delete this comment?"
+#~ msgstr "Vrei să ștergi acest comentariu?"
+
+#~ msgid "Do you want to delete this answer?"
+#~ msgstr "Vrei să ștergi acest răspuns?"
+
+#, fuzzy
+#~ msgid "Do you want to update this answer?"
+#~ msgstr "Vrei să actualizezi acest răspuns"
+
+#, fuzzy
+#~ msgid "Do you want to report this answer?"
+#~ msgstr "Vrei să raportezi acest răspuns"
+
+#~ msgid "Report"
+#~ msgstr "Raportează"
+
+#~ msgid "Undo"
+#~ msgstr "Anulează"
+
+#~ msgid ""
+#~ "This answer will be marked as spam and hidden. Do you want to flag it?"
+#~ msgstr "Acest răspuns va fi marcat ca spam și ascuns. Vrei să îl marchezi?"
+
+#~ msgid "This answer was flagged as spam. Do you want to show it"
+#~ msgstr "Acest răspuns a fost marcat ca spam. Vrei să fie afișat"
+
+#~ msgid "This answer was flagged as spam"
+#~ msgstr "Acest răspuns a fost marcat ca spam"
+
+#~ msgid "hide"
+#~ msgstr "ascunde"
+
+#~ msgid "show"
+#~ msgstr "arată"
+
+#~ msgid "Follow This Question"
+#~ msgstr "Urmărește această întrebare"
+
+#~ msgid "Unfollow This Question"
+#~ msgstr "Nu mai urmări această întrebare"
+
+#, fuzzy
+#~ msgid "Pin this question to top"
+#~ msgstr "Fixează această întrebare pe prima pagină"
+
+#, fuzzy
+#~ msgid "Unpin this question from top"
+#~ msgstr "Defixează această întrebare de pe prima pagină"
+
+#, fuzzy
+#~ msgid "Do you want to delete this question?"
+#~ msgstr "Vrei să ștergi acest comentariu?"
 
 #~ msgid "Publish"
 #~ msgstr "Publică"

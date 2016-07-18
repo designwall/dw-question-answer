@@ -2,158 +2,25 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DW Question Answer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-25 10:05+0700\n"
-"PO-Revision-Date: 2016-03-25 10:05+0700\n"
+"POT-Creation-Date: 2016-07-18 14:04+0700\n"
+"PO-Revision-Date: 2016-07-18 14:04+0700\n"
 "Last-Translator: DesignWall <webmaster@designwall.com>\n"
 "Language-Team: DesignWall <webmaster@designwall.com>\n"
 "Language: tr_TR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.6\n"
+"X-Generator: Poedit 1.8.7\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: dw-question-answer.php:102
-msgid "Next"
-msgstr "Sonraki"
-
-#: dw-question-answer.php:103
-msgid "Prev"
-msgstr "Önceki"
-
-#: dw-question-answer.php:105
-msgid "Please enter your question"
-msgstr "Lütfen sorunuzu yazın"
-
-#: dw-question-answer.php:106
-msgid "Your question must be at least 2 characters in length"
-msgstr "Sorunuzun uzunluğu en az iki karakter olmalı"
-
-#: dw-question-answer.php:107
-msgid "Enter a valid email address"
-msgstr "Geçerli bir mail adresi giriniz."
-
-#: dw-question-answer.php:108
-msgid "Enter a question title"
-msgstr "Soru başlığını yazınız"
-
-#: dw-question-answer.php:109
-msgid "Please add your name"
-msgstr "Lütfen isminizi giriniz"
-
-#: dw-question-answer.php:110
-msgid "Please enter your answer"
-msgstr "Lütfen cevabınızı giriniz"
-
-#: dw-question-answer.php:111 inc/Handle.php:191
-msgid "Please enter your comment content"
-msgstr "Lütfen yorum içeriğini giriniz"
-
-#: dw-question-answer.php:112
-msgid "Comment must have more than 2 characters"
-msgstr "Yorum en az iki karakterden oluşmalı"
-
-#: dw-question-answer.php:113
-msgid "Not found! Try another keyword."
-msgstr "Bulunamadı ! Farklı bir kelime ile dene."
-
-#: dw-question-answer.php:114
-msgid "Or press <strong>ENTER</strong> to get more questions"
-msgstr "veya <strong>ENTER</strong> a basarak daha fazla soruya bak."
-
-#: dw-question-answer.php:115
-msgid "Update"
-msgstr "Güncelle"
-
-#: dw-question-answer.php:116 inc/Posts/Answer.php:317 inc/Posts/Base.php:320
-#: inc/Settings.php:402 inc/Template.php:58 inc/Template.php:163
-#: inc/Template.php:180 templates/content-comment.php:19
-msgid "Edit"
-msgstr "Düzenle"
-
-#: dw-question-answer.php:117
-msgid "Cancel"
-msgstr "İptal Et"
-
-#: dw-question-answer.php:118
-msgid "Do you want to delete this comment?"
-msgstr "Bu yorumu silmek istediğinizden emin misiniz?"
-
-#: dw-question-answer.php:119
-msgid "Do you want to delete this answer?"
-msgstr "Bu cevabı silmek istediğinizden emin misiniz?"
-
-#: dw-question-answer.php:120
-#, fuzzy
-msgid "Do you want to update this answer?"
-msgstr "Bu cevabı güncellemek istediğinizden emin misiniz?"
-
-#: dw-question-answer.php:121
-#, fuzzy
-msgid "Do you want to report this answer?"
-msgstr "Bu cevabı ihbar etmek istediğinizden emin misiniz?"
-
-#: dw-question-answer.php:123
-msgid "Report"
-msgstr "İhbar ET"
-
-#: dw-question-answer.php:124
-msgid "Undo"
-msgstr "Geri Al"
-
-#: dw-question-answer.php:125
-msgid "This answer will be marked as spam and hidden. Do you want to flag it?"
-msgstr ""
-"Bu cevap spam olarak işaretlenip  gizlenecek. İhbar etmek ister misiniz ?"
-
-#: dw-question-answer.php:126
-msgid "This answer was flagged as spam. Do you want to show it"
-msgstr ""
-"Bu cevap spam olarak işaretlenmiş. Görmek istediğinizden emin misiniz ?"
-
-#: dw-question-answer.php:127
-msgid "This answer was flagged as spam"
-msgstr "Bu cevap spam olarak işaretlendi."
-
-#: dw-question-answer.php:128
-msgid "hide"
-msgstr "gizle"
-
-#: dw-question-answer.php:129
-msgid "show"
-msgstr "göster"
-
-#: dw-question-answer.php:131
-msgid "Follow This Question"
-msgstr "Bu Soruyu Takip Et"
-
-#: dw-question-answer.php:132
-msgid "Unfollow This Question"
-msgstr "Takibi Bırak"
-
-#: dw-question-answer.php:133
-#, fuzzy
-msgid "Pin this question to top"
-msgstr "Bu Soruyu Önsayfada Sabitle"
-
-#: dw-question-answer.php:134
-#, fuzzy
-msgid "Unpin this question from top"
-msgstr "Bu Sorunun Sabitliğini Kaldır"
-
-#: dw-question-answer.php:137
-#, fuzzy
-msgid "Do you want to delete this question?"
-msgstr "Bu yorumu silmek istediğinizden emin misiniz?"
-
-#: dw-question-answer.php:153
+#: dw-question-answer.php:147
 msgid "DWQA Questions"
 msgstr "Tüm Sorular"
 
-#: dw-question-answer.php:170
+#: dw-question-answer.php:164
 msgid "DWQA Ask Question"
 msgstr "Soru Sor"
 
@@ -230,12 +97,12 @@ msgid "No valid changelog was found."
 msgstr ""
 
 #: inc/Ajax.php:29 inc/Ajax.php:47 inc/Ajax.php:83 inc/Ajax.php:113
-#: inc/Ajax.php:132 inc/Ajax.php:150 inc/Ajax.php:215 inc/Handle.php:244
-#: inc/Handle.php:430 inc/Permission.php:286 inc/Status.php:319
+#: inc/Ajax.php:132 inc/Ajax.php:150 inc/Ajax.php:215 inc/Handle.php:256
+#: inc/Handle.php:455 inc/Permission.php:286 inc/Status.php:319
 msgid "Are you cheating huh?"
 msgstr "Hile mi yapıyorsun, hı ?"
 
-#: inc/Ajax.php:33 inc/Handle.php:248
+#: inc/Ajax.php:33 inc/Handle.php:260
 msgid "You do not have permission to edit comment."
 msgstr ""
 
@@ -244,11 +111,11 @@ msgstr ""
 msgid "Comment ID must be showed."
 msgstr "Yorum ID gösterilmeli."
 
-#: inc/Ajax.php:51 inc/Handle.php:144
+#: inc/Ajax.php:51 inc/Handle.php:154
 msgid "Answer is missing."
 msgstr ""
 
-#: inc/Ajax.php:55 inc/Handle.php:148
+#: inc/Ajax.php:55 inc/Handle.php:158
 msgid "This post is not answer."
 msgstr ""
 
@@ -260,11 +127,11 @@ msgstr ""
 msgid "Missing id of answer"
 msgstr "Cevap ID bulunamadı"
 
-#: inc/Ajax.php:154 inc/Handle.php:452
+#: inc/Ajax.php:154 inc/Handle.php:477
 msgid "Question is missing."
 msgstr ""
 
-#: inc/Ajax.php:158 inc/Handle.php:456
+#: inc/Ajax.php:158 inc/Handle.php:481
 msgid "This post is not question."
 msgstr ""
 
@@ -285,10 +152,10 @@ msgstr "Yazar"
 msgid "Detail"
 msgstr "Detaylar"
 
-#: inc/Answer_List_Table.php:92 inc/Notifications.php:146
-#: inc/Notifications.php:148 inc/Posts/Base.php:230 inc/Posts/Comment.php:102
-#: inc/Settings.php:419 inc/Settings.php:455 inc/Settings.php:490
-#: inc/User.php:155 inc/widgets/Latest_Question.php:39
+#: inc/Answer_List_Table.php:92 inc/Notifications.php:116
+#: inc/Notifications.php:212 inc/Notifications.php:230 inc/Posts/Base.php:230
+#: inc/Posts/Comment.php:102 inc/Settings.php:419 inc/Settings.php:455
+#: inc/Settings.php:490 inc/User.php:155 inc/widgets/Latest_Question.php:39
 msgid "Anonymous"
 msgstr "Anonymous"
 
@@ -296,7 +163,7 @@ msgstr "Anonymous"
 msgid "Answered on "
 msgstr "Cevaplandı"
 
-#: inc/Answer_List_Table.php:112 inc/Helptab.php:149
+#: inc/Answer_List_Table.php:112 inc/Helptab.php:153
 msgid "Read more"
 msgstr "Devamını Oku"
 
@@ -316,93 +183,97 @@ msgstr ""
 msgid "Question is empty"
 msgstr ""
 
-#: inc/Handle.php:46 inc/Handle.php:407
+#: inc/Handle.php:46 inc/Handle.php:432
 msgid "You do not have permission to submit question."
 msgstr "Souyu göndermek için yeterli izniniz yok."
 
-#: inc/Handle.php:50 inc/Handle.php:426
-msgid "Captcha is not correct"
-msgstr "Captcha kodu yanlış girdiniz."
-
-#: inc/Handle.php:69
-msgid "Answer for "
-msgstr "Cevapla"
-
-#: inc/Handle.php:129
-msgid "You do not have permission to edit answer."
-msgstr ""
-
-#: inc/Handle.php:133 inc/Handle.php:495 inc/Posts/Question.php:473
-#, fuzzy
-msgid "Hello, Are you cheating huh?"
-msgstr "\"Merhaba\", Hile mi yapıyorsun, hı ?"
-
-#: inc/Handle.php:138
-msgid "You must enter a valid answer content."
-msgstr ""
-
-#: inc/Handle.php:182
-msgid "You can't post comment"
-msgstr "Yorum yapamazsınız."
-
-#: inc/Handle.php:185
-msgid "Missing post id."
-msgstr ""
-
-#: inc/Handle.php:206
+#: inc/Handle.php:50 inc/Handle.php:218 inc/Handle.php:300
 #, fuzzy
 msgid "Missing email information"
 msgstr "Email bilgileri eksik"
 
-#: inc/Handle.php:210
+#: inc/Handle.php:54 inc/Handle.php:222 inc/Handle.php:305
 #, fuzzy
 msgid "Missing name information"
 msgstr "İsim bilgisi eksik"
 
-#: inc/Handle.php:237
+#: inc/Handle.php:58 inc/Handle.php:451
+msgid "Captcha is not correct"
+msgstr "Captcha kodu yanlış girdiniz."
+
+#: inc/Handle.php:77
+msgid "Answer for "
+msgstr "Cevapla"
+
+#: inc/Handle.php:139
+msgid "You do not have permission to edit answer."
+msgstr ""
+
+#: inc/Handle.php:143 inc/Handle.php:520 inc/Posts/Question.php:473
+#, fuzzy
+msgid "Hello, Are you cheating huh?"
+msgstr "\"Merhaba\", Hile mi yapıyorsun, hı ?"
+
+#: inc/Handle.php:148
+msgid "You must enter a valid answer content."
+msgstr ""
+
+#: inc/Handle.php:194
+msgid "You can't post comment"
+msgstr "Yorum yapamazsınız."
+
+#: inc/Handle.php:197
+msgid "Missing post id."
+msgstr ""
+
+#: inc/Handle.php:203
+msgid "Please enter your comment content"
+msgstr "Lütfen yorum içeriğini giriniz"
+
+#: inc/Handle.php:249
 msgid "Comment is missing"
 msgstr ""
 
-#: inc/Handle.php:252
+#: inc/Handle.php:264
 msgid "Comment content must not be empty."
 msgstr "Yorum içeriği boş bırakılamaz."
 
-#: inc/Handle.php:282 inc/Handle.php:446
+#: inc/Handle.php:294 inc/Handle.php:471
 msgid "You must enter a valid question title."
 msgstr ""
 
-#: inc/Handle.php:360
+#: inc/Handle.php:384
 msgid "User Registration was disabled."
 msgstr "Kullanıcı Kayıtları devredışı bırakılmış."
 
-#: inc/Handle.php:363
+#: inc/Handle.php:387
 msgid "This email is already registered, please choose another one."
 msgstr "Bu mail ile kayıt olunmuş. Lütfen farklı bir mail giriniz."
 
-#: inc/Handle.php:366
+#: inc/Handle.php:390
 #, fuzzy
 msgid "This username is already registered. Please use another one."
 msgstr "Bu kullanıcı adı ile kayıt olunmuş. Lütfen farklı bir ad belirleyin."
 
-#: inc/Handle.php:419
+#: inc/Handle.php:444
 msgid "Your question is waiting moderator."
 msgstr ""
 
-#: inc/Handle.php:441 inc/Status.php:347
+#: inc/Handle.php:466 inc/Status.php:347
 #, fuzzy
 msgid "You do not have permission to edit question"
 msgstr "Souyu göndermek için yeterli izniniz yok."
 
-#: inc/Helptab.php:43
+#: inc/Helptab.php:47
 msgid "Overview"
 msgstr "Değerlendirme"
 
-#: inc/Helptab.php:44
+#: inc/Helptab.php:48
 #, fuzzy
 msgid "DW Question Answer Plugin"
 msgstr "Tüm Sorular"
 
-#: inc/Helptab.php:45
+#: inc/Helptab.php:49
 msgid ""
 "DW Question Answer is a WordPress Plugin which helps you build a Question & "
 "Answer system on your WordPress sites. The plugin is easy to install and set "
@@ -410,43 +281,43 @@ msgid ""
 "answer system."
 msgstr ""
 
-#: inc/Helptab.php:48
+#: inc/Helptab.php:52
 #, fuzzy
 msgid "Setup Question List Page"
 msgstr "Soru Listesi Sayfası"
 
-#: inc/Helptab.php:52
+#: inc/Helptab.php:56
 #, fuzzy
 msgid "Setup Ask Question Page"
 msgstr "Soru Sor Sayfası"
 
-#: inc/Helptab.php:56
+#: inc/Helptab.php:60
 msgid "Shortcode"
 msgstr ""
 
-#: inc/Helptab.php:60
+#: inc/Helptab.php:64
 msgid "Style integration"
 msgstr ""
 
-#: inc/Helptab.php:169
+#: inc/Helptab.php:173
 msgid "For more information:"
 msgstr "Daha fazla bilgi için:"
 
-#: inc/Helptab.php:170
+#: inc/Helptab.php:174
 #, fuzzy
 msgid "DW Question Answer Guide"
 msgstr "Tüm Sorular"
 
-#: inc/Helptab.php:171
+#: inc/Helptab.php:175
 #, fuzzy
 msgid "Community"
 msgstr "Yorum"
 
-#: inc/Helptab.php:172
+#: inc/Helptab.php:176
 msgid "DesignWall Wordpress Themes"
 msgstr ""
 
-#: inc/Helptab.php:173
+#: inc/Helptab.php:177
 msgid "DesignWall Wordpress Plugins"
 msgstr ""
 
@@ -499,25 +370,25 @@ msgstr "Cevaplar"
 msgid "Question Meta Data"
 msgstr "Soru Meta Bilgisi"
 
-#: inc/Notifications.php:27
+#: inc/Notifications.php:29
 msgid "A new question was posted on {site_name}"
 msgstr "Yeni bir soru soruldu {site_name}"
 
-#: inc/Notifications.php:118
-msgid "A new answer for \"{question_title}\" was posted on {site_name}"
-msgstr "Şu \"{question_title}\" soruya yeni cevap geldi."
-
-#: inc/Notifications.php:186
+#: inc/Notifications.php:131
 #, fuzzy
 msgid "You have a new answer for your followed question"
 msgstr "Takip ettiğiniz soruya bir cevap geldi."
 
-#: inc/Notifications.php:284 inc/Notifications.php:330
+#: inc/Notifications.php:246
+msgid "A new answer for \"{question_title}\" was posted on {site_name}"
+msgstr "Şu \"{question_title}\" soruya yeni cevap geldi."
+
+#: inc/Notifications.php:330 inc/Notifications.php:376
 #, fuzzy
 msgid "[{site_name}] You have a new comment for question {question_title}"
 msgstr "[{site_name}] - {question_title}  sorunuza Yeni bir yorum aldınız"
 
-#: inc/Notifications.php:289 inc/Notifications.php:335
+#: inc/Notifications.php:335 inc/Notifications.php:381
 msgid "[{site_name}] You have a new comment for answer"
 msgstr "[{site_name}]  Cevabınıza yeni bir yorum aldınız"
 
@@ -546,6 +417,12 @@ msgstr "Cevap"
 #: inc/Posts/Answer.php:273
 msgid "In Response To"
 msgstr ""
+
+#: inc/Posts/Answer.php:317 inc/Posts/Base.php:320 inc/Settings.php:402
+#: inc/Template.php:58 inc/Template.php:163 inc/Template.php:180
+#: templates/content-comment.php:19
+msgid "Edit"
+msgstr "Düzenle"
 
 #: inc/Posts/Answer.php:318 inc/Settings.php:403 inc/Template.php:168
 #: inc/Template.php:185 templates/content-comment.php:22
@@ -1227,62 +1104,62 @@ msgstr ""
 msgid "Subscribe"
 msgstr ""
 
-#: inc/Template.php:444
+#: inc/Template.php:445
 msgid "Email"
 msgstr ""
 
-#: inc/Template.php:446
+#: inc/Template.php:447
 msgid "Name"
 msgstr "Adınız"
 
-#: inc/Template.php:448
+#: inc/Template.php:449
 #, php-format
 msgid "Required fields are marked %s"
 msgstr "%s le işaretli olanlar gereklidir."
 
-#: inc/Template.php:460
+#: inc/Template.php:461
 #, php-format
 msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
 msgstr "Yorum yapabilmeniz için <a href=\"%s\"> Giriş </a> yapmalısınız."
 
-#: inc/Template.php:463
+#: inc/Template.php:464
 #, php-format
 msgid ""
 "You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
 "and attributes: %s"
 msgstr ""
 
-#: inc/Template.php:466
+#: inc/Template.php:467
 msgid "Leave a Reply"
 msgstr "Cevap Yaz"
 
-#: inc/Template.php:467
+#: inc/Template.php:468
 #, php-format
 msgid "Leave a Reply to %s"
 msgstr "%s kullanıcıya Cevap Yaz"
 
-#: inc/Template.php:468
+#: inc/Template.php:469
 msgid "Cancel reply"
 msgstr "İptal Et"
 
-#: inc/Template.php:469
+#: inc/Template.php:470
 msgid "Post Comment"
 msgstr ""
 
-#: inc/Template.php:644
+#: inc/Template.php:645
 msgid "Sticky Question"
 msgstr "Sabit Soru"
 
-#: inc/Template.php:658
+#: inc/Template.php:659
 msgid "Ask a question"
 msgstr "bir soru sor"
 
-#: inc/Template.php:660
+#: inc/Template.php:661
 #, fuzzy
 msgid "Login to ask a question"
 msgstr "Sorun girmek için girş yap"
 
-#: inc/Template.php:1108
+#: inc/Template.php:1109
 #, fuzzy
 msgid "Choose as the best answer"
 msgstr "En iyi cevabı seç."
@@ -1416,7 +1293,7 @@ msgstr "Halka Açık"
 msgid "Only Me &amp; Admin"
 msgstr ""
 
-#: templates/answer-submit-form.php:39 templates/question-submit-form.php:64
+#: templates/answer-submit-form.php:39 templates/question-submit-form.php:65
 msgid "Submit"
 msgstr ""
 
@@ -1560,7 +1437,7 @@ msgstr ""
 msgid "This question is:"
 msgstr ""
 
-#: templates/question-submit-form.php:68
+#: templates/question-submit-form.php:69
 #, fuzzy
 msgid "You do not have permission to submit a question"
 msgstr "Souyu göndermek için yeterli izniniz yok."
@@ -1616,6 +1493,101 @@ msgstr ""
 #. Author URI of the plugin/theme
 msgid "http://www.designwall.com"
 msgstr ""
+
+#~ msgid "Next"
+#~ msgstr "Sonraki"
+
+#~ msgid "Prev"
+#~ msgstr "Önceki"
+
+#~ msgid "Please enter your question"
+#~ msgstr "Lütfen sorunuzu yazın"
+
+#~ msgid "Your question must be at least 2 characters in length"
+#~ msgstr "Sorunuzun uzunluğu en az iki karakter olmalı"
+
+#~ msgid "Enter a valid email address"
+#~ msgstr "Geçerli bir mail adresi giriniz."
+
+#~ msgid "Enter a question title"
+#~ msgstr "Soru başlığını yazınız"
+
+#~ msgid "Please add your name"
+#~ msgstr "Lütfen isminizi giriniz"
+
+#~ msgid "Please enter your answer"
+#~ msgstr "Lütfen cevabınızı giriniz"
+
+#~ msgid "Comment must have more than 2 characters"
+#~ msgstr "Yorum en az iki karakterden oluşmalı"
+
+#~ msgid "Not found! Try another keyword."
+#~ msgstr "Bulunamadı ! Farklı bir kelime ile dene."
+
+#~ msgid "Or press <strong>ENTER</strong> to get more questions"
+#~ msgstr "veya <strong>ENTER</strong> a basarak daha fazla soruya bak."
+
+#~ msgid "Update"
+#~ msgstr "Güncelle"
+
+#~ msgid "Cancel"
+#~ msgstr "İptal Et"
+
+#~ msgid "Do you want to delete this comment?"
+#~ msgstr "Bu yorumu silmek istediğinizden emin misiniz?"
+
+#~ msgid "Do you want to delete this answer?"
+#~ msgstr "Bu cevabı silmek istediğinizden emin misiniz?"
+
+#, fuzzy
+#~ msgid "Do you want to update this answer?"
+#~ msgstr "Bu cevabı güncellemek istediğinizden emin misiniz?"
+
+#, fuzzy
+#~ msgid "Do you want to report this answer?"
+#~ msgstr "Bu cevabı ihbar etmek istediğinizden emin misiniz?"
+
+#~ msgid "Report"
+#~ msgstr "İhbar ET"
+
+#~ msgid "Undo"
+#~ msgstr "Geri Al"
+
+#~ msgid ""
+#~ "This answer will be marked as spam and hidden. Do you want to flag it?"
+#~ msgstr ""
+#~ "Bu cevap spam olarak işaretlenip  gizlenecek. İhbar etmek ister misiniz ?"
+
+#~ msgid "This answer was flagged as spam. Do you want to show it"
+#~ msgstr ""
+#~ "Bu cevap spam olarak işaretlenmiş. Görmek istediğinizden emin misiniz ?"
+
+#~ msgid "This answer was flagged as spam"
+#~ msgstr "Bu cevap spam olarak işaretlendi."
+
+#~ msgid "hide"
+#~ msgstr "gizle"
+
+#~ msgid "show"
+#~ msgstr "göster"
+
+#~ msgid "Follow This Question"
+#~ msgstr "Bu Soruyu Takip Et"
+
+#~ msgid "Unfollow This Question"
+#~ msgstr "Takibi Bırak"
+
+#, fuzzy
+#~ msgid "Pin this question to top"
+#~ msgstr "Bu Soruyu Önsayfada Sabitle"
+
+#, fuzzy
+#~ msgid "Unpin this question from top"
+#~ msgstr "Bu Sorunun Sabitliğini Kaldır"
+
+#, fuzzy
+#~ msgid "Do you want to delete this question?"
+#~ msgstr "Bu yorumu silmek istediğinizden emin misiniz?"
 
 #~ msgid "Publish"
 #~ msgstr "Yayınla"

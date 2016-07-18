@@ -2,157 +2,25 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DW Question Answer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-25 10:03+0700\n"
-"PO-Revision-Date: 2016-03-25 10:03+0700\n"
+"POT-Creation-Date: 2016-07-18 14:03+0700\n"
+"PO-Revision-Date: 2016-07-18 14:03+0700\n"
 "Last-Translator: DesignWall <webmaster@designwall.com>\n"
 "Language-Team: Assistenza Clienti\n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.6\n"
+"X-Generator: Poedit 1.8.7\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: dw-question-answer.php:102
-msgid "Next"
-msgstr "Successivo"
-
-#: dw-question-answer.php:103
-msgid "Prev"
-msgstr "Precedente"
-
-#: dw-question-answer.php:105
-msgid "Please enter your question"
-msgstr "inserisci la tua domanda"
-
-#: dw-question-answer.php:106
-msgid "Your question must be at least 2 characters in length"
-msgstr "La domanda deve contenere almeno 2 caratteri"
-
-#: dw-question-answer.php:107
-msgid "Enter a valid email address"
-msgstr "Inserisci un indirizzo mail valido"
-
-#: dw-question-answer.php:108
-msgid "Enter a question title"
-msgstr "Inserisci il titolo della domanda"
-
-#: dw-question-answer.php:109
-msgid "Please add your name"
-msgstr "inserisci il tuo nome"
-
-#: dw-question-answer.php:110
-msgid "Please enter your answer"
-msgstr "Inserisci la tua risposta"
-
-#: dw-question-answer.php:111 inc/Handle.php:191
-msgid "Please enter your comment content"
-msgstr "Inserisci il tuo commento"
-
-#: dw-question-answer.php:112
-msgid "Comment must have more than 2 characters"
-msgstr "I commenti devono contenere almeno 2 caratteri"
-
-#: dw-question-answer.php:113
-msgid "Not found! Try another keyword."
-msgstr "Non trovato, prova con un'altra parola chiave"
-
-#: dw-question-answer.php:114
-msgid "Or press <strong>ENTER</strong> to get more questions"
-msgstr "O premi ENTER per visualizzare altre domande"
-
-#: dw-question-answer.php:115
-msgid "Update"
-msgstr "Aggiorna"
-
-#: dw-question-answer.php:116 inc/Posts/Answer.php:317 inc/Posts/Base.php:320
-#: inc/Settings.php:402 inc/Template.php:58 inc/Template.php:163
-#: inc/Template.php:180 templates/content-comment.php:19
-msgid "Edit"
-msgstr "Modifica"
-
-#: dw-question-answer.php:117
-msgid "Cancel"
-msgstr "Cancella"
-
-#: dw-question-answer.php:118
-msgid "Do you want to delete this comment?"
-msgstr "Vuoi cancellare questo commento?"
-
-#: dw-question-answer.php:119
-msgid "Do you want to delete this answer?"
-msgstr "Vuoi cancellare questa risposta?"
-
-#: dw-question-answer.php:120
-#, fuzzy
-msgid "Do you want to update this answer?"
-msgstr "Vuoi aggiornare questa risposta"
-
-#: dw-question-answer.php:121
-#, fuzzy
-msgid "Do you want to report this answer?"
-msgstr "Vuoi segnalare questa risposta"
-
-#: dw-question-answer.php:123
-msgid "Report"
-msgstr "Segnala"
-
-#: dw-question-answer.php:124
-msgid "Undo"
-msgstr "Annulla"
-
-#: dw-question-answer.php:125
-msgid "This answer will be marked as spam and hidden. Do you want to flag it?"
-msgstr ""
-"La risposta verrà contrassegnata come spam e nascosta. Vuoi segnalarla?"
-
-#: dw-question-answer.php:126
-msgid "This answer was flagged as spam. Do you want to show it"
-msgstr "Questa risposta è stata segnalata come spam. Vuoi visualizzarla"
-
-#: dw-question-answer.php:127
-msgid "This answer was flagged as spam"
-msgstr "Questa risposta è stata segnalata come spam"
-
-#: dw-question-answer.php:128
-msgid "hide"
-msgstr "nascondi"
-
-#: dw-question-answer.php:129
-msgid "show"
-msgstr "mostra"
-
-#: dw-question-answer.php:131
-msgid "Follow This Question"
-msgstr "Segui questa domanda"
-
-#: dw-question-answer.php:132
-msgid "Unfollow This Question"
-msgstr "Smetti di seguire questa domanda"
-
-#: dw-question-answer.php:133
-#, fuzzy
-msgid "Pin this question to top"
-msgstr "Metti questa domandain evidenza nella pagina principale"
-
-#: dw-question-answer.php:134
-#, fuzzy
-msgid "Unpin this question from top"
-msgstr "Rimuovi questa domanda dalla pagina principale"
-
-#: dw-question-answer.php:137
-#, fuzzy
-msgid "Do you want to delete this question?"
-msgstr "Vuoi cancellare questo commento?"
-
-#: dw-question-answer.php:153
+#: dw-question-answer.php:147
 msgid "DWQA Questions"
 msgstr "DWQA Questions"
 
-#: dw-question-answer.php:170
+#: dw-question-answer.php:164
 msgid "DWQA Ask Question"
 msgstr "DWQA Ask Question"
 
@@ -229,12 +97,12 @@ msgid "No valid changelog was found."
 msgstr ""
 
 #: inc/Ajax.php:29 inc/Ajax.php:47 inc/Ajax.php:83 inc/Ajax.php:113
-#: inc/Ajax.php:132 inc/Ajax.php:150 inc/Ajax.php:215 inc/Handle.php:244
-#: inc/Handle.php:430 inc/Permission.php:286 inc/Status.php:319
+#: inc/Ajax.php:132 inc/Ajax.php:150 inc/Ajax.php:215 inc/Handle.php:256
+#: inc/Handle.php:455 inc/Permission.php:286 inc/Status.php:319
 msgid "Are you cheating huh?"
 msgstr "Ce stai a provà, eh?"
 
-#: inc/Ajax.php:33 inc/Handle.php:248
+#: inc/Ajax.php:33 inc/Handle.php:260
 msgid "You do not have permission to edit comment."
 msgstr ""
 
@@ -243,11 +111,11 @@ msgstr ""
 msgid "Comment ID must be showed."
 msgstr "ID commento deve essere visualizzato"
 
-#: inc/Ajax.php:51 inc/Handle.php:144
+#: inc/Ajax.php:51 inc/Handle.php:154
 msgid "Answer is missing."
 msgstr ""
 
-#: inc/Ajax.php:55 inc/Handle.php:148
+#: inc/Ajax.php:55 inc/Handle.php:158
 msgid "This post is not answer."
 msgstr ""
 
@@ -259,11 +127,11 @@ msgstr ""
 msgid "Missing id of answer"
 msgstr "ID risposta mancante"
 
-#: inc/Ajax.php:154 inc/Handle.php:452
+#: inc/Ajax.php:154 inc/Handle.php:477
 msgid "Question is missing."
 msgstr ""
 
-#: inc/Ajax.php:158 inc/Handle.php:456
+#: inc/Ajax.php:158 inc/Handle.php:481
 msgid "This post is not question."
 msgstr ""
 
@@ -284,10 +152,10 @@ msgstr "Autore"
 msgid "Detail"
 msgstr "Dettagli"
 
-#: inc/Answer_List_Table.php:92 inc/Notifications.php:146
-#: inc/Notifications.php:148 inc/Posts/Base.php:230 inc/Posts/Comment.php:102
-#: inc/Settings.php:419 inc/Settings.php:455 inc/Settings.php:490
-#: inc/User.php:155 inc/widgets/Latest_Question.php:39
+#: inc/Answer_List_Table.php:92 inc/Notifications.php:116
+#: inc/Notifications.php:212 inc/Notifications.php:230 inc/Posts/Base.php:230
+#: inc/Posts/Comment.php:102 inc/Settings.php:419 inc/Settings.php:455
+#: inc/Settings.php:490 inc/User.php:155 inc/widgets/Latest_Question.php:39
 msgid "Anonymous"
 msgstr "Anonimo"
 
@@ -295,7 +163,7 @@ msgstr "Anonimo"
 msgid "Answered on "
 msgstr "Risposte a"
 
-#: inc/Answer_List_Table.php:112 inc/Helptab.php:149
+#: inc/Answer_List_Table.php:112 inc/Helptab.php:153
 msgid "Read more"
 msgstr "Continua a leggere"
 
@@ -315,94 +183,98 @@ msgstr ""
 msgid "Question is empty"
 msgstr ""
 
-#: inc/Handle.php:46 inc/Handle.php:407
+#: inc/Handle.php:46 inc/Handle.php:432
 msgid "You do not have permission to submit question."
 msgstr "Non hai i permessi per inviare domande"
 
-#: inc/Handle.php:50 inc/Handle.php:426
-msgid "Captcha is not correct"
-msgstr "Il codice Captcha non è corretto"
-
-#: inc/Handle.php:69
-msgid "Answer for "
-msgstr "Risposta per"
-
-#: inc/Handle.php:129
-msgid "You do not have permission to edit answer."
-msgstr ""
-
-#: inc/Handle.php:133 inc/Handle.php:495 inc/Posts/Question.php:473
-#, fuzzy
-msgid "Hello, Are you cheating huh?"
-msgstr "\"Helllo\", ce stai a provà?"
-
-#: inc/Handle.php:138
-msgid "You must enter a valid answer content."
-msgstr ""
-
-#: inc/Handle.php:182
-msgid "You can't post comment"
-msgstr "Non puoi postare commenti"
-
-#: inc/Handle.php:185
-msgid "Missing post id."
-msgstr ""
-
-#: inc/Handle.php:206
+#: inc/Handle.php:50 inc/Handle.php:218 inc/Handle.php:300
 #, fuzzy
 msgid "Missing email information"
 msgstr "Indirizzo email mancante"
 
-#: inc/Handle.php:210
+#: inc/Handle.php:54 inc/Handle.php:222 inc/Handle.php:305
 #, fuzzy
 msgid "Missing name information"
 msgstr "Nome mancante"
 
-#: inc/Handle.php:237
+#: inc/Handle.php:58 inc/Handle.php:451
+msgid "Captcha is not correct"
+msgstr "Il codice Captcha non è corretto"
+
+#: inc/Handle.php:77
+msgid "Answer for "
+msgstr "Risposta per"
+
+#: inc/Handle.php:139
+msgid "You do not have permission to edit answer."
+msgstr ""
+
+#: inc/Handle.php:143 inc/Handle.php:520 inc/Posts/Question.php:473
+#, fuzzy
+msgid "Hello, Are you cheating huh?"
+msgstr "\"Helllo\", ce stai a provà?"
+
+#: inc/Handle.php:148
+msgid "You must enter a valid answer content."
+msgstr ""
+
+#: inc/Handle.php:194
+msgid "You can't post comment"
+msgstr "Non puoi postare commenti"
+
+#: inc/Handle.php:197
+msgid "Missing post id."
+msgstr ""
+
+#: inc/Handle.php:203
+msgid "Please enter your comment content"
+msgstr "Inserisci il tuo commento"
+
+#: inc/Handle.php:249
 msgid "Comment is missing"
 msgstr ""
 
-#: inc/Handle.php:252
+#: inc/Handle.php:264
 msgid "Comment content must not be empty."
 msgstr "Il commento non può essere vuoto"
 
-#: inc/Handle.php:282 inc/Handle.php:446
+#: inc/Handle.php:294 inc/Handle.php:471
 msgid "You must enter a valid question title."
 msgstr ""
 
-#: inc/Handle.php:360
+#: inc/Handle.php:384
 msgid "User Registration was disabled."
 msgstr "La registrazioni utenti è disabilitata"
 
-#: inc/Handle.php:363
+#: inc/Handle.php:387
 msgid "This email is already registered, please choose another one."
 msgstr "Questo indirizzo mail è già in uso. Prego indicarne un altro"
 
-#: inc/Handle.php:366
+#: inc/Handle.php:390
 #, fuzzy
 msgid "This username is already registered. Please use another one."
 msgstr ""
 "Questo username è già stato utilizzato. Prego seglierne uno alternativo"
 
-#: inc/Handle.php:419
+#: inc/Handle.php:444
 msgid "Your question is waiting moderator."
 msgstr ""
 
-#: inc/Handle.php:441 inc/Status.php:347
+#: inc/Handle.php:466 inc/Status.php:347
 #, fuzzy
 msgid "You do not have permission to edit question"
 msgstr "Non hai i permessi per inviare domande"
 
-#: inc/Helptab.php:43
+#: inc/Helptab.php:47
 msgid "Overview"
 msgstr "Panoramica"
 
-#: inc/Helptab.php:44
+#: inc/Helptab.php:48
 #, fuzzy
 msgid "DW Question Answer Plugin"
 msgstr "Perché utilizzare DW Q&A"
 
-#: inc/Helptab.php:45
+#: inc/Helptab.php:49
 msgid ""
 "DW Question Answer is a WordPress Plugin which helps you build a Question & "
 "Answer system on your WordPress sites. The plugin is easy to install and set "
@@ -414,43 +286,43 @@ msgstr ""
 "plugin è di facile installazione. Scopri come trasformare il tuo sito "
 "Wordpress in una vera community, con DW Question e Answer"
 
-#: inc/Helptab.php:48
+#: inc/Helptab.php:52
 #, fuzzy
 msgid "Setup Question List Page"
 msgstr "Pagina Domande"
 
-#: inc/Helptab.php:52
+#: inc/Helptab.php:56
 #, fuzzy
 msgid "Setup Ask Question Page"
 msgstr "Pagina Invia Domanda"
 
-#: inc/Helptab.php:56
+#: inc/Helptab.php:60
 msgid "Shortcode"
 msgstr "Shortcode"
 
-#: inc/Helptab.php:60
+#: inc/Helptab.php:64
 msgid "Style integration"
 msgstr "Integrazione grafica"
 
-#: inc/Helptab.php:169
+#: inc/Helptab.php:173
 msgid "For more information:"
 msgstr "Per maggiori informazioni"
 
-#: inc/Helptab.php:170
+#: inc/Helptab.php:174
 #, fuzzy
 msgid "DW Question Answer Guide"
 msgstr "Perché utilizzare DW Q&A"
 
-#: inc/Helptab.php:171
+#: inc/Helptab.php:175
 #, fuzzy
 msgid "Community"
 msgstr "Commenta"
 
-#: inc/Helptab.php:172
+#: inc/Helptab.php:176
 msgid "DesignWall Wordpress Themes"
 msgstr "DesignWall Wordpress Themes"
 
-#: inc/Helptab.php:173
+#: inc/Helptab.php:177
 #, fuzzy
 msgid "DesignWall Wordpress Plugins"
 msgstr "DesignWall Wordpress Themes"
@@ -504,28 +376,28 @@ msgstr "Risposte"
 msgid "Question Meta Data"
 msgstr "Meta dati della domanda"
 
-#: inc/Notifications.php:27
+#: inc/Notifications.php:29
 msgid "A new question was posted on {site_name}"
 msgstr "Nuova domanda inserita su {site_name}"
 
-#: inc/Notifications.php:118
+#: inc/Notifications.php:131
+#, fuzzy
+msgid "You have a new answer for your followed question"
+msgstr "Una domanda che segui ha ricevuto una nuova risposta"
+
+#: inc/Notifications.php:246
 msgid "A new answer for \"{question_title}\" was posted on {site_name}"
 msgstr ""
 "Una nuova risposta alla domanda \"{question_title}\" è stata inserita su "
 "{site_name}"
 
-#: inc/Notifications.php:186
-#, fuzzy
-msgid "You have a new answer for your followed question"
-msgstr "Una domanda che segui ha ricevuto una nuova risposta"
-
-#: inc/Notifications.php:284 inc/Notifications.php:330
+#: inc/Notifications.php:330 inc/Notifications.php:376
 #, fuzzy
 msgid "[{site_name}] You have a new comment for question {question_title}"
 msgstr ""
 "[{site_name}] Hai ricevuo un nuovo commento alla domanda {question_title} "
 
-#: inc/Notifications.php:289 inc/Notifications.php:335
+#: inc/Notifications.php:335 inc/Notifications.php:381
 msgid "[{site_name}] You have a new comment for answer"
 msgstr "[{site_name}] Una tua risposta ha ricevuto un nuovo commento"
 
@@ -554,6 +426,12 @@ msgstr "Risposte"
 #: inc/Posts/Answer.php:273
 msgid "In Response To"
 msgstr "In Risposta a"
+
+#: inc/Posts/Answer.php:317 inc/Posts/Base.php:320 inc/Settings.php:402
+#: inc/Template.php:58 inc/Template.php:163 inc/Template.php:180
+#: templates/content-comment.php:19
+msgid "Edit"
+msgstr "Modifica"
 
 #: inc/Posts/Answer.php:318 inc/Settings.php:403 inc/Template.php:168
 #: inc/Template.php:185 templates/content-comment.php:22
@@ -1245,25 +1123,25 @@ msgstr ""
 msgid "Subscribe"
 msgstr ""
 
-#: inc/Template.php:444
+#: inc/Template.php:445
 msgid "Email"
 msgstr "Email"
 
-#: inc/Template.php:446
+#: inc/Template.php:447
 msgid "Name"
 msgstr "Nome"
 
-#: inc/Template.php:448
+#: inc/Template.php:449
 #, php-format
 msgid "Required fields are marked %s"
 msgstr "I campi obbligaotri sono contrassegnati da %s"
 
-#: inc/Template.php:460
+#: inc/Template.php:461
 #, php-format
 msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
 msgstr "Devi essere <a href=\"%s\">loggato</a> per poter inviare un commento."
 
-#: inc/Template.php:463
+#: inc/Template.php:464
 #, php-format
 msgid ""
 "You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
@@ -1272,37 +1150,37 @@ msgstr ""
 "Puoi utilizzare i seguenti attributi <abbr title=\"HyperText Markup Language"
 "\">HTML</abbr>: %s"
 
-#: inc/Template.php:466
+#: inc/Template.php:467
 msgid "Leave a Reply"
 msgstr "Invia una risposta"
 
-#: inc/Template.php:467
+#: inc/Template.php:468
 #, php-format
 msgid "Leave a Reply to %s"
 msgstr "Invia una risposta a %s"
 
-#: inc/Template.php:468
+#: inc/Template.php:469
 msgid "Cancel reply"
 msgstr "Cancella risposta"
 
-#: inc/Template.php:469
+#: inc/Template.php:470
 msgid "Post Comment"
 msgstr "Invia commento"
 
-#: inc/Template.php:644
+#: inc/Template.php:645
 msgid "Sticky Question"
 msgstr "Domanda in evidenzaa"
 
-#: inc/Template.php:658
+#: inc/Template.php:659
 msgid "Ask a question"
 msgstr "Nuova domanda"
 
-#: inc/Template.php:660
+#: inc/Template.php:661
 #, fuzzy
 msgid "Login to ask a question"
 msgstr "Entra per inviare le tue domande"
 
-#: inc/Template.php:1108
+#: inc/Template.php:1109
 #, fuzzy
 msgid "Choose as the best answer"
 msgstr "Scegli come Risposta Migliore"
@@ -1438,7 +1316,7 @@ msgstr "Publica"
 msgid "Only Me &amp; Admin"
 msgstr ""
 
-#: templates/answer-submit-form.php:39 templates/question-submit-form.php:64
+#: templates/answer-submit-form.php:39 templates/question-submit-form.php:65
 msgid "Submit"
 msgstr ""
 
@@ -1582,7 +1460,7 @@ msgstr ""
 msgid "This question is:"
 msgstr ""
 
-#: templates/question-submit-form.php:68
+#: templates/question-submit-form.php:69
 #, fuzzy
 msgid "You do not have permission to submit a question"
 msgstr "Non hai i permessi per inviare domande"
@@ -1638,6 +1516,100 @@ msgstr ""
 #. Author URI of the plugin/theme
 msgid "http://www.designwall.com"
 msgstr ""
+
+#~ msgid "Next"
+#~ msgstr "Successivo"
+
+#~ msgid "Prev"
+#~ msgstr "Precedente"
+
+#~ msgid "Please enter your question"
+#~ msgstr "inserisci la tua domanda"
+
+#~ msgid "Your question must be at least 2 characters in length"
+#~ msgstr "La domanda deve contenere almeno 2 caratteri"
+
+#~ msgid "Enter a valid email address"
+#~ msgstr "Inserisci un indirizzo mail valido"
+
+#~ msgid "Enter a question title"
+#~ msgstr "Inserisci il titolo della domanda"
+
+#~ msgid "Please add your name"
+#~ msgstr "inserisci il tuo nome"
+
+#~ msgid "Please enter your answer"
+#~ msgstr "Inserisci la tua risposta"
+
+#~ msgid "Comment must have more than 2 characters"
+#~ msgstr "I commenti devono contenere almeno 2 caratteri"
+
+#~ msgid "Not found! Try another keyword."
+#~ msgstr "Non trovato, prova con un'altra parola chiave"
+
+#~ msgid "Or press <strong>ENTER</strong> to get more questions"
+#~ msgstr "O premi ENTER per visualizzare altre domande"
+
+#~ msgid "Update"
+#~ msgstr "Aggiorna"
+
+#~ msgid "Cancel"
+#~ msgstr "Cancella"
+
+#~ msgid "Do you want to delete this comment?"
+#~ msgstr "Vuoi cancellare questo commento?"
+
+#~ msgid "Do you want to delete this answer?"
+#~ msgstr "Vuoi cancellare questa risposta?"
+
+#, fuzzy
+#~ msgid "Do you want to update this answer?"
+#~ msgstr "Vuoi aggiornare questa risposta"
+
+#, fuzzy
+#~ msgid "Do you want to report this answer?"
+#~ msgstr "Vuoi segnalare questa risposta"
+
+#~ msgid "Report"
+#~ msgstr "Segnala"
+
+#~ msgid "Undo"
+#~ msgstr "Annulla"
+
+#~ msgid ""
+#~ "This answer will be marked as spam and hidden. Do you want to flag it?"
+#~ msgstr ""
+#~ "La risposta verrà contrassegnata come spam e nascosta. Vuoi segnalarla?"
+
+#~ msgid "This answer was flagged as spam. Do you want to show it"
+#~ msgstr "Questa risposta è stata segnalata come spam. Vuoi visualizzarla"
+
+#~ msgid "This answer was flagged as spam"
+#~ msgstr "Questa risposta è stata segnalata come spam"
+
+#~ msgid "hide"
+#~ msgstr "nascondi"
+
+#~ msgid "show"
+#~ msgstr "mostra"
+
+#~ msgid "Follow This Question"
+#~ msgstr "Segui questa domanda"
+
+#~ msgid "Unfollow This Question"
+#~ msgstr "Smetti di seguire questa domanda"
+
+#, fuzzy
+#~ msgid "Pin this question to top"
+#~ msgstr "Metti questa domandain evidenza nella pagina principale"
+
+#, fuzzy
+#~ msgid "Unpin this question from top"
+#~ msgstr "Rimuovi questa domanda dalla pagina principale"
+
+#, fuzzy
+#~ msgid "Do you want to delete this question?"
+#~ msgstr "Vuoi cancellare questo commento?"
 
 #~ msgid "Publish"
 #~ msgstr "Pubblica"

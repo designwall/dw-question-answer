@@ -100,6 +100,10 @@ class DWQA_Notifications {
 			return false;
 		}
 
+		if ( 'private' == get_post_status( $answer_id ) ) {
+			return false;
+		}
+
 		$logo = get_option( 'dwqa_subscrible_email_logo', '' );
 		$logo = $logo ? '<img src="'.$logo.'" alt="'.get_bloginfo( 'name' ).'" style="max-width: 100%; height: auto;" />' : '';
 		$headers  = 'MIME-Version: 1.0' . "\r\n";

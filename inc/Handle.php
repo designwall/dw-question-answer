@@ -46,6 +46,14 @@ class DWQA_Handle {
 			dwqa_add_notice( __( 'You do not have permission to submit question.', 'dwqa' ), 'error' );
 		}
 
+		if ( !is_user_logged_in() && ( empty( $_POST['user-email'] ) || !is_email( sanitize_email( $_POST['user-email'] ) ) ) ) {
+			dwqa_add_notice( __( 'Missing email information', 'dwqa' ), 'error' );
+		}
+
+		if ( !is_user_logged_in() && ( empty( $_POST['user-name'] ) ) ) {
+			dwqa_add_notice( __( 'Missing name information', 'dwqa' ), 'error' );
+		}
+
 		if ( !dwqa_valid_captcha( 'single-question' ) ) {
 			dwqa_add_notice( __( 'Captcha is not correct', 'dwqa' ), 'error' );
 		}
@@ -116,7 +124,7 @@ class DWQA_Handle {
 				}
 			}
 
-			// do_action( 'dwqa_add_answer', $answer_id, $question_id );
+			do_action( 'dwqa_add_answer', $answer_id, $question_id );
 			$this->update_modified_date( $question_id , current_time( 'timestamp', 0 ), current_time( 'timestamp', 1 ) );
 
 			exit( wp_redirect( get_permalink( $question_id ) ) );
@@ -248,7 +256,7 @@ class DWQA_Handle {
 				dwqa_add_notice( __( 'Are you cheating huh?', 'dwqa' ), 'error' );
 			}
 
-			if ( !dwqa_current_user_can( 'You do not have permission to edit answer.' ) ) {
+			if ( !dwqa_current_user_can( 'edit_comment', $comment_id ) ) {
 				dwqa_add_notice( __( 'You do not have permission to edit comment.', 'dwqa' ), 'error' );
 			}
 
@@ -285,6 +293,18 @@ class DWQA_Handle {
 					if ( empty( $_POST['question-title'] ) ) {
 						dwqa_add_notice( __( 'You must enter a valid question title.', 'dwqa' ), 'error' );
 						return false;
+					}
+
+					if ( !is_user_logged_in() ) {
+						if ( empty( $_POST['_dwqa_anonymous_email'] ) || !is_email( sanitize_email( $_POST['_dwqa_anonymous_email'] ) ) ) {
+							dwqa_add_notice( __( 'Missing email information', 'dwqa' ), 'error' );
+							return false;
+						}
+
+						if ( empty( $_POST['_dwqa_anonymous_name'] ) ) {
+							dwqa_add_notice( __( 'Missing name information', 'dwqa' ), 'error' );
+							return false;
+						}
 					}
 
 					$title = esc_html( $_POST['question-title'] );

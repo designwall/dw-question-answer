@@ -36,7 +36,19 @@ function dwqa_the_excerpt( $content ) {
 
 	$dwqa_options = get_option( 'dwqa_options' );
 
-	if ( isset( $post ) && $post && (int) $post->ID == (int) $dwqa_options['pages']['archive-question'] || (int) $post->ID == (int) $dwqa_options['pages']['submit-question'] ) {
+	if ( 
+			isset( $post->ID )
+			&& 
+			( 
+				(int) $post->ID == (int) $dwqa_options['pages']['archive-question'] 
+				|| 
+				(int) $post->ID == (int) $dwqa_options['pages']['submit-question'] 
+			) 
+		) {
+		$content = apply_filters( 'the_content', $post->post_content );
+	}
+
+	if ( is_singular( 'dwqa-question' ) ) {
 		$content = apply_filters( 'the_content', $post->post_content );
 	}
 

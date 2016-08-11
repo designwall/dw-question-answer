@@ -36,7 +36,7 @@ class DWQA_Widgets_Latest_Question extends WP_Widget {
 			echo '<ul>';
 			while ( $questions->have_posts() ) { $questions->the_post( );
 				echo '
-				<li><a href="'.get_permalink().'" class="question-title">'.get_the_title( ).'</a> '.__( 'asked by', 'dwqa' ).' ' . ( dwqa_is_anonymous( get_the_ID() ) ? __( 'Anonymous', 'dwqa' ) : get_the_author_link() ) . ', ' .  human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) . ' ago';
+				<li><a href="'.get_permalink().'" class="question-title">'.get_the_title( ).'</a> '.__( 'asked by', 'dwqa' ).' ' . get_the_author() . ', ' .  human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) . ' ago';
 				'</li>';
 			}   
 			echo '</ul>';

@@ -174,12 +174,12 @@ function dwqa_get_author_link( $user_id = false ) {
 	global $dwqa_general_settings;
 	$user = get_user_by( 'id', $user_id );
 	$question_link = isset( $dwqa_general_settings['pages']['archive-question'] ) ? get_permalink( $dwqa_general_settings['pages']['archive-question'] ) : false;
-
+	$url = get_the_author_link( $user_id );
 	if ( $question_link ) {
-		return add_query_arg( array( 'user' => urlencode( $user->user_login ) ), $question_link );
-	} else {
-		return get_the_author_link( $user_id );
+		$url = add_query_arg( array( 'user' => urlencode( $user->user_login ) ), $question_link );
 	}
+
+	return apply_filters( 'dwqa_get_author_link', $url, $user_id, $user );
 }
 
 

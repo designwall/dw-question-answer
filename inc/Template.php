@@ -678,14 +678,23 @@ function dwqa_get_ask_question_link( $echo = true, $label = false, $class = fals
 
 function dwqa_get_template( $template = false ) {
 	$templates = apply_filters( 'dwqa_get_template', array(
+		'single-dwqa-question.php',
 		'page.php',
-		'single-dwqa-question',
 		'single.php',
 		'index.php',
 	) );
 
-	if ( isset( $template ) && file_exists( trailingslashit( get_template_directory() ) . $template ) ) {
-		return trailingslashit( get_template_directory() ) . $template;
+	$temp_dir = array(
+		1 => trailingslashit( get_stylesheet_directory() ),
+		10 => trailingslashit( get_template_directory() )
+	);
+
+	if ( isset( $template ) ) {
+		foreach( $temp_dir as $link ) {
+			if ( file_exists( $link . $template ) ) {
+				return $link . $template;
+			}
+		}
 	}
 
 	$old_template = $template;
@@ -693,8 +702,10 @@ function dwqa_get_template( $template = false ) {
 		if ( $template == $old_template ) {
 			continue;
 		}
-		if ( file_exists( trailingslashit( get_template_directory() ) . $template ) ) {
-			return trailingslashit( get_template_directory() ) . $template;
+		foreach( $temp_dir as $link ) {
+			if ( file_exists( $link . $template ) ) {
+				return $link . $template;
+			}
 		}
 	}
 	return false;

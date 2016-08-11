@@ -11,8 +11,8 @@ function dwqa_advanced_ads_select_args( $args ) {
 }
 
 /** Facebook Comments **/
-add_filter( 'get_post_metadata', 'dwqa_disabel_wpdevart_facebook_comment', 10, 3 );
-function dwqa_disabel_wpdevart_facebook_comment( $value, $post_id, $meta_key ) {
+add_filter( 'get_post_metadata', 'dwqa_disable_wpdevart_facebook_comment', 10, 3 );
+function dwqa_disable_wpdevart_facebook_comment( $value, $post_id, $meta_key ) {
 	$dwqa_options = get_option( 'dwqa_options', array() );
 	if ( 
 			'_disabel_wpdevart_facebook_comment' == $meta_key
@@ -31,4 +31,13 @@ function dwqa_disabel_wpdevart_facebook_comment( $value, $post_id, $meta_key ) {
 	}
 
 	return $value;
+}
+
+/** Facebook Comments Plugin **/
+add_filter( 'the_content', 'dwqa_disable_facebook_comments_plugin', 10 );
+function dwqa_disable_facebook_comments_plugin( $content ) {
+	if ( 'dwqa-question' == get_post_type() || 'dwqa-answer' == get_post_type() ) {
+		remove_filter('the_content', 'fbcommentbox', 100);
+	}
+	return $content;
 }

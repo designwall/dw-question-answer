@@ -125,6 +125,7 @@ class DWQA_Notifications {
 			$user_id = absint( get_post_field( 'post_author', $answer_id ) );
 			$user_display_name = get_the_author_meta( 'display_name', $user_id );
 			$user_email = get_the_author_meta( 'display_name', $user_id );
+			$avatar = get_avatar( $user_id, '60' );
 		}
 
 		$followers = get_post_meta( $question_id, '_dwqa_followers' );
@@ -142,6 +143,7 @@ class DWQA_Notifications {
 
 		$message = str_replace( '{answer_author}', $user_display_name, $message );
 		$message = str_replace( '{question_link}', get_permalink( $question_id ), $message );
+		$message = str_replace( '{answer_link}', get_permalink( $question_id ) . '#answer-' . $answer_id, $message );
 		$message = str_replace( '{question_title}', get_the_title( $question_id ), $message );
 		$message = str_replace( '{answer_content}', get_post_field( 'post_content', $answer_id ), $message );
 		$message = str_replace( '{answer_avatar}', $avatar, $message );
@@ -221,6 +223,7 @@ class DWQA_Notifications {
 			$user_id = absint( get_post_field( 'post_author', $question_id ) );
 			$user_display_name = get_the_author_meta( 'display_name', $user_id );
 			$user_email = get_the_author_meta( 'display_name', $user_id );
+			$avatar = get_avatar( $user_id, '60' );
 		}
 
 		$is_answer_anonymous = dwqa_is_anonymous( $answer_id );
@@ -233,12 +236,13 @@ class DWQA_Notifications {
 			if ( $user_email ) {
 				$answer_avatar = get_avatar( $user_email, '60' );
 			} else {
-				$answer_avatar = get_avatar( $user_id, '60' );
+				$answer_avatar = get_avatar( $answer_user_id, '60' );
 			}
 		} else {
 			$answer_user_id = absint( get_post_field( 'post_author', $answer_id ) );
 			$answer_user_display_name = get_the_author_meta( 'display_name', $answer_user_id );
 			$answer_user_email = get_the_author_meta( 'display_name', $answer_user_id );
+			$answer_avatar = get_avatar( $answer_user_id, '60' );
 		}
 
 		// make sure anonymous entered email

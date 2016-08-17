@@ -804,6 +804,7 @@ class DWQA_Template {
 	}
 
 	public function question_content( $template ) {
+		global $wp_query;
 		$dwqa_options = get_option( 'dwqa_options' );
 		$template_folder = trailingslashit( get_template_directory() );
 		if ( isset( $dwqa_options['pages']['archive-question'] ) ) {
@@ -848,9 +849,8 @@ class DWQA_Template {
 			add_filter( 'body_class', array( $this, 'page_template_body_class' ) );
 			return dwqa_get_template( $page_template );
 		}
-		if ( is_tax( 'dwqa-question_category' ) || is_tax( 'dwqa-question_tag' ) || is_post_type_archive( 'dwqa-question' ) || is_post_type_archive( 'dwqa-answer' ) ) {
+		if ( is_tax( 'dwqa-question_category' ) || is_tax( 'dwqa-question_tag' ) || is_post_type_archive( 'dwqa-question' ) || is_post_type_archive( 'dwqa-answer' ) || isset( $wp_query->query_vars['dwqa-question_tag'] ) || isset( $wp_query->query_vars['dwqa-question_category'] ) ) {
 
-			global $wp_query;
 			$post_id = isset( $dwqa_options['pages']['archive-question'] ) ? $dwqa_options['pages']['archive-question'] : 0;
 			if ( $post_id ) {
 				$page = get_page( $post_id );
@@ -864,7 +864,6 @@ class DWQA_Template {
 		}
 
 		if ( is_page( $dwqa_options['pages']['archive-question'] ) ) {
-			global $wp_query;
 			$wp_query->is_archive = true;
 		}
 
@@ -1062,18 +1061,27 @@ class DWQA_Template {
 	}
 
 	public function load_template( $name, $extend = false, $include = true ) {
-		$check = true;
 		if ( $extend ) {
 			$name .= '-' . $extend;
 		}
 
-		$template = get_stylesheet_directory() . '/dwqa-templates/'.$name.'.php';
-		if ( ! file_exists( $template ) ) {
-			$template = DWQA_DIR . 'templates/'.$name.'.php';
+		$template = false;
+		$template_dir = array(
+			DWQA_STYLESHEET_DIR . $this->get_template_dir(),
+			DWQA_TEMP_DIR . $this->get_template_dir(),
+			DWQA_DIR . 'templates/'
+		);
+
+		foreach( $template_dir as $temp_path ) {
+			if ( file_exists( $temp_path . $name . '.php' ) ) {
+				$template = $temp_path . $name . '.php';
+				break;
+			}
 		}
+
 		$template = apply_filters( 'dwqa-load-template', $template, $name );
 
-		if ( ! file_exists( $template ) ) {
+		if ( !$template || !file_exists( $template ) ) {
 			_doing_it_wrong( __FUNCTION__, sprintf( "<strong>%s</strong> does not exists in <code>%s</code>.", $name, $template ), '1.4.0' );
 			return false;
 		}

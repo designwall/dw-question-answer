@@ -5,7 +5,6 @@ class DWQA_Admin_Welcome {
 		add_action( 'admin_menu', array( $this, 'admin_menus') );
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
 		add_action( 'admin_init', array( $this, 'welcome' ) );
-		add_action( 'admin_notices', array( $this, 'admin_notices' ), 99 );
 	}
 
 	public function welcome() {

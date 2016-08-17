@@ -35,9 +35,15 @@ class DWQA_Widgets_Latest_Question extends WP_Widget {
 			echo '<div class="dwqa-popular-questions">';
 			echo '<ul>';
 			while ( $questions->have_posts() ) { $questions->the_post( );
-				echo '
-				<li><a href="'.get_permalink().'" class="question-title">'.get_the_title( ).'</a> '.__( 'asked by', 'dwqa' ).' ' . get_the_author() . ', ' .  human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) . ' ago';
-				'</li>';
+				echo '<li>';
+				echo '<a href="'. get_permalink() .'" class="question-title">';
+				the_title();
+				echo '</a>';
+				echo __( 'asked by', 'dwqa' ) . ' ' . get_the_author_link();
+				if ( isset( $instance['question_date'] ) && $instance['question_date'] ) {
+					echo ', ' . human_time_diff( get_the_time( 'U', true ) ) . ' ' . __( 'ago', 'dwqa' );
+				}
+				echo '</li>';
 			}   
 			echo '</ul>';
 			echo '</div>';
@@ -58,13 +64,19 @@ class DWQA_Widgets_Latest_Question extends WP_Widget {
 		$instance = wp_parse_args( $instance, array( 
 			'title' => '',
 			'number' => 5,
+			'question_date' => false
 		) );
+
 		?>
 		<p><label for="<?php echo $this->get_field_id( 'title' ) ?>"><?php _e( 'Widget title', 'dwqa' ) ?></label>
 		<input type="text" name="<?php echo $this->get_field_name( 'title' ) ?>" id="<?php echo $this->get_field_id( 'title' ) ?>" value="<?php echo $instance['title'] ?>" class="widefat">
 		</p>
 		<p><label for="<?php echo $this->get_field_id( 'number' ) ?>"><?php _e( 'Number of posts', 'dwqa' ) ?></label>
 		<input type="text" name="<?php echo $this->get_field_name( 'number' ) ?>" id="<?php echo $this->get_field_id( 'number' ) ?>" value="<?php echo $instance['number'] ?>" class="widefat">
+		</p>
+		<p>
+			<input type="checkbox" name="<?php echo $this->get_field_name( 'question_date' ) ?>" id="<?php echo $this->get_field_id( 'question_date' ) ?>" <?php checked( 'on', $instance['question_date'] ) ?> class="widefat">
+			<label for="<?php echo $this->get_field_id( 'question_date' ) ?>"><?php _e( 'Show question date', 'dwqa' ) ?></label>
 		</p>
 		<?php
 	}

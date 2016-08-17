@@ -14,11 +14,11 @@
 		<?php
 			global $post;
 			$user_id = get_post_field( 'post_author', get_the_ID() ) ? get_post_field( 'post_author', get_the_ID() ) : false;
-			$time = human_time_diff( get_post_time( 'U' ) );
+			$time = human_time_diff( get_post_time( 'U', true ) );
 			$text = __( 'asked', 'dwqa' );
 			$latest_answer = dwqa_get_latest_answer();
 			if ( $latest_answer ) {
-				$time = human_time_diff( strtotime( $latest_answer->post_date ) );
+				$time = human_time_diff( strtotime( $latest_answer->post_date_gmt ) );
 				$text = __( 'answered', 'dwqa' );
 			}
 		?>

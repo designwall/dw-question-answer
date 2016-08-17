@@ -16,7 +16,7 @@
 	</div>
 	<div class="dwqa-question-meta">
 		<?php $user_id = get_post_field( 'post_author', get_the_ID() ) ? get_post_field( 'post_author', get_the_ID() ) : false ?>
-		<?php printf( __( '<span><a href="%s">%s%s</a> %s asked %s ago</span>', 'dwqa' ), dwqa_get_author_link( $user_id ), get_avatar( $user_id, 48 ), get_the_author(),  dwqa_print_user_badge( $user_id ), human_time_diff( get_post_time( 'U' ) ) ) ?>
+		<?php printf( __( '<span><a href="%s">%s%s</a> %s asked %s ago</span>', 'dwqa' ), dwqa_get_author_link( $user_id ), get_avatar( $user_id, 48 ), get_the_author(),  dwqa_print_user_badge( $user_id ), human_time_diff( get_post_time( 'U', true ) ) ) ?>
 		<span class="dwqa-question-actions"><?php dwqa_question_button_action() ?></span>
 	</div>
 	<div class="dwqa-question-content"><?php the_content(); ?></div>

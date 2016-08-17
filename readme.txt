@@ -1,9 +1,9 @@
 ﻿=== DW Question & Answer ===
-Contributors: designwall, Farid-Gh, scheunemann, gciprian, Ahmet Kolcu, Astrotenko Roman, David Robles, Nidhal Naji, developez, markhall1971
+Contributors: designwall, oryc9x, Farid-Gh, scheunemann, gciprian, Ahmet Kolcu, Astrotenko Roman, David Robles, Nidhal Naji, developez, markhall1971
 Tags: question, answer, support, quora, stackoverflow
 Requires at least: 3.0.1
 Tested up to: 4.4.2
-Stable tag: 1.4.4
+Stable tag: 1.4.5
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -85,36 +85,44 @@ Visit our [Github](https://github.com/designwall/dw-question-answer) project or 
 
 == Changelog ==
 
-= 1.4.4 =
-Compatible with Genesis Framework, Advanced Ads, Facebook Comments
-New: Support RTL languages
-Tweak: update main file
-Tweak: Name and Email fields in submit question and answer is require fields
-Fix: Don't show question listing when use the_excerpt() function
+= 1.4.5 =
+* New: Short-code list question by category [dwqa-list-questions category="question"]
+* New: Support template from child theme
+* Tweak: Add some filter
+* Fix: Display name in Latest Questions
+* Fix: Fix some issue in Notifications
+* Fix: Time of question and answer show not correctly
+* Fix: Addressed some security issues
 
+= 1.4.4 =
+* Compatible with Genesis Framework, Advanced Ads, Facebook Comments
+* New: Support RTL languages
+* Tweak: update main file
+* Tweak: Name and Email fields in submit question and answer is require fields
+* Fix: Don't show question listing when use the_excerpt() function
 
 = 1.4.3.4 =
-Fix: Fix cannot format text
+* Fix: Fix cannot format text
 
 = 1.4.3.3 =
-Fix: Addressed some security issues
+* Fix: Addressed some security issues
 
 = 1.4.3.2 =
-Quick fix
+* Quick fix
 
 = 1.4.3.1 =
-Quick fix and update some language file.
+* Quick fix and update some language file.
 
 = 1.4.3 =
-Tweak: Update language file
-Fix: Addressed some security issues
+* Tweak: Update language file
+* Fix: Addressed some security issues
 
 = 1.4.2.3 =
-Fix: Addressed some security issues
+* Fix: Addressed some security issues
 
 = 1.4.2.2 =
-Tweak: flush rewrite rule after active or upgrade plugin
-Fix: Fatal error in comment
+* Tweak: flush rewrite rule after active or upgrade plugin
+* Fix: Fatal error in comment
 
 = 1.4.2.1 =
 * Quick fix

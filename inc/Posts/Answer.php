@@ -323,8 +323,8 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 					__( 'Submitted', 'dwqa' ),
 					__( 'on', 'dwqa' ),
 					get_permalink(),
-					date( 'M d Y', get_post_time( 'U', false, $answer ) ),
-					( time() - get_post_time( 'U', false, $answer ) ) > 60 * 60 * 24 * 2 ? '' : ' at ' . human_time_diff( get_post_time( 'U', false, $answer ) ) . ' ago',
+					date( 'M d Y', get_post_time( 'U', true, $answer ) ),
+					( time() - get_post_time( 'U', true, $answer ) ) > 60 * 60 * 24 * 2 ? '' : ' at ' . human_time_diff( get_post_time( 'U', true, $answer ) ) . ' ago',
 					substr( get_the_content(), 0 , 140 ) . ' ...',
 					$this->row_actions( $actions )
 				);

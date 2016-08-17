@@ -51,12 +51,30 @@ class DWQA_Shortcode {
 		return $buffer;
 	}
 
-	public function archive_question() {
+	public function archive_question( $atts = array() ) {
 		global $dwqa, $script_version, $dwqa_sript_vars;
 		ob_start();
 
-		$dwqa->template->remove_all_filters( 'the_content' );
+		if ( isset( $atts['category'] ) ) {
+			$atts['tax_query'][] = array(
+				'taxonomy' => 'dwqa-question_category',
+				'terms' => esc_html( $atts['category'] ),
+				'field' => 'slug'
+			);
+			unset( $atts['category'] );
+		}
 
+		if ( isset( $atts['tag'] ) ) {
+			$atts['tax_query'][] = array(
+				'taxonomy' => 'dwqa-question_tag',
+				'terms' => esc_html( $atts['tag'] ),
+				'field' => 'slug'
+			);
+			unset( $atts['tag'] );
+		}
+
+		$dwqa->template->remove_all_filters( 'the_content' );
+		dwqa()->filter->prepare_archive_posts( $atts );
 		echo '<div class="dwqa-container" >';
 		dwqa_load_template( 'archive', 'question' );
 		echo '</div>';

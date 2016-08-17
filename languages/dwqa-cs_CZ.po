@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: DW Question Answer v1.2.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-18 14:02+0700\n"
-"PO-Revision-Date: 2016-07-18 14:02+0700\n"
+"POT-Creation-Date: 2016-08-17 16:30+0700\n"
+"PO-Revision-Date: 2016-08-17 16:30+0700\n"
 "Last-Translator: Sam Straka <samstraka@e-levne.com>\n"
 "Language-Team: \n"
 "Language: cs_CZ\n"
@@ -60,50 +60,50 @@ msgid "Get It Now!"
 msgstr "Dostaň to nyní !"
 
 # @ dwqa
-#: inc/Admin/Welcome.php:28 inc/Admin/Welcome.php:29
+#: inc/Admin/Welcome.php:27 inc/Admin/Welcome.php:28
 msgid "Welcome to DW Question & Answer"
 msgstr "Vítejte v systému DW Otázky & Odpovědi"
 
 # @ dwqa
-#: inc/Admin/Welcome.php:36 inc/Admin/Welcome.php:37
+#: inc/Admin/Welcome.php:35 inc/Admin/Welcome.php:36
 msgid "DW Question & Answer Changelog"
 msgstr "Plugin DW Otázky & Odpovědi Změny"
 
 # @ default
-#: inc/Admin/Welcome.php:44 inc/Admin/Welcome.php:45
+#: inc/Admin/Welcome.php:43 inc/Admin/Welcome.php:44
 msgid "DW Question & Answer Credits"
 msgstr "Zásluhy - DW Otázky & Odpovědi"
 
 # @ dwqa
-#: inc/Admin/Welcome.php:61
+#: inc/Admin/Welcome.php:60
 #, php-format
 msgid "Welcome to DW Question & Answer %s"
 msgstr "Vítejte v systému DW Otázky & Odpovědi %s"
 
-#: inc/Admin/Welcome.php:62
+#: inc/Admin/Welcome.php:61
 msgid ""
 "Thank you for installing our WordPress plugin. If you have any question "
 "about this plugin, please submit to our <a target=\"_blank\" href=\"https://"
 "www.designwall.com/question/\">Q&A section</a>."
 msgstr ""
 
-#: inc/Admin/Welcome.php:70
+#: inc/Admin/Welcome.php:69
 msgid "What&#8217;s New"
 msgstr "Co je nového"
 
-#: inc/Admin/Welcome.php:71
+#: inc/Admin/Welcome.php:70
 msgid "Changelog"
 msgstr ""
 
-#: inc/Admin/Welcome.php:72
+#: inc/Admin/Welcome.php:71
 msgid "Credits"
 msgstr ""
 
-#: inc/Admin/Welcome.php:200
+#: inc/Admin/Welcome.php:199
 msgid "Contributors"
 msgstr ""
 
-#: inc/Admin/Welcome.php:219
+#: inc/Admin/Welcome.php:218
 msgid "No valid changelog was found."
 msgstr ""
 
@@ -160,7 +160,7 @@ msgstr "Tento příspěvek není dotaz"
 msgid "You do not have permission to edit question status"
 msgstr "Nemáte dostatečná práva k úpravě stavu dotazu"
 
-#: inc/Ajax.php:223 inc/Ajax.php:272
+#: inc/Ajax.php:223 inc/Ajax.php:273
 msgid "Not Found!!!"
 msgstr ""
 
@@ -176,9 +176,9 @@ msgstr "Podrobnosti"
 
 # @ dwqa
 #: inc/Answer_List_Table.php:92 inc/Notifications.php:116
-#: inc/Notifications.php:212 inc/Notifications.php:230 inc/Posts/Base.php:230
+#: inc/Notifications.php:214 inc/Notifications.php:233 inc/Posts/Base.php:230
 #: inc/Posts/Comment.php:102 inc/Settings.php:419 inc/Settings.php:455
-#: inc/Settings.php:490 inc/User.php:155 inc/widgets/Latest_Question.php:39
+#: inc/Settings.php:490 inc/User.php:155
 msgid "Anonymous"
 msgstr "Anonymní"
 
@@ -436,22 +436,22 @@ msgid "A new question was posted on {site_name}"
 msgstr "Nový dotaz byl zaslán na {site_name}"
 
 # @ dwqa
-#: inc/Notifications.php:131
+#: inc/Notifications.php:132
 msgid "You have a new answer for your followed question"
 msgstr "Máte novou odpověd na sledovanou otázku"
 
 # @ dwqa
-#: inc/Notifications.php:246
+#: inc/Notifications.php:250
 msgid "A new answer for \"{question_title}\" was posted on {site_name}"
 msgstr "Nová odpověď pro \"{question_title}\" byl zaslána na {site_name}"
 
 # @ dwqa
-#: inc/Notifications.php:330 inc/Notifications.php:376
+#: inc/Notifications.php:334 inc/Notifications.php:380
 msgid "[{site_name}] You have a new comment for question {question_title}"
 msgstr "[{site_name}] Máte nový komentář k otázce {question_title}"
 
 # @ dwqa
-#: inc/Notifications.php:335 inc/Notifications.php:381
+#: inc/Notifications.php:339 inc/Notifications.php:385
 msgid "[{site_name}] You have a new comment for answer"
 msgstr "[{site_name}] Máte nový komentář pro odpověď"
 
@@ -599,8 +599,8 @@ msgid "Parent:"
 msgstr "Nadřazená kategorie:"
 
 # @ dwqa
-#: inc/Posts/Question.php:56 inc/Shortcode.php:120
-#: inc/widgets/Closed_Question.php:49 inc/widgets/Latest_Question.php:39
+#: inc/Posts/Question.php:56 inc/Shortcode.php:138
+#: inc/widgets/Closed_Question.php:49 inc/widgets/Latest_Question.php:42
 #: inc/widgets/Popular_Question.php:43
 msgid "asked by"
 msgstr "dotaz od"
@@ -1193,27 +1193,27 @@ msgid "Send a copy of every email to admin."
 msgstr ""
 
 # @ dwqa
-#: inc/Shortcode.php:97 inc/widgets/Popular_Question.php:21
+#: inc/Shortcode.php:115 inc/widgets/Popular_Question.php:21
 msgid "Popular Questions"
 msgstr "Populární dotazy"
 
 # @ dwqa
-#: inc/Shortcode.php:134
+#: inc/Shortcode.php:152
 msgid "Latest Answers"
 msgstr "Poslední odpovědi"
 
 # @ dwqa
-#: inc/Shortcode.php:160
+#: inc/Shortcode.php:178
 msgid "Answer at"
 msgstr "Odpověď na"
 
 # @ dwqa
-#: inc/Shortcode.php:160
+#: inc/Shortcode.php:178
 msgid "Link to"
 msgstr "Link k"
 
 # @ dwqa
-#: inc/Shortcode.php:188
+#: inc/Shortcode.php:206
 #, php-format
 msgid "%d person who is following this question"
 msgid_plural "%d people who are following this question"
@@ -1221,7 +1221,7 @@ msgstr[0] "%d člověk sledujících tento dotaz"
 msgstr[1] "%d lidé sledující tento dotaz"
 msgstr[2] "%d lidí sledujících tento dotaz"
 
-#: inc/Shortcode.php:218
+#: inc/Shortcode.php:236
 msgid "Question List"
 msgstr ""
 
@@ -1337,7 +1337,7 @@ msgid "Login to ask a question"
 msgstr "Přihlašte se k položení vašeho dotazu"
 
 # @ dwqa
-#: inc/Template.php:1109
+#: inc/Template.php:1128
 msgid "Choose as the best answer"
 msgstr "Vyberte nejlepší odpověď"
 
@@ -1387,13 +1387,13 @@ msgid "Closed Questions"
 msgstr "Uzavřené dotazy"
 
 # @ default
-#: inc/widgets/Closed_Question.php:72 inc/widgets/Latest_Question.php:63
+#: inc/widgets/Closed_Question.php:72 inc/widgets/Latest_Question.php:71
 #: inc/widgets/Popular_Question.php:66 inc/widgets/Related_Question.php:48
 msgid "Widget title"
 msgstr "Nadpis widgetu"
 
 # @ default
-#: inc/widgets/Closed_Question.php:75 inc/widgets/Latest_Question.php:66
+#: inc/widgets/Closed_Question.php:75 inc/widgets/Latest_Question.php:74
 #: inc/widgets/Popular_Question.php:69 inc/widgets/Related_Question.php:51
 msgid "Number of posts"
 msgstr "Počet příspěvků"
@@ -1412,6 +1412,14 @@ msgstr "Poslední dotazy"
 #: inc/widgets/Latest_Question.php:17
 msgid "Latest Questions"
 msgstr "Poslední dotazy"
+
+#: inc/widgets/Latest_Question.php:44
+msgid "ago"
+msgstr ""
+
+#: inc/widgets/Latest_Question.php:79
+msgid "Show question date"
+msgstr ""
 
 # @ dwqa
 #: inc/widgets/Popular_Question.php:13

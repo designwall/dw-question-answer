@@ -176,7 +176,7 @@ function dwqa_get_author_link( $user_id = false ) {
 	$question_link = isset( $dwqa_general_settings['pages']['archive-question'] ) ? get_permalink( $dwqa_general_settings['pages']['archive-question'] ) : false;
 	$url = get_the_author_link( $user_id );
 	if ( $question_link ) {
-		$url = add_query_arg( array( 'user' => urlencode( $user->user_login ) ), $question_link );
+		$url = add_query_arg( array( 'user' => urlencode( $user->user_nicename ) ), $question_link );
 	}
 
 	return apply_filters( 'dwqa_get_author_link', $url, $user_id, $user );

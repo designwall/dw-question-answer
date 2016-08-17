@@ -4,7 +4,7 @@
  *  Inlucde all funtion for filter of dw question answer plugin
  */
 class DWQA_Filter {
-	public function prepare_archive_posts() {
+	public function prepare_archive_posts( $args ) {
 		global $wp_query,$dwqa_general_settings;
 
 		$posts_per_page = isset( $dwqa_general_settings['posts-per-page'] ) ?  $dwqa_general_settings['posts-per-page'] : 5;
@@ -44,8 +44,7 @@ class DWQA_Filter {
 
 		// filter by user
 		if ( $user ) {
-			$user = get_user_by( 'login', $user );
-			$query['author'] = $user->ID;
+			$query['author_name'] = esc_html( $user );
 		}
 
 
@@ -146,6 +145,8 @@ class DWQA_Filter {
 		if ( is_user_logged_in() ) {
 			$query['post_status'] = array( 'publish', 'private' );
 		}
+
+		$query = wp_parse_args( $args, $query );
 
 		$query = apply_filters( 'dwqa_prepare_archive_posts', $query );
 
@@ -297,12 +298,20 @@ class DWQA_Filter {
 	}
 
 	public function __construct(){
-		add_action( 'dwqa_before_questions_list', array( $this, 'prepare_archive_posts' ) );
 		add_action( 'dwqa_after_questions_list', array( $this, 'after_archive_posts' ) );
 		add_action( 'dwqa_after_question_stickies', array( $this, 'after_archive_posts' ) );
 
 		//Prepare answers for single questions
 		add_action( 'the_posts', array( $this, 'prepare_answers' ), 10, 2 );
+		add_filter( 'parse_query', array( $this, 'dwqa_theme_fix_category_page' ) );
+	}
+
+	function dwqa_theme_fix_category_page( $query ) {
+		if ( isset( $query->query_vars['dwqa-question_tag'] ) || isset( $query->query_vars['dwqa-question_category'] ) ) {
+			$dwqa_options = get_option( 'dwqa_options', array() );
+			$query->query_vars['posts_per_page'] = isset( $dwqa_options['posts-per-page'] ) ? $dwqa_options['posts-per-page'] : 15;
+		}
+		return $query;
 	}
 }
 ?>

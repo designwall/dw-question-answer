@@ -246,6 +246,7 @@ class DWQA_Ajax {
 			$search = preg_replace( '/#\S*\w/i', '', $search );
 		}
 		$args_query['s'] = $search;
+		$args_query = apply_filters( 'dwqa_prepare_search_query_args', $args_query );
 		$query = new WP_Query( $args_query );
 		if ( ! $query->have_posts() ) {
 			global $current_search;

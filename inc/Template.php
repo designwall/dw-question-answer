@@ -1060,6 +1060,10 @@ class DWQA_Template {
 		return $this->active;
 	}
 
+	public function get_template_dir() {
+		return apply_filters( 'dwqa_get_template_dir', 'dwqa-templates/' );
+	}
+
 	public function load_template( $name, $extend = false, $include = true ) {
 		if ( $extend ) {
 			$name .= '-' . $extend;

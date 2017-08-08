@@ -28,5 +28,6 @@
 		<span class="dwqa-answer-actions"><?php dwqa_answer_button_action(); ?></span>
 	</div>
 	<div class="dwqa-answer-content"><?php the_content(); ?></div>
+	<?php do_action('dwqa_after_show_content_answer', get_the_ID()); ?>
 	<?php comments_template(); ?>
 </div>

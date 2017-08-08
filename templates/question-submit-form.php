@@ -8,7 +8,7 @@
 ?>
 <?php if ( dwqa_current_user_can( 'post_question' ) ) : ?>
 	<?php do_action( 'dwqa_before_question_submit_form' ); ?>
-	<form method="post" class="dwqa-content-edit-form">
+	<form method="post" class="dwqa-content-edit-form" enctype="multipart/form-data">
 		<p class="dwqa-search">
 			<label for="question_title"><?php _e( 'Title', 'dwqa' ) ?></label>
 			<?php $title = isset( $_POST['question-title'] ) ? sanitize_title( $_POST['question-title'] ) : ''; ?>

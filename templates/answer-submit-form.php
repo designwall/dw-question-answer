@@ -10,7 +10,7 @@
 <div class="dwqa-answer-form">
 	<?php do_action( 'dwqa_before_answer_submit_form' ); ?>
 	<div class="dwqa-answer-form-title"><?php _e( 'Your Answer', 'dwqa' ) ?></div>
-	<form name="dwqa-answer-form" id="dwqa-answer-form" method="post">
+	<form name="dwqa-answer-form" id="dwqa-answer-form" method="post" enctype="multipart/form-data">
 		<?php dwqa_print_notices(); ?>
 		<?php $content = isset( $_POST['answer-content'] ) ? sanitize_text_field( $_POST['answer-content'] ) : ''; ?>
 		<?php dwqa_init_tinymce_editor( array( 'content' => $content, 'textarea_name' => 'answer-content', 'id' => 'dwqa-answer-content' ) ) ?>
@@ -35,7 +35,7 @@
 				<option value="private"><?php _e( 'Only Me &amp; Admin', 'dwqa' ) ?></option>
 			</optgroup>
 		</select>
-		
+		<?php do_action('dwqa_before_answer_submit_button'); ?>
 		<input type="submit" name="submit-answer" class="dwqa-btn dwqa-btn-primary" value="<?php _e( 'Submit', 'dwqa' ) ?>">
 		<input type="hidden" name="question_id" value="<?php the_ID(); ?>">
 		<input type="hidden" name="dwqa-action" value="add-answer">

@@ -20,7 +20,8 @@ class DWQA_Handle {
 		if ( ! isset( $_POST['dwqa-action'] ) || ! isset( $_POST['submit-answer'] ) ) {
 			return false;
 		}
-
+		// do_action( 'dwqa_add_answer', $answer_id, $question_id );
+		// die();
 		if ( 'add-answer' !== sanitize_text_field( $_POST['dwqa-action'] ) ) {
 			return false;
 		}

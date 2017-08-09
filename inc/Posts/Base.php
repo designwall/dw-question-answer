@@ -52,13 +52,18 @@ function dwqa_action_vote( ) {
 	$point = isset( $_POST['type'] ) && sanitize_text_field( $_POST['type'] ) == 'up' ? 1 : -1;
 
 	//vote
+	$dwqa_user_vote_id = '';
 	if ( is_user_logged_in( ) ) {
 		global $current_user;
 		$dwqa_user_vote_id = $current_user->ID;
 	}else{
-		$dwqa_user_vote_id = dwqa_get_current_user_session();
+		global $dwqa_general_settings;
+		if(isset($dwqa_general_settings['allow-anonymous-vote']) && $dwqa_general_settings['allow-anonymous-vote']){
+			$dwqa_user_vote_id = dwqa_get_current_user_session();
+		}
 	}
-	if ( ! dwqa_is_user_voted( $post_id, $point, $dwqa_user_vote_id ) ) {
+	if ($dwqa_user_vote_id!=''){
+		if ( ! dwqa_is_user_voted( $post_id, $point, $dwqa_user_vote_id ) ) {
 			$votes = maybe_unserialize(  get_post_meta( $post_id, '_dwqa_votes_log', true ) );
 
 			$votes[$dwqa_user_vote_id] = $point;
@@ -78,42 +83,11 @@ function dwqa_action_vote( ) {
 			$result['error_message'] = __( 'You voted for this ' . $vote_for, 'dwqa' );
 			wp_send_json_error( $result );
 		}		
-	/* if ( is_user_logged_in( ) ) {
-		global $current_user;
-
-		if ( ! dwqa_is_user_voted( $post_id, $point ) ) {
-			$votes = maybe_unserialize(  get_post_meta( $post_id, '_dwqa_votes_log', true ) );
-
-			$votes[$current_user->ID] = $point;
-			//update
-			do_action( 'dwqa_vote_'.$vote_for, $post_id, ( int ) $point );
-			update_post_meta( $post_id, '_dwqa_votes_log', serialize( $votes ) );
-			// Update vote point
-			dwqa_update_vote_count( $post_id );
-
-			$point = dwqa_vote_count( $post_id );
-			if ( $point > 0 ) {
-				$point = '+' . $point;
-			}
-			wp_send_json_success( array( 'vote' => $point ) );
-		} else {
-			$result['error_code'] = 'voted';
-			$result['error_message'] = __( 'You voted for this ' . $vote_for, 'dwqa' );
-			wp_send_json_error( $result );
-		}		
-	} elseif ( 'question' == $vote_for ) {
-		// useful of question with meta field is "_dwqa_question_useful", point of this question
-		$useful = get_post_meta( $post_id, '_dwqa_'.$vote_for.'_useful', true );
-		$useful = $useful ? ( int ) $useful : 0;
-
-		do_action( 'dwqa_vote_'.$vote_for, $post_id, ( int ) $point );
-		update_post_meta( $post_id, '_dwqa_'.$vote_for.'_useful', $useful + $point );
-
-		// Number of votes by guest
-		$useful_rate = get_post_meta( $post_id, '_dwqa_'.$vote_for.'_useful_rate', true );
-		$useful_rate = $useful_rate ? ( int ) $useful_rate : 0;
-		update_post_meta( $post_id, '_dwqa_'.$vote_for.'_useful_rate', $useful_rate + 1 );
-	} */
+	}else{
+		$result['error_code'] = 'anonymous';
+		$result['error_message'] = __( 'You aren\'t allowed voted for this ' . $vote_for, 'dwqa' );
+		wp_send_json_error( $result );
+	}
 }
 add_action( 'wp_ajax_dwqa-action-vote', 'dwqa_action_vote' );
 add_action( 'wp_ajax_nopriv_dwqa-action-vote', 'dwqa_action_vote' );

@@ -1,4 +1,33 @@
 <?php 
+
+add_action( 'init', 'dwqa_anonymous_create_session' );
+function dwqa_anonymous_create_session() {
+	if ( !dwqa_get_current_user_session() ) {
+		$expire = time() + 10*YEAR_IN_SECONDS;
+
+		$secure = is_ssl();
+
+		$secure_in_cookie = $secure && 'https' === parse_url( get_option( 'home' ), PHP_URL_SCHEME );
+
+		if ( $secure ) {
+			$auth_cookie_secure = SECURE_AUTH_COOKIE;
+		} else {
+			$auth_cookie_secure = AUTH_COOKIE;
+		}
+
+		$token = wp_generate_password( 43, false, false );
+
+		setcookie('dwqa_anonymous', $token, $expire, COOKIEPATH, COOKIE_DOMAIN, $secure_in_cookie, true );
+		if ( COOKIEPATH != SITECOOKIEPATH ) {
+			setcookie('dwqa_anonymous', $token, $expire, SITECOOKIEPATH, COOKIE_DOMAIN, $secure_in_cookie, true );
+		}
+	}
+}
+
+function dwqa_get_current_user_session() {
+	return isset( $_COOKIE['dwqa_anonymous'] ) && !empty( $_COOKIE['dwqa_anonymous'] ) ? $_COOKIE['dwqa_anonymous'] : false;
+}
+
 function dwqa_action_vote( ) {
 	$result = array(
 		'error_code'    => 'authorization',  
@@ -24,6 +53,32 @@ function dwqa_action_vote( ) {
 
 	//vote
 	if ( is_user_logged_in( ) ) {
+		global $current_user;
+		$dwqa_user_vote_id = $current_user->ID;
+	}else{
+		$dwqa_user_vote_id = dwqa_get_current_user_session();
+	}
+	if ( ! dwqa_is_user_voted( $post_id, $point, $dwqa_user_vote_id ) ) {
+			$votes = maybe_unserialize(  get_post_meta( $post_id, '_dwqa_votes_log', true ) );
+
+			$votes[$dwqa_user_vote_id] = $point;
+			//update
+			do_action( 'dwqa_vote_'.$vote_for, $post_id, ( int ) $point );
+			update_post_meta( $post_id, '_dwqa_votes_log', serialize( $votes ) );
+			// Update vote point
+			dwqa_update_vote_count( $post_id );
+
+			$point = dwqa_vote_count( $post_id );
+			if ( $point > 0 ) {
+				$point = '+' . $point;
+			}
+			wp_send_json_success( array( 'vote' => $point ) );
+		} else {
+			$result['error_code'] = 'voted';
+			$result['error_message'] = __( 'You voted for this ' . $vote_for, 'dwqa' );
+			wp_send_json_error( $result );
+		}		
+	/* if ( is_user_logged_in( ) ) {
 		global $current_user;
 
 		if ( ! dwqa_is_user_voted( $post_id, $point ) ) {
@@ -58,7 +113,7 @@ function dwqa_action_vote( ) {
 		$useful_rate = get_post_meta( $post_id, '_dwqa_'.$vote_for.'_useful_rate', true );
 		$useful_rate = $useful_rate ? ( int ) $useful_rate : 0;
 		update_post_meta( $post_id, '_dwqa_'.$vote_for.'_useful_rate', $useful_rate + 1 );
-	}
+	} */
 }
 add_action( 'wp_ajax_dwqa-action-vote', 'dwqa_action_vote' );
 add_action( 'wp_ajax_nopriv_dwqa-action-vote', 'dwqa_action_vote' );

@@ -124,7 +124,7 @@ class DWQA_Notifications {
 		} else {
 			$user_id = absint( get_post_field( 'post_author', $answer_id ) );
 			$user_display_name = get_the_author_meta( 'display_name', $user_id );
-			$user_email = get_the_author_meta( 'display_name', $user_id );
+			$user_email = get_the_author_meta( 'user_email', $user_id );
 			$avatar = get_avatar( $user_id, '60' );
 		}
 
@@ -222,11 +222,11 @@ class DWQA_Notifications {
 		} else {
 			$user_id = absint( get_post_field( 'post_author', $question_id ) );
 			$user_display_name = get_the_author_meta( 'display_name', $user_id );
-			$user_email = get_the_author_meta( 'display_name', $user_id );
+			$user_email = get_the_author_meta( 'user_email', $user_id );
 			$avatar = get_avatar( $user_id, '60' );
 		}
 
-		$is_answer_anonymous = dwqa_is_anonymous( $answer_id );
+		/* $is_answer_anonymous = dwqa_is_anonymous( $answer_id );
 		if ( $is_answer_anonymous ) {
 			$answer_user_id = 0;
 			$answer_user_display_name = get_post_meta( $answer_id, '_dwqa_anonymous_name', true );
@@ -241,9 +241,9 @@ class DWQA_Notifications {
 		} else {
 			$answer_user_id = absint( get_post_field( 'post_author', $answer_id ) );
 			$answer_user_display_name = get_the_author_meta( 'display_name', $answer_user_id );
-			$answer_user_email = get_the_author_meta( 'display_name', $answer_user_id );
+			$answer_user_email = get_the_author_meta( 'user_email', $answer_user_id );
 			$answer_avatar = get_avatar( $answer_user_id, '60' );
-		}
+		} */
 
 		// make sure anonymous entered email
 		if ( $user_email ) {

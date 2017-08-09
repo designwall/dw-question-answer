@@ -552,6 +552,12 @@ function dwqa_answer_per_page_display() {
 	echo '<p><input id="dwqa_setting_answers_per_page" type="text" name="dwqa_options[answer-per-page]" class="small-text" value="'.$posts_per_page.'" > <span class="description">'.__( 'answers.','dwqa' ).'</span></p>';
 }
 
+function dwqa_allow_anonymous_vote() {
+	global $dwqa_general_settings;
+	
+	echo '<p><label for="dwqa_options_allow_anonymous_vote"><input type="checkbox" name="dwqa_options[allow-anonymous-vote]"  id="dwqa_options_allow_anonymous_vote" value="1" '.checked( 1, (isset($dwqa_general_settings['allow-anonymous-vote'] ) ? $dwqa_general_settings['allow-anonymous-vote'] : false ) , false ) .'><span class="description">'.__( 'Allow anonymous vote.', 'dwqa' ).'</span></label></p>';
+}
+
 function dwqa_enable_private_question_display() {
 	global $dwqa_general_settings;
 	
@@ -906,6 +912,22 @@ class DWQA_Settings {
 			'dwqa_answer_per_page_display', 
 			'dwqa-settings', 
 			'dwqa-answer-settings' 
+		);
+		
+		// Vote Settings
+		add_settings_section(
+			'dwqa-vote-settings',
+			__( 'Vote Settings', 'dwqa' ),
+			false,
+			'dwqa-settings'
+		);
+
+		add_settings_field(
+			'dwqa_options[allow-anonymous-vote]',
+			__( 'Allow Anonymous Vote', 'dwqa' ),
+			'dwqa_allow_anonymous_vote',
+			'dwqa-settings',
+			'dwqa-vote-settings'
 		);
 
 		//Captcha Setting

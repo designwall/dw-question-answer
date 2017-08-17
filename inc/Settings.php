@@ -558,6 +558,49 @@ function dwqa_allow_anonymous_vote() {
 	echo '<p><label for="dwqa_options_allow_anonymous_vote"><input type="checkbox" name="dwqa_options[allow-anonymous-vote]"  id="dwqa_options_allow_anonymous_vote" value="1" '.checked( 1, (isset($dwqa_general_settings['allow-anonymous-vote'] ) ? $dwqa_general_settings['allow-anonymous-vote'] : false ) , false ) .'><span class="description">'.__( 'Allow anonymous vote.', 'dwqa' ).'</span></label></p>';
 }
 
+function dwqa_use_akismet_antispam() {
+	global $dwqa_general_settings;
+	
+	echo '<p><label for="dwqa_options_use_akismet_antispam"><input type="checkbox" name="dwqa_options[use-akismet-antispam]"  id="dwqa_options_use_akismet_antispam" value="1" '.checked( 1, (isset($dwqa_general_settings['use-akismet-antispam'] ) ? $dwqa_general_settings['use-akismet-antispam'] : false ) , false ) .'><span class="description">'.__( 'Enable Akismet', 'dwqa' ).'</span></label></p>';
+}
+
+function dwqa_akismet_api_key() {
+	global $dwqa_general_settings;
+
+	$akismet_api_key = isset( $dwqa_general_settings['akismet-api-key'] ) ?  $dwqa_general_settings['akismet-api-key'] : '';
+	echo '<p><input id="dwqa_setting_akismet_api_key" type="text" name="dwqa_options[akismet-api-key]" class="medium-text" value="'.$akismet_api_key.'" ><br><span class="description">'.__( 'Get in', 'dwqa' ).' <a href="https://akismet.com">akismet.com</a>'.'</span></p>';
+}
+
+function dwqa_akismet_connection_status() {
+	global $dwqa_general_settings;
+	
+	$status = __( 'Not Connected', 'dwqa' );
+	
+	if(isset($dwqa_general_settings['use-akismet-antispam']) && $dwqa_general_settings['use-akismet-antispam']){
+		//enable akismet
+		if ( class_exists( 'DWQA_Akismet' ) ){
+			if(DWQA_Akismet::akismet_verify_key($dwqa_general_settings['akismet-api-key'])){
+				$status = __( 'Connected', 'dwqa' );
+			}
+		}
+	}
+
+	echo '<p>'.$status.'</p>';
+}
+
+function dwqa_use_auto_closure() {
+	global $dwqa_general_settings;
+	
+	echo '<p><label for="dwqa_options_use_auto_closure"><input type="checkbox" name="dwqa_options[use-auto-closure]"  id="dwqa_options_use_auto_closure" value="1" '.checked( 1, (isset($dwqa_general_settings['use-auto-closure'] ) ? $dwqa_general_settings['use-auto-closure'] : false ) , false ) .'><span class="description">'.__( 'Enable Auto Closure', 'dwqa' ).'</span></label></p>';
+}
+function dwqa_number_day_auto_closure() {
+	global $dwqa_general_settings;
+	$number_day_auto_closure = isset( $dwqa_general_settings['number-day-auto-closure'] ) ?  $dwqa_general_settings['number-day-auto-closure'] : '';
+	echo '<p><input id="dwqa_setting_number_day_auto_closure" type="text" name="dwqa_options[number-day-auto-closure]" class="medium-text" value="'.$number_day_auto_closure.'" > <span class="description">'.__( 'Days.(greater 0)','dwqa' ).'</span></p>';
+}
+
+
+
 function dwqa_enable_private_question_display() {
 	global $dwqa_general_settings;
 	
@@ -930,6 +973,59 @@ class DWQA_Settings {
 			'dwqa-vote-settings'
 		);
 
+		// Akismet Settings
+		add_settings_section(
+			'dwqa-akismet-settings',
+			__( 'Akismet Settings', 'dwqa' ),
+			false,
+			'dwqa-settings'
+		);
+
+		add_settings_field(
+			'dwqa_options[use-akismet-antispam]',
+			__( 'Use Akismet anti-spam', 'dwqa' ),
+			'dwqa_use_akismet_antispam',
+			'dwqa-settings',
+			'dwqa-akismet-settings'
+		);
+		add_settings_field(
+			'dwqa_options[akismet-api-key]',
+			__( 'Akismet API key', 'dwqa' ),
+			'dwqa_akismet_api_key',
+			'dwqa-settings',
+			'dwqa-akismet-settings'
+		);
+		add_settings_field(
+			'dwqa_options[akismet-connection-status]',
+			__( 'Akismet connection status', 'dwqa' ),
+			'dwqa_akismet_connection_status',
+			'dwqa-settings',
+			'dwqa-akismet-settings'
+		);
+		
+		//Auto closure Settings
+		add_settings_section(
+			'dwqa-auto-closure-settings',
+			__( 'Auto Closure Settings', 'dwqa' ),
+			false,
+			'dwqa-settings'
+		);
+
+		add_settings_field(
+			'dwqa_options[use-auto-closure]',
+			__( 'Use Auto Closure', 'dwqa' ),
+			'dwqa_use_auto_closure',
+			'dwqa-settings',
+			'dwqa-auto-closure-settings'
+		);
+		add_settings_field(
+			'dwqa_options[number-day-auto-closure]',
+			__( 'Closure after', 'dwqa' ),
+			'dwqa_number_day_auto_closure',
+			'dwqa-settings',
+			'dwqa-auto-closure-settings'
+		);
+		
 		//Captcha Setting
 
 		add_settings_section( 

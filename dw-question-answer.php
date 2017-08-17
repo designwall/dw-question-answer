@@ -41,6 +41,10 @@ class DW_Question_Answer {
 		$this->editor = new DWQA_Editor();
 		$this->user = new DWQA_User();
 		$this->notifications = new DWQA_Notifications();
+		
+		$this->akismet = new DWQA_Akismet();
+		$this->autoclosure = new DWQA_Autoclosure();
+		
 		$this->filter = new DWQA_Filter();
 		$this->session = new DWQA_Session();
 

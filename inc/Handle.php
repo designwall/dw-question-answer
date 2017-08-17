@@ -97,6 +97,8 @@ class DWQA_Handle {
 			return false;
 		}
 
+		$answers = apply_filters( 'dwqa_insert_answer_args', $answers );
+		
 		$answer_id = wp_insert_post( $answers );
 
 		if ( !is_wp_error( $answer_id ) ) {
@@ -232,6 +234,8 @@ class DWQA_Handle {
 			if ( dwqa_count_notices( 'error', true ) > 0 ) {
 				return false;
 			}
+			
+			$args = apply_filters( 'dwqa_insert_comment_args', $args );
 
 			$comment_id = wp_insert_comment( $args );
 
@@ -542,6 +546,8 @@ class DWQA_Handle {
 			'post_title'     => '',
 			'post_type'      => 'dwqa-question',
 		) );
+		
+		$args = apply_filters( 'dwqa_insert_question_args', $args );
 
 		$new_question = wp_insert_post( $args, true );
 

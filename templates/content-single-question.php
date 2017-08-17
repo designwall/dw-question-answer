@@ -20,6 +20,7 @@
 		<span class="dwqa-question-actions"><?php dwqa_question_button_action() ?></span>
 	</div>
 	<div class="dwqa-question-content"><?php the_content(); ?></div>
+	<?php do_action('dwqa_after_show_content_question', get_the_ID()); ?>
 	<div class="dwqa-question-footer">
 		<div class="dwqa-question-meta">
 			<?php echo get_the_term_list( get_the_ID(), 'dwqa-question_tag', '<span class="dwqa-question-tag">' . __( 'Question Tags: ', 'dwqa' ), ', ', '</span>' ); ?>

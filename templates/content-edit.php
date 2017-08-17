@@ -14,7 +14,7 @@ if ( !$edit_id ) return;
 $type = $comment_id ? 'comment' : ( 'dwqa-question' == get_post_type( $edit_id ) ? 'question' : 'answer' );
 ?>
 <?php do_action( 'dwqa_before_edit_form' ); ?>
-<form method="post" class="dwqa-content-edit-form">
+<form method="post" class="dwqa-content-edit-form" enctype="multipart/form-data">
 	<?php if ( 'dwqa-question' == get_post_type( $edit_id ) ) : ?>
 	<?php $title = dwqa_question_get_edit_title( $edit_id ) ?>
 	<p>
@@ -45,6 +45,8 @@ $type = $comment_id ? 'comment' : ( 'dwqa-question' == get_post_type( $edit_id )
 		<input type="text" class="" name="question-tag" value="<?php dwqa_get_tag_list( get_the_ID(), true ); ?>" >
 	</p>
 	<?php endif; ?>
+	<?php do_action('dwqa_after_show_content_edit', $edit_id); ?>
+	<?php do_action( 'dwqa_before_edit_submit_button' ) ?>
 	<input type="hidden" name="<?php echo $type ?>_id" value="<?php echo $edit_id ?>">
 	<?php wp_nonce_field( '_dwqa_edit_' . $type ) ?>
 	<input type="submit" name="dwqa-edit-<?php echo $type ?>-submit" value="<?php _e( 'Save Changes', 'dwqa' ) ?>" >

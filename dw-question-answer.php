@@ -63,6 +63,16 @@ class DW_Question_Answer {
 		add_filter( 'plugin_row_meta', array( $this, 'plugin_rows_meta' ), 10, 2 );
 		register_activation_hook( __FILE__, array( $this, 'activate_hook' ) );
 		register_deactivation_hook( __FILE__, array( $this, 'deactivate_hook' ) );
+		
+		add_action( 'bp_include', array($this,'dwqa_setup_buddypress'), 10 );
+	}
+	
+	public function dwqa_setup_buddypress(){
+		// Include the BuddyPress Component
+		require( DWQA_DIR . 'inc/extend/buddypress/loader.php' );
+		
+		// Instantiate BuddyPress for bbPress
+		$this->DWQA_Buddypress = new DWQA_QA_Component();	
 	}
 
 	public static function instance() {

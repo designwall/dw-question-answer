@@ -298,6 +298,7 @@ class DWQA_Filter {
 	}
 
 	public function __construct(){
+		add_action( 'bp_dwqa_before_questions_list', array( $this, 'prepare_archive_posts' ) );
 		add_action( 'dwqa_after_questions_list', array( $this, 'after_archive_posts' ) );
 		add_action( 'dwqa_after_question_stickies', array( $this, 'after_archive_posts' ) );
 

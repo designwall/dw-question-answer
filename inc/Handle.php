@@ -262,7 +262,6 @@ class DWQA_Handle {
 			
 			$redirect_to = apply_filters( 'dwqa_submit_comment_success_redirect', $redirect_to, $question_id);
 			exit(wp_safe_redirect( $redirect_to ));
-
 		}
 	}
 

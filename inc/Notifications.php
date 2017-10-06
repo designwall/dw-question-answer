@@ -3,14 +3,34 @@
 class DWQA_Notifications {
 
 	public function __construct() {
-		add_action( 'dwqa_add_question', array( $this, 'new_question_notify' ), 10, 2 );
-		add_action( 'dwqa_add_answer', array( $this, 'new_answer_nofity_to_follower' ) );
-		add_action( 'dwqa_add_answer', array( $this, 'new_answer_nofity_to_question_author' ) );
-		add_action( 'dwqa_update_answer', array( $this, 'new_answer_nofity_to_follower' ) );
-		add_action( 'dwqa_update_answer', array( $this, 'new_answer_nofity_to_question_author' ) );
-		add_action( 'wp_insert_comment', array( $this, 'new_comment_notify' ), 10, 2 );
-	}
+		// add_action( 'dwqa_add_question', array( $this, 'new_question_notify' ), 10, 2 );
+		// add_action( 'wp_insert_comment', array( $this, 'new_comment_notify' ), 10, 2 );
+		// add_action( 'dwqa_add_answer', array( $this, 'new_answer_notify' ), 10, 2 );
+		
+		add_action('dwqa_new_question_notify', array( $this, 'new_question_notify' ), 10, 2);
+		add_action('dwqa_new_answer_notify', array( $this, 'new_answer_notify' ), 10, 2);
+		add_action('dwqa_new_comment_notify', array( $this, 'new_comment_notify' ), 10, 2);
 
+		add_action( 'dwqa_add_question', array( $this, 'dwqa_queue_add_question' ), 10, 2 );
+		add_action( 'dwqa_add_answer', array( $this, 'dwqa_queue_add_answer' ), 10, 2 );
+		add_action( 'wp_insert_comment', array( $this, 'dwqa_queue_insert_comment' ), 10, 2 );
+		
+
+		// add_action( 'dwqa_add_question', array( $this, 'new_activity' ) );
+		// add_action( 'dwqa_add_answer', array( $this, 'new_activity' ) );
+		// add_action( 'dwqa_add_comment', array( $this, 'new_activity' ) );
+	}
+	
+	public function dwqa_queue_add_question($question_id, $user_id){
+		wp_schedule_single_event( time() + 120, 'dwqa_new_question_notify', array($question_id, $user_id) );
+	}
+	public function dwqa_queue_add_answer($answer_id, $question_id){
+		wp_schedule_single_event( time() + 120, 'dwqa_new_answer_notify', array($answer_id, $question_id) );
+	}
+	public function dwqa_queue_insert_comment($comment_id, $comment){
+		wp_schedule_single_event( time() + 120, 'dwqa_new_comment_notify', array($comment_id, $comment) );
+	}
+	
 	public function new_question_notify( $question_id, $user_id ) {
 		// receivers
 		$admin_email = $this->get_admin_email();
@@ -32,25 +52,6 @@ class DWQA_Notifications {
 		$subject = str_replace( '{question_title}', $question->post_title, $subject );
 		$subject = str_replace( '{question_id}', $question->ID, $subject );
 		$subject = str_replace( '{username}', get_the_author_meta( 'display_name', $user_id ), $subject );
-		// To send HTML mail, the Content-type header must be set
-		$headers  = 'MIME-Version: 1.0' . "\r\n";
-		$headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
-		//From email 
-		$from_email = get_option( 'dwqa_subscrible_from_address' );
-		if ( $from_email ) {
-			$headers .= 'From: ' . $from_email . "\r\n";
-		}
-
-		//Cc email
-		$cc_address = get_option( 'dwqa_subscrible_cc_address' );
-		if ( $cc_address ) {
-			$headers .= 'Cc: ' . $cc_address . "\r\n";
-		}
-		//Bcc email
-		$bcc_address = get_option( 'dwqa_subscrible_bcc_address' );
-		if ( $bcc_address ) {
-			$headers .= 'Bcc: ' . $bcc_address . "\r\n";
-		}
 		
 		$message = dwqa_get_mail_template( 'dwqa_subscrible_new_question_email', 'new-question' );
 		if ( ! $message ) {
@@ -78,181 +79,162 @@ class DWQA_Notifications {
 		$message = str_replace( '{site_description}', get_bloginfo( 'description' ), $message );
 		$message = str_replace( '{site_url}', site_url(), $message );
 
+		$headers = array( 
+			"From: {$this->get_from_name()} <{$this->get_from_address()}>",
+			"Reply-To: {$this->get_from_address()}",
+			"Content-Type: {$this->get_content_type()}; charset=utf-8"
+		);
+		
 		// start send out email
-		$sended = $this->send( $admin_email, $subject, $message, $headers );
+		foreach( $admin_email as $to ) {
+			if ( is_email( $to ) )
+				$sended = $this->send( sanitize_email( $to ), $subject, $message, $headers );
+		}
 	}
 
-	public function new_answer_nofity_to_follower( $answer_id ) {
-		$enabled = get_option( 'dwqa_subscrible_enable_new_answer_followers_notification', 1 );
-		if ( ! $enabled ) {
-			return false;
-		}
-
-		// make sure this is new answer
+	public function new_answer_notify( $answer_id, $question_id ) {
+		// print_r( $answer_id ); die;
 		if ( 'dwqa-answer' !== get_post_type( $answer_id ) ) {
 			return false;
 		}
 
-		$question_id = dwqa_get_question_from_answer_id( $answer_id );
-
-		// make sure is reply for a question
 		if ( 'dwqa-question' !== get_post_type( $question_id ) ) {
 			return false;
 		}
 
-		if ( 'private' == get_post_status( $answer_id ) ) {
-			return false;
-		}
+		// default value
+		$site_name = get_bloginfo( 'name' );
+		$question_title = get_the_title( $question_id );
+		$answer_content = get_post_field( 'post_content', $answer_id );
+		$question_link = get_permalink( $question_id );
+		$answer_link = trailingslashit( $question_link ) . '#answer-' . $answer_id;
+		$site_description = get_bloginfo( 'description' );
+		$site_url = site_url();
+		$enable_send_copy = get_option( 'dwqa_subscrible_send_copy_to_admin' );
+		$admin_email = $this->get_admin_email();
+		$site_logo = get_option( 'dwqa_subscrible_email_logo', '' );
+		$site_logo = $site_logo ? '<img src="' . $site_logo . '" alt="' . get_bloginfo( 'name' ) . '" style="max-width: 100%; height: auto;" />' : '';
 
-		$logo = get_option( 'dwqa_subscrible_email_logo', '' );
-		$logo = $logo ? '<img src="'.$logo.'" alt="'.get_bloginfo( 'name' ).'" style="max-width: 100%; height: auto;" />' : '';
-		$headers  = 'MIME-Version: 1.0' . "\r\n";
-		$headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
-		// this is answer of anonymous ?
-		$is_anonymous = dwqa_is_anonymous( $answer_id );
-		if ( $is_anonymous ) {
-			$user_id = 0;
-			$user_display_name = get_post_meta( $answer_id, '_dwqa_anonymous_name', true );
-			$user_display_name = $user_display_name ? esc_html( $user_display_name ) : __( 'Anonymous', 'dwqa' );
-			$user_email = get_post_meta( $answer_id, '_dwqa_anonymous_email', true );
-			$user_email = $user_email ? sanitize_email( $user_email ) : false;
-			if ( $user_email ) {
-				$avatar = get_avatar( $user_email, '60' );
-			} else {
-				$avatar = get_avatar( $user_id, '60' );
-			}
+		// for answer
+		$answer_is_anonymous = dwqa_is_anonymous( $answer_id );
+		if ( $answer_is_anonymous ) {
+			$user_answer_id = 0;
+			$user_answer_display_name = get_post_meta( $answer_id, '_dwqa_anonymous_name', true );
+			$user_answer_display_name = $user_answer_display_name ? sanitize_text_field( $user_answer_display_name ) : __( 'Anonymous', 'dwqa' );
+			$user_answer_email = get_post_meta( $answer_id, '_dwqa_anonymous_email', true );
+			$user_answer_email = $user_answer_email ? sanitize_email( $user_answer_email ) : false;
 		} else {
-			$user_id = absint( get_post_field( 'post_author', $answer_id ) );
-			$user_display_name = get_the_author_meta( 'display_name', $user_id );
-			$user_email = get_the_author_meta( 'user_email', $user_id );
-			$avatar = get_avatar( $user_id, '60' );
+			$user_answer_id = get_post_field( 'post_author', $answer_id );
+			$user_answer_display_name = get_the_author_meta( 'display_name', $user_answer_id );
+			$user_answer_email = get_the_author_meta( 'user_email', $user_answer_id );
 		}
 
+		if ( $user_answer_email ) {
+			$user_answer_avatar = get_avatar( $user_answer_email, 60 );
+		} else {
+			$user_answer_avatar = get_avatar( $user_answer_id, 60 );
+		}
+		
+		// for question
+		$question_is_anonymous = dwqa_is_anonymous( $question_id );
+		if ( $question_is_anonymous ) {
+			$user_question_id = 0;
+			$user_question_display_name = get_post_meta( $question_id, '_dwqa_anonymous_name', true );
+			$user_question_display_name = $user_question_display_name ? sanitize_text_field( $user_question_display_name ) : __( 'Anonymous', 'dwqa' );
+			$user_question_email = get_post_meta( $question_id, '_dwqa_anonymous_email', true );
+			$user_question_email = $user_question_email ? sanitize_email( $user_question_email ) : false;
+		} else {
+			$user_question_id = get_post_field( 'post_author', $question_id );
+			$user_question_display_name = get_the_author_meta( 'display_name', $user_question_id );
+			$user_question_email = get_the_author_meta( 'user_email', $user_question_id );
+		}
+
+		if ( $user_question_email ) {
+			$user_question_avatar = get_avatar( $user_question_email, 60 );
+		} else {
+			$user_question_avatar = get_avatar( $user_question_id, 60 );
+		}
+
+		// get all follower email lists
 		$followers = get_post_meta( $question_id, '_dwqa_followers' );
-		$subject = get_option( 'dwqa_subscrible_new_answer_followers_email_subject', __( 'You have a new answer for your followed question', 'dwqa' ) );
-		$subject = str_replace( '{site_name}', get_bloginfo( 'name' ), $subject );
-		$subject = str_replace( '{question_title}', get_the_title( $question_id ), $subject );
-		$subject = str_replace( '{question_id}', $question_id, $subject );
-		$subject = str_replace( '{answer_author}', $user_display_name, $subject );
-
-		$message = dwqa_get_mail_template( 'dwqa_subscrible_new_answer_followers_email', 'new-answer-followers' );
-		$message = apply_filters( 'dwqa_get_new_answer_email_to_followers_message', $message, $answer_id, $question_id );
-		if ( !$message ) {
-			return false;
-		}
-
-		$message = str_replace( '{answer_author}', $user_display_name, $message );
-		$message = str_replace( '{question_link}', get_permalink( $question_id ), $message );
-		$message = str_replace( '{answer_link}', get_permalink( $question_id ) . '#answer-' . $answer_id, $message );
-		$message = str_replace( '{question_title}', get_the_title( $question_id ), $message );
-		$message = str_replace( '{answer_content}', get_post_field( 'post_content', $answer_id ), $message );
-		$message = str_replace( '{answer_avatar}', $avatar, $message );
-		$message = str_replace( '{site_logo}', $logo, $message );
-		$message = str_replace( '{site_name}', get_bloginfo( 'name' ), $message );
-		$message = str_replace( '{site_description}', get_bloginfo( 'description' ), $message );
-		$message = str_replace( '{site_url}', site_url(), $message );
-
-		// make sure the question have subscriber
+		$followers_email = array();
 		if ( !empty( $followers ) && is_array( $followers ) ) {
-			foreach ( $followers as $follower_id ) {
-				$user = get_user_by( 'id', $follower_id );
-				// prevent send to question author and answer author and user exists
-				if (
-						absint( $follower_id ) !== $user_id
-						&&
-						absint( $follower_id ) !== get_post_field( 'post_author', $question_id )
-						&&
-						isset( $user->ID ) 
-					) {
-					$subject = str_replace( '{username}', $user->display_name, $subject );
-					$message = str_replace( '{follower}', $user->display_name, $message );
-					$message = str_replace( '{follower_avatar}', get_avatar( $user->user_email, '60' ), $message );
-
-					$subject = apply_filters( 'dwqa_get_new_answer_email_to_followers_subject', $subject, $answer_id, $question_id );
-
-					// send
-					$this->send( get_the_author_meta( 'user_email', absint( $follower_id ) ), $subject, $message, $headers );
-					// send copy to admin
-					$enable_send_copy = get_option( 'dwqa_subscrible_send_copy_to_admin' );
-					if ( $enable_send_copy ) {
-						$admin_email = $this->get_admin_email();
-						$this->send( $admin_email, $subject, $message, $headers );
-					}
+			foreach( $followers as $follower ) {
+				if ( is_numeric( $follower ) ) {
+					// prevent send to answer author and question author
+					if ( absint( $follower ) == $user_answer_id || absint( $follower ) == $user_question_id ) continue;
+					// get user email has registered
+					$followers_email[] = get_the_author_meta( 'user_email', $follower );
+				} else {
+					// prevent send to question author and answer author
+					if ( sanitize_email( $user_answer_email ) == sanitize_email( $follower ) || sanitize_email( $user_question_email ) == sanitize_email( $follower ) ) continue;
+					// get anonymous email
+					$followers_email[] = sanitize_email( $follower );
 				}
 			}
 		}
-	}
 
-	public function new_answer_nofity_to_question_author( $answer_id ) {
-		$enable = get_option( 'dwqa_subscrible_enable_new_answer_notification', 1 );
-		if ( !$enable ) {
-			return false;
-		}
+		// start send to followers
+		$answer_notify_enabled = get_option( 'dwqa_subscrible_enable_new_answer_followers_notification', 1 );
+		if ( $answer_notify_enabled && !empty( $followers_email ) && is_array( $followers_email ) && 'private' !== get_post_status( $answer_id ) ) {
+			$subject = get_option( 'dwqa_subscrible_new_answer_followers_email_subject', __( '[{site_name}] You have a new answer for your followed question', 'dwqa' ) );
+			$subject = str_replace( '{site_name}', esc_html( $site_name ), $subject );
+			$subject = str_replace( '{question_title}', sanitize_title( $question_title ), $subject );
+			$subject = str_replace( '{answer_author}', esc_html( $user_answer_display_name ), $subject );
 
-		// make sure this is new answer
-		if ( 'dwqa-answer' !== get_post_type( $answer_id ) ) {
-			return false;
-		}
+			$message = dwqa_get_mail_template( 'dwqa_subscrible_new_answer_followers_email', 'new-answer-followers' );
+			$message = apply_filters( 'dwqa_get_new_answer_email_to_followers_message', $message, $answer_id, $question_id );
 
-		$question_id = dwqa_get_question_from_answer_id( $answer_id );
-
-		// make sure is reply for a question
-		if ( 'dwqa-question' !== get_post_type( $question_id ) ) {
-			return false;
-		}
-
-		$logo = get_option( 'dwqa_subscrible_email_logo', '' );
-		$logo = $logo ? '<img src="'.$logo.'" alt="'.get_bloginfo( 'name' ).'" style="max-width: 100%; height: auto;" />' : '';
-		$headers  = 'MIME-Version: 1.0' . "\r\n";
-		$headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
-
-		$enable_send_copy = get_option( 'dwqa_subscrible_send_copy_to_admin' );
-		$is_anonymous = dwqa_is_anonymous( $question_id );
-		if ( $is_anonymous ) {
-			$user_id = 0;
-			$user_display_name = get_post_meta( $question_id, '_dwqa_anonymous_name', true );
-			$user_display_name = $user_display_name ? esc_html( $user_display_name ) : __( 'Anonymous', 'dwqa' );
-			$user_email = get_post_meta( $question_id, '_dwqa_anonymous_email', true );
-			$user_email = $user_email ? sanitize_email( $user_email ) : false;
-			if ( $user_email ) {
-				$avatar = get_avatar( $user_email, '60' );
-			} else {
-				$avatar = get_avatar( $user_id, '60' );
+			if ( !$message ) {
+				return false;
 			}
-		} else {
-			$user_id = absint( get_post_field( 'post_author', $question_id ) );
-			$user_display_name = get_the_author_meta( 'display_name', $user_id );
-			$user_email = get_the_author_meta( 'user_email', $user_id );
-			$avatar = get_avatar( $user_id, '60' );
+
+			$message = str_replace( 'Howdy {follower},', '', $message );
+			$message = str_replace( '{answer_author}', esc_html( $user_answer_display_name ), $message );
+			$message = str_replace( '{question_link}', esc_url( $question_link ), $message );
+			$message = str_replace( '{answer_link}', esc_url( $answer_link ), $message );
+			$message = str_replace( '{question_title}', sanitize_title( $question_title ), $message );
+			$message = str_replace( '{answer_content}', wp_kses_post( $answer_content ), $message );
+			$message = str_replace( '{answer_avatar}', $user_answer_avatar, $message );
+			$message = str_replace( '{site_logo}', $site_logo, $message );
+			$message = str_replace( '{site_name}', esc_html( $site_name ), $message );
+			$message = str_replace( '{site_description}', esc_html( $site_description ), $message );
+			$message = str_replace( '{site_url}', esc_url( $site_url ), $message );
+
+			if ( $enable_send_copy ) {
+				$followers_email = array_merge( $followers_email, $admin_email );
+			}
+
+			// make sure it is not duplicate email
+			$followers_email = array_unique( $followers_email );
+
+			$headers = array( 
+				"From: {$this->get_from_name()} <{$this->get_from_address()}>",
+				"Content-Type: {$this->get_content_type()}; charset=utf-8"
+			);
+
+			foreach( $followers_email as $f_email ) {
+				$headers[] = "Bcc: " . $f_email;
+			}
+
+			$sitename = strtolower( $_SERVER['SERVER_NAME'] );
+			if ( substr( $sitename, 0, 4 ) === 'www.' ) {
+				$sitename = substr( $sitename, 4 );
+			}
+			$no_reply = 'noreply@' . $sitename;
+
+			$sender = $this->send( $no_reply, $subject, $message, $headers );
 		}
 
-		/* $is_answer_anonymous = dwqa_is_anonymous( $answer_id );
-		if ( $is_answer_anonymous ) {
-			$answer_user_id = 0;
-			$answer_user_display_name = get_post_meta( $answer_id, '_dwqa_anonymous_name', true );
-			$answer_user_display_name = $user_display_name ? esc_html( $user_display_name ) : __( 'Anonymous', 'dwqa' );
-			$answer_user_email = get_post_meta( $answer_id, '_dwqa_anonymous_email', true );
-			$answer_user_email = $user_email ? sanitize_email( $user_email ) : false;
-			if ( $user_email ) {
-				$answer_avatar = get_avatar( $user_email, '60' );
-			} else {
-				$answer_avatar = get_avatar( $answer_user_id, '60' );
-			}
-		} else {
-			$answer_user_id = absint( get_post_field( 'post_author', $answer_id ) );
-			$answer_user_display_name = get_the_author_meta( 'display_name', $answer_user_id );
-			$answer_user_email = get_the_author_meta( 'user_email', $answer_user_id );
-			$answer_avatar = get_avatar( $answer_user_id, '60' );
-		} */
-
-		// make sure anonymous entered email
-		if ( $user_email ) {
-			$subject = get_option( 'dwqa_subscrible_new_answer_email_subject', __( 'A new answer for "{question_title}" was posted on {site_name}', 'dwqa' ) );
-			$subject = str_replace( '{site_name}', get_bloginfo( 'name' ), $subject );
-			$subject = str_replace( '{question_title}', get_the_title( $question_id ), $subject );
-			$subject = str_replace( '{question_id}', $question_id, $subject );
-			$subject = str_replace( '{username}', $user_display_name, $subject );
-			$subject = str_replace( '{answer_author}', $answer_user_display_name, $subject );
+		// start send to question author
+		$answer_notify_for_question_enabled = get_option( 'dwqa_subscrible_enable_new_answer_notification', 1 );
+		if ( $user_question_email && $answer_notify_for_question_enabled && absint( $user_answer_id ) !== absint( $user_question_id ) ) {
+			$subject = get_option( 'dwqa_subscrible_new_answer_email_subject', __( '[{site_name}] A new answer for "{question_title}" was posted on {site_name}', 'dwqa' ) );
+			$subject = str_replace( '{site_name}', esc_html( $site_name ), $subject );
+			$subject = str_replace( '{question_title}', sanitize_title( $question_title ), $subject );
+			$subject = str_replace( '{question_id}', absint( $question_id ), $subject );
+			$subject = str_replace( '{username}', esc_html( $user_question_display_name ), $subject );
+			$subject = str_replace( '{answer_author}', esc_html( $user_answer_display_name ), $subject );
 
 			$message = dwqa_get_mail_template( 'dwqa_subscrible_new_answer_email', 'new-answer' );
 			$message = apply_filters( 'dwqa_get_new_answer_email_to_author_message', $message, $question_id, $answer_id );
@@ -260,24 +242,30 @@ class DWQA_Notifications {
 				return false;
 			}
 
-			$message = str_replace( '{answer_avatar}', $answer_avatar, $message );
-			$message = str_replace( '{answer_author}', $answer_user_display_name, $message );
-			$message = str_replace( '{question_link}', get_permalink( $question_id ), $message );
-			$message = str_replace( '{question_author}', $user_display_name, $message );
-			$message = str_replace( '{answer_link}', get_permalink( $question_id ) . '#answer-' . $answer_id, $message );
-			$message = str_replace( '{question_title}', get_the_title( $question_id ), $message );
-			$message = str_replace( '{answer_content}', get_post_field( 'post_content', $answer_id ), $message );
-			$message = str_replace( '{site_logo}', $logo, $message );
-			$message = str_replace( '{site_name}', get_bloginfo( 'name' ), $message );
-			$message = str_replace( '{site_description}', get_bloginfo( 'description' ), $message );
-			$message = str_replace( '{site_url}', site_url(), $message );
+			$message = str_replace( '{answer_avatar}', $user_answer_avatar, $message );
+			$message = str_replace( '{answer_author}', esc_html( $user_answer_display_name ), $message );
+			$message = str_replace( '{question_link}', esc_url( $question_link ), $message );
+			$message = str_replace( '{question_author}', esc_html( $user_question_display_name ), $message );
+			$message = str_replace( '{answer_link}', esc_url( $answer_link ), $message );
+			$message = str_replace( '{question_title}', sanitize_title( $question_title ), $message );
+			$message = str_replace( '{answer_content}', wp_kses_post( $answer_content ), $message );
+			$message = str_replace( '{site_logo}', $site_logo, $message );
+			$message = str_replace( '{site_name}', esc_html( $site_name ), $message );
+			$message = str_replace( '{site_description}', esc_html( $site_description ), $message );
+			$message = str_replace( '{site_url}', esc_url( $site_url ), $message );
 
-			$this->send( $user_email, $subject, $message, $headers );
+			$headers = array( 
+				"From: {$this->get_from_name()} <{$this->get_from_address()}>",
+				"Content-Type: {$this->get_content_type()}; charset=utf-8"
+			);
 
 			if ( $enable_send_copy ) {
-				$emails = $this->get_admin_email();
-				$this->send( $emails, $subject, $message, $headers );
+				foreach( $admin_email as $a_email ) {
+					$headers[] = "Bcc: " . $a_email;
+				}
 			}
+
+			$sender = $this->send( $user_question_email, $subject, $message, $headers );
 		}
 	}
 
@@ -321,13 +309,10 @@ class DWQA_Notifications {
 			}
 
 			// To send HTML mail, the Content-type header must be set
-			$headers  = 'MIME-Version: 1.0' . "\r\n";
-			$headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
-			//From email 
-			$from_email = get_option( 'dwqa_subscrible_from_address' );
-			if ( $from_email ) {
-				$headers .= 'From: ' . $from_email . "\r\n";
-			}
+			$headers = array( 
+				"From: {$this->get_from_name()} <{$this->get_from_address()}>",
+				"Content-Type: {$this->get_content_type()}; charset=utf-8"
+			);
 			
 			if ( $parent == 'dwqa-question' ) {
 				$message = dwqa_get_mail_template( 'dwqa_subscrible_new_comment_question_email', 'new-comment-question' );    
@@ -439,13 +424,71 @@ class DWQA_Notifications {
 		return $emails;
 	}
 
+	// Pushover
+	public function push( $args ) {
+		if ( !function_exists( 'ckpn_send_notification' ) ) {
+			if ( class_exists( 'CKPushoverNotifications' ) ) {
+				$ckpn_core = CKPushoverNotifications::getInstance();
+				$ckpn_core->ckpn_send_notification( $args );
+			}
+		} else {
+			ckpn_send_notification( $args );
+		}
+	}
+
+	function new_activity( $post_id = 0 ) {
+		if ( empty( $post_id ) ) {
+			return false;
+		}
+		$title = false;
+
+		if ( 'dwqa_add_comment' == current_action() ) {
+			$comment = get_comment( $post_id );
+			$title = __( 'New Comment in: ', 'dwqa-notification' );
+			$post_id = $comment->comment_post_ID;
+		}
+
+		if ( 'dwqa-answer' == get_post_type( $post_id ) ) {
+			$question_id = get_post_type( $post_id, '_question', true );
+
+			if ( !$title ) {
+				$title = __( 'New Answer in: ', 'dwqa-notification' );
+			}
+
+		} else {
+			$question_id = $post_id;
+			if ( !$title ) {
+				$title = __( 'New Question: ', 'dwqa-notification' );
+			}
+		}
+
+		$question_title = get_post_field( 'post_title', $question_id );
+		$question_link = get_permalink( $question_id );
+		$content = get_post_field( 'post_content', $post_id );
+		$title = $title . $question_title;
+
+		$args = array( 'title' => $title, 'message' => strip_tags( $content ) );
+		$this->push( $args );
+	}
+
 	public function get_from_address() {
-		$from_email = get_option( 'dwqa_subscrible_from_address' );
-		if ( !$from_email ) {
+		$from_email = get_option( 'dwqa_subscrible_from_address', get_bloginfo( 'admin_email' ) );
+
+		if ( empty( $from_email ) ) {
 			$from_email = get_bloginfo( 'admin_email' );
 		}
 
 		return sanitize_email( $from_email );
+	}
+
+	public function get_from_name() {
+		$name = get_option( 'dwqa_subscrible_from_name', get_bloginfo( 'name' ) );
+
+		if ( empty( $name ) ) {
+			$name = get_bloginfo( 'name' );
+		}
+
+		return $name;
 	}
 
 	public function get_content_type() {
@@ -453,37 +496,17 @@ class DWQA_Notifications {
 	}
 
 	public function send( $to, $subject, $message, $headers = '', $attachments = array() ) {
-		add_filter( 'wp_mail_from', array( $this, 'get_from_address' ) );
-		add_filter( 'wp_mail_content_type', array( $this, 'get_content_type' ) );
+		// return ;
+		add_filter( 'wp_mail_from', array( $this, 'get_from_address' ), 9999 );
+		add_filter( 'wp_mail_from_name', array( $this, 'get_from_name' ), 9999 );
+		add_filter( 'wp_mail_content_type', array( $this, 'get_content_type' ), 9999 );
 
 		$sended = wp_mail( $to, $subject, $message, $headers, $attachments );
 
 		remove_filter( 'wp_mail_from', array( $this, 'get_from_address' ) );
+		remove_filter( 'wp_mail_from_name', array( $this, 'get_from_name' ) );
 		remove_filter( 'wp_mail_content_type', array( $this, 'get_content_type' ) );
 		return $sended;
-	}
-
-	public function email_header() {
-		ob_start();
-		?>
-		<!DOCTYPE html>
-		<html dir="<?php echo is_rtl() ? 'rtl' : 'ltr'?>">
-		<head>
-			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-			<title><?php echo get_bloginfo( 'name', 'display' ); ?></title>
-		</head>
-		<body>
-		<?php
-		return ob_get_clean();
-	}
-
-	public function email_footer() {
-		ob_start();
-		?>
-		</body>
-		</html>
-		<?php
-		return ob_get_clean();
 	}
 }
 

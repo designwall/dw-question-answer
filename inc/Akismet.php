@@ -36,8 +36,8 @@ class DWQA_Akismet {
 					'blog_charset' => get_option( 'blog_charset' ),
 					'blog_lang' => get_locale(),
 					'user_ip' => $this->get_user_ip(),
-					'user_agent' => $_SERVER['HTTP_USER_AGENT'],
-					'referrer' => $_SERVER['HTTP_REFERER'],
+					'user_agent' => (isset($_SERVER['HTTP_USER_AGENT'])?$_SERVER['HTTP_USER_AGENT']:''),
+					'referrer' => (isset($_SERVER['HTTP_REFERER'])?$_SERVER['HTTP_REFERER']:''),
 					'permalink' => '',
 					'comment_type' => '',
 					'comment_author' => '',
@@ -210,19 +210,19 @@ class DWQA_Akismet {
 			$user_data['website'] = '';
 		}
 		
-		// $data_check_spam['comment_author'] = $user_data['name'];
-		$data_check_spam['comment_author'] = 'viagra-test-123'; // for test
+		$data_check_spam['comment_author'] = $user_data['name'];
+		// $data_check_spam['comment_author'] = 'viagra-test-123'; // for test
 		// $data_check_spam['is_test'] = true; // for test
 		$data_check_spam['comment_author_email'] = $user_data['email'];
 		$data_check_spam['comment_author_url'] = $user_data['website'];
 		
-		$data_check_spam['comment_content'] = $data['post_content'];
-		$data_check_spam['comment_type'] = $data['post_type'];
-		$data_check_spam['comment_approved'] = $data['post_status'];
-		$data_check_spam['comment_date'] = $data['post_date'];
-		$data_check_spam['comment_date_gmt'] = $data['post_date_gmt'];
-		$data_check_spam['comment_ID'] = $data['ID'];
-		$data_check_spam['comment_post_ID'] = $data['post_parent'];
+		$data_check_spam['comment_content'] = isset($data['post_content'])?$data['post_content']:'';
+		$data_check_spam['comment_type'] = isset($data['post_type'])?$data['post_type']:'';
+		$data_check_spam['comment_approved'] = isset($data['post_status'])?$data['post_status']:'';
+		$data_check_spam['comment_date'] = isset($data['post_date'])?$data['post_date']:'';
+		$data_check_spam['comment_date_gmt'] = isset($data['post_date_gmt'])?$data['post_date_gmt']:'';
+		$data_check_spam['comment_ID'] = isset($data['ID'])?$data['ID']:'';
+		$data_check_spam['comment_post_ID'] = isset($data['post_parent'])?$data['post_parent']:'';
 		
 		
 		return $data_check_spam;
@@ -462,7 +462,7 @@ class DWQA_Akismet {
 
 	public function dwqa_akismet_mark_spam(){
 		if(isset($_GET['post_type']) && ($_GET['post_type']=='dwqa-question' || $_GET['post_type']=='dwqa-answer')){
-			if($_GET['post'] && is_numeric($_GET['post'])){
+			if(isset($_GET['post']) && $_GET['post'] && is_numeric($_GET['post'])){
 				if (isset($_GET['action']) && ! wp_verify_nonce( $_REQUEST['_wpnonce'], "{$_GET['action']}-post_{$_GET['post']}" ) ) {
 					 die( 'Security check' ); 
 				}

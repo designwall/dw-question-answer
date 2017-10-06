@@ -6,12 +6,12 @@ class DWQA_Akismet {
 	private $akismetAPIKey='';
 	private $data = array();
 	private $port = 443;
-	private	$akismet_ua = "DWQA/1.0.6 | Akismet/3.1.7";
+	private	$akismet_ua = "DWQA/1.4.6 | Akismet/3.1.7";
 	
 	public function __construct() {
 		global $dwqa_general_settings;
 		if(isset($dwqa_general_settings['use-akismet-antispam']) && $dwqa_general_settings['use-akismet-antispam']){
-			$this->akismet_ua = "DWQA/".get_option( 'dwqa-db-version', '1.0.6' )." | Akismet/3.1.7";
+			$this->akismet_ua = "DWQA/".get_option( 'dwqa-db-version', '1.4.6' )." | Akismet/3.1.7";
 			add_action('init', array( $this, 'dwqa_admin_show_spam_page'));
 			add_action('init', array( $this, 'dwqa_akismet_mark_spam'));
 			// add_action( 'admin_menu', array( $this, 'reported_list_admin' ) );

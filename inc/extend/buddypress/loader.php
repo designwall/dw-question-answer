@@ -14,7 +14,6 @@ class DWQA_QA_Component extends BP_Component {
 		);
 		$this->includes();
 		$this->setup_globals();
-		$this->setup_actions();
 		$this->fully_loaded();
 	}
 
@@ -25,11 +24,6 @@ class DWQA_QA_Component extends BP_Component {
 		if ( bp_is_active( 'notifications' ) ) {
 			$includes[] = 'notifications.php';
 		}
-
-		// BuddyPress Group Extension class
-		// if ( bbp_is_group_forums_active() && bp_is_active( 'groups' ) ) {
-			// $includes[] = 'groups.php';
-		// }
 
 		parent::includes( $includes );
 	}
@@ -93,27 +87,6 @@ class DWQA_QA_Component extends BP_Component {
 			'item_css_id'     => 'topics'
 		);
 
-		/*
-		$sub_nav[] = array(
-			'name'            => __( 'Answers', 'dwqa' ),
-			'slug'            => 'dwqa-answer',
-			'parent_url'      => $forums_link,
-			'parent_slug'     => $this->slug,
-			'screen_function' => 'dp_dwqa_screen_answers',
-			'position'        => 40,
-			'item_css_id'     => 'replies'
-		);
-
-		$sub_nav[] = array(
-			'name'            => __( 'Comments', 'dwqa' ),
-			'slug'            => 'dwqa-comment',
-			'parent_url'      => $forums_link,
-			'parent_slug'     => $this->slug,
-			'screen_function' => 'dp_dwqa_screen_comments',
-			'position'        => 60,
-			'item_css_id'     => 'favorites'
-		); */
-
 		parent::setup_nav( $main_nav, $sub_nav );
 	}
 
@@ -151,53 +124,6 @@ class DWQA_QA_Component extends BP_Component {
 		parent::setup_admin_bar( $wp_admin_nav );
 	}
 
-	/**
-	 * Sets up the title for pages and <title>
-	 *
-	 * @since bbPress (r3552)
-	 */
-	public function setup_title() {
-		$bp = buddypress();
-
-		// Adjust title based on view
-		if ( bp_is_forums_component() ) {
-			if ( bp_is_my_profile() ) {
-				$bp->bp_options_title = __( 'Forums', 'bbpress' );
-			} elseif ( bp_is_user() ) {
-				$bp->bp_options_avatar = bp_core_fetch_avatar( array(
-					'item_id' => bp_displayed_user_id(),
-					'type'    => 'thumb'
-				) );
-				$bp->bp_options_title = bp_get_displayed_user_fullname();
-			}
-		}
-
-		parent::setup_title();
-	}
-	
-	public function setup_actions() {
-
-		// Setup the components
-		add_action( 'bp_init', array( $this, 'setup_components' ), 7 );
-
-		parent::setup_actions();
-	}
-	public function setup_components() {
-
-		// Always load the members component
-		bbpress()->extend->buddypress->members = new BBP_BuddyPress_Members;
-
-		/* // Create new activity class
-		if ( bp_is_active( 'activity' ) ) {
-			bbpress()->extend->buddypress->activity = new BBP_BuddyPress_Activity;
-		} */
-
-		/* // Register the group extension only if groups are active
-		if ( bbp_is_group_forums_active() && bp_is_active( 'groups' ) ) {
-			bp_register_group_extension( 'BBP_Forums_Group_Extension' );
-		} */
-	}
-	
 	private function fully_loaded() {
 		do_action_ref_array( 'bp_dwqa_buddypress_loaded', array( $this ) );
 	}

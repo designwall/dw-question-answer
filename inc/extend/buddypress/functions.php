@@ -43,21 +43,3 @@ function dp_dwqa_answer_filter_query($query){
 	$query['author'] = $current_user_id;
 	return $query;
 }
-
-function bp_dwqa_comment_content() {
-
-}
-
-function bp_dwqa_get_component_name() {
-
-	// Use existing ID
-	if ( !empty( bbpress()->extend->buddypress->id ) ) {
-		$retval = bbpress()->extend->buddypress->id;
-
-	// Use default
-	} else {
-		$retval = 'dwqa';
-	}
-
-	return apply_filters( 'bp_dwqa_get_component_name', $retval );
-}

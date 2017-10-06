@@ -2,8 +2,8 @@
 Contributors: designwall, oryc9x, Farid-Gh, scheunemann, gciprian, Ahmet Kolcu, Astrotenko Roman, David Robles, Nidhal Naji, developez, markhall1971
 Tags: question, answer, support, quora, stackoverflow
 Requires at least: 3.0.1
-Tested up to: 4.4.2
-Stable tag: 1.4.5
+Tested up to: 4.8.2
+Stable tag: 1.4.6
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -84,6 +84,13 @@ Visit our [Github](https://github.com/designwall/dw-question-answer) project or 
 5. Back-end settings
 
 == Changelog ==
+
+= 1.4.6 =
+* New: allows anonymous users to vote
+* New: add Setting time to auto close the questions 
+* New: integrate buddypress plugin
+* New: Update languages RU, IT
+* Fix: fix notification
 
 = 1.4.5 =
 * New: Short-code list question by category [dwqa-list-questions category="question"]

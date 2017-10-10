@@ -237,14 +237,15 @@ class DWQA_Permission {
 
 	public function reset_caps( $post_type = 'question' ) {
 		//change cap of post type
-		foreach($this->perms as $role => $role_info){
+		$roles = get_editable_roles();
+		$roles['anonymous'] = array();
+		foreach($roles as $role => $role_info){
 			if(isset($this->defaults[$role])){
 				$this->perms[$role][$post_type] = $this->defaults[$role][$post_type];
 			}else{
 				$this->perms[$role][$post_type] = array();
 			}
 		}
-		
 		$this->update_caps($this->perms);
 	}
 

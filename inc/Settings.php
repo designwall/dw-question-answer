@@ -426,7 +426,7 @@ function dwqa_permission_display(){
 		</tbody>
 	</table>
 	<p class="reset-button-container align-right" style="text-align:right">
-		<button data-type="question" class="button reset-permission"><?php _e( 'Reset Default', 'dwqa' ); ?></button>
+		<button data-type="question" class="button reset-permission" name="dwqa-permission-reset" value="question"><?php _e( 'Reset Default', 'dwqa' ); ?></button>
 	</p>
 	<h3><?php _e( 'Answers', 'dwqa' ); ?></h3>
 	<table class="table widefat dwqa-permission-settings">
@@ -462,7 +462,7 @@ function dwqa_permission_display(){
 		</tbody>
 	</table>
 	<p class="reset-button-container align-right" style="text-align:right">
-		<button data-type="answer" class="button reset-permission"><?php _e( 'Reset Default', 'dwqa' ); ?></button>
+		<button data-type="answer" class="button reset-permission" name="dwqa-permission-reset" value="answer"><?php _e( 'Reset Default', 'dwqa' ); ?></button>
 	</p>
 	<h3><?php _e( 'Comments','dwqa' ) ?></h3>
 	<table class="table widefat dwqa-permission-settings">
@@ -497,7 +497,7 @@ function dwqa_permission_display(){
 	</table>
 
 	<p class="reset-button-container align-right" style="text-align:right">
-		<button data-type="comment" class="button reset-permission"><?php _e( 'Reset Default', 'dwqa' ); ?></button>
+		<button data-type="comment" class="button reset-permission" name="dwqa-permission-reset" value="comment"><?php _e( 'Reset Default', 'dwqa' ); ?></button>
 	</p>
 	<?php
 }

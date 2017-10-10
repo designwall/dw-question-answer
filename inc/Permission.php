@@ -176,9 +176,13 @@ class DWQA_Permission {
 				),
 			),
 		);
+		
 		add_action( 'init', array( $this, 'first_update_role_functions' ) );
 		add_action( 'init', array( $this, 'prepare_permission' ) );
-		add_action( 'update_option_dwqa_permission', array( $this, 'update_caps' ), 10, 2 );
+		
+		add_action( 'admin_init', array( $this, 'admin_menu_reset_permission_default' ) );
+		
+		add_action( 'update_option_dwqa_permission', array( $this, 'update_permission' ), 10, 2 );
 
 		add_filter( 'user_has_cap', array( $this, 'allow_user_view_their_draft_post' ), 10, 4 );
 
@@ -189,17 +193,19 @@ class DWQA_Permission {
 		add_filter( 'the_posts', array( $this, 'restrict_single_question' ), 11 );
 	}
 
+	public function admin_menu_reset_permission_default(){
+		if(is_admin() && current_user_can('manage_options') && isset($_POST['dwqa-permission-reset'])){
+			$this->reset_caps($_POST['dwqa-permission-reset']);
+			wp_redirect(admin_url('edit.php?post_type=dwqa-question&page=dwqa-settings&tab=permission'));
+			die();
+		}
+	}
+	
 	public function prepare_permission() {
 		$this->perms = get_option( 'dwqa_permission' );
-		$this->perms = $this->perms ? $this->perms : array();
-		$this->perms = wp_parse_args( $this->perms, $this->defaults );
 	}
 
-
 	public function add_caps( $value ) {
-		// $roles = get_editable_roles();
-		$this->prepare_permission();
-
 		foreach ( $value as $role_name  => $role_info ) {
 			if ( $role_name == 'anonymous' )
 				continue;
@@ -209,7 +215,7 @@ class DWQA_Permission {
 
 			foreach ( $this->objects as $post_type ) {
 				foreach ( $this->default_cap as $cap => $default ) {
-					if ( isset( $this->perms[$role_name][$post_type][$cap] ) && $this->perms[$role_name][$post_type][$cap] ) {
+					if ( isset( $role_info[$post_type][$cap] ) && $role_info[$post_type][$cap] ) {
 						$role->add_cap( 'dwqa_can_' . $cap . '_' . $post_type );
 					} else {
 						$role->remove_cap( 'dwqa_can_' . $cap . '_' . $post_type );
@@ -218,28 +224,39 @@ class DWQA_Permission {
 			}
 		}
 	}
-	public function update_caps( $old_value, $value ) {
-		//update_option( 'dwqa_permission', $this->perms );
+	
+	public function update_permission( $old_value, $value ) {
+		$this->update_caps($value);
+	}
+	
+	
+	public function update_caps( $value ) {
+		update_option( 'dwqa_permission', $value );
 		$this->add_caps( $value );
 	}
 
-	public function reset_caps( $old_value, $value ) {
-		update_option( 'dwqa_permission', $this->perms );
-		$this->add_caps( $value );
-	}
-
-	public function prepare_permission_caps() {
-		$this->add_caps( $this->defaults );
+	public function reset_caps( $post_type = 'question' ) {
+		//change cap of post type
+		foreach($this->perms as $role => $role_info){
+			if(isset($this->defaults[$role])){
+				$this->perms[$role][$post_type] = $this->defaults[$role][$post_type];
+			}else{
+				$this->perms[$role][$post_type] = array();
+			}
+		}
+		
+		$this->update_caps($this->perms);
 	}
 
 	public function first_update_role_functions() {
 		$dwqa_has_roles = get_option( 'dwqa_has_roles' );
-		$dwqa_permission = get_option( 'dwqa_permission' );
 		$this->perms = get_option( 'dwqa_permission' );
 		if ( ! $dwqa_has_roles || ! is_array( $this->perms ) || empty( $this->perms ) ) {
+			//perms default
 			$this->perms = $this->defaults;
-			$this->prepare_permission_caps();
-			update_option( 'dwqa_permission', $this->perms );
+
+			$this->update_caps($this->perms);
+			
 			update_option( 'dwqa_has_roles', 1 );
 		}
 	}  

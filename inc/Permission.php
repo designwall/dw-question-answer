@@ -265,7 +265,7 @@ class DWQA_Permission {
 	public function allow_user_view_their_draft_post( $all_caps, $caps, $name, $user ) {
 		if ( is_user_logged_in() ) {
 			global $wp_query, $current_user;
-			if ( isset( $wp_query->is_single ) && $wp_query->is_single && $wp_query->query_vars['post_type'] == 'dwqa-question' && $name[0] == 'edit_post' ) {
+			if ( isset( $wp_query->is_single ) && $wp_query->is_single && isset( $wp_query->query_vars['post_type'] ) && $wp_query->query_vars['post_type'] == 'dwqa-question' && $name[0] == 'edit_post' ) {
 				if ( isset( $name[2] ) ) {
 					$post_id = $name[2];
 					$author = get_post_field( 'post_author', $post_id );

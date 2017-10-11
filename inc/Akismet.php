@@ -16,7 +16,7 @@ class DWQA_Akismet {
 			add_action('init', array( $this, 'dwqa_akismet_mark_spam'));
 			// add_action( 'admin_menu', array( $this, 'reported_list_admin' ) );
 			
-			add_action( 'wp_enqueue_scripts', array($this,'dwqa_akismet_enqueue_script' ),10);
+			// add_action( 'wp_enqueue_scripts', array($this,'dwqa_akismet_enqueue_script' ),10);
 			
 			add_action('manage_posts_extra_tablenav', array( $this, 'dwqa_admin_add_button_empty_spam'));
 			// add_action( 'wp_ajax_dwqa_report_spam_to_admin', array( $this, 'dwqa_report_spam_to_admin') );

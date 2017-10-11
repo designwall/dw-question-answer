@@ -12,7 +12,7 @@ function dwqa_current_user_can( $perm, $post_id = false ) {
 		}
 		return false;
 	} else {
-		$anonymous = $dwqa->permission->perms['anonymous'];
+		$anonymous = isset($dwqa->permission->perms['anonymous'])?$dwqa->permission->perms['anonymous']:array();
 		$type = explode( '_', $perm );
 		if ( isset( $anonymous[$type[1]][$type[0]] ) && $anonymous[$type[1]][$type[0]] ) {
 			return true;
@@ -229,7 +229,6 @@ class DWQA_Permission {
 		$this->update_caps($value);
 	}
 	
-	
 	public function update_caps( $value ) {
 		update_option( 'dwqa_permission', $value );
 		$this->add_caps( $value );
@@ -261,6 +260,10 @@ class DWQA_Permission {
 			update_option( 'dwqa_has_roles', 1 );
 		}
 	}  
+	
+	public function prepare_permission_caps() {
+		$this->update_caps( $this->defaults );
+	}
 
 	public function remove_permision_caps() {
 		foreach ( $this->defaults as $role_name => $perm ) {

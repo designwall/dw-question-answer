@@ -3,7 +3,7 @@ Contributors: designwall, oryc9x, Farid-Gh, scheunemann, gciprian, Ahmet Kolcu, 
 Tags: question, answer, support, quora, stackoverflow
 Requires at least: 3.0.1
 Tested up to: 4.8.2
-Stable tag: 1.4.6
+Stable tag: 1.4.7
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -84,6 +84,11 @@ Visit our [Github](https://github.com/designwall/dw-question-answer) project or 
 5. Back-end settings
 
 == Changelog ==
+
+= 1.4.7 =
+* New: Integrate Akismet
+* Fix: Fix save permissions
+* Fix: Empty file assets Akismet
 
 = 1.4.6 =
 * New: allows anonymous users to vote

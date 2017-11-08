@@ -251,4 +251,19 @@ function dwqa_get_question_link( $post_id ) {
 
 	return get_permalink( $post_id );
 }
+
+/**
+ * Question classes dynaymic creator 
+ * @param  string $class String
+ * @return Void        Print class attribute with classes
+ */
+function dwqa_question_class( $class = '' ) {
+	global $post;
+	$classes 			= explode(' ', $class );
+	$classes[] 			= 'question';
+	$classes[] 			= 'question-' . $post->ID;
+	$classes[] 			= get_post_status( $post->ID );
+	$filteredClasses 	= apply_filters( 'dwqa_question_class', $classes );
+	echo 'class="' . implode(' ', $filteredClasses ) . '"';
+}
 ?>

@@ -295,7 +295,14 @@ function dwqa_enqueue_scripts(){
 	$question_tag_rewrite = $dwqa_general_settings['question-tag-rewrite'];
     $question_tag_rewrite = $question_tag_rewrite ? $question_tag_rewrite : 'question-tag';
 
-    $assets_folder = DWQA_URI . 'templates/assets/';
+    $base_assets_folder = DWQA_URI . 'templates/assets/';
+
+    /**
+     * Filter for modify assets folder template
+     * @var string
+     */
+    $assets_folder = apply_filters( 'dwqa-assets-folder', $base_assets_folder );
+
     wp_enqueue_script( 'jquery' );
     if( is_singular( 'dwqa-question' ) ) {
         wp_enqueue_script( 'jquery-effects-core' );

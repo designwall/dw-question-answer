@@ -346,7 +346,7 @@ function dwqa_wp_footer() {
 	if ( isset( $dwqa_general_settings['show-status-icon'] ) && $dwqa_general_settings['show-status-icon'] && dwqa_is_enable_status() ) {
 		?>
 		<style type="text/css">
-			@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
+			@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
 			.dwqa-questions-list .dwqa-question-item {
 				padding-left: 70px;

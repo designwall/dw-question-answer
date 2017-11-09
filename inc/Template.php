@@ -1070,11 +1070,18 @@ class DWQA_Template {
 		}
 
 		$template = false;
-		$template_dir = array(
+		$base_template_dir = array(
 			DWQA_STYLESHEET_DIR . $this->get_template_dir(),
 			DWQA_TEMP_DIR . $this->get_template_dir(),
 			DWQA_DIR . 'templates/'
 		);
+		
+		/**
+		 * All templates that DW Question Answer plugin may load one of directories as template files
+		 * Developers can have custome template files in him/his plugin directory
+		 * @var array
+		 */
+		$template_dir = apply_filters( 'dwqa-templates-dir', $base_template_dir );
 
 		foreach( $template_dir as $temp_path ) {
 			if ( file_exists( $temp_path . $name . '.php' ) ) {

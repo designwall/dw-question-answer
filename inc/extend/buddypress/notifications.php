@@ -21,6 +21,9 @@ function bp_dwqa_format_buddypress_notifications( $action, $item_id, $secondary_
     // New answer notifications
     if ( 'dwqa_new_answer_reply' === $component_action_name ) {
 		$answer = get_post( $item_id );
+		if(empty($answer)){
+			return $action;
+		}
 		$author = get_user_by( 'id', $answer->post_author );
 		
 		$dwqa_notif_title = get_the_title( $answer->post_parent );

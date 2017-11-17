@@ -8,8 +8,8 @@
 ?>
 <div class="dwqa-questions-archive">
 	<?php do_action( 'dwqa_before_questions_archive' ) ?>
-
-		<div class="dwqa-questions-list">
+    <h1><?php echo single_cat_title( "", false ); ?></h1>
+    <div class="dwqa-questions-list">
 		<?php do_action( 'dwqa_before_questions_list' ) ?>
 		<?php if ( dwqa_has_question() ) : ?>
 			<?php while ( dwqa_has_question() ) : dwqa_the_question(); ?>
@@ -21,13 +21,14 @@
 			<?php dwqa_load_template( 'content', 'none' ) ?>
 		<?php endif; ?>
 		<?php do_action( 'dwqa_after_questions_list' ) ?>
-		</div>
-		<div class="dwqa-questions-footer">
-			<?php dwqa_question_paginate_link() ?>
-			<?php if ( dwqa_current_user_can( 'post_question' ) ) : ?>
-				<div class="dwqa-ask-question"><a href="<?php echo dwqa_get_ask_link(); ?>"><?php _e( 'Ask Question', 'dwqa' ); ?></a></div>
-			<?php endif; ?>
-		</div>
+    </div>
+    <footer class="dwqa-questions-footer">
+		<?php dwqa_question_paginate_link() ?>
+		<?php if ( dwqa_current_user_can( 'post_question' ) ) : ?>
+            <div class="dwqa-ask-question"><a
+                        href="<?php echo dwqa_get_ask_link(); ?>"><?php _e( 'Ask Question', 'dwqa' ); ?></a></div>
+		<?php endif; ?>
+    </footer>
 
 	<?php do_action( 'dwqa_after_questions_archive' ); ?>
 </div>

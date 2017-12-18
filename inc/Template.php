@@ -853,7 +853,7 @@ class DWQA_Template {
 
 			$post_id = isset( $dwqa_options['pages']['archive-question'] ) ? $dwqa_options['pages']['archive-question'] : 0;
 			if ( $post_id ) {
-				$page = get_page( $post_id );
+				$page = get_post( $post_id );
 				if ( is_tax( 'dwqa-question_category' ) || is_tax( 'dwqa-question_tag' ) ) {
 					$page->is_tax = true;
 				}

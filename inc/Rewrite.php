@@ -11,7 +11,7 @@ class DWQA_Rewrite {
 		$options = get_option( 'dwqa_options' );
 
 		$page_id = $options['pages']['archive-question'];
-		$question_list_page = get_page( $page_id );
+		$question_list_page = get_post( $page_id );
 		$rewrite_category = isset( $options['question-category-rewrite'] ) ? sanitize_title( $options['question-category-rewrite'] ) : 'question-category';
 		$rewrite_tag = isset( $options['question-tag-rewrite'] ) ? sanitize_title( $options['question-tag-rewrite'] ) : 'question-tag';
 

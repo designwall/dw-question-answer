@@ -156,7 +156,7 @@ class DW_Question_Answer {
 		//Auto create question page
 		$options = get_option( 'dwqa_options' );
 
-		if ( ! isset( $options['pages']['archive-question'] ) || ( isset( $options['pages']['archive-question'] ) && ! get_page( $options['pages']['archive-question'] ) ) ) {
+		if ( ! isset( $options['pages']['archive-question'] ) || ( isset( $options['pages']['archive-question'] ) && ! get_post( $options['pages']['archive-question'] ) ) ) {
 			$args = array(
 				'post_title' => __( 'DWQA Questions', 'dwqa' ),
 				'post_type' => 'page',
@@ -172,7 +172,7 @@ class DW_Question_Answer {
 			}
 		}
 
-		if ( ! isset( $options['pages']['submit-question'] ) || ( isset( $options['pages']['submit-question'] ) && ! get_page( $options['pages']['submit-question'] ) ) ) {
+		if ( ! isset( $options['pages']['submit-question'] ) || ( isset( $options['pages']['submit-question'] ) && ! get_post( $options['pages']['submit-question'] ) ) ) {
 
 			$args = array(
 				'post_title' => __( 'DWQA Ask Question', 'dwqa' ),

@@ -4,65 +4,64 @@
  * Print class for question detail container
  */
 function dwqa_breadcrumb() {
-	global $dwqa_general_settings;
-	$title = get_the_title( $dwqa_general_settings['pages']['archive-question'] );
-	$search = isset( $_GET['qs'] ) ? esc_html( $_GET['qs'] ) : false;
-	$author = isset( $_GET['user'] ) ? esc_html( $_GET['user'] ) : false;
-	$output = '';
-	if ( !is_singular( 'dwqa-question' ) ) {
-		$term = get_query_var( 'dwqa-question_category' ) ? get_query_var( 'dwqa-question_category' ) : ( get_query_var( 'dwqa-question_tag' ) ? get_query_var( 'dwqa-question_tag' ) : false );
-		$term = get_term_by( 'slug', $term, get_query_var( 'taxonomy' ) );
-		$tax_name = 'dwqa-question_tag' == get_query_var( 'taxonomy' ) ? __( 'Tag', 'dwqa' ) : __( 'Category', 'dwqa' );
-	} else {
-		$term = wp_get_post_terms( get_the_ID(), 'dwqa-question_category' );
+	$wpseo_internallinks = get_option('wpseo_internallinks');
+	if ( function_exists( 'yoast_breadcrumb' ) && $wpseo_internallinks['breadcrumbs-enable'] === true) :
+		yoast_breadcrumb( '<div class="breadcrumbs dwqa-breadcrumbs">', '</div>' );
+	else:
+		global $dwqa_general_settings;
+		$title  = get_the_title( $dwqa_general_settings['pages']['archive-question'] );
+		$search = isset( $_GET['qs'] ) ? esc_html( $_GET['qs'] ) : false;
+		$author = isset( $_GET['user'] ) ? esc_html( $_GET['user'] ) : false;
+		$output = '';
+		if ( ! is_singular( 'dwqa-question' ) ) {
+			$term     = get_query_var( 'dwqa-question_category' ) ? get_query_var( 'dwqa-question_category' ) : ( get_query_var( 'dwqa-question_tag' ) ? get_query_var( 'dwqa-question_tag' ) : false );
+			$term     = get_term_by( 'slug', $term, get_query_var( 'taxonomy' ) );
+			$tax_name = 'dwqa-question_tag' == get_query_var( 'taxonomy' ) ? __( 'Tag', 'dwqa' ) : __( 'Category', 'dwqa' );
+		} else {
+			$term = wp_get_post_terms( get_the_ID(), 'dwqa-question_category' );
+			if ( $term ) {
+				$term     = $term[0];
+				$tax_name = __( 'Category', 'dwqa' );
+			}
+		}
+		if ( is_singular( 'dwqa-question' ) || $search || $author || $term ) {
+			$output .= '<div class="dwqa-breadcrumbs">';
+		}
+		if ( $term || is_singular( 'dwqa-question' ) || $search || $author ) {
+			$output .= '<a href="' . get_permalink( $dwqa_general_settings['pages']['archive-question'] ) . '">' . $title . '</a>';
+		}
 		if ( $term ) {
-			$term = $term[0];
-			$tax_name = __( 'Category', 'dwqa' );
-		}
-	}
-
-	if ( is_singular( 'dwqa-question' ) || $search || $author || $term ) {
-		$output .= '<div class="dwqa-breadcrumbs">';
-	}
-
-	if ( $term || is_singular( 'dwqa-question' ) || $search || $author ) {
-		$output .= '<a href="'. get_permalink( $dwqa_general_settings['pages']['archive-question'] ) .'">' . $title . '</a>';
-	}
-
-	if ( $term ) {
-		$output .= '<span class="dwqa-sep"> &rsaquo; </span>';
-		if ( is_singular( 'dwqa-question' ) ) {
-			$output .= '<a href="'. esc_url( get_term_link( $term, get_query_var( 'taxonomy' ) ) ) .'">' . $tax_name . ': ' . $term->name . '</a>';
-		} else {
-			$output .= '<span class="dwqa-current">' . $tax_name . ': ' . $term->name . '</span>';
-		}
-	}
-
-	if ( $search ) {
-		$output .= '<span class="dwqa-sep"> &rsaquo; </span>';
-		$output .= sprintf( '<span class="dwqa-current">%s "%s"</span>', __( 'Showing search results for', 'dwqa' ), rawurldecode( $search ) );
-	}
-
-	if ( $author ) {
-		$output .= '<span class="dwqa-sep"> &rsaquo; </span>';
-		$output .= sprintf( '<span class="dwqa-current">%s "%s"</span>', __( 'Author', 'dwqa' ), rawurldecode( $author ) );
-	}
-
-	if ( is_singular( 'dwqa-question' ) ) {
-		$output .= '<span class="dwqa-sep"> &rsaquo; </span>';
-		if ( !dwqa_is_edit() ) {
-			$output .= '<span class="dwqa-current">' . get_the_title() . '</span>';
-		} else {
-			$output .= '<a href="'. get_permalink() .'">'. get_the_title() .'</a>';
 			$output .= '<span class="dwqa-sep"> &rsaquo; </span>';
-			$output .= '<span class="dwqa-current">'. __( 'Edit', 'dwqa' ) .'</span>';
+			if ( is_singular( 'dwqa-question' ) ) {
+				$output .= '<a href="' . esc_url( get_term_link( $term, get_query_var( 'taxonomy' ) ) ) . '">' . $tax_name . ': ' . $term->name . '</a>';
+			} else {
+				$output .= '<span class="dwqa-current">' . $tax_name . ': ' . $term->name . '</span>';
+			}
 		}
-	}
-	if ( is_singular( 'dwqa-question' ) || $search || $author || $term ) {
-		$output .= '</div>';
-	}
-
-	echo apply_filters( 'dwqa_breadcrumb', $output );
+		if ( $search ) {
+			$output .= '<span class="dwqa-sep"> &rsaquo; </span>';
+			$output .= sprintf( '<span class="dwqa-current">%s "%s"</span>', __( 'Showing search results for', 'dwqa' ), rawurldecode( $search ) );
+		}
+		if ( $author ) {
+			$output .= '<span class="dwqa-sep"> &rsaquo; </span>';
+			$output .= sprintf( '<span class="dwqa-current">%s "%s"</span>', __( 'Author', 'dwqa' ), rawurldecode( $author ) );
+		}
+		if ( is_singular( 'dwqa-question' ) ) {
+			$output .= '<span class="dwqa-sep"> &rsaquo; </span>';
+			if ( ! dwqa_is_edit() ) {
+				$output .= '<span class="dwqa-current">' . get_the_title() . '</span>';
+			} else {
+				$output .= '<a href="' . get_permalink() . '">' . get_the_title() . '</a>';
+				$output .= '<span class="dwqa-sep"> &rsaquo; </span>';
+				$output .= '<span class="dwqa-current">' . __( 'Edit', 'dwqa' ) . '</span>';
+			}
+		}
+		if ( is_singular( 'dwqa-question' ) || $search || $author || $term ) {
+			$output .= '</div>';
+		}
+		echo apply_filters( 'dwqa_breadcrumb', $output );
+	endif;
+	
 }
 add_action( 'dwqa_before_questions_archive', 'dwqa_breadcrumb' );
 add_action( 'dwqa_before_single_question', 'dwqa_breadcrumb' );

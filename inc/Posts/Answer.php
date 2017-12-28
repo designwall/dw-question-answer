@@ -18,7 +18,7 @@ function dwqa_question_answers_count( $question_id = null ) {
 	$answer_count = get_transient( 'dwqa_answer_count_for_' . $question_id );
 
 	if ( false === $answer_count ) {
-		$sql = "SELECT COUNT( DISTINCT `P`.ID ) FROM {$wpdb->postmeta} PM JOIN {$wpdb->posts} P ON `PM`.post_id = `P`.ID WHERE `PM`.meta_key = '_question' AND meta_value = {$question_id} AND `P`.post_type = 'dwqa-answer' AND `P`.post_status = 'publish'";
+		$sql = "SELECT COUNT( DISTINCT `P`.ID ) FROM {$wpdb->postmeta} PM JOIN {$wpdb->posts} P ON `PM`.post_id = `P`.ID WHERE `PM`.meta_key = '_question' AND meta_value = {$question_id} AND `P`.post_type = 'dwqa-answer'";
 		$sql .= " AND ( `P`.post_status = 'publish' ";
 		if ( dwqa_current_user_can( 'edit_question', $question_id ) ) {
 			$sql .= " OR `P`.post_status = 'private'";

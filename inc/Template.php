@@ -40,11 +40,11 @@ function dwqa_breadcrumb() {
 		}
 		if ( $search ) {
 			$output .= '<span class="dwqa-sep"> &rsaquo; </span>';
-			$output .= sprintf( '<span class="dwqa-current">%s "%s"</span>', __( 'Showing search results for', 'dwqa' ), rawurldecode( $search ) );
+			$output .= sprintf( '<span class="dwqa-current">%s "%s"</span>', __( 'Showing search results for', 'dwqa' ), htmlspecialchars( $search ) );
 		}
 		if ( $author ) {
 			$output .= '<span class="dwqa-sep"> &rsaquo; </span>';
-			$output .= sprintf( '<span class="dwqa-current">%s "%s"</span>', __( 'Author', 'dwqa' ), rawurldecode( $author ) );
+			$output .= sprintf( '<span class="dwqa-current">%s "%s"</span>', __( 'Author', 'dwqa' ), htmlspecialchars( $author ) );
 		}
 		if ( is_singular( 'dwqa-question' ) ) {
 			$output .= '<span class="dwqa-sep"> &rsaquo; </span>';

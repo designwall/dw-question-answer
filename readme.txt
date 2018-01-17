@@ -85,6 +85,16 @@ Visit our [Github](https://github.com/designwall/dw-question-answer) project or 
 
 == Changelog ==
 
+= 1.4.9 =
+* Fix: Fix bug count vote in post_status private
+* Fix: Fix bug with arabic language
+
+= 1.4.8 =
+* New: Integrate yoast breadscrumb
+* Fix: Fix empty answer integrate buddypress
+* Fix: Fix comment vote
+* Fix: Remove function get_page
+
 = 1.4.7 =
 * New: Integrate Akismet
 * Fix: Fix save permissions

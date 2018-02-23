@@ -244,7 +244,7 @@ function dwqa_get_latest_answer( $question_id = false ) {
 	    	'numberposts' 		=> 1,
 		);
 		$recent_answers = wp_get_recent_posts( $args, OBJECT );
-		if ( count( $recent_answers ) > 0 ) {
+		if ($recent_answers && count( $recent_answers ) > 0 ) {
 			$latest = $recent_answers[0];
 			// This cache need to be update when new answer is added
 			set_transient( 'dwqa_latest_answer_for_' . $question_id, $latest, 450 );

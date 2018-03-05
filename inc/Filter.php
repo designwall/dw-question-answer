@@ -11,7 +11,7 @@ class DWQA_Filter {
 		$user = isset( $_GET['user'] ) && !empty( $_GET['user'] ) ? urldecode( $_GET['user'] ) : false;
 		$filter = isset( $_GET['filter'] ) && !empty( $_GET['filter'] ) ? sanitize_text_field( $_GET['filter'] ) : 'all';
 		$search_text = isset( $_GET['qs'] ) ? sanitize_text_field( $_GET['qs'] ) : false;
-		$sort = isset( $_GET['sort'] ) ? sanitize_text_field( $_GET['sort'] ) : '';
+		$sort = isset( $_GET['sort'] ) ? sanitize_text_field( $_GET['sort'] ) : ( isset( $args['sort'] ) ? $args['sort'] : '');
 		$query = array(
 			'post_type' => 'dwqa-question',
 			'posts_per_page' => $posts_per_page,

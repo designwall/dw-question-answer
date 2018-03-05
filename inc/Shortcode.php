@@ -73,6 +73,10 @@ class DWQA_Shortcode {
 			unset( $atts['tag'] );
 		}
 
+		if ( isset( $atts['sort'] ) ) {
+			$atts['sort'] = $atts['sort'];
+		}
+		
 		$dwqa->template->remove_all_filters( 'the_content' );
 		dwqa()->filter->prepare_archive_posts( $atts );
 		echo '<div class="dwqa-container" >';

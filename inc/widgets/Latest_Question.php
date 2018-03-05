@@ -41,7 +41,7 @@ class DWQA_Widgets_Latest_Question extends WP_Widget {
 				echo '</a>';
 				echo __( 'asked by', 'dwqa' ) . ' ' . get_the_author_link();
 				if ( isset( $instance['question_date'] ) && $instance['question_date'] ) {
-					echo ', ' . human_time_diff( get_the_time( 'U', true ) ) . ' ' . __( 'ago', 'dwqa' );
+					echo ', ' . human_time_diff( get_the_time( 'U' ) ) . ' ' . __( 'ago', 'dwqa' );
 				}
 				echo '</li>';
 			}   

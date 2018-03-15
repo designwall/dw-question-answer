@@ -171,8 +171,14 @@ function dwqa_get_author_link( $user_id = false ) {
 	if ( ! $user_id ) {
 		return false;
 	}
-	global $dwqa_general_settings;
+
 	$user = get_user_by( 'id', $user_id );
+	if(!$user){
+		return false;
+	}
+
+	global $dwqa_general_settings;
+	
 	$question_link = isset( $dwqa_general_settings['pages']['archive-question'] ) ? get_permalink( $dwqa_general_settings['pages']['archive-question'] ) : false;
 	$url = get_the_author_link( $user_id );
 	if ( $question_link ) {

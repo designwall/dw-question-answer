@@ -123,7 +123,8 @@ class DWQA_Ajax {
 			update_post_meta( $q, '_dwqa_best_answer', $answer_id );
 		}
 
-		wp_safe_redirect( get_permalink( $q ) );
+		wp_redirect( get_permalink( $q ) );
+		exit;
 	}
 
 	public function unvote_best_answer() {
@@ -141,7 +142,8 @@ class DWQA_Ajax {
 			do_action( 'dwqa_unvote_best_answer', $answer_id );
 			delete_post_meta( $q, '_dwqa_best_answer' );
 		}
-		wp_safe_redirect( get_permalink( $q ) );
+		wp_redirect( get_permalink( $q ) );
+		exit;
 	}
 
 	public function delete_question() {

@@ -73,6 +73,7 @@ class DWQA_Shortcode {
 			unset( $atts['tag'] );
 		}
 
+		// add sort attribute
 		if ( isset( $atts['sort'] ) ) {
 			$atts['sort'] = $atts['sort'];
 		}

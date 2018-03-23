@@ -1,0 +1,2554 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: DW Question Answer v1.2.3\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/dw-question-"
+"answer\n"
+"POT-Creation-Date: 2016-08-17 16:32+0700\n"
+"PO-Revision-Date: 2017-01-08 22:04+0800\n"
+"Last-Translator: Ivan Aristov <aristoviv@ya.ru>\n"
+"Language-Team: \n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 1.8.5\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+# @ dwqa
+#: dw-question-answer.php:147
+msgid "DWQA Questions"
+msgstr "Вопросы / ответы"
+
+# @ dwqa
+#: dw-question-answer.php:164
+msgid "DWQA Ask Question"
+msgstr "Задать вопрос"
+
+#: inc/Admin/Extensions.php:13
+msgid "DWQA Markdown"
+msgstr "Разметка"
+
+#: inc/Admin/Extensions.php:19
+msgid "DWQA Leaderboard"
+msgstr "Популяное"
+
+#: inc/Admin/Extensions.php:25
+msgid "DWQA Captcha"
+msgstr "Капча"
+
+#: inc/Admin/Extensions.php:31
+msgid "DWQA Embed Question"
+msgstr "Встроенная капча"
+
+#: inc/Admin/Extensions.php:37
+msgid "DWQA Widgets"
+msgstr "Виджеты"
+
+#: inc/Admin/Extensions.php:47
+msgid "Extensions"
+msgstr "Расширения"
+
+#: inc/Admin/Extensions.php:75
+msgid "Get It Now!"
+msgstr "Поличите сейчас!"
+
+#: inc/Admin/Welcome.php:27 inc/Admin/Welcome.php:28
+msgid "Welcome to DW Question & Answer"
+msgstr "Добро пожаловать!"
+
+#: inc/Admin/Welcome.php:35 inc/Admin/Welcome.php:36
+msgid "DW Question & Answer Changelog"
+msgstr "Новшества"
+
+#: inc/Admin/Welcome.php:43 inc/Admin/Welcome.php:44
+msgid "DW Question & Answer Credits"
+msgstr "Благодарности"
+
+#: inc/Admin/Welcome.php:60
+#, php-format
+msgid "Welcome to DW Question & Answer %s"
+msgstr "Добро пожаловать в DW Question & Answer %s"
+
+#: inc/Admin/Welcome.php:61
+msgid ""
+"Thank you for installing our WordPress plugin. If you have any question "
+"about this plugin, please submit to our <a target=\"_blank\" href=\"https://"
+"www.designwall.com/question/\">Q&A section</a>."
+msgstr ""
+"Спасибо за устновку нашего плагина. Если у Вас будут вопросы, напишите нам "
+"через наш раздел <a target=\"_blank\" href=\"https://www.designwall.com/"
+"question/\">вопросов и ответов</a>."
+
+#: inc/Admin/Welcome.php:69
+msgid "What&#8217;s New"
+msgstr "Что&#8217; нового"
+
+#: inc/Admin/Welcome.php:70
+msgid "Changelog"
+msgstr "Изменения"
+
+#: inc/Admin/Welcome.php:71
+msgid "Credits"
+msgstr "Благодарности"
+
+#: inc/Admin/Welcome.php:199
+msgid "Contributors"
+msgstr "Авторы"
+
+#: inc/Admin/Welcome.php:218
+msgid "No valid changelog was found."
+msgstr "Не найдено лога изменений"
+
+# @ dwqa
+# @ default
+#: inc/Ajax.php:29 inc/Ajax.php:47 inc/Ajax.php:83 inc/Ajax.php:113
+#: inc/Ajax.php:132 inc/Ajax.php:150 inc/Ajax.php:215 inc/Handle.php:256
+#: inc/Handle.php:455 inc/Permission.php:286 inc/Status.php:319
+msgid "Are you cheating huh?"
+msgstr "Хакер что ли?"
+
+#: inc/Ajax.php:33 inc/Handle.php:260
+msgid "You do not have permission to edit comment."
+msgstr "У Вас нет прав для правки комментария"
+
+# @ dwqa
+#: inc/Ajax.php:37
+msgid "Comment ID must be showed."
+msgstr "ID комментария должно быть показано."
+
+#: inc/Ajax.php:51 inc/Handle.php:154
+msgid "Answer is missing."
+msgstr "Ответ отсутствует"
+
+#: inc/Ajax.php:55 inc/Handle.php:158
+msgid "This post is not answer."
+msgstr "Эта запись не является ответом"
+
+#: inc/Ajax.php:59 inc/Ajax.php:162
+msgid "You do not have permission to delete this post."
+msgstr "Вы не можете удалить эту запись"
+
+# @ dwqa
+#: inc/Ajax.php:86
+msgid "Missing id of answer"
+msgstr "Потерян ID ответа"
+
+#: inc/Ajax.php:154 inc/Handle.php:477
+msgid "Question is missing."
+msgstr "Вопрос отсутствует"
+
+#: inc/Ajax.php:158 inc/Handle.php:481
+msgid "This post is not question."
+msgstr "Эта запись не вопрос"
+
+# @ dwqa
+#: inc/Ajax.php:206
+msgid "You do not have permission to edit question status"
+msgstr "Вы не можете изменить статус вопроса"
+
+#: inc/Ajax.php:223 inc/Ajax.php:273
+msgid "Not Found!!!"
+msgstr "НЕ НАЙДЕНО!!!"
+
+# @ dwqa
+#: inc/Answer_List_Table.php:81 inc/Posts/Answer.php:271 inc/Template.php:48
+msgid "Author"
+msgstr "Автор"
+
+# @ dwqa
+#: inc/Answer_List_Table.php:82
+msgid "Detail"
+msgstr "Детали"
+
+# @ dwqa
+#: inc/Answer_List_Table.php:92 inc/Notifications.php:116
+#: inc/Notifications.php:214 inc/Notifications.php:233 inc/Posts/Base.php:230
+#: inc/Posts/Comment.php:102 inc/Settings.php:419 inc/Settings.php:455
+#: inc/Settings.php:490 inc/User.php:155
+msgid "Anonymous"
+msgstr "Посетитель сайта"
+
+# @ dwqa
+#: inc/Answer_List_Table.php:101
+msgid "Answered on "
+msgstr "В ответ на"
+
+# @ dwqa
+#: inc/Answer_List_Table.php:112 inc/Helptab.php:153
+msgid "Read more"
+msgstr "Подробнее"
+
+#: inc/Handle.php:29
+msgid "&quot;Helllo&quot;, Are you cheating huh?."
+msgstr "&quot;Здоров&quot;, Хакир? Мы отправили инфу куда надо. Ага."
+
+# @ dwqa
+#: inc/Handle.php:32
+msgid "Delete draft"
+msgstr "Удалить черновик"
+
+#: inc/Handle.php:39
+msgid "Answer content is empty"
+msgstr "Ответ пуст"
+
+#: inc/Handle.php:42
+msgid "Question is empty"
+msgstr "Вопрос пуст"
+
+# @ dwqa
+#: inc/Handle.php:46 inc/Handle.php:432
+msgid "You do not have permission to submit question."
+msgstr "Вы не можете добавлять вопросы"
+
+# @ dwqa
+#: inc/Handle.php:50 inc/Handle.php:218 inc/Handle.php:300
+msgid "Missing email information"
+msgstr "Пожалуйста, укажите адрес e-mail"
+
+# @ dwqa
+#: inc/Handle.php:54 inc/Handle.php:222 inc/Handle.php:305
+msgid "Missing name information"
+msgstr "Пожалуйста, укажите имя"
+
+# @ dwqa
+#: inc/Handle.php:58 inc/Handle.php:451
+msgid "Captcha is not correct"
+msgstr "Код неверный"
+
+# @ dwqa
+#: inc/Handle.php:77
+msgid "Answer for "
+msgstr "Ответить на "
+
+#: inc/Handle.php:139
+msgid "You do not have permission to edit answer."
+msgstr "у Вас нет прав для редактирования ответа"
+
+# @ dwqa
+#: inc/Handle.php:143 inc/Handle.php:520 inc/Posts/Question.php:473
+msgid "Hello, Are you cheating huh?"
+msgstr "Хакер что ли?"
+
+#: inc/Handle.php:148
+msgid "You must enter a valid answer content."
+msgstr "Вы должны ввести корректное содержание ответа"
+
+# @ dwqa
+#: inc/Handle.php:194
+msgid "You can't post comment"
+msgstr "Вы не можете комментировать"
+
+#: inc/Handle.php:197
+msgid "Missing post id."
+msgstr "Нет id записи"
+
+# @ dwqa
+#: inc/Handle.php:203
+msgid "Please enter your comment content"
+msgstr "Пожалуйста, напишите комментарий"
+
+#: inc/Handle.php:249
+msgid "Comment is missing"
+msgstr "Коментрий отсутствует"
+
+# @ dwqa
+#: inc/Handle.php:264
+msgid "Comment content must not be empty."
+msgstr "Комментарий не должен быть пустым."
+
+#: inc/Handle.php:294 inc/Handle.php:471
+msgid "You must enter a valid question title."
+msgstr "Пожалуйста, введите заголовок."
+
+# @ dwqa
+#: inc/Handle.php:384
+msgid "User Registration was disabled."
+msgstr "Регистрация пользователей закрыта"
+
+# @ dwqa
+#: inc/Handle.php:387
+msgid "This email is already registered, please choose another one."
+msgstr "Этот e-mail уже зарегистрирован, пожалуйста, введите другой"
+
+# @ dwqa
+#: inc/Handle.php:390
+msgid "This username is already registered. Please use another one."
+msgstr "Этот логин уже используется. Пожалуйста, используйте другой!"
+
+#: inc/Handle.php:444
+msgid "Your question is waiting moderator."
+msgstr "Спасибо! Ваш вопрос появится на форуме после модерации."
+
+# @ dwqa
+#: inc/Handle.php:466 inc/Status.php:347
+msgid "You do not have permission to edit question"
+msgstr "Вы не можете изменять вопросы"
+
+# @ dwqa
+#: inc/Helptab.php:47
+msgid "Overview"
+msgstr "Обзор"
+
+# @ dwqa
+#: inc/Helptab.php:48
+msgid "DW Question Answer Plugin"
+msgstr "DW Question Answer Plugin"
+
+# @ dwqa
+#: inc/Helptab.php:49
+msgid ""
+"DW Question Answer is a WordPress Plugin which helps you build a Question & "
+"Answer system on your WordPress sites. The plugin is easy to install and set "
+"up. Let start building up your community with this WordPress question & "
+"answer system."
+msgstr ""
+"DW Question Answer - это плагин для WordPress, который позволяет сделать "
+"систему вопросов-ответов на сайтах под управлением WordPress. Плагин легко "
+"установить и настроить. Сформируйте вашу аудиторию в системой вопросов-"
+"ответов!"
+
+# @ dwqa
+#: inc/Helptab.php:52
+msgid "Setup Question List Page"
+msgstr "Назначить страницу со списком вопросов"
+
+# @ dwqa
+#: inc/Helptab.php:56
+msgid "Setup Ask Question Page"
+msgstr "Назначить страницу \"Задать вопрос\""
+
+# @ dwqa
+#: inc/Helptab.php:60
+msgid "Shortcode"
+msgstr "Шорткод"
+
+# @ dwqa
+#: inc/Helptab.php:64
+msgid "Style integration"
+msgstr "Интеграция стиля"
+
+# @ default
+#: inc/Helptab.php:173
+msgid "For more information:"
+msgstr "Дополнительная информация:"
+
+# @ default
+#: inc/Helptab.php:174
+msgid "DW Question Answer Guide"
+msgstr "Помощь по DW Question Answer"
+
+# @ default
+#: inc/Helptab.php:175
+msgid "Community"
+msgstr "Сообщество"
+
+# @ default
+#: inc/Helptab.php:176
+msgid "DesignWall Wordpress Themes"
+msgstr "Темы для Wordpress от DesignWall"
+
+# @ default
+#: inc/Helptab.php:177
+msgid "DesignWall Wordpress Plugins"
+msgstr "Плагины для Wordpress от DesignWall"
+
+# @ dwqa
+#: inc/Metaboxes.php:13 templates/content-single-question.php:31
+#: templates/question-submit-form.php:22
+msgid "Status"
+msgstr "Статус"
+
+# @ dwqa
+#: inc/Metaboxes.php:15 inc/Status.php:304
+#: templates/archive-question-filter.php:18
+#: templates/content-single-question.php:32
+msgid "Open"
+msgstr "Открыт"
+
+# @ dwqa
+#: inc/Metaboxes.php:16 inc/Status.php:287
+msgid "Pending"
+msgstr "На рассмотрении"
+
+# @ dwqa
+#: inc/Metaboxes.php:17 inc/Status.php:284
+#: templates/archive-question-filter.php:19
+#: templates/content-single-question.php:34
+msgid "Resolved"
+msgstr "Решено"
+
+# @ dwqa
+#: inc/Metaboxes.php:18 inc/Status.php:290
+msgid "Re-Open"
+msgstr "Открыть заново"
+
+# @ dwqa
+#: inc/Metaboxes.php:19 inc/Status.php:293
+#: templates/archive-question-filter.php:20
+#: templates/content-single-question.php:33
+msgid "Closed"
+msgstr "Закрыт"
+
+# @ dwqa
+#: inc/Metaboxes.php:25
+msgid "Sticky"
+msgstr "Прилепленные"
+
+# @ dwqa
+#: inc/Metaboxes.php:29
+msgid "Pin question to top of archive page."
+msgstr "Прикрепить вопрос наверху архива"
+
+# @ dwqa
+#: inc/Metaboxes.php:45 inc/Posts/Answer.php:225 inc/Posts/Answer.php:227
+#: inc/Settings.php:431 templates/archive-question-filter.php:34
+msgid "Answers"
+msgstr "Ответы"
+
+# @ dwqa
+#: inc/Metaboxes.php:65
+msgid "Question Meta Data"
+msgstr "Мета-данные вопроса"
+
+# @ dwqa
+#: inc/Notifications.php:29
+msgid "A new question was posted on {site_name}"
+msgstr "Новый вопрос был опубликован на {site_name}"
+
+# @ dwqa
+#: inc/Notifications.php:132
+msgid "You have a new answer for your followed question"
+msgstr "У вас есть новый ответ на отслеживаемый вопрос"
+
+# @ dwqa
+#: inc/Notifications.php:250
+msgid "A new answer for \"{question_title}\" was posted on {site_name}"
+msgstr "Новый ответ на \"{question_title}\" был дан на {site_name}"
+
+# @ dwqa
+#: inc/Notifications.php:334 inc/Notifications.php:380
+msgid "[{site_name}] You have a new comment for question {question_title}"
+msgstr "[{site_name}] У вас есть комментарий на вопрос {question_title}"
+
+# @ dwqa
+#: inc/Notifications.php:339 inc/Notifications.php:385
+msgid "[{site_name}] You have a new comment for answer"
+msgstr "[{site_name}] У вас есть комментарий к ответу"
+
+# @ dwqa
+#: inc/PointerHelper.php:60
+msgid "How to use DW Question Answer"
+msgstr "Как пользоваться DW Question Answer"
+
+# @ dwqa
+#: inc/PointerHelper.php:61
+msgid "Documents, Support From DesignWall (help)"
+msgstr "Документы, поддержка от DesignWall (помощь)"
+
+# @ dwqa
+#: inc/PointerHelper.php:70
+msgid "Config your support channel"
+msgstr "Настроить ваш канал поддержки"
+
+# @ dwqa
+#: inc/PointerHelper.php:71
+msgid "Change comment settings, and create the Submit question page."
+msgstr ""
+"Изменить настройки комментирования и создать страницу \"Задать вопрос\""
+
+# @ default
+# @ dwqa
+#: inc/Posts/Answer.php:226 inc/Posts/Answer.php:270
+msgid "Answer"
+msgstr "Ответы"
+
+# @ dwqa
+#: inc/Posts/Answer.php:273
+msgid "In Response To"
+msgstr "в ответ на"
+
+# @ dwqa
+#: inc/Posts/Answer.php:317 inc/Posts/Base.php:320 inc/Settings.php:402
+#: inc/Template.php:58 inc/Template.php:163 inc/Template.php:180
+#: templates/content-comment.php:19
+msgid "Edit"
+msgstr "Правка"
+
+# @ dwqa
+#: inc/Posts/Answer.php:318 inc/Settings.php:403 inc/Template.php:168
+#: inc/Template.php:185 templates/content-comment.php:22
+msgid "Delete"
+msgstr "Удалить"
+
+# @ dwqa
+#: inc/Posts/Answer.php:319 inc/Posts/Base.php:322
+msgid "View"
+msgstr "Просмотры"
+
+# @ dwqa
+#: inc/Posts/Answer.php:323
+msgid "Submitted"
+msgstr "Опубликовано"
+
+# @ dwqa
+#: inc/Posts/Answer.php:324
+msgid "on"
+msgstr " "
+
+#: inc/Posts/Answer.php:359
+msgid "Question ID"
+msgstr "id вопроса"
+
+#: inc/Posts/Answer.php:370 inc/Posts/Answer.php:373
+msgid "ID"
+msgstr ""
+
+# @ dwqa
+#: inc/Posts/Base.php:5
+msgid "Are you cheating, huh?"
+msgstr "Хакер что ли?"
+
+#: inc/Posts/Base.php:18
+msgid "What "
+msgstr "Что"
+
+# @ dwqa
+#: inc/Posts/Base.php:46
+msgid "You voted for this "
+msgstr "Вы проголосовали"
+
+# @ default
+#: inc/Posts/Base.php:242
+#, php-format
+msgid "Posts by %s"
+msgstr "Записи автора: %s"
+
+#: inc/Posts/Base.php:251 inc/Posts/Base.php:255
+#, php-format
+msgid "%s answered <span class=\"dwqa-date\">%s</span> ago"
+msgstr "%s ответил <span class=\"dwqa-date\">%s</span> назад"
+
+#: inc/Posts/Base.php:257
+#, php-format
+msgid "%s asked <span class=\"dwqa-date\">%s</span> ago"
+msgstr "%s спросил <span class=\"dwqa-date\">%s</span> назад"
+
+#: inc/Posts/Base.php:306
+msgid "DWQA Posts"
+msgstr "DWQA записи"
+
+#: inc/Posts/Base.php:307
+msgid "DWQA Post"
+msgstr "DWQA запись"
+
+#: inc/Posts/Base.php:318
+msgctxt "dwqa"
+msgid "Add New"
+msgstr "Добавить новый [ DWQA ]"
+
+# @ default
+#: inc/Posts/Base.php:319
+#, fuzzy
+msgid "Add New"
+msgstr "Добавить"
+
+# @ dwqa
+#: inc/Posts/Base.php:321 inc/Status.php:296
+msgid "New"
+msgstr "Новый"
+
+#: inc/Posts/Base.php:323
+msgid "Search "
+msgstr "Поиск"
+
+#: inc/Posts/Base.php:324
+msgid "not found"
+msgstr "не найдено"
+
+#: inc/Posts/Base.php:325
+msgid "not found in Trash"
+msgstr "не найдено в корзине"
+
+#: inc/Posts/Base.php:326
+msgid "Parent:"
+msgstr "Родитель:"
+
+# @ dwqa
+#: inc/Posts/Question.php:56 inc/Shortcode.php:138
+#: inc/widgets/Closed_Question.php:49 inc/widgets/Latest_Question.php:42
+#: inc/widgets/Popular_Question.php:43
+msgid "asked by"
+msgstr "спросил (а)"
+
+#: inc/Posts/Question.php:100 inc/Posts/Question.php:102
+#: inc/Posts/Question.php:266 inc/Settings.php:395
+#: templates/archive-question-filter.php:28
+msgid "Questions"
+msgstr "Вопросы"
+
+# @ dwqa
+#: inc/Posts/Question.php:101
+msgid "Question"
+msgstr "Вопрос"
+
+#: inc/Posts/Question.php:196
+msgctxt "taxonomy general name"
+msgid "Question Categories"
+msgstr "Рубрики вопросов"
+
+#: inc/Posts/Question.php:197
+msgctxt "taxonomy singular name"
+msgid "Question Category"
+msgstr "Рубрика"
+
+#: inc/Posts/Question.php:198
+msgid "Search Question Categories"
+msgstr "Поиск категории вопросов"
+
+#: inc/Posts/Question.php:199
+msgid "All Question Categories"
+msgstr "Все категории вопросов"
+
+#: inc/Posts/Question.php:200
+msgid "Parent Question Category"
+msgstr "Рубрика"
+
+#: inc/Posts/Question.php:201
+msgid "Parent Question Category:"
+msgstr "Рубрика"
+
+#: inc/Posts/Question.php:202
+msgid "Edit Question Category"
+msgstr "Рубрика"
+
+#: inc/Posts/Question.php:203
+msgid "Update Question Category"
+msgstr "Обновить рубрику вопроса"
+
+#: inc/Posts/Question.php:204
+msgid "Add New Question Category"
+msgstr "Добавить новую рубрику вопроса"
+
+#: inc/Posts/Question.php:205
+msgid "New Question Category Name"
+msgstr "Название новой рубрики"
+
+# @ dwqa
+#: inc/Posts/Question.php:206
+msgid "Question Category"
+msgstr "Рубрика:"
+
+#: inc/Posts/Question.php:225
+msgctxt "taxonomy general name"
+msgid "Question Tags"
+msgstr "Тэги"
+
+#: inc/Posts/Question.php:226
+msgctxt "taxonomy singular name"
+msgid "Question Tag"
+msgstr "Тэг"
+
+#: inc/Posts/Question.php:227
+msgid "Search Question Tags"
+msgstr "Поиск по тэгам"
+
+#: inc/Posts/Question.php:228
+msgid "Popular Question Tags"
+msgstr "Популярные тэги"
+
+#: inc/Posts/Question.php:229
+msgid "All Question Tags"
+msgstr "Все тэги"
+
+#: inc/Posts/Question.php:232
+msgid "Edit Question Tag"
+msgstr "Редактировать тэг"
+
+#: inc/Posts/Question.php:233
+msgid "Update Question Tag"
+msgstr "Обновить тэг"
+
+#: inc/Posts/Question.php:234
+msgid "Add New Question Tag"
+msgstr "Добавить новый тэг"
+
+#: inc/Posts/Question.php:235
+msgid "New Question Tag Name"
+msgstr "Название нового тэга"
+
+#: inc/Posts/Question.php:236
+msgid "Separate question tags with commas"
+msgstr "Разделяйте тэги запятыми"
+
+#: inc/Posts/Question.php:237
+msgid "Add or remove question tags"
+msgstr "Добавить или удалить тэги"
+
+#: inc/Posts/Question.php:238
+msgid "Choose from the most used question tags"
+msgstr "Выбрать тэг из популярных"
+
+#: inc/Posts/Question.php:239
+msgid "No question tags found."
+msgstr "Тэги не найдены"
+
+# @ default
+# @ dwqa
+#: inc/Posts/Question.php:240
+msgid "Question Tags"
+msgstr "Метки (не обязательно)"
+
+# @ dwqa
+#: inc/Posts/Question.php:276
+msgid "Info"
+msgstr "Инфо"
+
+# @ dwqa
+#: inc/Posts/Question.php:287 templates/content-question.php:22
+msgid "answered"
+msgstr "отвечен"
+
+# @ dwqa
+#: inc/Posts/Question.php:288
+msgid "voted"
+msgstr "голосов"
+
+# @ dwqa
+#: inc/Posts/Question.php:289
+msgid "views"
+msgstr "просмотров"
+
+# @ dwqa
+#: inc/Posts/Question.php:410 inc/User.php:266
+msgid "Invalid Post"
+msgstr "Неверная запись"
+
+# @ dwqa
+#: inc/Posts/Question.php:445
+msgid "Sticky Questions"
+msgstr "Прилепленные вопросы"
+
+# @ dwqa
+#: inc/Posts/Question.php:479
+msgid "Question is not valid"
+msgstr "Вопрос неправильный"
+
+# @ dwqa
+#: inc/Posts/Question.php:500
+msgid "Delete Action was failed"
+msgstr "Удаление не удалось"
+
+# @ dwqa
+#: inc/Posts/Question.php:505
+msgid "You do not have permission to delete this question"
+msgstr "Вы не можете удалить этот вопрос"
+
+#: inc/Session.php:68 inc/Session.php:85 inc/Session.php:95 inc/Session.php:118
+msgid "This function should not be called before init."
+msgstr ""
+
+# @ dwqa
+#: inc/Settings.php:8
+msgid "Login required. No anonymous post allowed"
+msgstr "Нужно войти. Анонимные записи не разрешены."
+
+# @ dwqa
+#: inc/Settings.php:20
+msgid "Select Archive Question Page"
+msgstr "Выберете страницу архива вопросов"
+
+#: inc/Settings.php:24
+msgid ""
+"A page where displays all questions. The <code>[dwqa-list-questions]</code> "
+"short code must be on this page."
+msgstr ""
+"Страница, где выводятся все вопросы. Шоткод <code>[dwqa-list-questions]</"
+"code> должен быть на этой странице."
+
+# @ dwqa
+#: inc/Settings.php:31
+msgid "hours"
+msgstr "часа"
+
+# @ dwqa
+#: inc/Settings.php:31
+msgid ""
+"A period of time in which new questions are highlighted and marked as New"
+msgstr ""
+"Период времени, в течение которого вопрос подсвечен и отмечен как \"новый\""
+
+# @ dwqa
+#: inc/Settings.php:36
+msgid "days"
+msgstr "дней"
+
+# @ dwqa
+#: inc/Settings.php:36
+msgid ""
+"A Question will be marked as overdue if it passes this period of time, "
+"starting from the time the question was submitted"
+msgstr ""
+"Вопрос будет помечен как просроченный, если пройдет этот период времени с "
+"момента публикации вопроса"
+
+# @ dwqa
+#: inc/Settings.php:47
+msgid "Select Submit Question Page"
+msgstr "Выбрать страницу \"Опубликовать вопрос\""
+
+#: inc/Settings.php:52
+msgid ""
+"A page where users can submit questions. The <code>[dwqa-submit-question-"
+"form]</code> short code must be on this page."
+msgstr ""
+"Страница, где пользователи задают вопросы. Шоткод <code>[dwqa-submit-"
+"question-form]</code> должен быть на этой странице."
+
+#: inc/Settings.php:65
+msgid "Select 404 DWQA Page"
+msgstr "Выбрать страницу 404 для DWQA"
+
+#: inc/Settings.php:70
+msgid ""
+"This page will be redirected when users without authority click on a private "
+"question. You can customize the message of this page in.If not, a default "
+"404 page will be used."
+msgstr ""
+"На эту страницу будут направляться пользователи, если они попытаются "
+"кликнуть на приватный вопрос. Если не выбрано, то будет использована "
+"страница 404 из темы. "
+
+# @ dwqa
+#: inc/Settings.php:87
+msgid "Upload"
+msgstr "Загрузить"
+
+#: inc/Settings.php:87
+msgid "Upload or choose a logo to be displayed at the top of the email."
+msgstr "Загрузите или выберите логотип для показа вверху письма"
+
+#: inc/Settings.php:126 inc/Settings.php:161 inc/Settings.php:197
+#: inc/Settings.php:233 inc/Settings.php:268 inc/Settings.php:303
+#: inc/Settings.php:338
+msgid "Enable?"
+msgstr "Включить?"
+
+#: inc/Settings.php:126
+msgid "Enable notification for new question."
+msgstr "Уведомлять о новых вопросах"
+
+# @ dwqa
+#: inc/Settings.php:131 inc/Settings.php:166 inc/Settings.php:202
+#: inc/Settings.php:238 inc/Settings.php:273 inc/Settings.php:308
+#: inc/Settings.php:343
+msgid "Email subject"
+msgstr "Тема письма"
+
+# @ dwqa
+#: inc/Settings.php:136 inc/Settings.php:171 inc/Settings.php:207
+#: inc/Settings.php:243 inc/Settings.php:278 inc/Settings.php:313
+#: inc/Settings.php:348
+msgid "Email Content"
+msgstr "Содержание письма"
+
+#: inc/Settings.php:161
+msgid "Enable notification for new answer."
+msgstr "Уведомлять о новых ответах"
+
+#: inc/Settings.php:197
+msgid "Enable notification for new answer ( to Followers )."
+msgstr "Уведомлять о новых ответах (для отслеживающих)"
+
+#: inc/Settings.php:233 inc/Settings.php:268
+msgid "Enable notification for new comment of question."
+msgstr "Уведомлять о новых комментариях к вопросам"
+
+#: inc/Settings.php:303 inc/Settings.php:338
+msgid "Enable notification for new comment of answer."
+msgstr "Уведомлять о новых комментариях к ответам"
+
+# @ dwqa
+#: inc/Settings.php:400
+msgid "Read"
+msgstr "Читать"
+
+# @ dwqa
+#: inc/Settings.php:401
+msgid "Post"
+msgstr "Опубликовать"
+
+# @ dwqa
+#: inc/Settings.php:429 inc/Settings.php:465 inc/Settings.php:500
+msgid "Reset Default"
+msgstr "Восстановить умолчания"
+
+#: inc/Settings.php:467
+msgid "Comments"
+msgstr "Комментарии"
+
+#: inc/Settings.php:509
+msgid "Enable captcha on submit question page."
+msgstr "Включить капчу на странице отправки вопросов"
+
+#: inc/Settings.php:515
+msgid "Enable captcha on single question page."
+msgstr "Включить капчу на странице одиночного вопроса"
+
+#: inc/Settings.php:533
+msgid "Default"
+msgstr "По умолчанию"
+
+#: inc/Settings.php:546
+msgid "questions."
+msgstr "вопросы."
+
+#: inc/Settings.php:552
+msgid "answers."
+msgstr "ответы."
+
+#: inc/Settings.php:558
+msgid "Allow members to post private question."
+msgstr "Разрешить участникам отправлять личные вопросы"
+
+#: inc/Settings.php:564
+msgid "Question must be manually approved."
+msgstr "Вопросы должны быть одобрены вручную"
+
+#: inc/Settings.php:570
+msgid "Display status icon on the left side."
+msgstr "Отображать иконку статуса слева"
+
+#: inc/Settings.php:576
+msgid "Disable question status feature."
+msgstr "Отключить статусы вопросов"
+
+#: inc/Settings.php:582
+msgid "Show all answers on single question page."
+msgstr "Отображать все ответы на одной странице"
+
+# @ dwqa
+#: inc/Settings.php:593
+#, fuzzy
+msgid "Select template for Single Quesiton page"
+msgstr "Капча на страницах вопросов"
+
+#: inc/Settings.php:599
+msgid ""
+"By default, your single.php template file will be used if you do not choose "
+"any template"
+msgstr ""
+"По умолчанию будет использован Ваш шаблон single.php, если Вы не выберите "
+"иное"
+
+#: inc/Settings.php:607
+#, php-format
+msgid ""
+"If you like, you may enter custom structure for your single question, "
+"question category and question tag URLs here. For example, using "
+"<code>topic</code> as your question base would make your question links like "
+"<code>%s</code>. If you leave these blank the default will be used."
+msgstr ""
+"Если требуется, здесь Вы можете задать свою структуру ссылки для одиночного "
+"вопроса, категории вопросов или ссылог тэгов. Например, используя "
+"<code>topic</code> как базу для вопроса, вы можете сделать ссылки как <code>"
+"%s</code>. Если Вы ничего здесь не укажите, будет использован шаблон по "
+"умолчанию."
+
+# @ dwqa
+#: inc/Settings.php:732
+msgid "Plugin Settings"
+msgstr "Настройки плагина"
+
+# @ dwqa
+#: inc/Settings.php:732
+msgid "Settings"
+msgstr "Настройки"
+
+#: inc/Settings.php:768
+msgid "Email Settings"
+msgstr "Настройки почты"
+
+#: inc/Settings.php:769
+msgid "New Question Notifications"
+msgstr "Уведомление о новых вопросах"
+
+#: inc/Settings.php:770
+msgid "New Answer Notifications"
+msgstr "Уведомление о новых ответах"
+
+#: inc/Settings.php:771
+msgid "New Comment Notifications"
+msgstr "Уведомление о новых комментариях"
+
+#: inc/Settings.php:784
+msgid "Page Settings"
+msgstr "Настройки страницы"
+
+# @ dwqa
+#: inc/Settings.php:791
+msgid "Question List Page"
+msgstr "Страница для списка вопросов"
+
+# @ dwqa
+#: inc/Settings.php:799 inc/Settings.php:930
+msgid "Ask Question Page"
+msgstr "Страница \"Задать вопрос\""
+
+#: inc/Settings.php:842
+msgid "Question Settings"
+msgstr "Настройки вопросов"
+
+#: inc/Settings.php:849
+msgid "Archive Page Show At Most"
+msgstr "Архивные страницы отображать"
+
+#: inc/Settings.php:857
+msgid "Before A Question Appears"
+msgstr "Перед тем, возникает вопрос"
+
+#: inc/Settings.php:865
+msgid "Other Question Settings"
+msgstr "Прочие настроки вопросов"
+
+#: inc/Settings.php:890
+msgid "Answer Settings"
+msgstr "Настроки ответов"
+
+#: inc/Settings.php:897
+msgid "Answer Listing"
+msgstr "Список ответов"
+
+#: inc/Settings.php:915
+msgid "Captcha Settings"
+msgstr "Настройка капчи"
+
+#: inc/Settings.php:922
+msgid "Type"
+msgstr "Тип"
+
+#: inc/Settings.php:938
+msgid "Single Question Page"
+msgstr "Страница единичного вопроса"
+
+# @ dwqa
+#: inc/Settings.php:950
+msgid "Permalink Settings"
+msgstr "Настройки постоянных ссылок"
+
+#: inc/Settings.php:957
+msgid "Question Base"
+msgstr "Базовая ссылка для вопросов"
+
+#: inc/Settings.php:965
+msgid "Question Category Base"
+msgstr "Базовая ссылка для категорий"
+
+#: inc/Settings.php:973
+msgid "Question Tag Base"
+msgstr "Базовая ссылка для тегов"
+
+# @ dwqa
+#: inc/Settings.php:1042
+msgid "From Email"
+msgstr "Адрес отправителя"
+
+# @ dwqa
+#: inc/Settings.php:1110 inc/Settings.php:1117
+msgid "Group Permission"
+msgstr "Права группы"
+
+# @ dwqa
+#: inc/Settings.php:1145
+msgid "DWQA Settings"
+msgstr "Настройки"
+
+# @ dwqa
+#: inc/Settings.php:1149
+msgid "General"
+msgstr "Общие"
+
+#: inc/Settings.php:1150
+msgid "Emails"
+msgstr "Электропочты"
+
+#: inc/Settings.php:1151
+msgid "Permissions"
+msgstr "Права"
+
+#: inc/Settings.php:1152
+msgid "Licenses"
+msgstr "Лицензия"
+
+#: inc/Settings.php:1166
+msgid "Email settings"
+msgstr "Настройки почты"
+
+# @ dwqa
+#: inc/Settings.php:1168
+msgid "Email Logo"
+msgstr "Логотип"
+
+#: inc/Settings.php:1182
+msgid "New Question Notifications (to Admin)"
+msgstr "Уведомление о новых вопросах (админу)"
+
+#: inc/Settings.php:1206
+msgid "New Answer Notifications (to Followers)"
+msgstr "Уведомление о новых ответах (отслеживающим)"
+
+#: inc/Settings.php:1222
+msgid "New Answer Notifications (to Admin)"
+msgstr "Уведомление о новых ответах (админу)"
+
+#: inc/Settings.php:1242
+msgid "New Comment to Question Notifications (to Followers)"
+msgstr "Уведомление о новых комментариях к вопросам (отслеживающим)"
+
+#: inc/Settings.php:1259
+msgid "New Comment to Question Notifications (to Admin)"
+msgstr "Уведомление о новых комментариях к вопросам (админу)"
+
+#: inc/Settings.php:1279
+msgid "New Comment to Answer Notifications (to Followers)"
+msgstr "Уведомление о новых комментариях к ответам (отслеживающим)"
+
+#: inc/Settings.php:1296
+msgid "New Comment to Answer Notifications (to Admin)"
+msgstr "Уведомление о новых комментариях к ответам (админу)"
+
+# @ dwqa
+#: inc/Settings.php:1314
+msgid "Save all changes"
+msgstr "Сохранить все изменения"
+
+#: inc/Settings.php:1328
+#, php-format
+msgid "Manage <a href=\"%s\">DWQA Extensions</a> license keys"
+msgstr "Управление лицензионным ключом <a href=\"%s\">DWQA Extensions</a>"
+
+#: inc/Settings.php:1346 inc/Settings.php:1351 inc/Settings.php:1356
+#: inc/Settings.php:1361
+msgid "Forward to"
+msgstr "Передресовать к"
+
+# @ dwqa
+#: inc/Settings.php:1366
+msgid "Cc"
+msgstr "Копия"
+
+# @ dwqa
+#: inc/Settings.php:1371
+msgid "Bcc"
+msgstr "Скрытая копия"
+
+# @ dwqa
+#: inc/Settings.php:1376
+msgid "This address will be used as the sender of the outgoing emails."
+msgstr "Этот адрес будет показан в качестве отправителя писем"
+
+#: inc/Settings.php:1382
+msgid "Send a copy of every email to admin."
+msgstr "Отправлять копию каждого письма админу"
+
+# @ dwqa
+#: inc/Shortcode.php:115 inc/widgets/Popular_Question.php:21
+msgid "Popular Questions"
+msgstr "Популярные вопросы"
+
+# @ dwqa
+#: inc/Shortcode.php:152
+msgid "Latest Answers"
+msgstr "Последние ответы"
+
+# @ dwqa
+#: inc/Shortcode.php:178
+msgid "Answer at"
+msgstr "Ответ на"
+
+# @ dwqa
+#: inc/Shortcode.php:178
+msgid "Link to"
+msgstr "Ссылка"
+
+#: inc/Shortcode.php:206
+#, php-format
+msgid "%d person who is following this question"
+msgid_plural "%d people who are following this question"
+msgstr[0] "%d человек следят за этим вопросом"
+msgstr[1] "%d человек следят за этим вопросом"
+msgstr[2] "%d человек следят за этим вопросом"
+
+#: inc/Shortcode.php:236
+msgid "Question List"
+msgstr "Список вопросов"
+
+# @ dwqa
+#: inc/Status.php:300
+msgid "Answered"
+msgstr "Отвечено"
+
+# @ dwqa
+#: inc/Status.php:324
+msgid "Missing post ID"
+msgstr "Потерян ID записи"
+
+# @ dwqa
+#: inc/Status.php:337
+msgid "Post does not exist"
+msgstr "Запись не существует"
+
+# @ dwqa
+#: inc/Status.php:342
+msgid "Invalid post status"
+msgstr "Неверный статус"
+
+#: inc/Template.php:15 templates/content-edit.php:44
+#: templates/question-submit-form.php:46
+msgid "Tag"
+msgstr "Ключевые слова"
+
+# @ default
+#: inc/Template.php:15 inc/Template.php:20 templates/content-edit.php:29
+#: templates/question-submit-form.php:32
+msgid "Category"
+msgstr "Рубрика"
+
+#: inc/Template.php:43
+msgid "Showing search results for"
+msgstr "Результаты поиска для"
+
+#: inc/Template.php:78
+msgid "What do you want to know?"
+msgstr "Искать вопрос"
+
+#: inc/Template.php:157
+msgid "Subscribe"
+msgstr "Подписаться"
+
+# @ default
+#: inc/Template.php:445
+msgid "Email"
+msgstr "Email"
+
+#: inc/Template.php:447
+msgid "Name"
+msgstr "Имя"
+
+# @ default
+#: inc/Template.php:449
+#, php-format
+msgid "Required fields are marked %s"
+msgstr "Обязательные поля отмечены %s"
+
+# @ dwqa
+#: inc/Template.php:461
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr "Вы должны <a href=\"%s\">войти</a>, чтобы оставить комментарий."
+
+# @ dwqa
+#: inc/Template.php:464
+#, php-format
+msgid ""
+"You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
+"and attributes: %s"
+msgstr ""
+"Вы можете использовать эти <abbr title=\"HTML\">HTML</abbr> тэги и атрибуты: "
+"%s"
+
+# @ dwqa
+#: inc/Template.php:467
+msgid "Leave a Reply"
+msgstr "Написать ответ"
+
+# @ dwqa
+#: inc/Template.php:468
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr "Написать ответ %s"
+
+# @ dwqa
+#: inc/Template.php:469
+msgid "Cancel reply"
+msgstr "Закрыть ответ"
+
+# @ dwqa
+#: inc/Template.php:470
+msgid "Post Comment"
+msgstr "Комментарий к записи"
+
+# @ dwqa
+#: inc/Template.php:645
+msgid "Sticky Question"
+msgstr "Прилепленный вопрос"
+
+# @ dwqa
+#: inc/Template.php:659
+msgid "Ask a question"
+msgstr "Задать вопрос"
+
+# @ dwqa
+#: inc/Template.php:661
+msgid "Login to ask a question"
+msgstr "Войдите, чтобы добавить вопрос"
+
+# @ dwqa
+#: inc/Template.php:1128
+msgid "Choose as the best answer"
+msgstr "Выберите лучший ответ"
+
+#: inc/Updater.php:97
+msgid "License Key"
+msgstr "Лицензионный ключ"
+
+#: inc/Updater.php:122
+msgid "Activate"
+msgstr "Активировать"
+
+#: inc/Updater.php:176
+msgid "Plugin was activated"
+msgstr "Плагин активирован"
+
+# @ dwqa
+#: inc/User.php:230
+msgid "Staff"
+msgstr "Админ."
+
+# @ default
+#: inc/Walker/Category.php:20 inc/Walker/Tag.php:20
+#, php-format
+msgid "View all posts filed under %s"
+msgstr "Посмотреть все записи под %s"
+
+# @ default
+#: inc/Walker/Category.php:35 inc/Walker/Tag.php:35
+#, php-format
+msgid "Feed for all posts filed under %s"
+msgstr "Фид всех записей под %s"
+
+#: inc/widgets/Closed_Question.php:11
+msgid "Show a list of questions marked as closed."
+msgstr "Показать список вопросов, помеченных как закрытые"
+
+# @ dwqa
+#: inc/widgets/Closed_Question.php:12
+msgid "DWQA Closed Questions"
+msgstr "DWQA Закрытые вопросы"
+
+# @ default
+#: inc/widgets/Closed_Question.php:18
+msgid "Closed Questions"
+msgstr "Закрытые вопросы"
+
+# @ default
+#: inc/widgets/Closed_Question.php:72 inc/widgets/Latest_Question.php:71
+#: inc/widgets/Popular_Question.php:66 inc/widgets/Related_Question.php:48
+msgid "Widget title"
+msgstr "Заголовок виджета"
+
+# @ default
+#: inc/widgets/Closed_Question.php:75 inc/widgets/Latest_Question.php:74
+#: inc/widgets/Popular_Question.php:69 inc/widgets/Related_Question.php:51
+msgid "Number of posts"
+msgstr "Количество записей"
+
+#: inc/widgets/Latest_Question.php:10
+msgid "Show a list of latest questions."
+msgstr "Показать последние вопросы"
+
+# @ dwqa
+#: inc/widgets/Latest_Question.php:11
+msgid "DWQA Latest Questions"
+msgstr "DWQA Последние вопросы"
+
+# @ default
+# @ dwqa
+#: inc/widgets/Latest_Question.php:17
+msgid "Latest Questions"
+msgstr "Последние вопросы"
+
+#: inc/widgets/Latest_Question.php:44
+msgid "ago"
+msgstr "назад"
+
+#: inc/widgets/Latest_Question.php:79
+msgid "Show question date"
+msgstr "Показать дату вопроса"
+
+#: inc/widgets/Popular_Question.php:13
+msgid "Show a list of popular questions."
+msgstr "Показать популярные вопросы"
+
+# @ dwqa
+#: inc/widgets/Popular_Question.php:15
+msgid "DWQA Popular Questions"
+msgstr "Популярные вопросы"
+
+# @ dwqa
+#: inc/widgets/Related_Question.php:11
+msgid ""
+"Show a list of questions that related to a question. Just show in single "
+"question page"
+msgstr "Показать список похожих вопросов. Просто показать на странице вопроса."
+
+# @ dwqa
+#: inc/widgets/Related_Question.php:12
+msgid "DWQA Related Questions"
+msgstr "Похожие вопросы"
+
+#: lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:181
+#, php-format
+msgid ""
+"There is a new version of %1$s available. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">View version %3$s details</a>."
+msgstr ""
+"Доступна новая версия %1$s. <a target=\"_blank\" class=\"thickbox\" href="
+"\"%2$s\">View version %3$s details</a>."
+
+#: lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:188
+#, php-format
+msgid ""
+"There is a new version of %1$s available. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">View version %3$s details</a> or <a href=\"%4$s"
+"\">update now</a>."
+msgstr ""
+"Доступна новая версия %1$s. <a target=\"_blank\" class=\"thickbox\" href="
+"\"%2$s\">View version %3$s details</a> or <a href=\"%4$s\">update now</a>."
+
+#: lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:326
+msgid "You do not have permission to install plugin updates"
+msgstr "У Вас нет прав на обновление плагина"
+
+#: lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:326
+msgid "Error"
+msgstr "Ошибка"
+
+#: templates/answer-submit-form.php:12
+msgid "Your Answer"
+msgstr "Ваш ответ"
+
+#: templates/answer-submit-form.php:21 templates/question-submit-form.php:52
+msgid "Your Email"
+msgstr "Ваш Email"
+
+#: templates/answer-submit-form.php:26 templates/question-submit-form.php:57
+msgid "Your Name"
+msgstr "Ваше имя"
+
+#: templates/answer-submit-form.php:33 templates/question-submit-form.php:24
+msgid "Who can see this?"
+msgstr "Вы видите это?"
+
+# @ dwqa
+#: templates/answer-submit-form.php:34 templates/question-submit-form.php:25
+msgid "Public"
+msgstr "Виден всем"
+
+#: templates/answer-submit-form.php:35 templates/question-submit-form.php:26
+msgid "Only Me &amp; Admin"
+msgstr "Только для меня и администрации"
+
+#: templates/answer-submit-form.php:39 templates/question-submit-form.php:65
+msgid "Submit"
+msgstr "Отправить"
+
+#: templates/answers.php:12
+#, php-format
+msgid "%s Answers"
+msgstr "%s ответ"
+
+#: templates/archive-question-filter.php:14
+msgid "Filter:"
+msgstr "Фильтр:"
+
+# @ dwqa
+#: templates/archive-question-filter.php:16
+msgid "All"
+msgstr "Все"
+
+#: templates/archive-question-filter.php:22
+msgid "Unanswered"
+msgstr "Ждет ответа"
+
+#: templates/archive-question-filter.php:24
+msgid "My questions"
+msgstr "Мои вопросы"
+
+#: templates/archive-question-filter.php:25
+msgid "My subscribes"
+msgstr "Мои подписки"
+
+#: templates/archive-question-filter.php:29
+msgid "Subscribes"
+msgstr "Подписки"
+
+#: templates/archive-question-filter.php:32
+msgid "Sort by"
+msgstr "Сортировка"
+
+#: templates/archive-question-filter.php:33
+msgid "Views"
+msgstr "Просмотры"
+
+#: templates/archive-question-filter.php:35
+msgid "Votes"
+msgstr "Голоса"
+
+# @ dwqa
+#: templates/archive-question.php:28
+msgid "Ask Question"
+msgstr "Задать вопрос"
+
+#: templates/captcha-form.php:20
+msgid "Enter the result"
+msgstr "Введите результат"
+
+#: templates/content-comment.php:16
+#, php-format
+msgctxt "%s = human-readable time difference"
+msgid "replied %s ago"
+msgstr "ответил %s назад"
+
+#: templates/content-edit.php:21 templates/question-submit-form.php:13
+msgid "Title"
+msgstr "Заголовок"
+
+# @ dwqa
+#: templates/content-edit.php:36 templates/question-submit-form.php:38
+msgid "Select question category"
+msgstr "Выберите подходящую рубрику"
+
+#: templates/content-edit.php:50
+msgid "Save Changes"
+msgstr "Сохранить изменения"
+
+# @ dwqa
+#: templates/content-none.php:10
+msgid "You do not have permission to view questions"
+msgstr "Вы не можете посмотреть вопросы"
+
+#: templates/content-none.php:12
+msgid "Sorry, but nothing matched your filter"
+msgstr "Извините, ничего не подходит для такого набора фильтров"
+
+# @ dwqa
+#: templates/content-question.php:18
+msgid "asked"
+msgstr "спросил"
+
+#: templates/content-question.php:25
+#, php-format
+msgid "<span><a href=\"%s\">%s%s</a> %s %s ago</span>"
+msgstr "<span><a href=\"%s\">%s%s</a> %s %s назад</span>"
+
+#: templates/content-question.php:26 templates/content-single-answer.php:25
+msgid "&nbsp;&bull;&nbsp;"
+msgstr ""
+
+#: templates/content-question.php:31
+#, php-format
+msgid "<strong>%1$s</strong> views"
+msgstr "<strong>%1$s</strong> просм."
+
+#: templates/content-question.php:35
+#, php-format
+msgid "<strong>%1$s</strong> answers"
+msgstr "<strong>%1$s</strong> ответ."
+
+#: templates/content-question.php:39
+#, php-format
+msgid "<strong>%1$s</strong> votes"
+msgstr "<strong>%1$s</strong> голос."
+
+# @ dwqa
+#: templates/content-single-answer.php:12
+#: templates/content-single-question.php:14
+msgid "Vote Up"
+msgstr "+1"
+
+# @ dwqa
+#: templates/content-single-answer.php:13
+#: templates/content-single-question.php:15
+msgid "Vote Down"
+msgstr "-1"
+
+#: templates/content-single-answer.php:17
+#: templates/content-single-answer.php:19
+msgid "Best Answer"
+msgstr "Лучший ответ"
+
+#: templates/content-single-answer.php:23
+#, php-format
+msgid "<span><a href=\"%s\">%s%s</a> %s answered %s ago</span>"
+msgstr "<span><a href=\"%s\">%s%s</a> %s ответил %s назад</span>"
+
+# @ dwqa
+#: templates/content-single-answer.php:26
+msgid "Private"
+msgstr "Приватно"
+
+#: templates/content-single-question.php:19
+#, php-format
+msgid "<span><a href=\"%s\">%s%s</a> %s asked %s ago</span>"
+msgstr "<span><a href=\"%s\">%s%s</a> %s спросил %s назад</span>"
+
+#: templates/content-single-question.php:25
+msgid "Question Tags: "
+msgstr "Теги вопроса:"
+
+#: templates/content-single-question.php:29
+msgid "This question is:"
+msgstr "Этот вопрос:"
+
+# @ dwqa
+#: templates/question-submit-form.php:69
+msgid "You do not have permission to submit a question"
+msgstr "Вы не можете добавлять вопросы"
+
+#: upgrades/upgrades.php:25
+#, php-format
+msgid ""
+"DW Question Answer needs to upgrade the database, click %shere%s to start "
+"the upgrade."
+msgstr ""
+"\"DW Question Answer\" требуется обновить базу данных. Кликните %sздесь%s "
+"для обновления"
+
+#: upgrades/upgrades.php:33
+msgid "DWQA Upgrade"
+msgstr "Обновить DWQA"
+
+#: upgrades/upgrades.php:40
+msgid ""
+"The upgrade process has started, please be patient. This could take several "
+"minutes. You will be automatically redirected when the upgrade is finished..."
+msgstr ""
+"Сохраняйте спокойствие, производится обновление. Это может занять несколько "
+"минут. По завершению это будет указано."
+
+#: upgrades/upgrades.php:130
+msgid "You do not have permission to do this task"
+msgstr "У Вас нет прав на эту операцию"
+
+#: upgrades/upgrades.php:147
+msgid "Just do it.."
+msgstr "Просто сделай это, детка..."
+
+#: upgrades/upgrades.php:155
+#, php-format
+msgid "Move to next step %d"
+msgstr "На следующий шаг %d"
+
+#: upgrades/upgrades.php:172
+msgid "Upgrade process is done"
+msgstr "Обновление завершено. Спасибо за терпение."
+
+#. Plugin Name of the plugin/theme
+msgid "DW Question Answer"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"A WordPress plugin was make by DesignWall.com to build an Question Answer "
+"system for support, asking and comunitcate with your customer"
+msgstr ""
+"Этот плагин для WordPress сделан  DesignWall.com для создания систем "
+"вопросов и ответов для Вас и Ваших клиентов."
+
+#. Author of the plugin/theme
+msgid "DesignWall"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.designwall.com"
+msgstr ""
+
+# @ dwqa
+#~ msgid "Next"
+#~ msgstr "След."
+
+# @ dwqa
+#~ msgid "Prev"
+#~ msgstr "Пред."
+
+# @ dwqa
+#~ msgid "Please enter your question"
+#~ msgstr "Пожалуйста, введите свой вопрос"
+
+# @ dwqa
+#~ msgid "Your question must be at least 2 characters in length"
+#~ msgstr "Ваш вопрос должен быть минимум из двух символов"
+
+# @ dwqa
+#~ msgid "Enter a valid email address"
+#~ msgstr "Введите существующий e-mail"
+
+# @ dwqa
+#~ msgid "Enter a question title"
+#~ msgstr "Введите заголовок"
+
+# @ dwqa
+#~ msgid "Please add your name"
+#~ msgstr "Пожалуйста, напишите своё имя"
+
+# @ dwqa
+#~ msgid "Please enter your answer"
+#~ msgstr "Пожалуйста, введите свой ответ"
+
+# @ dwqa
+#~ msgid "Comment must have more than 2 characters"
+#~ msgstr "Комментарий должен быть минимум из двух символов"
+
+# @ dwqa
+#~ msgid "Not found! Try another keyword."
+#~ msgstr "Не найдено! Попробуйте другое слово!"
+
+# @ dwqa
+#~ msgid "Or press <strong>ENTER</strong> to get more questions"
+#~ msgstr "или нажмите <strong>ENTER</strong> чтобы увидеть больше вопросов"
+
+# @ dwqa
+#~ msgid "Update"
+#~ msgstr "Обновить"
+
+# @ dwqa
+#~ msgid "Cancel"
+#~ msgstr "Отменить"
+
+# @ dwqa
+#~ msgid "Do you want to delete this comment?"
+#~ msgstr "Вы действительно хотите удалить этот комментарий?"
+
+# @ dwqa
+#~ msgid "Do you want to delete this answer?"
+#~ msgstr "Вы хотите удалить этот ответ?"
+
+# @ dwqa
+#~ msgid "Do you want to update this answer?"
+#~ msgstr "Вы хотите обновить этот ответ?"
+
+# @ dwqa
+#~ msgid "Do you want to report this answer?"
+#~ msgstr "Вы хотите сообщить об ответе администраторам?"
+
+# @ dwqa
+#~ msgid "Report"
+#~ msgstr "Сообщить"
+
+# @ dwqa
+#~ msgid "Undo"
+#~ msgstr "Отменить"
+
+# @ dwqa
+#~ msgid ""
+#~ "This answer will be marked as spam and hidden. Do you want to flag it?"
+#~ msgstr "Этот ответ будет отмечен как спам и скрыт. Вы хотите отметить его?"
+
+# @ dwqa
+#~ msgid "This answer was flagged as spam. Do you want to show it"
+#~ msgstr "Этот ответ был помечен как спам. Вы хотите показать его?"
+
+# @ dwqa
+#~ msgid "This answer was flagged as spam"
+#~ msgstr "Ответ был отмечен как спам"
+
+# @ dwqa
+#~ msgid "hide"
+#~ msgstr "скрыть"
+
+# @ dwqa
+#~ msgid "show"
+#~ msgstr "показать"
+
+# @ dwqa
+#~ msgid "Follow This Question"
+#~ msgstr "Следить за этим вопросом"
+
+# @ dwqa
+#~ msgid "Unfollow This Question"
+#~ msgstr "Не следить за вопросом"
+
+# @ dwqa
+#~ msgid "Pin this question to top"
+#~ msgstr "Вывести вопрос на главную страницу"
+
+# @ dwqa
+#~ msgid "Unpin this question from top"
+#~ msgstr "Убрать вопрос с главной страницы"
+
+# @ dwqa
+#~ msgid "Do you want to delete this question?"
+#~ msgstr "Вы хотите удалить этот вопрос?"
+
+# @ dwqa
+#~ msgid "Publish"
+#~ msgstr "Опубликовать!"
+
+# @ dwqa
+#~ msgid "Everyone can see"
+#~ msgstr "Все видят"
+
+# @ dwqa
+#~ msgid "Only Author and Administrator can see"
+#~ msgstr "Только администратор сможет видеть ваш вопрос"
+
+# @ dwqa
+#~ msgid "Sorry, but nothing matched your filter. "
+#~ msgstr "Извините, ничего не найдено"
+
+# @ dwqa
+#~ msgid "You can ask question"
+#~ msgstr "Вы можете задать вопрос"
+
+# @ dwqa
+#~ msgid "here"
+#~ msgstr "тут"
+
+# @ dwqa
+#~ msgid "Please"
+#~ msgstr "Пожалуйста"
+
+# @ dwqa
+#~ msgid "Login"
+#~ msgstr "Войдите"
+
+# @ dwqa
+#~ msgid " or"
+#~ msgstr "или"
+
+# @ dwqa
+#~ msgid " to submit question."
+#~ msgstr ", чтобы добавить вопрос"
+
+# @ dwqa
+#~ msgid "Search query is empty"
+#~ msgstr "Поисковый запрос пустой"
+
+# @ dwqa
+#~ msgid "A page where displays all questions"
+#~ msgstr "Страница, где отображаются все вопросы"
+
+# @ dwqa
+#~ msgid "A page where users can submit questions."
+#~ msgstr "Страница, на которой пользователи смогут оставить вопрос."
+
+# @ dwqa
+#~ msgid "Upload or choose a logo to be displayed at the top of the email"
+#~ msgstr ""
+#~ "Загрузите или выберите логотип, который будет отображен вверху вашего e-"
+#~ "mail"
+
+# @ dwqa
+#~ msgid "Enable notification for new question"
+#~ msgstr "Включить уведомления о новых вопросах"
+
+# @ dwqa
+#~ msgid "Enable notification for new answer"
+#~ msgstr "Включить уведомления о новых ответах"
+
+# @ dwqa
+#, fuzzy
+#~ msgid "Enable notification for new answer (to Followers )"
+#~ msgstr "Включить уведомления о новых ответах (следящим)"
+
+# @ dwqa
+#~ msgid "Enable notification for new comment of question"
+#~ msgstr "Включить уведомления на новые комментарии вопроса"
+
+# @ dwqa
+#~ msgid "Enable notification for new comment of answer"
+#~ msgstr "Включить уведомления на новые комментарии ответа"
+
+# @ dwqa
+#~ msgid "Comment"
+#~ msgstr "Комментарий"
+
+# @ dwqa
+#~ msgid "Enable/Disable captcha on submit question page"
+#~ msgstr "Включить/выключить капчу на странице \"Задать вопрос\""
+
+# @ dwqa
+#~ msgid "Enable/Disable captcha on single question page"
+#~ msgstr "Включить/выключить капчу на страницах вопросов"
+
+# @ dwqa
+#~ msgid "questions"
+#~ msgstr "вопросов"
+
+# @ dwqa
+#~ msgid "Allow members to post private question"
+#~ msgstr "Позволить участникам публиковать приватные вопросы"
+
+#~ msgid "Question must be manually approved"
+#~ msgstr "Вопрос должен быть одобрен вручную"
+
+# @ dwqa
+#~ msgid "New Question Notification"
+#~ msgstr "Новое уведомление о вопросе"
+
+# @ dwqa
+#~ msgid "New Answer Notification"
+#~ msgstr "Новое уведомление об ответе"
+
+# @ dwqa
+#, fuzzy
+#~ msgid "New Comment to Question Notification (to Followers )"
+#~ msgstr "Уведомление о новом комментарии к вопросу (следящим)"
+
+# @ dwqa
+#~ msgid "New Comment to Answer Notification"
+#~ msgstr "Уведомление о новом комментарии к ответу"
+
+# @ dwqa
+#, fuzzy
+#~ msgid "New Answer Notification (to Followers )"
+#~ msgstr "Новое уведомление об ответе (следящим)"
+
+# @ dwqa
+#, fuzzy
+#~ msgid "New Comment to Answer Notification (to Followers )"
+#~ msgstr "Уведомление о новом комментарии к ответу (следящим)"
+
+# @ dwqa
+#~ msgid "Archive page show at most"
+#~ msgstr "На странице показывать максимум"
+
+# @ dwqa
+#~ msgid "Private Question"
+#~ msgstr "Приватный вопрос"
+
+# @ default
+#~ msgid "Review Question"
+#~ msgstr "Предварительно одобрять все вопросы"
+
+# @ dwqa
+#~ msgid "Time settings"
+#~ msgstr "Настройки времени"
+
+# @ dwqa
+#~ msgid "New Question Time Frame"
+#~ msgstr "Новыми вопросы считаются"
+
+# @ dwqa
+#~ msgid "Question Overdue - Time Frame"
+#~ msgstr "Просроченными вопросами считаются после"
+
+# @ dwqa
+#~ msgid "Captcha settings"
+#~ msgstr "Настройки капчи"
+
+# @ dwqa
+#~ msgid "Captcha on Submit Question Page"
+#~ msgstr "Капча на странице \"Задать вопрос\""
+
+# @ dwqa
+#~ msgid "Captcha on Single Question Page"
+#~ msgstr "Капча на страницах вопросов"
+
+# @ dwqa
+#~ msgid "Single Question"
+#~ msgstr "Вопрос"
+
+# @ dwqa
+#~ msgid "Single Category"
+#~ msgstr "Рубрика"
+
+# @ dwqa
+#~ msgid "Single Tag"
+#~ msgstr "Метка"
+
+# @ dwqa
+#~ msgid "Notification"
+#~ msgstr "Уведомления"
+
+# @ dwqa
+#~ msgid "Permission"
+#~ msgstr "Права"
+
+# @ dwqa
+#~ msgid "Email setup"
+#~ msgstr "Настройка уведомлений"
+
+# @ dwqa
+#~ msgid "New Comment to Question Notification"
+#~ msgstr "Уведомление о новом комментарии к вопросу"
+
+# @ dwqa
+#~ msgid "Send to"
+#~ msgstr "Кому"
+
+# @ dwqa
+#~ msgid "Send A Copy Of Every Email To Admin"
+#~ msgstr "Отправлять копию каждого письма администратору"
+
+# @ dwqa
+#~ msgid "You need an account to submit question and get answers. Create one:"
+#~ msgstr ""
+#~ "Вам необходимо зарегистрироваться, чтобы задать вопрос/написать ответ. "
+#~ "Зарегистрироваться:"
+
+# @ dwqa
+#~ msgid "Type your email"
+#~ msgstr "Ваш E-mail"
+
+# @ dwqa
+#~ msgid "Already a member?"
+#~ msgstr "Уже зарегистрированы?"
+
+# @ dwqa
+#~ msgid "Log In"
+#~ msgstr "Войти"
+
+# @ dwqa
+#~ msgid "Login to submit your question"
+#~ msgstr "Войти, чтобы добавить вопрос"
+
+# @ dwqa
+#~ msgid "Type your username"
+#~ msgstr "Логин"
+
+# @ dwqa
+#~ msgid "Type your password"
+#~ msgstr "Пароль"
+
+# @ dwqa
+#~ msgid "Not yet a member?"
+#~ msgstr "Уще не участник?"
+
+# @ dwqa
+#~ msgid "Register"
+#~ msgstr "Зарегистрироваться"
+
+#~ msgid ""
+#~ "Enter your email to receive notification regarding your question. Your "
+#~ "email is safe with us and will not be published."
+#~ msgstr ""
+#~ "Введите ваш email, чтобы получать уведомления относительно вашего "
+#~ "вопроса. Email нигде не публикуется."
+
+# @ dwqa
+#~ msgid "Your email *"
+#~ msgstr "Ваш E-mail *"
+
+#~ msgid "Email address ..."
+#~ msgstr "Email адрес ..."
+
+#~ msgid "or <strong><a href=\"%s\">login</a></strong> to submit question"
+#~ msgstr ""
+#~ "или <strong><a href=\"%s\">войдите</a></strong>, чтобы добавить вопрос"
+
+# @ default
+#~ msgid "Private: %s"
+#~ msgstr "Приватных: %s"
+
+# @ default
+#~ msgid ""
+#~ "Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out "
+#~ "of this account\">Log out?</a>"
+#~ msgstr ""
+#~ "Вы вошли как <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Выйти"
+#~ "\">Выйти?</a>"
+
+# @ dwqa
+#~ msgid "Your email address will not be published."
+#~ msgstr "Ваш E-mail не будет опубликован"
+
+# @ default
+#~ msgctxt "noun"
+#~ msgid "Comment"
+#~ msgstr "Комментарий"
+
+# @ default
+#~ msgid "Add New Question"
+#~ msgstr "Добавить новый вопрос"
+
+# @ default
+#~ msgid "Edit Question"
+#~ msgstr "Изменить вопрос"
+
+# @ default
+# @ dwqa
+#~ msgid "New Question"
+#~ msgstr "Новый вопрос"
+
+# @ default
+#~ msgid "All Questions"
+#~ msgstr "Все вопросы"
+
+# @ default
+#~ msgid "View Question"
+#~ msgstr "Посмотреть вопрос"
+
+# @ default
+#~ msgid "Search Question"
+#~ msgstr "Найти вопрос"
+
+# @ default
+#~ msgid "No questions found"
+#~ msgstr "Вопросы не найдены"
+
+# @ default
+#~ msgid "No questions found in Trash"
+#~ msgstr "В Корзине вопросы не найдены"
+
+# @ default
+#~ msgid "DW Q&A"
+#~ msgstr "Вопросы-ответы"
+
+# @ default
+#~ msgid "Add new answer"
+#~ msgstr "Добавить ответ"
+
+# @ default
+#~ msgid "Edit answer"
+#~ msgstr "Изменить ответ"
+
+# @ default
+# @ dwqa
+#~ msgid "New Answer"
+#~ msgstr "Новый ответ"
+
+# @ default
+#~ msgid "All Answers"
+#~ msgstr "Все ответы"
+
+# @ default
+#~ msgid "View Answer"
+#~ msgstr "Посмотреть ответ"
+
+# @ default
+#~ msgid "Search Answer"
+#~ msgstr "Найти ответ"
+
+# @ default
+#~ msgid "No Answers found"
+#~ msgstr "Ответы не найдены"
+
+# @ default
+#~ msgid "No Answers found in Trash"
+#~ msgstr "В Корзине ответы не найдены"
+
+# @ default
+#~ msgctxt "taxonomy general name"
+#~ msgid "Categories"
+#~ msgstr "Рубрики"
+
+# @ default
+#~ msgctxt "taxonomy singular name"
+#~ msgid "Category"
+#~ msgstr "Рубрика"
+
+# @ default
+#~ msgid "Search Categories"
+#~ msgstr "Поиск рубрик"
+
+# @ default
+#~ msgid "All Categories"
+#~ msgstr "Все рубрики"
+
+# @ default
+#~ msgid "Parent Category"
+#~ msgstr "Родительская рубрика"
+
+# @ default
+#~ msgid "Parent Category:"
+#~ msgstr "Родительская рубрика:"
+
+# @ default
+#~ msgid "Edit Category"
+#~ msgstr "Изменить рубрику"
+
+# @ default
+#~ msgid "Update Category"
+#~ msgstr "Обновить рубрику"
+
+# @ default
+#~ msgid "Add New Category"
+#~ msgstr "Добавить рубрику"
+
+# @ default
+#~ msgid "New Category Name"
+#~ msgstr "Название рубрики"
+
+# @ default
+#~ msgid "Question Categories"
+#~ msgstr "Рубрики вопросов"
+
+# @ default
+#~ msgctxt "taxonomy general name"
+#~ msgid "Tags"
+#~ msgstr "Метки"
+
+# @ default
+#~ msgctxt "taxonomy singular name"
+#~ msgid "Tag"
+#~ msgstr "Метка"
+
+# @ default
+#~ msgid "Search Tags"
+#~ msgstr "Найти метку"
+
+# @ default
+#~ msgid "Popular Tags"
+#~ msgstr "Популярные метки"
+
+# @ default
+#~ msgid "All Tags"
+#~ msgstr "Все метки"
+
+# @ default
+#~ msgid "Edit Tag"
+#~ msgstr "Изменить метку"
+
+# @ default
+#~ msgid "Update Tag"
+#~ msgstr "Обновить метку"
+
+# @ default
+#~ msgid "Add New Tag"
+#~ msgstr "Добавить метку"
+
+# @ default
+#~ msgid "New Tag Name"
+#~ msgstr "Название метки"
+
+# @ default
+#~ msgid "Separate tags with commas"
+#~ msgstr "Разделяйте метки запятыми"
+
+# @ default
+#~ msgid "Add or remove tags"
+#~ msgstr "Добавить или удалить метки"
+
+# @ default
+#~ msgid "Choose from the most used tags"
+#~ msgstr "Выбрать из часто используемых меток"
+
+# @ default
+#~ msgid "%s second"
+#~ msgid_plural "%s seconds"
+#~ msgstr[0] "%s секунда"
+#~ msgstr[1] "%s секунды"
+#~ msgstr[2] "%s секунд"
+
+# @ default
+#~ msgid "about %s min"
+#~ msgid_plural "%s mins"
+#~ msgstr[0] "около %s мин."
+#~ msgstr[1] "около %s мин."
+#~ msgstr[2] "около %s мин."
+
+# @ default
+#~ msgid "about %s hour"
+#~ msgid_plural "%s hours"
+#~ msgstr[0] "около %s часа"
+#~ msgstr[1] "около %s часов"
+#~ msgstr[2] "около %s часов"
+
+# @ default
+#~ msgid "%s day"
+#~ msgid_plural "%s days"
+#~ msgstr[0] "%s день"
+#~ msgstr[1] "%s дня"
+#~ msgstr[2] "%s дней"
+
+# @ dwqa
+#~ msgid "%1$s ago"
+#~ msgstr "%1$s назад"
+
+# @ dwqa
+#~ msgid "Flag"
+#~ msgstr "Отметить"
+
+# @ dwqa
+#~ msgid "Unflag"
+#~ msgstr "Снять отметку"
+
+# @ dwqa
+#~ msgid ""
+#~ "This answer will be hidden when flagged. Are you sure you want to flag it?"
+#~ msgstr "Этот ответ будет спрятан после отметки. Вы уверены?"
+
+# @ dwqa
+#~ msgid "This answer was flagged as spam. Do you want to show it?"
+#~ msgstr "Этот ответ был помечен как спам. Вы хотите показать его?"
+
+# @ dwqa
+#~ msgid "Reset all changes to default"
+#~ msgstr "Сбросить все изменения к стандартным"
+
+#~ msgid "%s answered <span class=\"dwqa-date\">%s</span>"
+#~ msgstr "%s ответил(а) <span class=\"dwqa-date\">%s</span>"
+
+#~ msgid "%s asked <span class=\"dwqa-date\">%s</span>"
+#~ msgstr "%s спросил(а) <span class=\"dwqa-date\">%s</span>"
+
+# @ dwqa
+#~ msgid "Save draft"
+#~ msgstr "Сохранить как черновик"
+
+# @ dwqa
+#, fuzzy
+#~ msgid "Answer is missing"
+#~ msgstr "Ответить  на вопрос:"
+
+# @ dwqa
+#~ msgid "You do not have permission to edit this post"
+#~ msgstr "Вы не можете редактировать запись"
+
+# @ dwqa
+#~ msgid "This post is not an answer"
+#~ msgstr "Эта запись не ответ"
+
+# @ dwqa
+#~ msgid "Missing answer ID"
+#~ msgstr "Потерян ID ответа"
+
+# @ dwqa
+#, fuzzy
+#~ msgid "The question is missing"
+#~ msgstr "Вопрос закрыт"
+
+#~ msgid "DWQA 404 Page"
+#~ msgstr "DWQA страница 404"
+
+# @ dwqa
+#, fuzzy
+#~ msgid "Single Question Template"
+#~ msgstr "Вопрос"
+
+# @ dwqa
+#~ msgid "Google Captcha Public Key"
+#~ msgstr "Google Captcha Public Key"
+
+# @ dwqa
+#~ msgid "Google Captcha Private Key"
+#~ msgstr "Google Captcha Private Key"
+
+# @ dwqa
+#~ msgid "New Comment to Question"
+#~ msgstr "Новый комментарий к вопросу"
+
+# @ dwqa
+#~ msgid "New Comment to Answer"
+#~ msgstr "Новый комментарий к ответу"
+
+# @ dwqa
+#, fuzzy
+#~ msgid "New Answer (to Followers )"
+#~ msgstr "Новый ответ (следящим)"
+
+# @ dwqa
+#, fuzzy
+#~ msgid "New Comment to Question (to Followers )"
+#~ msgstr "Новый комментарий на вопрос (следящим)"
+
+# @ dwqa
+#, fuzzy
+#~ msgid "New Comment to Answer (to Followers )"
+#~ msgstr "Новый комментарий на ответ (следящим)"
+
+# @ dwqa
+#~ msgid "% person who is following this question"
+#~ msgid_plural "% people who are following this question"
+#~ msgstr[0] "% человек следит за вопросом"
+#~ msgstr[1] "% человека следит за вопросом"
+#~ msgstr[2] "% человек следит за вопросом"
+
+# @ dwqa
+#~ msgid "Answer this Question"
+#~ msgstr "Ответить  на вопрос:"
+
+# @ dwqa
+#~ msgid "Add answer"
+#~ msgstr "Разместить ответ"
+
+# @ dwqa
+#~ msgid "All questions from"
+#~ msgstr "Все вопросы в рубрике:"
+
+#~ msgid "follow"
+#~ msgstr "следить"
+
+#~ msgid "following"
+#~ msgstr "слежу"
+
+#~ msgid "unfollow"
+#~ msgstr "не следить"
+
+# @ dwqa
+#~ msgid "Unpin this Question from the top"
+#~ msgstr "Открепить вопрос"
+
+# @ dwqa
+#~ msgid "Pin this Question to top"
+#~ msgstr "Прикрепить вопрос наверху"
+
+# @ dwqa
+#~ msgid "answer"
+#~ msgid_plural "answers"
+#~ msgstr[0] "отв."
+#~ msgstr[1] "отв."
+#~ msgstr[2] "отв."
+
+# @ dwqa
+#~ msgid "You do not have permission to view answers"
+#~ msgstr "Вы не можете посмотреть ответ"
+
+# @ dwqa
+#~ msgid "This question is now closed"
+#~ msgstr "Вопрос закрыт"
+
+# @ dwqa
+#~ msgid "You do not have permission to submit answer."
+#~ msgstr "Вы не можете добавить ответ"
+
+# @ dwqa
+#~ msgid "Please login or"
+#~ msgstr "Пожалуйста, войдите"
+
+# @ dwqa
+#~ msgid "to Submit Answer"
+#~ msgstr ", чтобы добавить ответ"
+
+# @ dwqa
+#~ msgid "Sorry, but nothing matched your filter."
+#~ msgstr "Извините, ничего не найдено"
+
+# @ dwqa
+#~ msgid "View previous comments"
+#~ msgstr "Смотреть предыдущие комментарии"
+
+# @ dwqa
+#~ msgid "of"
+#~ msgstr "из"
+
+# @ dwqa
+#~ msgid "Write a reply..."
+#~ msgstr "Написать в ответ"
+
+# @ dwqa
+#~ msgid "Link to answer"
+#~ msgstr "Ссылка на ответ"
+
+# @ dwqa
+#~ msgid "Draft"
+#~ msgstr "Черновик"
+
+# @ dwqa
+#~ msgid "This answer was flagged as spam."
+#~ msgstr "Этот ответ помечен как спам"
+
+# @ dwqa
+#~ msgid "This is the best answer"
+#~ msgstr "Это лучший ответ на вопрос!"
+
+# @ dwqa
+#~ msgid "The answer link"
+#~ msgstr "Ссылка на вопрос"
+
+# @ dwqa
+#~ msgid "Post by"
+#~ msgstr "Опубликовано:"
+
+# @ dwqa
+#~ msgid "Link to comment"
+#~ msgstr "Ссылка на комментарий"
+
+# @ dwqa
+#~ msgid "Permalink to %s"
+#~ msgstr "Постоянная ссылка %s"
+
+# @ dwqa
+#~ msgid "view"
+#~ msgid_plural "views"
+#~ msgstr[0] "просм."
+#~ msgstr[1] "просм."
+#~ msgstr[2] "просм."
+
+# @ dwqa
+#~ msgid "vote"
+#~ msgid_plural "votes"
+#~ msgstr[0] "голос"
+#~ msgstr[1] "голоса"
+#~ msgstr[2] "голосов"
+
+# @ default
+#~ msgid "Status:"
+#~ msgstr "Статус:"
+
+# @ dwqa
+#~ msgid "Need Answer"
+#~ msgstr "Нужен ответ"
+
+# @ dwqa
+#~ msgid "Overdue"
+#~ msgstr "Просрочен"
+
+# @ dwqa
+#~ msgid "Queue"
+#~ msgstr "В очереди"
+
+# @ dwqa
+#~ msgid "Select a category"
+#~ msgstr "Выбрать рубрику"
+
+# @ dwqa
+#~ msgid "Empty"
+#~ msgstr "Пусто"
+
+# @ dwqa
+#~ msgid "Vote"
+#~ msgstr "Голоса"
+
+# @ dwqa
+#~ msgid "tag 1, tag 2,..."
+#~ msgstr "ключевые слова"
+
+# @ dwqa
+#~ msgid "Your question"
+#~ msgstr "Заголовок, вопрос вкратце"
+
+# @ dwqa
+#~ msgid "How to..."
+#~ msgstr "Как сделать..."
+
+# @ dwqa
+#~ msgid "Question details"
+#~ msgstr "Полный вопрос, детали"
+
+# @ dwqa
+#~ msgid "Post this Question as Private."
+#~ msgstr "Оставить вопрос приватным (не рекомендуется)"
+
+# @ dwqa
+#~ msgid "Only you as Author and Admin can see the question"
+#~ msgstr "Только вы и администратор могут видеть этот вопрос"
+
+# @ dwqa
+#~ msgid "Search"
+#~ msgstr "Поиск"
+
+#~ msgid "Your question has been submitted and is currently awaiting approval"
+#~ msgstr "Ваш вопрос отправлен и ожидает одобрения"
+
+#~ msgid "This question is currently awaiting approval"
+#~ msgstr "Этот вопрос ожидает одобрения"
+
+# @ dwqa
+#~ msgid "Posts by"
+#~ msgstr "Записи автора: "
+
+# @ dwqa
+#~ msgid "Show a list of questions that was ordered by views."
+#~ msgstr "Показать список вопросов отсортированный по количеству просмотров."
+
+#~ msgid "Show a list of questions that ordered by views."
+#~ msgstr "Показать список вопросов отсортированный по количеству просмотров."

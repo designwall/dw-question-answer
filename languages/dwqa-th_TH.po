@@ -1,0 +1,1796 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: DW Question Answer v1.3.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-08-17 16:32+0700\n"
+"PO-Revision-Date: 2016-08-17 16:32+0700\n"
+"Last-Translator: arika-varut <varut@arika.academy>\n"
+"Language-Team: \n"
+"Language: th_TH\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 1.8.7\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: .\n"
+
+# @ dwqa
+#: dw-question-answer.php:147
+msgid "DWQA Questions"
+msgstr ""
+
+# @ dwqa
+#: dw-question-answer.php:164
+msgid "DWQA Ask Question"
+msgstr ""
+
+#: inc/Admin/Extensions.php:13
+msgid "DWQA Markdown"
+msgstr ""
+
+#: inc/Admin/Extensions.php:19
+msgid "DWQA Leaderboard"
+msgstr ""
+
+#: inc/Admin/Extensions.php:25
+msgid "DWQA Captcha"
+msgstr ""
+
+#: inc/Admin/Extensions.php:31
+msgid "DWQA Embed Question"
+msgstr ""
+
+#: inc/Admin/Extensions.php:37
+msgid "DWQA Widgets"
+msgstr ""
+
+#: inc/Admin/Extensions.php:47
+msgid "Extensions"
+msgstr ""
+
+#: inc/Admin/Extensions.php:75
+msgid "Get It Now!"
+msgstr ""
+
+#: inc/Admin/Welcome.php:27 inc/Admin/Welcome.php:28
+msgid "Welcome to DW Question & Answer"
+msgstr ""
+
+#: inc/Admin/Welcome.php:35 inc/Admin/Welcome.php:36
+msgid "DW Question & Answer Changelog"
+msgstr ""
+
+#: inc/Admin/Welcome.php:43 inc/Admin/Welcome.php:44
+msgid "DW Question & Answer Credits"
+msgstr ""
+
+#: inc/Admin/Welcome.php:60
+#, php-format
+msgid "Welcome to DW Question & Answer %s"
+msgstr ""
+
+#: inc/Admin/Welcome.php:61
+msgid ""
+"Thank you for installing our WordPress plugin. If you have any question "
+"about this plugin, please submit to our <a target=\"_blank\" href=\"https://"
+"www.designwall.com/question/\">Q&A section</a>."
+msgstr ""
+
+#: inc/Admin/Welcome.php:69
+msgid "What&#8217;s New"
+msgstr ""
+
+#: inc/Admin/Welcome.php:70
+msgid "Changelog"
+msgstr ""
+
+#: inc/Admin/Welcome.php:71
+msgid "Credits"
+msgstr ""
+
+#: inc/Admin/Welcome.php:199
+msgid "Contributors"
+msgstr ""
+
+#: inc/Admin/Welcome.php:218
+msgid "No valid changelog was found."
+msgstr ""
+
+# @ dwqa
+# @ default
+#: inc/Ajax.php:29 inc/Ajax.php:47 inc/Ajax.php:83 inc/Ajax.php:113
+#: inc/Ajax.php:132 inc/Ajax.php:150 inc/Ajax.php:215 inc/Handle.php:256
+#: inc/Handle.php:455 inc/Permission.php:286 inc/Status.php:319
+msgid "Are you cheating huh?"
+msgstr ""
+
+#: inc/Ajax.php:33 inc/Handle.php:260
+msgid "You do not have permission to edit comment."
+msgstr ""
+
+# @ dwqa
+#: inc/Ajax.php:37
+msgid "Comment ID must be showed."
+msgstr ""
+
+#: inc/Ajax.php:51 inc/Handle.php:154
+msgid "Answer is missing."
+msgstr ""
+
+#: inc/Ajax.php:55 inc/Handle.php:158
+msgid "This post is not answer."
+msgstr ""
+
+#: inc/Ajax.php:59 inc/Ajax.php:162
+msgid "You do not have permission to delete this post."
+msgstr ""
+
+# @ dwqa
+#: inc/Ajax.php:86
+msgid "Missing id of answer"
+msgstr ""
+
+#: inc/Ajax.php:154 inc/Handle.php:477
+msgid "Question is missing."
+msgstr ""
+
+#: inc/Ajax.php:158 inc/Handle.php:481
+msgid "This post is not question."
+msgstr ""
+
+# @ dwqa
+#: inc/Ajax.php:206
+msgid "You do not have permission to edit question status"
+msgstr ""
+
+#: inc/Ajax.php:223 inc/Ajax.php:273
+msgid "Not Found!!!"
+msgstr ""
+
+# @ dwqa
+#: inc/Answer_List_Table.php:81 inc/Posts/Answer.php:271 inc/Template.php:48
+msgid "Author"
+msgstr ""
+
+# @ dwqa
+#: inc/Answer_List_Table.php:82
+msgid "Detail"
+msgstr ""
+
+# @ dwqa
+#: inc/Answer_List_Table.php:92 inc/Notifications.php:116
+#: inc/Notifications.php:214 inc/Notifications.php:233 inc/Posts/Base.php:230
+#: inc/Posts/Comment.php:102 inc/Settings.php:419 inc/Settings.php:455
+#: inc/Settings.php:490 inc/User.php:155
+msgid "Anonymous"
+msgstr ""
+
+# @ dwqa
+#: inc/Answer_List_Table.php:101
+msgid "Answered on "
+msgstr ""
+
+# @ dwqa
+#: inc/Answer_List_Table.php:112 inc/Helptab.php:153
+msgid "Read more"
+msgstr ""
+
+#: inc/Handle.php:29
+msgid "&quot;Helllo&quot;, Are you cheating huh?."
+msgstr ""
+
+# @ dwqa
+#: inc/Handle.php:32
+msgid "Delete draft"
+msgstr ""
+
+#: inc/Handle.php:39
+msgid "Answer content is empty"
+msgstr ""
+
+#: inc/Handle.php:42
+msgid "Question is empty"
+msgstr ""
+
+# @ dwqa
+#: inc/Handle.php:46 inc/Handle.php:432
+msgid "You do not have permission to submit question."
+msgstr ""
+
+# @ dwqa
+#: inc/Handle.php:50 inc/Handle.php:218 inc/Handle.php:300
+msgid "Missing email information"
+msgstr ""
+
+# @ dwqa
+#: inc/Handle.php:54 inc/Handle.php:222 inc/Handle.php:305
+msgid "Missing name information"
+msgstr ""
+
+# @ dwqa
+#: inc/Handle.php:58 inc/Handle.php:451
+msgid "Captcha is not correct"
+msgstr ""
+
+# @ dwqa
+#: inc/Handle.php:77
+msgid "Answer for "
+msgstr ""
+
+#: inc/Handle.php:139
+msgid "You do not have permission to edit answer."
+msgstr ""
+
+# @ dwqa
+#: inc/Handle.php:143 inc/Handle.php:520 inc/Posts/Question.php:473
+msgid "Hello, Are you cheating huh?"
+msgstr ""
+
+#: inc/Handle.php:148
+msgid "You must enter a valid answer content."
+msgstr ""
+
+# @ dwqa
+#: inc/Handle.php:194
+msgid "You can't post comment"
+msgstr ""
+
+#: inc/Handle.php:197
+msgid "Missing post id."
+msgstr ""
+
+# @ dwqa
+#: inc/Handle.php:203
+msgid "Please enter your comment content"
+msgstr ""
+
+# @ dwqa
+#: inc/Handle.php:249
+msgid "Comment is missing"
+msgstr ""
+
+# @ dwqa
+#: inc/Handle.php:264
+msgid "Comment content must not be empty."
+msgstr ""
+
+#: inc/Handle.php:294 inc/Handle.php:471
+msgid "You must enter a valid question title."
+msgstr ""
+
+# @ dwqa
+#: inc/Handle.php:384
+msgid "User Registration was disabled."
+msgstr ""
+
+# @ dwqa
+#: inc/Handle.php:387
+msgid "This email is already registered, please choose another one."
+msgstr ""
+
+# @ dwqa
+#: inc/Handle.php:390
+msgid "This username is already registered. Please use another one."
+msgstr ""
+
+#: inc/Handle.php:444
+msgid "Your question is waiting moderator."
+msgstr ""
+
+# @ dwqa
+#: inc/Handle.php:466 inc/Status.php:347
+msgid "You do not have permission to edit question"
+msgstr ""
+
+# @ dwqa
+#: inc/Helptab.php:47
+msgid "Overview"
+msgstr ""
+
+# @ dwqa
+#: inc/Helptab.php:48
+msgid "DW Question Answer Plugin"
+msgstr ""
+
+# @ dwqa
+#: inc/Helptab.php:49
+msgid ""
+"DW Question Answer is a WordPress Plugin which helps you build a Question & "
+"Answer system on your WordPress sites. The plugin is easy to install and set "
+"up. Let start building up your community with this WordPress question & "
+"answer system."
+msgstr ""
+
+# @ dwqa
+#: inc/Helptab.php:52
+msgid "Setup Question List Page"
+msgstr ""
+
+# @ dwqa
+#: inc/Helptab.php:56
+msgid "Setup Ask Question Page"
+msgstr ""
+
+# @ dwqa
+#: inc/Helptab.php:60
+msgid "Shortcode"
+msgstr ""
+
+# @ dwqa
+#: inc/Helptab.php:64
+msgid "Style integration"
+msgstr ""
+
+# @ default
+#: inc/Helptab.php:173
+msgid "For more information:"
+msgstr ""
+
+# @ default
+#: inc/Helptab.php:174
+msgid "DW Question Answer Guide"
+msgstr ""
+
+# @ default
+#: inc/Helptab.php:175
+msgid "Community"
+msgstr ""
+
+# @ default
+#: inc/Helptab.php:176
+msgid "DesignWall Wordpress Themes"
+msgstr ""
+
+# @ default
+#: inc/Helptab.php:177
+msgid "DesignWall Wordpress Plugins"
+msgstr ""
+
+# @ dwqa
+#: inc/Metaboxes.php:13 templates/content-single-question.php:31
+#: templates/question-submit-form.php:22
+msgid "Status"
+msgstr "สถานะ"
+
+# @ dwqa
+#: inc/Metaboxes.php:15 inc/Status.php:304
+#: templates/archive-question-filter.php:18
+#: templates/content-single-question.php:32
+msgid "Open"
+msgstr "เปิด"
+
+# @ dwqa
+#: inc/Metaboxes.php:16 inc/Status.php:287
+msgid "Pending"
+msgstr "รอพิจารณา"
+
+# @ dwqa
+#: inc/Metaboxes.php:17 inc/Status.php:284
+#: templates/archive-question-filter.php:19
+#: templates/content-single-question.php:34
+msgid "Resolved"
+msgstr "คำตอบสมบูรณ์"
+
+# @ dwqa
+#: inc/Metaboxes.php:18 inc/Status.php:290
+msgid "Re-Open"
+msgstr "เปิดใหม่"
+
+# @ dwqa
+#: inc/Metaboxes.php:19 inc/Status.php:293
+#: templates/archive-question-filter.php:20
+#: templates/content-single-question.php:33
+msgid "Closed"
+msgstr "ปิด"
+
+# @ dwqa
+#: inc/Metaboxes.php:25
+msgid "Sticky"
+msgstr ""
+
+# @ dwqa
+#: inc/Metaboxes.php:29
+msgid "Pin question to top of archive page."
+msgstr ""
+
+# @ dwqa
+#: inc/Metaboxes.php:45 inc/Posts/Answer.php:225 inc/Posts/Answer.php:227
+#: inc/Settings.php:431 templates/archive-question-filter.php:34
+msgid "Answers"
+msgstr ""
+
+# @ dwqa
+#: inc/Metaboxes.php:65
+msgid "Question Meta Data"
+msgstr ""
+
+# @ dwqa
+#: inc/Notifications.php:29
+msgid "A new question was posted on {site_name}"
+msgstr ""
+
+# @ dwqa
+#: inc/Notifications.php:132
+msgid "You have a new answer for your followed question"
+msgstr ""
+
+# @ dwqa
+#: inc/Notifications.php:250
+msgid "A new answer for \"{question_title}\" was posted on {site_name}"
+msgstr ""
+
+# @ dwqa
+#: inc/Notifications.php:334 inc/Notifications.php:380
+msgid "[{site_name}] You have a new comment for question {question_title}"
+msgstr ""
+
+# @ dwqa
+#: inc/Notifications.php:339 inc/Notifications.php:385
+msgid "[{site_name}] You have a new comment for answer"
+msgstr ""
+
+# @ dwqa
+#: inc/PointerHelper.php:60
+msgid "How to use DW Question Answer"
+msgstr ""
+
+# @ dwqa
+#: inc/PointerHelper.php:61
+msgid "Documents, Support From DesignWall (help)"
+msgstr ""
+
+# @ dwqa
+#: inc/PointerHelper.php:70
+msgid "Config your support channel"
+msgstr ""
+
+# @ dwqa
+#: inc/PointerHelper.php:71
+msgid "Change comment settings, and create the Submit question page."
+msgstr ""
+
+# @ default
+# @ dwqa
+#: inc/Posts/Answer.php:226 inc/Posts/Answer.php:270
+msgid "Answer"
+msgstr "คำตอบ"
+
+# @ dwqa
+#: inc/Posts/Answer.php:273
+msgid "In Response To"
+msgstr ""
+
+# @ dwqa
+# @ edd-dw-membersip
+#: inc/Posts/Answer.php:317 inc/Posts/Base.php:320 inc/Settings.php:402
+#: inc/Template.php:58 inc/Template.php:163 inc/Template.php:180
+#: templates/content-comment.php:19
+msgid "Edit"
+msgstr "แก้ไข"
+
+# @ edd-dw-membersip
+# @ dwqa
+#: inc/Posts/Answer.php:318 inc/Settings.php:403 inc/Template.php:168
+#: inc/Template.php:185 templates/content-comment.php:22
+msgid "Delete"
+msgstr "ลบ"
+
+# @ edd-dw-membersip
+# @ dwqa
+#: inc/Posts/Answer.php:319 inc/Posts/Base.php:322
+msgid "View"
+msgstr "อ่าน"
+
+# @ dwqa
+#: inc/Posts/Answer.php:323
+msgid "Submitted"
+msgstr ""
+
+# @ dwqa
+#: inc/Posts/Answer.php:324
+msgid "on"
+msgstr ""
+
+#: inc/Posts/Answer.php:359
+msgid "Question ID"
+msgstr ""
+
+#: inc/Posts/Answer.php:370 inc/Posts/Answer.php:373
+msgid "ID"
+msgstr ""
+
+# @ dwqa
+#: inc/Posts/Base.php:5
+msgid "Are you cheating, huh?"
+msgstr ""
+
+#: inc/Posts/Base.php:18
+msgid "What "
+msgstr ""
+
+# @ dwqa
+#: inc/Posts/Base.php:46
+msgid "You voted for this "
+msgstr ""
+
+# @ default
+#: inc/Posts/Base.php:242
+#, php-format
+msgid "Posts by %s"
+msgstr ""
+
+#: inc/Posts/Base.php:251 inc/Posts/Base.php:255
+#, php-format
+msgid "%s answered <span class=\"dwqa-date\">%s</span> ago"
+msgstr ""
+
+#: inc/Posts/Base.php:257
+#, php-format
+msgid "%s asked <span class=\"dwqa-date\">%s</span> ago"
+msgstr ""
+
+#: inc/Posts/Base.php:306
+msgid "DWQA Posts"
+msgstr ""
+
+#: inc/Posts/Base.php:307
+msgid "DWQA Post"
+msgstr ""
+
+#: inc/Posts/Base.php:318
+msgctxt "dwqa"
+msgid "Add New"
+msgstr ""
+
+# @ theme
+# @ dwqa
+#: inc/Posts/Base.php:319
+msgid "Add New"
+msgstr ""
+
+# @ dwqa
+#: inc/Posts/Base.php:321 inc/Status.php:296
+msgid "New"
+msgstr ""
+
+#: inc/Posts/Base.php:323
+msgid "Search "
+msgstr ""
+
+#: inc/Posts/Base.php:324
+msgid "not found"
+msgstr ""
+
+#: inc/Posts/Base.php:325
+msgid "not found in Trash"
+msgstr ""
+
+#: inc/Posts/Base.php:326
+msgid "Parent:"
+msgstr ""
+
+# @ dwqa
+#: inc/Posts/Question.php:56 inc/Shortcode.php:138
+#: inc/widgets/Closed_Question.php:49 inc/widgets/Latest_Question.php:42
+#: inc/widgets/Popular_Question.php:43
+msgid "asked by"
+msgstr ""
+
+#: inc/Posts/Question.php:100 inc/Posts/Question.php:102
+#: inc/Posts/Question.php:266 inc/Settings.php:395
+#: templates/archive-question-filter.php:28
+msgid "Questions"
+msgstr ""
+
+# @ dwqa
+#: inc/Posts/Question.php:101
+msgid "Question"
+msgstr "คำถาม"
+
+#: inc/Posts/Question.php:196
+msgctxt "taxonomy general name"
+msgid "Question Categories"
+msgstr ""
+
+#: inc/Posts/Question.php:197
+msgctxt "taxonomy singular name"
+msgid "Question Category"
+msgstr ""
+
+#: inc/Posts/Question.php:198
+msgid "Search Question Categories"
+msgstr ""
+
+#: inc/Posts/Question.php:199
+msgid "All Question Categories"
+msgstr ""
+
+#: inc/Posts/Question.php:200
+msgid "Parent Question Category"
+msgstr ""
+
+#: inc/Posts/Question.php:201
+msgid "Parent Question Category:"
+msgstr ""
+
+#: inc/Posts/Question.php:202
+msgid "Edit Question Category"
+msgstr ""
+
+#: inc/Posts/Question.php:203
+msgid "Update Question Category"
+msgstr ""
+
+#: inc/Posts/Question.php:204
+msgid "Add New Question Category"
+msgstr ""
+
+#: inc/Posts/Question.php:205
+msgid "New Question Category Name"
+msgstr ""
+
+# @ dwqa
+#: inc/Posts/Question.php:206
+msgid "Question Category"
+msgstr "หมวดหมู่คำถาม"
+
+#: inc/Posts/Question.php:225
+msgctxt "taxonomy general name"
+msgid "Question Tags"
+msgstr ""
+
+#: inc/Posts/Question.php:226
+msgctxt "taxonomy singular name"
+msgid "Question Tag"
+msgstr ""
+
+#: inc/Posts/Question.php:227
+msgid "Search Question Tags"
+msgstr ""
+
+#: inc/Posts/Question.php:228
+msgid "Popular Question Tags"
+msgstr ""
+
+#: inc/Posts/Question.php:229
+msgid "All Question Tags"
+msgstr ""
+
+#: inc/Posts/Question.php:232
+msgid "Edit Question Tag"
+msgstr ""
+
+#: inc/Posts/Question.php:233
+msgid "Update Question Tag"
+msgstr ""
+
+#: inc/Posts/Question.php:234
+msgid "Add New Question Tag"
+msgstr ""
+
+#: inc/Posts/Question.php:235
+msgid "New Question Tag Name"
+msgstr ""
+
+#: inc/Posts/Question.php:236
+msgid "Separate question tags with commas"
+msgstr ""
+
+#: inc/Posts/Question.php:237
+msgid "Add or remove question tags"
+msgstr ""
+
+#: inc/Posts/Question.php:238
+msgid "Choose from the most used question tags"
+msgstr ""
+
+#: inc/Posts/Question.php:239
+msgid "No question tags found."
+msgstr ""
+
+# @ default
+# @ dwqa
+#: inc/Posts/Question.php:240
+msgid "Question Tags"
+msgstr "Tag คำถาม"
+
+# @ dwqa
+#: inc/Posts/Question.php:276
+msgid "Info"
+msgstr ""
+
+# @ dwqa
+#: inc/Posts/Question.php:287 templates/content-question.php:22
+msgid "answered"
+msgstr "ตอบ"
+
+# @ dwqa
+#: inc/Posts/Question.php:288
+msgid "voted"
+msgstr ""
+
+# @ dwqa
+#: inc/Posts/Question.php:289
+msgid "views"
+msgstr "อ่าน"
+
+# @ dwqa
+#: inc/Posts/Question.php:410 inc/User.php:266
+msgid "Invalid Post"
+msgstr ""
+
+# @ dwqa
+#: inc/Posts/Question.php:445
+msgid "Sticky Questions"
+msgstr ""
+
+# @ dwqa
+#: inc/Posts/Question.php:479
+msgid "Question is not valid"
+msgstr ""
+
+# @ dwqa
+#: inc/Posts/Question.php:500
+msgid "Delete Action was failed"
+msgstr ""
+
+# @ dwqa
+#: inc/Posts/Question.php:505
+msgid "You do not have permission to delete this question"
+msgstr ""
+
+#: inc/Session.php:68 inc/Session.php:85 inc/Session.php:95 inc/Session.php:118
+msgid "This function should not be called before init."
+msgstr ""
+
+# @ dwqa
+#: inc/Settings.php:8
+msgid "Login required. No anonymous post allowed"
+msgstr ""
+
+# @ dwqa
+#: inc/Settings.php:20
+msgid "Select Archive Question Page"
+msgstr ""
+
+#: inc/Settings.php:24
+msgid ""
+"A page where displays all questions. The <code>[dwqa-list-questions]</code> "
+"short code must be on this page."
+msgstr ""
+
+# @ dwqa
+#: inc/Settings.php:31
+msgid "hours"
+msgstr ""
+
+# @ dwqa
+#: inc/Settings.php:31
+msgid ""
+"A period of time in which new questions are highlighted and marked as New"
+msgstr ""
+
+# @ dwqa
+#: inc/Settings.php:36
+msgid "days"
+msgstr "วัน"
+
+# @ dwqa
+#: inc/Settings.php:36
+msgid ""
+"A Question will be marked as overdue if it passes this period of time, "
+"starting from the time the question was submitted"
+msgstr ""
+
+# @ dwqa
+#: inc/Settings.php:47
+msgid "Select Submit Question Page"
+msgstr ""
+
+#: inc/Settings.php:52
+msgid ""
+"A page where users can submit questions. The <code>[dwqa-submit-question-"
+"form]</code> short code must be on this page."
+msgstr ""
+
+# @ dwqa
+#: inc/Settings.php:65
+msgid "Select 404 DWQA Page"
+msgstr ""
+
+# @ dwqa
+#: inc/Settings.php:70
+msgid ""
+"This page will be redirected when users without authority click on a private "
+"question. You can customize the message of this page in.If not, a default "
+"404 page will be used."
+msgstr ""
+
+# @ dwqa
+#: inc/Settings.php:87
+msgid "Upload"
+msgstr ""
+
+#: inc/Settings.php:87
+msgid "Upload or choose a logo to be displayed at the top of the email."
+msgstr ""
+
+#: inc/Settings.php:126 inc/Settings.php:161 inc/Settings.php:197
+#: inc/Settings.php:233 inc/Settings.php:268 inc/Settings.php:303
+#: inc/Settings.php:338
+msgid "Enable?"
+msgstr ""
+
+#: inc/Settings.php:126
+msgid "Enable notification for new question."
+msgstr ""
+
+# @ dwqa
+#: inc/Settings.php:131 inc/Settings.php:166 inc/Settings.php:202
+#: inc/Settings.php:238 inc/Settings.php:273 inc/Settings.php:308
+#: inc/Settings.php:343
+msgid "Email subject"
+msgstr ""
+
+# @ dwqa
+#: inc/Settings.php:136 inc/Settings.php:171 inc/Settings.php:207
+#: inc/Settings.php:243 inc/Settings.php:278 inc/Settings.php:313
+#: inc/Settings.php:348
+msgid "Email Content"
+msgstr ""
+
+#: inc/Settings.php:161
+msgid "Enable notification for new answer."
+msgstr ""
+
+#: inc/Settings.php:197
+msgid "Enable notification for new answer ( to Followers )."
+msgstr ""
+
+#: inc/Settings.php:233 inc/Settings.php:268
+msgid "Enable notification for new comment of question."
+msgstr ""
+
+#: inc/Settings.php:303 inc/Settings.php:338
+msgid "Enable notification for new comment of answer."
+msgstr ""
+
+# @ dwqa
+#: inc/Settings.php:400
+msgid "Read"
+msgstr ""
+
+# @ dwqa
+#: inc/Settings.php:401
+msgid "Post"
+msgstr ""
+
+# @ dwqa
+#: inc/Settings.php:429 inc/Settings.php:465 inc/Settings.php:500
+msgid "Reset Default"
+msgstr ""
+
+#: inc/Settings.php:467
+msgid "Comments"
+msgstr ""
+
+#: inc/Settings.php:509
+msgid "Enable captcha on submit question page."
+msgstr ""
+
+#: inc/Settings.php:515
+msgid "Enable captcha on single question page."
+msgstr ""
+
+#: inc/Settings.php:533
+msgid "Default"
+msgstr ""
+
+#: inc/Settings.php:546
+msgid "questions."
+msgstr ""
+
+#: inc/Settings.php:552
+msgid "answers."
+msgstr ""
+
+#: inc/Settings.php:558
+msgid "Allow members to post private question."
+msgstr ""
+
+#: inc/Settings.php:564
+msgid "Question must be manually approved."
+msgstr ""
+
+#: inc/Settings.php:570
+msgid "Display status icon on the left side."
+msgstr ""
+
+#: inc/Settings.php:576
+msgid "Disable question status feature."
+msgstr ""
+
+#: inc/Settings.php:582
+msgid "Show all answers on single question page."
+msgstr ""
+
+# @ dwqa
+#: inc/Settings.php:593
+msgid "Select template for Single Quesiton page"
+msgstr ""
+
+# @ dwqa
+#: inc/Settings.php:599
+msgid ""
+"By default, your single.php template file will be used if you do not choose "
+"any template"
+msgstr ""
+
+#: inc/Settings.php:607
+#, php-format
+msgid ""
+"If you like, you may enter custom structure for your single question, "
+"question category and question tag URLs here. For example, using "
+"<code>topic</code> as your question base would make your question links like "
+"<code>%s</code>. If you leave these blank the default will be used."
+msgstr ""
+
+# @ dwqa
+#: inc/Settings.php:732
+msgid "Plugin Settings"
+msgstr ""
+
+# @ dwqa
+#: inc/Settings.php:732
+msgid "Settings"
+msgstr ""
+
+#: inc/Settings.php:768
+msgid "Email Settings"
+msgstr ""
+
+#: inc/Settings.php:769
+msgid "New Question Notifications"
+msgstr ""
+
+#: inc/Settings.php:770
+msgid "New Answer Notifications"
+msgstr ""
+
+#: inc/Settings.php:771
+msgid "New Comment Notifications"
+msgstr ""
+
+#: inc/Settings.php:784
+msgid "Page Settings"
+msgstr ""
+
+# @ dwqa
+#: inc/Settings.php:791
+msgid "Question List Page"
+msgstr ""
+
+# @ dwqa
+#: inc/Settings.php:799 inc/Settings.php:930
+msgid "Ask Question Page"
+msgstr ""
+
+#: inc/Settings.php:842
+msgid "Question Settings"
+msgstr ""
+
+#: inc/Settings.php:849
+msgid "Archive Page Show At Most"
+msgstr ""
+
+#: inc/Settings.php:857
+msgid "Before A Question Appears"
+msgstr ""
+
+#: inc/Settings.php:865
+msgid "Other Question Settings"
+msgstr ""
+
+#: inc/Settings.php:890
+msgid "Answer Settings"
+msgstr ""
+
+#: inc/Settings.php:897
+msgid "Answer Listing"
+msgstr ""
+
+#: inc/Settings.php:915
+msgid "Captcha Settings"
+msgstr ""
+
+#: inc/Settings.php:922
+msgid "Type"
+msgstr ""
+
+#: inc/Settings.php:938
+msgid "Single Question Page"
+msgstr ""
+
+# @ dwqa
+#: inc/Settings.php:950
+msgid "Permalink Settings"
+msgstr ""
+
+#: inc/Settings.php:957
+msgid "Question Base"
+msgstr ""
+
+#: inc/Settings.php:965
+msgid "Question Category Base"
+msgstr ""
+
+#: inc/Settings.php:973
+msgid "Question Tag Base"
+msgstr ""
+
+# @ dwqa
+#: inc/Settings.php:1042
+msgid "From Email"
+msgstr ""
+
+# @ dwqa
+#: inc/Settings.php:1110 inc/Settings.php:1117
+msgid "Group Permission"
+msgstr ""
+
+# @ dwqa
+#: inc/Settings.php:1145
+msgid "DWQA Settings"
+msgstr ""
+
+# @ dwqa
+#: inc/Settings.php:1149
+msgid "General"
+msgstr ""
+
+#: inc/Settings.php:1150
+msgid "Emails"
+msgstr ""
+
+#: inc/Settings.php:1151
+msgid "Permissions"
+msgstr ""
+
+#: inc/Settings.php:1152
+msgid "Licenses"
+msgstr ""
+
+#: inc/Settings.php:1166
+msgid "Email settings"
+msgstr ""
+
+# @ dwqa
+#: inc/Settings.php:1168
+msgid "Email Logo"
+msgstr ""
+
+#: inc/Settings.php:1182
+msgid "New Question Notifications (to Admin)"
+msgstr ""
+
+#: inc/Settings.php:1206
+msgid "New Answer Notifications (to Followers)"
+msgstr ""
+
+#: inc/Settings.php:1222
+msgid "New Answer Notifications (to Admin)"
+msgstr ""
+
+#: inc/Settings.php:1242
+msgid "New Comment to Question Notifications (to Followers)"
+msgstr ""
+
+#: inc/Settings.php:1259
+msgid "New Comment to Question Notifications (to Admin)"
+msgstr ""
+
+#: inc/Settings.php:1279
+msgid "New Comment to Answer Notifications (to Followers)"
+msgstr ""
+
+#: inc/Settings.php:1296
+msgid "New Comment to Answer Notifications (to Admin)"
+msgstr ""
+
+# @ dwqa
+#: inc/Settings.php:1314
+msgid "Save all changes"
+msgstr ""
+
+#: inc/Settings.php:1328
+#, php-format
+msgid "Manage <a href=\"%s\">DWQA Extensions</a> license keys"
+msgstr ""
+
+#: inc/Settings.php:1346 inc/Settings.php:1351 inc/Settings.php:1356
+#: inc/Settings.php:1361
+msgid "Forward to"
+msgstr ""
+
+# @ dwqa
+#: inc/Settings.php:1366
+msgid "Cc"
+msgstr ""
+
+# @ dwqa
+#: inc/Settings.php:1371
+msgid "Bcc"
+msgstr ""
+
+# @ dwqa
+#: inc/Settings.php:1376
+msgid "This address will be used as the sender of the outgoing emails."
+msgstr ""
+
+#: inc/Settings.php:1382
+msgid "Send a copy of every email to admin."
+msgstr ""
+
+# @ dwqa
+#: inc/Shortcode.php:115 inc/widgets/Popular_Question.php:21
+msgid "Popular Questions"
+msgstr ""
+
+# @ dwqa
+#: inc/Shortcode.php:152
+msgid "Latest Answers"
+msgstr ""
+
+# @ dwqa
+#: inc/Shortcode.php:178
+msgid "Answer at"
+msgstr ""
+
+# @ dwqa
+#: inc/Shortcode.php:178
+msgid "Link to"
+msgstr ""
+
+#: inc/Shortcode.php:206
+#, php-format
+msgid "%d person who is following this question"
+msgid_plural "%d people who are following this question"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/Shortcode.php:236
+msgid "Question List"
+msgstr ""
+
+# @ dwqa
+#: inc/Status.php:300
+msgid "Answered"
+msgstr "ตอบแล้ว"
+
+# @ dwqa
+#: inc/Status.php:324
+msgid "Missing post ID"
+msgstr ""
+
+# @ dwqa
+#: inc/Status.php:337
+msgid "Post does not exist"
+msgstr ""
+
+# @ dwqa
+#: inc/Status.php:342
+msgid "Invalid post status"
+msgstr ""
+
+#: inc/Template.php:15 templates/content-edit.php:44
+#: templates/question-submit-form.php:46
+msgid "Tag"
+msgstr ""
+
+# @ dwqa
+#: inc/Template.php:15 inc/Template.php:20 templates/content-edit.php:29
+#: templates/question-submit-form.php:32
+msgid "Category"
+msgstr "หมวดหมู่"
+
+#: inc/Template.php:43
+msgid "Showing search results for"
+msgstr ""
+
+#: inc/Template.php:78
+msgid "What do you want to know?"
+msgstr ""
+
+#: inc/Template.php:157
+msgid "Subscribe"
+msgstr ""
+
+# @ default
+#: inc/Template.php:445
+msgid "Email"
+msgstr ""
+
+#: inc/Template.php:447
+msgid "Name"
+msgstr ""
+
+# @ default
+#: inc/Template.php:449
+#, php-format
+msgid "Required fields are marked %s"
+msgstr ""
+
+# @ dwqa
+#: inc/Template.php:461
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr ""
+
+# @ dwqa
+#: inc/Template.php:464
+#, php-format
+msgid ""
+"You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
+"and attributes: %s"
+msgstr ""
+
+# @ dwqa
+#: inc/Template.php:467
+msgid "Leave a Reply"
+msgstr ""
+
+# @ dwqa
+#: inc/Template.php:468
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr ""
+
+# @ dwqa
+#: inc/Template.php:469
+msgid "Cancel reply"
+msgstr ""
+
+# @ dwqa
+#: inc/Template.php:470
+msgid "Post Comment"
+msgstr ""
+
+# @ dwqa
+#: inc/Template.php:645
+msgid "Sticky Question"
+msgstr ""
+
+# @ dwqa
+#: inc/Template.php:659
+msgid "Ask a question"
+msgstr "ต้ังคำถาม"
+
+# @ dwqa
+#: inc/Template.php:661
+msgid "Login to ask a question"
+msgstr "เข้าระบบก่อนถามคำถาม"
+
+# @ dwqa
+#: inc/Template.php:1128
+msgid "Choose as the best answer"
+msgstr "เลือกเป็นคำตอบที่ดีที่สุด"
+
+#: inc/Updater.php:97
+msgid "License Key"
+msgstr ""
+
+#: inc/Updater.php:122
+msgid "Activate"
+msgstr ""
+
+#: inc/Updater.php:176
+msgid "Plugin was activated"
+msgstr ""
+
+# @ dwqa
+#: inc/User.php:230
+msgid "Staff"
+msgstr ""
+
+# @ default
+#: inc/Walker/Category.php:20 inc/Walker/Tag.php:20
+#, php-format
+msgid "View all posts filed under %s"
+msgstr ""
+
+# @ default
+#: inc/Walker/Category.php:35 inc/Walker/Tag.php:35
+#, php-format
+msgid "Feed for all posts filed under %s"
+msgstr ""
+
+#: inc/widgets/Closed_Question.php:11
+msgid "Show a list of questions marked as closed."
+msgstr ""
+
+# @ dwqa
+#: inc/widgets/Closed_Question.php:12
+msgid "DWQA Closed Questions"
+msgstr ""
+
+# @ dwqa
+#: inc/widgets/Closed_Question.php:18
+msgid "Closed Questions"
+msgstr ""
+
+# @ default
+#: inc/widgets/Closed_Question.php:72 inc/widgets/Latest_Question.php:71
+#: inc/widgets/Popular_Question.php:66 inc/widgets/Related_Question.php:48
+msgid "Widget title"
+msgstr ""
+
+# @ default
+#: inc/widgets/Closed_Question.php:75 inc/widgets/Latest_Question.php:74
+#: inc/widgets/Popular_Question.php:69 inc/widgets/Related_Question.php:51
+msgid "Number of posts"
+msgstr ""
+
+#: inc/widgets/Latest_Question.php:10
+msgid "Show a list of latest questions."
+msgstr ""
+
+# @ dwqa
+#: inc/widgets/Latest_Question.php:11
+msgid "DWQA Latest Questions"
+msgstr ""
+
+# @ dwqa
+#: inc/widgets/Latest_Question.php:17
+msgid "Latest Questions"
+msgstr ""
+
+#: inc/widgets/Latest_Question.php:44
+msgid "ago"
+msgstr ""
+
+#: inc/widgets/Latest_Question.php:79
+msgid "Show question date"
+msgstr ""
+
+#: inc/widgets/Popular_Question.php:13
+msgid "Show a list of popular questions."
+msgstr ""
+
+# @ dwqa
+#: inc/widgets/Popular_Question.php:15
+msgid "DWQA Popular Questions"
+msgstr ""
+
+# @ dwqa
+#: inc/widgets/Related_Question.php:11
+msgid ""
+"Show a list of questions that related to a question. Just show in single "
+"question page"
+msgstr ""
+
+# @ dwqa
+#: inc/widgets/Related_Question.php:12
+msgid "DWQA Related Questions"
+msgstr ""
+
+#: lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:181
+#, php-format
+msgid ""
+"There is a new version of %1$s available. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">View version %3$s details</a>."
+msgstr ""
+
+#: lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:188
+#, php-format
+msgid ""
+"There is a new version of %1$s available. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">View version %3$s details</a> or <a href=\"%4$s"
+"\">update now</a>."
+msgstr ""
+
+#: lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:326
+msgid "You do not have permission to install plugin updates"
+msgstr ""
+
+#: lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:326
+msgid "Error"
+msgstr ""
+
+#: templates/answer-submit-form.php:12
+msgid "Your Answer"
+msgstr ""
+
+#: templates/answer-submit-form.php:21 templates/question-submit-form.php:52
+msgid "Your Email"
+msgstr ""
+
+#: templates/answer-submit-form.php:26 templates/question-submit-form.php:57
+msgid "Your Name"
+msgstr ""
+
+#: templates/answer-submit-form.php:33 templates/question-submit-form.php:24
+msgid "Who can see this?"
+msgstr ""
+
+# @ dwqa
+#: templates/answer-submit-form.php:34 templates/question-submit-form.php:25
+msgid "Public"
+msgstr "สาธารณะ"
+
+#: templates/answer-submit-form.php:35 templates/question-submit-form.php:26
+msgid "Only Me &amp; Admin"
+msgstr ""
+
+#: templates/answer-submit-form.php:39 templates/question-submit-form.php:65
+msgid "Submit"
+msgstr ""
+
+#: templates/answers.php:12
+#, php-format
+msgid "%s Answers"
+msgstr ""
+
+#: templates/archive-question-filter.php:14
+msgid "Filter:"
+msgstr ""
+
+# @ dwqa
+#: templates/archive-question-filter.php:16
+msgid "All"
+msgstr "ทั้งหมด"
+
+#: templates/archive-question-filter.php:22
+msgid "Unanswered"
+msgstr ""
+
+#: templates/archive-question-filter.php:24
+msgid "My questions"
+msgstr ""
+
+#: templates/archive-question-filter.php:25
+msgid "My subscribes"
+msgstr ""
+
+#: templates/archive-question-filter.php:29
+msgid "Subscribes"
+msgstr ""
+
+#: templates/archive-question-filter.php:32
+msgid "Sort by"
+msgstr ""
+
+#: templates/archive-question-filter.php:33
+msgid "Views"
+msgstr ""
+
+#: templates/archive-question-filter.php:35
+msgid "Votes"
+msgstr ""
+
+# @ dwqa
+#: templates/archive-question.php:28
+msgid "Ask Question"
+msgstr "โพสคำถาม"
+
+#: templates/captcha-form.php:20
+msgid "Enter the result"
+msgstr ""
+
+#: templates/content-comment.php:16
+#, php-format
+msgctxt "%s = human-readable time difference"
+msgid "replied %s ago"
+msgstr ""
+
+#: templates/content-edit.php:21 templates/question-submit-form.php:13
+msgid "Title"
+msgstr ""
+
+# @ dwqa
+#: templates/content-edit.php:36 templates/question-submit-form.php:38
+msgid "Select question category"
+msgstr "เลือกหมวดหมู่"
+
+#: templates/content-edit.php:50
+msgid "Save Changes"
+msgstr ""
+
+# @ dwqa
+#: templates/content-none.php:10
+msgid "You do not have permission to view questions"
+msgstr ""
+
+#: templates/content-none.php:12
+msgid "Sorry, but nothing matched your filter"
+msgstr ""
+
+# @ dwqa
+#: templates/content-question.php:18
+msgid "asked"
+msgstr ""
+
+#: templates/content-question.php:25
+#, php-format
+msgid "<span><a href=\"%s\">%s%s</a> %s %s ago</span>"
+msgstr ""
+
+#: templates/content-question.php:26 templates/content-single-answer.php:25
+msgid "&nbsp;&bull;&nbsp;"
+msgstr ""
+
+#: templates/content-question.php:31
+#, php-format
+msgid "<strong>%1$s</strong> views"
+msgstr ""
+
+#: templates/content-question.php:35
+#, php-format
+msgid "<strong>%1$s</strong> answers"
+msgstr ""
+
+#: templates/content-question.php:39
+#, php-format
+msgid "<strong>%1$s</strong> votes"
+msgstr ""
+
+# @ dwqa
+#: templates/content-single-answer.php:12
+#: templates/content-single-question.php:14
+msgid "Vote Up"
+msgstr "โหวตขึ้น"
+
+# @ dwqa
+#: templates/content-single-answer.php:13
+#: templates/content-single-question.php:15
+msgid "Vote Down"
+msgstr "โหวตลง"
+
+#: templates/content-single-answer.php:17
+#: templates/content-single-answer.php:19
+msgid "Best Answer"
+msgstr ""
+
+#: templates/content-single-answer.php:23
+#, php-format
+msgid "<span><a href=\"%s\">%s%s</a> %s answered %s ago</span>"
+msgstr ""
+
+# @ dwqa
+#: templates/content-single-answer.php:26
+msgid "Private"
+msgstr "ส่วนตัว"
+
+#: templates/content-single-question.php:19
+#, php-format
+msgid "<span><a href=\"%s\">%s%s</a> %s asked %s ago</span>"
+msgstr ""
+
+#: templates/content-single-question.php:25
+msgid "Question Tags: "
+msgstr ""
+
+#: templates/content-single-question.php:29
+msgid "This question is:"
+msgstr ""
+
+# @ dwqa
+#: templates/question-submit-form.php:69
+msgid "You do not have permission to submit a question"
+msgstr ""
+
+#: upgrades/upgrades.php:25
+#, php-format
+msgid ""
+"DW Question Answer needs to upgrade the database, click %shere%s to start "
+"the upgrade."
+msgstr ""
+
+#: upgrades/upgrades.php:33
+msgid "DWQA Upgrade"
+msgstr ""
+
+#: upgrades/upgrades.php:40
+msgid ""
+"The upgrade process has started, please be patient. This could take several "
+"minutes. You will be automatically redirected when the upgrade is finished..."
+msgstr ""
+
+#: upgrades/upgrades.php:130
+msgid "You do not have permission to do this task"
+msgstr ""
+
+#: upgrades/upgrades.php:147
+msgid "Just do it.."
+msgstr ""
+
+#: upgrades/upgrades.php:155
+#, php-format
+msgid "Move to next step %d"
+msgstr ""
+
+#: upgrades/upgrades.php:172
+msgid "Upgrade process is done"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "DW Question Answer"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"A WordPress plugin was make by DesignWall.com to build an Question Answer "
+"system for support, asking and comunitcate with your customer"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "DesignWall"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.designwall.com"
+msgstr ""
+
+# @ dwqa
+#~ msgid "Follow This Question"
+#~ msgstr "ติดตามคำถามนี้"
+
+# @ dwqa
+#~ msgid "Unfollow This Question"
+#~ msgstr "ไม่ติดตามคำถามนี้"
+
+# @ dwqa
+#~ msgid "Pin this question to top"
+#~ msgstr "ปักหมุดคำถามนี้"
+
+# @ dwqa
+#~ msgid "Unpin this question from top"
+#~ msgstr "เลิกปักหมุดคำถามนี้"
+
+# @ dwqa
+#~ msgid "Already a member?"
+#~ msgstr "กรุณาเข้าระบบก่อนโพส:"
+
+# @ dwqa
+#~ msgid "Register"
+#~ msgstr "สมัครสมาชิก"
+
+# @ dwqa
+#~ msgid "%1$s ago"
+#~ msgstr "%1$s ที่แล้ว"
+
+# @ dwqa
+#~ msgid "%s answered <span class=\"dwqa-date\">%s</span>"
+#~ msgstr "%s ตอบเมื่อ <span class=\"dwqa-date\">%s</span>"
+
+# @ default
+#~ msgid "%s day"
+#~ msgid_plural "%s days"
+#~ msgstr[0] "%s วัน"
+#~ msgstr[1] "%s วัน"
+
+# @ dwqa
+#~ msgid "Add answer"
+#~ msgstr "โพสคำตอบ"
+
+# @ dwqa
+#~ msgid "Answer this Question"
+#~ msgstr "ตอบคำถามนี้"
+
+# @ dwqa
+#~ msgid "How to..."
+#~ msgstr "คำถามฉันคือ..."
+
+# @ dwqa
+#~ msgid "Need Answer"
+#~ msgstr "รอตอบ"
+
+# @ default
+# @ dwqa
+#~ msgid "New Question"
+#~ msgstr "คำถามใหม่"
+
+# @ dwqa
+#~ msgid "Overdue"
+#~ msgstr "เลยกำหนด"
+
+# @ dwqa
+#~ msgid "Pin this Question to top"
+#~ msgstr "ปักหมุดคำถามนี้"
+
+# @ dwqa
+#~ msgid "Please login or"
+#~ msgstr "กรุณา Login หรือ"
+
+# @ dwqa
+#~ msgid "Question details"
+#~ msgstr "รายละเอียดคำถาม"
+
+# @ dwqa
+#~ msgid "Queue"
+#~ msgstr "คิว"
+
+# @ dwqa
+#~ msgid "Save draft"
+#~ msgstr "บันทึกแบบร่าง"
+
+# @ dwqa
+#~ msgid "Search"
+#~ msgstr "ค้นหา"
+
+# @ dwqa
+#~ msgid "Select a category"
+#~ msgstr "เลือกหมวดหมู่"
+
+# @ dwqa
+# @ default
+#~ msgid "Status:"
+#~ msgstr "สถานะ:"
+
+# @ dwqa
+#~ msgid "This is the best answer"
+#~ msgstr "นี่คือคำตอบที่ดีที่สุด"
+
+# @ dwqa
+#~ msgid "Unpin this Question from the top"
+#~ msgstr "เลิกปักหมุดคำถามนี้"
+
+# @ dwqa
+#~ msgid "Vote"
+#~ msgstr "โหวด"
+
+# @ dwqa
+#~ msgid "You can ask question <a href=\"\">here</a>"
+#~ msgstr "คุณสามารถโพสคำถามได้<a href=\"\">ที่นี้</a>"
+
+# @ dwqa
+#~ msgid "Your question"
+#~ msgstr "คำถามของคุณ"
+
+# @ dwqa
+#~ msgid "answer"
+#~ msgid_plural "answers"
+#~ msgstr[0] "คำตอบ"
+#~ msgstr[1] "คำตอบ"
+
+# @ dwqa
+#~ msgid "follow"
+#~ msgstr "ตามคำถาม"
+
+# @ dwqa
+#~ msgid "following"
+#~ msgstr "กำลังติดตาม"
+
+# @ default
+#~ msgctxt "taxonomy general name"
+#~ msgid "Categories"
+#~ msgstr "หมวดหมู่"
+
+# @ default
+#~ msgctxt "taxonomy singular name"
+#~ msgid "Category"
+#~ msgstr "หมวดหมู่"
+
+# @ dwqa
+#~ msgid "to Submit Answer"
+#~ msgstr "ก่อนโพสคำตอบ"
+
+# @ dwqa
+#~ msgid "unfollow"
+#~ msgstr "ไม่ติดตาม"
+
+# @ dwqa
+#~ msgid "view"
+#~ msgid_plural "views"
+#~ msgstr[0] "อ่าน"
+#~ msgstr[1] "อ่าน"
+
+# @ dwqa
+#~ msgid "vote"
+#~ msgid_plural "votes"
+#~ msgstr[0] "โหวด"
+#~ msgstr[1] "โหวด"

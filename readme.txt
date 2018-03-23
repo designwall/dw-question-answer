@@ -3,7 +3,7 @@ Contributors: designwall, oryc9x, Farid-Gh, scheunemann, gciprian, Ahmet Kolcu, 
 Tags: question, answer, support, quora, stackoverflow
 Requires at least: 3.0.1
 Tested up to: 4.9.4
-Stable tag: 1.5.0
+Stable tag: 1.5.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -84,6 +84,11 @@ Visit our [Github](https://github.com/designwall/dw-question-answer) project or 
 5. Back-end settings
 
 == Changelog ==
+
+= 1.5.1 =
+* Fix: Fix search page
+* Fix: Fix notice user
+* Fix: Fix vote best answer
 
 = 1.5.0 =
 * Fix: Fix bug with php 7.2

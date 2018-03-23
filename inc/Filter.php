@@ -11,7 +11,6 @@ class DWQA_Filter {
 		$user = isset( $_GET['user'] ) && !empty( $_GET['user'] ) ? urldecode( $_GET['user'] ) : false;
 		$filter = isset( $_GET['filter'] ) && !empty( $_GET['filter'] ) ? sanitize_text_field( $_GET['filter'] ) : 'all';
 		$search_text = isset( $_GET['qs'] ) ? sanitize_text_field( $_GET['qs'] ) : false;
-		$sort = isset( $_GET['sort'] ) ? sanitize_text_field( $_GET['sort'] ) : ( isset( $args['sort'] ) ? $args['sort'] : '');
 		$query = array(
 			'post_type' => 'dwqa-question',
 			'posts_per_page' => $posts_per_page,
@@ -126,7 +125,7 @@ class DWQA_Filter {
 		// search
 		if ( $search_text ) {
 			$search = sanitize_text_field( $search_text );
-			preg_match_all( '/#\S*\w/i', $search_text, $matches );
+			preg_match_all( '/#\S*\w/i', $search, $matches );
 			if ( $matches && is_array( $matches ) && count( $matches ) > 0 && count( $matches[0] ) > 0 ) {
 				$query['tax_query'][] = array(
 					'taxonomy' => 'dwqa-question_tag',
@@ -137,7 +136,7 @@ class DWQA_Filter {
 				$search = preg_replace( '/#\S*\w/i', '', $search );
 			}
 
-			$query['s'] = $search;
+			$query['search_question_title'] = $search;
 		}
 
 		$sticky_questions = get_option( 'dwqa_sticky_questions' );
@@ -150,7 +149,16 @@ class DWQA_Filter {
 
 		$query = apply_filters( 'dwqa_prepare_archive_posts', $query );
 
-		$wp_query->dwqa_questions = new WP_Query( $query );
+		// $wp_query->dwqa_questions = new WP_Query( $query );
+
+		if(isset($query['search_question_title']) && $query['search_question_title'] != ''){
+
+			add_filter( 'posts_where', array($this, 'questions_where'), 10, 1 );
+			$wp_query->dwqa_questions = new WP_Query( $query );
+			remove_filter( 'posts_where', array($this, 'questions_where'), 10, 1 );
+		}else{
+			$wp_query->dwqa_questions = new WP_Query( $query );
+		}
 
 		// sticky question
 		$sticky_questions = get_option( 'dwqa_sticky_questions' );
@@ -313,6 +321,25 @@ class DWQA_Filter {
 			$query->query_vars['posts_per_page'] = isset( $dwqa_options['posts-per-page'] ) ? $dwqa_options['posts-per-page'] : 15;
 		}
 		return $query;
+	}
+
+	public function questions_where($where){
+		global $wpdb;
+		$search_text = isset( $_GET['qs'] ) ? sanitize_text_field( $_GET['qs'] ) : false;
+		$first = true;
+		$s = explode( ' ', $search_text );
+		if ( count( $s ) > 0 ) {
+			$where .= ' AND (';
+			foreach ( $s as $w ) {
+				if ( ! $first ) {
+					$where .= ' OR ';
+				}
+				$where .= "post_title REGEXP '".preg_quote( $w )."'";
+				$first = false;
+			}
+			$where .= ' ) ';
+		}
+		return $where;
 	}
 }
 ?>

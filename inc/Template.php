@@ -294,7 +294,14 @@ function dwqa_enqueue_scripts(){
 	$question_tag_rewrite = $dwqa_general_settings['question-tag-rewrite'];
     $question_tag_rewrite = $question_tag_rewrite ? $question_tag_rewrite : 'question-tag';
 
-    $assets_folder = DWQA_URI . 'templates/assets/';
+    $base_assets_folder = DWQA_URI . 'templates/assets/';
+
+    /**
+     * Filter for modify assets folder template
+     * @var string
+     */
+    $assets_folder = apply_filters( 'dwqa-assets-folder', $base_assets_folder );
+
     wp_enqueue_script( 'jquery' );
     if( is_singular( 'dwqa-question' ) ) {
         wp_enqueue_script( 'jquery-effects-core' );
@@ -345,7 +352,7 @@ function dwqa_wp_footer() {
 	if ( isset( $dwqa_general_settings['show-status-icon'] ) && $dwqa_general_settings['show-status-icon'] && dwqa_is_enable_status() ) {
 		?>
 		<style type="text/css">
-			@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css');
+			@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
 			.dwqa-questions-list .dwqa-question-item {
 				padding-left: 70px;
@@ -1069,11 +1076,18 @@ class DWQA_Template {
 		}
 
 		$template = false;
-		$template_dir = array(
+		$base_template_dir = array(
 			DWQA_STYLESHEET_DIR . $this->get_template_dir(),
 			DWQA_TEMP_DIR . $this->get_template_dir(),
 			DWQA_DIR . 'templates/'
 		);
+
+		/**
+		 * All templates that DW Question Answer plugin may load one of directories as template files
+		 * Developers can have custome template files in him/his plugin directory
+		 * @var array
+		 */
+		$template_dir = apply_filters( 'dwqa-templates-dir', $base_template_dir );
 
 		foreach( $template_dir as $temp_path ) {
 			if ( file_exists( $temp_path . $name . '.php' ) ) {

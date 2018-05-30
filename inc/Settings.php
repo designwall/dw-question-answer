@@ -1164,6 +1164,16 @@ class DWQA_Settings {
 		);
 		register_setting( 'dwqa-subscribe-settings', 'dwqa_subscrible_from_address' );
 
+		//add delay email(need to speed up )
+		add_settings_field( 
+			'dwqa_enable_email_delay', 
+			false, 
+			array( $this, 'enable_email_delay' ), 
+			'dwqa-email', 
+			'dwqa-subscribe-settings'
+		);
+		register_setting( 'dwqa-subscribe-settings', 'dwqa_enable_email_delay' );
+
 		// Send copy
 		add_settings_field( 
 			'dwqa_subscrible_send_copy_to_admin', 
@@ -1498,6 +1508,13 @@ class DWQA_Settings {
 		$this->input_checkbox_field( 
 			'dwqa_subscrible_send_copy_to_admin',
 			__( 'Send a copy of every email to admin.','dwqa' )
+		);
+	}
+
+	public function enable_email_delay(){
+		$this->input_checkbox_field( 
+			'dwqa_enable_email_delay',
+			__( 'Email Delay*','dwqa' )
 		);
 	}
 

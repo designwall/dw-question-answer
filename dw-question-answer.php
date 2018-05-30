@@ -4,7 +4,7 @@
  *  Description: A WordPress plugin was make by DesignWall.com to build an Question Answer system for support, asking and comunitcate with your customer
  *  Author: DesignWall
  *  Author URI: http://www.designwall.com
- *  Version: 1.5.1
+ *  Version: 1.5.2
  *  Text Domain: dwqa
  *  @since 1.4.0
  */
@@ -25,7 +25,7 @@ class DW_Question_Answer {
 		$this->stylesheet_dir = DWQA_STYLESHEET_DIR;
 		$this->stylesheet_uri = DWQA_STYLESHEET_URL;
 
-		$this->version = '1.5.1';
+		$this->version = '1.5.2';
 
 		// load posttype
 		$this->question = new DWQA_Posts_Question();
@@ -212,6 +212,9 @@ class DW_Question_Answer {
 		update_option( 'dwqa_options', $options );
 		update_option( 'dwqa_plugin_activated', true );
 		// dwqa_posttype_init();
+
+		//update option delay email
+		update_option('dwqa_enable_email_delay', true);
 	}
 
 	public function deactivate_hook() {

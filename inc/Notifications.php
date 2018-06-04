@@ -426,7 +426,7 @@ class DWQA_Notifications {
 	
 	public function get_admin_email( $type = 'question' ){
 		$admin_email = get_option( 'dwqa_subscrible_sendto_address', '' );
-		$emails = explode( PHP_EOL, $admin_email );
+		$emails = preg_split('/\r\n|\r|\n/', $admin_email );
 		$emails = array_merge( $emails, array( get_bloginfo( 'admin_email' ) ) );
 		return $emails;
 	}

@@ -460,12 +460,12 @@ msgstr "توسط %s"
 #: inc/Posts/Base.php:251 inc/Posts/Base.php:255
 #, php-format
 msgid "%s answered <span class=\"dwqa-date\">%s</span> ago"
-msgstr ""
+msgstr "%s پاسخ داده شده <span class=\"dwqa-date\">%s</span> قبل"
 
 #: inc/Posts/Base.php:257
 #, php-format
 msgid "%s asked <span class=\"dwqa-date\">%s</span> ago"
-msgstr ""
+msgstr "%s پرسیده شد <span class=\"dwqa-date\">%s</span> قبل"
 
 #: inc/Posts/Base.php:306
 msgid "DWQA Posts"
@@ -491,11 +491,11 @@ msgstr "جدید"
 
 #: inc/Posts/Base.php:323
 msgid "Search "
-msgstr ""
+msgstr "جستجو "
 
 #: inc/Posts/Base.php:324
 msgid "not found"
-msgstr ""
+msgstr "یافت نشد"
 
 #: inc/Posts/Base.php:325
 msgid "not found in Trash"
@@ -524,12 +524,12 @@ msgstr "سوال"
 #: inc/Posts/Question.php:196
 msgctxt "taxonomy general name"
 msgid "Question Categories"
-msgstr ""
+msgstr "دسته بندی سوال"
 
 #: inc/Posts/Question.php:197
 msgctxt "taxonomy singular name"
 msgid "Question Category"
-msgstr ""
+msgstr "دسته سوال"
 
 #: inc/Posts/Question.php:198
 msgid "Search Question Categories"
@@ -570,12 +570,12 @@ msgstr "دسته بندی"
 #: inc/Posts/Question.php:225
 msgctxt "taxonomy general name"
 msgid "Question Tags"
-msgstr ""
+msgstr "برچسبهای سوال"
 
 #: inc/Posts/Question.php:226
 msgctxt "taxonomy singular name"
 msgid "Question Tag"
-msgstr ""
+msgstr "برچسب سوال"
 
 #: inc/Posts/Question.php:227
 msgid "Search Question Tags"
@@ -587,15 +587,15 @@ msgstr ""
 
 #: inc/Posts/Question.php:229
 msgid "All Question Tags"
-msgstr ""
+msgstr "تمامی برچسبهای سوال"
 
 #: inc/Posts/Question.php:232
 msgid "Edit Question Tag"
-msgstr ""
+msgstr "ویرایش برچسب سوال"
 
 #: inc/Posts/Question.php:233
 msgid "Update Question Tag"
-msgstr ""
+msgstr "بروزرسانی برچسب سوال"
 
 #: inc/Posts/Question.php:234
 msgid "Add New Question Tag"
@@ -1068,7 +1068,7 @@ msgstr "وضعیت غیرقابل قبول"
 #: inc/Template.php:15 templates/content-edit.php:44
 #: templates/question-submit-form.php:46
 msgid "Tag"
-msgstr ""
+msgstr "برچسب"
 
 #: inc/Template.php:15 inc/Template.php:20 templates/content-edit.php:29
 #: templates/question-submit-form.php:32
@@ -1258,23 +1258,23 @@ msgstr ""
 
 #: lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:326
 msgid "Error"
-msgstr ""
+msgstr "خطا"
 
 #: templates/answer-submit-form.php:12
 msgid "Your Answer"
-msgstr ""
+msgstr "پاسخ شما"
 
 #: templates/answer-submit-form.php:21 templates/question-submit-form.php:52
 msgid "Your Email"
-msgstr ""
+msgstr "ایمیل"
 
 #: templates/answer-submit-form.php:26 templates/question-submit-form.php:57
 msgid "Your Name"
-msgstr ""
+msgstr "نام"
 
 #: templates/answer-submit-form.php:33 templates/question-submit-form.php:24
 msgid "Who can see this?"
-msgstr ""
+msgstr "چه کسانی ببینند؟"
 
 #: templates/answer-submit-form.php:34 templates/question-submit-form.php:25
 msgid "Public"
@@ -1282,20 +1282,20 @@ msgstr "عمومی"
 
 #: templates/answer-submit-form.php:35 templates/question-submit-form.php:26
 msgid "Only Me &amp; Admin"
-msgstr ""
+msgstr "فقط من و مدیر"
 
 #: templates/answer-submit-form.php:39 templates/question-submit-form.php:65
 msgid "Submit"
-msgstr ""
+msgstr "ارسال"
 
 #: templates/answers.php:12
 #, php-format
 msgid "%s Answers"
-msgstr ""
+msgstr "%s پاسخها"
 
 #: templates/archive-question-filter.php:14
 msgid "Filter:"
-msgstr ""
+msgstr "فیلتر:"
 
 #: templates/archive-question-filter.php:16
 msgid "All"
@@ -1303,31 +1303,31 @@ msgstr "همه"
 
 #: templates/archive-question-filter.php:22
 msgid "Unanswered"
-msgstr ""
+msgstr "بی پاسخها"
 
 #: templates/archive-question-filter.php:24
 msgid "My questions"
-msgstr ""
+msgstr "سوالهای من"
 
 #: templates/archive-question-filter.php:25
 msgid "My subscribes"
-msgstr ""
+msgstr "عضویتهای من"
 
 #: templates/archive-question-filter.php:29
 msgid "Subscribes"
-msgstr ""
+msgstr "عضویتها"
 
 #: templates/archive-question-filter.php:32
 msgid "Sort by"
-msgstr ""
+msgstr "مرتب سازی"
 
 #: templates/archive-question-filter.php:33
 msgid "Views"
-msgstr ""
+msgstr "بازدید"
 
 #: templates/archive-question-filter.php:35
 msgid "Votes"
-msgstr ""
+msgstr "آرا"
 
 #: templates/archive-question.php:28
 msgid "Ask Question"
@@ -1341,11 +1341,11 @@ msgstr ""
 #, php-format
 msgctxt "%s = human-readable time difference"
 msgid "replied %s ago"
-msgstr ""
+msgstr "بازخورد داده شد %s قبل"
 
 #: templates/content-edit.php:21 templates/question-submit-form.php:13
 msgid "Title"
-msgstr ""
+msgstr "تیتر"
 
 #: templates/content-edit.php:36 templates/question-submit-form.php:38
 msgid "Select question category"
@@ -1353,7 +1353,7 @@ msgstr "یک دسته بندی انتخاب کنید"
 
 #: templates/content-edit.php:50
 msgid "Save Changes"
-msgstr ""
+msgstr "ذخیره تغییرات"
 
 #: templates/content-none.php:10
 msgid "You do not have permission to view questions"
@@ -1370,7 +1370,7 @@ msgstr "پرسیده شد"
 #: templates/content-question.php:25
 #, php-format
 msgid "<span><a href=\"%s\">%s%s</a> %s %s ago</span>"
-msgstr ""
+msgstr "<span><a href=\"%s\">%s%s</a> %s %s قبل</span>"
 
 #: templates/content-question.php:26 templates/content-single-answer.php:25
 msgid "&nbsp;&bull;&nbsp;"
@@ -1379,17 +1379,17 @@ msgstr ""
 #: templates/content-question.php:31
 #, php-format
 msgid "<strong>%1$s</strong> views"
-msgstr ""
+msgstr "<strong>%1$s</strong> بازدید"
 
 #: templates/content-question.php:35
 #, php-format
 msgid "<strong>%1$s</strong> answers"
-msgstr ""
+msgstr "<strong>%1$s</strong> پاسخ"
 
 #: templates/content-question.php:39
 #, php-format
 msgid "<strong>%1$s</strong> votes"
-msgstr ""
+msgstr "<strong>%1$s</strong> آرا"
 
 #: templates/content-single-answer.php:12
 #: templates/content-single-question.php:14
@@ -1404,12 +1404,12 @@ msgstr "امتیاز منفی"
 #: templates/content-single-answer.php:17
 #: templates/content-single-answer.php:19
 msgid "Best Answer"
-msgstr ""
+msgstr "بهترین پاسخ"
 
 #: templates/content-single-answer.php:23
 #, php-format
 msgid "<span><a href=\"%s\">%s%s</a> %s answered %s ago</span>"
-msgstr ""
+msgstr "<span><a href=\"%s\">%s%s</a> %s پاسخ داده شد %s قبل</span>"
 
 #: templates/content-single-answer.php:26
 msgid "Private"
@@ -1418,7 +1418,7 @@ msgstr "خصوصی"
 #: templates/content-single-question.php:19
 #, php-format
 msgid "<span><a href=\"%s\">%s%s</a> %s asked %s ago</span>"
-msgstr ""
+msgstr "<span><a href=\"%s\">%s%s</a> %s پرسیده شد %s قبل</span>"
 
 #: templates/content-single-question.php:25
 msgid "Question Tags: "

@@ -177,10 +177,14 @@ function dwqa_have_new_comment( $question_id = false ) {
 
 	$answers = wp_cache_get( 'dwqa-answers-for-'.$question_id, 'dwqa' );
 	if ( false == $answers ) {
-		global $wpdb;
-		$query = "SELECT `{$wpdb->posts}`.ID FROM `{$wpdb->posts}` JOIN `{$wpdb->postmeta}` ON `{$wpdb->posts}`.ID = `{$wpdb->postmeta}`.post_id  WHERE 1=1 AND `{$wpdb->postmeta}`.meta_key = '_question' AND `{$wpdb->postmeta}`.meta_value = {$question_id} AND `{$wpdb->posts}`.post_status = 'publish' AND `{$wpdb->posts}`.post_type = 'dwqa-answer'";
+		$args = array(
+			'post_type' => 'dwqa-answer',
+			'post_parent' => $question_id,
+			'post_per_page' => '-1',
+			'post_status' => array('publish')
+		);
 
-		$answers = $wpdb->get_results( $query );
+		$answers = get_posts($args);
 
 		wp_cache_set( 'dwqa-answers-for'.$question_id, $answers, 'dwqa', 21600 );
 	}
@@ -233,14 +237,8 @@ function dwqa_get_latest_answer( $question_id = false ) {
 	if ( false === $latest ) {
 		$args = array(
 			'post_type' 		=> 'dwqa-answer',
-			'meta_query' 		=> array(
-				array(
-					'key' 		=> '_question',
-					'value' 	=> $question_id,
-					'compare' 	=> '=',
-				),
-			),
-			'post_status'    	=> 'public,private',
+			'post_parent' 		=> $question_id,
+			'post_status'    	=> array('public', 'private'),
 	    	'numberposts' 		=> 1,
 		);
 		$recent_answers = wp_get_recent_posts( $args, OBJECT );
@@ -353,7 +351,7 @@ class DWQA_Status {
 	 */
 	public function dwqa_auto_change_question_status( $answer_id ){
 		if ( ! is_wp_error( $answer_id ) ) {
-			$question_id = get_post_meta( $answer_id, '_question', true );
+			$question_id = dwqa_get_post_parent_id( $answer_id );
 			$answer = get_post( $answer_id );
 			if ( $question_id && $answer->post_author ) {
 				$question_status = get_post_meta( $question_id, '_dwqa_status', true );

@@ -170,7 +170,7 @@ class DWQA_Shortcode {
 			$html .= '<ul>';
 			while ( $questions->have_posts() ) { $questions->the_post();
 				$answer_id = get_the_ID();
-				$question_id = get_post_meta( $answer_id, '_question', true );
+				$question_id = dwqa_get_post_parent_id( $answer_id );
 				if ( 'publish' != get_post_status( $question_id ) ) {
 					continue;
 				}

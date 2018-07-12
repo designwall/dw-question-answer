@@ -330,7 +330,7 @@ class DWQA_Notifications {
 				$message = dwqa_get_mail_template( 'dwqa_subscrible_new_comment_answer_email', 'new-comment-answer' );
 				$subject = get_option( 'dwqa_subscrible_new_comment_answer_email_subject',__( '[{site_name}] You have a new comment for answer', 'dwqa' ) );
 				$message = str_replace( '{answer_author}', get_the_author_meta( 'display_name', $post_parent->post_author ), $message );
-				$question_id = get_post_meta( $post_parent->ID, '_question', true );
+				$question_id = dwqa_get_post_parent_id( $post_parent->ID );
 				$question = get_post( $question_id );
 			}
 			$subject = str_replace( '{site_name}', get_bloginfo( 'name' ), $subject );
@@ -456,7 +456,7 @@ class DWQA_Notifications {
 		}
 
 		if ( 'dwqa-answer' == get_post_type( $post_id ) ) {
-			$question_id = get_post_type( $post_id, '_question', true );
+			$question_id = dwqa_get_post_parent_id( $post_id );
 
 			if ( !$title ) {
 				$title = __( 'New Answer in: ', 'dwqa-notification' );

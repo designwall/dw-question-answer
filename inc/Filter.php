@@ -245,12 +245,7 @@ class DWQA_Filter {
 				'post_type' 		=> 'dwqa-answer',
 				'order'      		=> 'ASC',
 				'paged'				=> $ans_cur_page,
-				'meta_query' 		=> array(
-					array(
-						'key' => '_question',
-						'value' => $question->ID
-					),
-				),
+				'post_parent'		=> $question->ID,
 				'post_status' => array( 'publish', 'private', 'draft' )
 			);
 

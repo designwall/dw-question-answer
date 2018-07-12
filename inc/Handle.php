@@ -109,7 +109,6 @@ class DWQA_Handle {
 				$answer_count = get_post_meta( $question_id, '_dwqa_answers_count', true );
 				update_post_meta( $question_id, '_dwqa_answers_count', (int) $answer_count + 1 );
 			}
-			update_post_meta( $answer_id, '_question', $question_id  );
 
 			if ( $is_anonymous ) {
 				update_post_meta( $answer_id, '_dwqa_is_anonymous', true );
@@ -178,7 +177,7 @@ class DWQA_Handle {
 				$old_post = get_post( $answer_id  );
 				$new_post = get_post( $new_answer_id );
 				do_action( 'dwqa_update_answer', $new_answer_id, $old_post, $new_post );
-				$question_id = get_post_meta( $new_answer_id, '_question', true );
+				$question_id = dwqa_get_post_parent_id( $new_answer_id );
 				$this->update_modified_date( $question_id , current_time( 'sql', 0 ), current_time( 'sql', 1 ) );
 
 				wp_safe_redirect( get_permalink( $question_id ) . '#answer-' . $new_answer_id );

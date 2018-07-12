@@ -187,11 +187,7 @@ function dwqa_get_answer_count( $question_id = false ) {
 			$args = array(
 				'post_type' => 'dwqa-answer',
 				'post_status' => 'private',
-				'meta_query' => array(
-					'key' => '_question',
-					'value' => array( $question_id ),
-					'compare' => 'IN'
-				),
+				'post_parent' => $question_id,
 				'no_found_rows' => true,
 				'update_post_meta_cache' => false,
 				'update_post_term_cache' => false,
@@ -250,5 +246,24 @@ function dwqa_get_question_link( $post_id ) {
 	}
 
 	return get_permalink( $post_id );
+}
+
+function dwqa_get_post_parent_id( $post_id = false ){
+	if(!$post_id){
+		return false;
+	}
+
+	$parent_id = wp_cache_get( 'dwqa_'. $post_id .'_parent_id', 'dwqa' );
+	if( $parent_id ){
+		return $parent_id;
+	}
+
+	$parent_id = wp_get_post_parent_id( $post_id );
+	//cache
+	if($parent_id){
+		wp_cache_set( 'dwqa_'. $post_id .'_parent_id', $parent_id, 'dwqa', 15*60 );
+	}
+	
+	return $parent_id;
 }
 ?>

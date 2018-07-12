@@ -45,15 +45,9 @@ class DWQA_Answer_List_Table extends WP_List_Table {
 			'post_type' => 'dwqa-answer',
 			'posts_per_page' => $per_page,
 			'order'      => 'ASC',
-			'meta_query' => array(
-				array(
-					'key' => '_question',
-					'value' => array( $question_id ),
-					'compare' => 'IN',
-				),
-		   ),
-		   'post_status' => 'publish',
-		 );
+			'post_parent' => $question_id,
+		   	'post_status' => 'publish',
+	 	);
 		$data = get_posts( $args );
 		$this->items = $data;
 	}

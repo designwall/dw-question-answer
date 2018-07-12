@@ -27,9 +27,9 @@ class DWQA_Posts_Comment {
 	public function hook_redirect_comment_for_answer( $location, $comment ) {
 
 		if ( 'dwqa-answer' == get_post_type( $comment->comment_post_ID ) ) {
-			$question = get_post_meta( $comment->comment_post_ID, '_question', true );
-			if ( $question ) {
-				return get_post_permalink( $question ).'#'.'answer-' . $comment->comment_post_ID . '&comment='.$comment->comment_ID;
+			$question_id = dwqa_get_post_parent_id( $comment->comment_post_ID );
+			if ( $question_id ) {
+				return get_post_permalink( $question_id ).'#'.'answer-' . $comment->comment_post_ID . '&comment='.$comment->comment_ID;
 			}
 		}
 		return $location;
@@ -108,24 +108,24 @@ class DWQA_Posts_Comment {
 	public function reopen_question_have_new_comment( $comment_ID ){
 		$comment = get_comment( $comment_ID );
 		$comment_post_type = get_post_type( $comment->comment_post_ID );
-		$question = false;
+		$question_id = false;
 		if ( 'dwqa-answer' == $comment_post_type ) {
-			$question = get_post_meta( $comment->comment_post_ID, '_question', true );
+			$question_id = dwqa_get_post_parent_id( $comment->comment_post_ID );
 		} elseif ( 'dwqa-question' == $comment_post_type ) {
-			$question = $comment->comment_post_ID;
+			$question_id = $comment->comment_post_ID;
 		}
 
-		if ( $question ) {
-			$question_status = get_post_meta( $question, '_dwqa_status', true );
+		if ( $question_id ) {
+			$question_status = get_post_meta( $question_id, '_dwqa_status', true );
 			if ( ! user_can( $comment->user_id, 'edit_posts' ) ) {
 				if ( 'resolved' == $question_status ) {
-					update_post_meta( $question, '_dwqa_status', 're-open' );
+					update_post_meta( $question_id, '_dwqa_status', 're-open' );
 				}
 			}
 		}
 
 		if ( $comment->user_id ) {
-			add_post_meta( $question, '_dwqa_followers', $comment->user_id );
+			add_post_meta( $question_id, '_dwqa_followers', $comment->user_id );
 		}
 	}
 }

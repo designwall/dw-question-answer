@@ -1,26 +1,47 @@
 <?php  
+function dwqa_user_can( $user_id, $perm, $post_id = false ) {
+	global $dwqa;
+	$can = false;
+	if ( $user_id &&  is_numeric($user_id) ) {
+		if ( $post_id ) {
+			// perm with post id
+			$is_comment = array( 'post_comment', 'read_comment', 'delete_comment', 'edit_comment', 'manage_comment' );
+			$post_author = 0;
+			// is comment
+			if ( in_array( $perm, $is_comment ) ) {
+				$comment = get_comment( $post_id );
+				if ( isset( $comment->user_id ) ) {
+					$post_author = $comment->user_id;
+				}
+			} else {
+				$post_author = get_post_field( 'post_author', $post_id );
+			}
 
-function dwqa_current_user_can( $perm, $post_id = false ) {
-	global $dwqa, $current_user;
-	if ( is_user_logged_in() ) {
-		if ( $post_id && $current_user->ID == get_post_field( 'post_author', $post_id ) ) {
-			return true;
+			if ( (int) $user_id === (int) $post_author && user_can( $user_id, 'dwqa_can_' . $perm ) ) {
+				$can = true;
+			}
+		} else {
+			// normal perms
+			if ( user_can( $user_id, 'dwqa_can_' . $perm ) ) {
+				$can = true;
+			}
 		}
-
-		if ( current_user_can( 'dwqa_can_' . $perm ) ) {
-			return true;
-		}
-		return false;
 	} else {
 		$anonymous = isset($dwqa->permission->perms['anonymous'])?$dwqa->permission->perms['anonymous']:array();
 		$type = explode( '_', $perm );
 		if ( isset( $anonymous[$type[1]][$type[0]] ) && $anonymous[$type[1]][$type[0]] ) {
-			return true;
+			$can = true;
 		} else {
-			return false;
+			$can = false;
 		}
 	}
-	return false;
+	return apply_filters( 'dwqa_user_can', $can, $perm, $user_id, $post_id );
+}
+
+function dwqa_current_user_can( $perm, $post_id = false ) {
+	$current_user_id = get_current_user_id();
+	$can = dwqa_user_can( $current_user_id, $perm, $post_id );
+	return apply_filters( 'dwqa_current_user_can', $can, $current_user_id, $perm, $post_id );
 }
 
 function dwqa_get_warning_page() {

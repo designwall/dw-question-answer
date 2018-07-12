@@ -771,7 +771,7 @@ class DWQA_Template {
 	public function redirect_answer_to_question( $template ) {
 		global $post, $dwqa_options;
 		if ( is_singular( 'dwqa-answer' ) ) {
-			$question_id = get_post_meta( $post->ID, '_question', true );
+			$question_id = dwqa_get_post_parent_id( $answer_id );
 			if ( $question_id ) {
 				wp_safe_redirect( get_permalink( $question_id ) );
 				exit( 0 );
@@ -1118,7 +1118,7 @@ function dwqa_get_mail_template( $option, $name = '' ) {
 
 function dwqa_vote_best_answer_button() {
 	global $current_user;
-	$question_id = get_post_meta( get_the_ID(), '_question', true );
+	$question_id = dwqa_get_post_parent_id( get_the_ID() );
 	$question = get_post( $question_id );
 		$best_answer = dwqa_get_the_best_answer( $question_id );
 		$data = is_user_logged_in() && ( $current_user->ID == $question->post_author || current_user_can( 'edit_posts' ) ) ? 'data-answer="'.get_the_ID().'" data-nonce="'.wp_create_nonce( '_dwqa_vote_best_answer' ).'" data-ajax="true"' : 'data-ajax="false"';

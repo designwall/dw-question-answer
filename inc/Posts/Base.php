@@ -291,9 +291,9 @@ function dwqa_get_latest_action_date( $question = false, $before = '<span>', $af
 	}
 
 	if ( 'dwqa-answer' == get_post_type( $question ) ) {
-		return sprintf( __( '%s answered <span class="dwqa-date">%s</span> ago', 'dwqa' ), $author_link, human_time_diff( get_the_time( 'U', true ) ) );
+		return sprintf( __( '%s answered <span class="dwqa-date">%s</span> ago', 'dwqa' ), $author_link, human_time_diff( get_post_time( 'U', true, $question ) ) );
 	}
-	return sprintf( __( '%s asked <span class="dwqa-date">%s</span> ago', 'dwqa' ), $author_link, human_time_diff( get_the_time( 'U', true ) ) );
+	return sprintf( __( '%s asked <span class="dwqa-date">%s</span> ago', 'dwqa' ), $author_link, human_time_diff( get_post_time( 'U', true, $question ) ) );
 }
 
 function dwqa_is_edit() {

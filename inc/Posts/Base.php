@@ -257,7 +257,7 @@ function dwqa_get_latest_action_date( $question = false, $before = '<span>', $af
 
 	$question_list_link = isset( $dwqa_general_settings['pages']['archive-question'] ) ? get_permalink( $dwqa_general_settings['pages']['archive-question'] ) : false;
 	$latest_answer = dwqa_get_latest_answer( $question );
-	$last_activity_date = $latest_answer ? $latest_answer->post_date : get_post_field( 'post_date', $question );
+	$last_activity_date = $latest_answer ? $latest_answer->post_date_gmt : get_post_field( 'post_date_gmt', $question );
 	$post_id = $latest_answer ? $latest_answer->ID : $question;
 	$author_id = $post->post_author;
 	if ( $author_id == 0 || dwqa_is_anonymous( $post_id ) ) {

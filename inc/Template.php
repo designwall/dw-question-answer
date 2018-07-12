@@ -743,7 +743,7 @@ class DWQA_Template {
 		$this->filters = new stdClass();
 		add_filter( 'template_include', array( $this, 'question_content' ) );
 		//add_filter( 'term_link', array( $this, 'force_term_link_to_setting_page' ), 10, 3 );
-		add_filter( 'comments_open', array( $this, 'close_default_comment' ) );
+		add_filter( 'comments_open', array( $this, 'close_default_comment' ), 10, 2 );
 
 		//Template Include Hook
 		add_filter( 'single_template', array( $this, 'redirect_answer_to_question' ), 20 );
@@ -824,7 +824,7 @@ class DWQA_Template {
 
 			$content = ob_get_contents();
 
-			add_filter( 'comments_open', array( $this, 'close_default_comment' ) );
+			add_filter( 'comments_open', array( $this, 'close_default_comment' ), 10, 2 );
 
 			ob_end_clean();
 
@@ -970,9 +970,10 @@ class DWQA_Template {
 		return $value;
 	}
 
-	public function close_default_comment( $open ) {
+	public function close_default_comment( $open, $post_id ) {
 		global $dwqa_options;
-		if ( is_singular( 'dwqa-question' ) || is_singular( 'dwqa-answer' ) || ( $dwqa_options['pages']['archive-question'] && is_page( $dwqa_options['pages']['archive-question'] ) ) || ( $dwqa_options['pages']['submit-question'] && is_page( $dwqa_options['pages']['submit-question'] ) ) ) {
+
+		if ( get_post_type( $post_id ) == 'dwqa-question' || get_post_type( $post_id ) == 'dwqa-answer' || ( $dwqa_options['pages']['archive-question'] && $dwqa_options['pages']['archive-question'] == $post_id) || ( $dwqa_options['pages']['submit-question'] && $dwqa_options['pages']['submit-question'] == $post_id) ) {
 			return false;
 		}
 		return $open;

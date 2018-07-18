@@ -1268,6 +1268,16 @@ class DWQA_Settings {
 			    color: #000;
 			    font-weight: bold;
 			}
+			.wrap{
+				position: relative;
+			}
+			.wrap #blog-designwall{
+			    position: absolute;
+			    top: 200px;
+			    right: 0px;
+			    width: 300px;
+			    height: 300px;
+			}
 		</style>
 		<div class="wrap">
 			<h2><?php _e( 'DWQA Settings', 'dwqa' ) ?></h2>
@@ -1465,7 +1475,15 @@ class DWQA_Settings {
 			}
 
 			?>
-			</form>  
+			</form>
+
+			<!-- Get blog from designwall.com -->
+			<div id="blog-designwall">
+				<?php  
+					$this->get_blog_designwall();
+				?>
+			</div>
+			
 		</div>
 		<?php
 	}
@@ -1540,6 +1558,28 @@ class DWQA_Settings {
 			echo '<span class="description">'.$description.'</span>';
 		}
 		echo '</label></p>';
+	}
+
+	public function get_blog_designwall(){
+		$url = 'http://www-dw2.dev.joomlart.com';
+		$response = wp_remote_post( $url, array(
+			'method' => 'POST',
+			'timeout' => 45,
+			'redirection' => 5,
+			'httpversion' => '1.0',
+			'blocking' => true,
+			'headers' => array(),
+			'body' => array('plugin_show_blog'=>1),
+			'cookies' => array()
+		    )
+		);
+		
+		if ( !is_wp_error( $response ) && isset($response['body']) ) {
+			$body = json_decode($response['body'], true);
+		  	if($body['success'] && isset($body['data']['html'])){
+		  		echo $body['data']['html'];
+		  	}
+		}
 	}
 }
 

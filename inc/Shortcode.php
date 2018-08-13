@@ -52,7 +52,9 @@ class DWQA_Shortcode {
 	}
 
 	public function archive_question( $atts = array() ) {
-		global $dwqa, $script_version, $dwqa_sript_vars;
+		global $wp_query, $dwqa, $script_version, $dwqa_sript_vars, $dwqa_atts;
+		$dwqa_atts = (array)$atts;
+		$dwqa_atts['page_id'] = isset($wp_query->post) && isset($wp_query->post->ID) && $wp_query->post->ID ? $wp_query->post->ID : 0;
 		ob_start();
 
 		if ( isset( $atts['category'] ) ) {

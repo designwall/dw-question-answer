@@ -115,7 +115,7 @@ function dwqa_answer_paginate_link() {
 }
 
 function dwqa_question_paginate_link() {
-	global $wp_query, $dwqa_general_settings;
+	global $wp_query, $dwqa_general_settings, $dwqa_atts;
 
 	$archive_question_url = get_permalink( $dwqa_general_settings['pages']['archive-question'] );
 	$page_text = dwqa_is_front_page() ? 'page' : 'paged';
@@ -127,6 +127,10 @@ function dwqa_question_paginate_link() {
 	$url = $cat 
 			? get_term_link( $cat, get_query_var( 'taxonomy' ) ) 
 			: ( $tag ? get_term_link( $tag, get_query_var( 'taxonomy' ) ) : $archive_question_url );
+
+	if(isset($dwqa_atts['category']) && isset($dwqa_atts['page_id']) && $dwqa_atts['page_id']){
+		$url = get_permalink($dwqa_atts['page_id']);
+	}
 
 	$args = array(
 		'base' => add_query_arg( $page_text, '%#%', $url ),

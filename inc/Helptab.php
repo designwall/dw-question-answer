@@ -44,24 +44,24 @@ class DWQA_Helptab {
 			// The assoc key represents the ID
 			// It is NOT allowed to contain spaces
 			'dwqa-overview' => array(
-				'title'         => __( 'Overview', 'dwqa' ),
-				'content'       => '<h3>'.__( 'DW Question Answer Plugin', 'dwqa' ).'</h3>'.
-				'<p>'.__( 'DW Question Answer is a WordPress Plugin which helps you build a Question & Answer system on your WordPress sites. The plugin is easy to install and set up. Let start building up your community with this WordPress question & answer system.', 'dwqa' ).'</p>'.$this->help_tab_designwall()
+				'title'         => __( 'Overview', 'dw-question-answer' ),
+				'content'       => '<h3>'.__( 'DW Question Answer Plugin', 'dw-question-answer' ).'</h3>'.
+				'<p>'.__( 'DW Question Answer is a WordPress Plugin which helps you build a Question & Answer system on your WordPress sites. The plugin is easy to install and set up. Let start building up your community with this WordPress question & answer system.', 'dw-question-answer' ).'</p>'.$this->help_tab_designwall()
 			),
 			'dwqa-guide-add-list-page' => array(
-				'title'         => __( 'Setup Question List Page', 'dwqa' ),
+				'title'         => __( 'Setup Question List Page', 'dw-question-answer' ),
 				'content'       => $this->help_tab_guide_make_question_list_page()
 			),
 			'dwqa-guide-add-ask-page' => array(
-				'title'         => __( 'Setup Ask Question Page', 'dwqa' ),
+				'title'         => __( 'Setup Ask Question Page', 'dw-question-answer' ),
 				'content'       => $this->help_tab_guide_make_ask_question_page()
 			),
 			'dwqa-guide-shortcode' => array(
-				'title'         => __( 'Shortcode', 'dwqa' ),
+				'title'         => __( 'Shortcode', 'dw-question-answer' ),
 				'content'       => $this->help_tab_guide_shortcode()
 			),
 			'dwqa-guide-style-integration' => array(
-				'title'         => __( 'Style integration', 'dwqa' ),
+				'title'         => __( 'Style integration', 'dw-question-answer' ),
 				'content'       => $this->help_tab_guide_style_integration()
 			)
 		);
@@ -150,7 +150,7 @@ class DWQA_Helptab {
 		ob_start();
 		?>
 		<h3 id="Style_integration">Style integration</h3>
-		The DW Question &amp; Answer plugin can work well on any WordPress site, however, in order to get the plugin fit well in the style, we will need to work on CSS a bit. <a target="_blank" href="http://www.designwall.com/guide/dw-question-answer-plugin/#Style_integration"><?php _e( 'Read more', 'dwqa' ) ?></a>
+		The DW Question &amp; Answer plugin can work well on any WordPress site, however, in order to get the plugin fit well in the style, we will need to work on CSS a bit. <a target="_blank" href="http://www.designwall.com/guide/dw-question-answer-plugin/#Style_integration"><?php _e( 'Read more', 'dw-question-answer' ) ?></a>
 		<?php
 		$html = ob_get_contents();
 		ob_end_clean();
@@ -163,7 +163,7 @@ class DWQA_Helptab {
 		foreach ( $this->tabs as $id => $data ) {
 			get_current_screen()->add_help_tab( array(
 				'id'       => $id,
-				'title'    => __( $data['title'], 'dwqa' ),
+				'title'    => __( $data['title'], 'dw-question-answer' ),
 				// Use the content only if you want to add something
 				// static on every help tab. Example: Another title inside the tab
 				'content'  => $data['content'],

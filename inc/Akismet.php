@@ -76,7 +76,7 @@ class DWQA_Akismet {
 	
 	// Create reported list admin
 	public function reported_list_admin(){
-		$dwqa_reported_page = add_submenu_page( 'edit.php?post_type=dwqa-question', __( 'Report Spam List','dwqa' ), __( 'Report Spam','dwqa' ), 'manage_options', 'dwqa-report-spam-list', array( $this, 'reported_list_admin_display' )  );
+		$dwqa_reported_page = add_submenu_page( 'edit.php?post_type=dwqa-question', __( 'Report Spam List','dw-question-answer' ), __( 'Report Spam','dw-question-answer' ), 'manage_options', 'dwqa-report-spam-list', array( $this, 'reported_list_admin_display' )  );
 	}
 	public function reported_list_admin_display(){
 		require_once DWQA_DIR . 'inc/class/class-display-reported-list-table.php';
@@ -86,10 +86,10 @@ class DWQA_Akismet {
 		echo '<div class="wrap"><h1>Reported Spam List</h1>';
 		$columns = array(
 				'id'	=> 'id',
-				'title' => __( 'Title', 'dwqa' ),
-				'type'    => __( 'Type', 'dwqa' ),
-				'author'    => __( 'Author', 'dwqa' ),
-				'countreport'	=>__( 'Count Report', 'dwqa' )
+				'title' => __( 'Title', 'dw-question-answer' ),
+				'type'    => __( 'Type', 'dw-question-answer' ),
+				'author'    => __( 'Author', 'dw-question-answer' ),
+				'countreport'	=>__( 'Count Report', 'dw-question-answer' )
 			  );
 			  
 		$hiddens = array(
@@ -159,11 +159,11 @@ class DWQA_Akismet {
 										'<span class="view"><a href="%s" rel="bookmark" aria-label="%s">%s</a><span>',
 										admin_url().'post.php?post='.$id.'&action=edit',
 										esc_attr( sprintf( __( 'View %s' ), $item->post_title ) ),
-										__( 'View','dwqa' )
+										__( 'View','dw-question-answer' )
 									),
 					'delete'    => sprintf( 
 										'<span class="delete"><a href="%s">%s</a><span>',
-										get_delete_post_link( $id , '', true), __( 'Delete permanently', 'dwqa' )
+										get_delete_post_link( $id , '', true), __( 'Delete permanently', 'dw-question-answer' )
 									)
 				);
 			$action='<div class="row-actions">';
@@ -201,7 +201,7 @@ class DWQA_Akismet {
 			$user_data['email'] = $userdata->user_email;
 			$user_data['website'] = $userdata->user_url;
 		} else if ( isset( $data['is_anonymous'] ) ) {
-			$user_data['name'] = isset( $data['dwqa_anonymous_name'] ) ? $data['dwqa_anonymous_name'] : __( 'Anonymous', 'dwqa' );
+			$user_data['name'] = isset( $data['dwqa_anonymous_name'] ) ? $data['dwqa_anonymous_name'] : __( 'Anonymous', 'dw-question-answer' );
 			$user_data['email'] = isset( $data['dwqa_anonymous_email'] ) ? $data['dwqa_anonymous_email'] : '';
 			$user_data['website'] = '';
 		} else {
@@ -422,7 +422,7 @@ class DWQA_Akismet {
 	
 	public function dwqa_admin_show_spam_page(){
 		register_post_status( 'spam', array(
-			'label'                     => _x( 'Spam', 'dwqa' ),
+			'label'                     => _x( 'Spam', 'dw-question-answer' ),
 			'public'                    => false,
 			'exclude_from_search'       => false,
 			'show_in_admin_all_list'    => false,
@@ -513,13 +513,13 @@ class DWQA_Akismet {
 	public function dwqa_report_spam_to_admin(){
 		$user_id = get_current_user_id();
 		if(!$user_id>0 || !is_numeric($user_id)){
-			wp_send_json_error( array( 'message' => __( 'You need login to report spam!', 'dwqa' ) ) );
+			wp_send_json_error( array( 'message' => __( 'You need login to report spam!', 'dw-question-answer' ) ) );
 		}
 		if ( ! isset( $_POST['post_id'] ) || !is_numeric($_POST['post_id']) ) {
-			wp_send_json_error( array( 'message' => __( 'Post not found!', 'dwqa' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Post not found!', 'dw-question-answer' ) ) );
 		}
 		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( $_POST['nonce'] ), '_dwqa_action_report_spam_to_admin' ) ) {
-			wp_send_json_error( array( 'message' => __( 'Are you cheating huh?', 'dwqa' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Are you cheating huh?', 'dw-question-answer' ) ) );
 		}
 		$post_id = $_POST['post_id'];
 		$key = '_dwqa_spam_reported';
@@ -531,18 +531,18 @@ class DWQA_Akismet {
 			if(!in_array($user_id,$args)){
 				$args[] = $user_id;
 			}else{
-				wp_send_json_error( array( 'message' => __( 'You reported this post before!', 'dwqa' ) ) );
+				wp_send_json_error( array( 'message' => __( 'You reported this post before!', 'dw-question-answer' ) ) );
 			}
 		}
 		update_post_meta($post_id, $key, serialize($args));
 		// if(empty)
-		wp_send_json_success( array( 'message' => __( 'Reported to admin', 'dwqa' ) ) );
+		wp_send_json_success( array( 'message' => __( 'Reported to admin', 'dw-question-answer' ) ) );
 	}
 	
 	public function dwqa_add_button_action_report_spam_to_admin($html){
 		if ( is_user_logged_in() ) {
 			$action_url = add_query_arg( array( 'action' => 'dwqa_delete_answer', 'answer_id' => get_the_ID() ), admin_url( 'admin-ajax.php' ) );
-			$html .= '<a class="dwqa_report_spam" data-nonce="'.wp_create_nonce( '_dwqa_action_report_spam_to_admin' ).'" data-post="'. get_the_ID() .'">' . __( 'Report Spam', 'dwqa' ) . '</a> ';
+			$html .= '<a class="dwqa_report_spam" data-nonce="'.wp_create_nonce( '_dwqa_action_report_spam_to_admin' ).'" data-post="'. get_the_ID() .'">' . __( 'Report Spam', 'dw-question-answer' ) . '</a> ';
 		}
 		return $html;
 		

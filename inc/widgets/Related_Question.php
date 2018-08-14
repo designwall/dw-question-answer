@@ -8,8 +8,8 @@ class DWQA_Widgets_Related_Question extends WP_Widget {
 	 * @return void
 	 **/
 	function __construct() {
-		$widget_ops = array( 'classname' => 'dwqa-widget dwqa-related-questions', 'description' => __( 'Show a list of questions that related to a question. Just show in single question page', 'dwqa' ) );
-		parent::__construct( 'dwqa-related-question', __( 'DWQA Related Questions', 'dwqa' ), $widget_ops );
+		$widget_ops = array( 'classname' => 'dwqa-widget dwqa-related-questions', 'description' => __( 'Show a list of questions that related to a question. Just show in single question page', 'dw-question-answer' ) );
+		parent::__construct( 'dwqa-related-question', __( 'DWQA Related Questions', 'dw-question-answer' ), $widget_ops );
 	}
 
 	function widget( $args, $instance ) {
@@ -45,10 +45,10 @@ class DWQA_Widgets_Related_Question extends WP_Widget {
 			'number' => 5,
 		) );
 		?>
-		<p><label for="<?php echo $this->get_field_id( 'title' ) ?>"><?php _e( 'Widget title', 'dwqa' ) ?></label>
+		<p><label for="<?php echo $this->get_field_id( 'title' ) ?>"><?php _e( 'Widget title', 'dw-question-answer' ) ?></label>
 		<input type="text" name="<?php echo $this->get_field_name( 'title' ) ?>" id="<?php echo $this->get_field_id( 'title' ) ?>" value="<?php echo sanitize_text_field( $instance['title'] ); ?>" class="widefat">
 		</p>
-		<p><label for="<?php echo $this->get_field_id( 'number' ) ?>"><?php _e( 'Number of posts', 'dwqa' ) ?></label>
+		<p><label for="<?php echo $this->get_field_id( 'number' ) ?>"><?php _e( 'Number of posts', 'dw-question-answer' ) ?></label>
 		<input type="text" name="<?php echo $this->get_field_name( 'number' ) ?>" id="<?php echo $this->get_field_id( 'number' ) ?>" value="<?php echo intval( $instance['number'] ); ?>" class="widefat">
 		</p>
 		<?php

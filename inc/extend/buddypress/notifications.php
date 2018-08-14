@@ -28,17 +28,17 @@ function bp_dwqa_format_buddypress_notifications( $action, $item_id, $secondary_
 		
 		$dwqa_notif_title = get_the_title( $answer->post_parent );
 		$dwqa_notif_link = wp_nonce_url( add_query_arg( array( 'action' => 'bp_dwqa_mark_read', 'question_id' => $answer->post_parent, 'answer_id' => $answer->ID ), get_permalink( $answer->post_parent ) ), 'bp_dwqa_mark_answer_' . $answer->ID );
-		$dwqa_notif_title_attr  = __( 'Question Replies', 'dwqa' );
+		$dwqa_notif_title_attr  = __( 'Question Replies', 'dw-question-answer' );
 		
 		if ( (int) $total_items > 1 ) {
-			$text   = sprintf( __('DWQA: ','dwqa') .__( 'You have %d new replies', 'dwqa' ), (int) $total_items );
+			$text   = sprintf( __('DWQA: ','dw-question-answer') .__( 'You have %d new replies', 'dw-question-answer' ), (int) $total_items );
 			$filter = 'bp_dwqa_multiple_new_subscription_notification';
 		} else {
 			if ( !empty( $secondary_item_id ) ) {
-				$text = sprintf( __('DWQA: ','dwqa') .__( 'You have %d new reply to %2$s from %3$s', 'dwqa' ), (int) $total_items, $dwqa_notif_title, bp_core_get_user_displayname( $secondary_item_id ) );
+				$text = sprintf( __('DWQA: ','dw-question-answer') .__( 'You have %d new reply to %2$s from %3$s', 'dw-question-answer' ), (int) $total_items, $dwqa_notif_title, bp_core_get_user_displayname( $secondary_item_id ) );
 				
 			} else {
-				$text = sprintf( __('DWQA: ','dwqa') .__( 'You have %d new reply to %s', 'dwqa' ), (int) $total_items, $dwqa_notif_title );
+				$text = sprintf( __('DWQA: ','dw-question-answer') .__( 'You have %d new reply to %s', 'dw-question-answer' ), (int) $total_items, $dwqa_notif_title );
 				
 			}
 			$filter = 'bp_dwqa_single_new_subscription_notification';
@@ -99,10 +99,10 @@ function bp_dwqa_buddypress_mark_notifications() {
 	// Check nonce
 	$nonce = $_REQUEST['_wpnonce'];
 	if ( ! wp_verify_nonce( $nonce, 'bp_dwqa_mark_answer_' . $answer_id ) ) {
-		dwqa_add_notice( __( "Hello, Are you cheating huh?", 'dwqa' ), 'error' );
+		dwqa_add_notice( __( "Hello, Are you cheating huh?", 'dw-question-answer' ), 'error' );
 	// Check current user's ability to edit the user
 	} elseif ( !current_user_can( 'edit_user', $user_id ) ) {
-		dwqa_add_notice( __( "You do not have permission to mark notifications for that user.", 'dwqa' ), 'error' );
+		dwqa_add_notice( __( "You do not have permission to mark notifications for that user.", 'dw-question-answer' ), 'error' );
 	}
 
 	if ( dwqa_count_notices( 'error' ) > 0 ) {

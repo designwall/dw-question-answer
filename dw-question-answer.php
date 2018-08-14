@@ -5,7 +5,7 @@
  *  Author: DesignWall
  *  Author URI: http://www.designwall.com
  *  Version: 1.5.3
- *  Text Domain: dwqa
+ *  Text Domain: dw-question-answer
  *  @since 1.4.0
  */
 
@@ -134,7 +134,16 @@ class DW_Question_Answer {
 
 		$active_template = $this->template->get_template();
 		//Load translate text domain
-		load_plugin_textdomain( 'dwqa', false,  plugin_basename( dirname( __FILE__ ) )  . '/languages' );
+		// load_plugin_textdomain( 'dw-question-answer', false,  plugin_basename( dirname( __FILE__ ) )  . '/languages' );
+		// load_plugin_textdomain( 'dw-question-answer');
+
+		$locale = get_locale();
+		$mo = 'dw-question-answer-' . $locale . '.mo';
+		
+		load_textdomain( 'dw-question-answer', WP_LANG_DIR . '/dw-question-answer/' . $mo );
+		load_textdomain( 'dw-question-answer', plugin_dir_path( __FILE__ ) . 'languages/' . $mo );
+		load_plugin_textdomain( 'dw-question-answer' );
+
 		//Scripts var
 
 		$question_category_rewrite = $dwqa_general_settings['question-category-rewrite'];
@@ -158,7 +167,7 @@ class DW_Question_Answer {
 
 		if ( ! isset( $options['pages']['archive-question'] ) || ( isset( $options['pages']['archive-question'] ) && ! get_post( $options['pages']['archive-question'] ) ) ) {
 			$args = array(
-				'post_title' => __( 'DWQA Questions', 'dwqa' ),
+				'post_title' => __( 'DWQA Questions', 'dw-question-answer' ),
 				'post_type' => 'page',
 				'post_status' => 'publish',
 				'post_content'  => '[dwqa-list-questions]',
@@ -175,7 +184,7 @@ class DW_Question_Answer {
 		if ( ! isset( $options['pages']['submit-question'] ) || ( isset( $options['pages']['submit-question'] ) && ! get_post( $options['pages']['submit-question'] ) ) ) {
 
 			$args = array(
-				'post_title' => __( 'DWQA Ask Question', 'dwqa' ),
+				'post_title' => __( 'DWQA Ask Question', 'dw-question-answer' ),
 				'post_type' => 'page',
 				'post_status' => 'publish',
 				'post_content'  => '[dwqa-submit-question-form]',

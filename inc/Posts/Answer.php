@@ -204,9 +204,9 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 
 	public function __construct() {
 		parent::__construct( 'dwqa-answer', array(
-			'plural' => __( 'Answers', 'dwqa' ),
-			'singular' => __( 'Answer', 'dwqa' ),
-			'menu' => __( 'Answers', 'dwqa' ),
+			'plural' => __( 'Answers', 'dw-question-answer' ),
+			'singular' => __( 'Answer', 'dw-question-answer' ),
+			'menu' => __( 'Answers', 'dw-question-answer' ),
 		) );
 
 
@@ -249,10 +249,10 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 		if ( isset( $_GET['post_type'] ) && sanitize_text_field( $_GET['post_type'] ) == $this->get_slug() ) {
 			$defaults = array(
 				'cb'            => '<input type="checkbox">',
-				'info'          => __( 'Answer', 'dwqa' ),
-				'author'        => __( 'Author', 'dwqa' ),
+				'info'          => __( 'Answer', 'dw-question-answer' ),
+				'author'        => __( 'Author', 'dw-question-answer' ),
 				'comment'       => '<span><span class="vers"><div title="Comments" class="comment-grey-bubble"></div></span></span>',
-				'dwqa-question' => __( 'In Response To', 'dwqa' ),
+				'dwqa-question' => __( 'In Response To', 'dw-question-answer' ),
 			);
 		}
 		return $defaults;
@@ -302,8 +302,8 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 				);
 				printf(
 					'%s %s <a href="%s">%s %s</a> <br /> %s %s',
-					__( 'Submitted', 'dwqa' ),
-					__( 'on', 'dwqa' ),
+					__( 'Submitted', 'dw-question-answer' ),
+					__( 'on', 'dw-question-answer' ),
 					get_permalink(),
 					date( 'M d Y', get_post_time( 'U', true, $answer ) ),
 					( time() - get_post_time( 'U', true, $answer ) ) > 60 * 60 * 24 * 2 ? '' : ' at ' . human_time_diff( get_post_time( 'U', true, $answer ) ) . ' ago',
@@ -338,7 +338,7 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 	public function question_metabox() {
 		add_meta_box(
 			'dwqa-answer-question-metabox',
-			__( 'Question ID', 'dwqa' ),
+			__( 'Question ID', 'dw-question-answer' ),
 			array( $this, 'question_metabox_output' ),
 			'dwqa-answer',
 			'side'
@@ -349,10 +349,10 @@ class DWQA_Posts_Answer extends DWQA_Posts_Base {
 		$question = $post->post_parent ? $post->post_parent : 0;
 		?>
 		<p>
-			<strong><?php _e( 'ID', 'dwqa' ) ?></strong>
+			<strong><?php _e( 'ID', 'dw-question-answer' ) ?></strong>
 		</p>
 		<p>
-			<label class="screen-reader-text"><?php _e( 'ID', 'dwqa' ) ?></label>
+			<label class="screen-reader-text"><?php _e( 'ID', 'dw-question-answer' ) ?></label>
 			<input name="_question" type="text" size="4" id="_question" value="<?php echo (int) $question ?>">
 		</p>
 		<?php

@@ -9,7 +9,7 @@ class DWQA_QA_Component extends BP_Component {
 	public function __construct() {
 		parent::start(
 			'dwqa',
-			__( 'DWQA', 'dwqa' ),
+			__( 'DWQA', 'dw-question-answer' ),
 			DWQA_DIR .'inc/extend/buddypress/'
 		);
 		$this->includes();
@@ -41,7 +41,7 @@ class DWQA_QA_Component extends BP_Component {
 			'slug'          => BP_DWQA_SLUG,
 			'root_slug'     => BP_DWQA_SLUG,
 			'has_directory' => false,
-			'search_string' => __( 'Search DWQA...', 'dwqa' ),
+			'search_string' => __( 'Search DWQA...', 'dw-question-answer' ),
 		);
 
 		parent::setup_globals( $args );
@@ -58,7 +58,7 @@ class DWQA_QA_Component extends BP_Component {
 
 		// Add 'DWQA' to the main navigation
 		$main_nav = array(
-			'name'                => __( 'DWQA', 'dwqa' ),
+			'name'                => __( 'DWQA', 'dw-question-answer' ),
 			'slug'                => $this->slug,
 			'position'            => 80,
 			'screen_function'     => 'dp_dwqa_screen_questions',
@@ -78,7 +78,7 @@ class DWQA_QA_Component extends BP_Component {
 		$dwqa_link = trailingslashit( $user_domain . $this->slug );
 
 		$sub_nav[] = array(
-			'name'            => __( 'Questions', 'dwqa' ),
+			'name'            => __( 'Questions', 'dw-question-answer' ),
 			'slug'            => 'dwqa-question',
 			'parent_url'      => $dwqa_link,
 			'parent_slug'     => $this->slug,
@@ -109,13 +109,13 @@ class DWQA_QA_Component extends BP_Component {
 			$wp_admin_nav[] = array(
 				'parent' => buddypress()->my_account_menu_id,
 				'id'     => 'my-account-' . $this->id,
-				'title'  => __( 'DWQA', 'dwqa' ),
+				'title'  => __( 'DWQA', 'dw-question-answer' ),
 				'href'   => trailingslashit( $dwqa_link )
 			);
 			$wp_admin_nav[] = array(
 				'parent' => 'my-account-' . $this->id,
 				'id'     => 'my-account-' . $this->id.'-question',
-				'title'  => __( 'Questions', 'dwqa' ),
+				'title'  => __( 'Questions', 'dw-question-answer' ),
 				'href'   => trailingslashit( $dwqa_link )
 			);
 		 

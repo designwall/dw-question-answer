@@ -8,14 +8,14 @@ class DWQA_Widgets_Closed_Question extends WP_Widget {
 	 * @return void
 	 **/
 	function __construct() {
-		$widget_ops = array( 'classname' => 'dwqa-widget dwqa-closed-questions', 'description' => __( 'Show a list of questions marked as closed.', 'dwqa' ) );
-		parent::__construct( 'dwqa-closed-question', __( 'DWQA Closed Questions', 'dwqa' ), $widget_ops );
+		$widget_ops = array( 'classname' => 'dwqa-widget dwqa-closed-questions', 'description' => __( 'Show a list of questions marked as closed.', 'dw-question-answer' ) );
+		parent::__construct( 'dwqa-closed-question', __( 'DWQA Closed Questions', 'dw-question-answer' ), $widget_ops );
 	}
 
 	function widget( $args, $instance ) {
 		extract( $args, EXTR_SKIP );
 		$instance = wp_parse_args( $instance, array( 
-			'title' => __( 'Closed Questions', 'dwqa' ),
+			'title' => __( 'Closed Questions', 'dw-question-answer' ),
 			'number' => 5,
 		) );
 		
@@ -46,7 +46,7 @@ class DWQA_Widgets_Closed_Question extends WP_Widget {
 			echo '<ul>';
 			while ( $questions->have_posts() ) { $questions->the_post( );
 				echo '
-				<li><a href="'.get_permalink( ).'" class="question-title">'.get_the_title( ).'</a> '.__( 'asked by' , 'dwqa' ).' '. get_the_author_link( );
+				<li><a href="'.get_permalink( ).'" class="question-title">'.get_the_title( ).'</a> '.__( 'asked by' , 'dw-question-answer' ).' '. get_the_author_link( );
 				'</li>';
 			}   
 			echo '</ul>';
@@ -69,10 +69,10 @@ class DWQA_Widgets_Closed_Question extends WP_Widget {
 			'number' => 5,
 		) );
 		?>
-		<p><label for="<?php echo $this->get_field_id( 'title' ) ?>"><?php _e( 'Widget title', 'dwqa' ) ?></label>
+		<p><label for="<?php echo $this->get_field_id( 'title' ) ?>"><?php _e( 'Widget title', 'dw-question-answer' ) ?></label>
 		<input type="text" name="<?php echo $this->get_field_name( 'title' ) ?>" id="<?php echo $this->get_field_id( 'title' ) ?>" value="<?php echo $instance['title'] ?>" class="widefat">
 		</p>
-		<p><label for="<?php echo $this->get_field_id( 'number' ) ?>"><?php _e( 'Number of posts', 'dwqa' ) ?></label>
+		<p><label for="<?php echo $this->get_field_id( 'number' ) ?>"><?php _e( 'Number of posts', 'dw-question-answer' ) ?></label>
 		<input type="text" name="<?php echo $this->get_field_name( 'number' ) ?>" id="<?php echo $this->get_field_id( 'number' ) ?>" value="<?php echo $instance['number'] ?>" class="widefat">
 		</p>
 		<?php

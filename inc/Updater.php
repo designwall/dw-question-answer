@@ -94,7 +94,7 @@ class DWQA_Updater {
 		add_settings_section( $this->slug, $this->name, array( $this, 'display_description' ), 'dwqa-addons-settings' );
 		// creates our settings in the options table
 		register_setting( 'dwqa-addons', $this->license_option_key, array( $this, 'sanitize_license' ) );
-		add_settings_field( $this->license_option_key, __( 'License Key', 'dwqa' ), array( $this, 'license_setting_field' ), 'dwqa-addons-settings', $this->slug );
+		add_settings_field( $this->license_option_key, __( 'License Key', 'dw-question-answer' ), array( $this, 'license_setting_field' ), 'dwqa-addons-settings', $this->slug );
 	}
 
 	public function display_description() {
@@ -119,7 +119,7 @@ class DWQA_Updater {
 			echo '<p class="description">Your license key was activated</p>';
 		}
 		if ( $license_key && 'valid' != $status ) {
-			echo '<br><button id="'.$this->slug.'-activate-license" class="button btn" type="button">'.__('Activate','dwqa').'</button>';
+			echo '<br><button id="'.$this->slug.'-activate-license" class="button btn" type="button">'.__('Activate','dw-question-answer').'</button>';
 			?>
 			<script type="text/javascript">
 			jQuery('#<?php echo $this->slug ?>-activate-license').on('click', function(e){
@@ -173,7 +173,7 @@ class DWQA_Updater {
 
 		update_option( $this->license_status_key, $license_data->license );
 
-		wp_send_json_success( array( 'message' => __( 'Plugin was activated', 'dwqa' ) ) );
+		wp_send_json_success( array( 'message' => __( 'Plugin was activated', 'dw-question-answer' ) ) );
 	}
 
 	public function deactivate_license() {

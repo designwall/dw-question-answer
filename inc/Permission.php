@@ -325,7 +325,7 @@ class DWQA_Permission {
 	public function reset_permission_default() {
 		global $dwqa;
 		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( $_POST['nonce'] ), '_dwqa_reset_permission' ) ) {
-			wp_send_json_error( array( 'message' => __( 'Are you cheating huh?', 'dwqa' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Are you cheating huh?', 'dw-question-answer' ) ) );
 		}
 		if ( isset( $_POST['type'] ) ) {
 			$old = $dwqa->permission->perms;

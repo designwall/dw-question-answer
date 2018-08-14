@@ -50,19 +50,19 @@ class DWQA_Autoclosure {
 		// add a 'weekly' schedule to the existing set
 		/* $schedules['weekly'] = array(
 			'interval' => 604800,
-			'display' => __('Once Weekly', 'dwqa')
+			'display' => __('Once Weekly', 'dw-question-answer')
 		);
 		$schedules['monthly'] = array(
 			'interval' => 2635200,
-			'display' => __('Once a month', 'dwqa')
+			'display' => __('Once a month', 'dw-question-answer')
 		);
 		$schedules['minutely'] = array(
 			'interval' => 60,
-			'display' => __('Minutely', 'dwqa')
+			'display' => __('Minutely', 'dw-question-answer')
 		); */
 		$schedules['half_daily'] = array(
 			'interval' => 43200,
-			'display' => __('Half Daily', 'dwqa')
+			'display' => __('Half Daily', 'dw-question-answer')
 		);
 		return $schedules;
 	}

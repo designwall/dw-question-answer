@@ -27,36 +27,36 @@ class DWQA_Handle {
 		}
 
 		if ( ! isset( $_POST['_wpnonce'] ) || ! wp_verify_nonce( esc_html(  $_POST['_wpnonce'] ), '_dwqa_add_new_answer' ) ) {
-			dwqa_add_notice( __( '&quot;Helllo&quot;, Are you cheating huh?.', 'dwqa' ), 'error' );
+			dwqa_add_notice( __( '&quot;Helllo&quot;, Are you cheating huh?.', 'dw-question-answer' ), 'error' );
 		}
 
-		if ( sanitize_text_field( $_POST['submit-answer'] ) == __( 'Delete draft', 'dwqa' ) ) {
+		if ( sanitize_text_field( $_POST['submit-answer'] ) == __( 'Delete draft', 'dw-question-answer' ) ) {
 			$draft = isset( $_POST['answer-id'] ) ? intval( $_POST['answer-id'] ) : 0;
 			if ( $draft )
 				wp_delete_post( $draft );
 		}
 
 		if ( empty( $_POST['answer-content'] ) ) {
-			dwqa_add_notice( __( 'Answer content is empty', 'dwqa' ), 'error' );
+			dwqa_add_notice( __( 'Answer content is empty', 'dw-question-answer' ), 'error' );
 		}
 		if ( empty( $_POST['question_id'] ) ) {
-			dwqa_add_notice( __( 'Question is empty', 'dwqa' ), 'error' );
+			dwqa_add_notice( __( 'Question is empty', 'dw-question-answer' ), 'error' );
 		}
 
 		if ( !dwqa_current_user_can( 'post_answer' ) ) {
-			dwqa_add_notice( __( 'You do not have permission to submit question.', 'dwqa' ), 'error' );
+			dwqa_add_notice( __( 'You do not have permission to submit question.', 'dw-question-answer' ), 'error' );
 		}
 
 		if ( !is_user_logged_in() && ( empty( $_POST['user-email'] ) || !is_email( sanitize_email( $_POST['user-email'] ) ) ) ) {
-			dwqa_add_notice( __( 'Missing email information', 'dwqa' ), 'error' );
+			dwqa_add_notice( __( 'Missing email information', 'dw-question-answer' ), 'error' );
 		}
 
 		if ( !is_user_logged_in() && ( empty( $_POST['user-name'] ) ) ) {
-			dwqa_add_notice( __( 'Missing name information', 'dwqa' ), 'error' );
+			dwqa_add_notice( __( 'Missing name information', 'dw-question-answer' ), 'error' );
 		}
 
 		if ( !dwqa_valid_captcha( 'single-question' ) ) {
-			dwqa_add_notice( __( 'Captcha is not correct', 'dwqa' ), 'error' );
+			dwqa_add_notice( __( 'Captcha is not correct', 'dw-question-answer' ), 'error' );
 		}
 
 		$user_id = 0;
@@ -75,7 +75,7 @@ class DWQA_Handle {
 
 		$question_id = intval( $_POST['question_id'] );
 
-		$answer_title = __( 'Answer for ', 'dwqa' ) . get_post_field( 'post_title', $question_id );
+		$answer_title = __( 'Answer for ', 'dw-question-answer' ) . get_post_field( 'post_title', $question_id );
 		$answ_content = apply_filters( 'dwqa_prepare_answer_content', $_POST['answer-content'] );
 
 		$answers = array(
@@ -138,26 +138,26 @@ class DWQA_Handle {
 	public function update_answer() {
 		if ( isset( $_POST['dwqa-edit-answer-submit'] ) ) {
 			if ( !dwqa_current_user_can( 'edit_answer' ) ) {
-				dwqa_add_notice( __( "You do not have permission to edit answer.", 'dwqa' ), 'error' );
+				dwqa_add_notice( __( "You do not have permission to edit answer.", 'dw-question-answer' ), 'error' );
 			}
 
 			if ( !isset( $_POST['_wpnonce'] ) && !wp_verify_nonce( esc_html( $_POST['_wpnonce'] ), '_dwqa_edit_answer' ) ) {
-				dwqa_add_notice( __( 'Hello, Are you cheating huh?', 'dwqa' ), 'error' );
+				dwqa_add_notice( __( 'Hello, Are you cheating huh?', 'dw-question-answer' ), 'error' );
 			}
 
 			$answer_content = apply_filters( 'dwqa_prepare_edit_answer_content', $_POST['answer_content'] );
 			if ( empty( $answer_content ) ) {
-				dwqa_add_notice( __( 'You must enter a valid answer content.', 'dwqa' ), 'error' );
+				dwqa_add_notice( __( 'You must enter a valid answer content.', 'dw-question-answer' ), 'error' );
 			}
 
 			$answer_id = isset( $_POST['answer_id'] ) ? intval( $_POST['answer_id'] ) : false;
 
 			if ( !$answer_id ) {
-				dwqa_add_notice( __( 'Answer is missing.', 'dwqa' ), 'error' );
+				dwqa_add_notice( __( 'Answer is missing.', 'dw-question-answer' ), 'error' );
 			}
 
 			if ( 'dwqa-answer' !== get_post_type( $answer_id ) ) {
-				dwqa_add_notice( __( 'This post is not answer.', 'dwqa' ), 'error' );
+				dwqa_add_notice( __( 'This post is not answer.', 'dw-question-answer' ), 'error' );
 			}
 
 			do_action( 'dwqa_prepare_insert_question', $answer_id );
@@ -193,16 +193,16 @@ class DWQA_Handle {
 		global $current_user;
 		if ( isset( $_POST['comment-submit'] ) ) {
 			if ( ! dwqa_current_user_can( 'post_comment' ) ) {
-				dwqa_add_notice( __( 'You can\'t post comment', 'dwqa' ), 'error', true );
+				dwqa_add_notice( __( 'You can\'t post comment', 'dw-question-answer' ), 'error', true );
 			}
 			if ( ! isset( $_POST['comment_post_ID'] ) ) {
-				dwqa_add_notice( __( 'Missing post id.', 'dwqa' ), 'error', true );
+				dwqa_add_notice( __( 'Missing post id.', 'dw-question-answer' ), 'error', true );
 			}
 			$comment_content = isset( $_POST['comment'] ) ? $_POST['comment'] : '';
 			$comment_content = apply_filters( 'dwqa_pre_comment_content', $comment_content );
 
 			if ( empty( $comment_content ) ) {
-				dwqa_add_notice( __( 'Please enter your comment content', 'dwqa' ), 'error', true );
+				dwqa_add_notice( __( 'Please enter your comment content', 'dw-question-answer' ), 'error', true );
 			}
 
 			$args = array(
@@ -217,11 +217,11 @@ class DWQA_Handle {
 				$args['comment_author'] = $current_user->display_name;
 			} else {
 				if ( ! isset( $_POST['email'] ) || ! sanitize_email( $_POST['email'] ) ) {
-					dwqa_add_notice( __( 'Missing email information', 'dwqa' ), 'error', true );
+					dwqa_add_notice( __( 'Missing email information', 'dw-question-answer' ), 'error', true );
 				}
 
 				if ( ! isset( $_POST['name'] ) || empty( $_POST['name'] ) ) {
-					dwqa_add_notice( __( 'Missing name information', 'dwqa' ), 'error', true );
+					dwqa_add_notice( __( 'Missing name information', 'dw-question-answer' ), 'error', true );
 				}
 
 				$args['comment_author'] = isset( $_POST['name'] ) ? sanitize_text_field( $_POST['name'] ) : 'Anonymous';
@@ -268,22 +268,22 @@ class DWQA_Handle {
 		global $post_submit_filter;
 		if ( isset( $_POST['dwqa-edit-comment-submit'] ) ) {
 			if ( ! isset( $_POST['comment_id']) ) {
-				dwqa_add_notice( __( 'Comment is missing', 'dwqa' ), 'error' );
+				dwqa_add_notice( __( 'Comment is missing', 'dw-question-answer' ), 'error' );
 			}
 			$comment_id = intval( $_POST['comment_id'] );
 			$comment_content = isset( $_POST['comment_content'] ) ? $_POST['comment_content'] : '';
 			$comment_content = apply_filters( 'dwqa_pre_update_comment_content', $comment_content );
 
 			if ( ! isset( $_POST['_wpnonce'] ) || ! wp_verify_nonce( sanitize_text_field( $_POST['_wpnonce'] ), '_dwqa_edit_comment' ) ) {
-				dwqa_add_notice( __( 'Are you cheating huh?', 'dwqa' ), 'error' );
+				dwqa_add_notice( __( 'Are you cheating huh?', 'dw-question-answer' ), 'error' );
 			}
 
 			if ( !dwqa_current_user_can( 'edit_comment', $comment_id ) ) {
-				dwqa_add_notice( __( 'You do not have permission to edit comment.', 'dwqa' ), 'error' );
+				dwqa_add_notice( __( 'You do not have permission to edit comment.', 'dw-question-answer' ), 'error' );
 			}
 
 			if ( strlen( $comment_content ) <= 0 || ! isset( $comment_id ) || ( int )$comment_id <= 0 ) {
-				dwqa_add_notice( __( 'Comment content must not be empty.', 'dwqa' ), 'error' );
+				dwqa_add_notice( __( 'Comment content must not be empty.', 'dw-question-answer' ), 'error' );
 			} else {
 				$commentarr = array(
 					'comment_ID'        => $comment_id,
@@ -313,18 +313,18 @@ class DWQA_Handle {
 			if ( isset( $_POST['_wpnonce'] ) && wp_verify_nonce( esc_html( $_POST['_wpnonce'] ), '_dwqa_submit_question' ) ) {
 				if ( $valid_captcha ) {
 					if ( empty( $_POST['question-title'] ) ) {
-						dwqa_add_notice( __( 'You must enter a valid question title.', 'dwqa' ), 'error' );
+						dwqa_add_notice( __( 'You must enter a valid question title.', 'dw-question-answer' ), 'error' );
 						return false;
 					}
 
 					if ( !is_user_logged_in() ) {
 						if ( empty( $_POST['_dwqa_anonymous_email'] ) || !is_email( sanitize_email( $_POST['_dwqa_anonymous_email'] ) ) ) {
-							dwqa_add_notice( __( 'Missing email information', 'dwqa' ), 'error' );
+							dwqa_add_notice( __( 'Missing email information', 'dw-question-answer' ), 'error' );
 							return false;
 						}
 
 						if ( empty( $_POST['_dwqa_anonymous_name'] ) ) {
-							dwqa_add_notice( __( 'Missing name information', 'dwqa' ), 'error' );
+							dwqa_add_notice( __( 'Missing name information', 'dw-question-answer' ), 'error' );
 							return false;
 						}
 					}
@@ -403,13 +403,13 @@ class DWQA_Handle {
 							} else {
 								$message = '';
 								if ( ! $users_can_register ) {
-									$message .= __( 'User Registration was disabled.','dwqa' ).'<br>';
+									$message .= __( 'User Registration was disabled.','dw-question-answer' ).'<br>';
 								}
 								if ( isset( $_POST['user-name'] ) && email_exists( sanitize_email( $_POST['user-email'] ) ) ) {
-									$message .= __( 'This email is already registered, please choose another one.','dwqa' ).'<br>';
+									$message .= __( 'This email is already registered, please choose another one.','dw-question-answer' ).'<br>';
 								}
 								if ( isset( $_POST['user-name'] ) && username_exists( esc_html( $_POST['user-name'] ) ) ) {
-									$message .= __( 'This username is already registered. Please use another one.','dwqa' ).'<br>';
+									$message .= __( 'This username is already registered. Please use another one.','dw-question-answer' ).'<br>';
 								}
 								// $dwqa_current_error = new WP_Error( 'submit_question', $message );
 								dwqa_add_notice( $message, 'error' );
@@ -450,8 +450,8 @@ class DWQA_Handle {
 						$new_question = $this->insert_question( $postarr );
 						do_action('dwqa_after_insert_question',$new_question);
 					} else {
-						//$dwqa_submit_question_errors->add( 'submit_question',  __( 'You do not have permission to submit question.', 'dwqa' ) );
-						dwqa_add_notice( __( 'You do not have permission to submit question.', 'dwqa' ), 'error' );
+						//$dwqa_submit_question_errors->add( 'submit_question',  __( 'You do not have permission to submit question.', 'dw-question-answer' ) );
+						dwqa_add_notice( __( 'You do not have permission to submit question.', 'dw-question-answer' ), 'error' );
 						$new_question = $dwqa_submit_question_errors;
 					}
 
@@ -463,18 +463,18 @@ class DWQA_Handle {
 						}
 
 						if ( isset( $dwqa_options['enable-review-question'] ) && $dwqa_options['enable-review-question'] && !current_user_can( 'manage_options' ) && $post_status != 'private' ) {
-							dwqa_add_notice( __( 'Your question is waiting moderator.', 'dwqa' ), 'success' );
+							dwqa_add_notice( __( 'Your question is waiting moderator.', 'dw-question-answer' ), 'success' );
 						} else {
 							exit( wp_safe_redirect( get_permalink( $new_question ) ) );
 						}
 					}
 				} else {
-					// $dwqa_submit_question_errors->add( 'submit_question', __( 'Captcha is not correct','dwqa' ) );
-					dwqa_add_notice( __( 'Captcha is not correct', 'dwqa' ), 'error' );
+					// $dwqa_submit_question_errors->add( 'submit_question', __( 'Captcha is not correct','dw-question-answer' ) );
+					dwqa_add_notice( __( 'Captcha is not correct', 'dw-question-answer' ), 'error' );
 				}
 			} else {
-				// $dwqa_submit_question_errors->add( 'submit_question', __( 'Are you cheating huh?','dwqa' ) );
-				dwqa_add_notice( __( 'Are you cheating huh?', 'dwqa' ), 'error' );
+				// $dwqa_submit_question_errors->add( 'submit_question', __( 'Are you cheating huh?','dw-question-answer' ) );
+				dwqa_add_notice( __( 'Are you cheating huh?', 'dw-question-answer' ), 'error' );
 			}
 			//$dwqa_current_error = $dwqa_submit_question_errors;
 		}
@@ -485,22 +485,22 @@ class DWQA_Handle {
 			if ( isset( $_POST['_wpnonce'] ) && wp_verify_nonce( esc_html( $_POST['_wpnonce'] ), '_dwqa_edit_question' ) ) {
 
 				if ( !dwqa_current_user_can( 'edit_question' ) ) {
-					dwqa_add_notice( __( "You do not have permission to edit question", 'dwqa' ), 'error' );
+					dwqa_add_notice( __( "You do not have permission to edit question", 'dw-question-answer' ), 'error' );
 				}
 
 				$question_title = apply_filters( 'dwqa_prepare_edit_question_title', sanitize_text_field( $_POST['question_title'] ) );
 				if ( empty( $question_title ) ) {
-					dwqa_add_notice( __( 'You must enter a valid question title.', 'dwqa' ), 'error' );
+					dwqa_add_notice( __( 'You must enter a valid question title.', 'dw-question-answer' ), 'error' );
 				}
 
 				$question_id = isset( $_POST['question_id'] ) ? sanitize_text_field( $_POST['question_id'] ) : false;
 
 				if ( !$question_id ) {
-					dwqa_add_notice( __( 'Question is missing.', 'dwqa' ), 'error' );
+					dwqa_add_notice( __( 'Question is missing.', 'dw-question-answer' ), 'error' );
 				}
 
 				if ( 'dwqa-question' !== get_post_type( $question_id ) ) {
-					dwqa_add_notice( __( 'This post is not question.', 'dwqa' ), 'error' );
+					dwqa_add_notice( __( 'This post is not question.', 'dw-question-answer' ), 'error' );
 				}
 
 				$question_content = apply_filters( 'dwqa_prepare_edit_question_content', $_POST['question_content'] );
@@ -539,7 +539,7 @@ class DWQA_Handle {
 					return false;
 				}
 			} else {
-				dwqa_add_notice( __( 'Hello, Are you cheating huh?', 'dwqa' ), 'error' );
+				dwqa_add_notice( __( 'Hello, Are you cheating huh?', 'dw-question-answer' ), 'error' );
 				return false;
 			}
 			exit(0);

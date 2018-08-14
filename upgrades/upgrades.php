@@ -22,7 +22,7 @@ class DWQA_Upgrades {
 
 		if ( ! self::$db_version || version_compare( self::$db_version, self::$version, '<') ) {
 			printf(
-				'<div class="error"><p>' . esc_html__( 'DW Question Answer needs to upgrade the database, click %shere%s to start the upgrade.', 'dwqa' ) . '</p></div>',
+				'<div class="error"><p>' . esc_html__( 'DW Question Answer needs to upgrade the database, click %shere%s to start the upgrade.', 'dw-question-answer' ) . '</p></div>',
 				'<a href="' . esc_url( admin_url( 'options.php?page=dwqa-upgrades' ) ) . '">',
 				'</a>'
 			);
@@ -30,14 +30,14 @@ class DWQA_Upgrades {
 	}
 
 	public static function upgrade_screen() {
-		add_submenu_page( null, __( 'DWQA Upgrade', 'dwqa' ),  __( 'DWQA Upgrade', 'dwqa' ), 'manage_options', 'dwqa-upgrades', array( __CLASS__, 'proccess_upgrades' ) );
+		add_submenu_page( null, __( 'DWQA Upgrade', 'dw-question-answer' ),  __( 'DWQA Upgrade', 'dw-question-answer' ), 'manage_options', 'dwqa-upgrades', array( __CLASS__, 'proccess_upgrades' ) );
 	}
 
 	public static function proccess_upgrades() {
 		?>
 		<div class="wrap">
 			<h2><?php echo get_admin_page_title(); ?></h2>
-			<p><?php _e('The upgrade process has started, please be patient. This could take several minutes. You will be automatically redirected when the upgrade is finished...','dwqa') ?></p>
+			<p><?php _e('The upgrade process has started, please be patient. This could take several minutes. You will be automatically redirected when the upgrade is finished...','dw-question-answer') ?></p>
 			<script type="text/javascript">
 			jQuery(document).ready(function($) {
 				function dwqaUpgradeSendRequest( restart ) {
@@ -127,7 +127,7 @@ class DWQA_Upgrades {
 
 	public static function ajax_upgrades() {
 		if ( ! current_user_can( 'manage_options' ) ) {
-			wp_send_json_error( array( 'message' => __( 'You do not have permission to do this task', 'dwqa' ) ) );
+			wp_send_json_error( array( 'message' => __( 'You do not have permission to do this task', 'dw-question-answer' ) ) );
 		}
 
 		if ( isset( $_POST['restart'] ) && intval( $_POST['restart'] ) ) {
@@ -144,7 +144,7 @@ class DWQA_Upgrades {
 				wp_send_json_success( array(
 					'start' => $start,
 					'finish' => 0,
-					'message' => __( 'Just do it..', 'dwqa' )
+					'message' => __( 'Just do it..', 'dw-question-answer' )
 				) );
 				break;
 			case 1:
@@ -152,7 +152,7 @@ class DWQA_Upgrades {
 				if ( ! $do_next ) {
 					$start += 1;
 					update_option( 'dwqa_upgrades_start', $start );
-					$message = sprintf( __( 'Move to next step %d', 'dwqa' ), $start );
+					$message = sprintf( __( 'Move to next step %d', 'dw-question-answer' ), $start );
 				} else {
 					$message = $do_next;
 				}
@@ -169,7 +169,7 @@ class DWQA_Upgrades {
 				wp_send_json_success( array(
 					'start' => $start,
 					'finish' => 1,
-					'message' => __('Upgrade process is done','dwqa')
+					'message' => __('Upgrade process is done','dw-question-answer')
 				) );
 				break;
 		}

@@ -30,7 +30,7 @@ function dwqa_question_answers_count( $question_id = null ) {
 			$args['post_status'][] = 'private';
 		}
 		$answer = new WP_Query($args);
-		$answer_count = $answer->post_count;
+		$answer_count = $answer->found_posts;
 
 		wp_cache_set( 'dwqa_answer_count_for_' . $question_id, $answer_count, '', 15*60 );
 	}

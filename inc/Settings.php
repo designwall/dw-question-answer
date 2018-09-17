@@ -1477,7 +1477,7 @@ class DWQA_Settings {
 			?>
 			</form>
 
-			<?php if(isset($_GET['tab']) && $_GET['tab'] == 'general'):?>
+			<?php if(!isset($_GET['tab']) ||(isset($_GET['tab']) && $_GET['tab'] == 'general')):?>
 			<!-- Get blog from designwall.com -->
 			<div id="blog-designwall">
 				<?php  
@@ -1563,7 +1563,7 @@ class DWQA_Settings {
 	}
 
 	public function get_blog_designwall(){
-		$url = 'http://www-dw2.dev.joomlart.com';
+		$url = 'http://designwall.com';
 		$response = wp_remote_post( $url, array(
 			'method' => 'POST',
 			'timeout' => 45,

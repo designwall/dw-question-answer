@@ -1477,12 +1477,14 @@ class DWQA_Settings {
 			?>
 			</form>
 
+			<?php if(isset($_GET['tab']) && $_GET['tab'] == 'general'):?>
 			<!-- Get blog from designwall.com -->
 			<div id="blog-designwall">
 				<?php  
 					$this->get_blog_designwall();
 				?>
 			</div>
+			<?php endif;?>
 			
 		</div>
 		<?php

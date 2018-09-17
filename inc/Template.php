@@ -775,7 +775,7 @@ class DWQA_Template {
 	public function redirect_answer_to_question( $template ) {
 		global $post, $dwqa_options;
 		if ( is_singular( 'dwqa-answer' ) ) {
-			$question_id = dwqa_get_post_parent_id( $answer_id );
+			$question_id = dwqa_get_post_parent_id( $post->ID );
 			if ( $question_id ) {
 				wp_safe_redirect( get_permalink( $question_id ) );
 				exit( 0 );

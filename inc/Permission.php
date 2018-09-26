@@ -17,7 +17,7 @@ function dwqa_user_can( $user_id, $perm, $post_id = false ) {
 				$post_author = get_post_field( 'post_author', $post_id );
 			}
 
-			if ( (int) $user_id === (int) $post_author && user_can( $user_id, 'dwqa_can_' . $perm ) ) {
+			if ( (int) $user_id === (int) $post_author || user_can( $user_id, 'dwqa_can_' . $perm ) ) {
 				$can = true;
 			}
 		} else {

@@ -118,7 +118,7 @@ class DWQA_Notifications {
 		$site_description = get_bloginfo( 'description' );
 		$site_url = site_url();
 		$enable_send_copy = get_option( 'dwqa_subscrible_send_copy_to_admin' );
-		$admin_email = $this->get_admin_email();
+		$admin_email = $this->get_admin_email('answer');
 		$site_logo = get_option( 'dwqa_subscrible_email_logo', '' );
 		$site_logo = $site_logo ? '<img src="' . $site_logo . '" alt="' . get_bloginfo( 'name' ) . '" style="max-width: 100%; height: auto;" />' : '';
 
@@ -286,10 +286,10 @@ class DWQA_Notifications {
 		if ( 1 == $comment->comment_approved && ( 'dwqa-question' == $parent || 'dwqa-answer' == $parent ) ) { 
 			if ( $parent == 'dwqa-question' ) {
 				$enabled = get_option( 'dwqa_subscrible_enable_new_comment_question_notification', 1 );
-				$admin_email = $this->get_admin_email( 'comment-question' );      
+				// $admin_email = $this->get_admin_email( 'comment-question' );   //ignore in this time   
 			} elseif ( $parent == 'dwqa-answer' ) {
 				$enabled = get_option( 'dwqa_subscrible_enable_new_comment_answer_notification', 1 );
-				$admin_email = $this->get_admin_email( 'comment-answer' );
+				// $admin_email = $this->get_admin_email( 'comment-answer' );
 			}
 		
 			if ( ! $enabled ) {
@@ -425,9 +425,24 @@ class DWQA_Notifications {
 	}
 	
 	public function get_admin_email( $type = 'question' ){
-		$admin_email = get_option( 'dwqa_subscrible_sendto_address', '' );
+		switch ($type) {
+			case 'answer':
+				$admin_email = get_option( 'dwqa_subscrible_new_answer_forward', '' );
+				break;
+			case 'comment-question':
+				$admin_email = get_option( 'dwqa_subscrible_new_comment_question_forward', '' );
+				break;
+			case 'comment-answer':
+				$admin_email = get_option( 'dwqa_subscrible_new_comment_answer_forward', '' );
+				break;
+			case 'question':
+			default:
+				$admin_email = get_option( 'dwqa_subscrible_sendto_address', '' );
+				break;
+		}
 		$emails = preg_split('/\r\n|\r|\n/', $admin_email );
 		$emails = array_merge( $emails, array( get_bloginfo( 'admin_email' ) ) );
+		$emails = array_unique($emails);
 		return $emails;
 	}
 

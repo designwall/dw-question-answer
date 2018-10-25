@@ -1357,7 +1357,7 @@ class DWQA_Settings {
 						echo '</div>';//End tab for New Answer Notification To Followers
 
 						echo '<div id="new-answer" class="tab-pane">';
-						echo '<h3>'.__( 'New Answer Notifications (to Admin)','dw-question-answer' ). '</h3>';
+						echo '<h3>'.__( 'New Answer Notifications (to Author)','dw-question-answer' ). '</h3>';
 						echo '<table class="form-table">';
 						echo '<tr>';
 						dwqa_subscrible_enable_new_answer_notification();

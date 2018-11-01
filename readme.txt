@@ -3,7 +3,7 @@ Contributors: designwall, oryc9x, Farid-Gh, scheunemann, gciprian, Ahmet Kolcu, 
 Tags: question, answer, support, quora, stackoverflow
 Requires at least: 3.0.1
 Tested up to: 4.9.7
-Stable tag: 1.5.4
+Stable tag: 1.5.5
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -84,6 +84,10 @@ Visit our [Github](https://github.com/designwall/dw-question-answer) project or 
 5. Back-end settings
 
 == Changelog ==
+
+= 1.5.5 =
+* Fix: Fix bug email
+* Fix: Fix Permission
 
 = 1.5.4 =
 * Update: Chang text domain to dw-question-answer

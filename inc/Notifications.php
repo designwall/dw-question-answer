@@ -186,7 +186,7 @@ class DWQA_Notifications {
 		if ( $answer_notify_enabled && !empty( $followers_email ) && is_array( $followers_email ) && 'private' !== get_post_status( $answer_id ) ) {
 			$subject = get_option( 'dwqa_subscrible_new_answer_followers_email_subject', __( '[{site_name}] You have a new answer for your followed question', 'dw-question-answer' ) );
 			$subject = str_replace( '{site_name}', esc_html( $site_name ), $subject );
-			$subject = str_replace( '{question_title}', sanitize_title( $question_title ), $subject );
+			$subject = str_replace( '{question_title}', $question_title, $subject );
 			$subject = str_replace( '{answer_author}', esc_html( $user_answer_display_name ), $subject );
 
 			$message = dwqa_get_mail_template( 'dwqa_subscrible_new_answer_followers_email', 'new-answer-followers' );
@@ -200,7 +200,7 @@ class DWQA_Notifications {
 			$message = str_replace( '{answer_author}', esc_html( $user_answer_display_name ), $message );
 			$message = str_replace( '{question_link}', esc_url( $question_link ), $message );
 			$message = str_replace( '{answer_link}', esc_url( $answer_link ), $message );
-			$message = str_replace( '{question_title}', sanitize_title( $question_title ), $message );
+			$message = str_replace( '{question_title}', $question_title, $message );
 			$message = str_replace( '{answer_content}', wp_kses_post( $answer_content ), $message );
 			$message = str_replace( '{answer_avatar}', $user_answer_avatar, $message );
 			$message = str_replace( '{site_logo}', $site_logo, $message );
@@ -238,7 +238,7 @@ class DWQA_Notifications {
 		if ( $user_question_email && $answer_notify_for_question_enabled && absint( $user_answer_id ) !== absint( $user_question_id ) ) {
 			$subject = get_option( 'dwqa_subscrible_new_answer_email_subject', __( '[{site_name}] A new answer for "{question_title}" was posted on {site_name}', 'dw-question-answer' ) );
 			$subject = str_replace( '{site_name}', esc_html( $site_name ), $subject );
-			$subject = str_replace( '{question_title}', sanitize_title( $question_title ), $subject );
+			$subject = str_replace( '{question_title}', $question_title, $subject );
 			$subject = str_replace( '{question_id}', absint( $question_id ), $subject );
 			$subject = str_replace( '{username}', esc_html( $user_question_display_name ), $subject );
 			$subject = str_replace( '{answer_author}', esc_html( $user_answer_display_name ), $subject );
@@ -254,7 +254,7 @@ class DWQA_Notifications {
 			$message = str_replace( '{question_link}', esc_url( $question_link ), $message );
 			$message = str_replace( '{question_author}', esc_html( $user_question_display_name ), $message );
 			$message = str_replace( '{answer_link}', esc_url( $answer_link ), $message );
-			$message = str_replace( '{question_title}', sanitize_title( $question_title ), $message );
+			$message = str_replace( '{question_title}', $question_title, $message );
 			$message = str_replace( '{answer_content}', wp_kses_post( $answer_content ), $message );
 			$message = str_replace( '{site_logo}', $site_logo, $message );
 			$message = str_replace( '{site_name}', esc_html( $site_name ), $message );

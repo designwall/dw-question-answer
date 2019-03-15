@@ -60,24 +60,6 @@ function dwqa_user_answer_count( $user_id ) {
 	return dwqa_user_post_count( $user_id, 'dwqa-answer' );
 }
 
-function dwqa_user_comment_count( $user_id ) {
-	global $wpdb;
-
-	$query = "SELECT `{$wpdb->prefix}comments`.user_id, count(*) as number_comment FROM `{$wpdb->prefix}comments` JOIN `{$wpdb->prefix}posts` ON `{$wpdb->prefix}comments`.comment_post_ID = `{$wpdb->prefix}posts`.ID WHERE  1 = 1 AND  ( `{$wpdb->prefix}posts`.post_type = 'dwqa-question' OR `{$wpdb->prefix}posts`.post_type = 'dwqa-answer' ) AND  `{$wpdb->prefix}comments`.comment_approved = 1 GROUP BY `{$wpdb->prefix}comments`.user_id";
-
-	$results = wp_cache_get( 'dwqa-user-comment-count' );
-	if ( false == $results ) {
-		$results = $wpdb->get_results( $query, ARRAY_A );
-		wp_cache_set( 'dwqa-user-comment-count', $results );
-	}
-
-	$users_comment_count = array_filter( $results, create_function( '$a', 'return $a["user_id"] == '.$user_id.';' ) ); 
-	if ( ! empty( $users_comment_count ) ) {
-		$user_comment_count = array_shift( $users_comment_count );
-		return $user_comment_count['number_comment'];
-	}
-	return false;
-}
 
 function dwqa_user_most_answer( $number = 10, $from = false, $to = false ) {
 	global $wpdb;

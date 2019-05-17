@@ -6,7 +6,7 @@ if ( !defined( 'ABSPATH' ) ) exit;
 
 class DWQA_Upgrades {
 	public static $db_version;
-	private static $version = '1.3.4';
+	private static $version = '1.3.5';
 
 	public static function init() {
 		self::$db_version = get_option( 'dwqa_version', false );
@@ -76,21 +76,24 @@ class DWQA_Upgrades {
 		global $wpdb;
 		$cursor = get_option( 'dwqa_upgrades_step', 0 );
 		$step = 100;
-		$length = $wpdb->get_var( "SELECT count(*) FROM $wpdb->posts WHERE 1=1 AND post_type = 'dwqa-answer'" );
-		if( $cursor + $step <= $length ) {
+		$length = $wpdb->get_var( "SELECT count(*) FROM $wpdb->posts p JOIN $wpdb->postmeta pm ON p.ID = pm.post_id WHERE 1=1 AND post_type = 'dwqa-answer' AND pm.meta_key = '_question'" );
+		if( $cursor <= $length ) {
 			$answers = $wpdb->get_results( $wpdb->prepare( "SELECT ID, meta_value as parent FROM $wpdb->posts p JOIN $wpdb->postmeta pm ON p.ID = pm.post_id WHERE 1=1 AND post_type = 'dwqa-answer' AND pm.meta_key = '_question' LIMIT %d, %d ", $cursor, $step ) );
 
 			if ( ! empty( $answers ) ) {
 				foreach ( $answers as $answer ) {
-					$update = wp_update_post( array( 'ID' => $answer->ID, 'post_parent' => $answer->parent, ), true );
+					$update = wp_update_post( array( 'ID' => $answer->ID, 'post_parent' => $answer->parent ), true );
 				}
 				$cursor += $step;
 				update_option( 'dwqa_upgrades_step', $cursor );
+				return $cursor;
 			} else {
 				delete_option( 'dwqa_upgrades_step' );
+				return 0;
 			}
 		} else {
 			delete_option( 'dwqa_upgrades_step' );
+			return 0;
 		}
 	}
 

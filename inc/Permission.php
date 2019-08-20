@@ -291,15 +291,26 @@ class DWQA_Permission {
 			if ( $role_name == 'anonymous' ) {
 				continue;
 			}
+			
 			$role = get_role( $role_name );
+
 			foreach ( $perm['question'] as $key => $value ) {
-				$role->remove_cap( 'dwqa_can_'.$key.'_question' );
+				$cap = 'dwqa_can_'.$key.'_question';
+				if(isset($role->capabilities[$cap])){
+					$role->remove_cap( $cap );
+				}
 			}
 			foreach ( $perm['answer'] as $key => $value ) {
-				$role->remove_cap( 'dwqa_can_'.$key.'_answer' );
+				$cap = 'dwqa_can_'.$key.'_answer';
+				if(isset($role->capabilities[$cap])){
+					$role->remove_cap( $cap );
+				}
 			}
 			foreach ( $perm['comment'] as $key => $value ) {
-				$role->remove_cap( 'dwqa_can_'.$key.'_comment' );
+				$cap = 'dwqa_can_'.$key.'_comment';
+				if(isset($role->capabilities[$cap])){
+					$role->remove_cap( $cap );
+				}
 			}
 		}
 	}

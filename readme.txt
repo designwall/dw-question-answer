@@ -2,8 +2,8 @@
 Contributors: designwall, Farid-Gh, scheunemann, gciprian, Ahmet Kolcu, Astrotenko Roman, David Robles, Nidhal Naji, developez, markhall1971
 Tags: question, answer, support, quora, stackoverflow
 Requires at least: 3.0.1
-Tested up to: 4.9.7
-Stable tag: 1.5.6
+Tested up to: 5.2.2
+Stable tag: 1.5.7
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -84,6 +84,8 @@ Visit our [Github](https://github.com/designwall/dw-question-answer) project or 
 5. Back-end settings
 
 == Changelog ==
+= 1.5.7 =
+* Fix: Upgrade new version not showing answer
 
 = 1.5.6 =
 * Fix: Question filter on buddypress tab

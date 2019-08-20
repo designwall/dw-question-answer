@@ -4,7 +4,7 @@
  *  Description: A WordPress plugin was make by DesignWall.com to build an Question Answer system for support, asking and comunitcate with your customer
  *  Author: DesignWall
  *  Author URI: http://www.designwall.com
- *  Version: 1.5.6
+ *  Version: 1.5.7
  *  Text Domain: dw-question-answer
  *  @since 1.4.0
  */
@@ -12,7 +12,7 @@
 if ( !class_exists( 'DW_Question_Answer' ) ) :
 
 class DW_Question_Answer {
-	private $last_update = 180720161356; //last update time of the plugin
+	private $last_update = 180720161357; //last update time of the plugin
 
 	public function __construct() {
 		$this->define_constants();
@@ -25,7 +25,7 @@ class DW_Question_Answer {
 		$this->stylesheet_dir = DWQA_STYLESHEET_DIR;
 		$this->stylesheet_uri = DWQA_STYLESHEET_URL;
 
-		$this->version = '1.5.6';
+		$this->version = '1.5.7';
 
 		// load posttype
 		$this->question = new DWQA_Posts_Question();

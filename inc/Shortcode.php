@@ -16,6 +16,11 @@ class DWQA_Shortcode {
 		if ( ! defined( 'DWQA_DIR' ) ) {
 			return false;
 		}
+
+		if(is_admin()){
+			//only use on frontend
+			return false;
+		}
 		
 		add_shortcode( 'dwqa-list-questions', array( $this, 'archive_question') );
 		add_shortcode( 'dwqa-submit-question-form', array( $this, 'submit_question_form_shortcode') );

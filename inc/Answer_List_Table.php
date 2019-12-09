@@ -45,15 +45,9 @@ class DWQA_Answer_List_Table extends WP_List_Table {
 			'post_type' => 'dwqa-answer',
 			'posts_per_page' => $per_page,
 			'order'      => 'ASC',
-			'meta_query' => array(
-				array(
-					'key' => '_question',
-					'value' => array( $question_id ),
-					'compare' => 'IN',
-				),
-		   ),
-		   'post_status' => 'publish',
-		 );
+			'post_parent' => $question_id,
+		   	'post_status' => 'publish',
+	 	);
 		$data = get_posts( $args );
 		$this->items = $data;
 	}
@@ -78,8 +72,8 @@ class DWQA_Answer_List_Table extends WP_List_Table {
 
 	function get_columns() {
 		$columns = array( 
-			'author'    => __( 'Author', 'dwqa' ),
-			'detail'    => __( 'Detail', 'dwqa' ),
+			'author'    => __( 'Author', 'dw-question-answer' ),
+			'detail'    => __( 'Detail', 'dw-question-answer' ),
 		);
 		return $columns;
 	}
@@ -89,7 +83,7 @@ class DWQA_Answer_List_Table extends WP_List_Table {
 			case 'author':
 				$user_info = get_userdata( $item->post_author );
 				if ( ! $user_info ) {
-					echo '<strong>'.__( 'Anonymous','dwqa' ).'</strong>';
+					echo '<strong>'.__( 'Anonymous','dw-question-answer' ).'</strong>';
 				} else {
 					echo '<strong>'.get_avatar( $item->post_author, $size = '32' ) . ' ' .$user_info->display_name . '</strong>';
 				}
@@ -98,7 +92,7 @@ class DWQA_Answer_List_Table extends WP_List_Table {
 				global $post;
 				setup_postdata( $item );
 				?>
-				<div class="submitted-on"><?php _e( 'Answered on ', 'dwqa' ) ?><a href="<?php echo get_permalink( $item->ID ) ?>"><?php echo $item->post_date ?></a></div>
+				<div class="submitted-on"><?php _e( 'Answered on ', 'dw-question-answer' ) ?><a href="<?php echo get_permalink( $item->ID ) ?>"><?php echo $item->post_date ?></a></div>
 				<?php the_excerpt(); ?>
 				<?php
 				break;
@@ -109,7 +103,7 @@ class DWQA_Answer_List_Table extends WP_List_Table {
 
 	function trim_exceprt_more( $excerpt ) {
 		if ( $excerpt ) {
-			return str_replace( '[...]', '<a href="'.get_permalink().'" title="'.__( 'Read more', 'dwqa' ).'" >...</a>', $excerpt ); 
+			return str_replace( '[...]', '<a href="'.get_permalink().'" title="'.__( 'Read more', 'dw-question-answer' ).'" >...</a>', $excerpt ); 
 		}
 	}
 

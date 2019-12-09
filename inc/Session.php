@@ -65,7 +65,7 @@ class DWQA_Session {
 
 	public function add( $message, $type = 'success', $comment = false ) {
 		if ( ! did_action( 'init' ) ) {
-			_doing_it_wrong( __FUNCTION__, __( 'This function should not be called before init.', 'dwqa' ), '1.4.0' );
+			_doing_it_wrong( __FUNCTION__, __( 'This function should not be called before init.', 'dw-question-answer' ), '1.4.0' );
 			return;
 		}
 
@@ -82,7 +82,7 @@ class DWQA_Session {
 
 	public function clear() {
 		if ( ! did_action( 'init' ) ) {
-			_doing_it_wrong( __FUNCTION__, __( 'This function should not be called before init.', 'dwqa' ), '1.4.0' );
+			_doing_it_wrong( __FUNCTION__, __( 'This function should not be called before init.', 'dw-question-answer' ), '1.4.0' );
 			return;
 		}
 
@@ -92,7 +92,7 @@ class DWQA_Session {
 
 	public function print_notices( $comment = false ) {
 		if ( ! did_action( 'init' ) ) {
-			_doing_it_wrong( __FUNCTION__, __( 'This function should not be called before init.', 'dwqa' ), '1.4.0' );
+			_doing_it_wrong( __FUNCTION__, __( 'This function should not be called before init.', 'dw-question-answer' ), '1.4.0' );
 			return;
 		}
 
@@ -115,7 +115,7 @@ class DWQA_Session {
 
 	public function count( $type = '', $comment = false ) {
 		if ( ! did_action( 'init' ) ) {
-			_doing_it_wrong( __FUNCTION__, __( 'This function should not be called before init.', 'dwqa' ), '1.4.0' );
+			_doing_it_wrong( __FUNCTION__, __( 'This function should not be called before init.', 'dw-question-answer' ), '1.4.0' );
 			return;
 		}
 

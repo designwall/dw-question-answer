@@ -1,26 +1,47 @@
 <?php  
+function dwqa_user_can( $user_id, $perm, $post_id = false ) {
+	global $dwqa;
+	$can = false;
+	if ( $user_id &&  is_numeric($user_id) ) {
+		if ( $post_id ) {
+			// perm with post id
+			$is_comment = array( 'post_comment', 'read_comment', 'delete_comment', 'edit_comment', 'manage_comment' );
+			$post_author = 0;
+			// is comment
+			if ( in_array( $perm, $is_comment ) ) {
+				$comment = get_comment( $post_id );
+				if ( isset( $comment->user_id ) ) {
+					$post_author = $comment->user_id;
+				}
+			} else {
+				$post_author = get_post_field( 'post_author', $post_id );
+			}
 
-function dwqa_current_user_can( $perm, $post_id = false ) {
-	global $dwqa, $current_user;
-	if ( is_user_logged_in() ) {
-		if ( $post_id && $current_user->ID == get_post_field( 'post_author', $post_id ) ) {
-			return true;
+			if ( (int) $user_id === (int) $post_author || user_can( $user_id, 'dwqa_can_' . $perm ) ) {
+				$can = true;
+			}
+		} else {
+			// normal perms
+			if ( user_can( $user_id, 'dwqa_can_' . $perm ) ) {
+				$can = true;
+			}
 		}
-
-		if ( current_user_can( 'dwqa_can_' . $perm ) ) {
-			return true;
-		}
-		return false;
 	} else {
-		$anonymous = $dwqa->permission->perms['anonymous'];
+		$anonymous = isset($dwqa->permission->perms['anonymous'])?$dwqa->permission->perms['anonymous']:array();
 		$type = explode( '_', $perm );
 		if ( isset( $anonymous[$type[1]][$type[0]] ) && $anonymous[$type[1]][$type[0]] ) {
-			return true;
+			$can = true;
 		} else {
-			return false;
+			$can = false;
 		}
 	}
-	return false;
+	return apply_filters( 'dwqa_user_can', $can, $perm, $user_id, $post_id );
+}
+
+function dwqa_current_user_can( $perm, $post_id = false ) {
+	$current_user_id = get_current_user_id();
+	$can = dwqa_user_can( $current_user_id, $perm, $post_id );
+	return apply_filters( 'dwqa_current_user_can', $can, $current_user_id, $perm, $post_id );
 }
 
 function dwqa_get_warning_page() {
@@ -176,9 +197,13 @@ class DWQA_Permission {
 				),
 			),
 		);
+		
 		add_action( 'init', array( $this, 'first_update_role_functions' ) );
 		add_action( 'init', array( $this, 'prepare_permission' ) );
-		add_action( 'update_option_dwqa_permission', array( $this, 'update_caps' ), 10, 2 );
+		
+		add_action( 'admin_init', array( $this, 'admin_menu_reset_permission_default' ) );
+		
+		add_action( 'update_option_dwqa_permission', array( $this, 'update_permission' ), 10, 2 );
 
 		add_filter( 'user_has_cap', array( $this, 'allow_user_view_their_draft_post' ), 10, 4 );
 
@@ -189,17 +214,19 @@ class DWQA_Permission {
 		add_filter( 'the_posts', array( $this, 'restrict_single_question' ), 11 );
 	}
 
+	public function admin_menu_reset_permission_default(){
+		if(is_admin() && current_user_can('manage_options') && isset($_POST['dwqa-permission-reset'])){
+			$this->reset_caps($_POST['dwqa-permission-reset']);
+			wp_redirect(admin_url('edit.php?post_type=dwqa-question&page=dwqa-settings&tab=permission'));
+			die();
+		}
+	}
+	
 	public function prepare_permission() {
 		$this->perms = get_option( 'dwqa_permission' );
-		$this->perms = $this->perms ? $this->perms : array();
-		$this->perms = wp_parse_args( $this->perms, $this->defaults );
 	}
 
-
 	public function add_caps( $value ) {
-		// $roles = get_editable_roles();
-		$this->prepare_permission();
-
 		foreach ( $value as $role_name  => $role_info ) {
 			if ( $role_name == 'anonymous' )
 				continue;
@@ -209,7 +236,7 @@ class DWQA_Permission {
 
 			foreach ( $this->objects as $post_type ) {
 				foreach ( $this->default_cap as $cap => $default ) {
-					if ( isset( $this->perms[$role_name][$post_type][$cap] ) && $this->perms[$role_name][$post_type][$cap] ) {
+					if ( isset( $role_info[$post_type][$cap] ) && $role_info[$post_type][$cap] ) {
 						$role->add_cap( 'dwqa_can_' . $cap . '_' . $post_type );
 					} else {
 						$role->remove_cap( 'dwqa_can_' . $cap . '_' . $post_type );
@@ -218,46 +245,72 @@ class DWQA_Permission {
 			}
 		}
 	}
-	public function update_caps( $old_value, $value ) {
-		//update_option( 'dwqa_permission', $this->perms );
+	
+	public function update_permission( $old_value, $value ) {
+		$this->update_caps($value);
+	}
+	
+	public function update_caps( $value ) {
+		update_option( 'dwqa_permission', $value );
 		$this->add_caps( $value );
 	}
 
-	public function reset_caps( $old_value, $value ) {
-		update_option( 'dwqa_permission', $this->perms );
-		$this->add_caps( $value );
-	}
-
-	public function prepare_permission_caps() {
-		$this->add_caps( $this->defaults );
+	public function reset_caps( $post_type = 'question' ) {
+		//change cap of post type
+		$roles = get_editable_roles();
+		$roles['anonymous'] = array();
+		foreach($roles as $role => $role_info){
+			if(isset($this->defaults[$role])){
+				$this->perms[$role][$post_type] = $this->defaults[$role][$post_type];
+			}else{
+				$this->perms[$role][$post_type] = array();
+			}
+		}
+		$this->update_caps($this->perms);
 	}
 
 	public function first_update_role_functions() {
 		$dwqa_has_roles = get_option( 'dwqa_has_roles' );
-		$dwqa_permission = get_option( 'dwqa_permission' );
 		$this->perms = get_option( 'dwqa_permission' );
 		if ( ! $dwqa_has_roles || ! is_array( $this->perms ) || empty( $this->perms ) ) {
+			//perms default
 			$this->perms = $this->defaults;
-			$this->prepare_permission_caps();
-			update_option( 'dwqa_permission', $this->perms );
+
+			$this->update_caps($this->perms);
+			
 			update_option( 'dwqa_has_roles', 1 );
 		}
 	}  
+	
+	public function prepare_permission_caps() {
+		$this->update_caps( $this->defaults );
+	}
 
 	public function remove_permision_caps() {
 		foreach ( $this->defaults as $role_name => $perm ) {
 			if ( $role_name == 'anonymous' ) {
 				continue;
 			}
+			
 			$role = get_role( $role_name );
+
 			foreach ( $perm['question'] as $key => $value ) {
-				$role->remove_cap( 'dwqa_can_'.$key.'_question' );
+				$cap = 'dwqa_can_'.$key.'_question';
+				if(isset($role->capabilities[$cap])){
+					$role->remove_cap( $cap );
+				}
 			}
 			foreach ( $perm['answer'] as $key => $value ) {
-				$role->remove_cap( 'dwqa_can_'.$key.'_answer' );
+				$cap = 'dwqa_can_'.$key.'_answer';
+				if(isset($role->capabilities[$cap])){
+					$role->remove_cap( $cap );
+				}
 			}
 			foreach ( $perm['comment'] as $key => $value ) {
-				$role->remove_cap( 'dwqa_can_'.$key.'_comment' );
+				$cap = 'dwqa_can_'.$key.'_comment';
+				if(isset($role->capabilities[$cap])){
+					$role->remove_cap( $cap );
+				}
 			}
 		}
 	}
@@ -265,7 +318,7 @@ class DWQA_Permission {
 	public function allow_user_view_their_draft_post( $all_caps, $caps, $name, $user ) {
 		if ( is_user_logged_in() ) {
 			global $wp_query, $current_user;
-			if ( isset( $wp_query->is_single ) && $wp_query->is_single && $wp_query->query_vars['post_type'] == 'dwqa-question' && $name[0] == 'edit_post' ) {
+			if ( isset( $wp_query->is_single ) && $wp_query->is_single && isset( $wp_query->query_vars['post_type'] ) && $wp_query->query_vars['post_type'] == 'dwqa-question' && $name[0] == 'edit_post' ) {
 				if ( isset( $name[2] ) ) {
 					$post_id = $name[2];
 					$author = get_post_field( 'post_author', $post_id );
@@ -283,7 +336,7 @@ class DWQA_Permission {
 	public function reset_permission_default() {
 		global $dwqa;
 		if ( ! isset( $_POST['nonce'] ) || ! wp_verify_nonce( sanitize_text_field( $_POST['nonce'] ), '_dwqa_reset_permission' ) ) {
-			wp_send_json_error( array( 'message' => __( 'Are you cheating huh?', 'dwqa' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Are you cheating huh?', 'dw-question-answer' ) ) );
 		}
 		if ( isset( $_POST['type'] ) ) {
 			$old = $dwqa->permission->perms;
@@ -305,16 +358,6 @@ class DWQA_Permission {
 
 		if ( isset( $query->query['post_type'] ) && $query->query['post_type'] == 'dwqa-answer' && ! dwqa_current_user_can( 'read_answer' ) ) {
 			return false;
-		}
-		
-		if ( ! is_single() && isset( $query->query['post_type'] ) && $query->query['post_type'] == 'dwqa-question' ) {
-			$availables = array();
-			foreach ( $posts as $key => $post ) {
-				if ( $post->post_status == 'publish' || ( $post->post_status != 'publish' && dwqa_current_user_can( 'edit_question' ) ) ){
-					$availables[] = $post;
-				}
-			}
-			return $availables;
 		}
 
 		return $posts;

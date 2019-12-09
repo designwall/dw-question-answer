@@ -22,16 +22,26 @@ jQuery(function($){
 								value: item.title,
 								url: item.url,
 							}
+						} else {
+							return {
+								label: item.message,
+								value: item.message,
+								click: false
+							}
 						}
 					}))
 				}
 			});
 		},
 		select: function( e, ui ) {
-			if ( ui.item.url !== '#' ) {
+			if ( ui.item.url ) {
 				window.location.href = ui.item.url;
 			} else {
-				return true;
+				if ( ui.item.click ) {
+					return true;
+				} else {
+					return false;
+				}
 			}
 		},
 		open: function( e, ui ) {

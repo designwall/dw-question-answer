@@ -57,8 +57,8 @@ class DWQA_PointerHelper {
 			'target' => '#contextual-help-link',
 			'options' => array(
 				'content' => sprintf( '<h3> %s </h3> <p> %s </p>',
-					__( 'How to use DW Question Answer', 'dwqa' ),
-					__( 'Documents, Support From DesignWall (help)', 'dwqa' )
+					__( 'How to use DW Question Answer', 'dw-question-answer' ),
+					__( 'Documents, Support From DesignWall (help)', 'dw-question-answer' )
 				),
 				'position' => array( 'edge' => 'top', 'align' => 'right' )
 			)
@@ -67,8 +67,8 @@ class DWQA_PointerHelper {
 			'target' => '#adminmenu a[href="edit.php?post_type=dwqa-question&page=dwqa-settings"]',
 			'options' => array(
 				'content' => sprintf( '<h3> %s </h3> <p> %s </p>',
-					__( 'Config your support channel', 'dwqa' ),
-					__( 'Change comment settings, and create the Submit question page.', 'dwqa' )
+					__( 'Config your support channel', 'dw-question-answer' ),
+					__( 'Change comment settings, and create the Submit question page.', 'dw-question-answer' )
 				),
 				'position' => array( 'edge' => 'left', 'align' => 'middle' )
 			)

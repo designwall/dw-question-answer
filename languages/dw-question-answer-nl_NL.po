@@ -1,0 +1,1662 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: DW Question Answer\n"
+"POT-Creation-Date: 2016-08-17 16:33+0700\n"
+"PO-Revision-Date: 2016-08-17 16:33+0700\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.7\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: dw-question-answer.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: dw-question-answer.php:147
+msgid "DWQA Questions"
+msgstr "DWQA Vragen"
+
+#: dw-question-answer.php:164
+msgid "DWQA Ask Question"
+msgstr "DWQA Stel Vraag"
+
+#: inc/Admin/Extensions.php:13
+msgid "DWQA Markdown"
+msgstr "DWQA Korting"
+
+#: inc/Admin/Extensions.php:19
+msgid "DWQA Leaderboard"
+msgstr "DWQA Banner"
+
+#: inc/Admin/Extensions.php:25
+msgid "DWQA Captcha"
+msgstr "DWQA Captcha"
+
+#: inc/Admin/Extensions.php:31
+msgid "DWQA Embed Question"
+msgstr "DWQA Ingebedde Vraag"
+
+#: inc/Admin/Extensions.php:37
+msgid "DWQA Widgets"
+msgstr "DWQA Widgets"
+
+#: inc/Admin/Extensions.php:47
+msgid "Extensions"
+msgstr "Extensies"
+
+#: inc/Admin/Extensions.php:75
+msgid "Get It Now!"
+msgstr "Nu verkrijgen!"
+
+#: inc/Admin/Welcome.php:27 inc/Admin/Welcome.php:28
+msgid "Welcome to DW Question & Answer"
+msgstr "Welkom bij DW Question & Answer"
+
+#: inc/Admin/Welcome.php:35 inc/Admin/Welcome.php:36
+msgid "DW Question & Answer Changelog"
+msgstr "DW Question & Answer Veranderlog"
+
+#: inc/Admin/Welcome.php:43 inc/Admin/Welcome.php:44
+msgid "DW Question & Answer Credits"
+msgstr "DW Question & Answer Credits"
+
+#: inc/Admin/Welcome.php:60
+#, php-format
+msgid "Welcome to DW Question & Answer %s"
+msgstr "Welkom bij DW Question & Answer %s"
+
+#: inc/Admin/Welcome.php:61
+msgid ""
+"Thank you for installing our WordPress plugin. If you have any question "
+"about this plugin, please submit to our <a target=\"_blank\" href=\"https://"
+"www.designwall.com/question/\">Q&A section</a>."
+msgstr ""
+
+#: inc/Admin/Welcome.php:69
+msgid "What&#8217;s New"
+msgstr "Wat Is Nieuw"
+
+#: inc/Admin/Welcome.php:70
+msgid "Changelog"
+msgstr "Veranderlog"
+
+#: inc/Admin/Welcome.php:71
+msgid "Credits"
+msgstr "Credits"
+
+#: inc/Admin/Welcome.php:199
+msgid "Contributors"
+msgstr "Bijdragers"
+
+#: inc/Admin/Welcome.php:218
+msgid "No valid changelog was found."
+msgstr "Er is geen geldig Veranderlog gevonden"
+
+#: inc/Ajax.php:29 inc/Ajax.php:47 inc/Ajax.php:83 inc/Ajax.php:113
+#: inc/Ajax.php:132 inc/Ajax.php:150 inc/Ajax.php:215 inc/Handle.php:256
+#: inc/Handle.php:455 inc/Permission.php:286 inc/Status.php:319
+msgid "Are you cheating huh?"
+msgstr "Probeer je vals te spelen?"
+
+#: inc/Ajax.php:33 inc/Handle.php:260
+msgid "You do not have permission to edit comment."
+msgstr "Je hebt geen toestemming om deze reactie te bewerken"
+
+#: inc/Ajax.php:37
+msgid "Comment ID must be showed."
+msgstr "Reactie ID moet worden getoond."
+
+#: inc/Ajax.php:51 inc/Handle.php:154
+msgid "Answer is missing."
+msgstr "Antwoord ontbreekt."
+
+#: inc/Ajax.php:55 inc/Handle.php:158
+msgid "This post is not answer."
+msgstr "Deze inzending is geen antwoord."
+
+#: inc/Ajax.php:59 inc/Ajax.php:162
+msgid "You do not have permission to delete this post."
+msgstr "Je hebt geen toestemming op deze inzending te bewerken."
+
+#: inc/Ajax.php:86
+msgid "Missing id of answer"
+msgstr "Ontbrekend ID van antwoord"
+
+#: inc/Ajax.php:154 inc/Handle.php:477
+msgid "Question is missing."
+msgstr "Vraag ontbreekt."
+
+#: inc/Ajax.php:158 inc/Handle.php:481
+msgid "This post is not question."
+msgstr "Deze inzending is geen vraag."
+
+#: inc/Ajax.php:206
+msgid "You do not have permission to edit question status"
+msgstr "Je hebt geen toestemming om de vraagstatus te bewerken"
+
+#: inc/Ajax.php:223 inc/Ajax.php:273
+msgid "Not Found!!!"
+msgstr ""
+
+#: inc/Answer_List_Table.php:81 inc/Posts/Answer.php:271 inc/Template.php:48
+msgid "Author"
+msgstr "Auteur"
+
+#: inc/Answer_List_Table.php:82
+msgid "Detail"
+msgstr "Detail"
+
+#: inc/Answer_List_Table.php:92 inc/Notifications.php:116
+#: inc/Notifications.php:214 inc/Notifications.php:233 inc/Posts/Base.php:230
+#: inc/Posts/Comment.php:102 inc/Settings.php:419 inc/Settings.php:455
+#: inc/Settings.php:490 inc/User.php:155
+msgid "Anonymous"
+msgstr "Anoniem"
+
+#: inc/Answer_List_Table.php:101
+msgid "Answered on "
+msgstr "Beantwoord op"
+
+#: inc/Answer_List_Table.php:112 inc/Helptab.php:153
+msgid "Read more"
+msgstr "Lees verder"
+
+#: inc/Handle.php:29
+msgid "&quot;Helllo&quot;, Are you cheating huh?."
+msgstr "&quot;Halllo&quot;, probeer je vals te spelen?"
+
+#: inc/Handle.php:32
+msgid "Delete draft"
+msgstr "Verwijder concept"
+
+#: inc/Handle.php:39
+msgid "Answer content is empty"
+msgstr "Antwoord inhoud is leeg"
+
+#: inc/Handle.php:42
+msgid "Question is empty"
+msgstr "Vraag is leeg"
+
+#: inc/Handle.php:46 inc/Handle.php:432
+msgid "You do not have permission to submit question."
+msgstr "Je hebt geen toestemming om een vraag in te dienen."
+
+#: inc/Handle.php:50 inc/Handle.php:218 inc/Handle.php:300
+msgid "Missing email information"
+msgstr "Ontbrekende e-mail informatie"
+
+#: inc/Handle.php:54 inc/Handle.php:222 inc/Handle.php:305
+msgid "Missing name information"
+msgstr "Ontbrekende naam informatie"
+
+#: inc/Handle.php:58 inc/Handle.php:451
+msgid "Captcha is not correct"
+msgstr "Catcha is onjuist"
+
+#: inc/Handle.php:77
+msgid "Answer for "
+msgstr "Antwoord voor"
+
+#: inc/Handle.php:139
+msgid "You do not have permission to edit answer."
+msgstr "Je hebt geen toestemming om het antwoord te bewerken."
+
+#: inc/Handle.php:143 inc/Handle.php:520 inc/Posts/Question.php:473
+msgid "Hello, Are you cheating huh?"
+msgstr "Hallo, probeer je vals te spelen?"
+
+#: inc/Handle.php:148
+msgid "You must enter a valid answer content."
+msgstr "Je moet een geldige antwoord inhoud invoeren."
+
+#: inc/Handle.php:194
+msgid "You can't post comment"
+msgstr "Je kunt geen reactie inzenden"
+
+#: inc/Handle.php:197
+msgid "Missing post id."
+msgstr "Ontbrekende inzend-ID"
+
+#: inc/Handle.php:203
+msgid "Please enter your comment content"
+msgstr "Voer je reactie in"
+
+#: inc/Handle.php:249
+msgid "Comment is missing"
+msgstr "Reactie ontbreekt"
+
+#: inc/Handle.php:264
+msgid "Comment content must not be empty."
+msgstr "Reactie inhoud mag niet leeg zijn."
+
+#: inc/Handle.php:294 inc/Handle.php:471
+msgid "You must enter a valid question title."
+msgstr "Je moet een geldige vraag-titel invoeren."
+
+#: inc/Handle.php:384
+msgid "User Registration was disabled."
+msgstr "Gebruikersregistratie is uitgeschakeld."
+
+#: inc/Handle.php:387
+msgid "This email is already registered, please choose another one."
+msgstr "Dit e-mailadres is al geregistreed, kies een ander."
+
+#: inc/Handle.php:390
+msgid "This username is already registered. Please use another one."
+msgstr "Deze gebruikersnaam is al geregistreerd. Kies een ander."
+
+#: inc/Handle.php:444
+msgid "Your question is waiting moderator."
+msgstr "Je vraag wacht op moderator."
+
+#: inc/Handle.php:466 inc/Status.php:347
+msgid "You do not have permission to edit question"
+msgstr "Je hebt geen toestemming om een vraag te bewerken"
+
+#: inc/Helptab.php:47
+msgid "Overview"
+msgstr "Overzicht"
+
+#: inc/Helptab.php:48
+msgid "DW Question Answer Plugin"
+msgstr "DW Question Answer Plug-in"
+
+#: inc/Helptab.php:49
+msgid ""
+"DW Question Answer is a WordPress Plugin which helps you build a Question & "
+"Answer system on your WordPress sites. The plugin is easy to install and set "
+"up. Let start building up your community with this WordPress question & "
+"answer system."
+msgstr ""
+"DW Question Answer is een WordPress Plugin die je helpt om een Question & "
+"Answer systeem op je WordPress sites te bouwen. Je kunt de plug-in "
+"gemakkelijk installeren en instellen. Maak een start met het opbouwen van je "
+"aanhang met dit WordPress question & answer systeem."
+
+#: inc/Helptab.php:52
+msgid "Setup Question List Page"
+msgstr "Instellen Vragen Lijst Pagina"
+
+#: inc/Helptab.php:56
+msgid "Setup Ask Question Page"
+msgstr "Instellen Stel Vraag Pagina"
+
+#: inc/Helptab.php:60
+msgid "Shortcode"
+msgstr "Shortcode"
+
+#: inc/Helptab.php:64
+msgid "Style integration"
+msgstr "Stijl integratie"
+
+#: inc/Helptab.php:173
+msgid "For more information:"
+msgstr "Voor meer informatie:"
+
+#: inc/Helptab.php:174
+msgid "DW Question Answer Guide"
+msgstr "DW Question Answer Gids"
+
+#: inc/Helptab.php:175
+msgid "Community"
+msgstr "Gemeenschap"
+
+#: inc/Helptab.php:176
+msgid "DesignWall Wordpress Themes"
+msgstr "DesignWall Wordpress Thema's"
+
+#: inc/Helptab.php:177
+msgid "DesignWall Wordpress Plugins"
+msgstr "DesignWall Wordpress Plug-ins"
+
+#: inc/Metaboxes.php:13 templates/content-single-question.php:31
+#: templates/question-submit-form.php:22
+msgid "Status"
+msgstr "Status"
+
+#: inc/Metaboxes.php:15 inc/Status.php:304
+#: templates/archive-question-filter.php:18
+#: templates/content-single-question.php:32
+msgid "Open"
+msgstr "Open"
+
+#: inc/Metaboxes.php:16 inc/Status.php:287
+msgid "Pending"
+msgstr "Wachtend"
+
+#: inc/Metaboxes.php:17 inc/Status.php:284
+#: templates/archive-question-filter.php:19
+#: templates/content-single-question.php:34
+msgid "Resolved"
+msgstr "Opgelost"
+
+#: inc/Metaboxes.php:18 inc/Status.php:290
+msgid "Re-Open"
+msgstr "Heropen"
+
+#: inc/Metaboxes.php:19 inc/Status.php:293
+#: templates/archive-question-filter.php:20
+#: templates/content-single-question.php:33
+msgid "Closed"
+msgstr "Afgesloten"
+
+#: inc/Metaboxes.php:25
+msgid "Sticky"
+msgstr "Sticky"
+
+#: inc/Metaboxes.php:29
+msgid "Pin question to top of archive page."
+msgstr "Pin de vraag aan de top van de archief pagina."
+
+#: inc/Metaboxes.php:45 inc/Posts/Answer.php:225 inc/Posts/Answer.php:227
+#: inc/Settings.php:431 templates/archive-question-filter.php:34
+msgid "Answers"
+msgstr "Antwoorden"
+
+#: inc/Metaboxes.php:65
+msgid "Question Meta Data"
+msgstr "Vraag Meta Data"
+
+#: inc/Notifications.php:29
+msgid "A new question was posted on {site_name}"
+msgstr "Een nieuwe vraag is ingezonden vanaf {site_name}"
+
+#: inc/Notifications.php:132
+msgid "You have a new answer for your followed question"
+msgstr "Er is een nieuw antwoord op een door jou gevolgde vraag"
+
+#: inc/Notifications.php:250
+msgid "A new answer for \"{question_title}\" was posted on {site_name}"
+msgstr ""
+"Een nieuw antwoord op \"{question_title}\" is ingezonden vanaf {site_name}"
+
+#: inc/Notifications.php:334 inc/Notifications.php:380
+msgid "[{site_name}] You have a new comment for question {question_title}"
+msgstr "[{site_name}] Er is een nieuwe reactie op vraag {question_title}"
+
+#: inc/Notifications.php:339 inc/Notifications.php:385
+msgid "[{site_name}] You have a new comment for answer"
+msgstr "[{site_name}] Er is een nieuwe reactie op antwoord"
+
+#: inc/PointerHelper.php:60
+msgid "How to use DW Question Answer"
+msgstr "Hoe gebruik je DW Question Answer"
+
+#: inc/PointerHelper.php:61
+msgid "Documents, Support From DesignWall (help)"
+msgstr "Documenten, Support van Designwall (help)"
+
+#: inc/PointerHelper.php:70
+msgid "Config your support channel"
+msgstr "Stel je support kanaal in"
+
+#: inc/PointerHelper.php:71
+msgid "Change comment settings, and create the Submit question page."
+msgstr "Verander reactie instellingen en creëer de Stel-vraag-pagina"
+
+#: inc/Posts/Answer.php:226 inc/Posts/Answer.php:270
+msgid "Answer"
+msgstr "Antwoord"
+
+#: inc/Posts/Answer.php:273
+msgid "In Response To"
+msgstr "Als Reactie Op"
+
+#: inc/Posts/Answer.php:317 inc/Posts/Base.php:320 inc/Settings.php:402
+#: inc/Template.php:58 inc/Template.php:163 inc/Template.php:180
+#: templates/content-comment.php:19
+msgid "Edit"
+msgstr "Bewerk"
+
+#: inc/Posts/Answer.php:318 inc/Settings.php:403 inc/Template.php:168
+#: inc/Template.php:185 templates/content-comment.php:22
+msgid "Delete"
+msgstr "Verwijder"
+
+#: inc/Posts/Answer.php:319 inc/Posts/Base.php:322
+msgid "View"
+msgstr "Toon"
+
+#: inc/Posts/Answer.php:323
+msgid "Submitted"
+msgstr "Ingezonden"
+
+#: inc/Posts/Answer.php:324
+msgid "on"
+msgstr "op"
+
+#: inc/Posts/Answer.php:359
+msgid "Question ID"
+msgstr ""
+
+#: inc/Posts/Answer.php:370 inc/Posts/Answer.php:373
+msgid "ID"
+msgstr ""
+
+#: inc/Posts/Base.php:5
+msgid "Are you cheating, huh?"
+msgstr "Speel je misschien vals?"
+
+#: inc/Posts/Base.php:18
+msgid "What "
+msgstr "Wat "
+
+#: inc/Posts/Base.php:46
+msgid "You voted for this "
+msgstr "Je stemde hierop"
+
+#: inc/Posts/Base.php:242
+#, php-format
+msgid "Posts by %s"
+msgstr "Inzendingen van %s"
+
+#: inc/Posts/Base.php:251 inc/Posts/Base.php:255
+#, php-format
+msgid "%s answered <span class=\"dwqa-date\">%s</span> ago"
+msgstr "%s beantwoord <span class=\"dwqa-date\">%s</span> geleden"
+
+#: inc/Posts/Base.php:257
+#, php-format
+msgid "%s asked <span class=\"dwqa-date\">%s</span> ago"
+msgstr "%s gevraagd <span class=\"dwqa-date\">%s</span> geleden"
+
+#: inc/Posts/Base.php:306
+msgid "DWQA Posts"
+msgstr "DWQA Inzendingen"
+
+#: inc/Posts/Base.php:307
+msgid "DWQA Post"
+msgstr "DWQA Inzending"
+
+#: inc/Posts/Base.php:318
+msgctxt "dwqa"
+msgid "Add New"
+msgstr "Voeg nieuwe toe"
+
+#: inc/Posts/Base.php:319
+msgid "Add New"
+msgstr "Voeg nieuwe toe"
+
+#: inc/Posts/Base.php:321 inc/Status.php:296
+msgid "New"
+msgstr "Nieuw"
+
+#: inc/Posts/Base.php:323
+msgid "Search "
+msgstr "Zoek"
+
+#: inc/Posts/Base.php:324
+msgid "not found"
+msgstr "niet gevonden"
+
+#: inc/Posts/Base.php:325
+msgid "not found in Trash"
+msgstr "niet gevonden in Prullenbak"
+
+#: inc/Posts/Base.php:326
+msgid "Parent:"
+msgstr "Oorspronkelijk:"
+
+#: inc/Posts/Question.php:56 inc/Shortcode.php:138
+#: inc/widgets/Closed_Question.php:49 inc/widgets/Latest_Question.php:42
+#: inc/widgets/Popular_Question.php:43
+msgid "asked by"
+msgstr "gevraagd door"
+
+#: inc/Posts/Question.php:100 inc/Posts/Question.php:102
+#: inc/Posts/Question.php:266 inc/Settings.php:395
+#: templates/archive-question-filter.php:28
+msgid "Questions"
+msgstr "Vragen"
+
+#: inc/Posts/Question.php:101
+msgid "Question"
+msgstr "Vraag"
+
+#: inc/Posts/Question.php:196
+msgctxt "taxonomy general name"
+msgid "Question Categories"
+msgstr "Vraag categorieën"
+
+#: inc/Posts/Question.php:197
+msgctxt "taxonomy singular name"
+msgid "Question Category"
+msgstr "Vraagcetegorie"
+
+#: inc/Posts/Question.php:198
+msgid "Search Question Categories"
+msgstr "Doorzoek Vraagcategorieën"
+
+#: inc/Posts/Question.php:199
+msgid "All Question Categories"
+msgstr "Alle Vraagcategorieën"
+
+#: inc/Posts/Question.php:200
+msgid "Parent Question Category"
+msgstr "Oorspronkelijke Vraagcategorie"
+
+#: inc/Posts/Question.php:201
+msgid "Parent Question Category:"
+msgstr "Oorspronkelijke vraagcategorie"
+
+#: inc/Posts/Question.php:202
+msgid "Edit Question Category"
+msgstr "Bewerk Vraagcategorieën"
+
+#: inc/Posts/Question.php:203
+msgid "Update Question Category"
+msgstr "Bijwerken Vraagcategorie"
+
+#: inc/Posts/Question.php:204
+msgid "Add New Question Category"
+msgstr "Voeg nieuwe Vraagcategorie toe"
+
+#: inc/Posts/Question.php:205
+msgid "New Question Category Name"
+msgstr "Naam nieuwe Vraagcategorie"
+
+#: inc/Posts/Question.php:206
+msgid "Question Category"
+msgstr "Vraagcetegorie"
+
+#: inc/Posts/Question.php:225
+msgctxt "taxonomy general name"
+msgid "Question Tags"
+msgstr "Vraag tags"
+
+#: inc/Posts/Question.php:226
+msgctxt "taxonomy singular name"
+msgid "Question Tag"
+msgstr "Vraagtag"
+
+#: inc/Posts/Question.php:227
+msgid "Search Question Tags"
+msgstr "Doorzoek Vraagtags"
+
+#: inc/Posts/Question.php:228
+msgid "Popular Question Tags"
+msgstr "Populaire Vraagtags"
+
+#: inc/Posts/Question.php:229
+msgid "All Question Tags"
+msgstr "Alle Vraagtagss"
+
+#: inc/Posts/Question.php:232
+msgid "Edit Question Tag"
+msgstr "Bewerk Vraagtag"
+
+#: inc/Posts/Question.php:233
+msgid "Update Question Tag"
+msgstr "Werk Vraagtag bij"
+
+#: inc/Posts/Question.php:234
+msgid "Add New Question Tag"
+msgstr "Voeg nieuwe Vraagtag tie"
+
+#: inc/Posts/Question.php:235
+msgid "New Question Tag Name"
+msgstr "Naam Nieuwe Vraagtag"
+
+#: inc/Posts/Question.php:236
+msgid "Separate question tags with commas"
+msgstr "Plaats comma's tussen vraagtags"
+
+#: inc/Posts/Question.php:237
+msgid "Add or remove question tags"
+msgstr "Vraagtags toevoegen of verwijderen"
+
+#: inc/Posts/Question.php:238
+msgid "Choose from the most used question tags"
+msgstr "Kies uit de meest gebruikte vraagtags"
+
+#: inc/Posts/Question.php:239
+msgid "No question tags found."
+msgstr "Geen vraagtags gevonden"
+
+#: inc/Posts/Question.php:240
+msgid "Question Tags"
+msgstr "Vraag tags"
+
+#: inc/Posts/Question.php:276
+msgid "Info"
+msgstr "Info"
+
+#: inc/Posts/Question.php:287 templates/content-question.php:22
+msgid "answered"
+msgstr "beantwoord"
+
+#: inc/Posts/Question.php:288
+msgid "voted"
+msgstr "gestemd"
+
+#: inc/Posts/Question.php:289
+msgid "views"
+msgstr "vertoningen"
+
+#: inc/Posts/Question.php:410 inc/User.php:266
+msgid "Invalid Post"
+msgstr "Ongeldige inzending"
+
+#: inc/Posts/Question.php:445
+msgid "Sticky Questions"
+msgstr "Sticky vragen"
+
+#: inc/Posts/Question.php:479
+msgid "Question is not valid"
+msgstr "Vraag is niet geldig"
+
+#: inc/Posts/Question.php:500
+msgid "Delete Action was failed"
+msgstr "Verwijder-actie niet geslaagd"
+
+#: inc/Posts/Question.php:505
+msgid "You do not have permission to delete this question"
+msgstr "Je hebt geen toestemming om deze vraag te verwijderen"
+
+#: inc/Session.php:68 inc/Session.php:85 inc/Session.php:95 inc/Session.php:118
+msgid "This function should not be called before init."
+msgstr "Deze functie moet niet aangeroepen worden voor init."
+
+#: inc/Settings.php:8
+msgid "Login required. No anonymous post allowed"
+msgstr "Inloggen vereist. Anonieme inzendingen niet toegestaan"
+
+#: inc/Settings.php:20
+msgid "Select Archive Question Page"
+msgstr "Kies Archief Vraagpagina"
+
+#: inc/Settings.php:24
+msgid ""
+"A page where displays all questions. The <code>[dwqa-list-questions]</code> "
+"short code must be on this page."
+msgstr ""
+"Een pagina welke alle vragen toont. De <code>[dwqa-list-questions]</code> "
+"shortcode moet op deze pagina worden gebruikt"
+
+#: inc/Settings.php:31
+msgid "hours"
+msgstr "uren"
+
+#: inc/Settings.php:31
+msgid ""
+"A period of time in which new questions are highlighted and marked as New"
+msgstr ""
+"Een tijdsperiode waarbinnen nieuwe vragen worden uitgelicht en gemarkeerd "
+"als Nieuw"
+
+#: inc/Settings.php:36
+msgid "days"
+msgstr "dagen"
+
+#: inc/Settings.php:36
+msgid ""
+"A Question will be marked as overdue if it passes this period of time, "
+"starting from the time the question was submitted"
+msgstr ""
+"Een vraag zal als overtijd worden gemarkeerd, als het deze tijdsperiode "
+"overschrijdt, geteld vanaf het tijdstip dat de vraag was ingediend "
+
+#: inc/Settings.php:47
+msgid "Select Submit Question Page"
+msgstr "Kies Stel Vraag Pagina"
+
+#: inc/Settings.php:52
+msgid ""
+"A page where users can submit questions. The <code>[dwqa-submit-question-"
+"form]</code> short code must be on this page."
+msgstr ""
+"Een pagina waar gebruiker vragen kunnen indienen. De <code>[dwqa-submit-"
+"question-form]</code> shortcode moet op deze pagina worden gebruikt"
+
+#: inc/Settings.php:65
+msgid "Select 404 DWQA Page"
+msgstr "Kies 404 DWQA Pagina"
+
+#: inc/Settings.php:70
+msgid ""
+"This page will be redirected when users without authority click on a private "
+"question. You can customize the message of this page in.If not, a default "
+"404 page will be used."
+msgstr ""
+"Deze pagina zal herleid worden wanneer gebruikers zonder toestemming op een "
+"privévraag klikken. Je kunt de boodschap van deze pagina aanpassen. Zo niet, "
+"dan zal de standaard 404 pagina worden getoond."
+
+#: inc/Settings.php:87
+msgid "Upload"
+msgstr "Upload"
+
+#: inc/Settings.php:87
+msgid "Upload or choose a logo to be displayed at the top of the email."
+msgstr ""
+"Upload of kies een logo om aan de bovenkant van de e-mail te worden getoond"
+
+#: inc/Settings.php:126 inc/Settings.php:161 inc/Settings.php:197
+#: inc/Settings.php:233 inc/Settings.php:268 inc/Settings.php:303
+#: inc/Settings.php:338
+msgid "Enable?"
+msgstr "Aanzetten?"
+
+#: inc/Settings.php:126
+msgid "Enable notification for new question."
+msgstr "Kennisgeving aanzetten voor nieuwe vraag"
+
+#: inc/Settings.php:131 inc/Settings.php:166 inc/Settings.php:202
+#: inc/Settings.php:238 inc/Settings.php:273 inc/Settings.php:308
+#: inc/Settings.php:343
+msgid "Email subject"
+msgstr "E-mail onderwerp"
+
+#: inc/Settings.php:136 inc/Settings.php:171 inc/Settings.php:207
+#: inc/Settings.php:243 inc/Settings.php:278 inc/Settings.php:313
+#: inc/Settings.php:348
+msgid "Email Content"
+msgstr "E-mail inhoud"
+
+#: inc/Settings.php:161
+msgid "Enable notification for new answer."
+msgstr "Kennisgeving voor nieuw antwoord aanzetten."
+
+#: inc/Settings.php:197
+msgid "Enable notification for new answer ( to Followers )."
+msgstr "Kennisgeving voor nieuw antwoord aanzetten (voor Volgers)"
+
+#: inc/Settings.php:233 inc/Settings.php:268
+msgid "Enable notification for new comment of question."
+msgstr "Kennisgeving voor nieuwe reactie op vraag aanzetten"
+
+#: inc/Settings.php:303 inc/Settings.php:338
+msgid "Enable notification for new comment of answer."
+msgstr "Kennisgeving voor nieuwe reactie op antwoord aanzetten"
+
+#: inc/Settings.php:400
+msgid "Read"
+msgstr "Lees"
+
+#: inc/Settings.php:401
+msgid "Post"
+msgstr "Zend in"
+
+#: inc/Settings.php:429 inc/Settings.php:465 inc/Settings.php:500
+msgid "Reset Default"
+msgstr "Herstel default"
+
+#: inc/Settings.php:467
+msgid "Comments"
+msgstr "Reacties"
+
+#: inc/Settings.php:509
+msgid "Enable captcha on submit question page."
+msgstr "Captcha op de Stel vraag pagina aan-/uitzetten"
+
+#: inc/Settings.php:515
+msgid "Enable captcha on single question page."
+msgstr "Captcha op de Enkele vraag pagina aan-/uitzetten"
+
+#: inc/Settings.php:533
+msgid "Default"
+msgstr "Default"
+
+#: inc/Settings.php:546
+msgid "questions."
+msgstr "vragen"
+
+#: inc/Settings.php:552
+msgid "answers."
+msgstr "antwoorden."
+
+#: inc/Settings.php:558
+msgid "Allow members to post private question."
+msgstr "Sta leden toe om privévragen te stellen"
+
+#: inc/Settings.php:564
+msgid "Question must be manually approved."
+msgstr "Vraag moet handmatig worden goedgekeurd"
+
+#: inc/Settings.php:570
+msgid "Display status icon on the left side."
+msgstr "Toon status icoon aan de linker zijde"
+
+#: inc/Settings.php:576
+msgid "Disable question status feature."
+msgstr "Zet vraag statuskenmerk uit"
+
+#: inc/Settings.php:582
+msgid "Show all answers on single question page."
+msgstr "Toon alle antwoorden op enkele vraag pagina."
+
+#: inc/Settings.php:593
+msgid "Select template for Single Quesiton page"
+msgstr "Kies sjabloon voor Enkele vraag pagina"
+
+#: inc/Settings.php:599
+msgid ""
+"By default, your single.php template file will be used if you do not choose "
+"any template"
+msgstr ""
+"Standaard zal je single.php sjabloon-file worden gebruikt, als je geen ander "
+"sjabloon kies"
+
+#: inc/Settings.php:607
+#, php-format
+msgid ""
+"If you like, you may enter custom structure for your single question, "
+"question category and question tag URLs here. For example, using "
+"<code>topic</code> as your question base would make your question links like "
+"<code>%s</code>. If you leave these blank the default will be used."
+msgstr ""
+"Indien gewenst, kun je een eigen structuur voor de enkele vraag, vraag "
+"categorie en vraag tag URLs hier invoeren. Bijvoorbeeld,  met <code>topic</"
+"code> als je vraag basis, zouden je je vraag links er uitzien als <code>%s</"
+"code>. Als je niets invoert zal de default worden gebruikt."
+
+#: inc/Settings.php:732
+msgid "Plugin Settings"
+msgstr "Plug-in Instellingen"
+
+#: inc/Settings.php:732
+msgid "Settings"
+msgstr "Instellingen"
+
+#: inc/Settings.php:768
+msgid "Email Settings"
+msgstr "E-mail instellingen"
+
+#: inc/Settings.php:769
+msgid "New Question Notifications"
+msgstr "Nieuwe Vraag Kennisgevingen"
+
+#: inc/Settings.php:770
+msgid "New Answer Notifications"
+msgstr "Nieuwe Vraag Kennisgevingen"
+
+#: inc/Settings.php:771
+msgid "New Comment Notifications"
+msgstr "Nieuwe Reactie Kennisgevingen"
+
+#: inc/Settings.php:784
+msgid "Page Settings"
+msgstr "Pagina Instellingen"
+
+#: inc/Settings.php:791
+msgid "Question List Page"
+msgstr "Vragenlijst Pagina"
+
+#: inc/Settings.php:799 inc/Settings.php:930
+msgid "Ask Question Page"
+msgstr "Stel Vraag Pagina"
+
+#: inc/Settings.php:842
+msgid "Question Settings"
+msgstr "Vragen Instellingen"
+
+#: inc/Settings.php:849
+msgid "Archive Page Show At Most"
+msgstr "Archief pagina toont hoogstens"
+
+#: inc/Settings.php:857
+msgid "Before A Question Appears"
+msgstr "Vóór aan vraag verschijnt"
+
+#: inc/Settings.php:865
+msgid "Other Question Settings"
+msgstr "Andere Vragag Instellingen"
+
+#: inc/Settings.php:890
+msgid "Answer Settings"
+msgstr "Antwoorrd Instellingen"
+
+#: inc/Settings.php:897
+msgid "Answer Listing"
+msgstr "Antwoord lijst"
+
+#: inc/Settings.php:915
+msgid "Captcha Settings"
+msgstr "Captcha instellingen"
+
+#: inc/Settings.php:922
+msgid "Type"
+msgstr "Soort"
+
+#: inc/Settings.php:938
+msgid "Single Question Page"
+msgstr "Enkele Vraag Pagina"
+
+#: inc/Settings.php:950
+msgid "Permalink Settings"
+msgstr "Permalink Instellingen"
+
+#: inc/Settings.php:957
+msgid "Question Base"
+msgstr "Vraag Basis"
+
+#: inc/Settings.php:965
+msgid "Question Category Base"
+msgstr "Vraag Categorie Basis"
+
+#: inc/Settings.php:973
+msgid "Question Tag Base"
+msgstr "Vraag Tag Basis"
+
+#: inc/Settings.php:1042
+msgid "From Email"
+msgstr "Van E-mail"
+
+#: inc/Settings.php:1110 inc/Settings.php:1117
+msgid "Group Permission"
+msgstr "Groep-toestemming"
+
+#: inc/Settings.php:1145
+msgid "DWQA Settings"
+msgstr "DWQA Instellingen"
+
+#: inc/Settings.php:1149
+msgid "General"
+msgstr "Algemeen"
+
+#: inc/Settings.php:1150
+msgid "Emails"
+msgstr "E-mails"
+
+#: inc/Settings.php:1151
+msgid "Permissions"
+msgstr "Toestemmingen"
+
+#: inc/Settings.php:1152
+msgid "Licenses"
+msgstr "Licensies"
+
+#: inc/Settings.php:1166
+msgid "Email settings"
+msgstr "E-mail instellingen"
+
+#: inc/Settings.php:1168
+msgid "Email Logo"
+msgstr "E-mail Logo"
+
+#: inc/Settings.php:1182
+msgid "New Question Notifications (to Admin)"
+msgstr "Nieuwe Vraag Kennisgevingen (voor Admin)"
+
+#: inc/Settings.php:1206
+msgid "New Answer Notifications (to Followers)"
+msgstr "Nieuw Antwoord Kennisgeving (voor Volgers)"
+
+#: inc/Settings.php:1222
+msgid "New Answer Notifications (to Admin)"
+msgstr "Nieuw Antwoord Kennisgevingen (voor Admin)"
+
+#: inc/Settings.php:1242
+msgid "New Comment to Question Notifications (to Followers)"
+msgstr "Nieuwe Reactie op Vraag Kennisgeving (voor Volgers)"
+
+#: inc/Settings.php:1259
+msgid "New Comment to Question Notifications (to Admin)"
+msgstr "Nieuwe Vraag Kennisgevingen (voor Admin)"
+
+#: inc/Settings.php:1279
+msgid "New Comment to Answer Notifications (to Followers)"
+msgstr "Nieuwe Reactie op Antwoord Kennisgeving (voor Volgers)"
+
+#: inc/Settings.php:1296
+msgid "New Comment to Answer Notifications (to Admin)"
+msgstr "Nieuwe Reactie op Antwoord Kennisgevingen (voor Admin)"
+
+#: inc/Settings.php:1314
+msgid "Save all changes"
+msgstr "Bewaar alle veranderingen"
+
+#: inc/Settings.php:1328
+#, php-format
+msgid "Manage <a href=\"%s\">DWQA Extensions</a> license keys"
+msgstr "Beheer <a href=\"%s\">DWQA Extensions</a> license keys"
+
+#: inc/Settings.php:1346 inc/Settings.php:1351 inc/Settings.php:1356
+#: inc/Settings.php:1361
+msgid "Forward to"
+msgstr "Stuur door naar"
+
+#: inc/Settings.php:1366
+msgid "Cc"
+msgstr "Cc"
+
+#: inc/Settings.php:1371
+msgid "Bcc"
+msgstr "Bcc"
+
+#: inc/Settings.php:1376
+msgid "This address will be used as the sender of the outgoing emails."
+msgstr ""
+"Dit adres zal gebruikt worden als de verzender van de uitgaande e-mails"
+
+#: inc/Settings.php:1382
+msgid "Send a copy of every email to admin."
+msgstr "Verstuur een kopie van elke e-mail aan de Admin"
+
+#: inc/Shortcode.php:115 inc/widgets/Popular_Question.php:21
+msgid "Popular Questions"
+msgstr "Populaire Vragen"
+
+#: inc/Shortcode.php:152
+msgid "Latest Answers"
+msgstr "Laatste antwoorden"
+
+#: inc/Shortcode.php:178
+msgid "Answer at"
+msgstr "Antwoord op"
+
+#: inc/Shortcode.php:178
+msgid "Link to"
+msgstr "Link naar"
+
+#: inc/Shortcode.php:206
+#, php-format
+msgid "%d person who is following this question"
+msgid_plural "%d people who are following this question"
+msgstr[0] "%d persoon volgt deze vraag"
+msgstr[1] "%d personen volgen deze vraag"
+
+#: inc/Shortcode.php:236
+msgid "Question List"
+msgstr "Vragenlijst"
+
+#: inc/Status.php:300
+msgid "Answered"
+msgstr "Beantwoord"
+
+#: inc/Status.php:324
+msgid "Missing post ID"
+msgstr "Ontbrekende inzend-ID"
+
+#: inc/Status.php:337
+msgid "Post does not exist"
+msgstr "Post bestaat niet"
+
+#: inc/Status.php:342
+msgid "Invalid post status"
+msgstr "Ongeldige post status"
+
+#: inc/Template.php:15 templates/content-edit.php:44
+#: templates/question-submit-form.php:46
+msgid "Tag"
+msgstr "Tag"
+
+#: inc/Template.php:15 inc/Template.php:20 templates/content-edit.php:29
+#: templates/question-submit-form.php:32
+msgid "Category"
+msgstr "Categorie"
+
+#: inc/Template.php:43
+msgid "Showing search results for"
+msgstr "Toon zoekresultaten voor"
+
+#: inc/Template.php:78
+msgid "What do you want to know?"
+msgstr "Wat wil je weten?"
+
+#: inc/Template.php:157
+msgid "Subscribe"
+msgstr "Abonneer"
+
+#: inc/Template.php:445
+msgid "Email"
+msgstr "E-mail"
+
+#: inc/Template.php:447
+msgid "Name"
+msgstr "Naam"
+
+#: inc/Template.php:449
+#, php-format
+msgid "Required fields are marked %s"
+msgstr "Verplichte velden zijn gemarkeerd met %s"
+
+#: inc/Template.php:461
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr "U moet <a href=\"%s\">inloggen</a> om een reactie te kunnen plaatsen."
+
+#: inc/Template.php:464
+#, php-format
+msgid ""
+"You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
+"and attributes: %s"
+msgstr ""
+"Je  kunt deze <abbr title=\"HyperText Markup Language\">HTML</abbr> tags en "
+"attributen gebruiken: %s"
+
+#: inc/Template.php:467
+msgid "Leave a Reply"
+msgstr "Geef een reactie"
+
+#: inc/Template.php:468
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr "Laat een reactie achter bij %s"
+
+#: inc/Template.php:469
+msgid "Cancel reply"
+msgstr "Reactie annuleren"
+
+#: inc/Template.php:470
+msgid "Post Comment"
+msgstr "Reactie plaatsen"
+
+#: inc/Template.php:645
+msgid "Sticky Question"
+msgstr "Sticky vraag"
+
+#: inc/Template.php:659
+msgid "Ask a question"
+msgstr "Stel een vraag"
+
+#: inc/Template.php:661
+msgid "Login to ask a question"
+msgstr "Log in om een vraag te stellen"
+
+#: inc/Template.php:1128
+msgid "Choose as the best answer"
+msgstr "Kies het beste antwoord"
+
+#: inc/Updater.php:97
+msgid "License Key"
+msgstr "License Key"
+
+#: inc/Updater.php:122
+msgid "Activate"
+msgstr "Activeer"
+
+#: inc/Updater.php:176
+msgid "Plugin was activated"
+msgstr "Plug-in is geactiveerd"
+
+#: inc/User.php:230
+msgid "Staff"
+msgstr "Staf"
+
+#: inc/Walker/Category.php:20 inc/Walker/Tag.php:20
+#, php-format
+msgid "View all posts filed under %s"
+msgstr "Toon alle post opgeslagen onder %s"
+
+#: inc/Walker/Category.php:35 inc/Walker/Tag.php:35
+#, php-format
+msgid "Feed for all posts filed under %s"
+msgstr "Feed voor alle berichten opgeslagen onder %s"
+
+#: inc/widgets/Closed_Question.php:11
+msgid "Show a list of questions marked as closed."
+msgstr "Toon een lijst van vragen welke als gesloten zijn gemarkeerd"
+
+#: inc/widgets/Closed_Question.php:12
+msgid "DWQA Closed Questions"
+msgstr "DWQA gesloten vragen"
+
+#: inc/widgets/Closed_Question.php:18
+msgid "Closed Questions"
+msgstr "Gesloten vragen"
+
+#: inc/widgets/Closed_Question.php:72 inc/widgets/Latest_Question.php:71
+#: inc/widgets/Popular_Question.php:66 inc/widgets/Related_Question.php:48
+msgid "Widget title"
+msgstr "Widget titel"
+
+#: inc/widgets/Closed_Question.php:75 inc/widgets/Latest_Question.php:74
+#: inc/widgets/Popular_Question.php:69 inc/widgets/Related_Question.php:51
+msgid "Number of posts"
+msgstr "Aantal inzendingen"
+
+#: inc/widgets/Latest_Question.php:10
+msgid "Show a list of latest questions."
+msgstr "Toon een lijst van laatste vragen"
+
+#: inc/widgets/Latest_Question.php:11
+msgid "DWQA Latest Questions"
+msgstr "DWQA laatste vragen"
+
+#: inc/widgets/Latest_Question.php:17
+msgid "Latest Questions"
+msgstr "Toon een lijst van laatste vragen"
+
+#: inc/widgets/Latest_Question.php:44
+msgid "ago"
+msgstr ""
+
+#: inc/widgets/Latest_Question.php:79
+msgid "Show question date"
+msgstr ""
+
+#: inc/widgets/Popular_Question.php:13
+msgid "Show a list of popular questions."
+msgstr "Toon een lijst van populaire vragen"
+
+#: inc/widgets/Popular_Question.php:15
+msgid "DWQA Popular Questions"
+msgstr "DWQA populaire vragen"
+
+#: inc/widgets/Related_Question.php:11
+msgid ""
+"Show a list of questions that related to a question. Just show in single "
+"question page"
+msgstr ""
+"Toon een lijst vragen gerelateerd aan een vraag. Toon alleen op een enkele-"
+"vraag-pagina"
+
+#: inc/widgets/Related_Question.php:12
+msgid "DWQA Related Questions"
+msgstr "DWQA gerelateerde vragen"
+
+#: lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:181
+#, php-format
+msgid ""
+"There is a new version of %1$s available. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">View version %3$s details</a>."
+msgstr ""
+"Er is een nieuwe versie van %1$s beschikbaar. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">Bekijk versie %3$s details</a>."
+
+#: lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:188
+#, php-format
+msgid ""
+"There is a new version of %1$s available. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">View version %3$s details</a> or <a href=\"%4$s"
+"\">update now</a>."
+msgstr ""
+"Er is een nieuwe versie van %1$s beschikbaar. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">Bekijk versie %3$s details</a> of <a href=\"%4$s"
+"\">werk nu bij</a>."
+
+#: lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:326
+msgid "You do not have permission to install plugin updates"
+msgstr "Je hebt geen toestemming om plug-in updates te installeren"
+
+#: lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:326
+msgid "Error"
+msgstr "Fout"
+
+#: templates/answer-submit-form.php:12
+msgid "Your Answer"
+msgstr "Je antwoord"
+
+#: templates/answer-submit-form.php:21 templates/question-submit-form.php:52
+msgid "Your Email"
+msgstr "Je e-mail"
+
+#: templates/answer-submit-form.php:26 templates/question-submit-form.php:57
+msgid "Your Name"
+msgstr "Je naam"
+
+#: templates/answer-submit-form.php:33 templates/question-submit-form.php:24
+msgid "Who can see this?"
+msgstr "Wie kan dit zien?"
+
+#: templates/answer-submit-form.php:34 templates/question-submit-form.php:25
+msgid "Public"
+msgstr "Openbaar"
+
+#: templates/answer-submit-form.php:35 templates/question-submit-form.php:26
+msgid "Only Me &amp; Admin"
+msgstr "Alleen ik &amp; Admin"
+
+#: templates/answer-submit-form.php:39 templates/question-submit-form.php:65
+msgid "Submit"
+msgstr "Indienen"
+
+#: templates/answers.php:12
+#, php-format
+msgid "%s Answers"
+msgstr "%s Antwoorden"
+
+#: templates/archive-question-filter.php:14
+msgid "Filter:"
+msgstr "Filter:"
+
+#: templates/archive-question-filter.php:16
+msgid "All"
+msgstr "Alles"
+
+#: templates/archive-question-filter.php:22
+msgid "Unanswered"
+msgstr "Onbeantwoord"
+
+#: templates/archive-question-filter.php:24
+msgid "My questions"
+msgstr "Mijn vragen"
+
+#: templates/archive-question-filter.php:25
+msgid "My subscribes"
+msgstr "Mijn abonnementen"
+
+#: templates/archive-question-filter.php:29
+msgid "Subscribes"
+msgstr "Abonnementen"
+
+#: templates/archive-question-filter.php:32
+msgid "Sort by"
+msgstr "Sorteer op"
+
+#: templates/archive-question-filter.php:33
+msgid "Views"
+msgstr "Vertoningen"
+
+#: templates/archive-question-filter.php:35
+msgid "Votes"
+msgstr "Stemmen"
+
+#: templates/archive-question.php:28
+msgid "Ask Question"
+msgstr "Stel Vraag"
+
+#: templates/captcha-form.php:20
+msgid "Enter the result"
+msgstr "Voer je antwoord in"
+
+#: templates/content-comment.php:16
+#, php-format
+msgctxt "%s = human-readable time difference"
+msgid "replied %s ago"
+msgstr "%s geleden beantwoord"
+
+#: templates/content-edit.php:21 templates/question-submit-form.php:13
+msgid "Title"
+msgstr "Titel"
+
+#: templates/content-edit.php:36 templates/question-submit-form.php:38
+msgid "Select question category"
+msgstr "Kies een vraagcategorie"
+
+#: templates/content-edit.php:50
+msgid "Save Changes"
+msgstr "Bewaar alle veranderingen"
+
+#: templates/content-none.php:10
+msgid "You do not have permission to view questions"
+msgstr "Je hebt geen toestemming om vragen in te zien"
+
+#: templates/content-none.php:12
+msgid "Sorry, but nothing matched your filter"
+msgstr "Er kwam niets met je filter overeen."
+
+#: templates/content-question.php:18
+msgid "asked"
+msgstr "gevraagd"
+
+#: templates/content-question.php:25
+#, php-format
+msgid "<span><a href=\"%s\">%s%s</a> %s %s ago</span>"
+msgstr "<span><a href=\"%s\">%s%s</a> %s %s geleden</span>"
+
+#: templates/content-question.php:26 templates/content-single-answer.php:25
+msgid "&nbsp;&bull;&nbsp;"
+msgstr "&nbsp; &bull; &nbsp;"
+
+#: templates/content-question.php:31
+#, php-format
+msgid "<strong>%1$s</strong> views"
+msgstr "<strong>%1$s</strong> vertoningen"
+
+#: templates/content-question.php:35
+#, php-format
+msgid "<strong>%1$s</strong> answers"
+msgstr "<strong>%1$s</strong> antwoorden"
+
+#: templates/content-question.php:39
+#, php-format
+msgid "<strong>%1$s</strong> votes"
+msgstr "<strong>%1$s</strong> stemmen"
+
+#: templates/content-single-answer.php:12
+#: templates/content-single-question.php:14
+msgid "Vote Up"
+msgstr "Stem omhoog"
+
+#: templates/content-single-answer.php:13
+#: templates/content-single-question.php:15
+msgid "Vote Down"
+msgstr "Stem omlaag"
+
+#: templates/content-single-answer.php:17
+#: templates/content-single-answer.php:19
+msgid "Best Answer"
+msgstr "Beste Antwoord"
+
+#: templates/content-single-answer.php:23
+#, php-format
+msgid "<span><a href=\"%s\">%s%s</a> %s answered %s ago</span>"
+msgstr "<span><a href=\"%s\">%s%s</a> %s beantwoord, %s geleden</span>"
+
+#: templates/content-single-answer.php:26
+msgid "Private"
+msgstr "Priv&#233;"
+
+#: templates/content-single-question.php:19
+#, php-format
+msgid "<span><a href=\"%s\">%s%s</a> %s asked %s ago</span>"
+msgstr "<span><a href=\"%s\">%s%s</a> %s gevraagd, %s geleden</span>"
+
+#: templates/content-single-question.php:25
+msgid "Question Tags: "
+msgstr "Vraagtags"
+
+#: templates/content-single-question.php:29
+msgid "This question is:"
+msgstr "Deze vraag is:"
+
+#: templates/question-submit-form.php:69
+msgid "You do not have permission to submit a question"
+msgstr "Je hebt geen toestemming om een vraag te stellen"
+
+#: upgrades/upgrades.php:25
+#, php-format
+msgid ""
+"DW Question Answer needs to upgrade the database, click %shere%s to start "
+"the upgrade."
+msgstr ""
+"DW Question Answer moet de database bijwerken, klik %shier%s om te starten "
+"met de upgrade."
+
+#: upgrades/upgrades.php:33
+msgid "DWQA Upgrade"
+msgstr "DWQA Upgrade"
+
+#: upgrades/upgrades.php:40
+msgid ""
+"The upgrade process has started, please be patient. This could take several "
+"minutes. You will be automatically redirected when the upgrade is finished..."
+msgstr ""
+"Het upgrade proces is gestart. Even geduld: dit kan enkele minuten duren. Je "
+"zult automatisch worden doorgestuurd wanneer de upgrade gereed is."
+
+#: upgrades/upgrades.php:130
+msgid "You do not have permission to do this task"
+msgstr "U hebt geen toestemming voor het uitvoeren van deze taak."
+
+#: upgrades/upgrades.php:147
+msgid "Just do it.."
+msgstr "Gewoon doen..."
+
+#: upgrades/upgrades.php:155
+#, php-format
+msgid "Move to next step %d"
+msgstr "Ga naar volgende stap %d"
+
+#: upgrades/upgrades.php:172
+msgid "Upgrade process is done"
+msgstr "Upgrade proces is gereed"
+
+#. Plugin Name of the plugin/theme
+msgid "DW Question Answer"
+msgstr "DW Question Answer"
+
+#. Description of the plugin/theme
+msgid ""
+"A WordPress plugin was make by DesignWall.com to build an Question Answer "
+"system for support, asking and comunitcate with your customer"
+msgstr ""
+"Een WordPress plugin is gemaakt door DesignWall.com om een Question Answer "
+"system te bouwen voor ondersteuning en vragen van en communicatie met je "
+"klant"
+
+#. Author of the plugin/theme
+msgid "DesignWall"
+msgstr "DesignWall"
+
+#. Author URI of the plugin/theme
+msgid "http://www.designwall.com"
+msgstr "http://www.designwall.com"
+
+#~ msgid "Next"
+#~ msgstr "Volgende"
+
+#~ msgid "Prev"
+#~ msgstr "Vorige"
+
+#~ msgid "Please enter your question"
+#~ msgstr "Stel je vraag"
+
+#~ msgid "Your question must be at least 2 characters in length"
+#~ msgstr "Je vraag moet minstens 2 letters lang zijn"
+
+#~ msgid "Enter a valid email address"
+#~ msgstr "Voer een geldig e-mailadres in"
+
+#~ msgid "Enter a question title"
+#~ msgstr "Voer een vraagtitel in"
+
+#~ msgid "Please add your name"
+#~ msgstr "Voer je naam in"
+
+#~ msgid "Please enter your answer"
+#~ msgstr "Voer je antwoord in"
+
+#~ msgid "Comment must have more than 2 characters"
+#~ msgstr "Je reactie moet minstens 2 letters lang zijn"
+
+#~ msgid "Not found! Try another keyword."
+#~ msgstr "Niets gevonden! Probeer een ander zoekwoord."
+
+#~ msgid "Or press <strong>ENTER</strong> to get more questions"
+#~ msgstr "Of druk <strong>ENTER</strong>om meer vragen te zien"
+
+#~ msgid "Update"
+#~ msgstr "Bijwerken"
+
+#~ msgid "Cancel"
+#~ msgstr "Annuleer"
+
+#~ msgid "Do you want to delete this comment?"
+#~ msgstr "Wil je deze reactie verwijderen?"
+
+#~ msgid "Do you want to delete this answer?"
+#~ msgstr "Wil je dit antwoord verwijderen?"
+
+#~ msgid "Do you want to update this answer?"
+#~ msgstr "Wil je dit antwoord bijwerken?"
+
+#~ msgid "Do you want to report this answer?"
+#~ msgstr "Wil je dit antwoord rapporteren?"
+
+#~ msgid "Report"
+#~ msgstr "Rapporteer"
+
+#~ msgid "Undo"
+#~ msgstr "Ongedaan maken"
+
+#~ msgid ""
+#~ "This answer will be marked as spam and hidden. Do you want to flag it?"
+#~ msgstr ""
+#~ "Dit antwoord zal als spam worden gemarkeerd en worden verborgen. Doorgaan?"
+
+#~ msgid "This answer was flagged as spam. Do you want to show it"
+#~ msgstr "Dit antwoord was aangemerkt als spam. Wil je het tonen?"
+
+#~ msgid "This answer was flagged as spam"
+#~ msgstr "Dit antwoord was aangemerkt als spam"
+
+#~ msgid "hide"
+#~ msgstr "verberg"
+
+#~ msgid "show"
+#~ msgstr "toon"
+
+#~ msgid "Follow This Question"
+#~ msgstr "Volg deze vraag"
+
+#~ msgid "Unfollow This Question"
+#~ msgstr "Stop deze vraag te volgen"
+
+#~ msgid "Pin this question to top"
+#~ msgstr "Pin deze vraag vast aan de top"
+
+#~ msgid "Unpin this question from top"
+#~ msgstr "Maak deze vraag los van de top"
+
+#~ msgid "Do you want to delete this question?"
+#~ msgstr "Wil je deze vraag verwijderen?"
+
+#~ msgid ""
+#~ "Thank you for installing our WordPress plugin. If you have any question "
+#~ "about this theme, please submit to our <a target=\"_blank\" href="
+#~ "\"https://www.designwall.com/question/\">Q&A section</a>."
+#~ msgstr ""
+#~ "Bedankt voor het installeren van onze WordPress plugin. Als je vragen "
+#~ "hebt over dit thema, stel dan je vraag in onze<a target=\"_blank\" href="
+#~ "\"https://www.designwall.com/question/\">Q&A sectie</a>."
+
+#~ msgid "Search query is empty"
+#~ msgstr "Zoekveld is leeg"
+
+#~ msgid "Publish"
+#~ msgstr "Publiceer"
+
+#~ msgid "Everyone can see"
+#~ msgstr "Zichtbaar voor iedereen"
+
+#~ msgid "Only Author and Administrator can see"
+#~ msgstr "Alleen de auteur en de Administrator kunnen dit zien"
+
+#~ msgid "Sorry, but nothing matched your filter. "
+#~ msgstr "Er kwam niets met je filter overeen."
+
+#~ msgid "You can ask question"
+#~ msgstr "Je kunt een vraag stellen"
+
+#~ msgid "here"
+#~ msgstr "hier"
+
+#~ msgid "Please"
+#~ msgstr "Alsjeblieft"
+
+#~ msgid "Login"
+#~ msgstr "Inloggen"
+
+#~ msgid " or"
+#~ msgstr "of"
+
+#~ msgid " to submit question."
+#~ msgstr "om een vraag in te dienen."
+
+#~ msgctxt "noun"
+#~ msgid "Comment"
+#~ msgstr "Reactie"
+
+#~ msgid ""
+#~ "Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out "
+#~ "of this account\">Log out?</a>"
+#~ msgstr ""
+#~ "Ingelogd als <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log uit "
+#~ "van deze account\">Log uit?</a>"
+
+#~ msgid "Your email address will not be published."
+#~ msgstr "Je e-mailadres wordt niet gepubliceerd."
+
+#~ msgid "Write a comment ..."
+#~ msgstr "Schrijf een reactie..."

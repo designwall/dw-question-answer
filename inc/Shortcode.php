@@ -9,10 +9,16 @@ class DWQA_Shortcode {
 		'dwqa-popular-questions',
 		'dwqa-latest-answers',
 		'dwqa-question-followers',
+		'dwqa-question-list'
 	);
 
 	public function __construct() {
 		if ( ! defined( 'DWQA_DIR' ) ) {
+			return false;
+		}
+
+		if(is_admin()){
+			//only use on frontend
 			return false;
 		}
 		
@@ -21,6 +27,7 @@ class DWQA_Shortcode {
 		add_shortcode( 'dwqa-popular-questions', array( $this, 'shortcode_popular_questions' ) );
 		add_shortcode( 'dwqa-latest-answers', array( $this, 'shortcode_latest_answers' ) );
 		add_shortcode( 'dwqa-question-followers', array( $this, 'question_followers' ) );
+		//add_shortcode( 'dwqa-question-list', array( $this, 'question_list' ) );
 		add_filter( 'the_content', array( $this, 'post_content_remove_shortcodes' ), 0 );
 	}
 
@@ -49,12 +56,32 @@ class DWQA_Shortcode {
 		return $buffer;
 	}
 
-	public function archive_question() {
-		global $dwqa, $script_version, $dwqa_sript_vars;
+	public function archive_question( $atts = array() ) {
+		global $wp_query, $dwqa, $script_version, $dwqa_sript_vars, $dwqa_atts;
+		$dwqa_atts = (array)$atts;
+		$dwqa_atts['page_id'] = isset($wp_query->post) && isset($wp_query->post->ID) && $wp_query->post->ID ? $wp_query->post->ID : 0;
 		ob_start();
 
-		$dwqa->template->remove_all_filters( 'the_content' );
+		if ( isset( $atts['category'] ) ) {
+			$atts['tax_query'][] = array(
+				'taxonomy' => 'dwqa-question_category',
+				'terms' => esc_html( $atts['category'] ),
+				'field' => 'slug'
+			);
+			unset( $atts['category'] );
+		}
 
+		if ( isset( $atts['tag'] ) ) {
+			$atts['tax_query'][] = array(
+				'taxonomy' => 'dwqa-question_tag',
+				'terms' => esc_html( $atts['tag'] ),
+				'field' => 'slug'
+			);
+			unset( $atts['tag'] );
+		}
+
+		$dwqa->template->remove_all_filters( 'the_content' );
+		dwqa()->filter->prepare_archive_posts( $atts );
 		echo '<div class="dwqa-container" >';
 		dwqa_load_template( 'archive', 'question' );
 		echo '</div>';
@@ -92,7 +119,7 @@ class DWQA_Shortcode {
 	public function shortcode_popular_questions( $atts ){
 		extract( shortcode_atts( array(
 			'number' => 5,
-			'title' => __( 'Popular Questions', 'dwqa' ),
+			'title' => __( 'Popular Questions', 'dw-question-answer' ),
 		), $atts ) );
 
 		$args = array(
@@ -115,7 +142,7 @@ class DWQA_Shortcode {
 			$html .= '<div class="dwqa-popular-questions">';
 			$html .= '<ul>';
 			while ( $questions->have_posts() ) { $questions->the_post();
-				$html .= '<li><a href="'.get_permalink().'" class="question-title">'.get_the_title().'</a> '.__( 'asked by', 'dwqa' ).' ' . get_the_author_link() . '</li>';
+				$html .= '<li><a href="'.get_permalink().'" class="question-title">'.get_the_title().'</a> '.__( 'asked by', 'dw-question-answer' ).' ' . get_the_author_link() . '</li>';
 			}   
 			$html .= '</ul>';
 			$html .= '</div>';
@@ -129,7 +156,7 @@ class DWQA_Shortcode {
 
 		extract( shortcode_atts( array(
 			'number' => 5,
-			'title' => __( 'Latest Answers', 'dwqa' )
+			'title' => __( 'Latest Answers', 'dw-question-answer' )
 		), $atts ) );
 
 		$args = array(
@@ -150,12 +177,12 @@ class DWQA_Shortcode {
 			$html .= '<ul>';
 			while ( $questions->have_posts() ) { $questions->the_post();
 				$answer_id = get_the_ID();
-				$question_id = get_post_meta( $answer_id, '_question', true );
+				$question_id = dwqa_get_post_parent_id( $answer_id );
 				if ( 'publish' != get_post_status( $question_id ) ) {
 					continue;
 				}
 				if ( $question_id ) {
-					$html .= '<li>'.__( 'Answer at', 'dwqa' ).' <a href="'.get_permalink( $question_id ).'#answer-'.$answer_id.'" title="'.__( 'Link to', 'dwqa' ).' '.get_the_title( $question_id ).'">'.get_the_title( $question_id ).'</a></li>';
+					$html .= '<li>'.__( 'Answer at', 'dw-question-answer' ).' <a href="'.get_permalink( $question_id ).'#answer-'.$answer_id.'" title="'.__( 'Link to', 'dw-question-answer' ).' '.get_the_title( $question_id ).'">'.get_the_title( $question_id ).'</a></li>';
 				}
 			}   
 			$html .= '</ul>';
@@ -183,7 +210,7 @@ class DWQA_Shortcode {
 			echo '<div class="question-followers">';
 			echo $before_title;
 			$count = count( $followers );
-			printf( _n( '%d person who is following this question', '%d people who are following this question', $count,  'dwqa' ),  $count );
+			printf( _n( '%d person who is following this question', '%d people who are following this question', $count,  'dw-question-answer' ),  $count );
 			echo $after_title;
 
 			foreach ( $followers as $follower ) :
@@ -207,6 +234,38 @@ class DWQA_Shortcode {
 		}
 		/* Return the post content. */
 		return $content;
+	}
+
+	function question_list( $atts ) {
+		extract( shortcode_atts( array(
+			'categories' 	=> '',
+			'number' 		=> '',
+			'title' 		=> __( 'Question List', 'dw-question-answer' ),
+			'orderby' 		=> 'modified',
+			'order' 		=> 'DESC'
+		), $atts ) );
+
+		$args = array(
+			'post_type' 		=> 'dwqa-question',
+			'posts_per_page' 	=> $number,
+			'orderby' 			=> $orderby,
+			'order' 			=> $order,
+		);
+
+		if ( $term ) {
+			$args['tax_query'][] = array(
+				'taxonomy' 	=> 'dwqa-question_category',
+				'terms' 	=> explode( ',', $categories ),
+				'field' 	=> 'slug'
+			);
+		}
+
+		if ( $title ) {
+			echo '<h3>';
+			echo $title;
+			echo '</h3>';
+		}
+
 	}
 }
 

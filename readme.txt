@@ -2,8 +2,8 @@
 Contributors: designwall, Farid-Gh, scheunemann, gciprian, Ahmet Kolcu, Astrotenko Roman, David Robles, Nidhal Naji, developez, markhall1971
 Tags: question, answer, support, quora, stackoverflow
 Requires at least: 3.0.1
-Tested up to: 4+
-Stable tag: 1.4.0
+Tested up to: 5.2.2
+Stable tag: 1.5.7
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -20,7 +20,7 @@ DW Question and Answer is a WordPress plugin which builds a complete Question & 
 * Notification Email system
 * Instant search by keywords
 * 11+ languages supported
-* reCAPTCHA supported
+* Captcha supported
 * Shortcodes available
 * Private/ Public for Question and Answer
 * Questions / Answers follow function
@@ -84,6 +84,122 @@ Visit our [Github](https://github.com/designwall/dw-question-answer) project or 
 5. Back-end settings
 
 == Changelog ==
+= 1.5.7 =
+* Fix: Upgrade new version not showing answer
+
+= 1.5.6 =
+* Fix: Question filter on buddypress tab
+* Fix: Remove sanitize_title in Notification
+* Fix: Remove old function & compatible php 7.2
+
+= 1.5.5 =
+* Fix: Fix bug email
+* Fix: Fix Permission
+
+= 1.5.4 =
+* Update: Chang text domain to dw-question-answer
+* Update: Update pot file
+* Fix: Fix paginate link shortcode category
+* Fix: Fix count posts
+* Fix: Fix error on singular dwqa answer
+
+= 1.5.3 =
+* Update: Optimize speed
+* Fix: Fix error singular function
+* Fix: Fix human time diff
+
+= 1.5.2 =
+* New: Add option delay email
+
+= 1.5.1 =
+* Fix: Fix search page
+* Fix: Fix notice user
+* Fix: Fix vote best answer
+
+= 1.5.0 =
+* Fix: Fix bug with php 7.2
+
+= 1.4.9 =
+* Fix: Fix bug count vote in post_status private
+* Fix: Fix bug with arabic language
+
+= 1.4.8 =
+* New: Integrate yoast breadscrumb
+* Fix: Fix empty answer integrate buddypress
+* Fix: Fix comment vote
+* Fix: Remove function get_page
+
+= 1.4.7 =
+* New: Integrate Akismet
+* Fix: Fix save permissions
+* Fix: Empty file assets Akismet
+
+= 1.4.6 =
+* New: allows anonymous users to vote
+* New: add Setting time to auto close the questions 
+* New: integrate buddypress plugin
+* New: Update languages RU, IT
+* Fix: fix notification
+
+= 1.4.5 =
+* New: Short-code list question by category [dwqa-list-questions category="question"]
+* New: Support template from child theme
+* Tweak: Add some filter
+* Fix: Display name in Latest Questions
+* Fix: Fix some issue in Notifications
+* Fix: Time of question and answer show not correctly
+* Fix: Addressed some security issues
+
+= 1.4.4 =
+* Compatible with Genesis Framework, Advanced Ads, Facebook Comments
+* New: Support RTL languages
+* Tweak: update main file
+* Tweak: Name and Email fields in submit question and answer is require fields
+* Fix: Don't show question listing when use the_excerpt() function
+
+= 1.4.3.4 =
+* Fix: Fix cannot format text
+
+= 1.4.3.3 =
+* Fix: Addressed some security issues
+
+= 1.4.3.2 =
+* Quick fix
+
+= 1.4.3.1 =
+* Quick fix and update some language file.
+
+= 1.4.3 =
+* Tweak: Update language file
+* Fix: Addressed some security issues
+
+= 1.4.2.3 =
+* Fix: Addressed some security issues
+
+= 1.4.2.2 =
+* Tweak: flush rewrite rule after active or upgrade plugin
+* Fix: Fatal error in comment
+
+= 1.4.2.1 =
+* Quick fix
+
+= 1.4.2 =
+* Tweak: Update Language Files
+* New: Option show all answers on a single question page
+* New: Option show status icon on question list page
+* New: Add function pick best answer
+* Fix: Some string cannot translate
+* Fix: Fix losing data when saving changes.
+* Fix: Display name of person instead of anonymous in question and comment
+
+
+= 1.4.1 =
+* Tweak: Update Language Files
+* Tweak: Update Swedish Language Files
+* New: Display name of the person instead of Anonymous
+* Fix: Some string cannot translate
+* Fix: Widget issue
+* Fix: Improvement style for mobile and tablet
 
 = 1.4.0 =
 * New: Template Structure Updates

@@ -21,6 +21,30 @@ function dwqa_add_answer() {
 	$dwqa->insert();
 }
 
+function dwqa_require_field_submit_question() {
+	_deprecated_function( __FUNCTION__, '1.4.2', '' );
+}
+
+function dwqa_require_field_submit_answer() {
+	_deprecated_function( __FUNCTION__, '1.4.2', '' );
+}
+
+function dwqa_single_postclass() {
+	_deprecated_function( __FUNCTION__, '1.4.2', '' );
+}
+
+function dwqa_paged_query() {
+	_deprecated_function( __FUNCTION__, '1.4.2', '' );
+}
+
+function dwqa_title( $title ) {
+	_deprecated_function( __FUNCTION__, '1.4.2.1', '' );
+}
+
+function dwqa_get_author( $post_id = 0 ) {
+	_deprecated_function( __FUNCTION__, '1.4.2.3', '' );
+}
+
 class Walker_Category_DWQA {
 	public function __construct() {
 		_deprecated_function( __FUNCTION__, '1.3.4', 'DWQA_Walker_Category' );

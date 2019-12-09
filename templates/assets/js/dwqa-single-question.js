@@ -62,7 +62,11 @@
             	if (data.success) {
                     parent.find('.dwqa-vote-count').text(data.data.vote);
                 }
-            }
+            },
+			error:function( data ) {
+				console.log("error",data);
+            	
+            },
 		});
 	});
 
@@ -92,10 +96,15 @@
             dataType: 'json',
             data: data,
             success: function( data ) {
+				console.log(data);
             	if (data.success) {
                     parent.find('.dwqa-vote-count').text(data.data.vote);
                 }
-            }
+            },
+			error:function( data ) {
+				console.log("error",data);
+            	
+            },
 		});
 	});
 
@@ -137,6 +146,7 @@
 	});
 
 	var originHeight, current_form;
+	$('.dwqa-anonymous-fields').hide();
 	$('.dwqa-comment-form #comment').on('focus',function(e){
 		var t = $(this);
 
@@ -161,9 +171,8 @@
         }
 
         changeHeight();
-        t.parent().addClass( 'dwqa-comment-show-button' );
+        $(this).closest('form').addClass( 'dwqa-comment-show-button' ).find('.dwqa-anonymous-fields').slideDown();
         current_form.find('.dwqa-form-submit').show();
 	});
-	
 
 })(jQuery);

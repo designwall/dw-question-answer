@@ -1,0 +1,2162 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: DW Question Answer\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-08-17 16:33+0700\n"
+"PO-Revision-Date: 2016-08-17 16:33+0700\n"
+"Last-Translator: Seongho Jang <spcblack@gmail.com>\n"
+"Language-Team: DesignWall <webmaster@designwall.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: dw-question-answer.php:147
+msgid "DWQA Questions"
+msgstr "DWAQ 질문"
+
+#: dw-question-answer.php:164
+msgid "DWQA Ask Question"
+msgstr "DWQA 질문하기"
+
+#: inc/Admin/Extensions.php:13
+msgid "DWQA Markdown"
+msgstr ""
+
+#: inc/Admin/Extensions.php:19
+msgid "DWQA Leaderboard"
+msgstr ""
+
+#: inc/Admin/Extensions.php:25
+msgid "DWQA Captcha"
+msgstr ""
+
+#: inc/Admin/Extensions.php:31
+msgid "DWQA Embed Question"
+msgstr ""
+
+#: inc/Admin/Extensions.php:37
+msgid "DWQA Widgets"
+msgstr ""
+
+#: inc/Admin/Extensions.php:47
+msgid "Extensions"
+msgstr ""
+
+#: inc/Admin/Extensions.php:75
+msgid "Get It Now!"
+msgstr ""
+
+#: inc/Admin/Welcome.php:27 inc/Admin/Welcome.php:28
+msgid "Welcome to DW Question & Answer"
+msgstr ""
+
+#: inc/Admin/Welcome.php:35 inc/Admin/Welcome.php:36
+msgid "DW Question & Answer Changelog"
+msgstr ""
+
+#: inc/Admin/Welcome.php:43 inc/Admin/Welcome.php:44
+msgid "DW Question & Answer Credits"
+msgstr ""
+
+#: inc/Admin/Welcome.php:60
+#, php-format
+msgid "Welcome to DW Question & Answer %s"
+msgstr ""
+
+#: inc/Admin/Welcome.php:61
+msgid ""
+"Thank you for installing our WordPress plugin. If you have any question "
+"about this plugin, please submit to our <a target=\"_blank\" href=\"https://"
+"www.designwall.com/question/\">Q&A section</a>."
+msgstr ""
+
+#: inc/Admin/Welcome.php:69
+msgid "What&#8217;s New"
+msgstr ""
+
+#: inc/Admin/Welcome.php:70
+msgid "Changelog"
+msgstr ""
+
+#: inc/Admin/Welcome.php:71
+msgid "Credits"
+msgstr ""
+
+#: inc/Admin/Welcome.php:199
+msgid "Contributors"
+msgstr ""
+
+#: inc/Admin/Welcome.php:218
+msgid "No valid changelog was found."
+msgstr ""
+
+#: inc/Ajax.php:29 inc/Ajax.php:47 inc/Ajax.php:83 inc/Ajax.php:113
+#: inc/Ajax.php:132 inc/Ajax.php:150 inc/Ajax.php:215 inc/Handle.php:256
+#: inc/Handle.php:455 inc/Permission.php:286 inc/Status.php:319
+msgid "Are you cheating huh?"
+msgstr "허용하지 않은 기능입니다."
+
+#: inc/Ajax.php:33 inc/Handle.php:260
+msgid "You do not have permission to edit comment."
+msgstr ""
+
+#: inc/Ajax.php:37
+msgid "Comment ID must be showed."
+msgstr "댓글 ID 보이기 (필수)"
+
+#: inc/Ajax.php:51 inc/Handle.php:154
+msgid "Answer is missing."
+msgstr ""
+
+#: inc/Ajax.php:55 inc/Handle.php:158
+msgid "This post is not answer."
+msgstr ""
+
+#: inc/Ajax.php:59 inc/Ajax.php:162
+msgid "You do not have permission to delete this post."
+msgstr ""
+
+#: inc/Ajax.php:86
+msgid "Missing id of answer"
+msgstr "답변 ID 누락"
+
+#: inc/Ajax.php:154 inc/Handle.php:477
+msgid "Question is missing."
+msgstr ""
+
+#: inc/Ajax.php:158 inc/Handle.php:481
+msgid "This post is not question."
+msgstr ""
+
+#: inc/Ajax.php:206
+msgid "You do not have permission to edit question status"
+msgstr "질문 상태를 수정할 수 있는 권한이 없습니다."
+
+#: inc/Ajax.php:223 inc/Ajax.php:273
+msgid "Not Found!!!"
+msgstr ""
+
+#: inc/Answer_List_Table.php:81 inc/Posts/Answer.php:271 inc/Template.php:48
+msgid "Author"
+msgstr "작성자"
+
+#: inc/Answer_List_Table.php:82
+msgid "Detail"
+msgstr "상세 내용"
+
+#: inc/Answer_List_Table.php:92 inc/Notifications.php:116
+#: inc/Notifications.php:214 inc/Notifications.php:233 inc/Posts/Base.php:230
+#: inc/Posts/Comment.php:102 inc/Settings.php:419 inc/Settings.php:455
+#: inc/Settings.php:490 inc/User.php:155
+msgid "Anonymous"
+msgstr "비회원"
+
+#: inc/Answer_List_Table.php:101
+msgid "Answered on "
+msgstr "답변"
+
+#: inc/Answer_List_Table.php:112 inc/Helptab.php:153
+msgid "Read more"
+msgstr "더 보기"
+
+#: inc/Handle.php:29
+msgid "&quot;Helllo&quot;, Are you cheating huh?."
+msgstr ""
+
+#: inc/Handle.php:32
+msgid "Delete draft"
+msgstr "임시 저장 삭제"
+
+#: inc/Handle.php:39
+msgid "Answer content is empty"
+msgstr ""
+
+#: inc/Handle.php:42
+msgid "Question is empty"
+msgstr ""
+
+#: inc/Handle.php:46 inc/Handle.php:432
+msgid "You do not have permission to submit question."
+msgstr "질문을 작성할 권한이 없으십니다."
+
+#: inc/Handle.php:50 inc/Handle.php:218 inc/Handle.php:300
+msgid "Missing email information"
+msgstr "메일 정보 누락 "
+
+#: inc/Handle.php:54 inc/Handle.php:222 inc/Handle.php:305
+msgid "Missing name information"
+msgstr "이름 정보 누락 "
+
+#: inc/Handle.php:58 inc/Handle.php:451
+msgid "Captcha is not correct"
+msgstr "보안 그림 문자가 맞지 않습니다."
+
+#: inc/Handle.php:77
+msgid "Answer for "
+msgstr "답변"
+
+#: inc/Handle.php:139
+msgid "You do not have permission to edit answer."
+msgstr ""
+
+#: inc/Handle.php:143 inc/Handle.php:520 inc/Posts/Question.php:473
+msgid "Hello, Are you cheating huh?"
+msgstr "허용하지 않은 기능입니다."
+
+#: inc/Handle.php:148
+msgid "You must enter a valid answer content."
+msgstr ""
+
+#: inc/Handle.php:194
+msgid "You can't post comment"
+msgstr "댓글을 달 수 없습니다."
+
+#: inc/Handle.php:197
+msgid "Missing post id."
+msgstr ""
+
+#: inc/Handle.php:203
+msgid "Please enter your comment content"
+msgstr "댓글을 입력해 주세요"
+
+#: inc/Handle.php:249
+msgid "Comment is missing"
+msgstr "댓글 누락"
+
+#: inc/Handle.php:264
+msgid "Comment content must not be empty."
+msgstr "댓글을 작성해야 합니다."
+
+#: inc/Handle.php:294 inc/Handle.php:471
+msgid "You must enter a valid question title."
+msgstr ""
+
+#: inc/Handle.php:384
+msgid "User Registration was disabled."
+msgstr "사용자 가입 중지"
+
+#: inc/Handle.php:387
+msgid "This email is already registered, please choose another one."
+msgstr "이미 가입한  메일 주소입니다. 다른 메일 주소를 사용하여 주십시오."
+
+#: inc/Handle.php:390
+msgid "This username is already registered. Please use another one."
+msgstr "사용자 이름을 이미 사용 중입니다."
+
+#: inc/Handle.php:444
+msgid "Your question is waiting moderator."
+msgstr ""
+
+#: inc/Handle.php:466 inc/Status.php:347
+msgid "You do not have permission to edit question"
+msgstr "질문 편집 권한이 없습니다."
+
+#: inc/Helptab.php:47
+msgid "Overview"
+msgstr "개요"
+
+#: inc/Helptab.php:48
+msgid "DW Question Answer Plugin"
+msgstr ""
+
+#: inc/Helptab.php:49
+msgid ""
+"DW Question Answer is a WordPress Plugin which helps you build a Question & "
+"Answer system on your WordPress sites. The plugin is easy to install and set "
+"up. Let start building up your community with this WordPress question & "
+"answer system."
+msgstr ""
+"DW Question Answer 는 여러분의 사이트에 Q&A 를 만들 수 있도록 도와 주는 워드"
+"프레스 플러그인입니다.  플러그인 설치와 설정이 쉽습니다. 이 Q&A 를 이용해서 "
+"여러분의 커뮤니티를 멋지게 만들어 보시죠."
+
+#: inc/Helptab.php:52
+msgid "Setup Question List Page"
+msgstr "질문 목록 페이지 설정"
+
+#: inc/Helptab.php:56
+msgid "Setup Ask Question Page"
+msgstr "질문 페이지 설정"
+
+#: inc/Helptab.php:60
+msgid "Shortcode"
+msgstr ""
+
+#: inc/Helptab.php:64
+msgid "Style integration"
+msgstr "스타일 통합"
+
+#: inc/Helptab.php:173
+msgid "For more information:"
+msgstr "더 많은 정보:"
+
+#: inc/Helptab.php:174
+msgid "DW Question Answer Guide"
+msgstr "DW Question Answer 가이드"
+
+#: inc/Helptab.php:175
+msgid "Community"
+msgstr "커뮤니티"
+
+#: inc/Helptab.php:176
+msgid "DesignWall Wordpress Themes"
+msgstr ""
+
+#: inc/Helptab.php:177
+msgid "DesignWall Wordpress Plugins"
+msgstr ""
+
+#: inc/Metaboxes.php:13 templates/content-single-question.php:31
+#: templates/question-submit-form.php:22
+msgid "Status"
+msgstr "상태"
+
+#: inc/Metaboxes.php:15 inc/Status.php:304
+#: templates/archive-question-filter.php:18
+#: templates/content-single-question.php:32
+msgid "Open"
+msgstr "오픈"
+
+#: inc/Metaboxes.php:16 inc/Status.php:287
+msgid "Pending"
+msgstr "보류중"
+
+#: inc/Metaboxes.php:17 inc/Status.php:284
+#: templates/archive-question-filter.php:19
+#: templates/content-single-question.php:34
+msgid "Resolved"
+msgstr "해결됨"
+
+#: inc/Metaboxes.php:18 inc/Status.php:290
+msgid "Re-Open"
+msgstr "재오픈"
+
+#: inc/Metaboxes.php:19 inc/Status.php:293
+#: templates/archive-question-filter.php:20
+#: templates/content-single-question.php:33
+msgid "Closed"
+msgstr "완료됨"
+
+#: inc/Metaboxes.php:25
+msgid "Sticky"
+msgstr "고정"
+
+#: inc/Metaboxes.php:29
+msgid "Pin question to top of archive page."
+msgstr "질문을 지난 글 페이지 상단에 고정하기"
+
+#: inc/Metaboxes.php:45 inc/Posts/Answer.php:225 inc/Posts/Answer.php:227
+#: inc/Settings.php:431 templates/archive-question-filter.php:34
+msgid "Answers"
+msgstr "답변 "
+
+#: inc/Metaboxes.php:65
+msgid "Question Meta Data"
+msgstr "질문 메타 데이타"
+
+#: inc/Notifications.php:29
+msgid "A new question was posted on {site_name}"
+msgstr "{site_name} 에 새로운 질문이 등록되었습니다."
+
+#: inc/Notifications.php:132
+msgid "You have a new answer for your followed question"
+msgstr "구독 중인 질문에 대한 새로운 답변이 있습니다."
+
+#: inc/Notifications.php:250
+msgid "A new answer for \"{question_title}\" was posted on {site_name}"
+msgstr "{question_title} 에 대한 답변이 {site_name} 에 등록되었습니다."
+
+#: inc/Notifications.php:334 inc/Notifications.php:380
+msgid "[{site_name}] You have a new comment for question {question_title}"
+msgstr "[{site_name}] {question_title} 질문에 대한 새로운 댓글이 있습니다."
+
+#: inc/Notifications.php:339 inc/Notifications.php:385
+msgid "[{site_name}] You have a new comment for answer"
+msgstr "[{site_name}] 답변에 대한 새 댓글이 있습니다."
+
+#: inc/PointerHelper.php:60
+msgid "How to use DW Question Answer"
+msgstr "DW Question Answer 사용법"
+
+#: inc/PointerHelper.php:61
+msgid "Documents, Support From DesignWall (help)"
+msgstr ""
+
+#: inc/PointerHelper.php:70
+msgid "Config your support channel"
+msgstr "기술지원 채널을 설정"
+
+#: inc/PointerHelper.php:71
+msgid "Change comment settings, and create the Submit question page."
+msgstr "댓글 설정과 질문 제출 페이지를 변경하세요."
+
+#: inc/Posts/Answer.php:226 inc/Posts/Answer.php:270
+msgid "Answer"
+msgstr "답변"
+
+#: inc/Posts/Answer.php:273
+msgid "In Response To"
+msgstr "고려하여"
+
+#: inc/Posts/Answer.php:317 inc/Posts/Base.php:320 inc/Settings.php:402
+#: inc/Template.php:58 inc/Template.php:163 inc/Template.php:180
+#: templates/content-comment.php:19
+msgid "Edit"
+msgstr "편집"
+
+#: inc/Posts/Answer.php:318 inc/Settings.php:403 inc/Template.php:168
+#: inc/Template.php:185 templates/content-comment.php:22
+msgid "Delete"
+msgstr "삭제"
+
+#: inc/Posts/Answer.php:319 inc/Posts/Base.php:322
+msgid "View"
+msgstr "보기"
+
+#: inc/Posts/Answer.php:323
+msgid "Submitted"
+msgstr "제출함"
+
+#: inc/Posts/Answer.php:324
+msgid "on"
+msgstr "에 대한 "
+
+#: inc/Posts/Answer.php:359
+msgid "Question ID"
+msgstr ""
+
+#: inc/Posts/Answer.php:370 inc/Posts/Answer.php:373
+msgid "ID"
+msgstr ""
+
+#: inc/Posts/Base.php:5
+msgid "Are you cheating, huh?"
+msgstr "허용하지 않은 기능입니다."
+
+#: inc/Posts/Base.php:18
+msgid "What "
+msgstr "무엇인가"
+
+#: inc/Posts/Base.php:46
+msgid "You voted for this "
+msgstr "투표하셨습니다."
+
+#: inc/Posts/Base.php:242
+#, php-format
+msgid "Posts by %s"
+msgstr "%s가 작성"
+
+#: inc/Posts/Base.php:251 inc/Posts/Base.php:255
+#, php-format
+msgid "%s answered <span class=\"dwqa-date\">%s</span> ago"
+msgstr ""
+
+#: inc/Posts/Base.php:257
+#, php-format
+msgid "%s asked <span class=\"dwqa-date\">%s</span> ago"
+msgstr ""
+
+#: inc/Posts/Base.php:306
+msgid "DWQA Posts"
+msgstr ""
+
+#: inc/Posts/Base.php:307
+msgid "DWQA Post"
+msgstr ""
+
+#: inc/Posts/Base.php:318
+msgctxt "dwqa"
+msgid "Add New"
+msgstr ""
+
+#: inc/Posts/Base.php:319
+msgid "Add New"
+msgstr "추가"
+
+#: inc/Posts/Base.php:321 inc/Status.php:296
+msgid "New"
+msgstr "신규"
+
+#: inc/Posts/Base.php:323
+msgid "Search "
+msgstr ""
+
+#: inc/Posts/Base.php:324
+msgid "not found"
+msgstr ""
+
+#: inc/Posts/Base.php:325
+msgid "not found in Trash"
+msgstr ""
+
+#: inc/Posts/Base.php:326
+msgid "Parent:"
+msgstr ""
+
+#: inc/Posts/Question.php:56 inc/Shortcode.php:138
+#: inc/widgets/Closed_Question.php:49 inc/widgets/Latest_Question.php:42
+#: inc/widgets/Popular_Question.php:43
+msgid "asked by"
+msgstr "질문자 "
+
+#: inc/Posts/Question.php:100 inc/Posts/Question.php:102
+#: inc/Posts/Question.php:266 inc/Settings.php:395
+#: templates/archive-question-filter.php:28
+msgid "Questions"
+msgstr ""
+
+#: inc/Posts/Question.php:101
+msgid "Question"
+msgstr "질문"
+
+#: inc/Posts/Question.php:196
+msgctxt "taxonomy general name"
+msgid "Question Categories"
+msgstr ""
+
+#: inc/Posts/Question.php:197
+msgctxt "taxonomy singular name"
+msgid "Question Category"
+msgstr ""
+
+#: inc/Posts/Question.php:198
+msgid "Search Question Categories"
+msgstr ""
+
+#: inc/Posts/Question.php:199
+msgid "All Question Categories"
+msgstr ""
+
+#: inc/Posts/Question.php:200
+msgid "Parent Question Category"
+msgstr ""
+
+#: inc/Posts/Question.php:201
+msgid "Parent Question Category:"
+msgstr ""
+
+#: inc/Posts/Question.php:202
+msgid "Edit Question Category"
+msgstr ""
+
+#: inc/Posts/Question.php:203
+msgid "Update Question Category"
+msgstr ""
+
+#: inc/Posts/Question.php:204
+msgid "Add New Question Category"
+msgstr ""
+
+#: inc/Posts/Question.php:205
+msgid "New Question Category Name"
+msgstr ""
+
+#: inc/Posts/Question.php:206
+msgid "Question Category"
+msgstr "질문의 분류"
+
+#: inc/Posts/Question.php:225
+msgctxt "taxonomy general name"
+msgid "Question Tags"
+msgstr ""
+
+#: inc/Posts/Question.php:226
+msgctxt "taxonomy singular name"
+msgid "Question Tag"
+msgstr ""
+
+#: inc/Posts/Question.php:227
+msgid "Search Question Tags"
+msgstr ""
+
+#: inc/Posts/Question.php:228
+msgid "Popular Question Tags"
+msgstr ""
+
+#: inc/Posts/Question.php:229
+msgid "All Question Tags"
+msgstr ""
+
+#: inc/Posts/Question.php:232
+msgid "Edit Question Tag"
+msgstr ""
+
+#: inc/Posts/Question.php:233
+msgid "Update Question Tag"
+msgstr ""
+
+#: inc/Posts/Question.php:234
+msgid "Add New Question Tag"
+msgstr ""
+
+#: inc/Posts/Question.php:235
+msgid "New Question Tag Name"
+msgstr ""
+
+#: inc/Posts/Question.php:236
+msgid "Separate question tags with commas"
+msgstr ""
+
+#: inc/Posts/Question.php:237
+msgid "Add or remove question tags"
+msgstr ""
+
+#: inc/Posts/Question.php:238
+msgid "Choose from the most used question tags"
+msgstr ""
+
+#: inc/Posts/Question.php:239
+msgid "No question tags found."
+msgstr ""
+
+#: inc/Posts/Question.php:240
+msgid "Question Tags"
+msgstr "질문 태그"
+
+#: inc/Posts/Question.php:276
+msgid "Info"
+msgstr "정보"
+
+#: inc/Posts/Question.php:287 templates/content-question.php:22
+msgid "answered"
+msgstr "답변함"
+
+#: inc/Posts/Question.php:288
+msgid "voted"
+msgstr "투표함"
+
+#: inc/Posts/Question.php:289
+msgid "views"
+msgstr "읽음"
+
+#: inc/Posts/Question.php:410 inc/User.php:266
+msgid "Invalid Post"
+msgstr "잘못된 게시글"
+
+#: inc/Posts/Question.php:445
+msgid "Sticky Questions"
+msgstr "고정 질문"
+
+#: inc/Posts/Question.php:479
+msgid "Question is not valid"
+msgstr "질문이 틀렸습니다."
+
+#: inc/Posts/Question.php:500
+msgid "Delete Action was failed"
+msgstr "삭제 실패"
+
+#: inc/Posts/Question.php:505
+msgid "You do not have permission to delete this question"
+msgstr "질문 삭제 권한이 없습니다."
+
+#: inc/Session.php:68 inc/Session.php:85 inc/Session.php:95 inc/Session.php:118
+msgid "This function should not be called before init."
+msgstr ""
+
+#: inc/Settings.php:8
+msgid "Login required. No anonymous post allowed"
+msgstr "로그인이 필요합니다. 비회원은 글을 작성할 수 없습니다."
+
+#: inc/Settings.php:20
+msgid "Select Archive Question Page"
+msgstr "질문 모음 페이지를 선택하세요."
+
+#: inc/Settings.php:24
+msgid ""
+"A page where displays all questions. The <code>[dwqa-list-questions]</code> "
+"short code must be on this page."
+msgstr ""
+
+#: inc/Settings.php:31
+msgid "hours"
+msgstr "시간 "
+
+#: inc/Settings.php:31
+msgid ""
+"A period of time in which new questions are highlighted and marked as New"
+msgstr "새 질문에 대해 새로운 질문 표시와 하이라이트로 표시하는 시간"
+
+#: inc/Settings.php:36
+msgid "days"
+msgstr "일"
+
+#: inc/Settings.php:36
+msgid ""
+"A Question will be marked as overdue if it passes this period of time, "
+"starting from the time the question was submitted"
+msgstr ""
+"질문이 게시된 시간부터 여기에 설정된 시간만큼이 지나면 '지연됨'으로 표시됩니"
+"다. "
+
+#: inc/Settings.php:47
+msgid "Select Submit Question Page"
+msgstr "질문 작성 페이지 선택"
+
+#: inc/Settings.php:52
+msgid ""
+"A page where users can submit questions. The <code>[dwqa-submit-question-"
+"form]</code> short code must be on this page."
+msgstr ""
+
+#: inc/Settings.php:65
+msgid "Select 404 DWQA Page"
+msgstr "404 DWQA 페이지 선택"
+
+#: inc/Settings.php:70
+msgid ""
+"This page will be redirected when users without authority click on a private "
+"question. You can customize the message of this page in.If not, a default "
+"404 page will be used."
+msgstr ""
+"이 페이지는 권한이 없는 사용자가 비공개 질문을 클릭하였을 때 보여줄 페이지를 "
+"설정합니다. 임의의 페이지를 설정할 수도 있으며, 404에러 페이지를 보여줄 수도 "
+"있습니다. "
+
+#: inc/Settings.php:87
+msgid "Upload"
+msgstr "업로드"
+
+#: inc/Settings.php:87
+msgid "Upload or choose a logo to be displayed at the top of the email."
+msgstr ""
+
+#: inc/Settings.php:126 inc/Settings.php:161 inc/Settings.php:197
+#: inc/Settings.php:233 inc/Settings.php:268 inc/Settings.php:303
+#: inc/Settings.php:338
+msgid "Enable?"
+msgstr ""
+
+#: inc/Settings.php:126
+msgid "Enable notification for new question."
+msgstr ""
+
+#: inc/Settings.php:131 inc/Settings.php:166 inc/Settings.php:202
+#: inc/Settings.php:238 inc/Settings.php:273 inc/Settings.php:308
+#: inc/Settings.php:343
+msgid "Email subject"
+msgstr "메일 제목 "
+
+#: inc/Settings.php:136 inc/Settings.php:171 inc/Settings.php:207
+#: inc/Settings.php:243 inc/Settings.php:278 inc/Settings.php:313
+#: inc/Settings.php:348
+msgid "Email Content"
+msgstr "메일 내용 "
+
+#: inc/Settings.php:161
+msgid "Enable notification for new answer."
+msgstr ""
+
+#: inc/Settings.php:197
+msgid "Enable notification for new answer ( to Followers )."
+msgstr ""
+
+#: inc/Settings.php:233 inc/Settings.php:268
+msgid "Enable notification for new comment of question."
+msgstr ""
+
+#: inc/Settings.php:303 inc/Settings.php:338
+msgid "Enable notification for new comment of answer."
+msgstr ""
+
+#: inc/Settings.php:400
+msgid "Read"
+msgstr "읽기"
+
+#: inc/Settings.php:401
+msgid "Post"
+msgstr "작성"
+
+#: inc/Settings.php:429 inc/Settings.php:465 inc/Settings.php:500
+msgid "Reset Default"
+msgstr "기본값으로 변경"
+
+#: inc/Settings.php:467
+msgid "Comments"
+msgstr ""
+
+#: inc/Settings.php:509
+msgid "Enable captcha on submit question page."
+msgstr ""
+
+#: inc/Settings.php:515
+msgid "Enable captcha on single question page."
+msgstr ""
+
+#: inc/Settings.php:533
+msgid "Default"
+msgstr ""
+
+#: inc/Settings.php:546
+msgid "questions."
+msgstr ""
+
+#: inc/Settings.php:552
+msgid "answers."
+msgstr ""
+
+#: inc/Settings.php:558
+msgid "Allow members to post private question."
+msgstr ""
+
+#: inc/Settings.php:564
+msgid "Question must be manually approved."
+msgstr ""
+
+#: inc/Settings.php:570
+msgid "Display status icon on the left side."
+msgstr ""
+
+#: inc/Settings.php:576
+msgid "Disable question status feature."
+msgstr ""
+
+#: inc/Settings.php:582
+msgid "Show all answers on single question page."
+msgstr ""
+
+#: inc/Settings.php:593
+msgid "Select template for Single Quesiton page"
+msgstr "질문 페이지 양식 선택"
+
+#: inc/Settings.php:599
+msgid ""
+"By default, your single.php template file will be used if you do not choose "
+"any template"
+msgstr "기본적으로 single.php 양식 파일을 사용합니다."
+
+#: inc/Settings.php:607
+#, php-format
+msgid ""
+"If you like, you may enter custom structure for your single question, "
+"question category and question tag URLs here. For example, using "
+"<code>topic</code> as your question base would make your question links like "
+"<code>%s</code>. If you leave these blank the default will be used."
+msgstr ""
+
+#: inc/Settings.php:732
+msgid "Plugin Settings"
+msgstr "플러그인 설정"
+
+#: inc/Settings.php:732
+msgid "Settings"
+msgstr "설정"
+
+#: inc/Settings.php:768
+msgid "Email Settings"
+msgstr ""
+
+#: inc/Settings.php:769
+msgid "New Question Notifications"
+msgstr ""
+
+#: inc/Settings.php:770
+msgid "New Answer Notifications"
+msgstr ""
+
+#: inc/Settings.php:771
+msgid "New Comment Notifications"
+msgstr ""
+
+#: inc/Settings.php:784
+msgid "Page Settings"
+msgstr ""
+
+#: inc/Settings.php:791
+msgid "Question List Page"
+msgstr "질문 목록 페이지"
+
+#: inc/Settings.php:799 inc/Settings.php:930
+msgid "Ask Question Page"
+msgstr "질문 작성 페이지"
+
+#: inc/Settings.php:842
+msgid "Question Settings"
+msgstr ""
+
+#: inc/Settings.php:849
+msgid "Archive Page Show At Most"
+msgstr ""
+
+#: inc/Settings.php:857
+msgid "Before A Question Appears"
+msgstr ""
+
+#: inc/Settings.php:865
+msgid "Other Question Settings"
+msgstr ""
+
+#: inc/Settings.php:890
+msgid "Answer Settings"
+msgstr ""
+
+#: inc/Settings.php:897
+msgid "Answer Listing"
+msgstr ""
+
+#: inc/Settings.php:915
+msgid "Captcha Settings"
+msgstr ""
+
+#: inc/Settings.php:922
+msgid "Type"
+msgstr ""
+
+#: inc/Settings.php:938
+msgid "Single Question Page"
+msgstr ""
+
+#: inc/Settings.php:950
+msgid "Permalink Settings"
+msgstr "고유주소 설정"
+
+#: inc/Settings.php:957
+msgid "Question Base"
+msgstr ""
+
+#: inc/Settings.php:965
+msgid "Question Category Base"
+msgstr ""
+
+#: inc/Settings.php:973
+msgid "Question Tag Base"
+msgstr ""
+
+#: inc/Settings.php:1042
+msgid "From Email"
+msgstr "송신자"
+
+#: inc/Settings.php:1110 inc/Settings.php:1117
+msgid "Group Permission"
+msgstr "그룹 허가권"
+
+#: inc/Settings.php:1145
+msgid "DWQA Settings"
+msgstr "DWQA 설정"
+
+#: inc/Settings.php:1149
+msgid "General"
+msgstr "일반"
+
+#: inc/Settings.php:1150
+msgid "Emails"
+msgstr ""
+
+#: inc/Settings.php:1151
+msgid "Permissions"
+msgstr ""
+
+#: inc/Settings.php:1152
+msgid "Licenses"
+msgstr ""
+
+#: inc/Settings.php:1166
+msgid "Email settings"
+msgstr ""
+
+#: inc/Settings.php:1168
+msgid "Email Logo"
+msgstr "메일 로고"
+
+#: inc/Settings.php:1182
+msgid "New Question Notifications (to Admin)"
+msgstr ""
+
+#: inc/Settings.php:1206
+msgid "New Answer Notifications (to Followers)"
+msgstr ""
+
+#: inc/Settings.php:1222
+msgid "New Answer Notifications (to Admin)"
+msgstr ""
+
+#: inc/Settings.php:1242
+msgid "New Comment to Question Notifications (to Followers)"
+msgstr ""
+
+#: inc/Settings.php:1259
+msgid "New Comment to Question Notifications (to Admin)"
+msgstr ""
+
+#: inc/Settings.php:1279
+msgid "New Comment to Answer Notifications (to Followers)"
+msgstr ""
+
+#: inc/Settings.php:1296
+msgid "New Comment to Answer Notifications (to Admin)"
+msgstr ""
+
+#: inc/Settings.php:1314
+msgid "Save all changes"
+msgstr "설정 저장"
+
+#: inc/Settings.php:1328
+#, php-format
+msgid "Manage <a href=\"%s\">DWQA Extensions</a> license keys"
+msgstr ""
+
+#: inc/Settings.php:1346 inc/Settings.php:1351 inc/Settings.php:1356
+#: inc/Settings.php:1361
+msgid "Forward to"
+msgstr ""
+
+#: inc/Settings.php:1366
+msgid "Cc"
+msgstr "참조"
+
+#: inc/Settings.php:1371
+msgid "Bcc"
+msgstr "숨은 참조"
+
+#: inc/Settings.php:1376
+msgid "This address will be used as the sender of the outgoing emails."
+msgstr "이 주소를 발신자 주소로 사용합니다."
+
+#: inc/Settings.php:1382
+msgid "Send a copy of every email to admin."
+msgstr ""
+
+#: inc/Shortcode.php:115 inc/widgets/Popular_Question.php:21
+msgid "Popular Questions"
+msgstr "인기있는 질문들"
+
+#: inc/Shortcode.php:152
+msgid "Latest Answers"
+msgstr "최근 답변들"
+
+#: inc/Shortcode.php:178
+msgid "Answer at"
+msgstr "에 대한 답변"
+
+#: inc/Shortcode.php:178
+msgid "Link to"
+msgstr "연결"
+
+#: inc/Shortcode.php:206
+#, php-format
+msgid "%d person who is following this question"
+msgid_plural "%d people who are following this question"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/Shortcode.php:236
+msgid "Question List"
+msgstr ""
+
+#: inc/Status.php:300
+msgid "Answered"
+msgstr "답변함"
+
+#: inc/Status.php:324
+msgid "Missing post ID"
+msgstr "글 ID 누락"
+
+#: inc/Status.php:337
+msgid "Post does not exist"
+msgstr "글이 존재하지 않습니다."
+
+#: inc/Status.php:342
+msgid "Invalid post status"
+msgstr "글 상태 표시에 오류가 있습니다."
+
+#: inc/Template.php:15 templates/content-edit.php:44
+#: templates/question-submit-form.php:46
+msgid "Tag"
+msgstr ""
+
+#: inc/Template.php:15 inc/Template.php:20 templates/content-edit.php:29
+#: templates/question-submit-form.php:32
+msgid "Category"
+msgstr "분류"
+
+#: inc/Template.php:43
+msgid "Showing search results for"
+msgstr ""
+
+#: inc/Template.php:78
+msgid "What do you want to know?"
+msgstr ""
+
+#: inc/Template.php:157
+msgid "Subscribe"
+msgstr ""
+
+#: inc/Template.php:445
+msgid "Email"
+msgstr "메일 "
+
+#: inc/Template.php:447
+msgid "Name"
+msgstr ""
+
+#: inc/Template.php:449
+#, php-format
+msgid "Required fields are marked %s"
+msgstr "필수 항목을 %s 로 표시했습니다."
+
+#: inc/Template.php:461
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr "댓글 작성을 위해서는 <a href=\"%s\">로그인</a> 하셔야 합니다."
+
+#: inc/Template.php:464
+#, php-format
+msgid ""
+"You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
+"and attributes: %s"
+msgstr ""
+"다음과 같은 <abbr title=\"HyperText Markup Language\">HTML</abbr> 태그와 속성"
+"을 사용할 수 있습니다: %s"
+
+#: inc/Template.php:467
+msgid "Leave a Reply"
+msgstr "회신 남기기"
+
+#: inc/Template.php:468
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr "%s 에게 회신 남기기"
+
+#: inc/Template.php:469
+msgid "Cancel reply"
+msgstr "회신 취소 "
+
+#: inc/Template.php:470
+msgid "Post Comment"
+msgstr "댓글 작성 "
+
+#: inc/Template.php:645
+msgid "Sticky Question"
+msgstr "고정 질문 "
+
+#: inc/Template.php:659
+msgid "Ask a question"
+msgstr "질문하기"
+
+#: inc/Template.php:661
+msgid "Login to ask a question"
+msgstr "질문 작성을 위해 로그인하기 "
+
+#: inc/Template.php:1128
+msgid "Choose as the best answer"
+msgstr "최고의 답변으로 선정하세요"
+
+#: inc/Updater.php:97
+msgid "License Key"
+msgstr ""
+
+#: inc/Updater.php:122
+msgid "Activate"
+msgstr ""
+
+#: inc/Updater.php:176
+msgid "Plugin was activated"
+msgstr ""
+
+#: inc/User.php:230
+msgid "Staff"
+msgstr "스탭 "
+
+#: inc/Walker/Category.php:20 inc/Walker/Tag.php:20
+#, php-format
+msgid "View all posts filed under %s"
+msgstr "%s 의 모든 첨부 파일 보기"
+
+#: inc/Walker/Category.php:35 inc/Walker/Tag.php:35
+#, php-format
+msgid "Feed for all posts filed under %s"
+msgstr "%s 의 모든 파일 전송"
+
+#: inc/widgets/Closed_Question.php:11
+msgid "Show a list of questions marked as closed."
+msgstr ""
+
+#: inc/widgets/Closed_Question.php:12
+msgid "DWQA Closed Questions"
+msgstr "DWQA 완료한 질문"
+
+#: inc/widgets/Closed_Question.php:18
+msgid "Closed Questions"
+msgstr "완료한 질문"
+
+#: inc/widgets/Closed_Question.php:72 inc/widgets/Latest_Question.php:71
+#: inc/widgets/Popular_Question.php:66 inc/widgets/Related_Question.php:48
+msgid "Widget title"
+msgstr "위젯 제목 "
+
+#: inc/widgets/Closed_Question.php:75 inc/widgets/Latest_Question.php:74
+#: inc/widgets/Popular_Question.php:69 inc/widgets/Related_Question.php:51
+msgid "Number of posts"
+msgstr "작성한 글의 수"
+
+#: inc/widgets/Latest_Question.php:10
+msgid "Show a list of latest questions."
+msgstr ""
+
+#: inc/widgets/Latest_Question.php:11
+msgid "DWQA Latest Questions"
+msgstr "DWQA 최근 질문"
+
+#: inc/widgets/Latest_Question.php:17
+msgid "Latest Questions"
+msgstr "최근 질문들 "
+
+#: inc/widgets/Latest_Question.php:44
+msgid "ago"
+msgstr ""
+
+#: inc/widgets/Latest_Question.php:79
+msgid "Show question date"
+msgstr ""
+
+#: inc/widgets/Popular_Question.php:13
+msgid "Show a list of popular questions."
+msgstr ""
+
+#: inc/widgets/Popular_Question.php:15
+msgid "DWQA Popular Questions"
+msgstr "DWQA 인기 질문들 "
+
+#: inc/widgets/Related_Question.php:11
+msgid ""
+"Show a list of questions that related to a question. Just show in single "
+"question page"
+msgstr "관련 질문 목록 보여주기. 질문 페이지에 보여줍니다."
+
+#: inc/widgets/Related_Question.php:12
+msgid "DWQA Related Questions"
+msgstr "DWQA 관련 질문들"
+
+#: lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:181
+#, php-format
+msgid ""
+"There is a new version of %1$s available. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">View version %3$s details</a>."
+msgstr ""
+
+#: lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:188
+#, php-format
+msgid ""
+"There is a new version of %1$s available. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">View version %3$s details</a> or <a href=\"%4$s"
+"\">update now</a>."
+msgstr ""
+
+#: lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:326
+msgid "You do not have permission to install plugin updates"
+msgstr ""
+
+#: lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:326
+msgid "Error"
+msgstr ""
+
+#: templates/answer-submit-form.php:12
+msgid "Your Answer"
+msgstr ""
+
+#: templates/answer-submit-form.php:21 templates/question-submit-form.php:52
+msgid "Your Email"
+msgstr ""
+
+#: templates/answer-submit-form.php:26 templates/question-submit-form.php:57
+msgid "Your Name"
+msgstr ""
+
+#: templates/answer-submit-form.php:33 templates/question-submit-form.php:24
+msgid "Who can see this?"
+msgstr ""
+
+#: templates/answer-submit-form.php:34 templates/question-submit-form.php:25
+msgid "Public"
+msgstr "공개"
+
+#: templates/answer-submit-form.php:35 templates/question-submit-form.php:26
+msgid "Only Me &amp; Admin"
+msgstr ""
+
+#: templates/answer-submit-form.php:39 templates/question-submit-form.php:65
+msgid "Submit"
+msgstr ""
+
+#: templates/answers.php:12
+#, php-format
+msgid "%s Answers"
+msgstr ""
+
+#: templates/archive-question-filter.php:14
+msgid "Filter:"
+msgstr ""
+
+#: templates/archive-question-filter.php:16
+msgid "All"
+msgstr "전체"
+
+#: templates/archive-question-filter.php:22
+msgid "Unanswered"
+msgstr ""
+
+#: templates/archive-question-filter.php:24
+msgid "My questions"
+msgstr ""
+
+#: templates/archive-question-filter.php:25
+msgid "My subscribes"
+msgstr ""
+
+#: templates/archive-question-filter.php:29
+msgid "Subscribes"
+msgstr ""
+
+#: templates/archive-question-filter.php:32
+msgid "Sort by"
+msgstr ""
+
+#: templates/archive-question-filter.php:33
+msgid "Views"
+msgstr ""
+
+#: templates/archive-question-filter.php:35
+msgid "Votes"
+msgstr ""
+
+#: templates/archive-question.php:28
+msgid "Ask Question"
+msgstr "질문하기"
+
+#: templates/captcha-form.php:20
+msgid "Enter the result"
+msgstr ""
+
+#: templates/content-comment.php:16
+#, php-format
+msgctxt "%s = human-readable time difference"
+msgid "replied %s ago"
+msgstr ""
+
+#: templates/content-edit.php:21 templates/question-submit-form.php:13
+msgid "Title"
+msgstr ""
+
+#: templates/content-edit.php:36 templates/question-submit-form.php:38
+msgid "Select question category"
+msgstr "질문의 분류를 선택하세요."
+
+#: templates/content-edit.php:50
+msgid "Save Changes"
+msgstr ""
+
+#: templates/content-none.php:10
+msgid "You do not have permission to view questions"
+msgstr "질문을 볼 권한이 없습니다."
+
+#: templates/content-none.php:12
+msgid "Sorry, but nothing matched your filter"
+msgstr ""
+
+#: templates/content-question.php:18
+msgid "asked"
+msgstr "질문함 "
+
+#: templates/content-question.php:25
+#, php-format
+msgid "<span><a href=\"%s\">%s%s</a> %s %s ago</span>"
+msgstr ""
+
+#: templates/content-question.php:26 templates/content-single-answer.php:25
+msgid "&nbsp;&bull;&nbsp;"
+msgstr ""
+
+#: templates/content-question.php:31
+#, php-format
+msgid "<strong>%1$s</strong> views"
+msgstr ""
+
+#: templates/content-question.php:35
+#, php-format
+msgid "<strong>%1$s</strong> answers"
+msgstr ""
+
+#: templates/content-question.php:39
+#, php-format
+msgid "<strong>%1$s</strong> votes"
+msgstr ""
+
+#: templates/content-single-answer.php:12
+#: templates/content-single-question.php:14
+msgid "Vote Up"
+msgstr "투표 더하기"
+
+#: templates/content-single-answer.php:13
+#: templates/content-single-question.php:15
+msgid "Vote Down"
+msgstr "투표 빼기"
+
+#: templates/content-single-answer.php:17
+#: templates/content-single-answer.php:19
+msgid "Best Answer"
+msgstr ""
+
+#: templates/content-single-answer.php:23
+#, php-format
+msgid "<span><a href=\"%s\">%s%s</a> %s answered %s ago</span>"
+msgstr ""
+
+#: templates/content-single-answer.php:26
+msgid "Private"
+msgstr "비공개"
+
+#: templates/content-single-question.php:19
+#, php-format
+msgid "<span><a href=\"%s\">%s%s</a> %s asked %s ago</span>"
+msgstr ""
+
+#: templates/content-single-question.php:25
+msgid "Question Tags: "
+msgstr ""
+
+#: templates/content-single-question.php:29
+msgid "This question is:"
+msgstr ""
+
+#: templates/question-submit-form.php:69
+msgid "You do not have permission to submit a question"
+msgstr "질문 작성 권한이 없습니다."
+
+#: upgrades/upgrades.php:25
+#, php-format
+msgid ""
+"DW Question Answer needs to upgrade the database, click %shere%s to start "
+"the upgrade."
+msgstr ""
+
+#: upgrades/upgrades.php:33
+msgid "DWQA Upgrade"
+msgstr ""
+
+#: upgrades/upgrades.php:40
+msgid ""
+"The upgrade process has started, please be patient. This could take several "
+"minutes. You will be automatically redirected when the upgrade is finished..."
+msgstr ""
+
+#: upgrades/upgrades.php:130
+msgid "You do not have permission to do this task"
+msgstr ""
+
+#: upgrades/upgrades.php:147
+msgid "Just do it.."
+msgstr ""
+
+#: upgrades/upgrades.php:155
+#, php-format
+msgid "Move to next step %d"
+msgstr ""
+
+#: upgrades/upgrades.php:172
+msgid "Upgrade process is done"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "DW Question Answer"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"A WordPress plugin was make by DesignWall.com to build an Question Answer "
+"system for support, asking and comunitcate with your customer"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "DesignWall"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.designwall.com"
+msgstr ""
+
+#~ msgid "Next"
+#~ msgstr "다음"
+
+#~ msgid "Prev"
+#~ msgstr "이전"
+
+#~ msgid "Please enter your question"
+#~ msgstr "질문을 작성해주세요."
+
+#~ msgid "Your question must be at least 2 characters in length"
+#~ msgstr "질문 길이는 최소 두 글자 이상이어야합니다."
+
+#~ msgid "Enter a valid email address"
+#~ msgstr "정확한 메일 주소를 입력해주세요."
+
+#~ msgid "Enter a question title"
+#~ msgstr "질문 제목을 입력해 주세요."
+
+#~ msgid "Please add your name"
+#~ msgstr "이름을 입력해 주세요."
+
+#~ msgid "Please enter your answer"
+#~ msgstr "답변을 입력하세요."
+
+#~ msgid "Comment must have more than 2 characters"
+#~ msgstr "댓글 길이는 최소 두 글자 이상이어야 합니다."
+
+#~ msgid "Not found! Try another keyword."
+#~ msgstr "결과가 없습니다. 다른 키워드를 입력하세요."
+
+#~ msgid "Or press <strong>ENTER</strong> to get more questions"
+#~ msgstr "아니면 <strong>ENTER</strong>를 클릭하시어 다른 질문을 찾아보세요."
+
+#~ msgid "Update"
+#~ msgstr "갱신"
+
+#~ msgid "Cancel"
+#~ msgstr "취소"
+
+#~ msgid "Do you want to delete this comment?"
+#~ msgstr "이 댓글을 삭제 하시겠습니까?"
+
+#~ msgid "Do you want to delete this answer?"
+#~ msgstr "이 답변을 삭제 하시겠습니까?"
+
+#~ msgid "Do you want to update this answer?"
+#~ msgstr "이 답변을 갱신 하시겠습니까?"
+
+#~ msgid "Do you want to report this answer?"
+#~ msgstr "이 답변을 신고 하시겠습니까?"
+
+#~ msgid "Report"
+#~ msgstr "신고"
+
+#~ msgid "Undo"
+#~ msgstr "스팸 해제하기"
+
+#~ msgid ""
+#~ "This answer will be marked as spam and hidden. Do you want to flag it?"
+#~ msgstr ""
+#~ "이 답변은 스팸으로 처리되며, 보이지 않게 됩니다. 신고 하시겠습니다. "
+
+#~ msgid "This answer was flagged as spam. Do you want to show it"
+#~ msgstr "이 답변은 스팹으로 등록되었습니다. 그래도 보여주시겠습니까?"
+
+#~ msgid "This answer was flagged as spam"
+#~ msgstr "이 답변은 스팸으로 등록되었습니다."
+
+#~ msgid "hide"
+#~ msgstr "감추기"
+
+#~ msgid "show"
+#~ msgstr "보이기"
+
+#~ msgid "Follow This Question"
+#~ msgstr "이 질문 구독하기"
+
+#~ msgid "Unfollow This Question"
+#~ msgstr "이 질문 구독 해제하기"
+
+#~ msgid "Pin this question to top"
+#~ msgstr "질문을 상단에 고정 "
+
+#~ msgid "Unpin this question from top"
+#~ msgstr "질문의 고정 해제하기"
+
+#~ msgid "Do you want to delete this question?"
+#~ msgstr "이 질문을 삭제하시겠습니까?"
+
+#~ msgid "Publish"
+#~ msgstr "발행"
+
+#~ msgid "Everyone can see"
+#~ msgstr "전체 공개"
+
+#~ msgid "Only Author and Administrator can see"
+#~ msgstr "작성자와 관리자만 볼 수 있음"
+
+#~ msgid "Sorry, but nothing matched your filter. "
+#~ msgstr "죄송합니다. 찾으시는 검색 결과가 없습니다."
+
+#~ msgid "You can ask question"
+#~ msgstr "질문하십시오."
+
+#~ msgid "here"
+#~ msgstr "여기 "
+
+#~ msgid "Please"
+#~ msgstr " "
+
+#~ msgid "Login"
+#~ msgstr " "
+
+#~ msgid " or"
+#~ msgstr "또는 "
+
+#~ msgid " to submit question."
+#~ msgstr " "
+
+#~ msgid "Search query is empty"
+#~ msgstr "질문 검색어를 입력해주세요."
+
+#~ msgid "A page where displays all questions"
+#~ msgstr "모든 질문의 목록을 보여줄 페이지를 선택하십시오."
+
+#~ msgid "A page where users can submit questions."
+#~ msgstr "사용자가 질문을 작성하는 페이지"
+
+#~ msgid "Upload or choose a logo to be displayed at the top of the email"
+#~ msgstr "메일 상단에 표시할 로고의 업로드 또는 선택"
+
+#~ msgid "Enable notification for new question"
+#~ msgstr "새 질문 알림 활성화"
+
+#~ msgid "Enable notification for new answer"
+#~ msgstr "새 답변 알림 활성화 "
+
+#~ msgid "Enable notification for new answer (to Followers )"
+#~ msgstr "새 답변 알림 활성화 ( 구독자에게 )"
+
+#~ msgid "Enable notification for new comment of question"
+#~ msgstr "질문의 새 댓글 알림 활성화 "
+
+#~ msgid "Enable notification for new comment of answer"
+#~ msgstr "답변의 새 댓글 알림 활성화 "
+
+#~ msgid "Comment"
+#~ msgstr "댓글"
+
+#~ msgid "Enable/Disable captcha on submit question page"
+#~ msgstr "질문 작성 페이지의 보안 그림 문자 활성/비활성"
+
+#~ msgid "Enable/Disable captcha on single question page"
+#~ msgstr "질문 페이지의 보안 그림 문자 활성/비활성"
+
+#~ msgid "questions"
+#~ msgstr "개의 질문"
+
+#~ msgid "Allow members to post private question"
+#~ msgstr "회원에게는 비공개 질문을 허용합니다."
+
+#~ msgid "Question must be manually approved"
+#~ msgstr "질문을 승인해야 합니다."
+
+#~ msgid "New Question Notification"
+#~ msgstr "새 질문 알림"
+
+#~ msgid "New Answer Notification"
+#~ msgstr "새 답변 알림"
+
+#~ msgid "New Comment to Question Notification (to Followers )"
+#~ msgstr "질문에 대한 새 댓글 알림 ( 구독자에게 )"
+
+#~ msgid "New Comment to Answer Notification"
+#~ msgstr "답변에 대한 새 댓글 알림"
+
+#~ msgid "New Answer Notification (to Followers )"
+#~ msgstr "새 답변 알림 ( 구독자에게 )"
+
+#~ msgid "New Comment to Answer Notification (to Followers )"
+#~ msgstr "답변에 대한 새 댓글 ( 구독자에게 )"
+
+#~ msgid "Archive page show at most"
+#~ msgstr "목록에 몇개의 질문을 표시할까요?"
+
+#~ msgid "Private Question"
+#~ msgstr "비공개 질문"
+
+#~ msgid "Review Question"
+#~ msgstr "질문 검토하기"
+
+#~ msgid "Time settings"
+#~ msgstr "시간 설정"
+
+#~ msgid "New Question Time Frame"
+#~ msgstr "새로운 질문으로 처리되는 시간"
+
+#~ msgid "Question Overdue - Time Frame"
+#~ msgstr "지연된 질문으로 처리되는 시간"
+
+#~ msgid "Captcha settings"
+#~ msgstr "보안 그림 문자 설정"
+
+#~ msgid "Captcha on Submit Question Page"
+#~ msgstr "질문 작성 페이지의 보안 그림 문자"
+
+#~ msgid "Captcha on Single Question Page"
+#~ msgstr "질문 페이지의 보안 그림 문자"
+
+#~ msgid "Single Question"
+#~ msgstr "질문"
+
+#~ msgid "Single Category"
+#~ msgstr "분류"
+
+#~ msgid "Single Tag"
+#~ msgstr "태그"
+
+#~ msgid "Notification"
+#~ msgstr "알림"
+
+#~ msgid "Permission"
+#~ msgstr "권한"
+
+#~ msgid "Email setup"
+#~ msgstr "메일 설정"
+
+#~ msgid "New Comment to Question Notification"
+#~ msgstr "질문에 대한 새 댓글 알림"
+
+#~ msgid "Send to"
+#~ msgstr "수신자"
+
+#~ msgid "Send A Copy Of Every Email To Admin"
+#~ msgstr "모든 메일의 복사본을 관리자에게 보내기"
+
+#~ msgid "You need an account to submit question and get answers. Create one:"
+#~ msgstr ""
+#~ "질문 등록이나 답변을 받기 위해서는 회원 가입이 필요합니다. 지금 가입하십시"
+#~ "오."
+
+#~ msgid "Type your email"
+#~ msgstr "메일 주소 "
+
+#~ msgid "Already a member?"
+#~ msgstr "이미 가입하셨나요?"
+
+#~ msgid "Log In"
+#~ msgstr "로그인"
+
+#~ msgid "Login to submit your question"
+#~ msgstr "질문 등록을 위해 로그인 해 주세요."
+
+#~ msgid "Type your username"
+#~ msgstr "사용자 이름 "
+
+#~ msgid "Type your password"
+#~ msgstr "비밀번호 "
+
+#~ msgid "Not yet a member?"
+#~ msgstr "아직 회원 가입을 하지 않으셨나요?"
+
+#~ msgid "Register"
+#~ msgstr "가입하기 "
+
+#~ msgid ""
+#~ "Enter your email to receive notification regarding your question. Your "
+#~ "email is safe with us and will not be published."
+#~ msgstr ""
+#~ "질문에 대한 알림을 받기 위해 메일 주소를 입력해 주십시오. 메일 정보는 안전"
+#~ "하게 보관하고, 공개하지 않습니다."
+
+#~ msgid "Your email *"
+#~ msgstr "메일 주소*"
+
+#~ msgid "Email address ..."
+#~ msgstr "메일 주소 ..."
+
+#~ msgid "or <strong><a href=\"%s\">login</a></strong> to submit question"
+#~ msgstr ""
+#~ "또는 질문 작성을 위해 <strong><a href=\"%s\">로그인</a></strong>하세요."
+
+#~ msgid "Private: %s"
+#~ msgstr "비공개: %s"
+
+#~ msgctxt "noun"
+#~ msgid "Comment"
+#~ msgstr "댓글 "
+
+#~ msgid ""
+#~ "Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out "
+#~ "of this account\">Log out?</a>"
+#~ msgstr ""
+#~ "<a href=\"%1$s\">%2$s</a> 로 로그인한 상태입니다. <a href=\"%3$s\" title="
+#~ "\"Log out of this account\">로그아웃 하시겠습니까?</a>"
+
+#~ msgid "Your email address will not be published."
+#~ msgstr "메일 주소는 공개되지 않습니다."
+
+#~ msgid "Add New Question"
+#~ msgstr "새 질문 추가"
+
+#~ msgid "Edit Question"
+#~ msgstr "질문 편집"
+
+#~ msgid "New Question"
+#~ msgstr "새로운 질문"
+
+#~ msgid "All Questions"
+#~ msgstr "모든 질문"
+
+#~ msgid "View Question"
+#~ msgstr "질문 보기"
+
+#~ msgid "Search Question"
+#~ msgstr "질문 검색"
+
+#~ msgid "No questions found"
+#~ msgstr "질문이 없습니다."
+
+#~ msgid "No questions found in Trash"
+#~ msgstr "휴지통에 질문이 없습니다."
+
+#~ msgid "DW Q&A"
+#~ msgstr "DW Q&A"
+
+#~ msgid "Add new answer"
+#~ msgstr "새 답변 추가"
+
+#~ msgid "Edit answer"
+#~ msgstr "답변 편집"
+
+#~ msgid "New Answer"
+#~ msgstr "새로운 답변"
+
+#~ msgid "All Answers"
+#~ msgstr "모든 답변"
+
+#~ msgid "View Answer"
+#~ msgstr "답변 보기"
+
+#~ msgid "Search Answer"
+#~ msgstr "답변 검색"
+
+#~ msgid "No Answers found"
+#~ msgstr "답변이 없습니다. "
+
+#~ msgid "No Answers found in Trash"
+#~ msgstr "휴지통에 답변이 없습니다."
+
+#~ msgctxt "taxonomy general name"
+#~ msgid "Categories"
+#~ msgstr "분류"
+
+#~ msgctxt "taxonomy singular name"
+#~ msgid "Category"
+#~ msgstr "분류"
+
+#~ msgid "Search Categories"
+#~ msgstr "분류 검색"
+
+#~ msgid "All Categories"
+#~ msgstr "모든 분류"
+
+#~ msgid "Parent Category"
+#~ msgstr "상위 분류"
+
+#~ msgid "Parent Category:"
+#~ msgstr "상위 분류:"
+
+#~ msgid "Edit Category"
+#~ msgstr "분류 편집"
+
+#~ msgid "Update Category"
+#~ msgstr "분류 갱신"
+
+#~ msgid "Add New Category"
+#~ msgstr "새 분류 추가"
+
+#~ msgid "New Category Name"
+#~ msgstr "새 분류명"
+
+#~ msgid "Question Categories"
+#~ msgstr "질문 분류"
+
+#~ msgctxt "taxonomy general name"
+#~ msgid "Tags"
+#~ msgstr "태그"
+
+#~ msgctxt "taxonomy singular name"
+#~ msgid "Tag"
+#~ msgstr "태그"
+
+#~ msgid "Search Tags"
+#~ msgstr "태그 검색"
+
+#~ msgid "Popular Tags"
+#~ msgstr "인기 태그"
+
+#~ msgid "All Tags"
+#~ msgstr "모든 태그"
+
+#~ msgid "Edit Tag"
+#~ msgstr "태그 편집"
+
+#~ msgid "Update Tag"
+#~ msgstr "태그 갱신"
+
+#~ msgid "Add New Tag"
+#~ msgstr "새 태그 추가"
+
+#~ msgid "New Tag Name"
+#~ msgstr "새 태그명"
+
+#~ msgid "Separate tags with commas"
+#~ msgstr "태그들은 콤마로 구분하세요."
+
+#~ msgid "Add or remove tags"
+#~ msgstr "태그 추가/삭제"
+
+#~ msgid "Choose from the most used tags"
+#~ msgstr "가장 많이 사용한 태그 선택"
+
+#~ msgid "%s second"
+#~ msgid_plural "%s seconds"
+#~ msgstr[0] "%s 초"
+#~ msgstr[1] "%s 초"
+
+#~ msgid "about %s min"
+#~ msgid_plural "%s mins"
+#~ msgstr[0] "약 %s 분"
+#~ msgstr[1] "약 %s 분"
+
+#~ msgid "about %s hour"
+#~ msgid_plural "%s hours"
+#~ msgstr[0] "약 %s 시간 "
+#~ msgstr[1] "약 %s 시간"
+
+#~ msgid "%s day"
+#~ msgid_plural "%s days"
+#~ msgstr[0] "%s 일"
+#~ msgstr[1] "%s 일"
+
+#~ msgid "%1$s ago"
+#~ msgstr "%1$s전"
+
+#~ msgid "Flag"
+#~ msgstr "신고 "
+
+#~ msgid "Unflag"
+#~ msgstr "신고 취소 "
+
+#~ msgid ""
+#~ "This answer will be hidden when flagged. Are you sure you want to flag it?"
+#~ msgstr ""
+#~ "이 답변은 스팸으로 처리되며, 보이지 않게 됩니다. 신고 하시겠습니다. "
+
+#~ msgid "This answer was flagged as spam. Do you want to show it?"
+#~ msgstr "이 답변은 스팸으로 등록되었습니다. 그래도 보여주시겠습니까?"
+
+#~ msgid "Reset all changes to default"
+#~ msgstr "기본값으로 변경"
+
+#~ msgid "%s answered <span class=\"dwqa-date\">%s</span>"
+#~ msgstr " <span class=\"dwqa-date\">%s</span> 에 %s 회신"
+
+#~ msgid "%s asked <span class=\"dwqa-date\">%s</span>"
+#~ msgstr "%s 에 %s 질문함"
+
+#~ msgid "Save draft"
+#~ msgstr "임시 저장"
+
+#~ msgid "Answer is missing"
+#~ msgstr "답변을 누락했습니다."
+
+#~ msgid "You do not have permission to edit this post"
+#~ msgstr "수정 권한이 없습니다."
+
+#~ msgid "This post is not an answer"
+#~ msgstr "답변이 없습니다."
+
+#~ msgid "Missing answer ID"
+#~ msgstr "답변 ID 누락"
+
+#~ msgid "The question is missing"
+#~ msgstr "질문 누락"
+
+#~ msgid "DWQA 404 Page"
+#~ msgstr "DWQA 404 페이지"
+
+#~ msgid "Single Question Template"
+#~ msgstr "질문 양식"
+
+#~ msgid "Google Captcha Public Key"
+#~ msgstr "구글 보안 그림 문자 공개키"
+
+#~ msgid "Google Captcha Private Key"
+#~ msgstr "구글 보안 그림 문자 개인키"
+
+#~ msgid "New Comment to Question"
+#~ msgstr "질문에 대한 새 댓글"
+
+#~ msgid "New Comment to Answer"
+#~ msgstr "답변에 대한 새 댓글"
+
+#~ msgid "New Answer (to Followers )"
+#~ msgstr "새 답변 ( 구독자에게 )"
+
+#~ msgid "New Comment to Question (to Followers )"
+#~ msgstr "질문에 대한 새 댓글 ( 구독자에게 )"
+
+#~ msgid "New Comment to Answer (to Followers )"
+#~ msgstr "답변에 대한 새 댓글 ( 구독자에게 )"
+
+#~ msgid "% person who is following this question"
+#~ msgid_plural "% people who are following this question"
+#~ msgstr[0] "% 명의 사람이 이 질문에 관심이 있습니다."
+#~ msgstr[1] "% 명의 사람이 구독 중입니다."
+
+#~ msgid "Answer this Question"
+#~ msgstr "이 질문에 답변해 주세요."
+
+#~ msgid "Add answer"
+#~ msgstr "답변하기"
+
+#~ msgid "All questions from"
+#~ msgstr "모든 질문"
+
+#~ msgid "follow"
+#~ msgstr "구독"
+
+#~ msgid "following"
+#~ msgstr "구독 중"
+
+#~ msgid "unfollow"
+#~ msgstr "구독 취소 "
+
+#~ msgid "Unpin this Question from the top"
+#~ msgstr "질문의 상단 고정 취소"
+
+#~ msgid "Pin this Question to top"
+#~ msgstr "질문을 상단에 고정"
+
+#~ msgid "answer"
+#~ msgid_plural "answers"
+#~ msgstr[0] "답변"
+#~ msgstr[1] "답변"
+
+#~ msgid "You do not have permission to view answers"
+#~ msgstr "답변을 볼 수 있는 권한이 없습니다. "
+
+#~ msgid "This question is now closed"
+#~ msgstr "완료한 질문입니다."
+
+#~ msgid "You do not have permission to submit answer."
+#~ msgstr "답변을 작성할 수 있는 권한이 없습니다."
+
+#~ msgid "Please login or"
+#~ msgstr "로그인하시거나 "
+
+#~ msgid "to Submit Answer"
+#~ msgstr "답변 제출하기 "
+
+#~ msgid "Sorry, but nothing matched your filter."
+#~ msgstr "일치하는 필터가 없습니다."
+
+#~ msgid "View previous comments"
+#~ msgstr "이전 댓글 보기 "
+
+#~ msgid "of"
+#~ msgstr "의"
+
+#~ msgid "Write a reply..."
+#~ msgstr "댓글을 적어주세요..."
+
+#~ msgid "Link to answer"
+#~ msgstr "답변으로 "
+
+#~ msgid "Draft"
+#~ msgstr "임시 저장"
+
+#~ msgid "This answer was flagged as spam."
+#~ msgstr "이 답변을 스팸으로 표시했습니다."
+
+#~ msgid "This is the best answer"
+#~ msgstr "최고의 답변"
+
+#~ msgid "The answer link"
+#~ msgstr "답변 "
+
+#~ msgid "Post by"
+#~ msgstr "가 작성함"
+
+#~ msgid "Link to comment"
+#~ msgstr "댓글로"
+
+#~ msgid "Permalink to %s"
+#~ msgstr "%s 로의 고유주소"
+
+#~ msgid "view"
+#~ msgid_plural "views"
+#~ msgstr[0] "보기 "
+#~ msgstr[1] "보기"
+
+#~ msgid "vote"
+#~ msgid_plural "votes"
+#~ msgstr[0] "투표 "
+#~ msgstr[1] "투표 "
+
+#~ msgid "Status:"
+#~ msgstr "상태:"
+
+#~ msgid "Need Answer"
+#~ msgstr "답변대기"
+
+#~ msgid "Overdue"
+#~ msgstr "지연"
+
+#~ msgid "Queue"
+#~ msgstr "대기"
+
+#~ msgid "Select a category"
+#~ msgstr "분류를 선택하세요."
+
+#~ msgid "Empty"
+#~ msgstr "비었음 "
+
+#~ msgid "Vote"
+#~ msgstr "투표 "
+
+#~ msgid "tag 1, tag 2,..."
+#~ msgstr "태그1, 태그2, ..."
+
+#~ msgid "Your question"
+#~ msgstr "질문"
+
+#~ msgid "How to..."
+#~ msgstr "제목을 입력하세요..."
+
+#~ msgid "Question details"
+#~ msgstr "질문의 상세 내용"
+
+#~ msgid "Post this Question as Private."
+#~ msgstr "이 글을 비공개로 합니다."
+
+#~ msgid "Only you as Author and Admin can see the question"
+#~ msgstr "글쓴이와 관리자만 이 질문을 볼 수 있습니다."
+
+#~ msgid "Search"
+#~ msgstr "검색"
+
+#~ msgid "Your question has been submitted and is currently awaiting approval"
+#~ msgstr "질문을 제출했고 현재, 승인을 기다리고 있습니다."
+
+#~ msgid "This question is currently awaiting approval"
+#~ msgstr "이 질문은 승인 대기 중입니다."
+
+#~ msgid "Posts by"
+#~ msgstr "가 작성한 글"
+
+#~ msgid "Show a list of questions that was ordered by views."
+#~ msgstr "보기 순서에 따라 정렬한 질문 목록 보여주기 "
+
+#~ msgid "Show a list of questions that ordered by views."
+#~ msgstr "보기 순서에 따라 정렬한 질문 목록 보여주기 "
+
+#~ msgctxt "post type general name"
+#~ msgid "Question"
+#~ msgstr "질문"
+
+#~ msgctxt "post type singular name"
+#~ msgid "Question"
+#~ msgstr "질문"
+
+#~ msgctxt "post type general name"
+#~ msgid "Answer"
+#~ msgstr "답변"
+
+#~ msgctxt "post type singular name"
+#~ msgid "Answer"
+#~ msgstr "답변"

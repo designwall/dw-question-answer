@@ -3,26 +3,31 @@
  * Control all status 
  */
 function dwqa_question_print_status( $question_id = false, $echo = true ) {
+	if ( !dwqa_is_enable_status() ) {
+		return;
+	}
+
 	if ( !$question_id ) {
 		$question_id = get_the_ID();
 	}
 
 	$status = get_post_meta( $question_id, '_dwqa_status', true );
 
-	if ( $status == 'answered' || $status == 're-open' ) {
-		$status = __( 'Open', 'dwqa' );
+	if ( 'close' == $status ) {
+		$status = 'closed';
 	}
 
-	if ( $status == 'close' ) {
-		$status = __( 'Closed', 'dwqa' );
+	if ( 're-open' == $status ) {
+		$status = 'open';
 	}
 
 	if ( $status ) {
+		$return = '<span title="'.__( ucwords( $status ), 'dw-question-answer' ).'" class="dwqa-status dwqa-status-'.strtolower( $status ).'">'.__( ucwords( $status ), 'dw-question-answer' ).'</span>';
 		if ( $echo ) {
-			echo '<span title="'.ucwords( $status ).'" class="dwqa-status dwqa-status-'.strtolower( $status ).'">'.ucwords( $status ).'</span>';
+			echo $return;
 			return;
 		}
-		return '<span title="'.ucwords( $status ).'" class="dwqa-status dwqa-status-'.strtolower( $status ).'">'.ucwords( $status ).'</span>';
+		return $return;
 	}
 }
 
@@ -172,10 +177,14 @@ function dwqa_have_new_comment( $question_id = false ) {
 
 	$answers = wp_cache_get( 'dwqa-answers-for-'.$question_id, 'dwqa' );
 	if ( false == $answers ) {
-		global $wpdb;
-		$query = "SELECT `{$wpdb->posts}`.ID FROM `{$wpdb->posts}` JOIN `{$wpdb->postmeta}` ON `{$wpdb->posts}`.ID = `{$wpdb->postmeta}`.post_id  WHERE 1=1 AND `{$wpdb->postmeta}`.meta_key = '_question' AND `{$wpdb->postmeta}`.meta_value = {$question_id} AND `{$wpdb->posts}`.post_status = 'publish' AND `{$wpdb->posts}`.post_type = 'dwqa-answer'";
+		$args = array(
+			'post_type' => 'dwqa-answer',
+			'post_parent' => $question_id,
+			'post_per_page' => '-1',
+			'post_status' => array('publish')
+		);
 
-		$answers = $wpdb->get_results( $query );
+		$answers = get_posts($args);
 
 		wp_cache_set( 'dwqa-answers-for'.$question_id, $answers, 'dwqa', 21600 );
 	}
@@ -228,18 +237,12 @@ function dwqa_get_latest_answer( $question_id = false ) {
 	if ( false === $latest ) {
 		$args = array(
 			'post_type' 		=> 'dwqa-answer',
-			'meta_query' 		=> array(
-				array(
-					'key' 		=> '_question',
-					'value' 	=> $question_id,
-					'compare' 	=> '=',
-				),
-			),
-			'post_status'    	=> 'public,private',
+			'post_parent' 		=> $question_id,
+			'post_status'    	=> array('public', 'private'),
 	    	'numberposts' 		=> 1,
 		);
 		$recent_answers = wp_get_recent_posts( $args, OBJECT );
-		if ( count( $recent_answers ) > 0 ) {
+		if ($recent_answers && count( $recent_answers ) > 0 ) {
 			$latest = $recent_answers[0];
 			// This cache need to be update when new answer is added
 			set_transient( 'dwqa_latest_answer_for_' . $question_id, $latest, 450 );
@@ -276,27 +279,27 @@ function dwqa_question_get_status_name( $status ) {
 	$status = strtolower( $status );  
 	switch ( $status ) {
 		case 'resolved':
-			$message = __( 'Resolved', 'dwqa' );
+			$message = __( 'Resolved', 'dw-question-answer' );
 			break;
 		case 'pending':
-			$message = __( 'Pending', 'dwqa' );
+			$message = __( 'Pending', 'dw-question-answer' );
 			break;
 		case 're-open':
-			$message = __( 'Re-Open', 'dwqa' );
+			$message = __( 'Re-Open', 'dw-question-answer' );
 			break;
 		case 'closed':
-			$message = __( 'Closed', 'dwqa' );
+			$message = __( 'Closed', 'dw-question-answer' );
 			break;
 		case 'new':
-			$message = __( 'New', 'dwqa' );
+			$message = __( 'New', 'dw-question-answer' );
 			break;
 
 		case 'answered':
-			$message = __( 'Answered', 'dwqa' );
+			$message = __( 'Answered', 'dw-question-answer' );
 			break;
 		
 		default:
-			$message = __( 'Open', 'dwqa' );
+			$message = __( 'Open', 'dw-question-answer' );
 			break;
 	}
 	return $message;
@@ -311,12 +314,12 @@ class DWQA_Status {
 
 	public function update_privacy() {
 		if ( ! isset( $_POST['nonce'] ) ) {
-			wp_send_json_error( array( 'message' => __( 'Are you cheating huh?', 'dwqa' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Are you cheating huh?', 'dw-question-answer' ) ) );
 		}
 		check_ajax_referer( '_dwqa_update_privacy_nonce', 'nonce' );
 
 		if ( ! isset( $_POST['post'] ) ) {
-			wp_send_json_error( array( 'message' => __( 'Missing post ID', 'dwqa' ) ) );
+			wp_send_json_error( array( 'message' => __( 'Missing post ID', 'dw-question-answer' ) ) );
 		}
 
 		global $current_user;
@@ -324,22 +327,22 @@ class DWQA_Status {
 		if ( dwqa_current_user_can( 'edit_question' ) || $current_user->ID == $post_author ) {
 			$status = 'publish';
 			if ( isset( $_POST['status'] ) && in_array( $_POST['status'], array( 'close', 'open', 'resolved' ) ) ) {
-				$update = update_post_meta( $_POST['post'], '_dwqa_status', $_POST['status'] );
+				$update = update_post_meta( intval( $_POST['post'] ), '_dwqa_status', esc_html( $_POST['status'] ) );
 				if ( $update ) {
 					wp_send_json_success( array( 'ID' => $update ) );
 				} else {
 					wp_send_json_error(  array(
-						'message'   => __( 'Post does not exist','dwqa' )
+						'message'   => __( 'Post does not exist','dw-question-answer' )
 					) );
 				}
 			} else {
 				wp_send_json_error( array(
-					'message'   => __( 'Invalid post status','dwqa' )
+					'message'   => __( 'Invalid post status','dw-question-answer' )
 				) );
 			}
 		} else {
 			wp_send_json_error( array(
-				'message'   => __( 'You do not have permission to edit question', 'dwqa' )
+				'message'   => __( 'You do not have permission to edit question', 'dw-question-answer' )
 			) );
 		}	
 	}
@@ -348,7 +351,7 @@ class DWQA_Status {
 	 */
 	public function dwqa_auto_change_question_status( $answer_id ){
 		if ( ! is_wp_error( $answer_id ) ) {
-			$question_id = get_post_meta( $answer_id, '_question', true );
+			$question_id = dwqa_get_post_parent_id( $answer_id );
 			$answer = get_post( $answer_id );
 			if ( $question_id && $answer->post_author ) {
 				$question_status = get_post_meta( $question_id, '_dwqa_status', true );

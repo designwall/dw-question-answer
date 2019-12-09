@@ -1,10 +1,5 @@
 <?php
 
-add_action( 'widgets_init', 'dwqa_latest_question_widget_init' );
-function dwqa_latest_question_widget_init() {
-	register_widget( 'DWQA_Widgets_Latest_Question' );
-}
-
 class DWQA_Widgets_Latest_Question extends WP_Widget {
 	/**
 	 * Constructor
@@ -12,14 +7,14 @@ class DWQA_Widgets_Latest_Question extends WP_Widget {
 	 * @return void
 	 **/
 	function __construct() {
-		$widget_ops = array( 'classname' => 'dwqa-widget dwqa-latest-questions', 'description' => __( 'Show a list of latest questions.', 'dwqa' ) );
-		parent::__construct( 'dwqa-latest-question', __( 'DWQA Latest Questions', 'dwqa' ), $widget_ops );
+		$widget_ops = array( 'classname' => 'dwqa-widget dwqa-latest-questions', 'description' => __( 'Show a list of latest questions.', 'dw-question-answer' ) );
+		parent::__construct( 'dwqa-latest-question', __( 'DWQA Latest Questions', 'dw-question-answer' ), $widget_ops );
 	}
 
 	function widget( $args, $instance ) {
 		extract( $args, EXTR_SKIP );
 		$instance = wp_parse_args( $instance, array( 
-			'title' => __( 'Latest Questions' , 'dwqa' ),
+			'title' => __( 'Latest Questions' , 'dw-question-answer' ),
 			'number' => 5,
 		) );
 		
@@ -40,9 +35,15 @@ class DWQA_Widgets_Latest_Question extends WP_Widget {
 			echo '<div class="dwqa-popular-questions">';
 			echo '<ul>';
 			while ( $questions->have_posts() ) { $questions->the_post( );
-				echo '
-				<li><a href="'.get_permalink().'" class="question-title">'.get_the_title( ).'</a> '.__( 'asked by', 'dwqa' ).' ' . ( dwqa_is_anonymous( get_the_ID() ) ? __( 'Anonymous', 'dwqa' ) : get_the_author_link() ) . ', ' .  human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) . ' ago';
-				'</li>';
+				echo '<li>';
+				echo '<a href="'. get_permalink() .'" class="question-title">';
+				the_title();
+				echo '</a>';
+				echo ' '.__( 'asked by', 'dw-question-answer' ) . ' ' . get_the_author_link();
+				if ( isset( $instance['question_date'] ) && $instance['question_date'] ) {
+					echo ', ' . sprintf( esc_html__( '%s ago', 'dw-question-answer' ), human_time_diff( get_post_time('U', true, get_the_ID() ) ) ) . '.';
+				}
+				echo '</li>';
 			}   
 			echo '</ul>';
 			echo '</div>';
@@ -63,13 +64,19 @@ class DWQA_Widgets_Latest_Question extends WP_Widget {
 		$instance = wp_parse_args( $instance, array( 
 			'title' => '',
 			'number' => 5,
+			'question_date' => false
 		) );
+
 		?>
-		<p><label for="<?php echo $this->get_field_id( 'title' ) ?>"><?php _e( 'Widget title', 'dwqa' ) ?></label>
+		<p><label for="<?php echo $this->get_field_id( 'title' ) ?>"><?php _e( 'Widget title', 'dw-question-answer' ) ?></label>
 		<input type="text" name="<?php echo $this->get_field_name( 'title' ) ?>" id="<?php echo $this->get_field_id( 'title' ) ?>" value="<?php echo $instance['title'] ?>" class="widefat">
 		</p>
-		<p><label for="<?php echo $this->get_field_id( 'number' ) ?>"><?php _e( 'Number of posts', 'dwqa' ) ?></label>
+		<p><label for="<?php echo $this->get_field_id( 'number' ) ?>"><?php _e( 'Number of posts', 'dw-question-answer' ) ?></label>
 		<input type="text" name="<?php echo $this->get_field_name( 'number' ) ?>" id="<?php echo $this->get_field_id( 'number' ) ?>" value="<?php echo $instance['number'] ?>" class="widefat">
+		</p>
+		<p>
+			<input type="checkbox" name="<?php echo $this->get_field_name( 'question_date' ) ?>" id="<?php echo $this->get_field_id( 'question_date' ) ?>" <?php checked( 'on', $instance['question_date'] ) ?> class="widefat">
+			<label for="<?php echo $this->get_field_id( 'question_date' ) ?>"><?php _e( 'Show question date', 'dw-question-answer' ) ?></label>
 		</p>
 		<?php
 	}

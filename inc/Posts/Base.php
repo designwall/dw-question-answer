@@ -1,8 +1,37 @@
 <?php 
+
+add_action( 'init', 'dwqa_anonymous_create_session' );
+function dwqa_anonymous_create_session() {
+	if ( !dwqa_get_current_user_session() ) {
+		$expire = time() + 10*YEAR_IN_SECONDS;
+
+		$secure = is_ssl();
+
+		$secure_in_cookie = $secure && 'https' === parse_url( get_option( 'home' ), PHP_URL_SCHEME );
+
+		if ( $secure ) {
+			$auth_cookie_secure = SECURE_AUTH_COOKIE;
+		} else {
+			$auth_cookie_secure = AUTH_COOKIE;
+		}
+
+		$token = wp_generate_password( 43, false, false );
+
+		setcookie('dwqa_anonymous', $token, $expire, COOKIEPATH, COOKIE_DOMAIN, $secure_in_cookie, true );
+		if ( COOKIEPATH != SITECOOKIEPATH ) {
+			setcookie('dwqa_anonymous', $token, $expire, SITECOOKIEPATH, COOKIE_DOMAIN, $secure_in_cookie, true );
+		}
+	}
+}
+
+function dwqa_get_current_user_session() {
+	return isset( $_COOKIE['dwqa_anonymous'] ) && !empty( $_COOKIE['dwqa_anonymous'] ) ? $_COOKIE['dwqa_anonymous'] : false;
+}
+
 function dwqa_action_vote( ) {
 	$result = array(
 		'error_code'    => 'authorization',  
-		'error_message' => __( 'Are you cheating, huh?', 'dwqa' ),
+		'error_message' => __( 'Are you cheating, huh?', 'dw-question-answer' ),
 	);
 
 	$vote_for = isset( $_POST['vote_for'] ) && sanitize_text_field( $_POST['vote_for'] ) == 'question'
@@ -15,7 +44,7 @@ function dwqa_action_vote( ) {
 
 	if ( ! isset( $_POST[ 'post' ] ) ) {
 		$result['error_code']       = 'missing ' . $vote_for;
-		$result['error_message']    = __( 'What '.$vote_for.' are you looking for?', 'dwqa' );
+		$result['error_message']    = __( 'What '.$vote_for.' are you looking for?', 'dw-question-answer' );
 		wp_send_json_error( $result );
 	}
 
@@ -23,16 +52,34 @@ function dwqa_action_vote( ) {
 	$point = isset( $_POST['type'] ) && sanitize_text_field( $_POST['type'] ) == 'up' ? 1 : -1;
 
 	//vote
+	$dwqa_user_vote_id = '';
 	if ( is_user_logged_in( ) ) {
 		global $current_user;
+		$dwqa_user_vote_id = $current_user->ID;
+	}else{
+		global $dwqa_general_settings;
+		if(isset($dwqa_general_settings['allow-anonymous-vote']) && $dwqa_general_settings['allow-anonymous-vote']){
+			$dwqa_user_vote_id = dwqa_get_current_user_session();
+		}
+	}
+	if ($dwqa_user_vote_id!=''){
+		if ( ! dwqa_is_user_voted( $post_id, $point, $dwqa_user_vote_id ) ) {
+			$votes = get_post_meta( $post_id, '_dwqa_votes_log', true );
 
-		if ( ! dwqa_is_user_voted( $post_id, $point ) ) {
-			$votes = maybe_unserialize(  get_post_meta( $post_id, '_dwqa_votes_log', true ) );
-
-			$votes[$current_user->ID] = $point;
+			//remove vote serialize
+			$data_votes = @unserialize($votes);
+			if ($data_votes !== false) {
+				$votes = $data_votes;
+			}
+			
+			if(!$votes || !is_array($votes)){
+				$votes = array();
+			}
+			
+			$votes[$dwqa_user_vote_id] = $point;
 			//update
 			do_action( 'dwqa_vote_'.$vote_for, $post_id, ( int ) $point );
-			update_post_meta( $post_id, '_dwqa_votes_log', serialize( $votes ) );
+			update_post_meta( $post_id, '_dwqa_votes_log', $votes);
 			// Update vote point
 			dwqa_update_vote_count( $post_id );
 
@@ -43,21 +90,13 @@ function dwqa_action_vote( ) {
 			wp_send_json_success( array( 'vote' => $point ) );
 		} else {
 			$result['error_code'] = 'voted';
-			$result['error_message'] = __( 'You voted for this ' . $vote_for, 'dwqa' );
+			$result['error_message'] = __( 'You voted for this ' . $vote_for, 'dw-question-answer' );
 			wp_send_json_error( $result );
 		}		
-	} elseif ( 'question' == $vote_for ) {
-		// useful of question with meta field is "_dwqa_question_useful", point of this question
-		$useful = get_post_meta( $post_id, '_dwqa_'.$vote_for.'_useful', true );
-		$useful = $useful ? ( int ) $useful : 0;
-
-		do_action( 'dwqa_vote_'.$vote_for, $post_id, ( int ) $point );
-		update_post_meta( $post_id, '_dwqa_'.$vote_for.'_useful', $useful + $point );
-
-		// Number of votes by guest
-		$useful_rate = get_post_meta( $post_id, '_dwqa_'.$vote_for.'_useful_rate', true );
-		$useful_rate = $useful_rate ? ( int ) $useful_rate : 0;
-		update_post_meta( $post_id, '_dwqa_'.$vote_for.'_useful_rate', $useful_rate + 1 );
+	}else{
+		$result['error_code'] = 'anonymous';
+		$result['error_message'] = __( 'You aren\'t allowed voted for this ' . $vote_for, 'dw-question-answer' );
+		wp_send_json_error( $result );
 	}
 }
 add_action( 'wp_ajax_dwqa-action-vote', 'dwqa_action_vote' );
@@ -75,7 +114,7 @@ function dwqa_is_user_voted( $post_id, $point, $user = false ) {
 		global $current_user;
 		$user = $current_user->ID;
 	}
-	$votes = maybe_unserialize(  get_post_meta( $post_id, '_dwqa_votes_log', true ) );
+	$votes = get_post_meta( $post_id, '_dwqa_votes_log', true );
 
 	if ( empty( $votes ) ) { 
 		return false; 
@@ -111,7 +150,7 @@ function dwqa_update_vote_count( $post_id ) {
 		global $post;
 		$post_id = $post->ID;
 	}
-	$votes = maybe_unserialize(  get_post_meta( $post_id, '_dwqa_votes_log', true ) );
+	$votes = get_post_meta( $post_id, '_dwqa_votes_log', true );
 	
 	if ( empty( $votes ) ) {
 		return 0;
@@ -218,7 +257,7 @@ function dwqa_get_latest_action_date( $question = false, $before = '<span>', $af
 
 	$question_list_link = isset( $dwqa_general_settings['pages']['archive-question'] ) ? get_permalink( $dwqa_general_settings['pages']['archive-question'] ) : false;
 	$latest_answer = dwqa_get_latest_answer( $question );
-	$last_activity_date = $latest_answer ? $latest_answer->post_date : get_post_field( 'post_date', $question );
+	$last_activity_date = $latest_answer ? $latest_answer->post_date_gmt : get_post_field( 'post_date_gmt', $question );
 	$post_id = $latest_answer ? $latest_answer->ID : $question;
 	$author_id = $post->post_author;
 	if ( $author_id == 0 || dwqa_is_anonymous( $post_id ) ) {
@@ -227,7 +266,7 @@ function dwqa_get_latest_action_date( $question = false, $before = '<span>', $af
 		if ( $anonymous_name ) {
 			$display_name = $anonymous_name . ' ';
 		} else {
-			$display_name = __( 'Anonymous', 'dwqa' )  . ' ';
+			$display_name = __( 'Anonymous', 'dw-question-answer' )  . ' ';
 		}
 	} else {
 		$display_name = get_the_author_meta( 'display_name', $author_id );
@@ -248,13 +287,13 @@ function dwqa_get_latest_action_date( $question = false, $before = '<span>', $af
 	
 	if ( $last_activity_date && $post->last_activity_type == 'answer' ) {
 		$date = human_time_diff( strtotime( $last_activity_date ), current_time( 'timestamp' ) );
-		return sprintf( __( '%s answered <span class="dwqa-date">%s</span> ago', 'dwqa' ), $author_link, $date );
+		return sprintf( __( '%s answered <span class="dwqa-date">%s</span> ago', 'dw-question-answer' ), $author_link, $date );
 	}
 
 	if ( 'dwqa-answer' == get_post_type( $question ) ) {
-		return sprintf( __( '%s answered <span class="dwqa-date">%s</span> ago', 'dwqa' ), $author_link, human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) );
+		return sprintf( __( '%s answered <span class="dwqa-date">%s</span> ago', 'dw-question-answer' ), $author_link, human_time_diff( get_post_time( 'U', true, $question ) ) );
 	}
-	return sprintf( __( '%s asked <span class="dwqa-date">%s</span> ago', 'dwqa' ), $author_link, human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) );
+	return sprintf( __( '%s asked <span class="dwqa-date">%s</span> ago', 'dw-question-answer' ), $author_link, human_time_diff( get_post_time( 'U', true, $question ) ) );
 }
 
 function dwqa_is_edit() {
@@ -303,8 +342,8 @@ class DWQA_Posts_Base {
 
 	public function get_name_labels() {
 		return wp_parse_args( $this->labels, array(
-			'plural' => __( 'DWQA Posts', 'dwqa' ),
-			'singular' => __( 'DWQA Post', 'dwqa' ),
+			'plural' => __( 'DWQA Posts', 'dw-question-answer' ),
+			'singular' => __( 'DWQA Post', 'dw-question-answer' ),
 			'rewrite' => true,
 		) );
 	}
@@ -315,15 +354,15 @@ class DWQA_Posts_Base {
 		return $labels = array(
 			'name'                => $names['plural'],
 			'singular_name'       => $names['singular'],
-			'add_new'             => _x( 'Add New', 'dwqa', 'dwqa' ) . ' ' . $names['singular'],
-			'add_new_item'        => __( 'Add New', 'dwqa' ) . ' ' . $names['singular'],
-			'edit_item'           => __( 'Edit', 'dwqa' ) . ' ' . $names['singular'],
-			'new_item'            => __( 'New', 'dwqa' ) . ' ' . $names['singular'],
-			'view_item'           => __( 'View', 'dwqa' ) . ' ' . $names['singular'],
-			'search_items'        => __( 'Search ', 'dwqa' ) . $names['plural'],
-			'not_found'           => $names['plural'] . ' ' . __( 'not found', 'dwqa' ),
-			'not_found_in_trash'  => $names['plural'] . ' ' . __( 'not found in Trash', 'dwqa' ),
-			'parent_item_colon'   => __( 'Parent:', 'dwqa' ) . ' ' . $names['singular'],
+			'add_new'             => _x( 'Add New', 'dwqa', 'dw-question-answer' ) . ' ' . $names['singular'],
+			'add_new_item'        => __( 'Add New', 'dw-question-answer' ) . ' ' . $names['singular'],
+			'edit_item'           => __( 'Edit', 'dw-question-answer' ) . ' ' . $names['singular'],
+			'new_item'            => __( 'New', 'dw-question-answer' ) . ' ' . $names['singular'],
+			'view_item'           => __( 'View', 'dw-question-answer' ) . ' ' . $names['singular'],
+			'search_items'        => __( 'Search ', 'dw-question-answer' ) . $names['plural'],
+			'not_found'           => $names['plural'] . ' ' . __( 'not found', 'dw-question-answer' ),
+			'not_found_in_trash'  => $names['plural'] . ' ' . __( 'not found in Trash', 'dw-question-answer' ),
+			'parent_item_colon'   => __( 'Parent:', 'dw-question-answer' ) . ' ' . $names['singular'],
 			'menu_name'           => isset( $names['menu'] ) ? $names['menu'] : $names['plural'],
 		);
 	}

@@ -821,6 +821,7 @@ class DWQA_Template {
 			ob_start();
 
 			remove_filter( 'comments_open', array( $this, 'close_default_comment' ) );
+			$this->remove_all_filters( 'the_content' );
 
 			echo '<div class="dwqa-container" >';
 			$this->load_template( 'single', 'question' );
@@ -847,8 +848,8 @@ class DWQA_Template {
 			) );
 
 			$single_template = isset( $dwqa_options['single-template'] ) ? $dwqa_options['single-template'] : false;
-
-			$this->remove_all_filters( 'the_content' );
+			$this->restore_all_filters( 'the_content' );
+			
 			add_filter( 'body_class', array( $this, 'page_template_body_class' ) );
 			return dwqa_get_template( $page_template );
 		}

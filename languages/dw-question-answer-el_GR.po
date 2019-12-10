@@ -1,0 +1,1591 @@
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Project-Id-Version: DW Question Answer\n"
+"POT-Creation-Date: 2018-10-25 19:08+0300\n"
+"PO-Revision-Date: 2018-10-26 00:56+0300\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: dw-question-answer.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Last-Translator: Apostolos P. Tsompanopoulos <apt@aptlogs.com>\n"
+"Language: el_GR\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: dw-question-answer.php:170
+msgid "DWQA Questions"
+msgstr "DWQA Ερωτήσεις"
+
+#: dw-question-answer.php:187
+msgid "DWQA Ask Question"
+msgstr "DWQA Νέα ερώτηση"
+
+#: inc/Ajax.php:29 inc/Ajax.php:47 inc/Ajax.php:89 inc/Ajax.php:119
+#: inc/Ajax.php:141 inc/Ajax.php:160 inc/Ajax.php:225 inc/Akismet.php:522
+#: inc/Handle.php:278 inc/Handle.php:477 inc/Permission.php:328
+#: inc/Status.php:317
+msgid "Are you cheating huh?"
+msgstr "Μήπως κλέβετε;"
+
+#: inc/Ajax.php:33 inc/Handle.php:282
+msgid "You do not have permission to edit comment."
+msgstr "Δεν έχετε δικαίωμα να διορθώσετε σχόλια."
+
+#: inc/Ajax.php:37
+msgid "Comment ID must be showed."
+msgstr "Πρέπει να εμφανίζεται το αναγνωριστικό (ID) του σχολίου"
+
+#: inc/Ajax.php:51 inc/Handle.php:156
+msgid "Answer is missing."
+msgstr "Λείπει η απάντηση."
+
+#: inc/Ajax.php:57 inc/Handle.php:160
+msgid "This post is not answer."
+msgstr "Αυτή η ανάρτηση δεν είναι απάντηση"
+
+#: inc/Ajax.php:61 inc/Ajax.php:172
+msgid "You do not have permission to delete this post."
+msgstr "Δεν έχετε δικαίωμα να διαγράψετε την ανάρτηση."
+
+#: inc/Ajax.php:92
+msgid "Missing id of answer"
+msgstr "Λείπει το αναγνωριστικό (ID) της απάντησης"
+
+#: inc/Ajax.php:164 inc/Handle.php:499
+msgid "Question is missing."
+msgstr "Λείπει η ερώτηση."
+
+#: inc/Ajax.php:168 inc/Handle.php:503
+msgid "This post is not question."
+msgstr "Αυτή η ανάρτηση δεν είναι ερώτηση."
+
+#: inc/Ajax.php:216
+msgid "You do not have permission to edit question status"
+msgstr "Δεν έχετε δικαίωμα να διορθώσετε την κατάσταση της ερώτησης."
+
+#: inc/Ajax.php:233 inc/Ajax.php:283
+msgid "Not Found!!!"
+msgstr "Δε Βρέθηκαν!!!"
+
+#: inc/Akismet.php:79
+msgid "Report Spam List"
+msgstr "Λίστα αναφορών ενοχλητικών μηνυμάτων"
+
+#: inc/Akismet.php:79 inc/Akismet.php:545
+msgid "Report Spam"
+msgstr "Αναφορά ενοχλητικού μηνύματος"
+
+#: inc/Akismet.php:89 templates/content-edit.php:21
+#: templates/question-submit-form.php:13
+msgid "Title"
+msgstr "Τίτλος"
+
+#: inc/Akismet.php:90 inc/Settings.php:1040
+msgid "Type"
+msgstr "Τύπος"
+
+#: inc/Akismet.php:91 inc/Answer_List_Table.php:75 inc/Template.php:47
+#: inc/Posts/Answer.php:253
+msgid "Author"
+msgstr "Δημιουργός"
+
+#: inc/Akismet.php:92
+msgid "Count Report"
+msgstr "Μετρητής αναφορών"
+
+#: inc/Akismet.php:162 inc/Posts/Base.php:361
+msgid "View"
+msgstr "Προβολή"
+
+#: inc/Akismet.php:166
+msgid "Delete permanently"
+msgstr "Οριστική διαγραφή"
+
+#: inc/Akismet.php:204 inc/Answer_List_Table.php:86 inc/Notifications.php:130
+#: inc/Notifications.php:150 inc/Settings.php:419 inc/Settings.php:455
+#: inc/Settings.php:490 inc/User.php:155 inc/Posts/Base.php:269
+#: inc/Posts/Comment.php:102
+msgid "Anonymous"
+msgstr "Ανώνυμος"
+
+#: inc/Akismet.php:516
+msgid "You need login to report spam!"
+msgstr "Πρέπει να συνδεθείτε για να αναφέρετε το ενοχλητικό μήνυμα!"
+
+#: inc/Akismet.php:519
+msgid "Post not found!"
+msgstr "Δε βρέθηκε η ανάρτηση!"
+
+#: inc/Akismet.php:534
+msgid "You reported this post before!"
+msgstr "Έχετε κάνει ήδη αναφορά για αυτήν την ανάρτηση!"
+
+#: inc/Akismet.php:539
+msgid "Reported to admin"
+msgstr "Ενημερώθηκε ο διαχειριστής"
+
+#: inc/Answer_List_Table.php:76
+msgid "Detail"
+msgstr "Λεπτομέρεια"
+
+#: inc/Answer_List_Table.php:95
+msgid "Answered on "
+msgstr "Απαντήθηκε σε"
+
+#: inc/Answer_List_Table.php:106 inc/Helptab.php:153
+msgid "Read more"
+msgstr "Περισσότερα..."
+
+#: inc/Autoclosure.php:65
+msgid "Half Daily"
+msgstr "Κάθε 12 ώρες"
+
+#: inc/Handle.php:30
+msgid "&quot;Helllo&quot;, Are you cheating huh?."
+msgstr "&quot;Γεια&quot;, μήπως κλέβετε;"
+
+#: inc/Handle.php:33
+msgid "Delete draft"
+msgstr "Διαγραφή πρόχειρου"
+
+#: inc/Handle.php:40
+msgid "Answer content is empty"
+msgstr "Η απάντηση είναι κενή"
+
+#: inc/Handle.php:43
+msgid "Question is empty"
+msgstr "Η ερώτηση είναι κενή"
+
+#: inc/Handle.php:47 inc/Handle.php:454
+msgid "You do not have permission to submit question."
+msgstr "Δεν έχετε δικαίωμα να υποβάλετε ερώτηση"
+
+#: inc/Handle.php:51 inc/Handle.php:220 inc/Handle.php:322
+msgid "Missing email information"
+msgstr "Δε συμπληρώσατε τη διεύθυνση ηλεκτρονικής αλληλογραφίας"
+
+#: inc/Handle.php:55 inc/Handle.php:224 inc/Handle.php:327
+msgid "Missing name information"
+msgstr "Δε συμπληρώσατε όνομα"
+
+#: inc/Handle.php:59 inc/Handle.php:473
+msgid "Captcha is not correct"
+msgstr "Το Captcha δεν είναι σωστό"
+
+#: inc/Handle.php:78
+msgid "Answer for "
+msgstr "Απάντηση για"
+
+#: inc/Handle.php:141
+msgid "You do not have permission to edit answer."
+msgstr "Δεν έχετε δικαίωμα να διορθώσετε την απάντηση"
+
+#: inc/Handle.php:145 inc/Handle.php:542 inc/Posts/Question.php:473
+#: inc/extend/buddypress/notifications.php:102
+msgid "Hello, Are you cheating huh?"
+msgstr "Γεια, μήπως κλέβετε;"
+
+#: inc/Handle.php:150
+msgid "You must enter a valid answer content."
+msgstr "Πρέπει να εισαγάγετε έγκυρο περιεχόμενο απάντησης."
+
+#: inc/Handle.php:196
+msgid "You can't post comment"
+msgstr "Δε μπορείτε να υποβάλετε σχόλιο"
+
+#: inc/Handle.php:199
+msgid "Missing post id."
+msgstr "Λείπει το αναγνωριστικό (ID) της ανάρτησης."
+
+#: inc/Handle.php:205
+msgid "Please enter your comment content"
+msgstr "Εισαγάγετε το περιεχόμενο του σχολίου σας"
+
+#: inc/Handle.php:271
+msgid "Comment is missing"
+msgstr "Λείπει το σχόλιο"
+
+#: inc/Handle.php:286
+msgid "Comment content must not be empty."
+msgstr "Το περιεχόμενο του σχολίου σας δε μπορεί να είναι κενό."
+
+#: inc/Handle.php:316 inc/Handle.php:493
+msgid "You must enter a valid question title."
+msgstr "Πρέπει να εισαγάγετε έγκυρο τίτλο ερώτησης."
+
+#: inc/Handle.php:406
+msgid "User Registration was disabled."
+msgstr "Η εγγραφή χρηστών είναι απενεργοποιημένη."
+
+#: inc/Handle.php:409
+msgid "This email is already registered, please choose another one."
+msgstr ""
+"Η διεύθυνση ηλεκτρονικού ταχυδρομείου χρησιμοποιείται ήδη, διαλέξτε άλλη."
+
+#: inc/Handle.php:412
+msgid "This username is already registered. Please use another one."
+msgstr "Το όνομα χρήστη χρησιμοποιείται ήδη, επιλέξτε κάποιο άλλο."
+
+#: inc/Handle.php:466
+msgid "Your question is waiting moderator."
+msgstr "Η ερώτησή σας πρέπει πρώτα να ελεγχθεί."
+
+#: inc/Handle.php:488 inc/Status.php:345
+msgid "You do not have permission to edit question"
+msgstr "Δεν έχετε δικαίωμα να διορθώσετε την ερώτηση"
+
+#: inc/Helptab.php:47
+msgid "Overview"
+msgstr "Επισκόπηση"
+
+#: inc/Helptab.php:48
+msgid "DW Question Answer Plugin"
+msgstr "Πρόσθετο Ερωταπαντήσεων DW"
+
+#: inc/Helptab.php:49
+msgid ""
+"DW Question Answer is a WordPress Plugin which helps you build a Question & "
+"Answer system on your WordPress sites. The plugin is easy to install and set "
+"up. Let start building up your community with this WordPress question & "
+"answer system."
+msgstr ""
+"Οι Ερωταπαντήσεις DW είναι ένα πρόσθετο για το WordPress που σας βοηθούν να "
+"δημιουργήσετε ένα σύστημα Ερωτήσεων & Απαντήσεων στους δικτυακούς τόπους "
+"WordPress. Το πρόσθετο είναι εύκολο να εγκατασταθεί και να ρυθμιστεί. "
+"Αρχίστε να χτίζετε τη δική σας κοινότητα με αυτό το σύστημα ερωτήσεων & "
+"απαντήσεων για το WordPress."
+
+#: inc/Helptab.php:52
+msgid "Setup Question List Page"
+msgstr "Ρύθμιση σελίδας με λίστα ερωτήσεων"
+
+#: inc/Helptab.php:56
+msgid "Setup Ask Question Page"
+msgstr "Ρύθμιση σελίδας για νέα ερώτηση"
+
+#: inc/Helptab.php:60
+msgid "Shortcode"
+msgstr "Σύντομος κωδικός"
+
+#: inc/Helptab.php:64
+msgid "Style integration"
+msgstr "Ενσωμάτωση στυλ"
+
+#: inc/Metaboxes.php:13 templates/content-single-question.php:32
+#: templates/question-submit-form.php:22
+msgid "Status"
+msgstr "Κατάσταση"
+
+#: inc/Metaboxes.php:15 inc/Status.php:302
+#: templates/archive-question-filter.php:18
+#: templates/content-single-question.php:33
+msgid "Open"
+msgstr "Άνοιγμα"
+
+#: inc/Metaboxes.php:16 inc/Status.php:285
+msgid "Pending"
+msgstr "Εκκρεμότητες"
+
+#: inc/Metaboxes.php:17 inc/Status.php:282
+#: templates/archive-question-filter.php:19
+#: templates/content-single-question.php:35
+msgid "Resolved"
+msgstr "Απαντημένες"
+
+#: inc/Metaboxes.php:18 inc/Status.php:288
+msgid "Re-Open"
+msgstr "Ανοιγμένες ξανά"
+
+#: inc/Metaboxes.php:19 inc/Status.php:291
+#: templates/archive-question-filter.php:20
+#: templates/content-single-question.php:34
+msgid "Closed"
+msgstr "Κλεισμένες"
+
+#: inc/Metaboxes.php:25
+msgid "Sticky"
+msgstr "Καρφιτσωμένο"
+
+#: inc/Metaboxes.php:29
+msgid "Pin question to top of archive page."
+msgstr "Καρφίτσωμα ερώτησης στην κορυφή της σελίδας αρχείου"
+
+#: inc/Metaboxes.php:45 inc/Settings.php:431
+#: templates/archive-question-filter.php:34 inc/Posts/Answer.php:207
+#: inc/Posts/Answer.php:209
+msgid "Answers"
+msgstr "Απαντήσεις"
+
+#: inc/Metaboxes.php:65
+msgid "Question Meta Data"
+msgstr "Μεταδεδομένα ερώτησης"
+
+#: inc/Notifications.php:56
+msgid "A new question was posted on {site_name}"
+msgstr "Μία νέα ερώτηση αναρτήθηκε στο {site_name}"
+
+#: inc/Notifications.php:187
+msgid "[{site_name}] You have a new answer for your followed question"
+msgstr "[{site_name}] Υπάρχει μία νέα απάντηση για τη ερώτηση που ακολουθείτε"
+
+#: inc/Notifications.php:239
+msgid ""
+"[{site_name}] A new answer for \"{question_title}\" was posted on {site_name}"
+msgstr ""
+"[{site_name}] Μία νέα απάντηση για την ερώτηση «{question_title}» αναρτήθηκε "
+"στο {site_name}"
+
+#: inc/Notifications.php:326 inc/Notifications.php:372
+msgid "[{site_name}] You have a new comment for question {question_title}"
+msgstr "[{site_name}] Υπάρχει νέο σχόλιο για την ερώτηση «{question_title}»"
+
+#: inc/Notifications.php:331 inc/Notifications.php:377
+msgid "[{site_name}] You have a new comment for answer"
+msgstr "[{site_name}] Υπάρχει νέο σχόλιο για την απάντηση"
+
+#: inc/PointerHelper.php:60
+msgid "How to use DW Question Answer"
+msgstr "Πώς να χρησιμοποιήσετε τις Ερωταπαντήσεις DW"
+
+#: inc/PointerHelper.php:61
+msgid "Documents, Support From DesignWall (help)"
+msgstr "Έγγραφα, υποστήριξη από DesignWall (βοήθεια)"
+
+#: inc/PointerHelper.php:70
+msgid "Config your support channel"
+msgstr "Διαμόρφωση καναλιού υποστήριξης"
+
+#: inc/PointerHelper.php:71
+msgid "Change comment settings, and create the Submit question page."
+msgstr "Αλλαγή ρυθμίσεων σχολίων και δημιουργία σελίδας υποβολής ερώτησης."
+
+#: inc/Session.php:68 inc/Session.php:85 inc/Session.php:95 inc/Session.php:118
+msgid "This function should not be called before init."
+msgstr "Αυτή η συνάρτηση δεν πρέπει να καλείται πριν αρχικοποιηθεί."
+
+#: inc/Settings.php:8
+msgid "Login required. No anonymous post allowed"
+msgstr "Απαιτείται είσοδος. Δεν επιτρέπονται ανώνυμες αναρτήσεις"
+
+#: inc/Settings.php:20
+msgid "Select Archive Question Page"
+msgstr "Επιλέξτε σελίδα αρχειοθέτησης ερώτησης"
+
+#: inc/Settings.php:24
+msgid ""
+"A page where displays all questions. The <code>[dwqa-list-questions]</code> "
+"short code must be on this page."
+msgstr ""
+"Σελίδα προβολής όλων των ερωτήσεων. Ο σύντομος κώδικας <code>[dwqa-list-"
+"questions]</code> πρέπει να υπάρχει στη σελίδα."
+
+#: inc/Settings.php:31
+msgid "hours"
+msgstr "ώρες"
+
+#: inc/Settings.php:31
+msgid ""
+"A period of time in which new questions are highlighted and marked as New"
+msgstr ""
+"Χρονική περίοδος κατά την οποία οι νέες ερωτήσεις ξεχωρίζουν και "
+"εμφανίζονται ως Νέες"
+
+#: inc/Settings.php:36
+msgid "days"
+msgstr "ημέρες"
+
+#: inc/Settings.php:36
+msgid ""
+"A Question will be marked as overdue if it passes this period of time, "
+"starting from the time the question was submitted"
+msgstr ""
+"Μία ερώτηση σημειώνεται ως εκπρόθεσμη αν περάσει αυτό το χρονικό διάστημα "
+"από τη στιγμή που υποβλήθηκε"
+
+#: inc/Settings.php:47
+msgid "Select Submit Question Page"
+msgstr "Επιλέξτε σελίδα υποβολής ερώτησης"
+
+#: inc/Settings.php:52
+msgid ""
+"A page where users can submit questions. The <code>[dwqa-submit-question-"
+"form]</code> short code must be on this page."
+msgstr ""
+"Σελίδα υποβολής νέας ερώτησης. Ο σύντομος κώδικας <code>[dwqa-submit-"
+"question-form]</code> πρέπει να υπάρχει στη σελίδα."
+
+#: inc/Settings.php:65
+msgid "Select 404 DWQA Page"
+msgstr "Επιλέξτε σελίδα 404 DWQA"
+
+#: inc/Settings.php:70
+msgid ""
+"This page will be redirected when users without authority click on a private "
+"question. You can customize the message of this page in.If not, a default "
+"404 page will be used."
+msgstr ""
+"Η σελίδα όπου θα επανακατευθύνονται οι χρήστες που δεν έχουν δικαίωμα να "
+"προβάλουν μία ιδιωτική ερώτηση. Μπορείτε να καθορίσετε το μήνυμα της "
+"σελίδας, αν θέλετε."
+
+#: inc/Settings.php:87
+msgid "Upload"
+msgstr "Αποστολή"
+
+#: inc/Settings.php:87
+msgid "Upload or choose a logo to be displayed at the top of the email."
+msgstr ""
+"Ανεβάστε ή επιλέξτε ένα λογότυπο που θα προβάλλεται στην κορυφή του "
+"μηνύματος."
+
+#: inc/Settings.php:126 inc/Settings.php:161 inc/Settings.php:197
+#: inc/Settings.php:233 inc/Settings.php:268 inc/Settings.php:303
+#: inc/Settings.php:338
+msgid "Enable?"
+msgstr "Ενεργοποίηση;"
+
+#: inc/Settings.php:126
+msgid "Enable notification for new question."
+msgstr "Ενεργοποίηση ειδοποίησης για νέα ερώτηση."
+
+#: inc/Settings.php:131 inc/Settings.php:166 inc/Settings.php:202
+#: inc/Settings.php:238 inc/Settings.php:273 inc/Settings.php:308
+#: inc/Settings.php:343
+msgid "Email subject"
+msgstr "Θέμα ηλεκτρονικού μηνύματος"
+
+#: inc/Settings.php:136 inc/Settings.php:171 inc/Settings.php:207
+#: inc/Settings.php:243 inc/Settings.php:278 inc/Settings.php:313
+#: inc/Settings.php:348
+msgid "Email Content"
+msgstr "Περιεχόμενο ηλεκτρονικού μηνύματος"
+
+#: inc/Settings.php:161
+msgid "Enable notification for new answer."
+msgstr "Ενεργοποίηση ειδοποίησης για νέα απάντηση."
+
+#: inc/Settings.php:197
+msgid "Enable notification for new answer ( to Followers )."
+msgstr "Ενεργοποίηση ειδοποίησης για νέα απάντηση (για όσους ακολουθούν)."
+
+#: inc/Settings.php:233 inc/Settings.php:268
+msgid "Enable notification for new comment of question."
+msgstr "Ενεργοποίηση ειδοποίησης για νέο σχόλιο σε ερώτηση."
+
+#: inc/Settings.php:303 inc/Settings.php:338
+msgid "Enable notification for new comment of answer."
+msgstr "Ενεργοποίηση ειδοποίησης για νέο σχόλιο σε απάντηση."
+
+#: inc/Settings.php:395 templates/archive-question-filter.php:28
+#: inc/Posts/Question.php:100 inc/Posts/Question.php:102
+#: inc/Posts/Question.php:266 inc/extend/buddypress/loader.php:81
+#: inc/extend/buddypress/loader.php:118
+msgid "Questions"
+msgstr "Ερωτήσεις"
+
+#: inc/Settings.php:400
+msgid "Read"
+msgstr "Ανάγνωση"
+
+#: inc/Settings.php:401
+msgid "Post"
+msgstr "Ανάρτηση"
+
+#: inc/Settings.php:402 inc/Template.php:56 inc/Template.php:166
+#: inc/Template.php:183 templates/content-comment.php:19 inc/Posts/Base.php:359
+msgid "Edit"
+msgstr "Επεξεργασία"
+
+#: inc/Settings.php:403 inc/Template.php:171 inc/Template.php:188
+#: templates/content-comment.php:22
+msgid "Delete"
+msgstr "Διαγραφή"
+
+#: inc/Settings.php:429 inc/Settings.php:465 inc/Settings.php:500
+msgid "Reset Default"
+msgstr "Επαναφορά προκαθορισμένης τιμής"
+
+#: inc/Settings.php:467
+msgid "Comments"
+msgstr "Σχόλια"
+
+#: inc/Settings.php:509
+msgid "Enable captcha on submit question page."
+msgstr "Ενεργοποίηση captcha στη σελίδα υποβολής ερώτησης."
+
+#: inc/Settings.php:515
+msgid "Enable captcha on single question page."
+msgstr "Ενεργοποίηση captcha στη σελίδα ερώτησης."
+
+#: inc/Settings.php:533
+msgid "Default"
+msgstr "Προεπιλογή"
+
+#: inc/Settings.php:546
+msgid "questions."
+msgstr "ερωτήσεις."
+
+#: inc/Settings.php:552
+msgid "answers."
+msgstr "απαντήσεις."
+
+#: inc/Settings.php:558
+msgid "Allow anonymous vote."
+msgstr "Δυνατότητα ανώνυμης ψήφου."
+
+#: inc/Settings.php:564
+msgid "Enable Akismet"
+msgstr "Ενεργοποίηση Akismet"
+
+#: inc/Settings.php:571
+#, fuzzy
+msgid "Get in"
+msgstr "Λήψη"
+
+#: inc/Settings.php:577
+msgid "Not Connected"
+msgstr "Χωρίς σύνδεση"
+
+#: inc/Settings.php:583
+msgid "Connected"
+msgstr "Συνδέθηκε"
+
+#: inc/Settings.php:594
+msgid "Enable Auto Closure"
+msgstr "Ενεργοποίηση αυτόματου κλεισίματος"
+
+#: inc/Settings.php:599
+msgid "Days.(greater 0)"
+msgstr "Ημέρες.(πάνω από 0)"
+
+#: inc/Settings.php:607
+msgid "Allow members to post private question."
+msgstr "Δυνατότητα υποβολή ιδιωτικών ερωτήσεων από τα μέλη."
+
+#: inc/Settings.php:613
+msgid "Question must be manually approved."
+msgstr "Η ερώτηση πρέπει να εγκριθεί από ελεγκτή"
+
+#: inc/Settings.php:619
+msgid "Display status icon on the left side."
+msgstr "Προβολή εικόνας κατάστασης στην αριστερή πλευρά."
+
+#: inc/Settings.php:625
+msgid "Disable question status feature."
+msgstr "Απενεργοποίηση χαρακτηριστικού κατάστασης της ερώτησης."
+
+#: inc/Settings.php:631
+msgid "Show all answers on single question page."
+msgstr "Προβολή όλων των απαντήσεων στη σελίδα της ερώτησης."
+
+#: inc/Settings.php:642
+msgid "Select template for Single Quesiton page"
+msgstr "Επιλογή προτύπου για σελίδα Ερώτησης"
+
+#: inc/Settings.php:648
+msgid ""
+"By default, your single.php template file will be used if you do not choose "
+"any template"
+msgstr ""
+"Αν δεν επιλέξετε κάποιο πρότυπο, θα χρησιμοποιηθεί το προκαθορισμένο πρότυπο "
+"single.php"
+
+#: inc/Settings.php:656
+#, php-format
+msgid ""
+"If you like, you may enter custom structure for your single question, "
+"question category and question tag URLs here. For example, using "
+"<code>topic</code> as your question base would make your question links like "
+"<code>%s</code>. If you leave these blank the default will be used."
+msgstr ""
+"Αν θέλετε μπορείτε να εισάγετε εδώ την προσαρμοσμένη δομή, κατηγορία "
+"ερώτησης και συνδέσμους ετικετών. Για παράδειγμα, χρησιμοποιώντας "
+"<code>topic</code> ως βάση των ερωτήσεων θα έκανε τους συνδέσμους στις "
+"ερωτήσεις να μοιάζουν με <code>%s</code>. Αν δε συμπληρώσετε τίποτε, θα "
+"χρησιμοποιηθούν οι προκαθορισμένες επιλογές."
+
+#: inc/Settings.php:781
+msgid "Plugin Settings"
+msgstr "Ρυθμίσεις πρόσθετου"
+
+#: inc/Settings.php:781
+msgid "Settings"
+msgstr "Ρυθμίσεις"
+
+#: inc/Settings.php:817
+msgid "Email Settings"
+msgstr "Ρυθμίσεις ηλεκτρονικής αλληλογραφίας"
+
+#: inc/Settings.php:818
+msgid "New Question Notifications"
+msgstr "Ειδοποιήσεις για νέες ερωτήσεις"
+
+#: inc/Settings.php:819
+msgid "New Answer Notifications"
+msgstr "Ειδοποιήσεις για νέες απαντήσεις"
+
+#: inc/Settings.php:820
+msgid "New Comment Notifications"
+msgstr "Ειδοποιήσεις για νέα σχόλια"
+
+#: inc/Settings.php:833
+msgid "Page Settings"
+msgstr "Ρυθμίσεις σελίδας"
+
+#: inc/Settings.php:840
+msgid "Question List Page"
+msgstr "Σελίδα λίστας ερωτήσεων"
+
+#: inc/Settings.php:848 inc/Settings.php:1048
+msgid "Ask Question Page"
+msgstr "Σελίδα νέας ερώτησης"
+
+#: inc/Settings.php:891
+msgid "Question Settings"
+msgstr "Ρυθμίσεις ερώτησης"
+
+#: inc/Settings.php:898
+msgid "Archive Page Show At Most"
+msgstr "Η σελίδα αρχείου προβάλει μέχρι"
+
+#: inc/Settings.php:906
+msgid "Before A Question Appears"
+msgstr "Πριν εμφανιστεί μία ερώτηση"
+
+#: inc/Settings.php:914
+msgid "Other Question Settings"
+msgstr "Λοιπές ρυθμίσεις ερώτησης"
+
+#: inc/Settings.php:939
+msgid "Answer Settings"
+msgstr "Ρυθμίσεις απάντησης"
+
+#: inc/Settings.php:946
+#, fuzzy
+msgid "Answer Listing"
+msgstr "Λίστα απάντησης"
+
+#: inc/Settings.php:963
+msgid "Vote Settings"
+msgstr "Ρυθμίσεις ψήφου"
+
+#: inc/Settings.php:970
+msgid "Allow Anonymous Vote"
+msgstr "Δυνατότητα ανώνυμης ψήφου"
+
+#: inc/Settings.php:979
+msgid "Akismet Settings"
+msgstr "Ρυθμίσεις Akismet"
+
+#: inc/Settings.php:986
+msgid "Use Akismet anti-spam"
+msgstr "Χρήση του Akismet anti-spam"
+
+#: inc/Settings.php:993
+msgid "Akismet API key"
+msgstr "Akismet API key"
+
+#: inc/Settings.php:1000
+msgid "Akismet connection status"
+msgstr "Κατάσταση σύνδεσης Akismet"
+
+#: inc/Settings.php:1009
+msgid "Auto Closure Settings"
+msgstr "Ρυθμίσεις αυτόματου κλεισίματος"
+
+#: inc/Settings.php:1016
+msgid "Use Auto Closure"
+msgstr "Χρήση αυτόματου κλεισίματος"
+
+#: inc/Settings.php:1023
+msgid "Closure after"
+msgstr "Κλείσιμο μετά από"
+
+#: inc/Settings.php:1033
+msgid "Captcha Settings"
+msgstr "Ρυθμίσεις Captcha"
+
+#: inc/Settings.php:1056
+msgid "Single Question Page"
+msgstr "Σελίδα ερώτησης"
+
+#: inc/Settings.php:1068
+msgid "Permalink Settings"
+msgstr "Ρυθμίσεις μόνιμων συνδέσμων"
+
+#: inc/Settings.php:1075
+msgid "Question Base"
+msgstr "Βάση ερωτήσεων"
+
+#: inc/Settings.php:1083
+msgid "Question Category Base"
+msgstr "Βάση κατηγοριών ερωτήσεων"
+
+#: inc/Settings.php:1091
+msgid "Question Tag Base"
+msgstr "Βάση ετικετών ερωτήσεων"
+
+#: inc/Settings.php:1160
+msgid "From Email"
+msgstr "Αποστολέας ηλεκτρονικού μηνύματος"
+
+#: inc/Settings.php:1238 inc/Settings.php:1245
+msgid "Group Permission"
+msgstr "Δικαίωμα ομάδας"
+
+#: inc/Settings.php:1283
+msgid "DWQA Settings"
+msgstr "Ρυθμίσεις DWQA"
+
+#: inc/Settings.php:1287
+msgid "General"
+msgstr "Γενικά"
+
+#: inc/Settings.php:1288
+msgid "Emails"
+msgstr "Ηλεκτρονικά μηνύματα"
+
+#: inc/Settings.php:1289
+msgid "Permissions"
+msgstr "Δικαιώματα"
+
+#: inc/Settings.php:1290
+msgid "Licenses"
+msgstr "Άδειες"
+
+#: inc/Settings.php:1304
+msgid "Email settings"
+msgstr "Ρυθμίσεις ηλεκτρονικής αλληλογραφίας"
+
+#: inc/Settings.php:1306
+msgid "Email Logo"
+msgstr "Λογότυπο ηλεκτρονικής αλληλογραφίας"
+
+#: inc/Settings.php:1320
+msgid "New Question Notifications (to Admin)"
+msgstr "Ειδοποιήσεις νέας ερώτησης (για διαχειριστή)"
+
+#: inc/Settings.php:1344
+msgid "New Answer Notifications (to Followers)"
+msgstr "Ειδοποιήσεις νέας απάντησης (για ακολούθους)"
+
+#: inc/Settings.php:1360
+msgid "New Answer Notifications (to Admin)"
+msgstr "Ειδοποιήσεις νέας απάντησης (για διαχειριστή)"
+
+#: inc/Settings.php:1380
+msgid "New Comment to Question Notifications (to Followers)"
+msgstr "Ειδοποιήσεις για νέο σχόλιο σε ερώτηση (για ακολούθους)"
+
+#: inc/Settings.php:1397
+msgid "New Comment to Question Notifications (to Admin)"
+msgstr "Ειδοποιήσεις για νέο σχόλιο σε ερώτηση (για διαχειριστή)"
+
+#: inc/Settings.php:1417
+msgid "New Comment to Answer Notifications (to Followers)"
+msgstr "Ειδοποιήσεις για νέο σχόλιο σε απάντηση (για ακολούθους)"
+
+#: inc/Settings.php:1434
+msgid "New Comment to Answer Notifications (to Admin)"
+msgstr "Ειδοποιήσεις για νέο σχόλιο σε απάντηση (για διαχειριστή)"
+
+#: inc/Settings.php:1452
+msgid "Save all changes"
+msgstr "Αποθήκευση αλλαγών"
+
+#: inc/Settings.php:1466
+#, php-format
+msgid "Manage <a href=\"%s\">DWQA Extensions</a> license keys"
+msgstr ""
+"Διαχείριση κλειδιών άδειας χρήσης για <a href=\"%s\">επεκτάσεις DWQA</a>"
+
+#: inc/Settings.php:1492 inc/Settings.php:1497 inc/Settings.php:1502
+#: inc/Settings.php:1507
+msgid "Forward to"
+msgstr "Προώθηση"
+
+#: inc/Settings.php:1512
+msgid "Cc"
+msgstr "Αντίγραφο"
+
+#: inc/Settings.php:1517
+msgid "Bcc"
+msgstr "Κρυφό αντίγραφο"
+
+#: inc/Settings.php:1522
+msgid "This address will be used as the sender of the outgoing emails."
+msgstr "Διεύθυνση αποστολέα για χρήση σε εξερχόμενα μηνύματα."
+
+#: inc/Settings.php:1528
+msgid "Send a copy of every email to admin."
+msgstr "Αποστολή αντιγράφου κάθε μηνύματος στο διαχειριστή."
+
+#: inc/Settings.php:1535
+msgid "Email Delay*"
+msgstr "Καθυστέρηση αποστολής*"
+
+#: inc/Shortcode.php:117 inc/widgets/Popular_Question.php:21
+msgid "Popular Questions"
+msgstr "Δημοφιλείς ερωτήσεις"
+
+#: inc/Shortcode.php:140 inc/Posts/Question.php:56
+#: inc/widgets/Closed_Question.php:49 inc/widgets/Latest_Question.php:42
+#: inc/widgets/Popular_Question.php:43
+msgid "asked by"
+msgstr "ρωτήθηκε από"
+
+#: inc/Shortcode.php:154
+msgid "Latest Answers"
+msgstr "Τελευταίες απαντήσεις"
+
+#: inc/Shortcode.php:180
+msgid "Answer at"
+msgstr "Απάντηση σε"
+
+#: inc/Shortcode.php:180
+msgid "Link to"
+msgstr "Σύνδεσμος"
+
+#: inc/Shortcode.php:208
+#, php-format
+msgid "%d person who is following this question"
+msgid_plural "%d people who are following this question"
+msgstr[0] "%d άτομο που ακολουθεί αυτήν την ερώτηση"
+msgstr[1] "%d άτομα που ακολουθούν αυτήν την ερώτηση"
+
+#: inc/Shortcode.php:238
+msgid "Question List"
+msgstr "Λίστα ερωτήσεων"
+
+#: inc/Status.php:294 inc/Posts/Base.php:360
+msgid "New"
+msgstr "Νέο"
+
+#: inc/Status.php:298
+msgid "Answered"
+msgstr "Απαντήθηκε"
+
+#: inc/Status.php:322
+msgid "Missing post ID"
+msgstr "Αναγνωριστικό χαμένης ανάρτησης"
+
+#: inc/Status.php:335
+msgid "Post does not exist"
+msgstr "Η ανάρτηση δεν υπάρχει"
+
+#: inc/Status.php:340
+msgid "Invalid post status"
+msgstr "Μη έγκυρη κατάσταση ανάρτησης"
+
+#: inc/Template.php:19 templates/content-edit.php:44
+#: templates/question-submit-form.php:46
+msgid "Tag"
+msgstr "Ετικέτα"
+
+#: inc/Template.php:19 inc/Template.php:24 templates/content-edit.php:29
+#: templates/question-submit-form.php:32
+msgid "Category"
+msgstr "Κατηγορία"
+
+#: inc/Template.php:43
+msgid "Showing search results for"
+msgstr "Προβολή αποτελεσμάτων αναζήτησης για"
+
+#: inc/Template.php:77
+msgid "What do you want to know?"
+msgstr "Τι θα θέλατε να μάθετε;"
+
+#: inc/Template.php:160
+msgid "Subscribe"
+msgstr "Συνδρομή"
+
+#: inc/Template.php:448
+msgid "Email"
+msgstr "Διεύθυνση ηλεκτρονικής αλληλογραφίας"
+
+#: inc/Template.php:450
+msgid "Name"
+msgstr "Όνομα"
+
+#: inc/Template.php:464
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr "Πρέπει να <a href=\"%s\">συνδεθείτε</a> για να σχολιάσετε."
+
+#: inc/Template.php:467
+#, php-format
+msgid ""
+"You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
+"and attributes: %s"
+msgstr ""
+"Μπορείτε να χρησιμοποιήσετε αυτές τις ετικέτες και ιδιότητες <abbr title="
+"\"HyperText Markup Language\">HTML</abbr>: %s"
+
+#: inc/Template.php:470
+msgid "Leave a Reply"
+msgstr "Απάντηση"
+
+#: inc/Template.php:471
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr "Απάντηση σε χρήστη %s"
+
+#: inc/Template.php:472
+msgid "Cancel reply"
+msgstr "Ακύρωση απάντησης"
+
+#: inc/Template.php:473
+msgid "Post Comment"
+msgstr "Ανάρτηση σχολίου"
+
+#: inc/Template.php:648
+msgid "Sticky Question"
+msgstr "Καρφιτσωμένη ερώτηση"
+
+#: inc/Template.php:662
+msgid "Ask a question"
+msgstr "Νέα ερώτηση"
+
+#: inc/Template.php:664
+msgid "Login to ask a question"
+msgstr "Συνδεθείτε για να ρωτήσετε"
+
+#: inc/Template.php:1136
+msgid "Choose as the best answer"
+msgstr "Επιλέξτε την ως καλύτερη απάντηση"
+
+#: inc/Updater.php:97
+msgid "License Key"
+msgstr "Κλειδί άδειας χρήσης"
+
+#: inc/Updater.php:122
+msgid "Activate"
+msgstr "Ενεργοποίηση"
+
+#: inc/Updater.php:176
+msgid "Plugin was activated"
+msgstr "Το πρόσθετο ενεργοποιήθηκε"
+
+#: inc/User.php:236
+msgid "Staff"
+msgstr "Επιτελείο"
+
+#: inc/User.php:272 inc/Posts/Question.php:410
+msgid "Invalid Post"
+msgstr "Μη έγκυρη ανάρτηση"
+
+#: templates/answer-submit-form.php:12
+msgid "Your Answer"
+msgstr "Η απάντησή σας"
+
+#: templates/answer-submit-form.php:21 templates/question-submit-form.php:52
+msgid "Your Email"
+msgstr "Η διεύθυνση ηλεκτρονικού ταχυδρομείου σας"
+
+#: templates/answer-submit-form.php:26 templates/question-submit-form.php:57
+msgid "Your Name"
+msgstr "Το όνομά σας"
+
+#: templates/answer-submit-form.php:33 templates/question-submit-form.php:24
+msgid "Who can see this?"
+msgstr "Ποιοι το βλέπουν αυτό;"
+
+#: templates/answer-submit-form.php:34 templates/question-submit-form.php:25
+msgid "Public"
+msgstr "Δημόσιο"
+
+#: templates/answer-submit-form.php:35 templates/question-submit-form.php:26
+msgid "Only Me &amp; Admin"
+msgstr "Μόνο εγώ &amp; ο διαχειριστής"
+
+#: templates/answer-submit-form.php:39 templates/question-submit-form.php:65
+msgid "Submit"
+msgstr "Υποβολή"
+
+#: templates/answers.php:12
+#, php-format
+msgid "%s Answers"
+msgstr "%s απαντήσεις"
+
+#: templates/archive-question-filter.php:14
+msgid "Filter:"
+msgstr "Φίλτρο:"
+
+#: templates/archive-question-filter.php:16
+msgid "All"
+msgstr "Όλα"
+
+#: templates/archive-question-filter.php:22
+msgid "Unanswered"
+msgstr "Αναπάντητες"
+
+#: templates/archive-question-filter.php:24
+msgid "My questions"
+msgstr "Οι ερωτήσεις μου"
+
+#: templates/archive-question-filter.php:25
+msgid "My subscribes"
+msgstr "Οι συνδρομές μου"
+
+#: templates/archive-question-filter.php:29
+msgid "Subscribes"
+msgstr "Συνδρομές"
+
+#: templates/archive-question-filter.php:32
+msgid "Sort by"
+msgstr "Ταξινόμηση κατά"
+
+#: templates/archive-question-filter.php:33
+msgid "Views"
+msgstr "Προβολές"
+
+#: templates/archive-question-filter.php:35
+msgid "Votes"
+msgstr "Ψήφοι"
+
+#: templates/archive-question.php:28 templates/bp-archive-question.php:32
+msgid "Ask Question"
+msgstr "Νέα ερώτηση"
+
+#: templates/captcha-form.php:20
+msgid "Enter the result"
+msgstr "Εισάγετε το αποτέλεσμα"
+
+# ή απαντήθηκε
+#: templates/content-comment.php:16
+#, php-format
+msgctxt "%s = human-readable time difference"
+msgid "replied %s ago"
+msgstr "απάντησε πριν από %s"
+
+#: templates/content-edit.php:36 templates/question-submit-form.php:38
+msgid "Select question category"
+msgstr "Επιλογή κατηγορίας ερώτησης"
+
+#: templates/content-edit.php:52
+msgid "Save Changes"
+msgstr "Αποθήκευση αλλαγών"
+
+#: templates/content-none.php:10
+msgid "You do not have permission to view questions"
+msgstr "Δεν έχετε δικαίωμα προβολής ερωτήσεων"
+
+#: templates/content-none.php:12
+msgid "Sorry, but nothing matched your filter"
+msgstr "Δυστυχώς δεν υπάρχει τίποτε για το φίλτρο σας"
+
+#: templates/content-question.php:18
+msgid "asked"
+msgstr "ρωτήθηκε"
+
+#: templates/content-question.php:22 inc/Posts/Question.php:287
+msgid "answered"
+msgstr "απαντήθηκε"
+
+#: templates/content-question.php:25
+#, php-format
+msgid "<span><a href=\"%s\">%s%s</a> %s %s ago</span>"
+msgstr "<span><a href=\"%s\">%s%s</a>πριν από %s %s</span>"
+
+#: templates/content-question.php:26 templates/content-single-answer.php:25
+msgid "&nbsp;&bull;&nbsp;"
+msgstr "&nbsp;&bull;&nbsp;"
+
+#: templates/content-question.php:31
+#, php-format
+msgid "<strong>%1$s</strong> views"
+msgstr "<strong>%1$s</strong> προβολές"
+
+#: templates/content-question.php:35
+#, php-format
+msgid "<strong>%1$s</strong> answers"
+msgstr "<strong>%1$s</strong> απαντήσεις"
+
+#: templates/content-question.php:39
+#, php-format
+msgid "<strong>%1$s</strong> votes"
+msgstr "<strong>%1$s</strong> ψήφοι"
+
+#: templates/content-single-answer.php:12
+#: templates/content-single-question.php:14
+msgid "Vote Up"
+msgstr "Συμφωνώ"
+
+#: templates/content-single-answer.php:13
+#: templates/content-single-question.php:15
+msgid "Vote Down"
+msgstr "Διαφωνώ"
+
+#: templates/content-single-answer.php:17
+#: templates/content-single-answer.php:19
+msgid "Best Answer"
+msgstr "Καλύτερη απάντηση"
+
+#: templates/content-single-answer.php:23
+#, php-format
+msgid "<span><a href=\"%s\">%s%s</a> %s answered %s ago</span>"
+msgstr "<span><a href=\"%s\">%s%s</a> %s απαντήθηκε πριν από %s</span>"
+
+#: templates/content-single-answer.php:26
+msgid "Private"
+msgstr "Ιδιωτικό"
+
+#: templates/content-single-question.php:19
+#, php-format
+msgid "<span><a href=\"%s\">%s%s</a> %s asked %s ago</span>"
+msgstr "<span><a href=\"%s\">%s%s</a> %s ρωτήθηκε πριν από %s</span>"
+
+#: templates/content-single-question.php:26
+msgid "Question Tags: "
+msgstr "Ετικέτες ερώτησης:"
+
+#: templates/content-single-question.php:30
+msgid "This question is:"
+msgstr "Η ερώτηση είναι:"
+
+#: templates/question-submit-form.php:69
+msgid "You do not have permission to submit a question"
+msgstr "Δεν έχετε δικαίωμα να υποβάλετε ερώτηση"
+
+#: upgrades/upgrades.php:25
+#, php-format
+msgid ""
+"DW Question Answer needs to upgrade the database, click %shere%s to start "
+"the upgrade."
+msgstr ""
+"Πρέπει να αναβαθμιστεί η βάση δεδομένων, πατήστε %sεδώ%s για να ξεκινήσει η "
+"αναβάθμιση."
+
+#: upgrades/upgrades.php:33
+msgid "DWQA Upgrade"
+msgstr "Αναβάθμιση DWQA"
+
+#: upgrades/upgrades.php:40
+msgid ""
+"The upgrade process has started, please be patient. This could take several "
+"minutes. You will be automatically redirected when the upgrade is finished..."
+msgstr ""
+"Η διαδικασία αναβάθμισης ξεκίνησε και μπορεί να διαρκέσει αρκετά λεπτά. Όταν "
+"τελειώσει, θα επανακατευθυνθείτε αυτόματα..."
+
+#: upgrades/upgrades.php:130
+msgid "You do not have permission to do this task"
+msgstr "Δεν έχετε δικαίωμα για αυτήν την ενέργεια"
+
+#: upgrades/upgrades.php:147
+msgid "Just do it.."
+msgstr "Απλά κάνε το..."
+
+#: upgrades/upgrades.php:155
+#, php-format
+msgid "Move to next step %d"
+msgstr "Μετακίνηση στο επόμενο βήμα %d"
+
+#: upgrades/upgrades.php:172
+msgid "Upgrade process is done"
+msgstr "Η διαδικασία αναβάθμισης ολοκληρώθηκε"
+
+#: inc/Admin/Extensions.php:13
+msgid "DWQA Markdown"
+msgstr "DWQA Markdown"
+
+#: inc/Admin/Extensions.php:19
+msgid "DWQA Leaderboard"
+msgstr "DWQA Leaderboard"
+
+#: inc/Admin/Extensions.php:25
+msgid "DWQA Captcha"
+msgstr "DWQA Captcha"
+
+#: inc/Admin/Extensions.php:31
+msgid "DWQA Embed Question"
+msgstr "DWQA Ενσωμάτωση Ερώτησης"
+
+#: inc/Admin/Extensions.php:37
+msgid "DWQA Widgets"
+msgstr "DWQA Μικροεφαρμογές"
+
+#: inc/Admin/Extensions.php:47
+msgid "Extensions"
+msgstr "Επεκτάσεις"
+
+#: inc/Admin/Extensions.php:75
+msgid "Get It Now!"
+msgstr "Αποκτήστε το τώρα!"
+
+#: inc/Admin/Welcome.php:27 inc/Admin/Welcome.php:28
+msgid "Welcome to DW Question & Answer"
+msgstr "Καλώς ήλθατε στις Ερωτήσεις & Απαντήσεις DW"
+
+#: inc/Admin/Welcome.php:35 inc/Admin/Welcome.php:36
+msgid "DW Question & Answer Changelog"
+msgstr "DW Question & Answer Changelog"
+
+#: inc/Admin/Welcome.php:43 inc/Admin/Welcome.php:44
+msgid "DW Question & Answer Credits"
+msgstr "DW Question & Answer Credits"
+
+#: inc/Admin/Welcome.php:60
+#, php-format
+msgid "Welcome to DW Question & Answer %s"
+msgstr "Καλώς ήλθατε στις Ερωτήσεις & Απαντήσεις DW %s"
+
+#: inc/Admin/Welcome.php:61
+msgid ""
+"Thank you for installing our WordPress plugin. If you have any question "
+"about this plugin, please submit to our <a target=\"_blank\" href=\"https://"
+"www.designwall.com/question/\">Q&A section</a>."
+msgstr ""
+"Σας ευχαριστούμε που εγκαταστήσατε αυτό το πρόσθετο WordPress. Αν έχετε "
+"κάποια ερώτηση για αυτό το πρόσθετο, μπορείτε να την υποβάλετε στη δική μας "
+"<a target=\"_blank\" href=\"https://www.designwall.com/question/\">σελίδα "
+"Ε&Α</a>."
+
+#: inc/Admin/Welcome.php:199
+msgid "Contributors"
+msgstr "Συντελεστές"
+
+#: inc/Admin/Welcome.php:218
+msgid "No valid changelog was found."
+msgstr "Δε βρέθηκε έγκυρο changelog."
+
+#: inc/Posts/Answer.php:208 inc/Posts/Answer.php:252
+msgid "Answer"
+msgstr "Απάντηση"
+
+#: inc/Posts/Answer.php:255
+msgid "In Response To"
+msgstr "Ως απάντηση σε"
+
+#: inc/Posts/Answer.php:305
+msgid "Submitted"
+msgstr "Υποβλήθηκε"
+
+#: inc/Posts/Answer.php:306
+msgid "on"
+msgstr "σε"
+
+#: inc/Posts/Answer.php:341
+msgid "Question ID"
+msgstr "Αναγνωριστικό ερώτησης"
+
+#: inc/Posts/Answer.php:352 inc/Posts/Answer.php:355
+msgid "ID"
+msgstr "Αναγνωριστικό"
+
+#: inc/Posts/Base.php:34
+msgid "Are you cheating, huh?"
+msgstr "Μήπως κλέβετε;"
+
+#: inc/Posts/Base.php:47
+msgid " are you looking for?"
+msgstr "ψάχνετε;"
+
+#: inc/Posts/Base.php:290 inc/Posts/Base.php:294
+#, php-format
+msgid "%s answered <span class=\"dwqa-date\">%s</span> ago"
+msgstr "%s απάντησε πριν από <span class=\"dwqa-date\">%s</span>"
+
+#: inc/Posts/Base.php:296
+#, php-format
+msgid "%s asked <span class=\"dwqa-date\">%s</span> ago"
+msgstr "%s ρώτησε πριν από <span class=\"dwqa-date\">%s</span>"
+
+#: inc/Posts/Base.php:345
+msgid "DWQA Posts"
+msgstr "DWQA Αναρτήσεις"
+
+#: inc/Posts/Base.php:346
+msgid "DWQA Post"
+msgstr "DWQA Ανάρτηση"
+
+#: inc/Posts/Base.php:357
+msgctxt "dwqa"
+msgid "Add New"
+msgstr "Προσθήκη νέας"
+
+#: inc/Posts/Base.php:358
+msgid "Add New"
+msgstr "Προσθήκη νέας"
+
+#: inc/Posts/Base.php:362
+msgid "Search "
+msgstr "Αναζήτηση"
+
+#: inc/Posts/Base.php:363
+msgid "not found"
+msgstr "δε βρέθηκε"
+
+#: inc/Posts/Base.php:364
+msgid "not found in Trash"
+msgstr "δε βρέθηκε στα διαγραμμένα"
+
+#: inc/Posts/Base.php:365
+msgid "Parent:"
+msgstr "Γονέας:"
+
+#: inc/Posts/Question.php:101
+msgid "Question"
+msgstr "Ερώτηση"
+
+#: inc/Posts/Question.php:196
+msgctxt "taxonomy general name"
+msgid "Question Categories"
+msgstr "Κατηγορίες ερωτήσεων"
+
+#: inc/Posts/Question.php:197
+msgctxt "taxonomy singular name"
+msgid "Question Category"
+msgstr "Κατηγορία ερώτησης"
+
+#: inc/Posts/Question.php:198
+msgid "Search Question Categories"
+msgstr "Αναζήτηση κατηγορίας ερώτησης"
+
+#: inc/Posts/Question.php:199
+msgid "All Question Categories"
+msgstr "Όλες οι κατηγορίες ερωτήσεων"
+
+#: inc/Posts/Question.php:200
+msgid "Parent Question Category"
+msgstr "Γονική κατηγορία ερώτησης"
+
+#: inc/Posts/Question.php:201
+msgid "Parent Question Category:"
+msgstr "Γονική κατηγορία ερώτησης:"
+
+#: inc/Posts/Question.php:202
+msgid "Edit Question Category"
+msgstr "Διόρθωση κατηγορίας ερώτησης"
+
+#: inc/Posts/Question.php:203
+msgid "Update Question Category"
+msgstr "Ενημέρωση κατηγορίας ερώτησης"
+
+#: inc/Posts/Question.php:204
+msgid "Add New Question Category"
+msgstr "Προσθήκη νέας κατηγορίας ερώτησης"
+
+#: inc/Posts/Question.php:205
+msgid "New Question Category Name"
+msgstr "Όνομα νέας κατηγορίας ερώτησης"
+
+#: inc/Posts/Question.php:206
+msgid "Question Category"
+msgstr "Κατηγορία ερώτησης"
+
+#: inc/Posts/Question.php:225
+msgctxt "taxonomy general name"
+msgid "Question Tags"
+msgstr "Ετικέτες ερώτησης"
+
+#: inc/Posts/Question.php:226
+msgctxt "taxonomy singular name"
+msgid "Question Tag"
+msgstr "Ετικέτα ερώτησης"
+
+#: inc/Posts/Question.php:227
+msgid "Search Question Tags"
+msgstr "Αναζήτηση ετικετών ερωτήσεων"
+
+#: inc/Posts/Question.php:228
+msgid "Popular Question Tags"
+msgstr "Δημοφιλείς ετικέτες ερωτήσεων"
+
+#: inc/Posts/Question.php:229
+msgid "All Question Tags"
+msgstr "Όλες οι ετικέτες ερωτήσεων"
+
+#: inc/Posts/Question.php:232
+msgid "Edit Question Tag"
+msgstr "Διόρθωση ετικέτας ερώτησης"
+
+#: inc/Posts/Question.php:233
+msgid "Update Question Tag"
+msgstr "Ενημέρωση ετικέτας ερώτησης"
+
+#: inc/Posts/Question.php:234
+msgid "Add New Question Tag"
+msgstr "Προσθήκη νέας ετικέτας ερώτησης"
+
+#: inc/Posts/Question.php:235
+msgid "New Question Tag Name"
+msgstr "Όνομα νέας ετικέτας ερώτησης"
+
+#: inc/Posts/Question.php:236
+msgid "Separate question tags with commas"
+msgstr "Χωρίστε πολλαπλές ετικέτες με κόμματα"
+
+#: inc/Posts/Question.php:237
+msgid "Add or remove question tags"
+msgstr "Προσθέστε ή αφαιρέστε ετικέτες ερωτήσεων"
+
+#: inc/Posts/Question.php:238
+msgid "Choose from the most used question tags"
+msgstr "Επιλέξτε από τις πιο χρησιμοποιημένες ετικέτες ερωτήσεων"
+
+#: inc/Posts/Question.php:239
+msgid "No question tags found."
+msgstr "Δε βρέθηκαν ετικέτες ερωτήσεων"
+
+#: inc/Posts/Question.php:240
+msgid "Question Tags"
+msgstr "Ετικέτες ερωτήσεων"
+
+#: inc/Posts/Question.php:276
+msgid "Info"
+msgstr "Πληροφορίες"
+
+# ή ψηφίστηκαν
+#: inc/Posts/Question.php:288
+#, fuzzy
+msgid "voted"
+msgstr "ψήφισαν"
+
+#: inc/Posts/Question.php:289
+msgid "views"
+msgstr "προβολές"
+
+#: inc/Posts/Question.php:445
+msgid "Sticky Questions"
+msgstr "Καρφιτσωμένες ερωτήσεις"
+
+#: inc/Posts/Question.php:479
+msgid "Question is not valid"
+msgstr "Η ερώτηση δεν είναι έγκυρη"
+
+#: inc/Posts/Question.php:500
+msgid "Delete Action was failed"
+msgstr "Αποτυχία διαγραφής"
+
+#: inc/Posts/Question.php:505
+msgid "You do not have permission to delete this question"
+msgstr "Δεν έχετε δικαίωμα να διαγράψετε την ερώτηση"
+
+#: inc/widgets/Closed_Question.php:11
+msgid "Show a list of questions marked as closed."
+msgstr "Προβολή λίστας κλεισμένων ερωτήσεων"
+
+#: inc/widgets/Closed_Question.php:12
+msgid "DWQA Closed Questions"
+msgstr "DWQA Κλεισμένες Ερωτήσεις"
+
+#: inc/widgets/Closed_Question.php:18
+msgid "Closed Questions"
+msgstr "Κλεισμένες Ερωτήσεις"
+
+#: inc/widgets/Closed_Question.php:72 inc/widgets/Latest_Question.php:71
+#: inc/widgets/Popular_Question.php:66 inc/widgets/Related_Question.php:48
+msgid "Widget title"
+msgstr "Τίτλος μικροεφαρμογής"
+
+#: inc/widgets/Closed_Question.php:75 inc/widgets/Latest_Question.php:74
+#: inc/widgets/Popular_Question.php:69 inc/widgets/Related_Question.php:51
+msgid "Number of posts"
+msgstr "Αριθμός αναρτήσεων"
+
+#: inc/widgets/Latest_Question.php:10
+msgid "Show a list of latest questions."
+msgstr "Προβολή λίστας πρόσφατων ερωτήσεων."
+
+#: inc/widgets/Latest_Question.php:11
+msgid "DWQA Latest Questions"
+msgstr "DWQA Πρόσφατες ερωτήσεις"
+
+#: inc/widgets/Latest_Question.php:17
+msgid "Latest Questions"
+msgstr "Πρόσφατες ερωτήσεις"
+
+#: inc/widgets/Latest_Question.php:44
+#, php-format
+msgid "%s ago"
+msgstr "πριν από %s"
+
+#: inc/widgets/Latest_Question.php:79
+msgid "Show question date"
+msgstr "Προβολή ημερομηνίας ερώτησης"
+
+#: inc/widgets/Popular_Question.php:13
+msgid "Show a list of popular questions."
+msgstr "Προβολή λίστας δημοφιλών ερωτήσεων."
+
+#: inc/widgets/Popular_Question.php:15
+msgid "DWQA Popular Questions"
+msgstr "DWQA Δημοφιλείς ερωτήσεις"
+
+#: inc/widgets/Related_Question.php:11
+msgid ""
+"Show a list of questions that related to a question. Just show in single "
+"question page"
+msgstr "Προβολή λίστας ερωτήσεων που σχετίζονται με μια ερώτηση."
+
+#: inc/widgets/Related_Question.php:12
+msgid "DWQA Related Questions"
+msgstr "DWQA Σχετικές ερωτήσεις"
+
+#: inc/extend/buddypress/loader.php:12 inc/extend/buddypress/loader.php:61
+#: inc/extend/buddypress/loader.php:112
+msgid "DWQA"
+msgstr "DWQA"
+
+#: inc/extend/buddypress/loader.php:44
+msgid "Search DWQA..."
+msgstr "Αναζήτηση DWQA..."
+
+#: inc/extend/buddypress/notifications.php:31
+msgid "Question Replies"
+msgstr "Απαντήσεις ερώτησης"
+
+#: inc/extend/buddypress/notifications.php:34
+#: inc/extend/buddypress/notifications.php:38
+#: inc/extend/buddypress/notifications.php:41
+msgid "DWQA: "
+msgstr "DWQA: "
+
+#: inc/extend/buddypress/notifications.php:34
+#, php-format
+msgid "You have %d new replies"
+msgstr "Έχετε %d νέες απαντήσεις"
+
+#: inc/extend/buddypress/notifications.php:38
+#, php-format
+msgid "You have %d new reply to %2$s from %3$s"
+msgstr "Έχετε %d νέα απάντηση στο %2$s από %3$s"
+
+#: inc/extend/buddypress/notifications.php:41
+#, php-format
+msgid "You have %d new reply to %s"
+msgstr "Έχετε %d νέα απάντηση στο %s"
+
+#: inc/extend/buddypress/notifications.php:105
+msgid "You do not have permission to mark notifications for that user."
+msgstr "Δεν έχετε δικαίωμα να ορίσετε ειδοποιήσεις για αυτό το χρήστη."
+
+#. Plugin Name of the plugin/theme
+msgid "DW Question Answer"
+msgstr "DW Ερώτηση Απάντηση"
+
+#. Description of the plugin/theme
+msgid ""
+"A WordPress plugin was make by DesignWall.com to build an Question Answer "
+"system for support, asking and comunitcate with your customer"
+msgstr ""
+"Ένα πρόσθετο του WordPress που δημιούργησε η DesignWall.com για να χτίσετε "
+"ένα σύστημα Ερωτήσεων Απαντήσεων για υποστήριξη και επικοινωνία με τους "
+"πελάτες σας."
+
+#. Author of the plugin/theme
+msgid "DesignWall"
+msgstr "DesignWall"
+
+#. Author URI of the plugin/theme
+msgid "http://www.designwall.com"
+msgstr "http://www.designwall.com"

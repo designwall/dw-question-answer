@@ -15,7 +15,7 @@
 		<?php dwqa_print_user_badge( $comment->user_id, true ); ?>
 		<?php printf( _x( 'replied %s ago', '%s = human-readable time difference', 'dw-question-answer' ), human_time_diff( get_comment_time( 'U', true ) ) ); ?>
 		<div class="dwqa-comment-actions">
-			<?php if ( dwqa_current_user_can( 'edit_comment' ) ) : ?>
+			<?php if ( dwqa_current_user_can( 'edit_comment', get_the_ID(), $comment->comment_id ) ) : ?>
 				<a href="<?php echo esc_url( add_query_arg( array( 'comment_edit' => $comment->comment_ID ) ) ) ?>"><?php _e( 'Edit', 'dw-question-answer' ) ?></a>
 			<?php endif; ?>
 			<?php if ( dwqa_current_user_can( 'delete_comment' ) ) : ?>

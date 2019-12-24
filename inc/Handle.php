@@ -137,7 +137,7 @@ class DWQA_Handle {
 
 	public function update_answer() {
 		if ( isset( $_POST['dwqa-edit-answer-submit'] ) ) {
-			if ( !dwqa_current_user_can( 'edit_answer' ) ) {
+			if ( !dwqa_current_user_can( 'edit_answer', intval( $_POST['answer_id'] ) ) ) {
 				dwqa_add_notice( __( "You do not have permission to edit answer.", 'dw-question-answer' ), 'error' );
 			}
 
@@ -484,7 +484,7 @@ class DWQA_Handle {
 		if ( isset( $_POST['dwqa-edit-question-submit'] ) ) {
 			if ( isset( $_POST['_wpnonce'] ) && wp_verify_nonce( esc_html( $_POST['_wpnonce'] ), '_dwqa_edit_question' ) ) {
 
-				if ( !dwqa_current_user_can( 'edit_question' ) ) {
+				if ( !dwqa_current_user_can( 'edit_question', intval( $_POST['question_id'] ) ) ) {
 					dwqa_add_notice( __( "You do not have permission to edit question", 'dw-question-answer' ), 'error' );
 				}
 

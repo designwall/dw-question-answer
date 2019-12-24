@@ -108,9 +108,9 @@
 		});
 	});
 
-	// delete question
+	// delete question, answer or comment
 	$( '.dwqa_delete_question, .dwqa_delete_answer, .dwqa-delete-comment' ).on('click', function(e) {
-		var message = confirm( 'Are you sure to delete this question.' );
+		var message = confirm( 'Are you sure to delete this item.' );
 
 		if ( !message ) {
 			e.preventDefault();

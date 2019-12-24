@@ -1,7 +1,10 @@
 <?php  
-function dwqa_user_can( $user_id, $perm, $post_id = false ) {
+function dwqa_user_can( $user_id, $perm, $post_id = false, $comment_id = false ) {
 	global $dwqa;
 	$can = false;
+	if ( !$post_id ){
+		$post_id = get_the_ID();
+	}
 	if ( $user_id &&  is_numeric($user_id) ) {
 		if ( $post_id ) {
 			// perm with post id
@@ -9,7 +12,7 @@ function dwqa_user_can( $user_id, $perm, $post_id = false ) {
 			$post_author = 0;
 			// is comment
 			if ( in_array( $perm, $is_comment ) ) {
-				$comment = get_comment( $post_id );
+				$comment = get_comment( $comment_id );
 				if ( isset( $comment->user_id ) ) {
 					$post_author = $comment->user_id;
 				}
@@ -38,9 +41,9 @@ function dwqa_user_can( $user_id, $perm, $post_id = false ) {
 	return apply_filters( 'dwqa_user_can', $can, $perm, $user_id, $post_id );
 }
 
-function dwqa_current_user_can( $perm, $post_id = false ) {
+function dwqa_current_user_can( $perm, $post_id = false, $comment_id = false ) {
 	$current_user_id = get_current_user_id();
-	$can = dwqa_user_can( $current_user_id, $perm, $post_id );
+	$can = dwqa_user_can( $current_user_id, $perm, $post_id, $comment_id );
 	return apply_filters( 'dwqa_current_user_can', $can, $current_user_id, $perm, $post_id );
 }
 

@@ -168,7 +168,7 @@ class DWQA_Ajax {
 			wp_die( __( 'This post is not question.', 'dw-question-answer' ) );
 		}
 
-		if ( !dwqa_current_user_can( 'delete_answer' ) ) {
+		if ( !dwqa_current_user_can( 'delete_question', intval( $_GET['question_id'] ) ) ) {
 			wp_die( __( 'You do not have permission to delete this post.', 'dw-question-answer' ) );
 		}
 

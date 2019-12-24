@@ -25,11 +25,12 @@ class DWQA_Ajax {
 	}
 
 	public function delete_comment() {
+		$comment = get_comment( $_GET['comment_id'] );
 		if ( ! isset( $_GET['_wpnonce'] ) || ! wp_verify_nonce( sanitize_text_field( $_GET['_wpnonce'] ), '_dwqa_delete_comment' ) ) {
 			wp_die( __( 'Are you cheating huh?', 'dw-question-answer' ) );
 		}
 
-		if ( !dwqa_current_user_can( 'delete_comment' ) ) {
+		if ( !dwqa_current_user_can( 'delete_comment', $comment->comment_post_ID, $comment->comment_ID ) ) {
 			wp_die( __( 'You do not have permission to edit comment.', 'dw-question-answer' ) );
 		}
 
@@ -37,8 +38,7 @@ class DWQA_Ajax {
 			wp_die( __( 'Comment ID must be showed.', 'dw-question-answer' ) );
 		}
 
-		wp_delete_comment( intval( $_GET['comment_id'] ) );
-		$comment = get_comment( $_GET['comment_id'] );
+		wp_delete_comment( intval( $comment->comment_ID ) );
 		exit( wp_safe_redirect( dwqa_get_question_link( $comment->comment_post_ID ) ) );
 	}
 

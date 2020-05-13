@@ -61,7 +61,7 @@ function dwqa_breadcrumb() {
 		}
 		echo apply_filters( 'dwqa_breadcrumb', $output );
 	endif;
-	
+
 }
 add_action( 'dwqa_before_questions_archive', 'dwqa_breadcrumb' );
 add_action( 'dwqa_before_single_question', 'dwqa_breadcrumb' );
@@ -124,8 +124,8 @@ function dwqa_question_paginate_link() {
 	$tag = get_query_var( 'dwqa-question_tag' ) ? get_query_var( 'dwqa-question_tag' ) : false;
 	$cat = get_query_var( 'dwqa-question_category' ) ? get_query_var( 'dwqa-question_category' ) : false;
 
-	$url = $cat 
-			? get_term_link( $cat, get_query_var( 'taxonomy' ) ) 
+	$url = $cat
+			? get_term_link( $cat, get_query_var( 'taxonomy' ) )
 			: ( $tag ? get_term_link( $tag, get_query_var( 'taxonomy' ) ) : $archive_question_url );
 
 	if(isset($dwqa_atts['category']) && isset($dwqa_atts['page_id']) && $dwqa_atts['page_id']){
@@ -462,8 +462,8 @@ function dwqa_comment_form( $args = array(), $post_id = null ) {
 		'fields'               => $fields,
 		'comment_field'        => '',
 		'must_log_in'          => '<p class="must-log-in">' . sprintf( __( 'You must be <a href="%s">logged in</a> to post a comment.','dw-question-answer' ), wp_login_url( apply_filters( 'the_permalink', get_permalink( $post_id ) ) ) ) . '</p>',
-		'logged_in_as'         => '<p class="comment-form-comment"><textarea id="comment" name="comment" placeholder="Comment" rows="2" aria-required="true"></textarea></p>',
-		'comment_notes_before' => '<p class="comment-form-comment"><textarea id="comment" name="comment" placeholder="Comment" rows="2" aria-required="true"></textarea></p>',
+		'logged_in_as'         => '<p class="comment-form-comment"><textarea id="comment" name="comment" placeholder="'. __( 'Comment', 'dw-question-answer' ) .'" rows="2" aria-required="true"></textarea></p>',
+		'comment_notes_before' => '<p class="comment-form-comment"><textarea id="comment" name="comment" placeholder="'. __( 'Comment', 'dw-question-answer' ) .'" rows="2" aria-required="true"></textarea></p>',
 		'comment_notes_after'  => '<p class="form-allowed-tags">' . sprintf( __( 'You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes: %s','dw-question-answer' ), ' <code>' . allowed_tags() . '</code>' ) . '</p>',
 		'id_form'              => 'commentform',
 		'id_submit'            => 'submit',

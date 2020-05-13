@@ -1,73 +1,77 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: DW Question Answer\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-17 16:31+0700\n"
-"PO-Revision-Date: 2016-08-17 16:31+0700\n"
-"Last-Translator: DesignWall <webmaster@designwall.com>\n"
-"Language-Team: pstuts <email@pstuts.ir>\n"
+"POT-Creation-Date: 2019-01-21 10:30+0330\n"
+"PO-Revision-Date: 2019-01-23 12:04+0330\n"
+"Last-Translator: \n"
+"Language-Team: NasimNet <nasimnet.ir@gmail.com>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.7\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c\n"
-"X-Poedit-Basepath: .\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Poedit-SearchPath-0: ..\n"
+"Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
+"X-Generator: Poedit 2.2.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: dw-question-answer.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: dw-question-answer.php:147
+#: dw-question-answer.php:170
 msgid "DWQA Questions"
 msgstr "صفحه ی اصلی سوالات"
 
-#: dw-question-answer.php:164
+#: dw-question-answer.php:187
 msgid "DWQA Ask Question"
 msgstr "پرسیدن سوال جدید"
 
 #: inc/Admin/Extensions.php:13
 msgid "DWQA Markdown"
-msgstr ""
+msgstr "نشانه گذاری"
 
 #: inc/Admin/Extensions.php:19
 msgid "DWQA Leaderboard"
-msgstr ""
+msgstr "رهبران"
 
 #: inc/Admin/Extensions.php:25
 msgid "DWQA Captcha"
-msgstr ""
+msgstr "کد امنیتی"
 
 #: inc/Admin/Extensions.php:31
 msgid "DWQA Embed Question"
-msgstr ""
+msgstr "قراردادن سوال"
 
 #: inc/Admin/Extensions.php:37
 msgid "DWQA Widgets"
-msgstr ""
+msgstr "ابزارک"
 
 #: inc/Admin/Extensions.php:47
 msgid "Extensions"
-msgstr ""
+msgstr "برنامه های افزودنی"
 
 #: inc/Admin/Extensions.php:75
 msgid "Get It Now!"
-msgstr ""
+msgstr "گرفتی چی شد !"
 
 #: inc/Admin/Welcome.php:27 inc/Admin/Welcome.php:28
 msgid "Welcome to DW Question & Answer"
-msgstr ""
+msgstr "به افزونه پرسش و پاسخ خوش آمدید"
 
 #: inc/Admin/Welcome.php:35 inc/Admin/Welcome.php:36
 msgid "DW Question & Answer Changelog"
-msgstr ""
+msgstr "تغییرات افزونه پرسش و پاسخ"
 
 #: inc/Admin/Welcome.php:43 inc/Admin/Welcome.php:44
 msgid "DW Question & Answer Credits"
-msgstr ""
+msgstr "اعتبارات افزونه پرسش و پاسخ"
 
 #: inc/Admin/Welcome.php:60
 #, php-format
 msgid "Welcome to DW Question & Answer %s"
-msgstr ""
+msgstr "پرسش و پاسخ %s"
 
 #: inc/Admin/Welcome.php:61
 msgid ""
@@ -75,201 +79,289 @@ msgid ""
 "about this plugin, please submit to our <a target=\"_blank\" href=\"https://"
 "www.designwall.com/question/\">Q&A section</a>."
 msgstr ""
+"بابت نصب افزونه از شما سپاسگذاریم . اگر سوالی درباره ی این افزونه دارید، "
+"آنرا در <a target=\"_blank\" href=\"https://www.designwall.com/question/"
+"\">بخش پرسش و پاسخ</a> مطرح کنید."
 
 #: inc/Admin/Welcome.php:69
 msgid "What&#8217;s New"
-msgstr ""
+msgstr "جدید ترین ها"
 
 #: inc/Admin/Welcome.php:70
 msgid "Changelog"
-msgstr ""
+msgstr "تغییرات"
 
 #: inc/Admin/Welcome.php:71
 msgid "Credits"
-msgstr ""
+msgstr "سازندگان"
 
 #: inc/Admin/Welcome.php:199
 msgid "Contributors"
-msgstr ""
+msgstr "همکاران"
 
 #: inc/Admin/Welcome.php:218
 msgid "No valid changelog was found."
-msgstr ""
+msgstr "هیچ تغییرات معتبری یافت نشد."
 
-#: inc/Ajax.php:29 inc/Ajax.php:47 inc/Ajax.php:83 inc/Ajax.php:113
-#: inc/Ajax.php:132 inc/Ajax.php:150 inc/Ajax.php:215 inc/Handle.php:256
-#: inc/Handle.php:455 inc/Permission.php:286 inc/Status.php:319
+#: inc/Ajax.php:29 inc/Ajax.php:47 inc/Ajax.php:89 inc/Ajax.php:119
+#: inc/Ajax.php:141 inc/Ajax.php:160 inc/Ajax.php:225 inc/Akismet.php:522
+#: inc/Handle.php:278 inc/Handle.php:477 inc/Permission.php:328
+#: inc/Status.php:317
 msgid "Are you cheating huh?"
 msgstr "تقلب می کنی؟"
 
-#: inc/Ajax.php:33 inc/Handle.php:260
+#: inc/Ajax.php:33 inc/Handle.php:282
 msgid "You do not have permission to edit comment."
-msgstr ""
+msgstr "شما مجاز به ویرایش نظر نیستید."
 
 #: inc/Ajax.php:37
-#, fuzzy
 msgid "Comment ID must be showed."
-msgstr "ID دیدگاه باید نمایش داده شود"
+msgstr "ID دیدگاه باید نمایش داده شود."
 
-#: inc/Ajax.php:51 inc/Handle.php:154
+#: inc/Ajax.php:51 inc/Handle.php:156
 msgid "Answer is missing."
-msgstr ""
+msgstr "پاسخ گم شده است."
 
-#: inc/Ajax.php:55 inc/Handle.php:158
+#: inc/Ajax.php:57 inc/Handle.php:160
 msgid "This post is not answer."
-msgstr ""
+msgstr "این پست جواب نیست."
 
-#: inc/Ajax.php:59 inc/Ajax.php:162
+#: inc/Ajax.php:61 inc/Ajax.php:172
 msgid "You do not have permission to delete this post."
-msgstr ""
+msgstr "شما مجار به حذف این پست نیستید."
 
-#: inc/Ajax.php:86
+#: inc/Ajax.php:92
 msgid "Missing id of answer"
-msgstr "id پاسخ وجود ندارد"
+msgstr "شناسه پاسخ اشتباه است"
 
-#: inc/Ajax.php:154 inc/Handle.php:477
+#: inc/Ajax.php:164 inc/Handle.php:499
 msgid "Question is missing."
-msgstr ""
+msgstr "سوال گم شده است."
 
-#: inc/Ajax.php:158 inc/Handle.php:481
+#: inc/Ajax.php:168 inc/Handle.php:503
 msgid "This post is not question."
-msgstr ""
+msgstr "این پست سوال نیست."
 
-#: inc/Ajax.php:206
-#, fuzzy
+#: inc/Ajax.php:216
 msgid "You do not have permission to edit question status"
 msgstr "شما نمی توانید سوال ها را ببینید"
 
-#: inc/Ajax.php:223 inc/Ajax.php:273
+#: inc/Ajax.php:233 inc/Ajax.php:283
 msgid "Not Found!!!"
-msgstr ""
+msgstr "چیزی پیدا نشد !"
 
-#: inc/Answer_List_Table.php:81 inc/Posts/Answer.php:271 inc/Template.php:48
+#: inc/Akismet.php:79
+msgid "Report Spam List"
+msgstr "گزارش هرزنامه"
+
+#: inc/Akismet.php:79 inc/Akismet.php:545
+msgid "Report Spam"
+msgstr "گزارش اسپم"
+
+#: inc/Akismet.php:89 templates/content-edit.php:21
+#: templates/question-submit-form.php:13
+msgid "Title"
+msgstr "عنوان"
+
+#: inc/Akismet.php:90 inc/Settings.php:1040
+msgid "Type"
+msgstr "نوع"
+
+#: inc/Akismet.php:91 inc/Answer_List_Table.php:75 inc/Posts/Answer.php:253
+#: inc/Template.php:47
 msgid "Author"
 msgstr "توسط"
 
-#: inc/Answer_List_Table.php:82
+#: inc/Akismet.php:92
+msgid "Count Report"
+msgstr "تعداد گزارش"
+
+#: inc/Akismet.php:155 inc/Akismet.php:454
+#, php-format
+msgid "Unspam &#8220;%s&#8221;"
+msgstr "Unspam &#8220;%s&#8221;"
+
+#: inc/Akismet.php:156 inc/Akismet.php:455
+msgid "publish"
+msgstr "منتشر شده"
+
+#: inc/Akismet.php:161
+#, php-format
+msgid "View %s"
+msgstr "مشاهده %s"
+
+#: inc/Akismet.php:162 inc/Posts/Answer.php:301 inc/Posts/Base.php:361
+msgid "View"
+msgstr "بازدید"
+
+#: inc/Akismet.php:166
+msgid "Delete permanently"
+msgstr "حذف دائمی"
+
+#: inc/Akismet.php:204 inc/Answer_List_Table.php:86 inc/Notifications.php:130
+#: inc/Notifications.php:150 inc/Posts/Base.php:269 inc/Posts/Comment.php:102
+#: inc/Settings.php:419 inc/Settings.php:455 inc/Settings.php:490
+#: inc/User.php:155
+msgid "Anonymous"
+msgstr "ناشناس"
+
+#: inc/Akismet.php:425
+msgctxt "dw-question-answer"
+msgid "Spam"
+msgstr "جفنگ"
+
+#: inc/Akismet.php:430
+#, php-format
+msgid "Spam <span class=\"count\">(%s)</span>"
+msgid_plural "Spam <span class=\"count\">(%s)</span>"
+msgstr[0] "اسپم <span class=\"count\">(%s)</span>"
+msgstr[1] "اسپم <span class=\"count\">(%s)</span>"
+
+#: inc/Akismet.php:436
+msgid "Empty Spam"
+msgstr "خالی‌کردن هرزنامه"
+
+#: inc/Akismet.php:447
+#, php-format
+msgid "Spam &#8220;%s&#8221;"
+msgstr "هرزنامه &#8220;%s&#8221;"
+
+#: inc/Akismet.php:448
+msgid "Spam"
+msgstr "جفنگ"
+
+#: inc/Akismet.php:516
+msgid "You need login to report spam!"
+msgstr "برای گزارش هرزنامه به سیستم وارد شوید!"
+
+#: inc/Akismet.php:519
+msgid "Post not found!"
+msgstr "پست یافت نشد!"
+
+#: inc/Akismet.php:534
+msgid "You reported this post before!"
+msgstr "شما قبلا این پست را گزارش کرده اید!"
+
+#: inc/Akismet.php:539
+msgid "Reported to admin"
+msgstr "گزارش شده به مدیر"
+
+#: inc/Answer_List_Table.php:76
 msgid "Detail"
 msgstr "توضیحات"
 
-#: inc/Answer_List_Table.php:92 inc/Notifications.php:116
-#: inc/Notifications.php:214 inc/Notifications.php:233 inc/Posts/Base.php:230
-#: inc/Posts/Comment.php:102 inc/Settings.php:419 inc/Settings.php:455
-#: inc/Settings.php:490 inc/User.php:155
-msgid "Anonymous"
-msgstr "مخفی"
-
-#: inc/Answer_List_Table.php:101
+#: inc/Answer_List_Table.php:95
 msgid "Answered on "
-msgstr "پاسخ داده شده در"
+msgstr "پاسخ داده شده در "
 
-#: inc/Answer_List_Table.php:112 inc/Helptab.php:153
+#: inc/Answer_List_Table.php:106 inc/Helptab.php:153
 msgid "Read more"
 msgstr "بیشتر"
 
-#: inc/Handle.php:29
-msgid "&quot;Helllo&quot;, Are you cheating huh?."
-msgstr ""
+#: inc/Autoclosure.php:65
+msgid "Half Daily"
+msgstr "نیم روزانه"
 
-#: inc/Handle.php:32
+#: inc/Handle.php:30
+msgid "&quot;Helllo&quot;, Are you cheating huh?."
+msgstr "&quot;Helllo&quot;, تقلب می کنی?."
+
+#: inc/Handle.php:33
 msgid "Delete draft"
 msgstr "حذف پیش نویس"
 
-#: inc/Handle.php:39
+#: inc/Handle.php:40
 msgid "Answer content is empty"
-msgstr ""
+msgstr "محتوای پاسخ خالی است"
 
-#: inc/Handle.php:42
+#: inc/Handle.php:43
 msgid "Question is empty"
-msgstr ""
+msgstr "سوال خالی است"
 
-#: inc/Handle.php:46 inc/Handle.php:432
+#: inc/Handle.php:47 inc/Handle.php:454
 msgid "You do not have permission to submit question."
-msgstr "شما نمی توانید سوال بپرسید"
+msgstr "شما اجازه ندارید سوال ارسال کنید."
 
-#: inc/Handle.php:50 inc/Handle.php:218 inc/Handle.php:300
-#, fuzzy
+#: inc/Handle.php:51 inc/Handle.php:220 inc/Handle.php:322
 msgid "Missing email information"
 msgstr "ایمیل وجود ندارد"
 
-#: inc/Handle.php:54 inc/Handle.php:222 inc/Handle.php:305
-#, fuzzy
+#: inc/Handle.php:55 inc/Handle.php:224 inc/Handle.php:327
 msgid "Missing name information"
 msgstr "نام وجود ندارد"
 
-#: inc/Handle.php:58 inc/Handle.php:451
+#: inc/Handle.php:59 inc/Handle.php:473
 msgid "Captcha is not correct"
 msgstr "کپچا غلط است"
 
-#: inc/Handle.php:77
+#: inc/Handle.php:78
 msgid "Answer for "
-msgstr "پاسخ به"
+msgstr "پاسخ به "
 
-#: inc/Handle.php:139
+#: inc/Handle.php:141
 msgid "You do not have permission to edit answer."
-msgstr ""
+msgstr "شما مجاز به ویرایش پاسخ نیستید."
 
-#: inc/Handle.php:143 inc/Handle.php:520 inc/Posts/Question.php:473
+#: inc/Handle.php:145 inc/Handle.php:542 inc/Posts/Question.php:473
+#: inc/extend/buddypress/notifications.php:102
 msgid "Hello, Are you cheating huh?"
 msgstr "تقلب می کنی؟"
 
-#: inc/Handle.php:148
+#: inc/Handle.php:150
 msgid "You must enter a valid answer content."
-msgstr ""
+msgstr "شما باید محتوای پاسخ معتبر را وارد کنید."
 
-#: inc/Handle.php:194
+#: inc/Handle.php:196
 msgid "You can't post comment"
 msgstr "شما نمی توانید دیدگاه بدهید"
 
-#: inc/Handle.php:197
+#: inc/Handle.php:199
 msgid "Missing post id."
-msgstr ""
+msgstr "پست شناسه ندارد."
 
-#: inc/Handle.php:203
+#: inc/Handle.php:205
 msgid "Please enter your comment content"
 msgstr "دیدگاه خود را وارد کنید"
 
-#: inc/Handle.php:249
+#: inc/Handle.php:271
 msgid "Comment is missing"
-msgstr ""
+msgstr "نظر گم شده است"
 
-#: inc/Handle.php:264
+#: inc/Handle.php:286
 msgid "Comment content must not be empty."
-msgstr "دیدگاه نباید خالی باشد"
+msgstr "دیدگاه نباید خالی باشد."
 
-#: inc/Handle.php:294 inc/Handle.php:471
+#: inc/Handle.php:316 inc/Handle.php:493
 msgid "You must enter a valid question title."
-msgstr ""
+msgstr "شما باید یک عنوان معتبر وارد کنید."
 
-#: inc/Handle.php:384
+#: inc/Handle.php:406
 msgid "User Registration was disabled."
-msgstr "عضویت غیرفعال شده"
+msgstr "ثبت نام کاربر غیر فعال است."
 
-#: inc/Handle.php:387
+#: inc/Handle.php:409
 msgid "This email is already registered, please choose another one."
-msgstr "این ایمیل قبلا وارد شده"
+msgstr "این ایمیل قبلا ثبت شده است، لطفا یک ایمیل دیگر را انتخاب کنید."
 
-#: inc/Handle.php:390
-#, fuzzy
+#: inc/Handle.php:412
 msgid "This username is already registered. Please use another one."
-msgstr "این نام کاربری قبلا وارد شده"
+msgstr "این نام کاربری قبلا استفاده شده است. لطفا از نامی دیگر استفاده نمایید."
 
-#: inc/Handle.php:444
+#: inc/Handle.php:466
 msgid "Your question is waiting moderator."
-msgstr ""
+msgstr "سؤال شما در انتظار مدیر است."
 
-#: inc/Handle.php:466 inc/Status.php:347
-#, fuzzy
+#: inc/Handle.php:488 inc/Status.php:345
 msgid "You do not have permission to edit question"
-msgstr "شما نمی توانید سوال بپرسید"
+msgstr "شما مجاز به ویرایش سوال نیستید"
 
 #: inc/Helptab.php:47
 msgid "Overview"
-msgstr ""
+msgstr "چشم‌انداز"
 
 #: inc/Helptab.php:48
 msgid "DW Question Answer Plugin"
-msgstr ""
+msgstr "افزونه پرسش و پاسخ"
 
 #: inc/Helptab.php:49
 msgid ""
@@ -278,71 +370,74 @@ msgid ""
 "up. Let start building up your community with this WordPress question & "
 "answer system."
 msgstr ""
+"DW Question Answer یک پلاگین وردپرس است که به شما کمک می کند یک سیستم پرسش و "
+"پاسخ در سایت های WordPress ایجاد کنید. پلاگین نصب و راه اندازی آسان است. "
+"شروع به ساخت جامعه خود را با این سوال و پاسخ سیستم وردپرس شروع کنید."
 
 #: inc/Helptab.php:52
 msgid "Setup Question List Page"
-msgstr ""
+msgstr "راه اندازی صفحه پرسش سوال"
 
 #: inc/Helptab.php:56
 msgid "Setup Ask Question Page"
-msgstr ""
+msgstr "راه اندازی سوال از صفحه سوال"
 
 #: inc/Helptab.php:60
 msgid "Shortcode"
-msgstr ""
+msgstr "کد کوتاه"
 
 #: inc/Helptab.php:64
 msgid "Style integration"
-msgstr ""
+msgstr "یکپارچه سازی سبک"
 
 #: inc/Helptab.php:173
 msgid "For more information:"
-msgstr "برای اطلاعات بیشتر:"
+msgstr "برای کسب اطلاعات بیشتر:"
 
 #: inc/Helptab.php:174
 msgid "DW Question Answer Guide"
-msgstr ""
+msgstr "راهنمای افزونه پرسش و پاسخ"
 
 #: inc/Helptab.php:175
 msgid "Community"
-msgstr ""
+msgstr "اجتماع"
 
 #: inc/Helptab.php:176
 msgid "DesignWall Wordpress Themes"
-msgstr ""
+msgstr "پوسته های وردپرسی DesignWall"
 
 #: inc/Helptab.php:177
 msgid "DesignWall Wordpress Plugins"
-msgstr ""
+msgstr "افزونه های وردپرسی DesignWall"
 
-#: inc/Metaboxes.php:13 templates/content-single-question.php:31
+#: inc/Metaboxes.php:13 templates/content-single-question.php:32
 #: templates/question-submit-form.php:22
 msgid "Status"
 msgstr "وضعیت"
 
-#: inc/Metaboxes.php:15 inc/Status.php:304
+#: inc/Metaboxes.php:15 inc/Status.php:302
 #: templates/archive-question-filter.php:18
-#: templates/content-single-question.php:32
+#: templates/content-single-question.php:33
 msgid "Open"
-msgstr "بی پاسخ"
+msgstr "باز"
 
-#: inc/Metaboxes.php:16 inc/Status.php:287
+#: inc/Metaboxes.php:16 inc/Status.php:285
 msgid "Pending"
 msgstr "در انتظار برای تایید کردن پاسخ"
 
-#: inc/Metaboxes.php:17 inc/Status.php:284
+#: inc/Metaboxes.php:17 inc/Status.php:282
 #: templates/archive-question-filter.php:19
-#: templates/content-single-question.php:34
+#: templates/content-single-question.php:35
 msgid "Resolved"
 msgstr "حل شده"
 
-#: inc/Metaboxes.php:18 inc/Status.php:290
+#: inc/Metaboxes.php:18 inc/Status.php:288
 msgid "Re-Open"
-msgstr "دوباره باز شده"
+msgstr "باز کردن مجدد"
 
-#: inc/Metaboxes.php:19 inc/Status.php:293
+#: inc/Metaboxes.php:19 inc/Status.php:291
 #: templates/archive-question-filter.php:20
-#: templates/content-single-question.php:33
+#: templates/content-single-question.php:34
 msgid "Closed"
 msgstr "بسته شده"
 
@@ -351,11 +446,10 @@ msgid "Sticky"
 msgstr "سنجاق شده"
 
 #: inc/Metaboxes.php:29
-#, fuzzy
 msgid "Pin question to top of archive page."
-msgstr "سوال سنجاق شده به ابتدای صفحه"
+msgstr "سوال سنجاق شده به ابتدای صفحه بایگانی."
 
-#: inc/Metaboxes.php:45 inc/Posts/Answer.php:225 inc/Posts/Answer.php:227
+#: inc/Metaboxes.php:45 inc/Posts/Answer.php:207 inc/Posts/Answer.php:209
 #: inc/Settings.php:431 templates/archive-question-filter.php:34
 msgid "Answers"
 msgstr "پاسخ ها"
@@ -364,148 +458,160 @@ msgstr "پاسخ ها"
 msgid "Question Meta Data"
 msgstr "اطلاعات این سوال"
 
-#: inc/Notifications.php:29
+#: inc/Notifications.php:56
 msgid "A new question was posted on {site_name}"
 msgstr "یک سوال جدید منتشر شده"
 
-#: inc/Notifications.php:132
-#, fuzzy
-msgid "You have a new answer for your followed question"
-msgstr "یک پاسخ در گفتگویی که دنبال می کنید داده شده"
+#: inc/Notifications.php:187
+msgid "[{site_name}] You have a new answer for your followed question"
+msgstr "[{site_name}] شما یک پاسخ جدید برای سوال بعدی خود دارید"
 
-#: inc/Notifications.php:250
-msgid "A new answer for \"{question_title}\" was posted on {site_name}"
-msgstr "یک پاسخ جدید برای \"{question_title}\" منتشر شده"
+#: inc/Notifications.php:239
+msgid ""
+"[{site_name}] A new answer for \"{question_title}\" was posted on {site_name}"
+msgstr ""
+"[{site_name}] یک پاسخ جدید برای \"{question_title}\" در {site_name} ارسال شد"
 
-#: inc/Notifications.php:334 inc/Notifications.php:380
+#: inc/Notifications.php:326 inc/Notifications.php:372
 msgid "[{site_name}] You have a new comment for question {question_title}"
 msgstr "یک دیدگاه در سوال {question_title} داده شده"
 
-#: inc/Notifications.php:339 inc/Notifications.php:385
+#: inc/Notifications.php:331 inc/Notifications.php:377
 msgid "[{site_name}] You have a new comment for answer"
 msgstr "یک دیدگاه در پاسخ شما داده شده"
 
+#: inc/Notifications.php:469
+msgid "New Comment in: "
+msgstr "یک دیدگاه در "
+
+#: inc/Notifications.php:477
+msgid "New Answer in: "
+msgstr "پاسخ جدید در: "
+
+#: inc/Notifications.php:483
+msgid "New Question: "
+msgstr "سؤال جدید: "
+
 #: inc/PointerHelper.php:60
 msgid "How to use DW Question Answer"
-msgstr ""
+msgstr "نحوه استفاده از پاسخ سوال DW"
 
 #: inc/PointerHelper.php:61
 msgid "Documents, Support From DesignWall (help)"
-msgstr ""
+msgstr "اسناد، پشتیبانی از DesignWall (کمک)"
 
 #: inc/PointerHelper.php:70
 msgid "Config your support channel"
-msgstr ""
+msgstr "تنظیم کانال پشتیبانی شما"
 
 #: inc/PointerHelper.php:71
 msgid "Change comment settings, and create the Submit question page."
-msgstr ""
+msgstr "تنظیمات نظر را تغییر دهید و صفحه Submit سوال را ایجاد کنید."
 
-#: inc/Posts/Answer.php:226 inc/Posts/Answer.php:270
+#: inc/Posts/Answer.php:208 inc/Posts/Answer.php:252
 msgid "Answer"
 msgstr "پاسخ"
 
-#: inc/Posts/Answer.php:273
+#: inc/Posts/Answer.php:255
 msgid "In Response To"
 msgstr "در پاسخ به"
 
-#: inc/Posts/Answer.php:317 inc/Posts/Base.php:320 inc/Settings.php:402
-#: inc/Template.php:58 inc/Template.php:163 inc/Template.php:180
+#: inc/Posts/Answer.php:299 inc/Posts/Base.php:359 inc/Settings.php:402
+#: inc/Template.php:56 inc/Template.php:166 inc/Template.php:183
 #: templates/content-comment.php:19
 msgid "Edit"
 msgstr "ویرایش"
 
-#: inc/Posts/Answer.php:318 inc/Settings.php:403 inc/Template.php:168
-#: inc/Template.php:185 templates/content-comment.php:22
+#: inc/Posts/Answer.php:300 inc/Settings.php:403 inc/Template.php:171
+#: inc/Template.php:188 templates/content-comment.php:22
 msgid "Delete"
 msgstr "حذف"
 
-#: inc/Posts/Answer.php:319 inc/Posts/Base.php:322
-msgid "View"
-msgstr "بازدید"
-
-#: inc/Posts/Answer.php:323
+#: inc/Posts/Answer.php:305
 msgid "Submitted"
 msgstr "منتشر شده"
 
-#: inc/Posts/Answer.php:324
+#: inc/Posts/Answer.php:306
 msgid "on"
-msgstr "در"
+msgstr "روشن"
 
-#: inc/Posts/Answer.php:359
+#: inc/Posts/Answer.php:341
 msgid "Question ID"
-msgstr ""
+msgstr "شناسه سوال"
 
-#: inc/Posts/Answer.php:370 inc/Posts/Answer.php:373
+#: inc/Posts/Answer.php:352 inc/Posts/Answer.php:355
 msgid "ID"
-msgstr ""
+msgstr "آیدی"
 
-#: inc/Posts/Base.php:5
+#: inc/Posts/Base.php:34
 msgid "Are you cheating, huh?"
 msgstr "تقلب می کنی؟"
 
-#: inc/Posts/Base.php:18
+#: inc/Posts/Base.php:47
 msgid "What "
-msgstr "چی"
+msgstr "چی "
 
-#: inc/Posts/Base.php:46
+#: inc/Posts/Base.php:93
 msgid "You voted for this "
-msgstr "شما قبلا امتیاز داده اید"
+msgstr "شما قبلا امتیاز داده اید "
 
-#: inc/Posts/Base.php:242
+#: inc/Posts/Base.php:98
+msgid "You aren't allowed voted for this "
+msgstr "شما مجاز به نظر دادن در این مورد نیستید "
+
+#: inc/Posts/Base.php:281
 #, php-format
 msgid "Posts by %s"
-msgstr "توسط %s"
+msgstr "نوشته شده توسط %s"
 
-#: inc/Posts/Base.php:251 inc/Posts/Base.php:255
+#: inc/Posts/Base.php:290 inc/Posts/Base.php:294
 #, php-format
 msgid "%s answered <span class=\"dwqa-date\">%s</span> ago"
-msgstr ""
+msgstr "%s پاسخ داده شده <span class=\"dwqa-date\">%s</span> قبل"
 
-#: inc/Posts/Base.php:257
+#: inc/Posts/Base.php:296
 #, php-format
 msgid "%s asked <span class=\"dwqa-date\">%s</span> ago"
-msgstr ""
+msgstr "%s <span class=\"dwqa-date\">%s</span> قبل"
 
-#: inc/Posts/Base.php:306
+#: inc/Posts/Base.php:345
 msgid "DWQA Posts"
-msgstr ""
+msgstr "پست ها"
 
-#: inc/Posts/Base.php:307
+#: inc/Posts/Base.php:346
 msgid "DWQA Post"
-msgstr ""
+msgstr "پست"
 
-#: inc/Posts/Base.php:318
+#: inc/Posts/Base.php:357
 msgctxt "dwqa"
 msgid "Add New"
-msgstr ""
+msgstr "افزودن"
 
-#: inc/Posts/Base.php:319
-#, fuzzy
+#: inc/Posts/Base.php:358
 msgid "Add New"
-msgstr "اضافه کردن"
+msgstr "افزودن"
 
-#: inc/Posts/Base.php:321 inc/Status.php:296
+#: inc/Posts/Base.php:360 inc/Status.php:294
 msgid "New"
 msgstr "جدید"
 
-#: inc/Posts/Base.php:323
+#: inc/Posts/Base.php:362
 msgid "Search "
-msgstr ""
+msgstr "جستجو "
 
-#: inc/Posts/Base.php:324
+#: inc/Posts/Base.php:363
 msgid "not found"
-msgstr ""
+msgstr "چیزی پیدا نشد"
 
-#: inc/Posts/Base.php:325
+#: inc/Posts/Base.php:364
 msgid "not found in Trash"
-msgstr ""
+msgstr "در سطل زباله یافت نشد"
 
-#: inc/Posts/Base.php:326
+#: inc/Posts/Base.php:365
 msgid "Parent:"
-msgstr ""
+msgstr "والد:"
 
-#: inc/Posts/Question.php:56 inc/Shortcode.php:138
+#: inc/Posts/Question.php:56 inc/Shortcode.php:140
 #: inc/widgets/Closed_Question.php:49 inc/widgets/Latest_Question.php:42
 #: inc/widgets/Popular_Question.php:43
 msgid "asked by"
@@ -513,9 +619,10 @@ msgstr "پرسیده شده توسط"
 
 #: inc/Posts/Question.php:100 inc/Posts/Question.php:102
 #: inc/Posts/Question.php:266 inc/Settings.php:395
+#: inc/extend/buddypress/loader.php:81 inc/extend/buddypress/loader.php:118
 #: templates/archive-question-filter.php:28
 msgid "Questions"
-msgstr ""
+msgstr "سوالات"
 
 #: inc/Posts/Question.php:101
 msgid "Question"
@@ -524,106 +631,106 @@ msgstr "سوال"
 #: inc/Posts/Question.php:196
 msgctxt "taxonomy general name"
 msgid "Question Categories"
-msgstr ""
+msgstr "دسته بندی های پرسش"
 
 #: inc/Posts/Question.php:197
 msgctxt "taxonomy singular name"
 msgid "Question Category"
-msgstr ""
+msgstr "دسته بندی سوال"
 
 #: inc/Posts/Question.php:198
 msgid "Search Question Categories"
-msgstr ""
+msgstr "پرسشنامه جستجو"
 
 #: inc/Posts/Question.php:199
 msgid "All Question Categories"
-msgstr ""
+msgstr "همه دسته ها پرسش"
 
 #: inc/Posts/Question.php:200
 msgid "Parent Question Category"
-msgstr ""
+msgstr "دسته بندی پرسش مادر"
 
 #: inc/Posts/Question.php:201
 msgid "Parent Question Category:"
-msgstr ""
+msgstr "دسته بندی پرسش مادر:"
 
 #: inc/Posts/Question.php:202
 msgid "Edit Question Category"
-msgstr ""
+msgstr "ویرایش دسته بندی سوال"
 
 #: inc/Posts/Question.php:203
 msgid "Update Question Category"
-msgstr ""
+msgstr "به روز رسانی رده پرسش"
 
 #: inc/Posts/Question.php:204
 msgid "Add New Question Category"
-msgstr ""
+msgstr "افزودن دسته جدید"
 
 #: inc/Posts/Question.php:205
 msgid "New Question Category Name"
-msgstr ""
+msgstr "نام دسته بندی جدید"
 
 #: inc/Posts/Question.php:206
 msgid "Question Category"
-msgstr "دسته بندی"
+msgstr "دسته بندی سوال"
 
 #: inc/Posts/Question.php:225
 msgctxt "taxonomy general name"
 msgid "Question Tags"
-msgstr ""
+msgstr "برچسب های سوال"
 
 #: inc/Posts/Question.php:226
 msgctxt "taxonomy singular name"
 msgid "Question Tag"
-msgstr ""
+msgstr "برچسب سوال"
 
 #: inc/Posts/Question.php:227
 msgid "Search Question Tags"
-msgstr ""
+msgstr "جستجوی برچسب های سوال"
 
 #: inc/Posts/Question.php:228
 msgid "Popular Question Tags"
-msgstr ""
+msgstr "برچسب های محبوب"
 
 #: inc/Posts/Question.php:229
 msgid "All Question Tags"
-msgstr ""
+msgstr "همه برچسب های سوال"
 
 #: inc/Posts/Question.php:232
 msgid "Edit Question Tag"
-msgstr ""
+msgstr "ویرایش برچسب سوال"
 
 #: inc/Posts/Question.php:233
 msgid "Update Question Tag"
-msgstr ""
+msgstr "بروزرسانی برچسب سوال"
 
 #: inc/Posts/Question.php:234
 msgid "Add New Question Tag"
-msgstr ""
+msgstr "افزودن برچسب جدید"
 
 #: inc/Posts/Question.php:235
 msgid "New Question Tag Name"
-msgstr ""
+msgstr "نام برچسب جدید"
 
 #: inc/Posts/Question.php:236
 msgid "Separate question tags with commas"
-msgstr ""
+msgstr "تگ های سوال جداگانه با کاما"
 
 #: inc/Posts/Question.php:237
 msgid "Add or remove question tags"
-msgstr ""
+msgstr "برچسبهای سوال را اضافه یا حذف کنید"
 
 #: inc/Posts/Question.php:238
 msgid "Choose from the most used question tags"
-msgstr ""
+msgstr "از تگ های مورد استفاده بیشتر استفاده کنید"
 
 #: inc/Posts/Question.php:239
 msgid "No question tags found."
-msgstr ""
+msgstr "هیچ تگهای سوال یافت نشد."
 
 #: inc/Posts/Question.php:240
 msgid "Question Tags"
-msgstr "انتخاب برچسب"
+msgstr "برچسب های سوال"
 
 #: inc/Posts/Question.php:276
 msgid "Info"
@@ -641,7 +748,7 @@ msgstr "امتیاز"
 msgid "views"
 msgstr "بازدید"
 
-#: inc/Posts/Question.php:410 inc/User.php:266
+#: inc/Posts/Question.php:410 inc/User.php:272
 msgid "Invalid Post"
 msgstr "پست مشکل دارد"
 
@@ -663,22 +770,23 @@ msgstr "شما نمی توانید این سوال را حذف کنید"
 
 #: inc/Session.php:68 inc/Session.php:85 inc/Session.php:95 inc/Session.php:118
 msgid "This function should not be called before init."
-msgstr ""
+msgstr "این تابع نباید قبل از init نامگذاری شود."
 
 #: inc/Settings.php:8
-#, fuzzy
 msgid "Login required. No anonymous post allowed"
 msgstr "باید حتما وارد سایت شوید"
 
 #: inc/Settings.php:20
 msgid "Select Archive Question Page"
-msgstr ""
+msgstr "بایگانی پرسش صفحه را انتخاب کنید"
 
 #: inc/Settings.php:24
 msgid ""
 "A page where displays all questions. The <code>[dwqa-list-questions]</code> "
 "short code must be on this page."
 msgstr ""
+"صفحه ای که همه سوالات را نمایش میدهد. کد کوتاه <code>[dwqa-list-questions]</"
+"code> باید در این برگه وجود داشته باشد."
 
 #: inc/Settings.php:31
 msgid "hours"
@@ -687,7 +795,7 @@ msgstr "ساعت"
 #: inc/Settings.php:31
 msgid ""
 "A period of time in which new questions are highlighted and marked as New"
-msgstr ""
+msgstr "یک دوره زمانی که سوالات جدید برجسته شده و به عنوان جدید مشخص شده اند"
 
 #: inc/Settings.php:36
 msgid "days"
@@ -698,20 +806,24 @@ msgid ""
 "A Question will be marked as overdue if it passes this period of time, "
 "starting from the time the question was submitted"
 msgstr ""
+"اگر زمان گذر از این دوره زمان، از زمان ارسال سوال، سوال برطرف شود، به عنوان "
+"پیش نویس مشخص شده است"
 
 #: inc/Settings.php:47
 msgid "Select Submit Question Page"
-msgstr ""
+msgstr "را انتخاب کنید ارسال صفحه سوال"
 
 #: inc/Settings.php:52
 msgid ""
 "A page where users can submit questions. The <code>[dwqa-submit-question-"
 "form]</code> short code must be on this page."
 msgstr ""
+"صفحه ای که کاربران می توانند سوالات را ارائه دهند. کد کوتاه <code>[dwqa-"
+"submit-question-form]</code> باید در این صفحه وجود داشته باشد."
 
 #: inc/Settings.php:65
 msgid "Select 404 DWQA Page"
-msgstr ""
+msgstr "404 صفحه DWQA را انتخاب کنید"
 
 #: inc/Settings.php:70
 msgid ""
@@ -719,6 +831,9 @@ msgid ""
 "question. You can customize the message of this page in.If not, a default "
 "404 page will be used."
 msgstr ""
+"این صفحه هنگامی که کاربران بدون مجوز بر روی یک سوال خصوصی کلیک می کنند، "
+"هدایت می شوند. شما می توانید پیام این صفحه را سفارشی کنید. اگر نه، پیش فرض "
+"صفحه 404 مورد استفاده قرار خواهد گرفت."
 
 #: inc/Settings.php:87
 msgid "Upload"
@@ -726,17 +841,17 @@ msgstr "آپلود"
 
 #: inc/Settings.php:87
 msgid "Upload or choose a logo to be displayed at the top of the email."
-msgstr ""
+msgstr "آپلود یا انتخاب آرم برای نمایش در بالای ایمیل."
 
 #: inc/Settings.php:126 inc/Settings.php:161 inc/Settings.php:197
 #: inc/Settings.php:233 inc/Settings.php:268 inc/Settings.php:303
 #: inc/Settings.php:338
 msgid "Enable?"
-msgstr ""
+msgstr "فعال؟"
 
 #: inc/Settings.php:126
 msgid "Enable notification for new question."
-msgstr ""
+msgstr "اعلان را برای سوال جدید فعال کنید."
 
 #: inc/Settings.php:131 inc/Settings.php:166 inc/Settings.php:202
 #: inc/Settings.php:238 inc/Settings.php:273 inc/Settings.php:308
@@ -748,23 +863,23 @@ msgstr "عنوان ایمیل"
 #: inc/Settings.php:243 inc/Settings.php:278 inc/Settings.php:313
 #: inc/Settings.php:348
 msgid "Email Content"
-msgstr ""
+msgstr "محتوای ایمیل"
 
 #: inc/Settings.php:161
 msgid "Enable notification for new answer."
-msgstr ""
+msgstr "فعال کردن اطلاعیه برای پاسخ جدید."
 
 #: inc/Settings.php:197
 msgid "Enable notification for new answer ( to Followers )."
-msgstr ""
+msgstr "فعال کردن اطلاعیه برای پاسخ جدید (برای دنبال کننده ها)."
 
 #: inc/Settings.php:233 inc/Settings.php:268
 msgid "Enable notification for new comment of question."
-msgstr ""
+msgstr "فعال کردن اطلاعیه برای دیدگاه جدید سوال."
 
 #: inc/Settings.php:303 inc/Settings.php:338
 msgid "Enable notification for new comment of answer."
-msgstr ""
+msgstr "اعلان برای نظر جدیدی از پاسخ فعال کنید."
 
 #: inc/Settings.php:400
 msgid "Read"
@@ -772,7 +887,7 @@ msgstr "خوانده شد"
 
 #: inc/Settings.php:401
 msgid "Post"
-msgstr ""
+msgstr "پست"
 
 #: inc/Settings.php:429 inc/Settings.php:465 inc/Settings.php:500
 msgid "Reset Default"
@@ -780,59 +895,89 @@ msgstr "بازگشت به حالت پیش فرض"
 
 #: inc/Settings.php:467
 msgid "Comments"
-msgstr ""
+msgstr "نظرات"
 
 #: inc/Settings.php:509
 msgid "Enable captcha on submit question page."
-msgstr ""
+msgstr "فعال کردن captcha در ارسال صفحه سوال."
 
 #: inc/Settings.php:515
 msgid "Enable captcha on single question page."
-msgstr ""
+msgstr "فعال کردن captcha در صفحه سوال تک."
 
 #: inc/Settings.php:533
 msgid "Default"
-msgstr ""
+msgstr "پیشفرض"
 
 #: inc/Settings.php:546
 msgid "questions."
-msgstr ""
+msgstr "سوالات."
 
 #: inc/Settings.php:552
 msgid "answers."
-msgstr ""
+msgstr "پاسخ ها."
 
 #: inc/Settings.php:558
-msgid "Allow members to post private question."
-msgstr ""
+msgid "Allow anonymous vote."
+msgstr "اجازه رای گیری ناشناس."
 
 #: inc/Settings.php:564
-msgid "Question must be manually approved."
-msgstr ""
+msgid "Enable Akismet"
+msgstr "فعال کردن Akismet"
 
-#: inc/Settings.php:570
-msgid "Display status icon on the left side."
-msgstr ""
+#: inc/Settings.php:571
+msgid "Get in"
+msgstr "دریافت کنید"
 
-#: inc/Settings.php:576
-msgid "Disable question status feature."
-msgstr ""
+#: inc/Settings.php:577
+msgid "Not Connected"
+msgstr "متصل نیست"
 
-#: inc/Settings.php:582
-msgid "Show all answers on single question page."
-msgstr ""
+#: inc/Settings.php:583
+msgid "Connected"
+msgstr "متصل"
 
-#: inc/Settings.php:593
-msgid "Select template for Single Quesiton page"
-msgstr ""
+#: inc/Settings.php:594
+msgid "Enable Auto Closure"
+msgstr "فعال کردن بستن خودکار"
 
 #: inc/Settings.php:599
+msgid "Days.(greater 0)"
+msgstr "روز (بیشتر 0)"
+
+#: inc/Settings.php:607
+msgid "Allow members to post private question."
+msgstr "اجازه اعضای به ارسال سوال خصوصی."
+
+#: inc/Settings.php:613
+msgid "Question must be manually approved."
+msgstr "سوال باید به صورت دستی تایید شود."
+
+#: inc/Settings.php:619
+msgid "Display status icon on the left side."
+msgstr "نمایش نماد وضعیت در سمت چپ."
+
+#: inc/Settings.php:625
+msgid "Disable question status feature."
+msgstr "غیرفعال کردن قابلیت وضعیت پرسش."
+
+#: inc/Settings.php:631
+msgid "Show all answers on single question page."
+msgstr "نمایش تمام پاسخ ها در صفحه سوال."
+
+#: inc/Settings.php:642
+msgid "Select template for Single Quesiton page"
+msgstr "قالب را برای صفحه Single Quesiton انتخاب کنید"
+
+#: inc/Settings.php:648
 msgid ""
 "By default, your single.php template file will be used if you do not choose "
 "any template"
 msgstr ""
+"به طور پیش فرض، اگر قالب قالب را انتخاب نکنید، فایل قالب تک.php شما استفاده "
+"خواهد شد"
 
-#: inc/Settings.php:607
+#: inc/Settings.php:656
 #, php-format
 msgid ""
 "If you like, you may enter custom structure for your single question, "
@@ -840,326 +985,367 @@ msgid ""
 "<code>topic</code> as your question base would make your question links like "
 "<code>%s</code>. If you leave these blank the default will be used."
 msgstr ""
+"اگر دوست دارید، شما می توانید وارد کنید ساختار سفارشی برای سوال خود، رده "
+"سوال و URL تگ های سوال در اینجا. به عنوان مثال، با استفاده از کد<code>topic</"
+"code> به عنوان پایه سوال شما، پیوندهای سؤالیتان مانند <code>%s</code> را "
+"مطرح می کند. اگر شما این را خالی بگذارید پیش فرض استفاده می شود."
 
-#: inc/Settings.php:732
+#: inc/Settings.php:781
 msgid "Plugin Settings"
 msgstr "تنظیمات افزونه"
 
-#: inc/Settings.php:732
+#: inc/Settings.php:781
 msgid "Settings"
 msgstr "تنظیمات"
 
-#: inc/Settings.php:768
+#: inc/Settings.php:817
 msgid "Email Settings"
-msgstr ""
+msgstr "تنظیمات ایمیل"
 
-#: inc/Settings.php:769
+#: inc/Settings.php:818
 msgid "New Question Notifications"
-msgstr ""
+msgstr "اطلاعیه های جدید"
 
-#: inc/Settings.php:770
+#: inc/Settings.php:819
 msgid "New Answer Notifications"
-msgstr ""
+msgstr "اطلاعیه های جدید پاسخ"
 
-#: inc/Settings.php:771
+#: inc/Settings.php:820
 msgid "New Comment Notifications"
-msgstr ""
+msgstr "اعلان های جدید نظر"
 
-#: inc/Settings.php:784
+#: inc/Settings.php:833
 msgid "Page Settings"
-msgstr ""
+msgstr "تنظیمات صفحه"
 
-#: inc/Settings.php:791
+#: inc/Settings.php:840
 msgid "Question List Page"
-msgstr ""
+msgstr "صفحه لیست سوالات"
 
-#: inc/Settings.php:799 inc/Settings.php:930
+#: inc/Settings.php:848 inc/Settings.php:1048
 msgid "Ask Question Page"
-msgstr ""
+msgstr "از صفحه سوال بپرس"
 
-#: inc/Settings.php:842
+#: inc/Settings.php:891
 msgid "Question Settings"
-msgstr ""
+msgstr "تنظیمات سوال"
 
-#: inc/Settings.php:849
+#: inc/Settings.php:898
 msgid "Archive Page Show At Most"
-msgstr ""
+msgstr "نمایش بایگانی در بیشترین"
 
-#: inc/Settings.php:857
+#: inc/Settings.php:906
 msgid "Before A Question Appears"
-msgstr ""
+msgstr "قبل از اینکه یک سوال مطرح شود"
 
-#: inc/Settings.php:865
+#: inc/Settings.php:914
 msgid "Other Question Settings"
-msgstr ""
+msgstr "تنظیمات دیگر سوال"
 
-#: inc/Settings.php:890
+#: inc/Settings.php:939
 msgid "Answer Settings"
-msgstr ""
+msgstr "تنظیمات پاسخ"
 
-#: inc/Settings.php:897
+#: inc/Settings.php:946
 msgid "Answer Listing"
-msgstr ""
+msgstr "لیست پاسخ"
 
-#: inc/Settings.php:915
+#: inc/Settings.php:963
+msgid "Vote Settings"
+msgstr "تنظیمات نظرسنجی"
+
+#: inc/Settings.php:970
+msgid "Allow Anonymous Vote"
+msgstr "اجازه دادان رای به افراد ناشناس"
+
+#: inc/Settings.php:979
+msgid "Akismet Settings"
+msgstr "تنظیمات Akismet"
+
+#: inc/Settings.php:986
+msgid "Use Akismet anti-spam"
+msgstr "از ضد اسپم Akismet استفاده کنید"
+
+#: inc/Settings.php:993
+msgid "Akismet API key"
+msgstr "کلید API Akismet"
+
+#: inc/Settings.php:1000
+msgid "Akismet connection status"
+msgstr "وضعیت اتصال Akismet"
+
+#: inc/Settings.php:1009
+msgid "Auto Closure Settings"
+msgstr "تنظیمات بسته شدن خودکار"
+
+#: inc/Settings.php:1016
+msgid "Use Auto Closure"
+msgstr "استفاده از بسته شدن خودکار"
+
+#: inc/Settings.php:1023
+msgid "Closure after"
+msgstr "بستن بعد"
+
+#: inc/Settings.php:1033
 msgid "Captcha Settings"
-msgstr ""
+msgstr "تنظیمات کپچا"
 
-#: inc/Settings.php:922
-msgid "Type"
-msgstr ""
-
-#: inc/Settings.php:938
+#: inc/Settings.php:1056
 msgid "Single Question Page"
-msgstr ""
+msgstr "صفحه پرسش تنها"
 
-#: inc/Settings.php:950
+#: inc/Settings.php:1068
 msgid "Permalink Settings"
-msgstr ""
+msgstr "تنظیمات پیوند"
 
-#: inc/Settings.php:957
+#: inc/Settings.php:1075
 msgid "Question Base"
-msgstr ""
+msgstr "پایه سوال"
 
-#: inc/Settings.php:965
+#: inc/Settings.php:1083
 msgid "Question Category Base"
-msgstr ""
+msgstr "پرسش طبقه پایه"
 
-#: inc/Settings.php:973
+#: inc/Settings.php:1091
 msgid "Question Tag Base"
-msgstr ""
+msgstr "پایه سوال سؤال"
 
-#: inc/Settings.php:1042
+#: inc/Settings.php:1160
 msgid "From Email"
-msgstr ""
+msgstr "از ایمیل"
 
-#: inc/Settings.php:1110 inc/Settings.php:1117
+#: inc/Settings.php:1238 inc/Settings.php:1245
 msgid "Group Permission"
-msgstr ""
+msgstr "مجوز گروه"
 
-#: inc/Settings.php:1145
+#: inc/Settings.php:1283
 msgid "DWQA Settings"
-msgstr ""
+msgstr "تنظیمات"
 
-#: inc/Settings.php:1149
+#: inc/Settings.php:1287
 msgid "General"
-msgstr ""
+msgstr "اصلی"
 
-#: inc/Settings.php:1150
+#: inc/Settings.php:1288
 msgid "Emails"
-msgstr ""
+msgstr "ایمیل"
 
-#: inc/Settings.php:1151
+#: inc/Settings.php:1289
 msgid "Permissions"
-msgstr ""
+msgstr "مجوزها"
 
-#: inc/Settings.php:1152
+#: inc/Settings.php:1290
 msgid "Licenses"
-msgstr ""
+msgstr "لایسنس ها"
 
-#: inc/Settings.php:1166
+#: inc/Settings.php:1304
 msgid "Email settings"
-msgstr ""
+msgstr "تنظیمات ایمیل"
 
-#: inc/Settings.php:1168
+#: inc/Settings.php:1306
 msgid "Email Logo"
-msgstr ""
+msgstr "لوگو ایمیل"
 
-#: inc/Settings.php:1182
+#: inc/Settings.php:1320
 msgid "New Question Notifications (to Admin)"
-msgstr ""
+msgstr "اطلاعیه های جدید (به مدیر)"
 
-#: inc/Settings.php:1206
+#: inc/Settings.php:1344
 msgid "New Answer Notifications (to Followers)"
-msgstr ""
+msgstr "اعلان پاسخ جدید (به دنبال کنندگان)"
 
-#: inc/Settings.php:1222
-msgid "New Answer Notifications (to Admin)"
-msgstr ""
+#: inc/Settings.php:1360
+msgid "New Answer Notifications (to Author)"
+msgstr "اعلان جدید پاسخ (به نویسنده)"
 
-#: inc/Settings.php:1242
+#: inc/Settings.php:1380
 msgid "New Comment to Question Notifications (to Followers)"
-msgstr ""
+msgstr "نظر جدید به اطلاعیه های سوال (به دنبال کنندگان)"
 
-#: inc/Settings.php:1259
+#: inc/Settings.php:1397
 msgid "New Comment to Question Notifications (to Admin)"
-msgstr ""
+msgstr "نظر جدید به اطلاعیه های سوال (به مدیر)"
 
-#: inc/Settings.php:1279
+#: inc/Settings.php:1417
 msgid "New Comment to Answer Notifications (to Followers)"
-msgstr ""
+msgstr "نظر جدید برای اطلاعیه های پاسخ (به دنبال کنندگان)"
 
-#: inc/Settings.php:1296
+#: inc/Settings.php:1434
 msgid "New Comment to Answer Notifications (to Admin)"
-msgstr ""
+msgstr "نظر جدید برای پاسخ دادن به اعلان ها (به مدیر)"
 
-#: inc/Settings.php:1314
+#: inc/Settings.php:1452
 msgid "Save all changes"
-msgstr ""
+msgstr "ذخیره تمام تغییرات"
 
-#: inc/Settings.php:1328
+#: inc/Settings.php:1466
 #, php-format
 msgid "Manage <a href=\"%s\">DWQA Extensions</a> license keys"
-msgstr ""
+msgstr "مدیریت لایسنس های <a href=\"%s\">DWQA Extensions</a>"
 
-#: inc/Settings.php:1346 inc/Settings.php:1351 inc/Settings.php:1356
-#: inc/Settings.php:1361
+#: inc/Settings.php:1494 inc/Settings.php:1499 inc/Settings.php:1504
+#: inc/Settings.php:1509
 msgid "Forward to"
-msgstr ""
+msgstr "فوروارد به"
 
-#: inc/Settings.php:1366
+#: inc/Settings.php:1514
 msgid "Cc"
 msgstr "Cc"
 
-#: inc/Settings.php:1371
+#: inc/Settings.php:1519
 msgid "Bcc"
 msgstr "Bcc"
 
-#: inc/Settings.php:1376
+#: inc/Settings.php:1524
 msgid "This address will be used as the sender of the outgoing emails."
-msgstr ""
+msgstr "این آدرس به عنوان فرستنده ایمیل های خروجی مورد استفاده قرار می گیرد."
 
-#: inc/Settings.php:1382
+#: inc/Settings.php:1530
 msgid "Send a copy of every email to admin."
-msgstr ""
+msgstr "یک کپی از هر ایمیل به مدیر ارسال شود."
 
-#: inc/Shortcode.php:115 inc/widgets/Popular_Question.php:21
+#: inc/Settings.php:1537
+msgid "Email Delay*"
+msgstr "تأخیر ایمیل *"
+
+#: inc/Shortcode.php:117 inc/widgets/Popular_Question.php:21
 msgid "Popular Questions"
 msgstr "پرسش های پرطرفدار"
 
-#: inc/Shortcode.php:152
+#: inc/Shortcode.php:154
 msgid "Latest Answers"
 msgstr "آخرین پاسخ ها"
 
-#: inc/Shortcode.php:178
+#: inc/Shortcode.php:180
 msgid "Answer at"
-msgstr ""
+msgstr "پاسخ در"
 
-#: inc/Shortcode.php:178
+#: inc/Shortcode.php:180
 msgid "Link to"
 msgstr "لینک"
 
-#: inc/Shortcode.php:206
+#: inc/Shortcode.php:208
 #, php-format
 msgid "%d person who is following this question"
 msgid_plural "%d people who are following this question"
-msgstr[0] ""
+msgstr[0] "%d کسی که این سوال را دنبال می کند"
+msgstr[1] "%d کسانی که این سوال را دنبال می کنند"
 
-#: inc/Shortcode.php:236
+#: inc/Shortcode.php:238
 msgid "Question List"
-msgstr ""
+msgstr "لیست سوال"
 
-#: inc/Status.php:300
+#: inc/Status.php:298
 msgid "Answered"
 msgstr "پاسخ داده شده"
 
-#: inc/Status.php:324
+#: inc/Status.php:322
 msgid "Missing post ID"
 msgstr "ID پرسش وجود ندارد"
 
-#: inc/Status.php:337
+#: inc/Status.php:335
 msgid "Post does not exist"
 msgstr "این گفتگو وجود ندارد"
 
-#: inc/Status.php:342
+#: inc/Status.php:340
 msgid "Invalid post status"
 msgstr "وضعیت غیرقابل قبول"
 
-#: inc/Template.php:15 templates/content-edit.php:44
+#: inc/Template.php:19 templates/content-edit.php:44
 #: templates/question-submit-form.php:46
 msgid "Tag"
-msgstr ""
+msgstr "برچسب"
 
-#: inc/Template.php:15 inc/Template.php:20 templates/content-edit.php:29
+#: inc/Template.php:19 inc/Template.php:24 templates/content-edit.php:29
 #: templates/question-submit-form.php:32
 msgid "Category"
 msgstr "دسته بندی"
 
 #: inc/Template.php:43
 msgid "Showing search results for"
-msgstr ""
+msgstr "نمایش نتایج جستجو برای"
 
-#: inc/Template.php:78
+#: inc/Template.php:77
 msgid "What do you want to know?"
-msgstr ""
+msgstr "چه می خواهید بدانید؟"
 
-#: inc/Template.php:157
+#: inc/Template.php:160
 msgid "Subscribe"
-msgstr ""
+msgstr "اشتراک"
 
-#: inc/Template.php:445
+#: inc/Template.php:448
 msgid "Email"
 msgstr "ایمیل"
 
-#: inc/Template.php:447
+#: inc/Template.php:450
 msgid "Name"
 msgstr "نام"
 
-#: inc/Template.php:449
+#: inc/Template.php:452
 #, php-format
 msgid "Required fields are marked %s"
-msgstr "کادرهای خواسته شده با %s مشخص شده اند"
-
-#: inc/Template.php:461
-#, php-format
-msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
-msgstr ""
+msgstr "فیلدهای اجباری مشخص شده اند %s"
 
 #: inc/Template.php:464
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr "برای ارسال نظر باید <a href=\"%s\"> وارد سیستم شوید </a>."
+
+#: inc/Template.php:467
 #, php-format
 msgid ""
 "You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
 "and attributes: %s"
 msgstr ""
+"You may use these <abbr title=\"HyperText Markup Language\">HTML</abbr> tags "
+"and attributes: %s"
 
-#: inc/Template.php:467
+#: inc/Template.php:470
 msgid "Leave a Reply"
 msgstr "دیدگاه بدهید"
 
-#: inc/Template.php:468
+#: inc/Template.php:471
 #, php-format
 msgid "Leave a Reply to %s"
 msgstr "یک دیدگاه به %s بنویسید"
 
-#: inc/Template.php:469
+#: inc/Template.php:472
 msgid "Cancel reply"
 msgstr "بیخیال"
 
-#: inc/Template.php:470
+#: inc/Template.php:473
 msgid "Post Comment"
 msgstr "ارسال دیدگاه"
 
-#: inc/Template.php:645
+#: inc/Template.php:648
 msgid "Sticky Question"
 msgstr "سوال سنجاق شده"
 
-#: inc/Template.php:659
+#: inc/Template.php:662
 msgid "Ask a question"
 msgstr "ارسال سوال"
 
-#: inc/Template.php:661
-#, fuzzy
+#: inc/Template.php:664
 msgid "Login to ask a question"
-msgstr "وارد شوید تا سوالتان را منتشر کنید"
+msgstr "وارد شوید تا سوال بپرسید"
 
-#: inc/Template.php:1128
-#, fuzzy
+#: inc/Template.php:1136
 msgid "Choose as the best answer"
 msgstr "به عنوان بهترین سوال انتخاب شود"
 
 #: inc/Updater.php:97
 msgid "License Key"
-msgstr ""
+msgstr "کلید مجوز"
 
 #: inc/Updater.php:122
 msgid "Activate"
-msgstr ""
+msgstr "فعال کردن"
 
 #: inc/Updater.php:176
 msgid "Plugin was activated"
-msgstr ""
+msgstr "افزونه فعال شد"
 
-#: inc/User.php:230
+#: inc/User.php:236
 msgid "Staff"
 msgstr "عضو سایت"
 
@@ -1171,21 +1357,57 @@ msgstr "نمایش تمام پرسش های %s"
 #: inc/Walker/Category.php:35 inc/Walker/Tag.php:35
 #, php-format
 msgid "Feed for all posts filed under %s"
-msgstr ""
+msgstr "Feed for all posts filed under %s"
+
+#: inc/extend/buddypress/loader.php:12 inc/extend/buddypress/loader.php:61
+#: inc/extend/buddypress/loader.php:112
+msgid "DWQA"
+msgstr "DWQA"
+
+#: inc/extend/buddypress/loader.php:44
+msgid "Search DWQA..."
+msgstr "جستجو ..."
+
+#: inc/extend/buddypress/notifications.php:31
+msgid "Question Replies"
+msgstr "پاسخ های سوال"
+
+#: inc/extend/buddypress/notifications.php:34
+#: inc/extend/buddypress/notifications.php:38
+#: inc/extend/buddypress/notifications.php:41
+msgid "DWQA: "
+msgstr "پرسش و پاسخ: "
+
+#: inc/extend/buddypress/notifications.php:34
+#, php-format
+msgid "You have %d new replies"
+msgstr "شما %d پاسخ جدید دارید"
+
+#: inc/extend/buddypress/notifications.php:38
+#, php-format
+msgid "You have %d new reply to %2$s from %3$s"
+msgstr "شما %d پاسخ جدید دارید %2$s از %3$s"
+
+#: inc/extend/buddypress/notifications.php:41
+#, php-format
+msgid "You have %d new reply to %s"
+msgstr "شما %d پاسخ جدید دارید در %s"
+
+#: inc/extend/buddypress/notifications.php:105
+msgid "You do not have permission to mark notifications for that user."
+msgstr "شما مجاز به علامت گذاری اعلان ها برای آن کاربر نیستید."
 
 #: inc/widgets/Closed_Question.php:11
 msgid "Show a list of questions marked as closed."
-msgstr ""
+msgstr "لیستی از سوالات به عنوان بسته را نمایش دهید."
 
 #: inc/widgets/Closed_Question.php:12
-#, fuzzy
 msgid "DWQA Closed Questions"
-msgstr "صفحه ی اصلی سوالات"
+msgstr "سوالات بسته شده"
 
 #: inc/widgets/Closed_Question.php:18
-#, fuzzy
 msgid "Closed Questions"
-msgstr "همه ی سوالات"
+msgstr "سوالات بسته شده"
 
 #: inc/widgets/Closed_Question.php:72 inc/widgets/Latest_Question.php:71
 #: inc/widgets/Popular_Question.php:66 inc/widgets/Related_Question.php:48
@@ -1195,47 +1417,48 @@ msgstr "عنوان ابزارک"
 #: inc/widgets/Closed_Question.php:75 inc/widgets/Latest_Question.php:74
 #: inc/widgets/Popular_Question.php:69 inc/widgets/Related_Question.php:51
 msgid "Number of posts"
-msgstr ""
+msgstr "تعداد پست ها"
 
 #: inc/widgets/Latest_Question.php:10
 msgid "Show a list of latest questions."
-msgstr ""
+msgstr "لیستی از آخرین سوالات را نمایش دهید."
 
 #: inc/widgets/Latest_Question.php:11
-#, fuzzy
 msgid "DWQA Latest Questions"
-msgstr "صفحه ی اصلی سوالات"
+msgstr "آخرین سوالات"
 
 #: inc/widgets/Latest_Question.php:17
-#, fuzzy
 msgid "Latest Questions"
-msgstr "سوال جدید"
+msgstr "آخرین سوالات"
 
 #: inc/widgets/Latest_Question.php:44
-msgid "ago"
-msgstr "قبل"
+#, php-format
+msgid "%s ago"
+msgstr "%s قبل"
 
 #: inc/widgets/Latest_Question.php:79
 msgid "Show question date"
-msgstr ""
+msgstr "نمایش تاریخ سوال"
 
 #: inc/widgets/Popular_Question.php:13
 msgid "Show a list of popular questions."
-msgstr ""
+msgstr "لیستی از سوالات محبوب را نمایش دهید."
 
 #: inc/widgets/Popular_Question.php:15
 msgid "DWQA Popular Questions"
-msgstr ""
+msgstr "سوالات محبوب"
 
 #: inc/widgets/Related_Question.php:11
 msgid ""
 "Show a list of questions that related to a question. Just show in single "
 "question page"
 msgstr ""
+"لیستی از سوالات مربوط به یک سوال را نمایش دهید. فقط در صفحه سوال تک نشان "
+"داده می شود"
 
 #: inc/widgets/Related_Question.php:12
 msgid "DWQA Related Questions"
-msgstr ""
+msgstr "پرسش های مرتبط"
 
 #: lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:181
 #, php-format
@@ -1243,6 +1466,8 @@ msgid ""
 "There is a new version of %1$s available. <a target=\"_blank\" class="
 "\"thickbox\" href=\"%2$s\">View version %3$s details</a>."
 msgstr ""
+"نسخه جدید %1$s آماده است.a target=\"_blank\" class=\"thickbox\" href=\"%2$s"
+"\">مشاهده نسخه جدید%3$s details</a>."
 
 #: lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:188
 #, php-format
@@ -1251,30 +1476,32 @@ msgid ""
 "\"thickbox\" href=\"%2$s\">View version %3$s details</a> or <a href=\"%4$s"
 "\">update now</a>."
 msgstr ""
+"نسخه جدید %1$s در دسترس است. <a target=\"_blank\" class=\"thickbox\" href="
+"\"%2$s\">مشاهده جزئیات نسخه %3$s </a> یا <a href=\"%4$s\">بروزرسانی کنید</a>."
 
 #: lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:326
 msgid "You do not have permission to install plugin updates"
-msgstr ""
+msgstr "شما اجازه دسترسی به نصب به روز رسانی پلاگین ندارد"
 
 #: lib/easy-digital-downloads/EDD_SL_Plugin_Updater.php:326
 msgid "Error"
-msgstr ""
+msgstr "خطا"
 
 #: templates/answer-submit-form.php:12
 msgid "Your Answer"
-msgstr ""
+msgstr "پاسخ شما"
 
 #: templates/answer-submit-form.php:21 templates/question-submit-form.php:52
 msgid "Your Email"
-msgstr ""
+msgstr "ایمیل شما"
 
 #: templates/answer-submit-form.php:26 templates/question-submit-form.php:57
 msgid "Your Name"
-msgstr ""
+msgstr "نام شما"
 
 #: templates/answer-submit-form.php:33 templates/question-submit-form.php:24
 msgid "Who can see this?"
-msgstr ""
+msgstr "چه کسی می تواند این را ببیند؟"
 
 #: templates/answer-submit-form.php:34 templates/question-submit-form.php:25
 msgid "Public"
@@ -1282,20 +1509,20 @@ msgstr "عمومی"
 
 #: templates/answer-submit-form.php:35 templates/question-submit-form.php:26
 msgid "Only Me &amp; Admin"
-msgstr ""
+msgstr "فقط من و مدیر"
 
 #: templates/answer-submit-form.php:39 templates/question-submit-form.php:65
 msgid "Submit"
-msgstr ""
+msgstr "ارسال"
 
 #: templates/answers.php:12
 #, php-format
 msgid "%s Answers"
-msgstr ""
+msgstr "%s پاسخ"
 
 #: templates/archive-question-filter.php:14
 msgid "Filter:"
-msgstr ""
+msgstr "فیلتر:"
 
 #: templates/archive-question-filter.php:16
 msgid "All"
@@ -1303,57 +1530,53 @@ msgstr "همه"
 
 #: templates/archive-question-filter.php:22
 msgid "Unanswered"
-msgstr ""
+msgstr "بدون پاسخ"
 
 #: templates/archive-question-filter.php:24
 msgid "My questions"
-msgstr ""
+msgstr "سوالات من"
 
 #: templates/archive-question-filter.php:25
 msgid "My subscribes"
-msgstr ""
+msgstr "مشترکین من"
 
 #: templates/archive-question-filter.php:29
 msgid "Subscribes"
-msgstr ""
+msgstr "مشترکان"
 
 #: templates/archive-question-filter.php:32
 msgid "Sort by"
-msgstr ""
+msgstr "مرتب سازی بر اساس"
 
 #: templates/archive-question-filter.php:33
 msgid "Views"
-msgstr ""
+msgstr "بازدید"
 
 #: templates/archive-question-filter.php:35
 msgid "Votes"
-msgstr ""
+msgstr "رای"
 
-#: templates/archive-question.php:28
+#: templates/archive-question.php:28 templates/bp-archive-question.php:32
 msgid "Ask Question"
 msgstr "یک سوال بپرسید"
 
 #: templates/captcha-form.php:20
 msgid "Enter the result"
-msgstr ""
+msgstr "نتیجه را وارد کنید"
 
 #: templates/content-comment.php:16
 #, php-format
 msgctxt "%s = human-readable time difference"
 msgid "replied %s ago"
-msgstr ""
-
-#: templates/content-edit.php:21 templates/question-submit-form.php:13
-msgid "Title"
-msgstr ""
+msgstr "پاسخ داده شده %s قبل"
 
 #: templates/content-edit.php:36 templates/question-submit-form.php:38
 msgid "Select question category"
 msgstr "یک دسته بندی انتخاب کنید"
 
-#: templates/content-edit.php:50
+#: templates/content-edit.php:52
 msgid "Save Changes"
-msgstr ""
+msgstr "ذخیره تغییرها"
 
 #: templates/content-none.php:10
 msgid "You do not have permission to view questions"
@@ -1361,7 +1584,7 @@ msgstr "شما نمی توانید سوال ها را ببینید"
 
 #: templates/content-none.php:12
 msgid "Sorry, but nothing matched your filter"
-msgstr ""
+msgstr "متاسفانه موردی یافت نشد"
 
 #: templates/content-question.php:18
 msgid "asked"
@@ -1370,26 +1593,26 @@ msgstr "پرسیده شد"
 #: templates/content-question.php:25
 #, php-format
 msgid "<span><a href=\"%s\">%s%s</a> %s %s ago</span>"
-msgstr ""
+msgstr "<span><a href=\"%s\">%s%s</a> %s %s پیش</span>"
 
 #: templates/content-question.php:26 templates/content-single-answer.php:25
 msgid "&nbsp;&bull;&nbsp;"
-msgstr ""
+msgstr "&nbsp;&bull;&nbsp;"
 
 #: templates/content-question.php:31
 #, php-format
 msgid "<strong>%1$s</strong> views"
-msgstr ""
+msgstr "<strong>%1$s</strong> بازدید"
 
 #: templates/content-question.php:35
 #, php-format
 msgid "<strong>%1$s</strong> answers"
-msgstr ""
+msgstr "<strong>%1$s</strong> پاسخ"
 
 #: templates/content-question.php:39
 #, php-format
 msgid "<strong>%1$s</strong> votes"
-msgstr ""
+msgstr "<strong>%1$s</strong> رای"
 
 #: templates/content-single-answer.php:12
 #: templates/content-single-question.php:14
@@ -1404,12 +1627,12 @@ msgstr "امتیاز منفی"
 #: templates/content-single-answer.php:17
 #: templates/content-single-answer.php:19
 msgid "Best Answer"
-msgstr ""
+msgstr "بهترین پاسخ"
 
 #: templates/content-single-answer.php:23
 #, php-format
 msgid "<span><a href=\"%s\">%s%s</a> %s answered %s ago</span>"
-msgstr ""
+msgstr "<span><a href=\"%s\">%s%s</a> %s %s قبل</span>"
 
 #: templates/content-single-answer.php:26
 msgid "Private"
@@ -1418,18 +1641,17 @@ msgstr "خصوصی"
 #: templates/content-single-question.php:19
 #, php-format
 msgid "<span><a href=\"%s\">%s%s</a> %s asked %s ago</span>"
-msgstr ""
+msgstr "<span><a href=\"%s\">%s%s</a> %s %s قبل</span>"
 
-#: templates/content-single-question.php:25
+#: templates/content-single-question.php:26
 msgid "Question Tags: "
-msgstr ""
+msgstr "برچسب های سوال: "
 
-#: templates/content-single-question.php:29
+#: templates/content-single-question.php:30
 msgid "This question is:"
-msgstr ""
+msgstr "وضعیت سوال:"
 
 #: templates/question-submit-form.php:69
-#, fuzzy
 msgid "You do not have permission to submit a question"
 msgstr "شما نمی توانید سوال بپرسید"
 
@@ -1439,595 +1661,56 @@ msgid ""
 "DW Question Answer needs to upgrade the database, click %shere%s to start "
 "the upgrade."
 msgstr ""
+"افزونه نیاز به بروزرسانی پایگاه داده خود دارد، برای شروع %sاینجا%s کلیک کنی."
 
 #: upgrades/upgrades.php:33
 msgid "DWQA Upgrade"
-msgstr ""
+msgstr "بروزرسانی"
 
 #: upgrades/upgrades.php:40
 msgid ""
 "The upgrade process has started, please be patient. This could take several "
 "minutes. You will be automatically redirected when the upgrade is finished..."
 msgstr ""
+"روند ارتقاء آغاز شده است، لطفا صبور باشید این می تواند چندین دقیقه طول بکشد. "
+"هنگامی که ارتقاء به پایان رسید، شما به طور خودکار هدایت می شوید ..."
 
 #: upgrades/upgrades.php:130
 msgid "You do not have permission to do this task"
-msgstr ""
+msgstr "شما اجازه انجام این کار را ندارید"
 
 #: upgrades/upgrades.php:147
 msgid "Just do it.."
-msgstr ""
+msgstr "فقط آن را انجام دهید .."
 
 #: upgrades/upgrades.php:155
 #, php-format
 msgid "Move to next step %d"
-msgstr ""
+msgstr "رفتن به مرحله بعد  %d"
 
 #: upgrades/upgrades.php:172
 msgid "Upgrade process is done"
-msgstr ""
+msgstr "فرایند ارتقاء انجام شده است"
 
 #. Plugin Name of the plugin/theme
 msgid "DW Question Answer"
-msgstr ""
+msgstr "پرسش و پاسخ"
 
 #. Description of the plugin/theme
 msgid ""
 "A WordPress plugin was make by DesignWall.com to build an Question Answer "
 "system for support, asking and comunitcate with your customer"
 msgstr ""
+"یک افزونه وردپرس توسط DesignWall.com ساخته شده است تا یک سیستم پاسخ سوال "
+"برای پشتیبانی، درخواست و ارتباط با مشتری خود ایجاد کند"
 
 #. Author of the plugin/theme
 msgid "DesignWall"
-msgstr ""
+msgstr "DesignWall"
 
 #. Author URI of the plugin/theme
 msgid "http://www.designwall.com"
-msgstr ""
+msgstr "http://www.designwall.com"
 
-#~ msgid "Next"
-#~ msgstr "Siguiente"
-
-#~ msgid "Prev"
-#~ msgstr "قبلی"
-
-#~ msgid "Please enter your question"
-#~ msgstr "لطفا سوال خود را وارد کنید"
-
-#~ msgid "Your question must be at least 2 characters in length"
-#~ msgstr "سوال شما باید حداقل 2 حرف داشته باشد"
-
-#~ msgid "Enter a valid email address"
-#~ msgstr "یک ایمیل درست وارد کنید"
-
-#~ msgid "Enter a question title"
-#~ msgstr "عنوانی برای سوال خود وارد کنید"
-
-#~ msgid "Please add your name"
-#~ msgstr "نام خود را وارد کنید"
-
-#~ msgid "Please enter your answer"
-#~ msgstr "پاسخ خود را وارد کنید"
-
-#~ msgid "Comment must have more than 2 characters"
-#~ msgstr "دیدگاه باید حداقل از 2 حذف تشکیل شده باشد"
-
-#~ msgid "Not found! Try another keyword."
-#~ msgstr "این کلیدواژه پیدا نشد"
-
-#~ msgid "Or press <strong>ENTER</strong> to get more questions"
-#~ msgstr "یا کلید اینتر را بزنید تا سوالات بیشتری را ببینید"
-
-#~ msgid "Update"
-#~ msgstr "آپدیت"
-
-#~ msgid "Cancel"
-#~ msgstr "بیخیال"
-
-#~ msgid "Do you want to delete this comment?"
-#~ msgstr "آیا می خواهید این دیدگاه را حذف کنید؟"
-
-#~ msgid "Do you want to delete this answer?"
-#~ msgstr "آیا می خواهید این پاسخ را حذف کنید؟"
-
-#, fuzzy
-#~ msgid "Do you want to update this answer?"
-#~ msgstr "آیا می خواهید این پاسخ را آپدیت کنید؟"
-
-#, fuzzy
-#~ msgid "Do you want to report this answer?"
-#~ msgstr "آیا می خواهید وجود مشکلی در این پاسخ را گزارش کنید؟"
-
-#~ msgid "Report"
-#~ msgstr "گزارش مشکل"
-
-#~ msgid "Undo"
-#~ msgstr "بازگشت"
-
-#~ msgid ""
-#~ "This answer will be marked as spam and hidden. Do you want to flag it?"
-#~ msgstr ""
-#~ "این پاسخ اسپم خواهد بود و نمایش داده نخواهد شد آیا می خواهید آن را اسپم "
-#~ "کنید؟"
-
-#~ msgid "This answer was flagged as spam. Do you want to show it"
-#~ msgstr "این پاسخ یک اسپم است آیا می خواهید آن را نمایش دهید؟"
-
-#~ msgid "This answer was flagged as spam"
-#~ msgstr "این پاسخ یک اسپم است"
-
-#~ msgid "hide"
-#~ msgstr "مخفی"
-
-#~ msgid "show"
-#~ msgstr "نمایش"
-
-#~ msgid "Follow This Question"
-#~ msgstr "دنبال کردن این گفتگو"
-
-#~ msgid "Unfollow This Question"
-#~ msgstr "دنبال نکردن این گفتگو"
-
-#, fuzzy
-#~ msgid "Pin this question to top"
-#~ msgstr "این سوال را به صفحه ی اصلی سنجاق کن"
-
-#, fuzzy
-#~ msgid "Unpin this question from top"
-#~ msgstr "این سوال را به صفحه ی اصلی سنجاق نکن"
-
-#~ msgid "Do you want to delete this question?"
-#~ msgstr "می خواهید این سوال را حذف کنید؟"
-
-#~ msgid "Publish"
-#~ msgstr "ارسال"
-
-#~ msgid "Everyone can see"
-#~ msgstr "همه می توانند ببینند"
-
-#~ msgid "Only Author and Administrator can see"
-#~ msgstr "فقط نویسنده و مدیر می توانند ببینند"
-
-#~ msgid "Sorry, but nothing matched your filter. "
-#~ msgstr "ببخشید ولی هیچ سوالی یافت نشد"
-
-#~ msgid "You can ask question"
-#~ msgstr "شما می توانید سوال بپرسید"
-
-#~ msgid "here"
-#~ msgstr "اینجا"
-
-#~ msgid "Please"
-#~ msgstr "لطفا"
-
-#~ msgid "Login"
-#~ msgstr "وارد شوید"
-
-#~ msgid " or"
-#~ msgstr "یا"
-
-#~ msgid " to submit question."
-#~ msgstr "تا بتوانید یک سوال بپرسید"
-
-#, fuzzy
-#~ msgid "Search query is empty"
-#~ msgstr "چیزی یافت نشد"
-
-#~ msgid "Comment"
-#~ msgstr "دیدگاه"
-
-#, fuzzy
-#~ msgid "Review Question"
-#~ msgstr "مشاهده ی سوال"
-
-#, fuzzy
-#~ msgid "Captcha on Submit Question Page"
-#~ msgstr "یک صفحه ثبت سؤال درست کنید"
-
-#, fuzzy
-#~ msgid "Captcha on Single Question Page"
-#~ msgstr "یک صفحه ثبت سؤال درست کنید"
-
-#~ msgid "Send to"
-#~ msgstr " ارسال به"
-
-#~ msgid "You need an account to submit question and get answers. Create one:"
-#~ msgstr ""
-#~ "شما باید در سایت عضو باشید تا بتوانید سوال بپرسید. لطفا یک حساب بسازید:"
-
-#~ msgid "Type your email"
-#~ msgstr "ایمیل تان را وارد کنید"
-
-#~ msgid "Already a member?"
-#~ msgstr "قبلا عضو شده اید؟"
-
-#~ msgid "Log In"
-#~ msgstr "ورود"
-
-#~ msgid "Login to submit your question"
-#~ msgstr "وارد شوید تا سوالتان را منتشر کنید"
-
-#~ msgid "Type your username"
-#~ msgstr "یک نام کاربری انتخاب کنید"
-
-#~ msgid "Type your password"
-#~ msgstr "پسورد"
-
-#~ msgid "Not yet a member?"
-#~ msgstr "هنوز عضو نشده اید؟"
-
-#~ msgid "Register"
-#~ msgstr "عضو شوید"
-
-#, fuzzy
-#~ msgid "Your email *"
-#~ msgstr "ایمیل تان را وارد کنید"
-
-#~ msgid "Private: %s"
-#~ msgstr "خصوصی: %s"
-
-#~ msgid ""
-#~ "Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out "
-#~ "of this account\">Log out?</a>"
-#~ msgstr ""
-#~ "شما <a href=\"%1$s\">%2$s</a> هستید. <a href=\"%3$s\" title=\"Log out of "
-#~ "this account\">می خواهید خارج شوید؟</a>"
-
-#~ msgid "Your email address will not be published."
-#~ msgstr "ایمیل شما منتشر نمی شود"
-
-#~ msgid "Add New Question"
-#~ msgstr "پرسیدن سوال جدید"
-
-#~ msgid "Edit Question"
-#~ msgstr "ویرایش سوال"
-
-#~ msgid "New Question"
-#~ msgstr "سوال جدید"
-
-#~ msgid "All Questions"
-#~ msgstr "همه ی سوالات"
-
-#~ msgid "View Question"
-#~ msgstr "مشاهده ی سوال"
-
-#~ msgid "Search Question"
-#~ msgstr "جستجو در میان سوالات"
-
-#~ msgid "No questions found"
-#~ msgstr "هیچ سوالی پیدا نشد"
-
-#~ msgid "No questions found in Trash"
-#~ msgstr "هیچ سوالی در زباله دان پیدا نشد"
-
-#~ msgid "DW Q&A"
-#~ msgstr "افزونه ی پرسش و پاسخ"
-
-#~ msgid "Add new answer"
-#~ msgstr "پاسخ دادن"
-
-#~ msgid "Edit answer"
-#~ msgstr "ویرایش پاسخ"
-
-#~ msgid "New Answer"
-#~ msgstr "پاسخ جدید"
-
-#~ msgid "All Answers"
-#~ msgstr "همه ی پاسخ ها"
-
-#~ msgid "View Answer"
-#~ msgstr "مشاهده ی پاسخ"
-
-#~ msgid "Search Answer"
-#~ msgstr "جستجو در میان پاسخ ها"
-
-#~ msgid "No Answers found"
-#~ msgstr "هیچ پاسخی پیدا نشد"
-
-#~ msgid "No Answers found in Trash"
-#~ msgstr "هیچ پاسخی در زباله دان پیدا نشد"
-
-#~ msgctxt "taxonomy general name"
-#~ msgid "Categories"
-#~ msgstr "دسته بندی"
-
-#~ msgctxt "taxonomy singular name"
-#~ msgid "Category"
-#~ msgstr "دسته بندی"
-
-#~ msgid "Search Categories"
-#~ msgstr "جستجو در میان دسته بندی ها"
-
-#~ msgid "All Categories"
-#~ msgstr "همه ی دسته بندی ها"
-
-#~ msgid "Parent Category"
-#~ msgstr "دسته بندی مادر"
-
-#~ msgid "Parent Category:"
-#~ msgstr "دسته بندی مادر:"
-
-#~ msgid "Edit Category"
-#~ msgstr "ویرایش دسته بندی"
-
-#~ msgid "Update Category"
-#~ msgstr "آپدیت دسته بندی"
-
-#~ msgid "Add New Category"
-#~ msgstr "اضافه کردن دسته بندی"
-
-#~ msgid "New Category Name"
-#~ msgstr "اسم دسته بندی"
-
-#~ msgid "Question Categories"
-#~ msgstr "انتخاب دسته بندی"
-
-#~ msgctxt "taxonomy general name"
-#~ msgid "Tags"
-#~ msgstr "برچسب ها"
-
-#~ msgctxt "taxonomy singular name"
-#~ msgid "Tag"
-#~ msgstr "برچسب"
-
-#~ msgid "Search Tags"
-#~ msgstr "جستجوی برچسب ها"
-
-#~ msgid "Popular Tags"
-#~ msgstr "برچسب های محبوب"
-
-#~ msgid "All Tags"
-#~ msgstr "همه ی برچسب ها"
-
-#~ msgid "Edit Tag"
-#~ msgstr "ویرایش برچسب"
-
-#~ msgid "Update Tag"
-#~ msgstr "آپدیت برچسب"
-
-#~ msgid "Add New Tag"
-#~ msgstr "اضافه کردن برچسب"
-
-#~ msgid "New Tag Name"
-#~ msgstr "اسم برچسب"
-
-#~ msgid "Separate tags with commas"
-#~ msgstr "برچسب ها را با کامای لاتین (Shift+ع) جدا کنید"
-
-#~ msgid "Add or remove tags"
-#~ msgstr "اضافه یا حذف برچسب ها"
-
-#~ msgid "Choose from the most used tags"
-#~ msgstr "استفاده از تگ های محبوب"
-
-#~ msgid "%s second"
-#~ msgid_plural "%s seconds"
-#~ msgstr[0] "%s ثانیه"
-
-#~ msgid "about %s min"
-#~ msgid_plural "%s mins"
-#~ msgstr[0] "%s دقیقه"
-
-#~ msgid "about %s hour"
-#~ msgid_plural "%s hours"
-#~ msgstr[0] "%s ساعت"
-
-#~ msgid "%s day"
-#~ msgid_plural "%s days"
-#~ msgstr[0] "%s روز"
-
-#~ msgid "%1$s ago"
-#~ msgstr "%1$s قبل"
-
-#~ msgid "Flag"
-#~ msgstr "مشکل دارد"
-
-#~ msgid "Unflag"
-#~ msgstr "اسپم نیست"
-
-#, fuzzy
-#~ msgid ""
-#~ "This answer will be hidden when flagged. Are you sure you want to flag it?"
-#~ msgstr "این پاسخ مخفی خواهد شد. مطمئنید که می خواهید آن را اسپم کنید؟"
-
-#, fuzzy
-#~ msgid "This answer was flagged as spam. Do you want to show it?"
-#~ msgstr "این پاسخ یک اسپم است آیا می خواهید آن را نمایش دهید؟"
-
-#, fuzzy
-#~ msgid "Reset all changes to default"
-#~ msgstr "باز گرداندن همه ی تغییرات به حالت پیش فرض"
-
-#~ msgid "Save draft"
-#~ msgstr "ذخیره برای انتشار در آینده"
-
-#, fuzzy
-#~ msgid "Answer is missing"
-#~ msgstr "به این سوال پاسخ دهید"
-
-#, fuzzy
-#~ msgid "You do not have permission to edit this post"
-#~ msgstr "شما نمی توانید این سوال را حذف کنید"
-
-#, fuzzy
-#~ msgid "This post is not an answer"
-#~ msgstr "بهترین پاسخ"
-
-#~ msgid "Missing answer ID"
-#~ msgstr "ID وجود ندارد"
-
-#, fuzzy
-#~ msgid "Single Question Template"
-#~ msgstr "یک دسته بندی انتخاب کنید"
-
-#, fuzzy
-#~ msgid "% person who is following this question"
-#~ msgid_plural "% people who are following this question"
-#~ msgstr[0] "دنبال نکردن این گفتگو"
-
-#~ msgid "Answer this Question"
-#~ msgstr "به این سوال پاسخ دهید"
-
-#~ msgid "Add answer"
-#~ msgstr "افزودن پاسخ"
-
-#, fuzzy
-#~ msgid "Unpin this Question from the top"
-#~ msgstr "این سوال را به صفحه ی اصلی سنجاق نکن"
-
-#, fuzzy
-#~ msgid "Pin this Question to top"
-#~ msgstr "این سوال را به صفحه ی اصلی سنجاق کن"
-
-#~ msgid "answer"
-#~ msgid_plural "answers"
-#~ msgstr[0] "پاسخ"
-
-#~ msgid "You do not have permission to view answers"
-#~ msgstr "شما نمی توانید پاسخ ها را مشاهده کنید"
-
-#, fuzzy
-#~ msgid "This question is now closed"
-#~ msgstr "این پرسش بسته شده است"
-
-#~ msgid "You do not have permission to submit answer."
-#~ msgstr "شما نمی توانید پاسخ بدهید"
-
-#~ msgid "Please login or"
-#~ msgstr "لطفا وارد شوید یا"
-
-#~ msgid "to Submit Answer"
-#~ msgstr "تا بتوانید پاسخ بدهید"
-
-#~ msgid "Sorry, but nothing matched your filter."
-#~ msgstr "ببخشید ولی چیزی یافت نشد"
-
-#~ msgid "View previous comments"
-#~ msgstr "مشاهده ی نظرات قدیمی"
-
-#~ msgid "Write a reply..."
-#~ msgstr "یک دیدگاه بنویسید"
-
-#~ msgid "Link to answer"
-#~ msgstr "لینک این پاسخ"
-
-#~ msgid "Draft"
-#~ msgstr "پیش نویس"
-
-#~ msgid "This answer was flagged as spam."
-#~ msgstr "این پرسش اسپم شناسایی شده"
-
-#~ msgid "This is the best answer"
-#~ msgstr "بهترین پاسخ"
-
-#~ msgid "The answer link"
-#~ msgstr "لینک این پاسخ"
-
-#~ msgid "Post by"
-#~ msgstr "توسط"
-
-#~ msgid "Link to comment"
-#~ msgstr "لینک این ددیگاه"
-
-#~ msgid "Permalink to %s"
-#~ msgstr "مشاهده ی %s"
-
-#~ msgid "view"
-#~ msgid_plural "views"
-#~ msgstr[0] "بازدید"
-
-#~ msgid "vote"
-#~ msgid_plural "votes"
-#~ msgstr[0] "امتیاز"
-
-#~ msgid "Status:"
-#~ msgstr "وضعیت:"
-
-#~ msgid "Need Answer"
-#~ msgstr "بی پاسخ"
-
-#~ msgid "Overdue"
-#~ msgstr "سر رسیده"
-
-#~ msgid "Queue"
-#~ msgstr "در انتظار برای تایید کردن پاسخ"
-
-#~ msgid "Select a category"
-#~ msgstr "نمایش بر اساس دسته بندی"
-
-#~ msgid "Empty"
-#~ msgstr "خالی"
-
-#~ msgid "Vote"
-#~ msgstr "امتیاز"
-
-#~ msgid "tag 1, tag 2,..."
-#~ msgstr "برچسب ها را با Shift+ع جدا کنید"
-
-#~ msgid "Your question"
-#~ msgstr "عنوان سوال شما"
-
-#~ msgid "How to..."
-#~ msgstr "یک عنوان مناسب و کوتاه برای سوالتان انتخاب کنید"
-
-#~ msgid "Question details"
-#~ msgstr "متن سوال شما"
-
-#~ msgid "Post this Question as Private."
-#~ msgstr "این سوال را به صورت خصوصی ارسال کن"
-
-#~ msgid "Only you as Author and Admin can see the question"
-#~ msgstr "فقط شما و مدیر می توانید این سوال را ببینید"
-
-#~ msgid "Search"
-#~ msgstr "جستجو"
-
-#~ msgid "Posts by"
-#~ msgstr "توسط"
-
-#~ msgctxt "post type general name"
-#~ msgid "Question"
-#~ msgstr "سوال"
-
-#~ msgctxt "post type singular name"
-#~ msgid "Question"
-#~ msgstr "سوال"
-
-#~ msgctxt "post type general name"
-#~ msgid "Answer"
-#~ msgstr "پاسخ"
-
-#~ msgctxt "post type singular name"
-#~ msgid "Answer"
-#~ msgstr "پاسخ"
-
-#~ msgid "Stick This Question on Frontpage"
-#~ msgstr "سنجاق کردن این گفتگو در صفحه ی اصلی"
-
-#~ msgid "Untick This Question on Frontpage"
-#~ msgstr "سنجاق نکردن این گفتگو در صفحه ی اصلی"
-
-#~ msgid "Website"
-#~ msgstr "سایت"
-
-#~ msgid "by"
-#~ msgstr "توسط"
-
-#~ msgid "Email Template"
-#~ msgstr "قالب ایمیل"
-
-#, fuzzy
-#~ msgid "Preview:"
-#~ msgstr "قبلی"
-
-#~ msgid "YCaptcha is not correct"
-#~ msgstr "کپچا نادرست است"
-
-#~ msgid "Email logo"
-#~ msgstr "لوگوی ایمیل"
-
-#~ msgid "or"
-#~ msgstr "یا"
-
-#~ msgid "to"
-#~ msgstr "تا"
+#~ msgid " are you looking for?"
+#~ msgstr "به دنبال چه چیزی می گردید ؟"

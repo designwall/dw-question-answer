@@ -13,19 +13,19 @@ function dwqa_advanced_ads_select_args( $args ) {
 /** Facebook Comments **/
 add_filter( 'get_post_metadata', 'dwqa_disable_wpdevart_facebook_comment', 10, 3 );
 function dwqa_disable_wpdevart_facebook_comment( $value, $post_id, $meta_key ) {
+	if ('_disabel_wpdevart_facebook_comment' != $meta_key) {
+		return $value;
+	}
+	
 	$dwqa_options = get_option( 'dwqa_options', array() );
-	if ( 
-			'_disabel_wpdevart_facebook_comment' == $meta_key
-			&& 
-			( 
-				'dwqa-question' == get_post_type( $post_id ) // is single question
-				|| 
-				'dwqa-answer' == get_post_type( $post_id ) // is single answer
-				||
-				(int) $dwqa_options['pages']['submit-question'] == (int) $post_id // is submit question page
-				||
-				(int) $dwqa_options['pages']['archive-question'] == (int) $post_id // is archive page
-			)
+	if (
+		'dwqa-question' == get_post_type( $post_id ) // is single question
+		|| 
+		'dwqa-answer' == get_post_type( $post_id ) // is single answer
+		||
+		(int) $dwqa_options['pages']['submit-question'] == (int) $post_id // is submit question page
+		||
+		(int) $dwqa_options['pages']['archive-question'] == (int) $post_id // is archive page
 		) {
 		$value = 'disable';
 	}

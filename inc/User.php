@@ -131,6 +131,9 @@ function dwqa_is_followed( $post_id = false, $user_id = false ) {
 function dwqa_the_author( $display_name ) {
 	global $post;
 
+	if ( empty( $post ) ) {
+		return $display_name;
+	}
 	if ( 'dwqa-answer' == $post->post_type || 'dwqa-question' == $post->post_type) {
 		if ( dwqa_is_anonymous( $post->ID ) ) {
 			$anonymous_name = get_post_meta( $post->ID, '_dwqa_anonymous_name', true );
